@@ -1,2 +1,16 @@
 # stu32-tutor
+
 An original math, physics and programming curriculum around the STU-32 calculator, and the site that teaches it (working name tutor).
+
+Private until Michael sets the curriculum's licence. Everything here is written fresh: published textbooks are used for scope and order only, and no text, figure or problem is copied from any of them or from any calculator's manual.
+
+## Layout
+
+- `lessons/<id>/`: one lesson. `vectors.txt` (the maths, as key vectors), `fmt-vectors.txt` (the displays the prose quotes), `lesson.md` (the prose and the keys the student presses).
+- `docs/lesson-format.md`: the rules, and what `make check` proves.
+- `docs/evidence/`: the independent recomputation of every lesson's expected values.
+- `tools/`: the checker. `keyrun` presses a lesson's printed keys on the firmware's own key layer and compares them with the lesson's vectors.
+
+## Running
+
+`make check` runs every lesson on the firmware's core at `CORE_PIN` (a pushed commit of cpuchip/abacus-firmware, exported with git archive from `../abacus-firmware`). `make controls` proves the check can fail. On fermion, which has no native toolchain for the core: `scripts/check-docker.sh` (or `scripts/check-docker.sh controls`), in the gcc:14 container.

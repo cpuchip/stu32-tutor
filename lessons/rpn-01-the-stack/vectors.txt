@@ -1,0 +1,17 @@
+# rpn-01 the stack and ENTER: key vectors (the firmware's format, tests/vectors.c). Every example is
+# ours. Each starts MODE33 FIX4 (the lesson's setup); make check also runs them in 35s mode.
+# Expected values: exact arithmetic, recomputed with Python fractions (docs/evidence/rpn-01.md).
+S01 | ENTER separates two numbers; + uses both | MODE33 FIX4 7 ENTER 5 + | X=12
+S02 | the order is the order you say it: 7 minus 5 | MODE33 FIX4 7 ENTER 5 - | X=2
+S03 | division: 20 divided by 8 | MODE33 FIX4 20 ENTER 8 / | X=2.5
+S04 | ENTER copies X into Y | MODE33 FIX4 6 ENTER | X=6 Y=6
+S05 | so ENTER then times squares a number | MODE33 FIX4 6 ENTER * | X=36
+S06 | a result is a number to keep going with: (3 + 4) x 5 | MODE33 FIX4 3 ENTER 4 + 5 * | X=35
+S07 | halfway through (2 + 3) x (4 + 6): the first sum waits in Y | MODE33 FIX4 2 ENTER 3 + 4 ENTER 6 + | X=10 Y=5
+S08 | and finishes: (2 + 3) x (4 + 6) | MODE33 FIX4 2 ENTER 3 + 4 ENTER 6 + * | X=50
+S09 | x<>y repairs the wrong order: 5 and 20 typed, 20 divided by 5 wanted | MODE33 FIX4 5 ENTER 20 XY / | X=4
+S10 | R-down turns the four levels: the 4 in X goes to T and the rest move down one | MODE33 FIX4 1 ENTER 2 ENTER 3 ENTER 4 RDN | X=3 Y=2 Z=1 T=4
+S11 | LAST x brings back the number the last operation used | MODE33 FIX4 12 ENTER 4 / LASTX | X=4 Y=3
+S12 | so LAST x then times undoes the division | MODE33 FIX4 12 ENTER 4 / LASTX * | X=12
+S13 | a negative number: +/- changes the sign of the number being typed | MODE33 FIX4 5 CHS ENTER 3 - | X=-8
+S14 | T copies down: the stack filled with 1.05, three times, is 1.05 to the 4th | MODE33 FIX4 1.05 ENTER ENTER ENTER * * * | X=1.21550625
