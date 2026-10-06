@@ -55,3 +55,62 @@ points beyond the three traced, and the screen's fitting of long lines. After th
 pilot passes: 14/14 vectors and 20/20 expectations in each mode, from a fresh core and a used one;
 14 of 14 vectors shown, the keys pressed in 33s and 35s; 4 displays quoted, each matching the
 device's X line.
+
+## Exercises (added with the prose, 2026-10-06)
+
+Recomputed with Python fractions: E01 (8 - 3) x (2 + 4) = 30; E02 100 / (4 x 5) = 5; E03 2^5 = 32
+(a stack of 2s, four presses of x, T copying down); E04 (-3) x (-4) = 12.
+
+## Sources for the prose
+
+- The name: "Polish" refers to Jan Łukasiewicz's nationality; his notation (1924) puts operators
+  before operands, and RPN after them. Wikipedia, "Reverse Polish notation" and "Polish notation",
+  read 2026-10-06. The lesson paraphrases; it quotes nothing.
+- Key positions and colours: abacus layout/stu32-v0.json (not ruled): MODE blue on ENTER, LASTx
+  gold on ENTER, DISP gold on 2. keyrun resolves every printed key from the firmware keymap, so a
+  wrong name or colour fails the check.
+
+## Teaching checks (the teaching agent's three, 2026-10-06)
+
+- **Binding question:** how does the STU-32 hold your numbers while you work, and how do you move
+  them? **Ring:** each section answers a part of it (ENTER separates and copies; a result stays in
+  X; the stack replaces parentheses; x<>y and R-down move it; LAST x recovers; T copies down). The
+  exercises use only what the sections teach.
+- **Posture:** written to a person holding the calculator; no claims about our system or about
+  RPN being better than other entry methods.
+- **Ben Test:** the lesson makes no claim about our practice. Its claims about the calculator are
+  each backed by a vector or by the layout; one unbacked sentence (R-down four times restores the
+  stack) was cut rather than claimed.
+- **The honest moment:** the minus-for-negative mistake gives a wrong answer with no error.
+- **Backing for the pitfall:** S02 shows − on two numbers returns a number with no error.
+- **Voice:** 0 em-dashes, 0 en-dashes; no antithesis or significance markers found by grep. The
+  short "X holds 35." lines after examples are result lines, kept for Michael's call.
+
+## Non-author read (2026-10-06)
+
+A reader that did not write the lesson read it as a newcomer, with only the lesson and the layout,
+and reported eleven findings about the lesson. All taken:
+
+- **Wrong explanation of right keys (the serious one):** the draft said each x in S14 used the
+  1.05 that T copied down. After 1.05 ENTER ENTER ENTER all four levels hold their own 1.05, so
+  three presses never reach a copy. S14 now presses x five times (1.05 to the 6th =
+  85766121/64000000 = 1.340095640625, FIX 4 1.3401) and says the 4th and 5th use copies; E03's
+  answer says the same of its 4th press. Every check passed on the wrong text: the numbers were
+  right and the words were not.
+- The typing rule (after ENTER a new number replaces X; after + - x / it pushes X up) was shown and
+  never stated; ENTER was first said to "move" and then to "copy"; S07 said the 5 waited in Y while
+  it was in Z (new vector S07A: X 6, Y 4, Z 5 before the second +); shift keys and soft keys were
+  used and never taught; S08 repeated S07's keys as "one more key"; no word on typos or on what is
+  left on the stack (new vector S01A: 7 ENTER 56 <- + = 12; and the used-core run backs "no example
+  depends on what is already on the stack"); "minus 5, minus 3" was ambiguous; "the 20 goes back
+  up"; LAST x vs LASTx; "shows" vs "holds".
+
+Two of my own claims were then narrowed before the run: face legends are not said to be white
+(the layout does not say), and the typing rule names + - x / only (S06 backs it; keys such as the
+clearing ones behave like ENTER). An untagged "12.0000" in the setup was cut, and check.py now
+fails a FIX-form number outside a tag (its first version missed one followed by a full stop; the
+control caught it).
+
+After all of it: 20/20 vectors and 28/28 expectations in each mode, from a fresh and a used core;
+21 keys blocks, 20 of 20 vectors shown, pressed in 33s and 35s; 4 displays quoted, each on the
+device's X line; 30/30 controls red, 3/3 harmless changes green.

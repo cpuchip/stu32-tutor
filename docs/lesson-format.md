@@ -80,13 +80,17 @@ keys no longer do what it says when the layout or the keymap changes (the layout
 ## Controls
 
 `make controls` plants one fault at a time in a copy of the pilot and requires `make check` to
-fail for that fault's own reason (29 controls: tools/controls.py lists them). A fault that does
+fail for that fault's own reason (30 controls, and 3 harmless changes that must stay green: tools/controls.py lists them). A fault that does
 not apply to the file is reported as an error, not counted as a pass.
 
 ## What it does not prove yet
 
-- Keys written in inline code, and numbers written in the prose outside a `<disp>` tag, are not
-  seen. Only fenced keys blocks and `<disp>` tags are checked.
+- Keys written in inline code are not seen; only fenced keys blocks are checked. A number written
+  in the prose in the display's FIX form (12.0000 at FIX 4) outside a `<disp>` tag fails, but any
+  other wording of what the screen shows ("X holds 12") is checked only by the vectors behind it.
+- The words around an example are not checked against it. A machine check cannot tell that an
+  explanation of correct keys is wrong; the non-author read exists for that (rpn-01's first draft
+  said each x used a copy T dropped, and none did).
 - Core entry points other than `ab_do_arg`, `ab_memory_clear` and `ab_eqn_add` (UNDO's state
   load, VIEW, an interrupt) are not traced; only the state image sees what they change, and fields
   the image leaves out (overflow, the device's slice and budget) are not compared.

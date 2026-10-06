@@ -3,4 +3,4 @@
 D-S01 | after S01 | 12 | FIX 4 |  | 12.0000
 D-S03 | after S03 | 2.5 | FIX 4 |  | 2.5000
 D-S13 | after S13 | -8 | FIX 4 |  | -8.0000
-D-S14 | after S14: four places of 1.21550625 | 1.21550625 | FIX 4 |  | 1.2155
+D-S14 | after S14: four places of 1.340095640625 | 1.340095640625 | FIX 4 |  | 1.3401

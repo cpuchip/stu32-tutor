@@ -30,7 +30,7 @@ sys.stdout.reconfigure(encoding="utf-8")
 
 SETTING = re.compile(r"^(FIX|SCI|ENG)(\d+)$|^ALL$")
 DISP = re.compile(r'<disp v="([^"]+)">(.*?)</disp>', re.S)
-KEYS_BLOCK = re.compile(r"^```keys[ \t]+(\S+)[ \t]*\n(.*?)^```[ \t]*$", re.M | re.S)
+KEYS_BLOCK = re.compile(r"^[ \t]*```keys[ \t]+(\S+)[ \t]*\n(.*?)^[ \t]*```[ \t]*$", re.M | re.S)
 FENCE = re.compile(r"^[ \t]*(```|~~~)(.*)$", re.M)
 DIRTY = "RAD 9 ENTER 8 ENTER 7 ENTER 6 SQRT"    # a used calculator: lift enabled, LAST x 6
 MAX_EXPECT = 64                                 # the runner keeps no more than this per vector
@@ -164,7 +164,7 @@ class Lesson:
 
         # 3. The printed keys against the vectors, in each mode.
         for m in FENCE.finditer(body):
-            line = m.group(0).strip()
+            line = m.group(0).strip()           # a fence may be indented (in a list item)
             if "key" in m.group(2).lower() and not re.match(r"^```keys[ \t]+\S+[ \t]*$", line):
                 self.bad(f"a fence that looks like keys but is not checked: '{line}'")
         setup = " ".join(meta.get("setup", "").split())
@@ -248,6 +248,13 @@ class Lesson:
             if kind != "value" or stext.strip() != shown_text:
                 self.bad(f"D-{vid}: the device's X line shows '{stext}' ({kind}), the prose '{shown_text}'")
         self.notes.append(f"displays quoted: {len(quotes)}")
+        # A number written in the display's own form (FIX n places) outside a tag is a display
+        # claim nothing checked.
+        m = SETTING.match(sorted(settings)[0]) if settings else None
+        if m and m.group(1) == "FIX" and int(m.group(2)) > 0:
+            prose = DISP.sub("", KEYS_BLOCK.sub("", body))
+            for n in re.findall(r"(?<![\d.])-?\d+\.\d{%d}(?!\d|\.\d)" % int(m.group(2)), prose):
+                self.bad(f"'{n}' looks like a display at {want} but is not in a <disp> tag")
 
         # 5. Voice, the front matter included.
         dashes = sum(text.count(d) for d in EM_DASH)
