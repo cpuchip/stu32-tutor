@@ -33,8 +33,8 @@ BLUE MODE 33s GOLD DISP FIX 4
 ```
 
 The screen shows four lines, labelled T, Z, Y and X from top to bottom. X, at the bottom, is the
-number you are looking at, and it is where every answer lands. With FIX 4, every number shows four
-decimal places.
+number you are looking at, and it is where every answer lands. With FIX 4, numbers show four
+decimal places, and very large or very small ones switch to scientific form.
 
 You only do this setup once. None of the examples below depends on what is already on the stack,
 so you can start each one wherever the last one left off.

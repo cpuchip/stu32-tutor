@@ -114,3 +114,16 @@ control caught it).
 After all of it: 20/20 vectors and 28/28 expectations in each mode, from a fresh and a used core;
 21 keys blocks, 20 of 20 vectors shown, pressed in 33s and 35s; 4 displays quoted, each on the
 device's X line; 30/30 controls red, 3/3 harmless changes green.
+
+## Abacus's accuracy read (#4228, 2026-10-06)
+
+Passed by hand, independently of check.py: S01A, S07A, S14 as rewritten, E01-E04, and the three
+unbacked claims (key positions in layout v0; arithmetic leaves stack lift enabled, 33s appendix B;
+the Łukasiewicz history). One fix: "every number shows four decimal places" is false at the
+extremes (abacus probed 1E20 and 0.00001 in FIX 4). The setup now says very large or very small
+numbers switch to scientific form, backed by display vectors F01 (1E20 -> 1.0000E20) and F02
+(0.00001 -> 1.0000E-5), both passing; neither is quoted. Abacus's optional sentence crediting RPN
+to Hamblin was left out: the Wikipedia article read this session credits the postfix scheme to
+Burks, Warren and Wright (1954), reinvented by Bauer and Dijkstra, so a single inventor is not
+settled by it. Two controls anchored on the changed sentence stopped applying and the suite said
+so; re-anchored, 30/30 red and 3/3 green.

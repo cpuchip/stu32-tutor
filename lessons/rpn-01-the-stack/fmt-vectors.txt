@@ -4,3 +4,7 @@ D-S01 | after S01 | 12 | FIX 4 |  | 12.0000
 D-S03 | after S03 | 2.5 | FIX 4 |  | 2.5000
 D-S13 | after S13 | -8 | FIX 4 |  | -8.0000
 D-S14 | after S14: four places of 1.340095640625 | 1.340095640625 | FIX 4 |  | 1.3401
+# Backing for the setup's sentence that FIX 4 shows very large and very small numbers in scientific
+# form (abacus #4228 probed the same two); not quoted in the prose.
+F01 | FIX 4, a very large number: scientific form | 1E20 | FIX 4 |  | 1.0000E20
+F02 | FIX 4, a very small number: scientific form | 0.00001 | FIX 4 |  | 1.0000E-5

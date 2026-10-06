@@ -80,7 +80,7 @@ CONTROLS = [
      "S02: the mode is set only by the first key"),
     ("keys that end with a shift armed", "lesson.md", "4 ÷ GOLD LASTx ×\n", "4 ÷ GOLD LASTx × GOLD\n", {},
      "LEFT: the keys end with a shift armed"),
-    ("a display written in the prose without its tag", "lesson.md", "decimal places.\n",
+    ("a display written in the prose without its tag", "lesson.md", "scientific form.\n",
      "decimal places, so 12 appears as 12.0000.\n", {}, "'12.0000' looks like a display at FIX 4"),
     ("an em-dash written as an entity", "lesson.md", "## Two numbers, one operation", "## Two numbers &mdash; one operation", {},
      "em-dash"),
@@ -93,8 +93,8 @@ GREENS = [
     ("a year in the prose is not an em-dash", "lesson.md", "## Two numbers, one operation",
      "## Two numbers, one operation (CODATA 2014, 2018 and 2022)"),
     ("a hyphen is not an em-dash", "lesson.md", "## Two numbers, one operation", "## Two numbers - one operation"),
-    ("a number in other than the display's form is not a display", "lesson.md", "decimal places.\n",
-     "decimal places. A price of 1.05 or 21.5 is fine to write.\n"),
+    ("a number in other than the display's form is not a display", "lesson.md", "scientific form.\n",
+     "scientific form. A price of 1.05 or 21.5 is fine to write.\n"),
 ]
 
 
