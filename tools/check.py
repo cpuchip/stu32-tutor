@@ -33,7 +33,7 @@ from decimal import Decimal, InvalidOperation
 sys.stdout.reconfigure(encoding="utf-8")
 
 SETTING = re.compile(r"^(FIX|SCI|ENG)(\d+)$|^ALL$")
-DISP = re.compile(r'<disp v="([^"]+)"(?: kind="(view|prompt|message|entry|status|eqn|program)")?>(.*?)</disp>', re.S)
+DISP = re.compile(r'<disp v="([^"]+)"(?: kind="(view|prompt|message|entry|status|eqn|program|row)")?>(.*?)</disp>', re.S)
 FRAC_SETTINGS = {"/C", "SF:7", "CF:7", "SF:8", "CF:8", "SF:9", "CF:9"}  # change the fraction display
 # ```keys ID``` or ```keys ID after=PREV```: a continuation holds only the keys pressed after block
 # PREV, which must be the block just before it; its full keys are PREV's full keys and then its own.
@@ -76,8 +76,8 @@ def read_vectors(path, nfields):
 
 def variant(parts, mode, dirty):
     """A vector line in a mode (33 or 35), from a fresh or a used core."""
-    toks = parts[2].split()
-    toks[0] = f"MODE{mode}"
+    # MODE33 is the lesson's mode: first, and again wherever a vector comes back from STU.
+    toks = [f"MODE{mode}" if t == "MODE33" else t for t in parts[2].split()]
     if dirty:
         toks = DIRTY.split() + toks
     return " | ".join(parts[:2] + [" ".join(toks)] + parts[3:])
@@ -140,8 +140,18 @@ class Lesson:
                 self.bad(f"{vid}: keys must begin MODE33 and a display setting (FIXn, SCIn, ENGn, ALL)")
                 continue
             settings.add(toks[1])
-            if any(t.startswith("MODE") for t in toks[1:]):
-                self.bad(f"{vid}: the mode is set only by the first key")
+            # STU features (TABLE, GRAPH: decision 52) are reached by STU and left by MODE33, the
+            # lesson's mode again; the 35s run makes every MODE33 a MODE35, as it does the printed 33s.
+            in_stu, mode_ok = False, True
+            for t in toks[1:]:
+                if t == "STU" and not in_stu:
+                    in_stu = True
+                elif t == "MODE33" and in_stu:
+                    in_stu = False
+                elif t in ("STU", "MODE33") or t.startswith("MODE"):
+                    mode_ok = False
+            if not mode_ok:
+                self.bad(f"{vid}: after the first key, the mode changes only by STU, and by MODE33 back from it")
         if self.fail:
             return
 
@@ -205,6 +215,10 @@ class Lesson:
             # STO's "STO _" takes X. Every other kind is the X line.
             if qkind == "prompt":
                 return any(k == "prompt" and t.strip() == text for k, t in (xline, yline))
+            # TABLE's selected row is on the X line: the variable's value, then the equation's,
+            # spaced to the line's width; the prose writes them with single spaces between.
+            if qkind == "row":
+                return xline[0] == "value" and " ".join(xline[1].split()) == text
             return xline[0] == qkind and xline[1].strip() == text
         for bid, keys, _, _ in blocks:
             if bid == "setup":                  # the setup as printed for the student
@@ -216,12 +230,14 @@ class Lesson:
                 continue
             shown.add(bid)
             for mode in modes:
-                press = setup
+                press, pkeys = setup, keys
                 if mode == "35":
                     if setup.split().count("33s") != 1:
                         self.bad("the setup must press the 33s soft key once (the 35s run presses 35s)")
                         break
                     press = " ".join("35s" if t == "33s" else t for t in setup.split())
+                    # A block that comes back from STU presses the 33s soft key; the 35s run, 35s.
+                    pkeys = " ".join("35s" if t == "33s" else t for t in keys.split())
                 fd, trace = tempfile.mkstemp(suffix=".trace")
                 os.close(fd)
                 r = self.run_vectors([variant(byid[bid][1], mode, False)], env={"STU_TRACE": trace})
@@ -231,7 +247,7 @@ class Lesson:
                     continue
                 # A block the next one continues may stop at a prompt the continuation answers.
                 cont = {"KEYRUN_OPEN_PROMPT": "1"} if bid in continued else {}
-                k = self.run(f"{self.core}/build/keyrun", f"{press} {keys}", trace, env=cont)
+                k = self.run(f"{self.core}/build/keyrun", f"{press} {pkeys}", trace, env=cont)
                 os.unlink(trace)
                 if k.returncode != 0:
                     self.bad(f"{bid}: printed keys and vector disagree in {mode}s mode: "

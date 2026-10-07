@@ -14,6 +14,10 @@ expectations`, one example per line. Rules (abacus, 2026-10-06):
 - Every vector passes in 33s mode as written and again with `MODE33` changed to `MODE35`. A lesson
   that is about a difference between the modes says so in its front matter (`modes: 33` and a
   `modes_reason:`); the differences are abacus decisions 22, 45 and 46.
+- STU features (TABLE, GRAPH: decision 52) are reached inside a vector by `STU` and left by `MODE33`,
+  the lesson's mode again; after the first token, mode tokens only alternate STU, MODE33, STU... The 35s run makes every
+  `MODE33` a `MODE35`, and every printed `33s` soft key a `35s`, so a block that comes back from
+  STU prints `BLUE MODE 33s` and is checked both ways (fn-02's TABLE section).
 - Avoid E with no mantissa and the first key after an error, unless that is the lesson.
 - Every vector has at least one expectation, and every expected value is recomputed independently
   (exact rationals, mpmath or SymPy) with the computation kept in `docs/evidence/`.
@@ -56,8 +60,11 @@ display: FIX 4
   after it continues it (`after=`) and answers it. An annunciator in the status band (the fraction
   indicator ▼ or ▲, RAD) is `<disp v="Snn" kind="status">▼</disp>`. A screen line that is not a value (a VIEW's
   `B=49.75`) is `<disp v="Snn" kind="view">text</disp>`, checked against the device's X line
-  (text and kind) since no display vector covers it. The kinds are view, prompt, message and entry
-  (a number still being typed shows with its cursor: 7_). A quoted value's display vector may carry
+  (text and kind) since no display vector covers it. The kinds are view, prompt, message, entry
+  (a number still being typed shows with its cursor: 7_) and row (TABLE's selected row on the X
+  line, the variable's value then the equation's, written with one space between:
+  `<disp v="B04" kind="row">0.0000 3.0000</disp>`; the device spaces them to the line's width).
+  A quoted value's display vector may carry
   `w=21`, the device's X-line width (firmware/screen.c FMT_WIDTH); the runner's default of 22
   agrees with the device only for short values.
 - No em-dashes (the house voice, external-voice skill). No child is ever named.
@@ -78,7 +85,8 @@ For each lesson:
    the two logs must be the same ops with the same arguments in the same order. The vector's ops
    are then replayed on a fresh core and its state image must equal the one the keys left. The
    keys must leave the device at rest: no shift armed, no menu or prompt open, no device setting
-   changed. Every vector is shown by a block, and only the first key of a vector sets the mode.
+   changed. Every vector is shown by a block, and only the first key of a vector sets the mode,
+   apart from STU and the MODE33 back from it (rule 1).
 4. Every quoted display sits under its own example (after its block, before the next), is the
    text the device's screen shows on its X line after those keys (`screen_lines`; a value, not a
    number being typed or a message), and is its display vector's text, at the setting the vectors

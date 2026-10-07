@@ -1,7 +1,7 @@
 ---
 id: fn-02
 title: A table of values
-status: draft prose (non-author read taken; not yet read by abacus or Michael)
+status: draft prose (accepted for accuracy by abacus #4399; the TABLE section added since, at abacus; not yet read by Michael)
 setup: BLUE MODE 33s GOLD DISP FIX 4
 display: FIX 4
 ---
@@ -10,15 +10,8 @@ display: FIX 4
 
 A table of values lists a function's outputs for a run of inputs, side by side. It is the first
 picture of a function: from it you can see where the function is zero, where it is smallest, and
-how it rises and falls. This lesson builds one with a short program that loops, and then draws the
-graph from it by hand.
-
-<!-- TABLE: firmware unit 032 adds a TABLE key that lists the rows start + k × step for the
-equation shown, with ENTER copying a row's value to X (abacus #4294). It is an STU-mode feature.
-Use exact decimal steps (0.25, 0.5, 0.1): a step of 1/3 adds up its rounding, so from -1 the third
-row is -1E-34, not 0 (abacus #4390), unless a lesson teaches that on purpose.
-When it lands, a short section here shows the same table from TABLE, and the loop program below is
-kept as the programming lesson it also is. -->
+how it rises and falls. This lesson builds one with a short program that loops, builds the same
+one again with the calculator's TABLE, and then draws the graph from it by hand.
 
 ## Before you start
 
@@ -146,12 +139,81 @@ The last row stays showing: X shows <disp v="T07">3.0000</disp>. The whole table
 |---|---|---|---|---|---|
 | q(x) | 3 | 0 | −1 | 0 | 3 |
 
+## The same table from TABLE
+
+The mode menu you used in the setup has three modes. 33s and 35s mode behave like two older
+calculators, the HP 33s and the HP 35s. STU mode is the STU-32's own, with features those two never
+had. One of them is TABLE, which makes a table like the one program T printed, from an expression,
+with no program. Switch to STU mode: press blue, then ENTER for the mode menu, then the soft key
+under STU:
+
+```keys B01 after=T07
+BLUE MODE STU
+```
+
+The status band shows <disp v="B01" kind="status">STU</disp>. TABLE works on the equation list of
+eq-01, and an entry there may be an expression with no = sign. Type x² − 4x + 3 that way, with yˣ
+for the power and no =:
+
+```keys B02 after=B01
+GOLD EQN RCL X yˣ 2 − 4 × RCL X + 3 ENTER
+```
+
+The screen shows <disp v="B02" kind="eqn">X^2-4×X+3</disp>; ^ means "to the power of". With no =,
+TABLE gives the expression's value. (With an =, it would give left minus right, as XEQ does.)
+
+TABLE, blue above 8, opens a menu: VAR picks the variable, START and STEP each take the number in X,
+as STO does, and GO shows the table. TABLE uses the equation last shown, even after Equation mode
+is off, and its first variable unless you pick another: here X, the only one. The step is 1 unless
+it has been set to something else, so only the start needs setting. Turn Equation mode off first,
+because a digit typed while the equation shows starts a new equation (eq-01). Then start at 0.
+START closes the menu:
+
+```keys B03 after=B02
+GOLD EQN 0 BLUE TABLE START
+```
+
+Open it again for GO:
+
+```keys B04 after=B03
+BLUE TABLE GO
+```
+
+The X line shows the row for x = 0: <disp v="B04" kind="row">0.0000 3.0000</disp>, x on the left
+and q(x) on the right. The row on the X line is the selected one, and the status band shows
+<disp v="B04" kind="status">TABLE</disp>. The table does not stop at the start: the three lines
+above hold the rows before it, x = −3, −2 and −1, so four rows show at once, and the one just above
+reads −1 and 8. ▼ moves down a row:
+
+```keys B05 after=B04
+▼
+```
+
+The X line shows <disp v="B05" kind="row">1.0000 0.0000</disp>. Three more:
+
+```keys B06 after=B05
+▼ ▼ ▼
+```
+
+The X line shows <disp v="B06" kind="row">4.0000 3.0000</disp>, the last row of T's table; ▲ moves
+back up. ENTER copies the selected row's q(x) to X and leaves the table; C leaves it without
+copying. Take the 3. The rest of this lesson, like the lessons before it, is written for 33s mode,
+so switch back:
+
+```keys B07 after=B06
+ENTER BLUE MODE 33s
+```
+
+X shows <disp v="B07">3.0000</disp>. The two ways give the same table. T is still worth having:
+TABLE needs STU mode, and a program is something you can change to do more at each row.
+
 ## Drawing the graph
 
 <!-- GRAPH: firmware unit 033 (abacus #4315) will plot the equation shown against TABLE's variable,
 with X from −10 to 10 and Y fitted to the curve, and a trace whose ENTER copies the traced value to
 X. STU mode only. When it lands, this section gains the same curve on the screen, kept beside the
-drawing by hand. -->
+drawing by hand, and the TABLE section's switch back to 33s mode moves to after the graph (both
+need STU; a non-author read, 2026-10-06). -->
 
 On squared paper, draw an x axis across and a q axis up, and mark each row as a point: (0, 3),
 (1, 0), (2, −1), (3, 0) and (4, 3). The curve comes down from 3, crosses the x axis at x = 1, is
@@ -160,7 +222,7 @@ lowest in the table at x = 2, crosses the x axis again at x = 3, and rises back 
 A table shows only its rows, so check what happens between two of them before joining the points.
 Halfway on each side of 2:
 
-```keys G01 after=T07
+```keys G01 after=B07
 1.5 XEQ Q
 ```
 

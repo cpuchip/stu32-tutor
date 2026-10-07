@@ -77,7 +77,7 @@ CONTROLS = [
     ("modes named as models", "lesson.md", "display: FIX 4\n", "display: FIX 4\nmodes: 33s 35s\nmodes_reason: planted\n", {},
      "give 33, 35 or both"),
     ("a second mode key inside a vector", "vectors.txt", "MODE33 FIX4 7 ENTER 5 - |", "MODE33 FIX4 MODE33 7 ENTER 5 - |", {},
-     "S02: the mode is set only by the first key"),
+     "S02: after the first key, the mode changes only by STU, and by MODE33 back from it"),
     ("keys that end with a shift armed", "lesson.md", "4 ÷ GOLD LASTx ×\n", "4 ÷ GOLD LASTx × GOLD\n", {},
      "LEFT: the keys end with a shift armed"),
     ("a display written in the prose without its tag", "lesson.md", "scientific form.\n",
@@ -211,6 +211,12 @@ CONTROLS_FOR["fn-02-a-table-of-values"] = [
      'kind="program">T022 RTN<', {}, "T01B: the device's X line shows 'U008 RTN' (program)"),
     ("the loop entered without IP", "lesson.md", "GOLD LBL U RCL I BLUE POW IP XEQ Q", "GOLD LBL U RCL I XEQ Q", {},
      "T01B: printed keys and vector disagree in 33s mode: DIFF"),
+    ("a TABLE row misquoted (q(0) where q(1) is)", "lesson.md", 'kind="row">1.0000 0.0000<', 'kind="row">1.0000 3.0000<',
+     {}, "B05: the device's X line shows"),
+    ("the way back from STU pressing 35s in the 33s lesson", "lesson.md", "ENTER BLUE MODE 33s\n", "ENTER BLUE MODE 35s\n",
+     {}, "B07: printed keys and vector disagree in 33s mode"),
+    ("a vector leaving STU for a mode other than the lesson's", "vectors.txt", "TDOWN TDOWN TDOWN TDOWN ENTER MODE33 | X=3",
+     "TDOWN TDOWN TDOWN TDOWN ENTER MODE35 | X=3", {}, "B07: after the first key, the mode changes only by STU, and by MODE33 back from it"),
 ]
 CONTROLS_FOR["fn-03-domain"] = [
     ("a stopped program quoted as stopped after the line that refused", "lesson.md",
