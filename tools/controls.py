@@ -265,6 +265,8 @@ CONTROLS_FOR["fn-03-domain"] = [
      'v="S03" kind="message">DIVIDE BY 0<', {}, "S03: the device's X line shows 'SQRT(NEG)' (message)"),
     ("a negative input keyed with − instead of +/−", "lesson.md", "2 +/− XEQ R", "2 − XEQ R", {},
      "E01: printed keys and vector disagree in 33s mode"),
+    ("GTO . with one dot: the prompt left waiting", "lesson.md", "```keys S07 after=S06\nGOLD GTO . .\n",
+     "```keys S07 after=S06\nGOLD GTO .\n", {}, "S07: printed keys and vector disagree in 33s mode"),
 ]
 CONTROLS_FOR["rpn-03-the-display"].append(
     ("an example that relies on a setting the one before it changed", "lesson.md",

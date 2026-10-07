@@ -64,9 +64,10 @@ row's value to X.
 **Repin watches (firmware units that will change quoted screens):** 035 (SOLVE ends by viewing the
 root, W=3.5000, with no stale prompt) FIRED at the repin to 25dca53, as predicted: the 13 SOLVE
 quotes in eq-01..03 failed until they became kind="view", and nothing else moved.
-036 makes the GTO prompt take "." (GTO . . to PRGM TOP, abacus #4415): fn-03 then teaches it as the
-way out of a stopped program (a note marks the place); nothing quoted changes. Re-run fn-03's side
-vector W01 (docs/evidence/fn-03.md) at every repin: make check does not.
+036 (GTO . . to PRGM TOP) landed at the repin to 7c96617: fn-03 teaches it as the way out of a
+stopped program. 036b (ruled, not landed): in 35s and STU mode XEQ and GTO take a letter then ENTER;
+keyrun will press ENTER after a letter that leaves an XEQ/GTO prompt open (abacus #4470, #4477).
+Re-run fn-03's side vector W01 (docs/evidence/fn-03.md) at every repin: make check does not.
 
 ## What this asks of others
 

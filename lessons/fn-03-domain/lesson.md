@@ -145,23 +145,19 @@ calculator can refuse for other reasons too, so a message alone does not tell yo
 
 ## A stopped program
 
-<!-- GTO . .: firmware unit 036 (abacus #4415) makes the GTO prompt take ".", so GOLD GTO . .
-moves a stopped program's pointer to PRGM TOP without running anything (33s guide p.13-6). When
-the pin passes 036, teach it here as the way out of the trap, beside running a program to its end. -->
-
 While a program is stopped at a line, program entry opens at that line, as you saw twice. Anything
 you key in then goes in after the line showing, as in fn-01, so it lands inside that program. That
 is why both programs went in at the start: if S had been keyed in after R stopped, its lines would
 have gone into R, after the 1/x.
 
-A program that runs to its end clears that. Run S on 6 again:
+GTO . . clears that: it moves the pointer to the top of program memory, without running anything.
+GTO is gold above 4, as in fn-02, and the two dots are the . key pressed twice:
 
 ```keys S07 after=S06
-6 XEQ S
+GOLD GTO . .
 ```
 
-X shows <disp v="S07">2.0000</disp>. Now program entry opens at the top, as it did in fn-01 after a
-run:
+Nothing ran: X still shows <disp v="S07">-1.0000</disp>. But program entry now opens at the top:
 
 ```keys S08 after=S07
 GOLD PRGM PRGM
@@ -173,7 +169,8 @@ The X line shows <disp v="S08" kind="program">PRGM TOP</disp>. Turn program entr
 GOLD PRGM PRGM
 ```
 
-So before you key in a new program, run any program to its end.
+So before you key in a new program after an error, press GOLD GTO . . first. (Running any program to
+its end does the same, as fn-01 showed: the pointer goes back to the top when a program finishes.)
 
 ## Exercises
 
@@ -212,4 +209,4 @@ So before you key in a new program, run any program to its end.
    ```
 
    X shows <disp v="E03B">-0.0100</disp>: 1.99 − 2, the negative number the square root refused. S
-   is stopped at its √x again, so run a program to its end before you key in a new one.
+   is stopped at its √x again, so press GOLD GTO . . before you key in a new program.
