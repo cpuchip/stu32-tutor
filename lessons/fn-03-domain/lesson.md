@@ -1,7 +1,7 @@
 ---
 id: fn-03
 title: Domain
-status: draft prose (non-author read taken; not yet read by abacus or Michael)
+status: draft prose (non-author read taken; accepted for accuracy by abacus #4415; not yet read by Michael)
 setup: BLUE MODE 33s GOLD DISP FIX 4
 display: FIX 4
 ---
@@ -144,6 +144,10 @@ The domain comes from the rule, worked out as above; the calculator's message co
 calculator can refuse for other reasons too, so a message alone does not tell you the domain.
 
 ## A stopped program
+
+<!-- GTO . .: firmware unit 036 (abacus #4415) makes the GTO prompt take ".", so GOLD GTO . .
+moves a stopped program's pointer to PRGM TOP without running anything (33s guide p.13-6). When
+the pin passes 036, teach it here as the way out of the trap, beside running a program to its end. -->
 
 While a program is stopped at a line, program entry opens at that line, as you saw twice. Anything
 you key in then goes in after the line showing, as in fn-01, so it lands inside that program. That
