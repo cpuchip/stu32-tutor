@@ -22,6 +22,7 @@
 #include "app.h"
 #include "calc.h"
 #include "keymap.h"
+#include "device.h"
 #include "keys.h"
 #include "report.h"
 #include "resolve.h"
@@ -38,16 +39,7 @@ abn_status __real_ab_do_arg(ab_calc *c, ab_op op, int arg);
 
 typedef struct { int op, arg, tok; } op_rec;
 
-static uint32_t now;
 static app_graph gbuf;                  /* the graph buffer the device keeps in PSRAM */
-static const pwr_inputs PWR = {true, true, 80, false};
-
-static void settle(app_state *a)
-{
-    /* A running program, a pause, or a graph still drawing its columns (unit 033) is not at rest. */
-    for (int i = 0; i < 1000000 && (a->running || a->pause || a->graphing); i++) app_tick(a, &PWR, now += 1);
-    app_tick(a, &PWR, now += 1);
-}
 
 static void press(app_state *a, int key)
 {
@@ -59,12 +51,12 @@ static void press(app_state *a, int key)
     bool m35_msg = a->c->msg && a->c->m35 && act->kind == KM_OP &&
                    !(getenv("KEYRUN_FAULT") && strcmp(getenv("KEYRUN_FAULT"), "no-m35-rule") == 0);
     long before = trace_lines;
-    app_key(a, key, now += 100);
+    kr_key(a, key);
     if (m35_msg && !a->c->msg && trace_lines == before && trace_out) {
         fprintf(trace_out, "%d %d %d\n", act->op, act->arg, trace_token);
         trace_lines++;
     }
-    settle(a);
+    kr_settle(a);
 }
 
 static int read_trace(const char *path, op_rec *ops, int cap, char *untraced, size_t ucap)
@@ -120,9 +112,7 @@ static int sequence(const char *path)
     static app_state a;
     static screen_ui ui;
     static screen_page page;
-    ab_init(&c);
-    app_init(&a, &c, now);
-    app_graph_buffer(&a, &gbuf);         /* a graph is drawn as on the device (unit 033) */
+    kr_device_init(&c, &a, &gbuf);       /* as the device starts (device.c) */
     static char line[8192];
     while (fgets(line, sizeof line, f)) {
         line[strcspn(line, "\r\n")] = '\0';
@@ -165,9 +155,7 @@ int main(int argc, char **argv)
     /* The key path: a fresh device, as tally's app and the device start. */
     static ab_calc c;
     static app_state a;
-    ab_init(&c);
-    app_init(&a, &c, now);
-    app_graph_buffer(&a, &gbuf);         /* a graph is drawn as on the device (unit 033) */
+    kr_device_init(&c, &a, &gbuf);       /* as the device starts (device.c) */
     const dev_settings set0 = a.set;
     char apath[] = "/tmp/keyrun-app-XXXXXX";
     int fd = mkstemp(apath);

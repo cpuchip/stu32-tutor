@@ -44,14 +44,14 @@ $(CORE_DIR)/.exported: scripts/export-core.sh
 	scripts/export-core.sh $(FIRMWARE) $(CORE_PIN) $(CORE_DIR)
 
 # build/vectors in the export is the firmware's runner linked with the trace; build/keyrun is ours.
-tools: $(CORE_DIR)/.exported tools/trace.c tools/keyrun.c tools/resolve.c tools/resolve.h tools/report.c tools/report.h tools/keyrun.mk
+tools: $(CORE_DIR)/.exported tools/trace.c tools/keyrun.c tools/resolve.c tools/resolve.h tools/report.c tools/report.h tools/device.c tools/device.h tools/keyrun.mk
 	$(MAKE) -s -C $(CORE_DIR) build/fmt_vectors
 	$(MAKE) -s -C $(CORE_DIR) build/abn_intel.o build/intel/libbid.a
 	cc -std=c11 -O2 -Wall -Wextra -Werror -I$(CORE_DIR)/core -c tools/trace.c -o build/trace.o
 	rm -f $(CORE_DIR)/build/vectors $(CORE_DIR)/build/keyrun
 	$(MAKE) -s -C $(CORE_DIR) build/vectors LIBS="-lm $(TRACE_O) $(WRAP)"
 	$(MAKE) -s -C $(CORE_DIR) -f $(abspath tools/keyrun.mk) build/keyrun \
-		KEYRUN_SRC="$(abspath tools/keyrun.c) $(abspath tools/resolve.c) $(abspath tools/report.c)" TRACE_O=$(TRACE_O) WRAP="$(WRAP)"
+		KEYRUN_SRC="$(abspath tools/keyrun.c) $(abspath tools/resolve.c) $(abspath tools/report.c) $(abspath tools/device.c)" TRACE_O=$(TRACE_O) WRAP="$(WRAP)"
 
 clean:
 	rm -rf build
