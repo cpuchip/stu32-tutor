@@ -1,0 +1,13 @@
+# eq-01 equations: key vectors (the firmware's format). Every example is ours. Each starts MODE33
+# FIX4 (the lesson's setup). EQN toggles Equation mode; RCL:v types a variable; = is the bar's = key.
+Q01 | typing 2x + 3 = 11 and storing it | MODE33 FIX4 EQN 2 * RCL:X + 3 = 11 ENTER | %EQ=2×X+3=11
+Q02 | continues Q01: XEQ evaluates it, first asking for X | MODE33 FIX4 EQN 2 * RCL:X + 3 = 11 ENTER XEQ | %STOP=INPUT:X
+Q03 | continues Q02: try 4; left minus right is 0, so 4 solves it | MODE33 FIX4 EQN 2 * RCL:X + 3 = 11 ENTER XEQ 4 RS | X=0
+Q04 | continues Q03: show it again, try 5; 2 x 5 + 3 is 13, two more than 11 | MODE33 FIX4 EQN 2 * RCL:X + 3 = 11 ENTER XEQ 4 RS EQN XEQ 5 RS | X=2
+Q05 | continues Q04: SOLVE finds X with the equation showing | MODE33 FIX4 EQN 2 * RCL:X + 3 = 11 ENTER XEQ 4 RS EQN XEQ 5 RS EQN SOLVE:X | X=4 @X=4
+Q06 | without the x sign, 2X + 3 = 11 is stored but cannot be worked out: SYNTAX ERROR | MODE33 FIX4 EQN 2 RCL:X + 3 = 11 ENTER XEQ 4 RS | ERR
+Q06B | continues Q06: C clears the message, leaving the 4 typed | MODE33 FIX4 EQN 2 RCL:X + 3 = 11 ENTER XEQ 4 RS C | ERR X=4
+# Exercises
+E01 | exercise 1: does 3 solve 5x - 4 = 11? | MODE33 FIX4 EQN 5 * RCL:X - 4 = 11 ENTER XEQ 3 RS | X=0
+E02 | exercise 2: solve 3x + 7 = 1 | MODE33 FIX4 EQN 3 * RCL:X + 7 = 1 ENTER SOLVE:X | X=-2 @X=-2
+E02B | exercise 2's check, continuing E02: R/S keeps the -2 X holds | MODE33 FIX4 EQN 3 * RCL:X + 7 = 1 ENTER SOLVE:X EQN XEQ RS | X=0

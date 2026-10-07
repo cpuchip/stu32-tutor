@@ -24,6 +24,7 @@ controls: tools
 	$(PYTHON) tools/controls.py --core $(CORE_DIR) lessons/num-01-order-of-operations
 	$(PYTHON) tools/controls.py --core $(CORE_DIR) lessons/num-02-fractions
 	$(PYTHON) tools/controls.py --core $(CORE_DIR) lessons/num-03-powers-and-roots
+	$(PYTHON) tools/controls.py --core $(CORE_DIR) lessons/eq-01-equations
 
 $(CORE_DIR)/.exported: scripts/export-core.sh
 	scripts/export-core.sh $(FIRMWARE) $(CORE_PIN) $(CORE_DIR)

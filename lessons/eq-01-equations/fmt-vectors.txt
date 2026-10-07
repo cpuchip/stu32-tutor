@@ -1,0 +1,8 @@
+# eq-01 display vectors: D-Qnn is what X shows after key vector Qnn, at FIX 4.
+D-Q03 | after Q03 | 0 | FIX 4 | w=21 | 0.0000
+D-Q04 | after Q04 | 2 | FIX 4 | w=21 | 2.0000
+D-Q05 | after Q05 | 4 | FIX 4 | w=21 | 4.0000
+D-E01 | after E01 | 0 | FIX 4 | w=21 | 0.0000
+D-E02 | after E02 | -2 | FIX 4 | w=21 | -2.0000
+D-Q06B | after Q06B | 4 | FIX 4 | w=21 | 4.0000
+D-E02B | after E02B | 0 | FIX 4 | w=21 | 0.0000

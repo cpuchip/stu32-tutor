@@ -33,7 +33,7 @@ from decimal import Decimal, InvalidOperation
 sys.stdout.reconfigure(encoding="utf-8")
 
 SETTING = re.compile(r"^(FIX|SCI|ENG)(\d+)$|^ALL$")
-DISP = re.compile(r'<disp v="([^"]+)"(?: kind="(view|prompt|message|entry|status)")?>(.*?)</disp>', re.S)
+DISP = re.compile(r'<disp v="([^"]+)"(?: kind="(view|prompt|message|entry|status|eqn)")?>(.*?)</disp>', re.S)
 FRAC_SETTINGS = {"/C", "SF:7", "CF:7", "SF:8", "CF:8", "SF:9", "CF:9"}  # change the fraction display
 # ```keys ID``` or ```keys ID after=PREV```: a continuation holds only the keys pressed after block
 # PREV, which must be the block just before it; its full keys are PREV's full keys and then its own.
@@ -197,7 +197,14 @@ class Lesson:
                 full[bid] = keys
             blocks.append((bid, full[bid], s0, e0))
         byid = {v[0]: v for v in vectors}
-        shown, screen, status = set(), {}, {}
+        shown, screen, screen_y, status = set(), {}, {}, {}
+
+        def line_says(xline, yline, qkind, text):
+            # A prompt for a variable (INPUT's or an equation's "X?") takes the Y line (screen.h);
+            # STO's "STO _" takes X. Every other kind is the X line.
+            if qkind == "prompt":
+                return any(k == "prompt" and t.strip() == text for k, t in (xline, yline))
+            return xline[0] == qkind and xline[1].strip() == text
         for bid, keys, _, _ in blocks:
             if bid == "setup":                  # the setup as printed for the student
                 if keys != setup:
@@ -229,8 +236,10 @@ class Lesson:
                     continue
                 xl = [l.split("\t") for l in k.stdout.splitlines() if l.startswith("X\t")]
                 sl = [l.split("\t", 1)[1] for l in k.stdout.splitlines() if l.startswith("STATUS\t")]
+                yl = [l.split("\t") for l in k.stdout.splitlines() if l.startswith("YL\t")]
                 if mode == modes[0] and xl and len(xl[0]) == 3:
                     screen[bid] = (xl[0][1], xl[0][2])
+                    screen_y[bid] = (yl[0][1], yl[0][2]) if yl and len(yl[0]) == 3 else ("?", "")
                     status[bid] = sl[0].split() if sl else []
         for vid in ids:
             if vid not in shown:
@@ -285,7 +294,7 @@ class Lesson:
                 # A VIEW's "B=49.75" is no value the formatter's vectors cover: the device's own
                 # screen line is the check, kind and text both.
                 kind, stext = screen.get(vid, ("?", ""))
-                if kind != qkind or stext.strip() != shown_text:
+                if not line_says((kind, stext), screen_y.get(vid, ("?", "")), qkind, shown_text):
                     self.bad(f"{vid}: the device's X line shows '{stext}' ({kind}), the prose '{shown_text}' ({qkind})")
                 continue
             f = fmt_by.get("D-" + vid)
@@ -344,11 +353,13 @@ class Lesson:
                         t.write(f"{bid}\t{own_keys[bid]}\n")
             r = self.run(f"{self.core}/build/keyrun", "--sequence", t.name)
             os.unlink(t.name)
-            seq_x, seq_st, seq_val = {}, {}, {}
+            seq_x, seq_y, seq_st, seq_val = {}, {}, {}, {}
             for l in r.stdout.splitlines():
                 p = l.split("\t")
                 if p[0] == "X" and len(p) == 4:
                     seq_x[p[1]] = (p[2], p[3])
+                elif p[0] == "YL" and len(p) == 4:
+                    seq_y[p[1]] = (p[2], p[3])
                 elif p[0] == "STATUS" and len(p) == 3:
                     seq_st[p[1]] = p[2].split()
                 elif p[0] == "VAL" and len(p) == 6:
@@ -377,7 +388,7 @@ class Lesson:
                                  f"without '{shown_text}'")
                     continue
                 kind, stext = seq_x.get(vid, ("?", ""))
-                if kind != qkind or stext.strip() != shown_text:
+                if not line_says((kind, stext), seq_y.get(vid, ("?", "")), qkind, shown_text):
                     self.bad(f"{vid}: working through in order, X shows '{stext}' ({kind}), the prose '{shown_text}'")
             self.notes.append("worked through in order")
 

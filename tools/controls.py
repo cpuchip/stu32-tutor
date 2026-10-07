@@ -162,6 +162,16 @@ CONTROLS_FOR["num-03-powers-and-roots"] = [
     ("a quoted error message the screen does not show", "lesson.md", 'kind="message">INVALID yˣ<',
      'kind="message">INVALID ˣ√y<', {}, "R07D: the device's X line shows 'INVALID yˣ' (message)"),
 ]
+CONTROLS_FOR["eq-01-equations"] = [
+    ("a quoted equation the screen does not show", "lesson.md", 'kind="eqn">2×X+3=11<', 'kind="eqn">2×X+3=12<', {},
+     "Q01: the device's X line shows '2×X+3=11' (eqn)"),
+    ("a quoted prompt the screen does not show", "lesson.md", 'kind="prompt">X?<', 'kind="prompt">Y?<', {},
+     "Q02: the device's X line shows"),
+    ("an equation-bar key the bar does not have", "lesson.md", "GOLD EQN 2 × RCL X + 3 = 11 ENTER\n```",
+     "GOLD EQN 2 × RCL X + 3 EQUALS 11 ENTER\n```", {}, "Q01: printed keys and vector disagree in 33s mode: KEY"),
+    ("checking a second value without showing the equation again", "lesson.md", "```keys Q04 after=Q03\nGOLD EQN XEQ 5 R/S\n",
+     "```keys Q04 after=Q03\nXEQ 5 R/S\n", {}, "Q04: printed keys and vector disagree in 33s mode"),
+]
 CONTROLS_FOR["rpn-03-the-display"].append(
     ("an example that relies on a setting the one before it changed", "lesson.md",
      "```keys P01\nGOLD DISP FIX 4 2 ENTER 3 ÷\n", "```keys P01\n2 ENTER 3 ÷\n", {},

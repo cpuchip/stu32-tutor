@@ -96,11 +96,24 @@ static int resolve(const app_state *a, const char *name, const char **why)
         *why = "no key carries that letter";
         return -1;
     }
+    /* The soft keys are whatever the screen labels them now (app_ui): an open menu's items, the
+       equation bar's, CLR ALL?'s Y and N, CONST's page. A label is matched with its spaces ignored,
+       since printed keys are split on spaces ("()" is the bar's "( )"). */
     int soft = -1;
-    if (a->menu >= 0) {
-        const km_menu *m = km_menu_at(a->menu);
-        for (int i = 0; m && i < KM_SOFT_KEYS; i++)
-            if (m->item[i].kind != KM_NONE && strcmp(m->item[i].legend, name) == 0) soft = soft_key(i);
+    {
+        static screen_ui ui;
+        app_ui(a, &ui);
+        for (int i = 0; i < SCREEN_SOFT; i++) {
+            const char *l = ui.soft[i], *n = name;
+            if (!l || !*l) continue;
+            while (*l && *n) {
+                if (*l == ' ') { l++; continue; }
+                if (*l != *n) break;
+                l++; n++;
+            }
+            while (*l == ' ') l++;
+            if (!*l && !*n) soft = soft_key(i);
+        }
     }
     int found = -1, count = 0;
     for (int k = 0; k < KB_KEYS; k++) {
@@ -219,8 +232,9 @@ static int sequence(const char *path)
             val[i][0] = '\0';
             if (lv[i]->kind == AB_REAL) abn_to_text(&lv[i]->re, val[i], sizeof val[i]);
         }
-        printf("X\t%s\t%s\t%s\nSTATUS\t%s\t%s\nVAL\t%s\t%s\t%s\t%s\t%s\n", line,
+        printf("X\t%s\t%s\t%s\nYL\t%s\t%s\t%s\nSTATUS\t%s\t%s\nVAL\t%s\t%s\t%s\t%s\t%s\n", line,
                page.x.kind >= 0 && page.x.kind <= SCREEN_VIEW ? KIND[page.x.kind] : "?", page.x.text,
+               line, page.y.kind >= 0 && page.y.kind <= SCREEN_VIEW ? KIND[page.y.kind] : "?", page.y.text,
                line, page.status.text, line, val[0], val[1], val[2], val[3]);
     }
     fclose(f);
@@ -310,7 +324,9 @@ int main(int argc, char **argv)
                na, n_app, n_vec, at);
         return 1;
     }
-    printf("OK %d ops\nX\t%s\t%s\nSTATUS\t%s\n", na, page.x.kind >= 0 && page.x.kind <= SCREEN_VIEW ? KIND[page.x.kind] : "?",
-           page.x.text, page.status.text);
+    printf("OK %d ops\nX\t%s\t%s\nYL\t%s\t%s\nSTATUS\t%s\n", na,
+           page.x.kind >= 0 && page.x.kind <= SCREEN_VIEW ? KIND[page.x.kind] : "?", page.x.text,
+           page.y.kind >= 0 && page.y.kind <= SCREEN_VIEW ? KIND[page.y.kind] : "?", page.y.text,
+           page.status.text);
     return 0;
 }
