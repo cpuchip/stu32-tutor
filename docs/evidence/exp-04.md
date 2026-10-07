@@ -22,8 +22,8 @@ the vectors).
 
 ## Sources and probes
 
-- eˣ in Equation mode types EXP( and ▶ steps past its closing parenthesis, as ABS in eq-03 (vector
-  token >); probed, keyrun --sequence, all three modes.
+- eˣ in Equation mode types EXP with its opening bracket and ▶ steps out of it, as ABS in eq-03
+  (vector token >); probed, keyrun --sequence, all three modes.
 - T is on the 8 key (fn-02).
 - A slip caught by the oracle: three of the pinned roots were first written as typed placeholders
   rather than measured values; the probe run replaced them and the 1E-30 assert checks each.
