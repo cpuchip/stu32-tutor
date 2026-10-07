@@ -31,7 +31,7 @@ sys.stdout.reconfigure(encoding="utf-8")
 SETTING = re.compile(r"^(FIX|SCI|ENG)(\d+)$|^ALL$")
 DISP = re.compile(r'<disp v="([^"]+)"(?: kind="(view|prompt|message|entry)")?>(.*?)</disp>', re.S)
 KEYS_BLOCK = re.compile(r"^[ \t]*```keys[ \t]+(\S+)[ \t]*\n(.*?)^[ \t]*```[ \t]*$", re.M | re.S)
-SHOWS = re.compile(r"\b(shows?|showing|shown|displays?|displayed|screen|reads|appears?)\b", re.I)
+SHOWS = re.compile(r"\b(shows?|showed|showing|shown|displays?|displayed|screen|reads|appears?)\b", re.I)
 FENCE = re.compile(r"^[ \t]*(```|~~~)(.*)$", re.M)
 # A used calculator: every variable A-Z holds 7, RAD, the stack full, lift enabled, LAST x 6.
 DIRTY = " ".join(["RAD"] + [f"7 STO:{v}" for v in "ABCDEFGHIJKLMNOPQRSTUVWXYZ"] + "9 ENTER 8 ENTER 7 ENTER 6 SQRT".split())

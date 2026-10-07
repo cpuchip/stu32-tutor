@@ -20,6 +20,7 @@ check: tools
 controls: tools
 	$(PYTHON) tools/controls.py --core $(CORE_DIR) lessons/rpn-01-the-stack
 	$(PYTHON) tools/controls.py --core $(CORE_DIR) lessons/rpn-02-storing-numbers
+	$(PYTHON) tools/controls.py --core $(CORE_DIR) lessons/rpn-03-the-display
 
 $(CORE_DIR)/.exported: scripts/export-core.sh
 	scripts/export-core.sh $(FIRMWARE) $(CORE_PIN) $(CORE_DIR)

@@ -1,0 +1,13 @@
+# rpn-03 display vectors: D-Pnn is what X shows after key vector Pnn, at the setting that example
+# ends in. The prose quotes only these.
+D-P01 | after P01 | 0.6666666666666666666666666666666667 | FIX 4 |  | 0.6667
+D-P02 | after P02 | 0.6666666666666666666666666666666667 | FIX 2 |  | 0.67
+D-P03 | after P03 | 2 | FIX 2 |  | 2.00
+D-P04 | after P04 | 0.6666666666666666666666666666666667 | SCI 3 |  | 6.667E-1
+D-P05 | after P05 | 23456 | ENG 3 |  | 23.46E3
+D-P06 | after P06 | 0.0000125 | FIX 4 |  | 1.2500E-5
+D-P07 | after P07 | 4500000000 | SCI 2 |  | 4.50E9
+D-P08 | after P08 | 0.125 | ALL |  | 0.125
+D-E01 | after E01 | 3.142857142857142857142857142857143 | FIX 3 |  | 3.143
+D-E02A | after E02A | 0.7777777777777777777777777777777778 | FIX 2 |  | 0.78
+D-E02 | after E02 | 7 | FIX 2 |  | 7.00

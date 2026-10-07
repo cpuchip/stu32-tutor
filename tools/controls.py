@@ -116,7 +116,20 @@ CONTROLS_FOR = {
          "V03: printed keys and vector disagree in 33s mode: DIFF"),
     ],
 }
+CONTROLS_FOR["rpn-03-the-display"] = [
+    ("a quote verified at the setup's setting while its example ends at another",
+     [("fmt-vectors.txt", "| SCI 3 |  | 6.667E-1", "| FIX 4 |  | 0.6667"),
+      ("lesson.md", '<disp v="P04">6.667E-1</disp>', '<disp v="P04">0.6667</disp>')], None, None, {},
+     "D-P04: display vector at 'FIX 4', vector P04 ends at 'SCI 3'"),
+    ("a screen claim worded with 'showed'", "lesson.md", "## ALL: no padding\n",
+     "## ALL: no padding\n\nAt FIX 4 the screen showed 0.1250 for it.\n", {},
+     "'0.1250' looks like a display at FIX 4"),
+]
 GREENS_FOR = {
+    "rpn-03-the-display": [
+        ("an input written in the display's form, in a sentence about no screen", "lesson.md",
+         "## ALL: no padding\n", "## ALL: no padding\n\nA rate of 0.0825 is typed as it is written.\n"),
+    ],
     "rpn-02-storing-numbers": [
         ("a price written in prose at the display's places", "lesson.md", "## A running total\n",
          "## A running total\n\nA 12.50 lunch and a 7.25 coffee are typed as 12.5 and 7.25.\n"),

@@ -1,0 +1,15 @@
+# rpn-03 the display: key vectors (the firmware's format). Every example is ours. Each starts
+# MODE33 FIX4 (the lesson's setup); a display key inside an example changes only what is shown.
+# Exact values: Python decimal at 34 digits, half even (docs/evidence/rpn-03.md).
+P01 | 2 divided by 3, at FIX 4 | MODE33 FIX4 2 ENTER 3 / | X=0.6666666666666666666666666666666667
+P02 | the same number at FIX 2 | MODE33 FIX4 2 ENTER 3 / FIX2 | X=0.6666666666666666666666666666666667
+P03 | FIX 2 rounds only the display: times 3 gives exactly 2 | MODE33 FIX4 2 ENTER 3 / FIX2 3 * | X=2
+P04 | SCI 3: one digit before the point, three after, and a power of ten | MODE33 FIX4 2 ENTER 3 / SCI3 | X=0.6666666666666666666666666666666667
+P05 | ENG 3: powers of ten in steps of three | MODE33 FIX4 23456 ENG3 | X=23456
+P06 | at FIX 4 a number too small for four places switches to scientific form (FIX 4 pressed again, since a setting stays until changed) | MODE33 FIX4 FIX4 1 ENTER 80000 / | X=0.0000125
+P07 | E types a power of ten: 4.5 E 9 is 4.5 billion, shown at SCI 2 | MODE33 FIX4 4.5 E 9 SCI2 | X=4500000000
+P08 | ALL shows a number with as many digits as it needs | MODE33 FIX4 1 ENTER 8 / ALL | X=0.125
+# Exercises
+E01 | exercise 1: 22 divided by 7 at FIX 3 | MODE33 FIX4 22 ENTER 7 / FIX3 | X=3.142857142857142857142857142857143
+E02A | exercise 2, first step: 7 divided by 9 at FIX 2 | MODE33 FIX4 7 ENTER 9 / FIX2 | X=0.7777777777777777777777777777777778
+E02 | exercise 2: 7 divided by 9 shown at FIX 2, then times 9 | MODE33 FIX4 7 ENTER 9 / FIX2 9 * | X=7
