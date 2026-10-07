@@ -38,11 +38,13 @@ abn_status __real_ab_do_arg(ab_calc *c, ab_op op, int arg);
 typedef struct { int op, arg, tok; } op_rec;
 
 static uint32_t now;
+static app_graph gbuf;                  /* the graph buffer the device keeps in PSRAM */
 static const pwr_inputs PWR = {true, true, 80, false};
 
 static void settle(app_state *a)
 {
-    for (int i = 0; i < 1000000 && (a->running || a->pause); i++) app_tick(a, &PWR, now += 1);
+    /* A running program, a pause, or a graph still drawing its columns (unit 033) is not at rest. */
+    for (int i = 0; i < 1000000 && (a->running || a->pause || a->graphing); i++) app_tick(a, &PWR, now += 1);
     app_tick(a, &PWR, now += 1);
 }
 
@@ -107,6 +109,16 @@ static int press_names(app_state *a, char **tok, int ntok)
 
 static const char *const KIND[] = {"value", "entry", "eqn", "program", "message", "prompt", "view"};
 
+/* A graph shown (unit 033b): its texts as screen.c draws them, one source: the readout ("x=... y=..."),
+   the window labels XMIN XMAX YMIN YMAX, and the note. Nothing is printed when no graph shows. */
+static void print_graph(const char *id, const screen_page *page)
+{
+    if (!page->graph_on) return;
+    const screen_graph_text *g = &page->graph;
+    printf("GRAPH\t%s\t%s\t%s\t%s\t%s\t%s\t%s\n", id, g->readout, g->xmin, g->xmax, g->ymin,
+           g->ymax, g->note);
+}
+
 /* keyrun --sequence FILE: a student working through a lesson. Each line is "ID<TAB>keys"; every
    line is pressed on ONE device, in order, with nothing reset between them (the setup first). After
    each line the X line and the status band are printed, so a quoted display can be compared with
@@ -121,6 +133,7 @@ static int sequence(const char *path)
     static screen_page page;
     ab_init(&c);
     app_init(&a, &c, now);
+    app_graph_buffer(&a, &gbuf);         /* a graph is drawn as on the device (unit 033) */
     static char line[8192];
     while (fgets(line, sizeof line, f)) {
         line[strcspn(line, "\r\n")] = '\0';
@@ -155,6 +168,7 @@ static int sequence(const char *path)
                page.x.kind >= 0 && page.x.kind <= SCREEN_VIEW ? KIND[page.x.kind] : "?", page.x.text,
                line, page.y.kind >= 0 && page.y.kind <= SCREEN_VIEW ? KIND[page.y.kind] : "?", page.y.text,
                line, page.status.text, line, val[0], val[1], val[2], val[3]);
+        print_graph(line, &page);
     }
     fclose(f);
     return 0;
@@ -181,6 +195,7 @@ int main(int argc, char **argv)
     static app_state a;
     ab_init(&c);
     app_init(&a, &c, now);
+    app_graph_buffer(&a, &gbuf);         /* a graph is drawn as on the device (unit 033) */
     const dev_settings set0 = a.set;
     char apath[] = "/tmp/keyrun-app-XXXXXX";
     int fd = mkstemp(apath);
@@ -251,5 +266,6 @@ int main(int argc, char **argv)
            page.x.kind >= 0 && page.x.kind <= SCREEN_VIEW ? KIND[page.x.kind] : "?", page.x.text,
            page.y.kind >= 0 && page.y.kind <= SCREEN_VIEW ? KIND[page.y.kind] : "?", page.y.text,
            page.status.text);
+    print_graph("-", &page);
     return 0;
 }

@@ -4,7 +4,7 @@
 # git archive into build/ (never built in the firmware's own checkout). Its Makefile builds the
 # runners with its own recipes; we add only the trace (tools/trace.c) at link time.
 # On fermion, run it in the gcc:14 container: scripts/check-docker.sh.
-CORE_PIN := 7c96617
+CORE_PIN := 8f304cd
 FIRMWARE ?= ../abacus-firmware
 CORE_DIR := build/core-$(CORE_PIN)
 PYTHON ?= python3

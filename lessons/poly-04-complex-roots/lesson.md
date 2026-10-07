@@ -1,7 +1,7 @@
 ---
 id: poly-04
 title: Complex roots
-status: draft prose (non-author read taken; not yet read by abacus or Michael)
+status: draft prose (non-author read taken; accepted for accuracy by abacus #4509; not yet read by Michael)
 setup: BLUE MODE 33s GOLD DISP FIX 4
 display: FIX 4
 ---
@@ -30,7 +30,9 @@ whose imaginary part is 0.
 
 The calculator keeps both parts of a complex number in one stack level. To type one, type the real
 part, then press CMPLX (blue above +/−), which opens a menu like MODE in rpn-01, and press the soft
-key under i; then type the imaginary part. i itself is 0 + 1i:
+key under i; then type the imaginary part. (Typing a complex number with i like this is the
+STU-32's own way, taken from the HP 35s, in every mode; an HP 33s itself keeps the two parts as a
+pair of numbers on the stack instead.) i itself is 0 + 1i:
 
 ```keys C01A
 0 BLUE CMPLX i 1

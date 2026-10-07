@@ -47,3 +47,12 @@ shown (V01, V02, INVALID DATA). 4i keyed as 0 i 4 said again; CMPLX described as
 `make check`: 13/13 vectors in 33s and 35s, from a fresh and a used core; 14 keys blocks; 13 quotes.
 Controls: a root's imaginary part quoted with the wrong sign, -b typed without ENTER, the conjugate
 typed without the second +/−; all red.
+
+## Abacus's accuracy read (#4509, 2026-10-07)
+
+Accepted at 49857fe (20/20 in order, 20 controls sets red). Values confirmed. (1), (2) the display
+reads real, i, imaginary, and +/− applies to the part being typed. (3) Faithful: the 35s guide's
+"Functions for One Complex Number" (p.9-2) has no x² or √x; powers go through yˣ (p.9-3). (4) the
+conjugate pair from the formula's ±√, the general fact needing more. (5) the fundamental theorem of
+algebra with multiplicity. Optional note taken: typing a complex number with CMPLX i is the STU-32's
+own (from the 35s); an HP 33s keeps complex numbers as pairs, so a one-sentence aside now says so.

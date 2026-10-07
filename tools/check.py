@@ -33,7 +33,10 @@ from decimal import Decimal, InvalidOperation
 sys.stdout.reconfigure(encoding="utf-8")
 
 SETTING = re.compile(r"^(FIX|SCI|ENG)(\d+)$|^ALL$")
-DISP = re.compile(r'<disp v="([^"]+)"(?: kind="(view|prompt|message|entry|status|eqn|program|row)")?>(.*?)</disp>', re.S)
+DISP = re.compile(r'<disp v="([^"]+)"(?: kind="(view|prompt|message|entry|status|eqn|program|row|readout|xmin|xmax|ymin|ymax|note)")?>(.*?)</disp>', re.S)
+# A graph's texts as screen.c draws them (unit 033b; keyrun's GRAPH line): the trace readout, the window labels
+# and the plotted form's note.
+GRAPH_KINDS = ("readout", "xmin", "xmax", "ymin", "ymax", "note")
 FRAC_SETTINGS = {"/C", "SF:7", "CF:7", "SF:8", "CF:8", "SF:9", "CF:9"}  # change the fraction display
 # ```keys ID``` or ```keys ID after=PREV```: a continuation holds only the keys pressed after block
 # PREV, which must be the block just before it; its full keys are PREV's full keys and then its own.
@@ -208,7 +211,7 @@ class Lesson:
             blocks.append((bid, full[bid], s0, e0))
         continued = {after for (_, _, _, _, after) in found if after}
         byid = {v[0]: v for v in vectors}
-        shown, screen, screen_y, status = set(), {}, {}, {}
+        shown, screen, screen_y, status, graph = set(), {}, {}, {}, {}
 
         def line_says(xline, yline, qkind, text):
             # A prompt for a variable (INPUT's or an equation's "X?") takes the Y line (screen.h);
@@ -260,6 +263,8 @@ class Lesson:
                     screen[bid] = (xl[0][1], xl[0][2])
                     screen_y[bid] = (yl[0][1], yl[0][2]) if yl and len(yl[0]) == 3 else ("?", "")
                     status[bid] = sl[0].split() if sl else []
+                    gl = [l.split("\t") for l in k.stdout.splitlines() if l.startswith("GRAPH\t")]
+                    graph[bid] = dict(zip(GRAPH_KINDS, gl[0][2:8])) if gl and len(gl[0]) == 8 else {}
         for vid in ids:
             if vid not in shown:
                 self.bad(f"vector {vid} is shown by no keys block")
@@ -308,6 +313,12 @@ class Lesson:
                 # An annunciator (the fraction indicator, RAD, ...): a token of the status band.
                 if shown_text not in status.get(vid, []):
                     self.bad(f"{vid}: the status band shows {status.get(vid, [])}, without '{shown_text}'")
+                continue
+            if qkind in GRAPH_KINDS:
+                got = graph.get(vid, {}).get(qkind)
+                if got != shown_text:
+                    self.bad(f"{vid}: the graph's {qkind} shows '{got if got is not None else '(no graph)'}', "
+                             f"the prose '{shown_text}'")
                 continue
             if qkind != "value":
                 # A VIEW's "B=49.75" is no value the formatter's vectors cover: the device's own
@@ -372,7 +383,7 @@ class Lesson:
                         t.write(f"{bid}\t{own_keys[bid]}\n")
             r = self.run(f"{self.core}/build/keyrun", "--sequence", t.name)
             os.unlink(t.name)
-            seq_x, seq_y, seq_st, seq_val = {}, {}, {}, {}
+            seq_x, seq_y, seq_st, seq_val, seq_graph = {}, {}, {}, {}, {}
             for l in r.stdout.splitlines():
                 p = l.split("\t")
                 if p[0] == "X" and len(p) == 4:
@@ -383,6 +394,8 @@ class Lesson:
                     seq_st[p[1]] = p[2].split()
                 elif p[0] == "VAL" and len(p) == 6:
                     seq_val[p[1]] = dict(zip("XYZT", p[2:6]))
+                elif p[0] == "GRAPH" and len(p) == 8:
+                    seq_graph[p[1]] = dict(zip(GRAPH_KINDS, p[2:8]))
             if r.returncode != 0:
                 self.bad(f"a student working through cannot press the keys in order: {r.stdout.strip()}")
             # Every example's exact X, Y, Z and T expectations, not only the quoted displays: the
@@ -408,6 +421,12 @@ class Lesson:
                     if shown_text not in seq_st.get(vid, []):
                         self.bad(f"{vid}: working through in order, the status band shows {seq_st.get(vid, [])}, "
                                  f"without '{shown_text}'")
+                    continue
+                if qkind in GRAPH_KINDS:
+                    got = seq_graph.get(vid, {}).get(qkind)
+                    if got != shown_text:
+                        self.bad(f"{vid}: working through in order, the graph's {qkind} shows "
+                                 f"'{got if got is not None else '(no graph)'}', the prose '{shown_text}'")
                     continue
                 kind, stext = seq_x.get(vid, ("?", ""))
                 if not line_says((kind, stext), seq_y.get(vid, ("?", "")), qkind, shown_text):
