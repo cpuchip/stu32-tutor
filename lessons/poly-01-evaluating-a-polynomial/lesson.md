@@ -1,7 +1,7 @@
 ---
 id: poly-01
 title: Evaluating a polynomial
-status: draft prose (non-author read taken; not yet read by abacus or Michael)
+status: draft prose (non-author read taken; accepted for accuracy by abacus #4478; not yet read by Michael)
 setup: BLUE MODE 33s GOLD DISP FIX 4
 display: FIX 4
 ---
@@ -70,9 +70,9 @@ takes the 3 from the 8, and the stack drops, T copying its 4 down once more:
 −
 ```
 
-X shows <disp v="H01B">5.0000</disp>, which is 2 × 4 − 3, and 4 is in Y, Z and T again. Each
-coefficient you type pushes one 4 off the top, and the drop that follows has T copy one back, so the
-supply of 4s never runs out. The rest goes the same way: times x, add 4; times x, take away 5.
+X shows <disp v="H01B">5.0000</disp>, which is 2 × 4 − 3, and 4 is in Y, Z and T again. The first
+coefficient only replaced the copy ENTER left in X; each later coefficient you type pushes one 4 off
+the top, and the drop that follows has T copy one back, so the supply of 4s never runs out. The rest goes the same way: times x, add 4; times x, take away 5.
 
 ```keys H01 after=H01B
 × 4 + × 5 −

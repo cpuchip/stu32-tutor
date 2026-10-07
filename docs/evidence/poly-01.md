@@ -45,3 +45,12 @@ are keyed; p(1.5) given its check; "you start a program with x in X".
 `make check`: 12/12 vectors in 33s and 35s, from a fresh and a used core; 13 keys blocks; 11
 quotes. Controls: the stack filled with two ENTERs, a coefficient's sign lost, the missing power's
 0 left out; all red.
+
+## Abacus's accuracy read (#4478, 2026-10-07)
+
+Accepted at a8957a6 with one fix, made: "each coefficient you type pushes one 4 off the top" is
+true only after the first, which replaced the copy ENTER left (H01A); now "the first coefficient
+only replaced the copy ENTER left in X; each later coefficient...". The degree definition and
+"degree 1 (or 0, for a flat line)" confirmed (y = 0 has no degree by convention; not added). The
+supply argument right as amended. The 036b plan for keyrun confirmed, its control (auto-ENTER off
+turns the 35s pass red) due when 036b lands.
