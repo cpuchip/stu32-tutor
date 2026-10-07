@@ -48,7 +48,7 @@ taken. The power tower's top-down rule was never stated, and "in RPN there is no
 squared means two things" was wrong in words. Exercise 3, (-2)^3, could not tell the two readings
 apart (-2^3 is -8 too), so it is now (-2)^4 = 16 beside a new exercise 4, -2^4 = -16. Also: y^x's
 and 1/x's positions given (fourth and fifth in the top row, layout v0); "for any power at all"
-dropped (a negative number to a fractional power is out of y^x's reach); the sentence after R03
+dropped (the reader says a negative number to a fractional power is out of y^x's reach; not probed here, and the lesson makes no claim about it); the sentence after R03
 made exact; e^x deferred by name; R11 quoted as a display.
 
 Its seventh finding asked for "a third cannot be typed exactly, which is why the x-th root exists".
