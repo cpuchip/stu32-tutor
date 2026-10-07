@@ -1,0 +1,7 @@
+# exp-04 display vectors: D-nnn is what X shows after key vector nnn, at FIX 4.
+D-Q02 | after Q02 | 1 | FIX 4 | w=21 | 1.0000
+D-Q03 | after Q03 | -0.281718171540954764639712528647338 | FIX 4 | w=21 | -0.2817
+D-Q04 | after Q04 | 1.389056098930650227230427460575008 | FIX 4 | w=21 | 1.3891
+D-E01A | after E01A | 0.125 | FIX 4 | w=21 | 0.1250
+D-E01B | after E01B | -2 | FIX 4 | w=21 | -2.0000
+D-E01C | after E01C | 2 | FIX 4 | w=21 | 2.0000

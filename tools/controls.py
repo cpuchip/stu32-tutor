@@ -303,6 +303,13 @@ CONTROLS_FOR["exp-03-logarithms"] = [
     ("the half-life quoted as negative", "lesson.md", 'v="H01">6.5788<', 'v="H01">-6.5788<', {},
      "D-H01: the prose shows '-6.5788'"),
 ]
+CONTROLS_FOR["exp-04-exponential-equations"] = [
+    ("EXP( typed without ▶ out of its parentheses", "lesson.md", "```keys Q01\nGOLD EQN eˣ RCL X ▶ = 3 × RCL X ENTER\n",
+     "```keys Q01\nGOLD EQN eˣ RCL X = 3 × RCL X ENTER\n", {}, "Q01: printed keys and vector disagree in 33s mode"),
+    ("guesses that straddle both roots (0 and 2)", "lesson.md", "```keys S01 after=Q04\n0 STO X 1 GOLD EQN",
+     "```keys S01 after=Q04\n0 STO X 2 GOLD EQN", {}, "S01: printed keys and vector disagree in 33s mode"),
+    ("a sign misread at x = 1", "lesson.md", 'v="Q03">-0.2817<', 'v="Q03">0.2817<', {}, "D-Q03: the prose shows '0.2817'"),
+]
 CONTROLS_FOR["fn-02-a-table-of-values"] = [
     ("a label's line numbered from the program's top, not its own label", "lesson.md", 'kind="program">U008 RTN<',
      'kind="program">T022 RTN<', {}, "T01B: the device's X line shows 'U008 RTN' (program)"),
