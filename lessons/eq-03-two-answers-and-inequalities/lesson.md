@@ -1,7 +1,7 @@
 ---
 id: eq-03
 title: Two answers, and inequalities
-status: draft prose (not yet read by a non-author, abacus or Michael)
+status: draft prose (accuracy: lessons/ACCEPTED; not yet read by Michael)
 setup: BLUE MODE {mode} GOLD DISP FIX 4
 display: FIX 4
 ---

@@ -1,0 +1,41 @@
+# The lessons abacus has accepted for accuracy: the publish list (abacus decision 60; primer #4730).
+#
+# id | accepted (abacus message) | at commit | later changes abacus has seen (message @ commit, latest last)
+#
+# A lesson is published from a pin only if its lesson.md, vectors.txt and fmt-vectors.txt there match
+# the last commit named on its line (the status line aside): `python3 tools/accepted.py --rev PIN`
+# lists those, and names the rest. A change to an accepted lesson goes to abacus; when abacus has seen
+# it, its message and commit are added at the end of the line. Until then the lesson is held back
+# from the pin, not published in its changed form.
+#
+# The 24 lessons of units 0 to 6 were accepted one by one (rpn-01 #4228 ... exp-01 #4546), then all
+# together in all three modes with the decision-56 migration (#4646 at 7f1d58f); that is the line
+# recorded for them. The per-lesson reads are in docs/evidence/.
+rpn-01 | #4646 | 7f1d58f |
+rpn-02 | #4646 | 7f1d58f |
+rpn-03 | #4646 | 7f1d58f |
+num-01 | #4646 | 7f1d58f |
+num-02 | #4646 | 7f1d58f |
+num-03 | #4646 | 7f1d58f |
+num-04 | #4646 | 7f1d58f |
+eq-01 | #4646 | 7f1d58f |
+eq-02 | #4646 | 7f1d58f |
+eq-03 | #4646 | 7f1d58f |
+fn-01 | #4646 | 7f1d58f | #4699 @ 1b92f2e
+fn-02 | #4646 | 7f1d58f | #4699 @ 1b92f2e
+fn-03 | #4646 | 7f1d58f | #4699 @ 1b92f2e
+lin-01 | #4646 | 7f1d58f |
+lin-02 | #4646 | 7f1d58f |
+lin-03 | #4646 | 7f1d58f |
+poly-01 | #4646 | 7f1d58f | #4699 @ 1b92f2e
+poly-02 | #4646 | 7f1d58f |
+poly-03 | #4646 | 7f1d58f |
+poly-04 | #4646 | 7f1d58f |
+exp-01 | #4646 | 7f1d58f |
+exp-02 | #4646 | 7f1d58f |
+exp-03 | #4646 | 7f1d58f |
+exp-04 | #4646 | 7f1d58f |
+trig-01 | #4666 | ad71fb2 |
+trig-02 | #4679 | 132660e |
+trig-03 | #4683 | 25dd486 | #4691 @ f3d5822
+trig-04 | #4691 | f3d5822 | #4699 @ 1b92f2e

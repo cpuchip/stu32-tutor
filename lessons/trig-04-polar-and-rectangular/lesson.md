@@ -1,7 +1,7 @@
 ---
 id: trig-04
 title: Polar and rectangular
-status: draft prose (non-author read taken; not yet read by abacus or Michael)
+status: draft prose (accuracy: lessons/ACCEPTED; not yet read by Michael)
 setup: BLUE MODE {mode} GOLD DISP FIX 4 BLUE ∡MODE DEG
 display: FIX 4
 ---

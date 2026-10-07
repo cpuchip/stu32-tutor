@@ -43,6 +43,10 @@ display: FIX 4
 ---
 ```
 
+- `status:` is `draft prose (accuracy: lessons/ACCEPTED; not yet read by Michael)` until Michael's
+  read; the learning page marks a draft. Acceptance is never written here: lessons/ACCEPTED is the
+  one record of what abacus has accepted, the list the site publishes from, checked by
+  `tools/accepted.py` (a lesson changed since abacus last saw it is held back).
 - `modes:` lists the modes the lesson offers, by the MODE menu's labels (`33s 35s STU`, the
   default). A lesson that offers fewer says why in `modes_reason:`. The page opens in the link's
   mode, else the reader's remembered one, else STU, else `default:`, else the first offered

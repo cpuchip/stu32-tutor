@@ -1,7 +1,7 @@
 ---
 id: rpn-03
 title: The display
-status: draft prose (non-author read taken; not yet read by abacus or Michael)
+status: draft prose (accuracy: lessons/ACCEPTED; not yet read by Michael)
 setup: BLUE MODE {mode} GOLD DISP FIX 4
 display: FIX 4
 ---

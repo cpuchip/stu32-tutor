@@ -1,7 +1,7 @@
 ---
 id: rpn-01
 title: The stack and ENTER
-status: draft prose, for Michael's read (values and keys reviewed by abacus at d70b031)
+status: draft prose (accuracy: lessons/ACCEPTED; not yet read by Michael)
 setup: BLUE MODE {mode} GOLD DISP FIX 4
 display: FIX 4
 ---

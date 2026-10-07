@@ -1,7 +1,7 @@
 ---
 id: lin-03
 title: When a line does not fit
-status: draft prose (non-author read taken; accepted for accuracy by abacus #4460; not yet read by Michael)
+status: draft prose (accuracy: lessons/ACCEPTED; not yet read by Michael)
 setup: BLUE MODE {mode} GOLD DISP FIX 4
 display: FIX 4
 ---
