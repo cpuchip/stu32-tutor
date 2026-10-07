@@ -1,0 +1,11 @@
+# trig-01 degrees and radians: key vectors (the firmware's format). Every example is ours. Each starts
+# MODE33 FIX4 and sets its angle unit (a used core starts in RAD). Values from build/proto/trig01.py.
+A01 | DEG: sin 30 degrees | MODE33 FIX4 DEG 30 SIN | X=0.5
+A02 | continues A01: RAD: sin 30 radians | MODE33 FIX4 DEG 30 SIN RAD 30 SIN | X=-0.9880316240928617899877489072944581
+C01 | 180 degrees to radians: pi | MODE33 FIX4 DEG 180 TORAD | X=3.141592653589793238462643383279503
+C02 | 1 radian to degrees | MODE33 FIX4 DEG 1 TODEG | X=57.29577951308232087679815481410517
+R01 | RAD: sin(pi/6), pi keyed and divided | MODE33 FIX4 DEG RAD PI 6 / SIN | X=0.5
+S01 | arc length: 60 degrees on radius 10: 60 to radians times 10 | MODE33 FIX4 DEG 60 TORAD 10 * | X=10.47197551196597746154214461093168
+E01 | exercise 1: 45 degrees to radians | MODE33 FIX4 DEG 45 TORAD | X=0.7853981633974483096156608458198758
+E02 | exercise 2: 2 radians to degrees | MODE33 FIX4 DEG 2 TODEG | X=114.5915590261646417535963096282103
+E03 | exercise 3: DEG: sin 45 degrees | MODE33 FIX4 DEG DEG 45 SIN | X=0.707106781186547524400844362104849
