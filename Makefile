@@ -4,7 +4,7 @@
 # git archive into build/ (never built in the firmware's own checkout). Its Makefile builds the
 # runners with its own recipes; we add only the trace (tools/trace.c) at link time.
 # On fermion, run it in the gcc:14 container: scripts/check-docker.sh.
-CORE_PIN := 8f304cd
+CORE_PIN := d75fc75
 FIRMWARE ?= ../abacus-firmware
 CORE_DIR := build/core-$(CORE_PIN)
 PYTHON ?= python3
@@ -51,7 +51,7 @@ $(CORE_DIR)/.exported: scripts/export-core.sh
 	scripts/export-core.sh $(FIRMWARE) $(CORE_PIN) $(CORE_DIR)
 
 # build/vectors in the export is the firmware's runner linked with the trace; build/keyrun is ours.
-tools: $(CORE_DIR)/.exported tools/trace.c tools/keyrun.c tools/resolve.c tools/resolve.h tools/report.c tools/report.h tools/device.c tools/device.h tools/keyrun.mk
+tools: $(CORE_DIR)/.exported tools/trace.c tools/keyrun.c tools/resolve.c tools/resolve.h tools/report.c tools/report.h tools/device.c tools/device.h tools/keyrun.mk scripts/export-core.sh
 	$(MAKE) -s -C $(CORE_DIR) build/fmt_vectors
 	$(MAKE) -s -C $(CORE_DIR) build/abn_intel.o build/intel/libbid.a
 	cc -std=c11 -O2 -Wall -Wextra -Werror -I$(CORE_DIR)/core -c tools/trace.c -o build/trace.o

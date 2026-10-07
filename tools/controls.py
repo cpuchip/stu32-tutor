@@ -345,7 +345,7 @@ CONTROLS_FOR["trig-04-polar-and-rectangular"] = [
 CONTROLS_FOR["fn-02-a-table-of-values"] = [
     ("a label's line numbered from the program's top, not its own label", "lesson.md", 'kind="program">U008 RTN<',
      'kind="program">T022 RTN<', {}, "T01B: the device's X line shows 'U008 RTN' (program)"),
-    ("the loop entered without IP", "lesson.md", "GOLD LBL U RCL I BLUE POW IP XEQ Q", "GOLD LBL U RCL I XEQ Q", {},
+    ("the loop entered without IP", "lesson.md", "GOLD LBL U RCL I BLUE POW IP XEQ Q R/S", "GOLD LBL U RCL I XEQ Q R/S", {},
      "T01B: printed keys and vector disagree in 33s mode: DIFF"),
     ("a TABLE row misquoted (q(0) where q(1) is)", "lesson.md", 'kind="row">1.0000 0.0000<', 'kind="row">1.0000 3.0000<',
      {}, "B05: the device's X line shows"),
@@ -364,7 +364,7 @@ CONTROLS_FOR["fn-03-domain"] = [
      "D04: the device's X line shows 'R002 1/x' (program)"),
     ("the wrong error message", "lesson.md", 'v="S03" kind="message">SQRT(NEG)<',
      'v="S03" kind="message">DIVIDE BY 0<', {}, "S03: the device's X line shows 'SQRT(NEG)' (message)"),
-    ("a negative input keyed with − instead of +/−", "lesson.md", "2 +/− XEQ R", "2 − XEQ R", {},
+    ("a negative input keyed with − instead of +/−", "lesson.md", "2 +/− XEQ R\n", "2 − XEQ R\n", {},
      "E01: printed keys and vector disagree in 33s mode"),
     ("GTO . with one dot: the prompt left waiting", "lesson.md", "```keys S07 after=S06\nGOLD GTO . .\n",
      "```keys S07 after=S06\nGOLD GTO .\n", {}, "S07: printed keys and vector disagree in 33s mode"),

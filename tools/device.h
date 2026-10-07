@@ -7,8 +7,9 @@
 #include "app.h"
 #include "calc.h"
 
-/* A fresh device: the core initialised, the app started at time 0, and the graph buffer the device
-   keeps in PSRAM attached (unit 033: without it no graph is drawn). */
+/* A fresh device: the core initialised, the app started at time 0, the graph buffer the device keeps
+   in PSRAM attached (unit 033: without it no graph is drawn), and the app framework's context buffer
+   (APP_CTX_MAX, owned by device.c). */
 void kr_device_init(ab_calc *c, app_state *a, app_graph *g);
 
 /* One key, 100 ms after the last event, with nothing settled after it. */

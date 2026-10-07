@@ -18,6 +18,9 @@ rule with XEQ and that letter. The program uses the stack like any other calcula
 The setup from rpn-01: the mode you chose and FIX 4. This whole lesson is one chain: each example carries on
 from the one before, because a program is entered once and then used.
 
+<mode m="35s,STU">In this mode XEQ and GTO wait, after the label's letter, for ENTER (or a line's
+three digits); the keys below show the ENTER.</mode>
+
 ```keys setup
 BLUE MODE {mode} GOLD DISP FIX 4
 ```
@@ -82,10 +85,13 @@ XEQ runs a program. With no equation showing, it waits for a label. Type the inp
 5 XEQ
 ```
 
-The X line shows <disp v="F02A" kind="prompt">XEQ _</disp>. Press F:
+The X line shows <disp v="F02A" kind="prompt">XEQ _</disp>. Press F<mode m="35s,STU">, then ENTER</mode>:
 
 ```keys F02 after=F02A
 F
+```
+```keys F02 after=F02A mode=35s,STU
+F ENTER
 ```
 
 X shows <disp v="F02">13.0000</disp>: f(5) = 13. Any input works the same way:
@@ -93,11 +99,17 @@ X shows <disp v="F02">13.0000</disp>: f(5) = 13. Any input works the same way:
 ```keys F03 after=F02
 1.5 XEQ F
 ```
+```keys F03 after=F02 mode=35s,STU
+1.5 XEQ F ENTER
+```
 
 X shows <disp v="F03">6.0000</disp>, and a negative one:
 
 ```keys F04 after=F03
 4 +/− XEQ F
+```
+```keys F04 after=F03 mode=35s,STU
+4 +/− XEQ F ENTER
 ```
 
 X shows <disp v="F04">-5.0000</disp>: f(−4) = 2 × (−4) + 3 = −5.
@@ -131,6 +143,9 @@ Then g(3):
 ```keys G02 after=G01
 3 XEQ G
 ```
+```keys G02 after=G01 mode=35s,STU
+3 XEQ G ENTER
+```
 
 X shows <disp v="G02">12.0000</disp>: 3² + 3 = 9 + 3.
 
@@ -155,6 +170,9 @@ Press − in its place, finish the program, and try it:
 ```keys M03 after=M02
 − BLUE RTN GOLD PRGM PRGM 10 XEQ K
 ```
+```keys M03 after=M02 mode=35s,STU
+− BLUE RTN GOLD PRGM PRGM 10 XEQ K ENTER
+```
 
 X shows <disp v="M03">17.0000</disp>: k(10) = 20 − 3.
 
@@ -170,6 +188,9 @@ turn program entry off; F is unchanged:
 
 ```keys D02 after=D01
 C GOLD PRGM PRGM 5 XEQ F
+```
+```keys D02 after=D01 mode=35s,STU
+C GOLD PRGM PRGM 5 XEQ F ENTER
 ```
 
 X shows <disp v="D02">13.0000</disp>, f(5) as before. Programs stay in the calculator until you
@@ -189,6 +210,9 @@ clear them, so for each new function, pick a letter no program uses yet.
    ```keys E01 after=D02
    GOLD PRGM PRGM GOLD LBL H 2 × 5 x↔y − BLUE RTN GOLD PRGM PRGM 4 XEQ H
    ```
+   ```keys E01 after=D02 mode=35s,STU
+   GOLD PRGM PRGM GOLD LBL H 2 × 5 x↔y − BLUE RTN GOLD PRGM PRGM 4 XEQ H ENTER
+   ```
 
    X shows <disp v="E01">-3.0000</disp>: h(4) = 5 − 8.
 
@@ -196,6 +220,9 @@ clear them, so for each new function, pick a letter no program uses yet.
 
    ```keys E02 after=E01
    2 +/− XEQ G
+   ```
+   ```keys E02 after=E01 mode=35s,STU
+   2 +/− XEQ G ENTER
    ```
 
    X shows <disp v="E02">2.0000</disp>: (−2)² + (−2) = 4 − 2.

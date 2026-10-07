@@ -54,3 +54,11 @@ only replaced the copy ENTER left in X; each later coefficient...". The degree d
 "degree 1 (or 0, for a flat line)" confirmed (y = 0 has no degree by convention; not added). The
 supply argument right as amended. The 036b plan for keyrun confirmed, its control (auto-ENTER off
 turns the 35s pass red) due when 036b lands.
+
+## Repin to d75fc75 (2026-10-07): firmware 036b, XEQ and GTO take ENTER
+
+In 35s and STU mode XEQ and GTO now wait, after the label's letter, for ENTER or three digits, at
+the keyboard and in program entry (probed: XEQ F shows XEQ F___; ENTER runs it, and in program entry
+records XEQ F001). 3 keys blocks gained a `mode=35s,STU` variant with the ENTER, and "Before you
+start" says so in those modes; 33s is unchanged.
+`make check` passes in all three modes.

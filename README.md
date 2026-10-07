@@ -13,4 +13,4 @@ Private until Michael sets the curriculum's licence. Everything here is written 
 
 ## Running
 
-`make check` runs every lesson on the firmware's core at `CORE_PIN` (a pushed commit of cpuchip/abacus-firmware, exported with git archive from `../abacus-firmware`). `make controls` proves the check can fail. On fermion, which has no native toolchain for the core: `scripts/check-docker.sh` (or `scripts/check-docker.sh controls`), in the gcc:14 container.
+`make check` runs every lesson on the firmware's core at `CORE_PIN` (a pushed commit of cpuchip/abacus-firmware, exported with git archive from `../abacus-firmware`; the apps its app layer links come from a stu32-arcade clone at `../stu32-arcade`, compiled only, at the firmware's `ARCADE_PIN`). `make controls` proves the check can fail. On fermion, which has no native toolchain for the core: `scripts/check-docker.sh` (or `scripts/check-docker.sh controls`), in the gcc:14 container.

@@ -65,9 +65,12 @@ row's value to X.
 root, W=3.5000, with no stale prompt) FIRED at the repin to 25dca53, as predicted: the 13 SOLVE
 quotes in eq-01..03 failed until they became kind="view", and nothing else moved.
 036 (GTO . . to PRGM TOP) landed at the repin to 7c96617: fn-03 teaches it as the way out of a
-stopped program. 036b (ruled, not landed): in 35s and STU mode XEQ and GTO take a letter then ENTER;
-keyrun will press ENTER after a letter that leaves an XEQ/GTO prompt open (abacus #4470, #4477).
+stopped program. 036b (in 35s and STU mode XEQ and GTO take a letter then ENTER) landed at the
+repin to d75fc75: fn-01..03 and poly-01 carry 35s,STU variants with the ENTER, and say so.
+034 (→POL's θ correctly rounded) landed there too: trig-04's (3, 4) angle is exact, unpinned.
 Re-run fn-03's side vector W01 (docs/evidence/fn-03.md) at every repin: make check does not.
+042 (SOLVE with both guesses on one side of a root, abacus #4683) is not in d75fc75: re-run
+eq-03's A03 (guesses 10 and 20, root 8) at the next repin.
 041 (decision 58, abacus #4645): 33s mode hides what the HP 33s lacked (CMPLX i, vectors, the
 linear solvers, LOGIC, CLEAR's STK, →km/→mile, REG/ARG in equations) and adds the 33s's own (x³/∛x,
 the ENG shifts, MEM, FN=, HYP as a prefix, its equation syntax and 40 constants). Of the lessons,

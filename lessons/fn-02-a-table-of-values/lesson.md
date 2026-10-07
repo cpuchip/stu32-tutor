@@ -20,6 +20,9 @@ the one before. It uses the program entry, labels, XEQ and RTN of fn-01. It ente
 and T, and T has a second label inside it, U, for its loop to jump back to. None of these letters
 is used in fn-01.
 
+<mode m="35s,STU">In this mode XEQ and GTO wait, after the label's letter, for ENTER (or a line's
+three digits); the keys below show the ENTER.</mode>
+
 ```keys setup
 BLUE MODE {mode} GOLD DISP FIX 4
 ```
@@ -46,6 +49,9 @@ Try it on 2:
 
 ```keys Q02 after=Q01
 2 XEQ Q
+```
+```keys Q02 after=Q01 mode=35s,STU
+2 XEQ Q ENTER
 ```
 
 X shows <disp v="Q02">-1.0000</disp>: q(2) = 4 − 8 + 3. And Y holds 2, the input: one of the copies
@@ -86,6 +92,9 @@ After the loop, RTN ends T:
 ```keys T01B after=T01A
 GOLD LBL U RCL I BLUE POW IP XEQ Q R/S BLUE ISG I GOLD GTO U BLUE RTN
 ```
+```keys T01B after=T01A mode=35s,STU
+GOLD LBL U RCL I BLUE POW IP XEQ Q ENTER R/S BLUE ISG I GOLD GTO U ENTER BLUE RTN
+```
 
 The X line shows <disp v="T01B" kind="program">U008 RTN</disp>: lines after a label are numbered from
 that label, so the loop and its RTN are U's lines 1 to 8. Turn program entry off:
@@ -100,6 +109,9 @@ Run T. It stops at the first row:
 
 ```keys T02 after=T01
 XEQ T
+```
+```keys T02 after=T01 mode=35s,STU
+XEQ T ENTER
 ```
 
 X shows <disp v="T02">3.0000</disp> and Y holds 0: q(0) = 3. Press R/S for each next row:
@@ -151,11 +163,17 @@ Halfway on each side of 2:
 ```keys G01 after=T07
 1.5 XEQ Q
 ```
+```keys G01 after=T07 mode=35s,STU
+1.5 XEQ Q ENTER
+```
 
 X shows <disp v="G01">-0.7500</disp>.
 
 ```keys G02 after=G01
 2.5 XEQ Q
+```
+```keys G02 after=G01 mode=35s,STU
+2.5 XEQ Q ENTER
 ```
 
 X shows <disp v="G02">-0.7500</disp> too. Both are above −1 and below 0, and equal, so the curve is
@@ -177,6 +195,9 @@ with a not zero, has this shape, which is called a parabola.
    ```keys E01 after=G02
    1 XEQ Q
    ```
+   ```keys E01 after=G02 mode=35s,STU
+   1 XEQ Q ENTER
+   ```
 
    X shows <disp v="E01">0.0000</disp>.
 
@@ -184,6 +205,9 @@ with a not zero, has this shape, which is called a parabola.
 
    ```keys E02 after=E01
    5 XEQ Q
+   ```
+   ```keys E02 after=E01 mode=35s,STU
+   5 XEQ Q ENTER
    ```
 
    X shows <disp v="E02">8.0000</disp>: q(5) = 25 − 20 + 3, above q(4) = 3, so the curve is still
@@ -193,6 +217,9 @@ with a not zero, has this shape, which is called a parabola.
 
    ```keys E03 after=E02
    2.006 STO I XEQ U
+   ```
+   ```keys E03 after=E02 mode=35s,STU
+   2.006 STO I XEQ U ENTER
    ```
 
    X shows <disp v="E03">-1.0000</disp> with 2 in Y, the row for x = 2. Four more R/S:

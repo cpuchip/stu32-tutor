@@ -20,6 +20,9 @@ The setup from rpn-01: the mode you chose and FIX 4. This lesson is one chain: e
 the one before. It enters two programs, R and S, with the program entry, labels, XEQ and RTN of
 fn-01. R is on the XEQ key and S is on 7; neither letter is used in fn-01 or fn-02.
 
+<mode m="35s,STU">In this mode XEQ and GTO wait, after the label's letter, for ENTER (or a line's
+three digits); the keys below show the ENTER.</mode>
+
 ```keys setup
 BLUE MODE {mode} GOLD DISP FIX 4
 ```
@@ -56,11 +59,17 @@ Try R on 4:
 ```keys D01 after=P01
 4 XEQ R
 ```
+```keys D01 after=P01 mode=35s,STU
+4 XEQ R ENTER
+```
 
 X shows <disp v="D01">0.2500</disp>: r(4) = 1/4. Now try it on 0:
 
 ```keys D02 after=D01
 0 XEQ R
+```
+```keys D02 after=D01 mode=35s,STU
+0 XEQ R ENTER
 ```
 
 The screen shows <disp v="D02" kind="message">DIVIDE BY 0</disp>. One over zero has no value: a
@@ -97,17 +106,26 @@ Try S on 6:
 ```keys S01 after=D05
 6 XEQ S
 ```
+```keys S01 after=D05 mode=35s,STU
+6 XEQ S ENTER
+```
 
 X shows <disp v="S01">2.0000</disp>: s(6) = √4. Now 2:
 
 ```keys S02 after=S01
 2 XEQ S
 ```
+```keys S02 after=S01 mode=35s,STU
+2 XEQ S ENTER
+```
 
 X shows <disp v="S02">0.0000</disp>: s(2) = √0 = 0. Now 1:
 
 ```keys S03 after=S02
 1 XEQ S
+```
+```keys S03 after=S02 mode=35s,STU
+1 XEQ S ENTER
 ```
 
 The screen shows <disp v="S03" kind="message">SQRT(NEG)</disp>: the square root of a negative
@@ -185,6 +203,9 @@ its end does the same, as fn-01 showed: the pointer goes back to the top when a 
    ```keys E01 after=S09
    2 +/− XEQ R
    ```
+   ```keys E01 after=S09 mode=35s,STU
+   2 +/− XEQ R ENTER
+   ```
 
    X shows <disp v="E01">-0.5000</disp>: r(−2) = 1/(−2).
 
@@ -193,6 +214,9 @@ its end does the same, as fn-01 showed: the pointer goes back to the top when a 
    ```keys E02 after=E01
    2.25 XEQ S
    ```
+   ```keys E02 after=E01 mode=35s,STU
+   2.25 XEQ S ENTER
+   ```
 
    X shows <disp v="E02">0.5000</disp>: s(2.25) = √0.25, and 0.5 × 0.5 = 0.25.
 
@@ -200,6 +224,9 @@ its end does the same, as fn-01 showed: the pointer goes back to the top when a 
 
    ```keys E03 after=E02
    1.99 XEQ S
+   ```
+   ```keys E03 after=E02 mode=35s,STU
+   1.99 XEQ S ENTER
    ```
 
    The screen shows <disp v="E03" kind="message">SQRT(NEG)</disp>. Clear it:

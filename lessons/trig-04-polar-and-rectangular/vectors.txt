@@ -1,7 +1,7 @@
 # trig-04 polar and rectangular: key vectors (the firmware's format). Every example is ours. Each
 # starts MODE33 FIX4 DEG (the setup). Values from build/proto/trig04.py with dmath.py.
-P01 | (3, 4) to polar: y ENTER x, ->POL: r in X, angle in Y | MODE33 FIX4 DEG 4 ENTER 3 TOPOL | X=5 Y=53.13010235415597870314438744090658
-P02 | continues P01: x<>y brings the angle down | MODE33 FIX4 DEG 4 ENTER 3 TOPOL XY | X=53.13010235415597870314438744090658 Y=5
+P01 | (3, 4) to polar: y ENTER x, ->POL: r in X, angle in Y | MODE33 FIX4 DEG 4 ENTER 3 TOPOL | X=5 Y=53.13010235415597870314438744090659
+P02 | continues P01: x<>y brings the angle down | MODE33 FIX4 DEG 4 ENTER 3 TOPOL XY | X=53.13010235415597870314438744090659 Y=5
 Q01 | (-3, 4): ->POL finds the angle in the right place | MODE33 FIX4 DEG 4 ENTER 3 CHS TOPOL XY | X=126.8698976458440212968556125590934
 Q02 | ATAN of 4 / -3 alone gives the angle on the wrong side | MODE33 FIX4 DEG 4 ENTER 3 CHS / ATAN | X=-53.13010235415597870314438744090658
 R01 | polar (10, 30 degrees) to rectangular: angle ENTER r, ->REC: x in X, y in Y | MODE33 FIX4 DEG 30 ENTER 10 TOREC | X=8.660254037844386467637231707529362 Y=5

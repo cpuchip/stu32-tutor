@@ -13,9 +13,9 @@ atan with the quadrant placed (atan2), →REC by r cos θ and r sin θ, each rou
 | E01, E01B | (−5, −12) →POL: r, θ | 13.0000, -112.6199 (exact: -112.6198649480404261729490108766797) |
 | E02, E02B | (2, 135°) →REC: x, y | -1.4142, 1.4142 |
 
-(3, 4)'s θ on this core is 0.93 units below the correctly rounded truth (…659): the pin 8f304cd
-predates unit 034, which made →POL's θ correctly rounded (abacus #4685: on 734bb48 it is exact). Pinned
-within 2 units now; exact at the next repin.
+(3, 4)'s θ at 8f304cd was 0.93 units below the correctly rounded truth (…659), a pin that predates
+unit 034, which made →POL's θ correctly rounded (abacus #4685). From the repin to d75fc75 it is exact:
+P01, P02 and D-P02 now assert …659, and nothing is pinned.
 
 ## Sources and probes
 
@@ -32,6 +32,13 @@ why x = r cos θ (the point is r times as far out as trig-03's P); "the centre" 
 r = √(x² + y²) stated, squaring removing signs; ATAN's range said to be new here and where its −53.1301
 points (3, −4), with "add 180"; "correct side" for "right side"; the back-reference moved from fn-02's
 x and q axes to trig-03; the angle unit mentioned.
+
+## Accuracy read (abacus, #4691)
+
+Accepted, every value and statement. On (1): a point on the negative x axis gives 180, not −180, so
+"from −180 to 180" holds only read as −180 < θ ≤ 180; "Say 'up to and including 180' if it's quoted."
+Taken: "from just above −180 up to and including 180 degrees (a point straight left gets 180, never
+−180)". Probed at d75fc75: 0 ENTER 1 CHS →POL and 0 CHS ENTER 1 CHS →POL both give 180 after x<>y.
 
 ## Checks
 

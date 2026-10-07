@@ -21,6 +21,9 @@ The setup from rpn-01: the mode you chose and FIX 4. The worked example in "On t
 step carrying on from the one before, and so is the program and its runs. Everything else starts
 fresh.
 
+<mode m="35s,STU">In this mode XEQ and GTO wait, after the label's letter, for ENTER (or a line's
+three digits); the keys below show the ENTER.</mode>
+
 ```keys setup
 BLUE MODE {mode} GOLD DISP FIX 4
 ```
@@ -110,12 +113,18 @@ Now any value is a number and XEQ P. p(1.5):
 ```keys P02 after=P01
 1.5 XEQ P
 ```
+```keys P02 after=P01 mode=35s,STU
+1.5 XEQ P ENTER
+```
 
 X shows <disp v="P02">1.0000</disp>: 2 × 3.375 − 3 × 2.25 + 4 × 1.5 − 5 is 6.75 − 6.75 + 6 − 5. And
 p(−1):
 
 ```keys P03 after=P02
 1 +/− XEQ P
+```
+```keys P03 after=P02 mode=35s,STU
+1 +/− XEQ P ENTER
 ```
 
 X shows <disp v="P03">-14.0000</disp>: −2 − 3 − 4 − 5.
@@ -151,6 +160,9 @@ coefficients in order are 1, 0, −2 and 1, and r(x) = ((1x + 0)x − 2)x + 1.
 
    ```keys E02 after=E02A
    GOLD PRGM PRGM 0.5 XEQ N
+   ```
+   ```keys E02 after=E02A mode=35s,STU
+   GOLD PRGM PRGM 0.5 XEQ N ENTER
    ```
 
    X shows <disp v="E02">0.1250</disp>: 0.125 − 1 + 1.

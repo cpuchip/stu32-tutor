@@ -79,8 +79,9 @@ X shows <disp v="Q02">-53.1301</disp>. Like ASIN in trig-03, ATAN answers only b
 degrees, and a ratio cannot tell (−3, 4) from (3, −4): 4 ÷ −3 and −4 ÷ 3 are the same number. So
 ATAN's −53.1301 points at (3, −4), down and to the right; for a point on the left you would have to
 add 180 yourself. →POL knows the signs of both coordinates, so it puts the angle on the correct side
-without that. Its angles run from −180 to 180 degrees: a point below the x axis gets a negative
-angle, and adding 360 gives the same direction between 0 and 360 (trig-03).
+without that. Its angles run from just above −180 up to and including 180 degrees (a point straight
+left gets 180, never −180): a point below the x axis gets a negative angle, and adding 360 gives
+the same direction between 0 and 360 (trig-03).
 
 ## Polar to rectangular
 
