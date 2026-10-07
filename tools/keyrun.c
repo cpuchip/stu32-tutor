@@ -27,6 +27,7 @@
 
 extern FILE *trace_out;
 extern int trace_token;
+extern long trace_lines;
 abn_status __real_ab_do_arg(ab_calc *c, ab_op op, int arg);
 
 #define MAX_OPS 4096
@@ -64,7 +65,19 @@ static void settle(app_state *a)
 
 static void press(app_state *a, int key)
 {
+    /* On the 35s a key with a message showing only clears it (unit 017 rule 4). The app layer does
+       that itself, without an op; the runner sends the key's op and the core applies the same rule.
+       So a key the app took that way is logged as its op (the state image then checks the two
+       agree), as trace.c does for ab_view_key. */
+    const km_action *act = km_lookup(key, a->shift);
+    bool m35_msg = a->c->msg && a->c->m35 && act->kind == KM_OP &&
+                   !(getenv("KEYRUN_FAULT") && strcmp(getenv("KEYRUN_FAULT"), "no-m35-rule") == 0);
+    long before = trace_lines;
     app_key(a, key, now += 100);
+    if (m35_msg && !a->c->msg && trace_lines == before && trace_out) {
+        fprintf(trace_out, "%d %d %d\n", act->op, act->arg, trace_token);
+        trace_lines++;
+    }
     settle(a);
 }
 

@@ -93,7 +93,30 @@ root of 27 as a power:
 27 ENTER .1.3 yˣ
 ```
 
-X holds 3, the same as the ˣ√y example. The ˣ√y key says what you mean more directly.
+X holds 3, the same as the ˣ√y example.
+
+There is one thing ˣ√y can do that yˣ cannot: take an odd root of a negative number. The cube root
+of −8 is −2, because (−2)³ is −8:
+
+```keys R07C
+8 +/− ENTER 3 GOLD ˣ√y
+```
+
+X holds −2. Try the same thing as a power of one third:
+
+```keys R07D
+8 +/− ENTER .1.3 yˣ
+```
+
+The screen shows <disp v="R07D" kind="message">INVALID yˣ</disp>: yˣ refuses a negative number raised
+to a fractional power. Nothing was lost. Press C to clear the message:
+
+```keys R07E after=R07D
+C
+```
+
+X shows <disp v="R07E">0.3333</disp>, the third you typed, and Y still holds −8, just as they were
+before the yˣ.
 
 ## The order of two powers
 

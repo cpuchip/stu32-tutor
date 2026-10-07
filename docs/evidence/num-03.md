@@ -61,3 +61,15 @@ that the root key states the intent more directly; the probe kept a false reason
 `make check` at 867ddd5: 18/18 vectors and 21/21 expectations in 33s and 35s, from a fresh and a
 used core; 19 keys blocks, 18 of 18 shown, pressed in both modes; 7 displays quoted; worked
 through in order.
+
+## After acceptance: the reason x-root exists (abacus #4306)
+
+Abacus probed what the lesson had left open: on 867ddd5, in 33s and 35s mode, -8 ENTER .1.3 y^x is
+an error (X left at the exponent), while -8 ENTER 3 x-root gives -2. That is a true reason for the
+x-root key, so the lesson now teaches it with vectors: R07C (-2), R07D (the error; the device's X
+line shows the message INVALID y^x, quoted as kind message), R07E (continuing: C clears it, X 1/3
+and Y -8 as they were). The 35s run first failed on R07E: on the 35s the app layer takes a key
+pressed over a message and clears the message itself, with no op, while the runner sends the C and
+the core applies the same rule. keyrun now logs such a key as its op when a 35s message was showing
+and no op went out, and the state image then confirms the two agree (control: KEYRUN_FAULT=
+no-m35-rule turns R07E red again).

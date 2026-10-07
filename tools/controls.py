@@ -156,6 +156,12 @@ CONTROLS_FOR["num-01-order-of-operations"] = [
      "```keys N08T after=N08S\n+ GOLD x² ×\n", "```keys N08T\n2 ENTER 3 ENTER 4 ENTER 1 + GOLD x² ×\n", {},
      "N08T: working through in order, Y holds"),
 ]
+CONTROLS_FOR["num-03-powers-and-roots"] = [
+    ("the 35s message rule taken out of keyrun (KEYRUN_FAULT=no-m35-rule)", None, None, None,
+     {"KEYRUN_FAULT": "no-m35-rule"}, "R07E: printed keys and vector disagree in 35s mode: DIFF"),
+    ("a quoted error message the screen does not show", "lesson.md", 'kind="message">INVALID yˣ<',
+     'kind="message">INVALID ˣ√y<', {}, "R07D: the device's X line shows 'INVALID yˣ' (message)"),
+]
 CONTROLS_FOR["rpn-03-the-display"].append(
     ("an example that relies on a setting the one before it changed", "lesson.md",
      "```keys P01\nGOLD DISP FIX 4 2 ENTER 3 ÷\n", "```keys P01\n2 ENTER 3 ÷\n", {},

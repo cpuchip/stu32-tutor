@@ -13,6 +13,7 @@
 
 FILE *trace_out;
 int trace_token = -1;           /* keyrun: the prose token being pressed, for the report */
+long trace_lines;               /* lines logged so far: keyrun tells whether a key reached the core */
 
 abn_status __real_ab_do_arg(ab_calc *c, ab_op op, int arg);
 void __real_ab_memory_clear(ab_calc *c);
@@ -22,7 +23,7 @@ static int depth;
 
 abn_status __wrap_ab_do_arg(ab_calc *c, ab_op op, int arg)
 {
-    if (trace_out && depth == 0) fprintf(trace_out, "%d %d %d\n", (int)op, arg, trace_token);
+    if (trace_out && depth == 0) { fprintf(trace_out, "%d %d %d\n", (int)op, arg, trace_token); trace_lines++; }
     depth++;
     abn_status st = __real_ab_do_arg(c, op, arg);
     depth--;
@@ -37,7 +38,7 @@ bool __real_ab_view_key(ab_calc *c, int op);
 bool __wrap_ab_view_key(ab_calc *c, int op)
 {
     bool taken = __real_ab_view_key(c, op);
-    if (taken && op >= 0 && trace_out && depth == 0) fprintf(trace_out, "%d 0 %d\n", op, trace_token);
+    if (taken && op >= 0 && trace_out && depth == 0) { fprintf(trace_out, "%d 0 %d\n", op, trace_token); trace_lines++; }
     return taken;
 }
 

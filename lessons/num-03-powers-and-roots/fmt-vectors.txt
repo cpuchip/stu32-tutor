@@ -2,6 +2,7 @@
 # device's default).
 D-R03 | after R03 | 1024 | FIX 4 | w=21 | 1,024.0000
 D-R06 | after R06 | 0.125 | FIX 4 | w=21 | 0.1250
+D-R07E | after R07E | 0.3333333333333333333333333333333333 | FIX 4 | w=21 | 0.3333
 D-R09 | after R09 | 512 | FIX 4 | w=21 | 512.0000
 D-R10 | after R10 | 1000 | FIX 4 | w=21 | 1,000.0000
 D-R11 | after R11 | 0.125 | FIX 4 | w=21 | 0.1250

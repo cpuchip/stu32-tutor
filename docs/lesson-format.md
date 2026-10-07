@@ -110,6 +110,9 @@ not apply to the file is reported as an error, not counted as a pass.
 - The words around an example are not checked against it. A machine check cannot tell that an
   explanation of correct keys is wrong; the non-author read exists for that (rpn-01's first draft
   said each x used a copy T dropped, and none did).
+- Two device paths that skip the core are logged as the op the core would have received, and the
+  state image confirms each: a key taken by the VIEW rule (ab_view_key), and a key pressed over a
+  35s message (the app clears it with no op).
 - Core entry points other than `ab_do_arg`, `ab_memory_clear` and `ab_eqn_add` (UNDO's state
   load, VIEW, an interrupt) are not traced; only the state image sees what they change, and fields
   the image leaves out (overflow, the device's slice and budget) are not compared.

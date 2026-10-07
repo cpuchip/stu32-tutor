@@ -8,6 +8,9 @@ R05 | the cube root of 27: x-root takes the X-th root of Y | MODE33 FIX4 27 ENTE
 R06 | a negative power: 2 to the -3 is 1/8 | MODE33 FIX4 2 ENTER 3 CHS POW | X=0.125
 R07 | a root as a power: 16 to the 1/2 is 4 | MODE33 FIX4 16 ENTER .5 POW | X=4
 R07B | a third as a power, typed as a fraction: 27 to the 1/3 | MODE33 FIX4 27 ENTER .1.3 POW | X=3
+R07C | x-root takes an odd root of a negative number: the cube root of -8 (abacus #4306) | MODE33 FIX4 8 CHS ENTER 3 XROOT | X=-2
+R07D | y^x cannot: -8 to the power 1/3 is an error, the numbers left in place | MODE33 FIX4 8 CHS ENTER .1.3 POW | ERR X=0.3333333333333333333333333333333333 Y=-8
+R07E | continues R07D: C clears the message, the numbers as they were | MODE33 FIX4 8 CHS ENTER .1.3 POW C | ERR X=0.3333333333333333333333333333333333 Y=-8
 R08 | (2 cubed) squared | MODE33 FIX4 2 ENTER 3 POW 2 POW | X=64
 R09A | inside R09, before the powers: 2 waits in Z, 3 in Y, 2 in X | MODE33 FIX4 2 ENTER 3 ENTER 2 | X=2 Y=3 Z=2
 R09B | continues R09A: the first y^x works 3 squared, leaving 9 in X and the 2 back in Y | MODE33 FIX4 2 ENTER 3 ENTER 2 POW | X=9 Y=2
