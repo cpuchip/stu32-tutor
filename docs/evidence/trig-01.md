@@ -44,7 +44,7 @@ exercise's sine left in radians; all red.
 
 ## Non-author read (2026-10-07)
 
-No wrong mathematics; eleven findings, all taken. The largest: the unit was described as if it
+No wrong mathematics; eleven findings, ten taken. The largest: the unit was described as if it
 governed every angle calculation, when it governs how SIN and the other angle functions read X; the
 lesson now says setting RAD converts nothing and →RAD and →DEG work the same whatever the unit
 (which the checker's in-order run shows: a student who works through reaches C01, C02, S01, E01
