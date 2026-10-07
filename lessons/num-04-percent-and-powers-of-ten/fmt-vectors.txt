@@ -1,0 +1,14 @@
+# num-04 display vectors: D-Cnn is what X shows after key vector Cnn, at FIX 2.
+D-C02 | after C02 | 92 | FIX 2 | w=21 | 92.00
+D-C04 | after C04 | 30 | FIX 2 | w=21 | 30.00
+D-C05 | after C05 | -25 | FIX 2 | w=21 | -25.00
+D-C06 | after C06: too small for two places | 0.004 | FIX 2 | w=21 | 4.00E-3
+D-C06B | after C06B | -4000 | FIX 2 | w=21 | -4,000.00
+D-C07 | after C07 | 2400 | FIX 2 | w=21 | 2,400.00
+D-C09 | after C09 | 3E-8 | FIX 2 | w=21 | 3.00E-8
+D-C08 | after C08: too big for FIX 2 | 8E21 | FIX 2 | w=21 | 8.00E21
+D-E01 | after E01 | 30 | FIX 2 | w=21 | 30.00
+D-E02 | after E02 | 15 | FIX 2 | w=21 | 15.00
+D-E03 | after E03 | 100000 | FIX 2 | w=21 | 100,000.00
+D-E04 | after E04 | 48 | FIX 2 | w=21 | 48.00
+D-E05 | after E05 | 33.33333333333333333333333333333333 | FIX 2 | w=21 | 33.33

@@ -1,0 +1,19 @@
+# num-04 percent and powers of ten: key vectors (the firmware's format). Every example is ours.
+# Each starts MODE33 FIX2 (the lesson's setup). Values: exact fractions (docs/evidence/num-04.md).
+C00 | % leaves the stack where it was: 15% of 80 with 1 and 2 above | MODE33 FIX2 1 ENTER 2 ENTER 80 ENTER 15 PCT | X=12 Y=80 Z=2 T=1
+C01 | 15% of 80: % works X percent of Y and keeps Y | MODE33 FIX2 80 ENTER 15 PCT | X=12 Y=80
+C02 | continues C00: + adds the 12 to the 80 kept in Y | MODE33 FIX2 1 ENTER 2 ENTER 80 ENTER 15 PCT + | X=92 Y=2
+C03 | 25% off 60: the discount, then subtract it | MODE33 FIX2 60 ENTER 25 PCT - | X=45
+C04 | percent change from 50 to 65, Y kept | MODE33 FIX2 50 ENTER 65 PCTCHG | X=30 Y=50
+C05 | percent change from 80 down to 60 | MODE33 FIX2 80 ENTER 60 PCTCHG | X=-25
+C06 | a power of ten typed with a negative exponent: 4 E -3 | MODE33 FIX2 4 E 3 CHS ENTER | X=0.004
+C06B | +/- before E makes the front number negative instead | MODE33 FIX2 4 CHS E 3 ENTER | X=-4000
+C07 | 6 E 5 times 4 E -3 | MODE33 FIX2 6 E 5 ENTER 4 E 3 CHS * | X=2400
+C09 | 9 E -6 divided by 3 E 2 | MODE33 FIX2 9 E 6 CHS ENTER 3 E 2 / | X=3E-8
+C08 | 3.2 E 12 times 2.5 E 9: too big for FIX 2, shown in scientific form | MODE33 FIX2 3.2 E 12 ENTER 2.5 E 9 * | X=8E21
+# Exercises
+E01 | exercise 1: 12% of 250 | MODE33 FIX2 250 ENTER 12 PCT | X=30
+E02 | exercise 2: the change from 40 to 46 | MODE33 FIX2 40 ENTER 46 PCTCHG | X=15
+E03 | exercise 3: 2.5 E 6 times 4 E -2 | MODE33 FIX2 2.5 E 6 ENTER 4 E 2 CHS * | X=100000
+E04 | exercise 4: 20% off 60 | MODE33 FIX2 60 ENTER 20 PCT - | X=48
+E05 | exercise 5: the change from 60 back up to 80 | MODE33 FIX2 60 ENTER 80 PCTCHG | X=33.33333333333333333333333333333333

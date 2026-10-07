@@ -52,7 +52,14 @@ so the units that use them run in STU mode (setup `BLUE MODE STU`), and check.py
 support then. Units 3 to 7 keep `TABLE:` notes and gain `GRAPH:` notes where a graph is drawn by
 hand, to swap in when those units land. STU's parser (031): powers right to left (2^3^2 = 512;
 33s and 35s keep 64), and implied multiplication (2A, 2(3)) ranked as a typed x, so 1/2A is A/2
-and 1/(2A) needs brackets. Lessons in 33s mode are unaffected.
+and 1/(2A) needs brackets. Lessons in 33s mode are unaffected. With implied multiplication the longest known name wins (ALOG( is 10^x, not A x LOG(; ASIN( is the arcsine); a number never follows implicitly (A2 is a syntax error); no implied x across a space (abacus #4321). STU lessons write x wherever a name could hide a product.
+
+What GRAPH will do (abacus-firmware work/033-graph.md at efaf424, per abacus #4315; describe in
+`GRAPH:` notes, quote no screen until it lands): it plots the equation shown in Equation mode
+against TABLE's variable (Y=expr plots expr); the default X window is -10 to 10 with Y fitted to the
+curve; the arrow keys trace along it, and ENTER copies the traced value to X; 1/X draws no wall at
+its asymptote. STU only, like TABLE (032), whose rows are start + k x step, with ENTER copying a
+row's value to X.
 
 ## What this asks of others
 
