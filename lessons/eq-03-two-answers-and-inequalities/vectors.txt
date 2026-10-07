@@ -1,0 +1,13 @@
+# eq-03 two answers and inequalities: key vectors (the firmware's format). Every example is ours.
+# Each starts MODE33 FIX4 (the lesson's setup). > in an equation steps out of a function's brackets.
+A01 | abs(x - 3) = 5 typed: ABS types ABS( and the right arrow steps out | MODE33 FIX4 EQN ABS RCL:X - 3 > = 5 ENTER | %EQ=ABS(X-3)=5
+A02 | continues A01: 8 checks: left minus right is 0 | MODE33 FIX4 EQN ABS RCL:X - 3 > = 5 ENTER XEQ 8 RS | X=0
+A03 | continues A02: guesses 10 (in X) and 20 (on the X line): SOLVE finds 8 | MODE33 FIX4 EQN ABS RCL:X - 3 > = 5 ENTER XEQ 8 RS 10 STO:X 20 EQN SOLVE:X | X=8 @X=8
+A04 | continues A03: guesses 0 and -10: SOLVE finds -2 | MODE33 FIX4 EQN ABS RCL:X - 3 > = 5 ENTER XEQ 8 RS 10 STO:X 20 EQN SOLVE:X 0 STO:X 10 CHS EQN SOLVE:X | X=-2 @X=-2
+B01 | 2x + 3 < 11: the boundary 2x + 3 = 11, and a test value 0: left minus right is -8 | MODE33 FIX4 EQN 2 * RCL:X + 3 = 11 ENTER XEQ 0 RS | X=-8
+B02 | continues B01: test 5: left minus right is 2 | MODE33 FIX4 EQN 2 * RCL:X + 3 = 11 ENTER XEQ 0 RS EQN XEQ 5 RS | X=2
+# Exercises
+E01 | exercise 1: abs(x + 1) = 4 from guesses 0 and 10 (EQN first leaves Equation mode, so the guesses are not typed into the equation) | MODE33 FIX4 EQN ABS RCL:X + 1 > = 4 ENTER EQN 0 STO:X 10 EQN SOLVE:X | X=3 @X=3
+E01B | continues E01: from guesses 0 and -10 | MODE33 FIX4 EQN ABS RCL:X + 1 > = 4 ENTER EQN 0 STO:X 10 EQN SOLVE:X 0 STO:X 10 CHS EQN SOLVE:X | X=-5 @X=-5
+E02 | exercise 2: 3x - 6 > 0: the boundary by SOLVE | MODE33 FIX4 EQN 3 * RCL:X - 6 = 0 ENTER SOLVE:X | X=2 @X=2
+E02B | continues E02: test 4: left minus right is 6, positive | MODE33 FIX4 EQN 3 * RCL:X - 6 = 0 ENTER SOLVE:X EQN XEQ 4 RS | X=6
