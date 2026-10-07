@@ -48,7 +48,10 @@ display: FIX 4
   (`STO A`).
 - A quoted display is `<disp v="Snn">text</disp>`. A screen line that is not a value (a VIEW's
   `B=49.75`) is `<disp v="Snn" kind="view">text</disp>`, checked against the device's X line
-  (text and kind) since no display vector covers it.
+  (text and kind) since no display vector covers it. The kinds are view, prompt, message and entry
+  (a number still being typed shows with its cursor: 7_). A quoted value's display vector may carry
+  `w=21`, the device's X-line width (firmware/screen.c FMT_WIDTH); the runner's default of 22
+  agrees with the device only for short values.
 - No em-dashes (the house voice, external-voice skill). No child is ever named.
 
 ## What `make check` proves

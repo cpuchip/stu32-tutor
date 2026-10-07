@@ -59,3 +59,18 @@ display) and a gap in check.py's screen-word list ("showed" was missing; added, 
 blocks, 11 of 11 vectors shown, pressed in both modes; 11 displays quoted, each verified at its
 example's final setting and on the device's X line. Controls: rpn-03 2/2 red, 1/1 green (rpn-01
 30/30 and 4/4, rpn-02 5/5 and 1/1).
+
+## Abacus's accuracy read (#4278, 2026-10-06)
+
+Arithmetic, rounding and E-notation passed; ENG's wording matches the 33s manual, per abacus. One
+fix: my sentence that a number typed after the setting's digit pushes X up was false after ENTER
+or CLx. FIX, SCI, ENG and ALL are neutral for stack lift (33s p.B-4, per abacus, who probed both
+modes). The lesson now says the setting does not touch the stack, backed by P00 (1 ENTER 2 ENTER
+FIX 2 7 leaves X 7, Y 2, Z 1). My first quote for P00, 7.00, was itself false: the device shows
+7_, the number still being typed, and the screen-line check failed it. It is quoted as kind entry.
+
+The width question, answered: the screen line is the final text, formatted at FMT_WIDTH 21
+(firmware/screen.c at 867ddd5, read). Quoted displays may carry w=21; two thirds at ALL is quoted
+again (P08B, 0.6666666666666666667, 19 digits), and a control shows that quoting the runner's
+width-22 text fails on the device's line. After the fixes: 13/13 vectors, 13 displays quoted,
+rpn-03 controls 3/3 red and 1/1 green.

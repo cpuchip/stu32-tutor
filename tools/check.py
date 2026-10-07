@@ -35,7 +35,8 @@ SHOWS = re.compile(r"\b(shows?|showed|showing|shown|displays?|displayed|screen|r
 FENCE = re.compile(r"^[ \t]*(```|~~~)(.*)$", re.M)
 # A used calculator: every variable A-Z holds 7, RAD, the stack full, lift enabled, LAST x 6.
 DIRTY = " ".join(["RAD"] + [f"7 STO:{v}" for v in "ABCDEFGHIJKLMNOPQRSTUVWXYZ"] + "9 ENTER 8 ENTER 7 ENTER 6 SQRT".split())
-MAX_EXPECT = 64                                 # the runner keeps no more than this per vector
+DEVICE_WIDTH = "w=21"                           # the X line's width on the device (screen.c FMT_WIDTH)
+MAX_EXPECT = 64                                # the runner keeps no more than this per vector
 EM_DASH = ("\u2014", "&mdash;", "&#8212;", "&#x2014;", "&#X2014;")
 
 
@@ -253,8 +254,11 @@ class Lesson:
                 self.bad(f"D-{vid}: the prose shows '{shown_text}', the display vector '{f[5]}'")
             if f[3] != ends_at.get(vid, want):
                 self.bad(f"D-{vid}: display vector at '{f[3]}', vector {vid} ends at '{ends_at.get(vid, want)}'")
-            if f[4]:
-                self.bad(f"D-{vid}: display options '{f[4]}'; a quoted display uses the device's defaults")
+            # The device formats X at 21 cells (firmware/screen.c FMT_WIDTH, "ours, v0"); the display
+            # runner's default is 22, which agrees for short values only. The screen-line comparison
+            # below is the backstop if FMT_WIDTH changes.
+            if f[4] not in ("", DEVICE_WIDTH):
+                self.bad(f"D-{vid}: display options '{f[4]}'; a quoted display uses the device's ('{DEVICE_WIDTH}' or none)")
             v = byid.get(vid)
             xs = re.findall(r"(?:^|\s)X=(\S+)", v[1][3]) if v else []
             if not xs or xs[-1] != f[2]:

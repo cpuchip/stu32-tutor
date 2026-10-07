@@ -21,8 +21,17 @@ BLUE MODE 33s GOLD DISP FIX 4
 ```
 
 The display settings live in the DISP menu (gold, then 2). Its soft keys are FIX, SCI, ENG and
-ALL. FIX, SCI and ENG each take one digit next. After that digit, the next digit you type starts a
-new number and pushes X up, as it would after an operation.
+ALL. FIX, SCI and ENG each take one digit next.
+
+Changing the setting does not touch the stack. A number you type next behaves just as it would
+have without the change: after ENTER, it still replaces the copy in X.
+
+```keys P00
+1 ENTER 2 ENTER GOLD DISP FIX 2 7
+```
+
+X shows <disp v="P00" kind="entry">7_</disp>, the 7 still being typed, with Y holding 2 and Z
+holding 1: the same as 1 ENTER 2 ENTER 7 would leave them.
 
 A display setting stays until you change it. Each example below is written out in full from the
 setup, so if you have just changed the setting, an example that needs FIX 4 sets it again.
@@ -120,8 +129,15 @@ ALL shows a number without padding it to a fixed number of places. One eighth is
 1 ENTER 8 ÷ GOLD DISP ALL
 ```
 
-X shows <disp v="P08">0.125</disp>. ALL is still limited by the width of the screen: a number that
-never ends, like two thirds, fills the line with as many digits as fit.
+X shows <disp v="P08">0.125</disp>. ALL is still limited by the width of the screen. A number that
+never ends, like two thirds, fills the line with as many digits as fit:
+
+```keys P08B
+2 ENTER 3 ÷ GOLD DISP ALL
+```
+
+X shows <disp v="P08B">0.6666666666666666667</disp>, which is 19 of the 34 digits the
+calculator keeps, the last one rounded.
 
 ## Exercises
 
