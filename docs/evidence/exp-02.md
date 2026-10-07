@@ -42,3 +42,8 @@ lesson's own (1 + r/n)ⁿ.
 `make check`: 13/13 vectors in 33s, 35s and STU, from a fresh and a used core; 14 keys blocks.
 Controls: a monthly rate keyed without ÷ 12, 10ˣ for eˣ, the limit quoted to more places than FIX 4
 shows; all red.
+
+## Abacus's accuracy read (#4646, 2026-10-07)
+
+Accepted at 7f1d58f (24/24 in 33s, 35s and STU). mpmath confirms 1061.6778, 1061.8313, 1061.8365 and the sixth-decimal difference (2.7182804… against
+2.7182818…); statements (1)-(4) right.

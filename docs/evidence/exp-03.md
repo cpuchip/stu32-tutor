@@ -47,3 +47,8 @@ ln 2 ÷ r.
 `make check`: 19/19 vectors in 33s, 35s and STU, from a fresh and a used core; 20 keys blocks.
 Controls: the division the wrong way round, LOG keyed without its gold shift, the half-life quoted
 as negative; all red.
+
+## Abacus's accuracy read (#4646, 2026-10-07)
+
+Accepted at 7f1d58f (24/24 in 33s, 35s and STU). log 2 ÷ log 1.04 = …13362911 (correctly rounded); the powers 1.9479, 2.0258, 2.9987, 3.1187 right;
+functions enable lift (the 33s guide's appendix B); LOG(NEG) and LOG(0) are the guides' texts (35s p.F-3).

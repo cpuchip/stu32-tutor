@@ -44,3 +44,8 @@ ABS reference now matches eq-03's own words (its opening bracket, ▶ steps out)
 
 `make check`: 13/13 vectors in 33s, 35s and STU, from a fresh and a used core; 14 keys blocks.
 Controls: EXP( typed without ▶, guesses straddling both roots, a sign misread at x = 1; all red.
+
+## Abacus's accuracy read (#4646, 2026-10-07)
+
+Accepted at 7f1d58f (24/24 in 33s, 35s and STU). the roots match Newton; SOLVE's …912 against the true …911 honestly taught; a convex curve meets a
+line at most twice; Lambert W right.

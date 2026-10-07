@@ -42,3 +42,8 @@ badly, not failing to follow it. A third exercise added for the root.
 
 `make check`: 8/8 vectors in 33s and 35s, from a fresh and a used core; 9 keys blocks; 8 quotes.
 Controls: 4% growth keyed as a factor of 0.04, 15% loss as 1.15, the decay quoted as halfway; all red.
+
+## Abacus's accuracy read (#4546, 2026-10-07)
+
+Accepted at c0480c4. The values checked; modelling each operation rounded once is the right oracle
+(E01: 2000 × the rounded 1.03²⁵); statements (1)-(4) right.
