@@ -15,6 +15,8 @@ graph from it by hand.
 
 <!-- TABLE: firmware unit 032 adds a TABLE key that lists the rows start + k × step for the
 equation shown, with ENTER copying a row's value to X (abacus #4294). It is an STU-mode feature.
+Use exact decimal steps (0.25, 0.5, 0.1): a step of 1/3 adds up its rounding, so from -1 the third
+row is -1E-34, not 0 (abacus #4390), unless a lesson teaches that on purpose.
 When it lands, a short section here shows the same table from TABLE, and the loop program below is
 kept as the programming lesson it also is. -->
 
@@ -53,10 +55,9 @@ Try it on 2:
 2 XEQ Q
 ```
 
-X shows <disp v="Q02">-1.0000</disp>: q(2) = 4 − 8 + 3. And Y holds 2, the input. The third copy of
-x rode in Z: it came down to Y when − used the stack, went back up when 3 was typed, and came down
-to Y again at +. So when Q finishes, the input and the output sit side by side, which is just what a
-table needs.
+X shows <disp v="Q02">-1.0000</disp>: q(2) = 4 − 8 + 3. And Y holds 2, the input: one of the copies
+the two ENTERs made is left over. So when Q finishes, the input sits in Y beside the output in X,
+which is just what a table needs.
 
 ## A loop
 
