@@ -295,6 +295,14 @@ CONTROLS_FOR["exp-02-the-number-e"] = [
     ("the limit quoted as e to more places than FIX 4 shows", "lesson.md", 'v="L03">2.7183<', 'v="L03">2.71828<', {},
      "D-L03: the prose shows '2.71828'"),
 ]
+CONTROLS_FOR["exp-03-logarithms"] = [
+    ("the division the wrong way round (log 1.04 ÷ log 2)", "lesson.md", "```keys S01\n2 GOLD LOG 1.04 GOLD LOG ÷\n",
+     "```keys S01\n1.04 GOLD LOG 2 GOLD LOG ÷\n", {}, "S01: printed keys and vector disagree in 33s mode"),
+    ("LOG keyed without its gold shift", "lesson.md", "```keys L01\n1000 GOLD LOG\n", "```keys L01\n1000 LOG\n", {},
+     "'LOG': no key has that legend on its face"),
+    ("the half-life quoted as negative", "lesson.md", 'v="H01">6.5788<', 'v="H01">-6.5788<', {},
+     "D-H01: the prose shows '-6.5788'"),
+]
 CONTROLS_FOR["fn-02-a-table-of-values"] = [
     ("a label's line numbered from the program's top, not its own label", "lesson.md", 'kind="program">U008 RTN<',
      'kind="program">T022 RTN<', {}, "T01B: the device's X line shows 'U008 RTN' (program)"),

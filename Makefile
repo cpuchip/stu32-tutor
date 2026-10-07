@@ -40,6 +40,7 @@ controls: tools
 	$(PYTHON) tools/controls.py --core $(CORE_DIR) lessons/poly-04-complex-roots
 	$(PYTHON) tools/controls.py --core $(CORE_DIR) lessons/exp-01-growth-and-decay
 	$(PYTHON) tools/controls.py --core $(CORE_DIR) lessons/exp-02-the-number-e
+	$(PYTHON) tools/controls.py --core $(CORE_DIR) lessons/exp-03-logarithms
 
 $(CORE_DIR)/.exported: scripts/export-core.sh
 	scripts/export-core.sh $(FIRMWARE) $(CORE_PIN) $(CORE_DIR)

@@ -1,0 +1,21 @@
+# exp-03 logarithms: key vectors (the firmware's format). Every example is ours. Each starts MODE33
+# FIX4 (the lesson's setup). Values from build/proto/exp03.py, modelling each key's rounding.
+L01 | log of 1000: 10^3 = 1000 | MODE33 FIX4 1000 LOG | X=3
+L02 | log of 2 | MODE33 FIX4 2 LOG | X=0.301029995663981195213738894724493
+L03 | continues L02: 10^x undoes LOG | MODE33 FIX4 2 LOG TENX | X=2
+N01 | ln of 2, the power of e that gives 2 | MODE33 FIX4 2 LN | X=0.6931471805599453094172321214581766
+N02 | continues N01: e^x undoes LN | MODE33 FIX4 2 LN EXP | X=2
+S01 | 1.04^n = 2: n = log 2 / log 1.04 | MODE33 FIX4 2 LOG 1.04 LOG / | X=17.67298768512971317198964813362911
+S02 | the check: 1.04 to that power | MODE33 FIX4 1.04 ENTER 2 LOG 1.04 LOG / POW | X=2
+S03 | the same with LN: ln 2 / ln 1.04 | MODE33 FIX4 2 LN 1.04 LN / | X=17.67298768512971317198964813362911
+Y17 | paid yearly: after 17 payments, not yet double | MODE33 FIX4 1.04 ENTER 17 POW | X=1.947900495556280004114342958491238
+Y18 | after 18 payments, past double | MODE33 FIX4 1.04 ENTER 18 POW | X=2.025816515378531204278916676830888
+V01 | LOG refuses 0: LOG(0) | MODE33 FIX4 0 LOG | ERR
+V01B | continues V01: C clears it | MODE33 FIX4 0 LOG C | ERR
+H01 | a factor 0.9 an hour: half after ln 0.5 / ln 0.9 hours | MODE33 FIX4 0.5 LN 0.9 LN / | X=6.578813478960583783089551597250317
+C01 | continuous 6%: e^(0.06 t) = 2: t = ln 2 / 0.06 | MODE33 FIX4 2 LN 0.06 / | X=11.55245300933242182362053535763628
+E01 | exercise 1: tripling at 4% a year: ln 3 / ln 1.04 | MODE33 FIX4 3 LN 1.04 LN / | X=28.01102275663738732724673988938811
+E01B | continues E01: 1.04^28, short of 3 | MODE33 FIX4 3 LN 1.04 LN / 1.04 ENTER 28 POW | X=2.998703319182265203051666511151358
+E01C | continues E01B: 1.04^29, past 3 | MODE33 FIX4 3 LN 1.04 LN / 1.04 ENTER 28 POW 1.04 ENTER 29 POW | X=3.118651451949555811173733171597412
+E02 | exercise 2: losing 20% a day, half after ln 0.5 / ln 0.8 days | MODE33 FIX4 0.5 LN 0.8 LN / | X=3.106283719505389876002398491783575
+E03 | exercise 3: continuous 3%: doubling time ln 2 / 0.03 | MODE33 FIX4 2 LN 0.03 / | X=23.10490601866484364724107071527255
