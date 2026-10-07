@@ -29,6 +29,18 @@ abn_status __wrap_ab_do_arg(ab_calc *c, ab_op op, int arg)
     return st;
 }
 
+/* The app hands a key to the core's VIEW rule through ab_view_key, which may take the key (clear
+   the view, do nothing else) without an op. The runner sends the same key as an op, and
+   ab_do_arg applies the same rule inside the core. So a key the rule takes is logged as its op. */
+bool __real_ab_view_key(ab_calc *c, int op);
+
+bool __wrap_ab_view_key(ab_calc *c, int op)
+{
+    bool taken = __real_ab_view_key(c, op);
+    if (taken && op >= 0 && trace_out && depth == 0) fprintf(trace_out, "%d 0 %d\n", op, trace_token);
+    return taken;
+}
+
 /* Entry points that change the core without an op: logged so a comparison that meets one fails
    by name instead of passing on a stream that missed it. */
 void __wrap_ab_memory_clear(ab_calc *c)

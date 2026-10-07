@@ -215,14 +215,20 @@ class Lesson:
 
         # 4. Quoted displays: beside their example, on the device's screen, verified by the formatter.
         fmt_by = {f[0]: f[1] for f in fmts}
+
+        def spelled(tok):                       # FIX4 -> "FIX 4", the display vectors' form
+            m = SETTING.match(tok)
+            return f"{m.group(1)} {m.group(2)}" if m.group(1) else "ALL"
+
+        # Every vector starts at the setup's setting; a lesson may change it within an example
+        # (rpn-03 does), and a quoted display is judged at the setting its own example ends in.
         if len(settings) > 1:
-            self.bad(f"the vectors set {len(settings)} display settings; a lesson keeps one")
-        want = ""
-        if settings:
-            m = SETTING.match(sorted(settings)[0])
-            want = f"{m.group(1)} {m.group(2)}" if m.group(1) else "ALL"
+            self.bad(f"the vectors start at {len(settings)} display settings; the setup sets one")
+        want = spelled(sorted(settings)[0]) if settings else ""
         if meta.get("display") and meta["display"] != want:
             self.bad(f"front matter `display: {meta['display']}`, but the vectors set {want}")
+        ends_at = {v[0]: spelled([t for t in v[1][2].split() if SETTING.match(t)][-1])
+                   for v in vectors if any(SETTING.match(t) for t in v[1][2].split())}
         quotes = list(DISP.finditer(body))
         if body.count("<disp") != len(quotes):
             self.bad(f"{body.count('<disp')} <disp tags, {len(quotes)} of the checked form <disp v=\"ID\">text</disp>")
@@ -245,8 +251,8 @@ class Lesson:
                 continue
             if f[5] != shown_text:
                 self.bad(f"D-{vid}: the prose shows '{shown_text}', the display vector '{f[5]}'")
-            if f[3] != want:
-                self.bad(f"D-{vid}: display vector at '{f[3]}', the vectors set '{want}'")
+            if f[3] != ends_at.get(vid, want):
+                self.bad(f"D-{vid}: display vector at '{f[3]}', vector {vid} ends at '{ends_at.get(vid, want)}'")
             if f[4]:
                 self.bad(f"D-{vid}: display options '{f[4]}'; a quoted display uses the device's defaults")
             v = byid.get(vid)

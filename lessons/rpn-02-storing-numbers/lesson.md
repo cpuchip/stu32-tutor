@@ -55,14 +55,20 @@ RCL can also do the arithmetic. Press RCL, then ×, then A, and X is multiplied 
 0.0825 STO A 40 RCL × A
 ```
 
-The answer is the same, with one key fewer. RCL with − or ÷ works X minus A, or X divided by A. Here
-it takes 10 from 25:
+The answer is the same. RCL with − or ÷ works X minus A, or X divided by A. Here it takes 10 from
+25:
 
 ```keys V03A
 10 STO A 25 RCL − A
 ```
 
-X holds 15.
+X holds 15. And here it divides 10 by 4:
+
+```keys V03B
+4 STO A 10 RCL ÷ A
+```
+
+X holds 2.5.
 
 ## Variables are not on the stack
 
@@ -101,6 +107,14 @@ the last purchase. The view stays until your next key, and that key also does it
 ```keys V06B
 0 STO B 12.5 STO + B 7.25 STO + B 30 STO + B GOLD VIEW B 5
 ```
+
+The two exceptions are ← and C, which only clear the view and change nothing else:
+
+```keys V06C
+0 STO B 12.5 STO + B 7.25 STO + B 30 STO + B GOLD VIEW B ←
+```
+
+X still holds 30.
 
 ## Using stored numbers more than once
 

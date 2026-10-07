@@ -4,12 +4,12 @@
 # git archive into build/ (never built in the firmware's own checkout). Its Makefile builds the
 # runners with its own recipes; we add only the trace (tools/trace.c) at link time.
 # On fermion, run it in the gcc:14 container: scripts/check-docker.sh.
-CORE_PIN := f839cb9
+CORE_PIN := 867ddd5
 FIRMWARE ?= ../abacus-firmware
 CORE_DIR := build/core-$(CORE_PIN)
 PYTHON ?= python3
 TRACE_O := $(abspath build/trace.o)
-WRAP := -Wl,--wrap=ab_do_arg -Wl,--wrap=ab_memory_clear -Wl,--wrap=ab_eqn_add
+WRAP := -Wl,--wrap=ab_do_arg -Wl,--wrap=ab_memory_clear -Wl,--wrap=ab_eqn_add -Wl,--wrap=ab_view_key
 LESSONS ?= $(wildcard lessons/*/)
 
 .PHONY: check controls tools clean

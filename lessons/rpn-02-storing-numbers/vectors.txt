@@ -5,10 +5,12 @@ V01 | STO A keeps a copy of X in the variable A; X keeps its number | MODE33 FIX
 V02 | RCL A brings it back: the tax at 8.25% on 40 | MODE33 FIX2 0.0825 STO:A 40 RCL:A * | X=3.3 @A=0.0825
 V03 | recall arithmetic: RCL then x then A multiplies X by A in one step | MODE33 FIX2 0.0825 STO:A 40 RCL*:A | X=3.3 Y=0.0825 @A=0.0825
 V03A | RCL - A works X minus A: 25 minus 10 | MODE33 FIX2 10 STO:A 25 RCL-:A | X=15 @A=10
+V03B | RCL / A works X divided by A: 10 divided by 4 (abacus #4268) | MODE33 FIX2 4 STO:A 10 RCL/:A | X=2.5 @A=4
 V04 | a stored number is untouched by work on the stack | MODE33 FIX2 9 STO:C 1 ENTER 2 + RCL:C | X=9 Y=3 @C=9
 V05 | a running total: store 0, then STO + adds X into B | MODE33 FIX2 0 STO:B 12.5 STO+:B 7.25 STO+:B 30 STO+:B | X=30 @B=49.75
 V06 | VIEW shows a variable without touching the stack | MODE33 FIX2 0 STO:B 12.5 STO+:B 7.25 STO+:B 30 STO+:B VIEW:B | X=30 @B=49.75
 V06B | after VIEW, the next key does its own job: 5 is typed and the stack lifts | MODE33 FIX2 0 STO:B 12.5 STO+:B 7.25 STO+:B 30 STO+:B VIEW:B 5 | X=5 Y=30 @B=49.75
+V06C | the exception: after VIEW, the backspace key only clears the view (33s manual p.3-3; abacus #4268) | MODE33 FIX2 0 STO:B 12.5 STO+:B 7.25 STO+:B 30 STO+:B VIEW:B BKSP | X=30 @B=49.75
 V07 | a formula with two stored numbers: a rectangle 3.5 by 12 | MODE33 FIX2 3.5 STO:W 12 STO:L RCL:L RCL:W * | X=42 @W=3.5 @L=12
 V08 | the same W and L, reused: the perimeter 2 x (L + W) | MODE33 FIX2 3.5 STO:W 12 STO:L RCL:L RCL:W + 2 * | X=31 @W=3.5 @L=12
 # Exercises

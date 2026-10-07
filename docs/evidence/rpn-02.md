@@ -65,3 +65,18 @@ fresh core and from a used one (every variable A-Z holding 7, so no example lean
 variable); 13 keys blocks, 12 of 12 vectors shown, pressed in both modes; 6 displays quoted, each
 on the device's X line. `make controls`: rpn-01 30/30 red and 4/4 green; rpn-02 5/5 red and 1/1
 green.
+
+## Abacus's accuracy read (#4268) and the repin to 867ddd5
+
+Three fixes, all taken: "with one key fewer" was false (RCL A x and RCL x A are both three
+presses), struck; RCL / now has a lesson vector (V03B, 4 STO A 10 RCL / A = 2.5) in place of the
+probe; after VIEW, the backspace and C keys only clear the view (33s manual p.3-3 per abacus), now
+said and backed by V06C. CORE_PIN moved to 867ddd5 at abacus's word (unit 027 reorganized MODE);
+both lessons pass there unchanged.
+
+V06C found a gap in the trace (instrument: keyrun). On the device's path, app.c hands the key to
+the core's VIEW rule through ab_view_key, which takes it without an op; the runner sends the same
+key as an op and the core applies the same rule inside ab_do_arg. Before the fix, V06C failed
+(DIFF: the vector's backspace op had no match on the key path; with the backspace dropped from
+the vector, the state differed instead). tools/trace.c now also wraps ab_view_key and logs a key
+it takes as that key's op; V06C then passes on ops and on state, in both modes.
