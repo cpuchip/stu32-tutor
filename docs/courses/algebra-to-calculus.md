@@ -61,6 +61,10 @@ curve; the arrow keys trace along it, and ENTER copies the traced value to X; 1/
 its asymptote. STU only, like TABLE (032), whose rows are start + k x step, with ENTER copying a
 row's value to X.
 
+**Repin watches (firmware units that will change quoted screens):** 035 makes SOLVE end by
+viewing the root (W=3.5000) and clears its stale prompt (abacus #4346); eq-01 and eq-02 quote SOLVE
+results as values today and will fail at that repin until their quotes become kind="view".
+
 ## What this asks of others
 
 - **abacus:** each lesson's accuracy read, as for rpn-01. Whether GRAPH/TABLE are planned before

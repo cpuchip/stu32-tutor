@@ -1,0 +1,15 @@
+# eq-02 formulas: key vectors (the firmware's format). Every example is ours. Each starts MODE33
+# FIX4 (the lesson's setup). Values: exact fractions (docs/evidence/eq-02.md).
+S01A | A = L x W, SOLVE W: it asks for A first | MODE33 FIX4 EQN RCL:A = RCL:L * RCL:W ENTER SOLVE:W | %STOP=INPUT:A
+S01B | continues S01A: A = 42, then it asks for L | MODE33 FIX4 EQN RCL:A = RCL:L * RCL:W ENTER SOLVE:W 42 RS | %STOP=INPUT:L @A=42
+S01 | continues S01B: L = 12, and W = 42 / 12 = 3.5 | MODE33 FIX4 EQN RCL:A = RCL:L * RCL:W ENTER SOLVE:W 42 RS 12 RS | X=3.5 @W=3.5 @L=12 @A=42
+S01V | continues S01: VIEW A shows the 42 typed at SOLVE's prompt was stored | MODE33 FIX4 EQN RCL:A = RCL:L * RCL:W ENTER SOLVE:W 42 RS 12 RS VIEW:A | X=3.5 @A=42
+S02A | continues S01V: the same formula, SOLVE L asks for A, showing the 42 it holds | MODE33 FIX4 EQN RCL:A = RCL:L * RCL:W ENTER SOLVE:W 42 RS 12 RS VIEW:A EQN SOLVE:L | %STOP=INPUT:A X=42
+S02B | continues S02A: R/S keeps 42, then it asks for W | MODE33 FIX4 EQN RCL:A = RCL:L * RCL:W ENTER SOLVE:W 42 RS 12 RS VIEW:A EQN SOLVE:L RS | %STOP=INPUT:W
+S02 | continues S02B: R/S keeps 3.5, and L = 12 | MODE33 FIX4 EQN RCL:A = RCL:L * RCL:W ENTER SOLVE:W 42 RS 12 RS VIEW:A EQN SOLVE:L RS RS | X=12 @L=12
+T01A | F = 1.8 C + 32, SOLVE C: it asks only for F | MODE33 FIX4 EQN RCL:F = 1.8 * RCL:C + 32 ENTER SOLVE:C | %STOP=INPUT:F
+T01 | continues T01A: F = 98.6, and C = 37 | MODE33 FIX4 EQN RCL:F = 1.8 * RCL:C + 32 ENTER SOLVE:C 98.6 RS | X=37 @C=37
+T02 | continues T01: SOLVE F for C = 100 | MODE33 FIX4 EQN RCL:F = 1.8 * RCL:C + 32 ENTER SOLVE:C 98.6 RS EQN SOLVE:F 100 RS | X=212 @F=212
+# Exercises
+E01 | exercise 1: D = R x T, T for D = 150 and R = 60 (D asked first: R first would give 0.4) | MODE33 FIX4 EQN RCL:D = RCL:R * RCL:T ENTER SOLVE:T 150 RS 60 RS | X=2.5 @T=2.5
+E02 | exercise 2: the temperature where F and C agree, F = -40 | MODE33 FIX4 EQN RCL:F = 1.8 * RCL:C + 32 ENTER SOLVE:C 40 CHS RS | X=-40 @C=-40
