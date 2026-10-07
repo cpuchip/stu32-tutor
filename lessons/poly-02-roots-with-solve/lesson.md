@@ -1,7 +1,7 @@
 ---
 id: poly-02
 title: Roots with SOLVE
-status: draft prose (non-author read taken; not yet read by abacus or Michael)
+status: draft prose (non-author read taken; accepted for accuracy by abacus #4486; not yet read by Michael)
 setup: BLUE MODE 33s GOLD DISP FIX 4
 display: FIX 4
 ---

@@ -251,6 +251,14 @@ CONTROLS_FOR["poly-02-roots-with-solve"] = [
     ("x² + 1 quoted as having a root", "lesson.md", 'v="N01" kind="message">NO ROOT FND<',
      'v="N01" kind="view">X=0.0000<', {}, "N01: the device's X line shows 'NO ROOT FND' (message)"),
 ]
+CONTROLS_FOR["poly-03-the-quadratic-formula"] = [
+    ("b stored without its sign", "lesson.md", "```keys Q01\n1 STO A 4 +/− STO B 3 STO C\n",
+     "```keys Q01\n1 STO A 4 STO B 3 STO C\n", {}, "Q01: printed keys and vector disagree in 33s mode"),
+    ("dividing by 2 instead of 2a in the exercise", "lesson.md", "```keys E01B after=E01\nRCL B +/− RCL D √x + 2 RCL A × ÷\n",
+     "```keys E01B after=E01\nRCL B +/− RCL D √x + 2 ÷\n", {}, "E01B: printed keys and vector disagree in 33s mode"),
+    ("a negative discriminant's refusal misquoted", "lesson.md", 'v="N02" kind="message">SQRT(NEG)<',
+     'v="N02" kind="message">INVALID DATA<', {}, "N02: the device's X line shows 'SQRT(NEG)' (message)"),
+]
 CONTROLS_FOR["fn-02-a-table-of-values"] = [
     ("a label's line numbered from the program's top, not its own label", "lesson.md", 'kind="program">U008 RTN<',
      'kind="program">T022 RTN<', {}, "T01B: the device's X line shows 'U008 RTN' (program)"),

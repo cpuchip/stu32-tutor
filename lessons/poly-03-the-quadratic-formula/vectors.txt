@@ -1,0 +1,15 @@
+# poly-03 the quadratic formula: key vectors (the firmware's format). Every example is ours. Each
+# starts MODE33 FIX4 (the lesson's setup). N02 takes the root of a negative on purpose, hence ERR.
+Q01 | q: a = 1, b = -4, c = 3 stored | MODE33 FIX4 1 STO:A 4 CHS STO:B 3 STO:C | X=3 @A=1 @B=-4 @C=3
+Q02A | continues Q01: stopped after RCL A: a in X, 4 in Y, b^2 = 16 in Z | MODE33 FIX4 1 STO:A 4 CHS STO:B 3 STO:C RCL:B SQ 4 RCL:A | X=1 Y=4 Z=16
+Q02 | continues Q02A: x, RCL C, x, -: b^2 - 4ac, kept in D | MODE33 FIX4 1 STO:A 4 CHS STO:B 3 STO:C RCL:B SQ 4 RCL:A * RCL:C * - STO:D | X=4 @D=4
+Q03 | continues Q02: (-b + sqrt D) / 2a | MODE33 FIX4 1 STO:A 4 CHS STO:B 3 STO:C RCL:B SQ 4 RCL:A * RCL:C * - STO:D RCL:B CHS RCL:D SQRT + 2 RCL:A * / | X=3
+Q04 | continues Q03: (-b - sqrt D) / 2a | MODE33 FIX4 1 STO:A 4 CHS STO:B 3 STO:C RCL:B SQ 4 RCL:A * RCL:C * - STO:D RCL:B CHS RCL:D SQRT + 2 RCL:A * / RCL:B CHS RCL:D SQRT - 2 RCL:A * / | X=1
+Z01 | x^2 - 6x + 9: the discriminant is 0 | MODE33 FIX4 1 STO:A 6 CHS STO:B 9 STO:C RCL:B SQ 4 RCL:A * RCL:C * - STO:D | X=0 @D=0
+Z02 | continues Z01: one root, 3 | MODE33 FIX4 1 STO:A 6 CHS STO:B 9 STO:C RCL:B SQ 4 RCL:A * RCL:C * - STO:D RCL:B CHS RCL:D SQRT + 2 RCL:A * / | X=3
+N01 | x^2 + 2x + 5: the discriminant is -16 | MODE33 FIX4 1 STO:A 2 STO:B 5 STO:C RCL:B SQ 4 RCL:A * RCL:C * - STO:D | X=-16 @D=-16
+N02 | continues N01: its square root is refused: SQRT(NEG) | MODE33 FIX4 1 STO:A 2 STO:B 5 STO:C RCL:B SQ 4 RCL:A * RCL:C * - STO:D RCL:B CHS RCL:D SQRT | ERR
+N03 | continues N02: C clears it; the -16 is still in X | MODE33 FIX4 1 STO:A 2 STO:B 5 STO:C RCL:B SQ 4 RCL:A * RCL:C * - STO:D RCL:B CHS RCL:D SQRT C | ERR X=-16
+E01 | exercise: 2x^2 + 3x - 2: the discriminant | MODE33 FIX4 2 STO:A 3 STO:B 2 CHS STO:C RCL:B SQ 4 RCL:A * RCL:C * - STO:D | X=25 @D=25
+E01B | continues E01: the + root | MODE33 FIX4 2 STO:A 3 STO:B 2 CHS STO:C RCL:B SQ 4 RCL:A * RCL:C * - STO:D RCL:B CHS RCL:D SQRT + 2 RCL:A * / | X=0.5
+E01C | continues E01B: the - root | MODE33 FIX4 2 STO:A 3 STO:B 2 CHS STO:C RCL:B SQ 4 RCL:A * RCL:C * - STO:D RCL:B CHS RCL:D SQRT + 2 RCL:A * / RCL:B CHS RCL:D SQRT - 2 RCL:A * / | X=-2

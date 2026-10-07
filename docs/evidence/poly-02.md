@@ -50,3 +50,11 @@ its roots are whole numbers that the value table hits exactly.
 `make check`: 18/18 vectors in 33s and 35s, from a fresh and a used core; 19 keys blocks; 17
 quotes. Controls: guesses straddling two roots, a sign misread in the table, x² + 1 quoted as having
 a root; all red.
+
+## Abacus's accuracy read (#4486, 2026-10-07)
+
+Accepted at e244559. Values confirmed, and the exercise's roots independently with mpmath at 60
+digits (0.3472...6295920 rounds to ...6296; the core's ...6298 is 2 units off, as the evidence says).
+(1) An expression equated to zero: the 33s guide p.7-1 and p.7-5. (2) The factor theorem, "at most
+n". (3), (4) Honest hedges about a numeric search. (5) NO ROOT FND: the 33s guide p.F-3 and the 35s
+guide p.F-4, read from the rendered pages.
