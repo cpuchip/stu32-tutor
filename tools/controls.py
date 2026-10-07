@@ -224,6 +224,16 @@ CONTROLS_FOR["lin-02-lines-through-data"] = [
     ("Σ− taken as removing the last point, whatever its values", "lesson.md", "```keys W02A after=W01\n11 ENTER 5 GOLD Σ−\n",
      "```keys W02A after=W01\nGOLD Σ−\n", {}, "W02A: printed keys and vector disagree in 33s mode"),
 ]
+CONTROLS_FOR["lin-03-when-a-line-does-not-fit"] = [
+    ("q(2) keyed as 1, its sign lost", "lesson.md", "0 ENTER 1 Σ+ 1 +/− ENTER 2 Σ+", "0 ENTER 1 Σ+ 1 ENTER 2 Σ+", {},
+     "Q01: printed keys and vector disagree in 33s mode"),
+    ("the curve's r quoted as a weak rising fit", "lesson.md", 'v="Q02">0.0000<', 'v="Q02">0.3000<', {},
+     "D-Q02: the prose shows '0.3000'"),
+    ("the doubling estimate quoted as the doubling", "lesson.md", 'v="E01D">34.0000<', 'v="E01D">64.0000<', {},
+     "D-E01D: the prose shows '64.0000'"),
+    ("flat data's r quoted as 0 instead of the refusal", "lesson.md", 'v="F01" kind="message">STAT ERROR<',
+     'v="F01">0.0000<', {}, "F01: working through in order, X shows 'STAT ERROR' (message)"),
+]
 CONTROLS_FOR["fn-02-a-table-of-values"] = [
     ("a label's line numbered from the program's top, not its own label", "lesson.md", 'kind="program">U008 RTN<',
      'kind="program">T022 RTN<', {}, "T01B: the device's X line shows 'U008 RTN' (program)"),

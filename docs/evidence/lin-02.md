@@ -51,3 +51,12 @@ the chain sentence made exact; the seedling's speeding growth noted.
 `make check`: 17/17 vectors in 33s and 35s, from a fresh and a used core; 18 keys blocks; 17
 quotes, each on the device and again in the in-order run. Controls: a point entered x first, the
 sums not cleared first, r quoted with the falling set's sign, Σ− without the point's values; all red.
+
+## Abacus's accuracy read (#4446, 2026-10-06)
+
+Every value recomputed in exact fractions and matched (the doubled point's m is 79/40). One fix:
+"near 0 ... or lie on a flat line" was wrong, since points exactly on a flat line have no r (0 ÷ 0;
+STAT ERROR, probed by abacus and by me on 25dca53; the 33s guide's STAT ERROR entry is p.F-4). Our
+own lin-03 read had found the same. Now "spread along a flat line" for near 0, and a sentence that
+exactly flat points have no r, which lin-03 shows with a vector (F01). Statements (1)-(5) otherwise
+confirmed; the sums also survive power-off, and CLEAR ALL clears them (not claimed).

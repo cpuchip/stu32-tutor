@@ -1,0 +1,16 @@
+# lin-03 display vectors: D-nnn is what X shows after key vector nnn, at FIX 4.
+D-Q01 | after Q01 | 5 | FIX 4 | w=21 | 5.0000
+D-Q02 | after Q02 | 0 | FIX 4 | w=21 | 0.0000
+D-Q03 | after Q03 | 0 | FIX 4 | w=21 | 0.0000
+D-Q04 | after Q04 | 1 | FIX 4 | w=21 | 1.0000
+D-Q05 | after Q05 | 1 | FIX 4 | w=21 | 1.0000
+D-P01 | after P01 | 1 | FIX 4 | w=21 | 1.0000
+D-P02 | after P02 | 2 | FIX 4 | w=21 | 2.0000
+D-P03 | after P03 | 3 | FIX 4 | w=21 | 3.0000
+D-F02 | after F02 | 3 | FIX 4 | w=21 | 3.0000
+D-F03 | after F03 | 0 | FIX 4 | w=21 | 0.0000
+D-F04 | after F04 | 4 | FIX 4 | w=21 | 4.0000
+D-E01 | after E01 | 0.9332565252573827415251642949128384 | FIX 4 | w=21 | 0.9333
+D-E01B | after E01B | -2 | FIX 4 | w=21 | -2.0000
+D-E01C | after E01C | 12.4 | FIX 4 | w=21 | 12.4000
+D-E01D | after E01D | 34 | FIX 4 | w=21 | 34.0000

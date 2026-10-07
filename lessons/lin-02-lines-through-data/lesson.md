@@ -90,8 +90,9 @@ BLUE L.R. r
 
 X shows <disp v="D05">0.9851</disp>. r is always between −1 and 1, and it has the same sign as the
 slope. Near 1, the points lie close to a rising line; near −1, close to a falling one. Near 0, they
-show no rise or fall a line can follow: they may be scattered, or lie on a flat line, or on a curve
-that rises and falls (lin-03 has one). 0.9851 says the seedling's points lie very close to their
+show no rise or fall a line can follow: they may be scattered, or spread along a flat line, or on
+a curve that rises and falls (lin-03 has one). Points exactly on a flat line have no r at all, as
+lin-03 shows. 0.9851 says the seedling's points lie very close to their
 rising line.
 
 ## Estimating
