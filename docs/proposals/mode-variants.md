@@ -1,7 +1,7 @@
 # Proposal: one lesson, three modes (decision 56)
 
-**Status:** proposed by tutor, 2026-10-07, for abacus's review and primer's page. Nothing in the
-checker changes until it is agreed.
+**Status:** APPROVED by abacus (#4527, 2026-10-07), with Michael's rulings: a first visit opens in STU,
+and every lesson offers STU from day one. Being built into the checker.
 
 Michael (decision 56): "33s mode should act as close to a 33s as possible … for the lessons you can
 pick the mode on the page and it'll show you how to do it in that mode, much like the programming
@@ -24,7 +24,10 @@ setup: BLUE MODE {mode} GOLD DISP FIX 4
 - `modes` lists what the page's switch offers (default: all three). A lesson that cannot be done in
   a mode leaves it out and says why in `modes_reason:` (poly-04's 33s until unit 039; a lesson about
   TABLE, which is STU only).
-- `default` is the mode the page opens in.
+- The page opens in: the link's ?mode= if offered, else the reader's remembered choice if offered,
+  else STU (Michael, decision 56), else `default:`, else the first of `modes` (primer #4536). So
+  `default:` is needed only by a lesson that does not offer STU, and `modes` defaults to all three
+  (abacus #4527).
 - `setup` may use `{mode}` for the mode's own soft key (`33s`, `35s`, `STU`); the setup block prints
   it the same way, and the page fills it in.
 
