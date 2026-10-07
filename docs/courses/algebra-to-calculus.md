@@ -71,6 +71,9 @@ repin to d75fc75: fn-01..03 and poly-01 carry 35s,STU variants with the ENTER, a
 Re-run fn-03's side vector W01 (docs/evidence/fn-03.md) at every repin: make check does not.
 042 (SOLVE with both guesses on one side of a root, abacus #4683) is not in d75fc75: re-run
 eq-03's A03 (guesses 10 and 20, root 8) at the next repin.
+Field check 8 (abacus #4764): typed entry counts leading zeros toward the 34 digits (0.0000 then
+34 digits keeps 29), while rpn-03's "keeps 34 significant digits of every number" is true of
+results. If the field check leaves it so, a later lesson on typing long numbers says it.
 041 (decision 58, abacus #4645): 33s mode hides what the HP 33s lacked (CMPLX i, vectors, the
 linear solvers, LOGIC, CLEAR's STK, →km/→mile, REG/ARG in equations) and adds the 33s's own (x³/∛x,
 the ENG shifts, MEM, FN=, HYP as a prefix, its equation syntax and 40 constants). Of the lessons,

@@ -12,29 +12,29 @@
 # together in all three modes with the decision-56 migration (#4646 at 7f1d58f); that is the line
 # recorded for them. The per-lesson reads are in docs/evidence/.
 rpn-01 | #4646 | 7f1d58f |
-rpn-02 | #4646 | 7f1d58f |
-rpn-03 | #4646 | 7f1d58f |
+rpn-02 | #4646 | 7f1d58f | #4764 @ 9a26e28
+rpn-03 | #4646 | 7f1d58f | #4764 @ 9a26e28
 num-01 | #4646 | 7f1d58f |
-num-02 | #4646 | 7f1d58f |
-num-03 | #4646 | 7f1d58f |
+num-02 | #4646 | 7f1d58f | #4764 @ 9a26e28
+num-03 | #4646 | 7f1d58f | #4764 @ 9a26e28
 num-04 | #4646 | 7f1d58f |
 eq-01 | #4646 | 7f1d58f |
-eq-02 | #4646 | 7f1d58f |
+eq-02 | #4646 | 7f1d58f | #4764 @ 9a26e28
 eq-03 | #4646 | 7f1d58f |
-fn-01 | #4646 | 7f1d58f | #4744 @ 1b92f2e
-fn-02 | #4646 | 7f1d58f | #4744 @ 1b92f2e
-fn-03 | #4646 | 7f1d58f | #4744 @ 1b92f2e
+fn-01 | #4646 | 7f1d58f | #4744 @ 1b92f2e, #4764 @ 9a26e28
+fn-02 | #4646 | 7f1d58f | #4744 @ 1b92f2e, #4764 @ 9a26e28
+fn-03 | #4646 | 7f1d58f | #4744 @ 1b92f2e, #4764 @ 9a26e28
 lin-01 | #4646 | 7f1d58f |
 lin-02 | #4646 | 7f1d58f |
-lin-03 | #4646 | 7f1d58f |
-poly-01 | #4646 | 7f1d58f | #4744 @ 1b92f2e
-poly-02 | #4646 | 7f1d58f |
+lin-03 | #4646 | 7f1d58f | #4764 @ 9a26e28
+poly-01 | #4646 | 7f1d58f | #4744 @ 1b92f2e, #4764 @ 9a26e28
+poly-02 | #4646 | 7f1d58f | #4764 @ 9a26e28
 poly-03 | #4646 | 7f1d58f |
-poly-04 | #4646 | 7f1d58f |
-exp-01 | #4646 | 7f1d58f |
+poly-04 | #4646 | 7f1d58f | #4764 @ 9a26e28
+exp-01 | #4646 | 7f1d58f | #4764 @ 9a26e28
 exp-02 | #4646 | 7f1d58f |
 exp-03 | #4646 | 7f1d58f |
-exp-04 | #4646 | 7f1d58f |
+exp-04 | #4646 | 7f1d58f | #4764 @ 9a26e28
 trig-01 | #4666 | ad71fb2 |
 trig-02 | #4679 | 132660e |
 trig-03 | #4683 | 25dd486 | #4744 @ f3d5822
