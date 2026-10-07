@@ -1,0 +1,22 @@
+# num-01 order of operations: key vectors (the firmware's format). Every example is ours. Each
+# starts MODE33 FIX4 (the lesson's setup). Exact values: Python fractions (docs/evidence/num-01.md).
+N01 | 3 + 4 x 5: the multiplication first, with the 3 waiting on the stack | MODE33 FIX4 3 ENTER 4 ENTER 5 * + | X=23
+N01A | inside N01, just before x: the 3 waits in Z | MODE33 FIX4 3 ENTER 4 ENTER 5 | X=5 Y=4 Z=3
+N01B | the same, from the inside out: 4 x 5 first, then add 3 | MODE33 FIX4 4 ENTER 5 * 3 + | X=23
+N02 | (6 + 2) / 4: the parentheses first | MODE33 FIX4 6 ENTER 2 + 4 / | X=2
+N03 | 2 x 3 squared: the power first | MODE33 FIX4 2 ENTER 3 SQ * | X=18
+N04 | (2 x 3) squared: the product first | MODE33 FIX4 2 ENTER 3 * SQ | X=36
+N05 | (12 - 4) / (5 - 3): top and bottom, then the division | MODE33 FIX4 12 ENTER 4 - 5 ENTER 3 - / | X=4
+N05A | inside N05, just before the second -: the 8 from the top waits in Z | MODE33 FIX4 12 ENTER 4 - 5 ENTER 3 | X=3 Y=5 Z=8
+N06 | -3 squared, read as -(3 squared): square, then change the sign | MODE33 FIX4 3 SQ CHS | X=-9
+N07 | (-3) squared: change the sign, then square | MODE33 FIX4 3 CHS SQ | X=9
+N08 | 2 + 3 x (4 + 1) squared, left to right, using all four levels | MODE33 FIX4 2 ENTER 3 ENTER 4 ENTER 1 + SQ * + | X=77 Y=2
+N08B | a fifth number pushes the top one off: ENTER after the 1 loses the 2 | MODE33 FIX4 2 ENTER 3 ENTER 4 ENTER 1 ENTER | X=1 Y=1 Z=4 T=3
+N09 | the same, from the inside out, never more than two levels | MODE33 FIX4 4 ENTER 1 + SQ 3 * 2 + | X=77
+N10 | inside out with a subtraction: 20 - 3 x 4, x<>y puts the 20 back in Y | MODE33 FIX4 3 ENTER 4 * 20 XY - | X=8
+N10A | the same without x<>y: the - works 12 - 20 | MODE33 FIX4 3 ENTER 4 * 20 - | X=-8
+# Exercises
+E01 | exercise 1: 5 + 6 x 2 | MODE33 FIX4 5 ENTER 6 ENTER 2 * + | X=17
+E02 | exercise 2: (9 - 3) squared / 4 | MODE33 FIX4 9 ENTER 3 - SQ 4 / | X=9
+E03 | exercise 3: 4 x 3 squared - 10 | MODE33 FIX4 4 ENTER 3 SQ * 10 - | X=26
+E04 | exercise 4: 50 - 2 x 3 squared, inside out | MODE33 FIX4 3 SQ 2 * 50 XY - | X=32
