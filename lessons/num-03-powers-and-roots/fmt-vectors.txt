@@ -1,0 +1,9 @@
+# num-03 display vectors: D-Rnn is what X shows after key vector Rnn, at FIX 4 (grouping on, the
+# device's default).
+D-R03 | after R03 | 1024 | FIX 4 | w=21 | 1,024.0000
+D-R06 | after R06 | 0.125 | FIX 4 | w=21 | 0.1250
+D-R09 | after R09 | 512 | FIX 4 | w=21 | 512.0000
+D-R10 | after R10 | 1000 | FIX 4 | w=21 | 1,000.0000
+D-R11 | after R11 | 0.125 | FIX 4 | w=21 | 0.1250
+D-E03 | after E03 | 16 | FIX 4 | w=21 | 16.0000
+D-E04 | after E04 | -16 | FIX 4 | w=21 | -16.0000

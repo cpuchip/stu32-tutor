@@ -44,7 +44,7 @@ working through in order. Controls: 4/4 red, 1/1 green.
 
 ## Abacus's accuracy read (#4301, 2026-10-06)
 
-Values right, and the arrows' meaning and the 4095 default match the 33s guide (p.5-3 and p.5-2,
+Values right, and the arrows' meaning and the 4095 default match the 33s guide (p.5-3 and p.5-2; the FIX/SCI/ENG/ALL sentence is p.5-1,
 per abacus). Two fixes, taken. E02's reason was wrong: 1.5 x 2.666...667 is 4.000...0005, exactly
 half a unit, a tie that half-even rounds to 4; "too small to survive the rounding" was G06's case,
 not this one. The prose now says the product lands exactly halfway and the calculator rounds a tie
