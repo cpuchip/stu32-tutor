@@ -1,0 +1,58 @@
+# Algebra to Calculus with the STU-32 (PROPOSED syllabus)
+
+**Status:** a proposal for Michael to push against (decision 3, 2026-10-06). Not ruled. The title
+is abacus's suggestion.
+
+**Scope sources, scope and order only (no text, figure or problem taken):** the chapter lists of
+OpenStax College Algebra 2e, Precalculus 2e and Calculus Volume 1, read from openstax.org's book
+pages on 2026-10-06. None of the three is on this box (books/openstax holds physics, chemistry
+and astronomy); whether to add them is a question for Michael.
+
+## The shape
+
+Each unit teaches the mathematics, the calculator keys that do it, and one small program, so the
+programming thread runs through the course instead of sitting at the end. Every example and
+exercise is a vector before it is prose (docs/lesson-format.md). Lessons run 15 to 25 minutes.
+
+The calculator decides some of the order. Today the core has no graphing or tables (the GRAPH,
+TABLE and TUTOR menus are not defined at abacus-firmware 153d606) and no derivative key (Casimir's
+d/dx is accepted on its own but not yet in the core). So graphs are drawn by hand from values the
+calculator computes, and derivatives arrive at the end, as Casimir lands.
+
+## Units
+
+| # | Unit | The mathematics | On the STU-32 | Ready? |
+|---|---|---|---|---|
+| 0 | The calculator | the stack and ENTER; storing and recalling; the display | ENTER, x<>y, R-down, LAST x; STO/RCL/VIEW; FIX/SCI/ENG | rpn-01 drafted; rest now |
+| 1 | Numbers | order of operations as the stack does it; fractions; powers and roots; scientific notation; percent | FRAC, y^x, x-root, %, %CHG, E | now |
+| 2 | Equations and inequalities | linear equations; rearranging formulas; absolute value; checking a solution | the equation editor; SOLVE as a checker first, then as a solver | now |
+| 3 | Functions | a function as a rule; evaluating; domain; a table of values by hand | a function as a labelled program (LBL ... RTN, XEQ); a loop that prints a table (ISG, VIEW) | now; a TABLE key later would shorten it |
+| 4 | Linear functions | slope and intercept; lines through data | linear regression (slope, intercept, r, predicted x and y) | now |
+| 5 | Polynomials and rational functions | evaluation, roots, the quadratic formula, complex roots | Horner's method as a 4-level-stack program; SOLVE; CMPLX | now |
+| 6 | Exponentials and logarithms | growth and decay; logs; solving exponential equations | e^x, 10^x, LN, LOG; SOLVE | now |
+| 7 | Trigonometry | angles in degrees and radians; right triangles; the unit circle; inverse functions; polar and rectangular | DEG/RAD; SIN COS TAN and inverses; ->P ->R; vectors | now |
+| 8 | Systems of equations | two and three equations in two and three unknowns | the built-in exact 2x2 and 3x3 solvers; when there is no solution or many | now |
+| 9 | Sequences, counting and probability | sequences and sums; factorials, combinations, permutations | n!, nCr, nPr; a summing loop; RAND | now |
+| 10 | Toward calculus: limits and rates | a limit by approaching; average and instantaneous rate; where 34 digits help and where cancellation still bites | difference quotients as a program; the stack and LAST x | now |
+| 11 | The derivative | the derivative as a limit, then by rules; checking a derivative by value | numeric first; Casimir's d/dx when it is in the core | waits on Casimir in the core |
+| 12 | The integral | area by sums; the integral; the fundamental theorem checked numerically | a Riemann-sum program; the built-in integral | now (the theorem's symbolic side waits on Casimir) |
+
+About 40 lessons in all. Unit 0 needs perhaps 6 more; units 1 to 12 three or four each.
+
+## What this asks of others
+
+- **abacus:** each lesson's accuracy read, as for rpn-01. Whether GRAPH/TABLE are planned before
+  units 3 to 7 are written, since a table key changes how unit 3 teaches.
+- **casim, through abacus:** when d/dx reaches the core's keys (unit 11), and what form its output
+  takes on the screen.
+- **soroban, through abacus:** a web build of the core for the site, when the site starts.
+- **ALG mode (unit 029, in progress):** the course stays RPN (decision 7, "RPN first"). If the
+  free app's students start in ALG, a short bridge lesson could carry them across.
+
+## Open to Michael
+
+1. Push against the unit order and the scope (anything missing, anything to cut).
+2. Whether the OpenStax algebra, precalculus and calculus books should be added to the box for
+   scope (read for scope only like the others, under whatever terms each book carries, to be read
+   from the book itself), or the public chapter lists suffice.
+3. The first learner (decision 4), which sets the pace and the examples' settings.
