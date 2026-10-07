@@ -175,6 +175,14 @@ CONTROLS_FOR["eq-01-equations"] = [
     ("checking a second value without showing the equation again", "lesson.md", "```keys Q04 after=Q03\nGOLD EQN XEQ 5 R/S\n",
      "```keys Q04 after=Q03\nXEQ 5 R/S\n", {}, "Q04: printed keys and vector disagree in 33s mode"),
 ]
+CONTROLS_FOR["fn-01-functions-as-programs"] = [
+    ("a quoted program line the screen does not show", "lesson.md", 'kind="program">K004 3<', 'kind="program">K004 +<', {},
+     "M02: the device's X line shows 'K004 3' (program)"),
+    ("program entry quoted as resuming at F's last line after a run", "lesson.md", 'v="G01A" kind="program">PRGM TOP<',
+     'v="G01A" kind="program">F006 RTN<', {}, "G01A: the device's X line shows 'PRGM TOP' (program)"),
+    ("a program entered with the wrong key", "lesson.md", "```keys F01C after=F01B\n2 × 3 +\n", "```keys F01C after=F01B\n2 × 3 −\n", {},
+     "F01C: printed keys and vector disagree in 33s mode: DIFF"),
+]
 CONTROLS_FOR["rpn-03-the-display"].append(
     ("an example that relies on a setting the one before it changed", "lesson.md",
      "```keys P01\nGOLD DISP FIX 4 2 ENTER 3 ÷\n", "```keys P01\n2 ENTER 3 ÷\n", {},

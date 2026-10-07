@@ -1,0 +1,24 @@
+# fn-01 functions as programs: key vectors (the firmware's format). Every example is ours. Each
+# starts MODE33 FIX4 (the lesson's setup). The lesson is one chain: each program is entered once.
+# From D01 on the chain holds a deliberate error (a duplicate label), hence ERR on the rest.
+F01A | program entry on: the pointer at the top | MODE33 FIX4 PRGM | %PC=TOP
+F01L | continues F01A: LBL waits for its letter (no op yet) | MODE33 FIX4 PRGM | %PC=TOP
+F01B | continues F01L: F, line 1 of program F | MODE33 FIX4 PRGM LBL:F | %LINES=1
+F01C | continues F01B: 2 x 3 + recorded as lines 2-5 | MODE33 FIX4 PRGM LBL:F 2 * 3 + | %LINES=5
+F01R | continues F01C: RTN, line 6 | MODE33 FIX4 PRGM LBL:F 2 * 3 + RTN | %LINES=6
+F01 | continues F01R: program entry off | MODE33 FIX4 PRGM LBL:F 2 * 3 + RTN PRGM | %LINES=6
+F02A | continues F01: 5, and XEQ waits for a label (no op yet) | MODE33 FIX4 PRGM LBL:F 2 * 3 + RTN PRGM 5 | X=5
+F02 | continues F02A: F runs: f(5) = 13 | MODE33 FIX4 PRGM LBL:F 2 * 3 + RTN PRGM 5 XEQ:F | X=13
+F03 | continues F02: f(1.5) | MODE33 FIX4 PRGM LBL:F 2 * 3 + RTN PRGM 5 XEQ:F 1.5 XEQ:F | X=6
+F04 | continues F03: f(-4) | MODE33 FIX4 PRGM LBL:F 2 * 3 + RTN PRGM 5 XEQ:F 1.5 XEQ:F 4 CHS XEQ:F | X=-5
+G01A | continues F04: program entry on again; after a run the pointer is at the top | MODE33 FIX4 PRGM LBL:F 2 * 3 + RTN PRGM 5 XEQ:F 1.5 XEQ:F 4 CHS XEQ:F PRGM | %PC=TOP
+G01B | continues G01A: LBL G starts program G at the top; F is untouched | MODE33 FIX4 PRGM LBL:F 2 * 3 + RTN PRGM 5 XEQ:F 1.5 XEQ:F 4 CHS XEQ:F PRGM LBL:G | %LINES=7
+G01 | continues G01B: ENTER x^2 + RTN, program entry off | MODE33 FIX4 PRGM LBL:F 2 * 3 + RTN PRGM 5 XEQ:F 1.5 XEQ:F 4 CHS XEQ:F PRGM LBL:G ENTER SQ + RTN PRGM | %LINES=11
+G02 | continues G01: g(3) = 9 + 3 | MODE33 FIX4 PRGM LBL:F 2 * 3 + RTN PRGM 5 XEQ:F 1.5 XEQ:F 4 CHS XEQ:F PRGM LBL:G ENTER SQ + RTN PRGM 3 XEQ:G | X=12
+M01 | continues G02: program K started, 2 x 3 + recorded | MODE33 FIX4 PRGM LBL:F 2 * 3 + RTN PRGM 5 XEQ:F 1.5 XEQ:F 4 CHS XEQ:F PRGM LBL:G ENTER SQ + RTN PRGM 3 XEQ:G PRGM LBL:K 2 * 3 + | %LINES=16
+M02 | continues M01: the backspace key deletes the current line, + | MODE33 FIX4 PRGM LBL:F 2 * 3 + RTN PRGM 5 XEQ:F 1.5 XEQ:F 4 CHS XEQ:F PRGM LBL:G ENTER SQ + RTN PRGM 3 XEQ:G PRGM LBL:K 2 * 3 + BKSP | %LINES=15
+M03 | continues M02: - in its place: k(x) = 2x - 3, k(10) | MODE33 FIX4 PRGM LBL:F 2 * 3 + RTN PRGM 5 XEQ:F 1.5 XEQ:F 4 CHS XEQ:F PRGM LBL:G ENTER SQ + RTN PRGM 3 XEQ:G PRGM LBL:K 2 * 3 + BKSP - RTN PRGM 10 XEQ:K | X=17
+D01 | continues M03: LBL F again is refused: DUPLICAT.LBL | MODE33 FIX4 PRGM LBL:F 2 * 3 + RTN PRGM 5 XEQ:F 1.5 XEQ:F 4 CHS XEQ:F PRGM LBL:G ENTER SQ + RTN PRGM 3 XEQ:G PRGM LBL:K 2 * 3 + BKSP - RTN PRGM 10 XEQ:K PRGM LBL:F | ERR
+D02 | continues D01: C clears it; program entry off; F is unchanged | MODE33 FIX4 PRGM LBL:F 2 * 3 + RTN PRGM 5 XEQ:F 1.5 XEQ:F 4 CHS XEQ:F PRGM LBL:G ENTER SQ + RTN PRGM 3 XEQ:G PRGM LBL:K 2 * 3 + BKSP - RTN PRGM 10 XEQ:K PRGM LBL:F C PRGM 5 XEQ:F | ERR X=13
+E01 | exercise 1, continues D02: h(x) = 5 - 2x as H; h(4) | MODE33 FIX4 PRGM LBL:F 2 * 3 + RTN PRGM 5 XEQ:F 1.5 XEQ:F 4 CHS XEQ:F PRGM LBL:G ENTER SQ + RTN PRGM 3 XEQ:G PRGM LBL:K 2 * 3 + BKSP - RTN PRGM 10 XEQ:K PRGM LBL:F C PRGM 5 XEQ:F PRGM LBL:H 2 * 5 XY - RTN PRGM 4 XEQ:H | ERR X=-3
+E02 | exercise 2, continues E01: g(-2) = 4 - 2 | MODE33 FIX4 PRGM LBL:F 2 * 3 + RTN PRGM 5 XEQ:F 1.5 XEQ:F 4 CHS XEQ:F PRGM LBL:G ENTER SQ + RTN PRGM 3 XEQ:G PRGM LBL:K 2 * 3 + BKSP - RTN PRGM 10 XEQ:K PRGM LBL:F C PRGM 5 XEQ:F PRGM LBL:H 2 * 5 XY - RTN PRGM 4 XEQ:H 2 CHS XEQ:G | ERR X=2

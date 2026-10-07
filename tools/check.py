@@ -33,7 +33,7 @@ from decimal import Decimal, InvalidOperation
 sys.stdout.reconfigure(encoding="utf-8")
 
 SETTING = re.compile(r"^(FIX|SCI|ENG)(\d+)$|^ALL$")
-DISP = re.compile(r'<disp v="([^"]+)"(?: kind="(view|prompt|message|entry|status|eqn)")?>(.*?)</disp>', re.S)
+DISP = re.compile(r'<disp v="([^"]+)"(?: kind="(view|prompt|message|entry|status|eqn|program)")?>(.*?)</disp>', re.S)
 FRAC_SETTINGS = {"/C", "SF:7", "CF:7", "SF:8", "CF:8", "SF:9", "CF:9"}  # change the fraction display
 # ```keys ID``` or ```keys ID after=PREV```: a continuation holds only the keys pressed after block
 # PREV, which must be the block just before it; its full keys are PREV's full keys and then its own.
