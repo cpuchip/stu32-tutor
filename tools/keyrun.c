@@ -140,10 +140,85 @@ static int read_trace(const char *path, op_rec *ops, int cap, char *untraced, si
     return n;
 }
 
+/* Presses printed key names in order; 0, or 2 after printing why a name resolved to no key. */
+static int press_names(app_state *a, char **tok, int ntok)
+{
+    for (int i = 0; i < ntok; i++) {
+        trace_token = i;
+        const char *why = "";
+        if (strcmp(tok[i], "GOLD") == 0 || strcmp(tok[i], "BLUE") == 0) {
+            press(a, shift_key(tok[i][0] == 'G' ? 1 : 2));
+            continue;
+        }
+        int k = resolve(a, tok[i], &why);
+        if (k < 0 && is_number(tok[i]) && strlen(tok[i]) > 1) {
+            for (const char *p = tok[i]; *p; p++) {         /* a number: its digit keys */
+                char one[2] = {*p, '\0'};
+                int d = resolve(a, one, &why);
+                if (d < 0) { printf("KEY %d '%s': digit '%s': %s\n", i + 1, tok[i], one, why); return 2; }
+                press(a, d);
+            }
+            continue;
+        }
+        if (k < 0) { printf("KEY %d '%s': %s\n", i + 1, tok[i], why); return 2; }
+        press(a, k);
+    }
+    trace_token = -1;
+    return 0;
+}
+
+static const char *const KIND[] = {"value", "entry", "eqn", "program", "message", "prompt", "view"};
+
+/* keyrun --sequence FILE: a student working through a lesson. Each line is "ID<TAB>keys"; every
+   line is pressed on ONE device, in order, with nothing reset between them (the setup first). After
+   each line the X line and the status band are printed, so a quoted display can be compared with
+   what the student would actually see at that point. */
+static int sequence(const char *path)
+{
+    FILE *f = fopen(path, "r");
+    if (!f) { perror(path); return 2; }
+    static ab_calc c;
+    static app_state a;
+    static screen_ui ui;
+    static screen_page page;
+    ab_init(&c);
+    app_init(&a, &c, now);
+    static char line[8192];
+    while (fgets(line, sizeof line, f)) {
+        line[strcspn(line, "\r\n")] = '\0';
+        char *tab = strchr(line, '\t');
+        if (!tab) continue;
+        *tab = '\0';
+        char *tok[MAX_TOK];
+        int ntok = 0;
+        for (char *t = strtok(tab + 1, " "); t; t = strtok(NULL, " ")) {
+            if (ntok == MAX_TOK) { fprintf(stderr, "more than %d keys\n", MAX_TOK); return 2; }
+            tok[ntok++] = t;
+        }
+        if (press_names(&a, tok, ntok)) { printf("IN %s\n", line); return 2; }
+        app_ui(&a, &ui);
+        screen_lines(&c, &ui, &page);
+        /* X, Y, Z and T as exact numbers ("" for a level that is not a real): a coincidence in X
+           alone (a stray digit that still lands on the right X) must not pass. */
+        static char val[4][96];
+        const ab_val *lv[4] = {&c.x, &c.y, &c.z, &c.t};
+        for (int i = 0; i < 4; i++) {
+            val[i][0] = '\0';
+            if (lv[i]->kind == AB_REAL) abn_to_text(&lv[i]->re, val[i], sizeof val[i]);
+        }
+        printf("X\t%s\t%s\t%s\nSTATUS\t%s\t%s\nVAL\t%s\t%s\t%s\t%s\t%s\n", line,
+               page.x.kind >= 0 && page.x.kind <= SCREEN_VIEW ? KIND[page.x.kind] : "?", page.x.text,
+               line, page.status.text, line, val[0], val[1], val[2], val[3]);
+    }
+    fclose(f);
+    return 0;
+}
+
 int main(int argc, char **argv)
 {
+    if (argc == 3 && strcmp(argv[1], "--sequence") == 0) return sequence(argv[2]);
     if (argc != 3) {
-        fprintf(stderr, "usage: keyrun KEYS VECTOR_TRACE\n");
+        fprintf(stderr, "usage: keyrun KEYS VECTOR_TRACE | keyrun --sequence FILE\n");
         return 2;
     }
     static char keys[8192];
@@ -165,27 +240,7 @@ int main(int argc, char **argv)
     int fd = mkstemp(apath);
     if (fd < 0) { perror("mkstemp"); return 2; }
     trace_out = fdopen(fd, "w");
-    for (int i = 0; i < ntok; i++) {
-        trace_token = i;
-        const char *why = "";
-        if (strcmp(tok[i], "GOLD") == 0 || strcmp(tok[i], "BLUE") == 0) {
-            press(&a, shift_key(tok[i][0] == 'G' ? 1 : 2));
-            continue;
-        }
-        int k = resolve(&a, tok[i], &why);
-        if (k < 0 && is_number(tok[i]) && strlen(tok[i]) > 1) {
-            for (const char *p = tok[i]; *p; p++) {         /* a number: its digit keys */
-                char one[2] = {*p, '\0'};
-                int d = resolve(&a, one, &why);
-                if (d < 0) { printf("KEY %d '%s': digit '%s': %s\n", i + 1, tok[i], one, why); return 2; }
-                press(&a, d);
-            }
-            continue;
-        }
-        if (k < 0) { printf("KEY %d '%s': %s\n", i + 1, tok[i], why); return 2; }
-        press(&a, k);
-    }
-    trace_token = -1;
+    if (press_names(&a, tok, ntok)) return 2;
     fclose(trace_out);
     trace_out = NULL;
     /* KEYRUN_FAULT=state: a planted fault (CLx behind the trace's back) that only the state
@@ -242,8 +297,7 @@ int main(int argc, char **argv)
                na, n_app, n_vec, at);
         return 1;
     }
-    static const char *const KIND[] = {"value", "entry", "eqn", "program", "message", "prompt", "view"};
-    printf("OK %d ops\nX\t%s\t%s\n", na, page.x.kind >= 0 && page.x.kind <= SCREEN_VIEW ? KIND[page.x.kind] : "?",
-           page.x.text);
+    printf("OK %d ops\nX\t%s\t%s\nSTATUS\t%s\n", na, page.x.kind >= 0 && page.x.kind <= SCREEN_VIEW ? KIND[page.x.kind] : "?",
+           page.x.text, page.status.text);
     return 0;
 }

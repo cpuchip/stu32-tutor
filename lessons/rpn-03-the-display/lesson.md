@@ -44,10 +44,11 @@ thirds. -->
 ## FIX: a fixed number of decimal places
 
 Two divided by three never ends: 0.666... with sixes forever. The calculator keeps it to 34
-digits, and FIX 4 shows four decimal places, rounded:
+digits, and FIX 4 shows four decimal places, rounded. Set FIX 4 again (the last example left FIX
+2), then divide:
 
 ```keys P01
-2 ENTER 3 ÷
+GOLD DISP FIX 4 2 ENTER 3 ÷
 ```
 
 X shows <disp v="P01">0.6667</disp>. Here is the same number at FIX 2:

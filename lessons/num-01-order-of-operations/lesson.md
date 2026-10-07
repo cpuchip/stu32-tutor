@@ -27,21 +27,21 @@ Squaring is x² (gold, above √x).
 
 ## Multiplication before addition
 
-For 3 + 4 × 5 the multiplication comes first. Type the 3 and let it wait on the stack, then do 4 ×
-5, and add last:
-
-```keys N01
-3 ENTER 4 ENTER 5 × +
-```
-
-X shows <disp v="N01">23.0000</disp>. Stop just before the × and look at the stack:
+For 3 + 4 × 5 the multiplication comes first. Type the 3 and let it wait on the stack, then type
+the 4 and the 5, and stop before the × to look at the stack:
 
 ```keys N01A
 3 ENTER 4 ENTER 5
 ```
 
-X holds 5, Y holds 4 and Z holds 3. The × uses the 4 and the 5 while the 3 waits in Z. When ×
-finishes, the stack drops and the 3 comes down to Y for the +.
+X holds 5, Y holds 4 and Z holds 3. Now press × and then +:
+
+```keys N01 after=N01A
+× +
+```
+
+X shows <disp v="N01">23.0000</disp>. The × used the 4 and the 5 while the 3 waited in Z. When ×
+finished, the stack dropped and the 3 came down to Y for the +.
 
 You can also start with the multiplication and bring the 3 in last:
 
@@ -81,20 +81,19 @@ X holds 36. The numbers and the operations are the same as before; only their or
 ## A fraction: top, bottom, then divide
 
 A fraction bar works like a pair of parentheses around the top and another around the bottom. For
-(12 − 4) ÷ (5 − 3), work out the top, then the bottom, then divide:
-
-```keys N05
-12 ENTER 4 − 5 ENTER 3 − ÷
-```
-
-X holds 4. Just before the bottom's −, the stack holds the 8 from the top in Z:
+(12 − 4) ÷ (5 − 3), work out the top, then type the bottom's two numbers, and stop:
 
 ```keys N05A
 12 ENTER 4 − 5 ENTER 3
 ```
 
-X holds 3, Y holds 5 and Z holds 8. When − finishes the bottom, the stack drops and the 8 comes
-back down to Y for the ÷.
+X holds 3, Y holds 5 and Z holds the 8 from the top. Now press − to finish the bottom, and ÷:
+
+```keys N05 after=N05A
+− ÷
+```
+
+X holds 4. When − finished the bottom, the stack dropped and the 8 came back down to Y for the ÷.
 
 ## A minus sign and a power
 
@@ -133,10 +132,10 @@ X shows <disp v="N08">77.0000</disp>. Stop after typing the 1, and all four leve
 
 T holds 2, Z holds 3, Y holds 4 and X holds 1. Each two-number operation (+ and ×) uses X and Y
 and drops the stack, so the 2 moves down one level each time, from T to Z to Y, while T keeps a
-copy; x² uses X alone and moves nothing. Stop again just before the last +:
+copy; x² uses X alone and moves nothing. Carry on, and stop again just before the last +:
 
-```keys N08T
-2 ENTER 3 ENTER 4 ENTER 1 + GOLD x² ×
+```keys N08T after=N08S
++ GOLD x² ×
 ```
 
 X holds 75 and Y holds 2, ready for the +.
@@ -151,8 +150,8 @@ falls off the top:
 X and Y hold 1, Z holds 4 and T holds 3. The 2 is gone. Carry on with the rest of the keys as if
 nothing had happened:
 
-```keys N08C
-2 ENTER 3 ENTER 4 ENTER 1 ENTER + GOLD x² × +
+```keys N08C after=N08B
++ GOLD x² × +
 ```
 
 X shows <disp v="N08C">19.0000</disp>. The last + found a leftover 3 where the 2 should have been,
@@ -175,11 +174,11 @@ does. Take 20 − 3 × 4 from the inside out: work out 3 × 4, then type the 20.
 3 ENTER 4 × 20
 ```
 
-Now the 20 is in X and the 12 in Y, the wrong way round for 20 − 12. Press x↔y before the − to put
-them right:
+Now the 20 is in X and the 12 in Y, the wrong way round for 20 − 12. Carry on: press x↔y to put
+them right, then −:
 
-```keys N10
-3 ENTER 4 × 20 x↔y −
+```keys N10 after=N10S
+x↔y −
 ```
 
 X holds 8. Without the x↔y, the − works Y minus X, which is 12 − 20:

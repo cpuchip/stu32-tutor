@@ -129,7 +129,42 @@ CONTROLS_FOR["rpn-03-the-display"] = [
      "## ALL: no padding\n\nAt FIX 4 the screen showed 0.1250 for it.\n", {},
      "'0.1250' looks like a display at FIX 4"),
 ]
+CONTROLS_FOR["num-02-fractions"] = [
+    ("the other arrow quoted", "lesson.md", 'kind="status">▲</disp>', 'kind="status">▼</disp>', {},
+     "E01: the status band shows"),
+    ("a display vector whose indicator disagrees with the device's arrow", "fmt-vectors.txt",
+     "| w=21 | 0 5/6 v", "| w=21 | 0 5/6 ^", {}, "D-G04: the display vector's indicator is '^', the status band has"),
+    ("a display vector that drops an inexact fraction's indicator", "fmt-vectors.txt",
+     "| w=21 | 0 5/6 v", "| w=21 | 0 5/6", {}, "D-G04: the display vector's indicator is 'none', the status band has"),
+    ("a fraction quoted after the fraction key turned it off",
+     [("fmt-vectors.txt", "| 2.375 | FIX 4 | w=21 | 2.3750", "| 2.375 | FRAC 4095 P | w=21 | 2 3/8"),
+      ("lesson.md", '<disp v="G07">2.3750</disp>', '<disp v="G07">2 3/8</disp>')], None, None, {},
+     "D-G07: display vector at 'FRAC 4095 P', vector G07 ends at 'FIX 4'"),
+    ("an example that turns Fraction display on again, though the one before left it on",
+     [("lesson.md", "```keys G06 after=G05\n.3.4 ENTER .2.3 ×\n", "```keys G06 after=G05\n.3.4 ENTER .2.3 × BLUE →FRAC\n"),
+      ("vectors.txt", "FDISP .3.4 ENTER .2.3 * | X=0.5", "FDISP .3.4 ENTER .2.3 * FDISP | X=0.5")], None, None, {},
+     "D-G06: display vector at 'FRAC 4095 P', vector G06 ends at 'FIX 4'"),
+]
+CONTROLS_FOR["num-01-order-of-operations"] = [
+    ("a stopping point's example written in full again (the student's half-typed 5 strands it)", "lesson.md",
+     "```keys N01 after=N01A\n× +\n", "```keys N01\n3 ENTER 4 ENTER 5 × +\n", {},
+     "N01: working through in order, X holds"),
+    ("a continuation of a block that is not the one just before it", "lesson.md",
+     "```keys N08T after=N08S\n", "```keys N08T after=N05A\n", {},
+     "keys block N08T continues N05A, but the block just before it is N08S"),
+    ("a stray digit that still lands on the right X (only Y shows it)", "lesson.md",
+     "```keys N08T after=N08S\n+ GOLD x² ×\n", "```keys N08T\n2 ENTER 3 ENTER 4 ENTER 1 + GOLD x² ×\n", {},
+     "N08T: working through in order, Y holds"),
+]
+CONTROLS_FOR["rpn-03-the-display"].append(
+    ("an example that relies on a setting the one before it changed", "lesson.md",
+     "```keys P01\nGOLD DISP FIX 4 2 ENTER 3 ÷\n", "```keys P01\n2 ENTER 3 ÷\n", {},
+     "P01: working through in order"))
 GREENS_FOR = {
+    "num-02-fractions": [
+        ("an input written in the display's form, in a sentence about no screen", "lesson.md",
+         "## Typing a fraction\n", "## Typing a fraction\n\nA board 0.3750 inches thick is typed as .3.8.\n"),
+    ],
     "rpn-03-the-display": [
         ("an input written in the display's form, in a sentence about no screen", "lesson.md",
          "## ALL: no padding\n", "## ALL: no padding\n\nA rate of 0.0825 is typed as it is written.\n"),
@@ -156,8 +191,14 @@ def main():
     ap.add_argument("lesson")
     a = ap.parse_args()
     lesson = a.lesson.rstrip("/")
-    controls = CONTROLS_FOR.get(os.path.basename(lesson), CONTROLS)
-    greens = GREENS_FOR.get(os.path.basename(lesson), GREENS)
+    # The lists above are anchored on rpn-01's text; another lesson gets only its own, never a
+    # silent borrow of rpn-01's (which would fail as "did not apply" and prove nothing).
+    name = os.path.basename(lesson)
+    controls = CONTROLS if name == "rpn-01-the-stack" else CONTROLS_FOR.get(name)
+    greens = GREENS if name == "rpn-01-the-stack" else GREENS_FOR.get(name, [])
+    if not controls:
+        print(f"FAIL no controls are defined for {name}")
+        return 1
     bad = 0
     with tempfile.TemporaryDirectory() as tmp:
         clean = os.path.join(tmp, "clean")

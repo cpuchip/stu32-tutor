@@ -1,0 +1,12 @@
+# num-02 display vectors: D-Gnn is what X shows after key vector Gnn, at the setting it ends in
+# (FRAC 4095 P: Fraction display, the default maximum denominator, most precise). A trailing v or ^
+# is the accuracy indicator, which the device draws in the status band (check.py ties the two).
+D-G01 | after G01 | 0.375 | FIX 4 | w=21 | 0.3750
+D-G03 | after G03 | 2.375 | FRAC 4095 P | w=21 | 2 3/8
+D-G07 | after G07 | 2.375 | FIX 4 | w=21 | 2.3750
+D-G05 | after G05 | 7.8125 | FRAC 4095 P | w=21 | 7 13/16
+D-G06 | after G06 | 0.5 | FRAC 4095 P | w=21 | 0 1/2
+D-G04 | after G04 | 0.8333333333333333333333333333333333 | FRAC 4095 P | w=21 | 0 5/6 v
+D-G08 | after G08 | 0.8333333333333333333333333333333333 | FIX 4 | w=21 | 0.8333
+D-E01 | after E01 | 0.8333333333333333333333333333333334 | FRAC 4095 P | w=21 | 0 5/6 ^
+D-E02 | after E02 | 4 | FRAC 4095 P | w=21 | 4

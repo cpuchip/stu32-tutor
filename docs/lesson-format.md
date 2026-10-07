@@ -46,7 +46,12 @@ display: FIX 4
   then the legend printed in that colour (`GOLD LASTx`, never `LASTx` alone). A number is its
   digits (`1.05`). A soft key is the label its menu shows (`FIX`, `33s`). A variable is its letter
   (`STO A`).
-- A quoted display is `<disp v="Snn">text</disp>`. A screen line that is not a value (a VIEW's
+- A block that carries on from the one just before it is ```` ```keys Snn after=Smm ````, and holds
+  only the keys pressed next. Its vector holds the full sequence (Smm's keys, then these). Use it
+  wherever the text says "now press", and always after a stopping point: a stopping point leaves a
+  number half typed, and a fresh example after it would type into that number.
+- A quoted display is `<disp v="Snn">text</disp>`. An annunciator in the status band (the fraction
+  indicator ▼ or ▲, RAD) is `<disp v="Snn" kind="status">▼</disp>`. A screen line that is not a value (a VIEW's
   `B=49.75`) is `<disp v="Snn" kind="view">text</disp>`, checked against the device's X line
   (text and kind) since no display vector covers it. The kinds are view, prompt, message and entry
   (a number still being typed shows with its cursor: 7_). A quoted value's display vector may carry
@@ -75,7 +80,16 @@ For each lesson:
    text the device's screen shows on its X line after those keys (`screen_lines`; a value, not a
    number being typed or a message), and is its display vector's text, at the setting the vectors
    set and with the device's default options, of the vector's exact X result.
-5. No em-dash in lesson.md, as a character or an HTML entity, front matter included. A fence that
+5. A student working through: the setup once, then every block in lesson order on one device, with
+   nothing reset between them (a continuation presses only its own keys). After each block, every
+   exact X, Y, Z and T in its vector must hold, and every quoted display and status annunciator must
+   be what that student sees. Checks 1-4 judge each example from the setup; this one catches what
+   an example inherits from the one before it: a display setting, Fraction display, a number still
+   being typed. (It found five such breaks in four lessons the first time it ran, three of them
+   already accepted.)
+6. In Fraction display, a display vector's trailing indicator (` v` below, ` ^` above) must match
+   the device's status band arrow (▼, ▲), and an exact fraction must show no arrow.
+7. No em-dash in lesson.md, as a character or an HTML entity, front matter included. A fence that
    looks like a keys block but is not in the checked form, or a `<disp` tag not in the checked
    form, fails.
 

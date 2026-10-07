@@ -46,6 +46,14 @@ program-loop table (ISG, VIEW) and hand-drawn graphs, and each place a TABLE key
 loop carries a `TABLE:` note in the lesson source, so the later edit is small. The d/dx key has no
 plan yet (Casimir is at CAS 003; the core integration unit is not written); abacus will say when.
 
+**Ruled by Michael (abacus decisions 52-53, #4294 and #4297, 2026-10-06):** TABLE next, GRAPH
+after (firmware units 032 TABLE, then GRAPH; 030 SHOW and 031 first). Both are STU-mode features,
+so the units that use them run in STU mode (setup `BLUE MODE STU`), and check.py will need STU
+support then. Units 3 to 7 keep `TABLE:` notes and gain `GRAPH:` notes where a graph is drawn by
+hand, to swap in when those units land. STU's parser (031): powers right to left (2^3^2 = 512;
+33s and 35s keep 64), and implied multiplication (2A, 2(3)) ranked as a typed x, so 1/2A is A/2
+and 1/(2A) needs brackets. Lessons in 33s mode are unaffected.
+
 ## What this asks of others
 
 - **abacus:** each lesson's accuracy read, as for rpn-01. Whether GRAPH/TABLE are planned before

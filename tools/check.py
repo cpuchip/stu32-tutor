@@ -16,6 +16,9 @@ For each lesson:
      device's screen shows on X after those keys (a value, not an entry or a message), and is the
      text of display vector D-ID at the setting the vectors set, of vector ID's exact X result.
   5. No em-dash anywhere in lesson.md, as a character or an entity.
+  6. A student working through: the setup once, then every block in order on one device with
+     nothing reset (a continuation, ```keys ID after=PREV```, presses only its own keys); every
+     exact X, Y, Z, T and every quoted display must hold for that student too.
 A file with no vectors, or a vector with no expectation, fails: a check that checks nothing is
 not a pass.
 """
@@ -25,12 +28,16 @@ import re
 import subprocess
 import sys
 import tempfile
+from decimal import Decimal, InvalidOperation
 
 sys.stdout.reconfigure(encoding="utf-8")
 
 SETTING = re.compile(r"^(FIX|SCI|ENG)(\d+)$|^ALL$")
-DISP = re.compile(r'<disp v="([^"]+)"(?: kind="(view|prompt|message|entry)")?>(.*?)</disp>', re.S)
-KEYS_BLOCK = re.compile(r"^[ \t]*```keys[ \t]+(\S+)[ \t]*\n(.*?)^[ \t]*```[ \t]*$", re.M | re.S)
+DISP = re.compile(r'<disp v="([^"]+)"(?: kind="(view|prompt|message|entry|status)")?>(.*?)</disp>', re.S)
+FRAC_SETTINGS = {"/C", "SF:7", "CF:7", "SF:8", "CF:8", "SF:9", "CF:9"}  # change the fraction display
+# ```keys ID``` or ```keys ID after=PREV```: a continuation holds only the keys pressed after block
+# PREV, which must be the block just before it; its full keys are PREV's full keys and then its own.
+KEYS_BLOCK = re.compile(r"^[ \t]*```keys[ \t]+([^\s=]+)(?:[ \t]+after=(\S+))?[ \t]*\n(.*?)^[ \t]*```[ \t]*$", re.M | re.S)
 SHOWS = re.compile(r"\b(shows?|showed|showing|shown|displays?|displayed|screen|reads|appears?)\b", re.I)
 FENCE = re.compile(r"^[ \t]*(```|~~~)(.*)$", re.M)
 # A used calculator: every variable A-Z holds 7, RAD, the stack full, lift enabled, LAST x 6.
@@ -168,14 +175,29 @@ class Lesson:
         # 3. The printed keys against the vectors, in each mode.
         for m in FENCE.finditer(body):
             line = m.group(0).strip()           # a fence may be indented (in a list item)
-            if "key" in m.group(2).lower() and not re.match(r"^```keys[ \t]+\S+[ \t]*$", line):
+            if "key" in m.group(2).lower() and not re.match(r"^```keys[ \t]+[^\s=]+(?:[ \t]+after=\S+)?[ \t]*$", line):
                 self.bad(f"a fence that looks like keys but is not checked: '{line}'")
         setup = " ".join(meta.get("setup", "").split())
         if not setup:
             self.bad("front matter has no `setup:` keys (the mode and the display setting, as pressed)")
-        blocks = [(m.group(1), " ".join(m.group(2).split()), m.start(), m.end()) for m in KEYS_BLOCK.finditer(body)]
+        found = [(m.group(1), " ".join(m.group(3).split()), m.start(), m.end(), m.group(2))
+                 for m in KEYS_BLOCK.finditer(body)]
+        # blocks carry their FULL keys (from the setup); own_keys what the student presses there.
+        blocks, own_keys, full = [], {}, {}
+        for i, (bid, keys, s0, e0, after) in enumerate(found):
+            own_keys[bid] = keys
+            if after:
+                prev = found[i - 1][0] if i > 0 else None
+                if after != prev or prev == "setup":
+                    self.bad(f"keys block {bid} continues {after}, but the block just before it is {prev}")
+                    full[bid] = keys
+                else:
+                    full[bid] = f"{full[prev]} {keys}"
+            else:
+                full[bid] = keys
+            blocks.append((bid, full[bid], s0, e0))
         byid = {v[0]: v for v in vectors}
-        shown, screen = set(), {}
+        shown, screen, status = set(), {}, {}
         for bid, keys, _, _ in blocks:
             if bid == "setup":                  # the setup as printed for the student
                 if keys != setup:
@@ -206,8 +228,10 @@ class Lesson:
                              f"{k.stdout.strip()}{k.stderr.strip()}")
                     continue
                 xl = [l.split("\t") for l in k.stdout.splitlines() if l.startswith("X\t")]
+                sl = [l.split("\t", 1)[1] for l in k.stdout.splitlines() if l.startswith("STATUS\t")]
                 if mode == modes[0] and xl and len(xl[0]) == 3:
                     screen[bid] = (xl[0][1], xl[0][2])
+                    status[bid] = sl[0].split() if sl else []
         for vid in ids:
             if vid not in shown:
                 self.bad(f"vector {vid} is shown by no keys block")
@@ -228,8 +252,21 @@ class Lesson:
         want = spelled(sorted(settings)[0]) if settings else ""
         if meta.get("display") and meta["display"] != want:
             self.bad(f"front matter `display: {meta['display']}`, but the vectors set {want}")
-        ends_at = {v[0]: spelled([t for t in v[1][2].split() if SETTING.match(t)][-1])
-                   for v in vectors if any(SETTING.match(t) for t in v[1][2].split())}
+        def final_setting(toks):
+            # FDISP toggles Fraction display on and off; choosing FIX, SCI, ENG or ALL turns it off
+            # (unit 007). The maximum denominator and the format are left at their defaults, so a
+            # vector that changes them cannot have its display judged here.
+            setting, frac = None, False
+            for t in toks:
+                if SETTING.match(t):
+                    setting, frac = spelled(t), False
+                elif t == "FDISP":
+                    frac = not frac
+                elif t in FRAC_SETTINGS:
+                    return None
+            return "FRAC 4095 P" if frac else setting
+
+        ends_at = {v[0]: final_setting(v[1][2].split()) for v in vectors}
         quotes = list(DISP.finditer(body))
         if body.count("<disp") != len(quotes):
             self.bad(f"{body.count('<disp')} <disp tags, {len(quotes)} of the checked form <disp v=\"ID\">text</disp>")
@@ -239,6 +276,11 @@ class Lesson:
             if not before or before[-1][0] != vid:
                 self.bad(f'<disp v="{vid}"> is not under its own example '
                          f'(it follows {before[-1][0] if before else "no example"})')
+            if qkind == "status":
+                # An annunciator (the fraction indicator, RAD, ...): a token of the status band.
+                if shown_text not in status.get(vid, []):
+                    self.bad(f"{vid}: the status band shows {status.get(vid, [])}, without '{shown_text}'")
+                continue
             if qkind != "value":
                 # A VIEW's "B=49.75" is no value the formatter's vectors cover: the device's own
                 # screen line is the check, kind and text both.
@@ -250,8 +292,19 @@ class Lesson:
             if not f:
                 self.bad(f'<disp v="{vid}"> has no display vector D-{vid}')
                 continue
-            if f[5] != shown_text:
+            # A fraction's text may end in its accuracy indicator (" v" below, " ^" above), which the
+            # device draws in the status band, not on the X line: the prose quotes the X line, and
+            # the status band must carry the matching arrow, or none when the fraction is exact.
+            ftext, ind = f[5], ""
+            if f[3].startswith("FRAC") and ftext.endswith((" v", " ^")):
+                ftext, ind = ftext[:-2], ftext[-1]
+            if ftext != shown_text:
                 self.bad(f"D-{vid}: the prose shows '{shown_text}', the display vector '{f[5]}'")
+            if f[3].startswith("FRAC"):
+                arrows = [a for a in ("▼", "▲") if a in status.get(vid, [])]
+                need = {"v": ["▼"], "^": ["▲"], "": []}[ind]
+                if arrows != need:
+                    self.bad(f"D-{vid}: the display vector's indicator is '{ind or 'none'}', the status band has {arrows or 'none'}")
             if f[3] != ends_at.get(vid, want):
                 self.bad(f"D-{vid}: display vector at '{f[3]}', vector {vid} ends at '{ends_at.get(vid, want)}'")
             # The device formats X at 21 cells (firmware/screen.c FMT_WIDTH, "ours, v0"); the display
@@ -278,6 +331,55 @@ class Lesson:
                 if SHOWS.search(sentence):
                     for n in fixed.findall(sentence):
                         self.bad(f"'{n}' looks like a display at {want} but is not in a <disp> tag")
+
+        # 6. A student working through: the setup once, then every block in lesson order on ONE
+        # device, nothing reset between them. Each example above is judged from the setup; a student
+        # carries whatever the last example left (a display setting, Fraction display, a number still
+        # being typed), so every quoted display must also be what that student sees.
+        if setup:
+            with tempfile.NamedTemporaryFile("w", suffix=".seq", delete=False, encoding="utf-8") as t:
+                t.write(f"setup\t{setup}\n")
+                for bid, _, _, _ in blocks:
+                    if bid != "setup":
+                        t.write(f"{bid}\t{own_keys[bid]}\n")
+            r = self.run(f"{self.core}/build/keyrun", "--sequence", t.name)
+            os.unlink(t.name)
+            seq_x, seq_st, seq_val = {}, {}, {}
+            for l in r.stdout.splitlines():
+                p = l.split("\t")
+                if p[0] == "X" and len(p) == 4:
+                    seq_x[p[1]] = (p[2], p[3])
+                elif p[0] == "STATUS" and len(p) == 3:
+                    seq_st[p[1]] = p[2].split()
+                elif p[0] == "VAL" and len(p) == 6:
+                    seq_val[p[1]] = dict(zip("XYZT", p[2:6]))
+            if r.returncode != 0:
+                self.bad(f"a student working through cannot press the keys in order: {r.stdout.strip()}")
+            # Every example's exact X, Y, Z and T expectations, not only the quoted displays: the
+            # prose says "X holds 23" and "Y holds 2" too.
+            for bid, _, _, _ in blocks:
+                if bid not in byid or bid not in seq_val:
+                    continue
+                for level, want_v in re.findall(r"(?:^|\s)([XYZT])=(\S+)", byid[bid][1][3]):
+                    got = seq_val[bid].get(level, "")
+                    try:
+                        same = Decimal(got) == Decimal(want_v)
+                    except InvalidOperation:
+                        same = False
+                    if not same:
+                        self.bad(f"{bid}: working through in order, {level} holds {got or '(not a real)'}, "
+                                 f"the vector says {want_v}")
+            for q in quotes:
+                vid, qkind, shown_text = q.group(1), q.group(2) or "value", q.group(3)
+                if qkind == "status":
+                    if shown_text not in seq_st.get(vid, []):
+                        self.bad(f"{vid}: working through in order, the status band shows {seq_st.get(vid, [])}, "
+                                 f"without '{shown_text}'")
+                    continue
+                kind, stext = seq_x.get(vid, ("?", ""))
+                if kind != qkind or stext.strip() != shown_text:
+                    self.bad(f"{vid}: working through in order, X shows '{stext}' ({kind}), the prose '{shown_text}'")
+            self.notes.append("worked through in order")
 
         # 5. Voice, the front matter included.
         dashes = sum(text.count(d) for d in EM_DASH)

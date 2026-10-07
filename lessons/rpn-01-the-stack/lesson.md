@@ -36,8 +36,9 @@ The screen shows four lines, labelled T, Z, Y and X from top to bottom. X, at th
 number you are looking at, and it is where every answer lands. With FIX 4, numbers show four
 decimal places, and very large or very small ones switch to scientific form.
 
-You only do this setup once. None of the examples below depends on what is already on the stack,
-so you can start each one wherever the last one left off.
+You only do this setup once. The examples below are meant to be worked in order. Most start
+fresh and don't depend on what is already on the stack; when one carries on from the example
+before it, the text says so and its keys are only what you press next.
 
 ## Two numbers, one operation
 
@@ -113,18 +114,17 @@ it up to Y, ENTER pushes it again to Z, and 6 replaces the copy of 4 in X:
 2 ENTER 3 + 4 ENTER 6
 ```
 
-Now Z holds 5, Y holds 4 and X holds 6. The + adds Y and X, and everything above drops down a
-level, so the 5 comes back down to Y:
+Now Z holds 5, Y holds 4 and X holds 6. Carry on from there and press +. It adds Y and X, and
+everything above drops down a level, so the 5 comes back down to Y:
 
-```keys S07
-2 ENTER 3 + 4 ENTER 6 +
+```keys S07 after=S07A
++
 ```
 
-X holds 10 and Y holds 5. Press × to finish. (The block below is the whole sequence from the
-start.)
+X holds 10 and Y holds 5. Press × to finish:
 
-```keys S08
-2 ENTER 3 + 4 ENTER 6 + ×
+```keys S08 after=S07
+×
 ```
 
 X holds 50. You never had to tell the calculator where the parentheses were, because you did the
