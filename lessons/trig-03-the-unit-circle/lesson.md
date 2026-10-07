@@ -1,7 +1,7 @@
 ---
 id: trig-03
 title: The unit circle
-status: draft prose (non-author read taken; not yet read by abacus or Michael)
+status: draft prose (non-author read taken; accepted for accuracy by abacus #4683; not yet read by Michael)
 setup: BLUE MODE {mode} GOLD DISP FIX 4 BLUE ∡MODE DEG
 display: FIX 4
 ---
@@ -137,7 +137,8 @@ answer between 0 and 90 is the one meant, but in general it is one of two.
 
 Cosine has its own mirror: across the x axis. The point at −θ, or 360 − θ, is straight below the
 point at θ, the same distance across. So the other angle with the same cosine is 360 minus the one
-ACOS gives, and ACOS always answers between 0 and 180. The "180 minus" rule is sine's only.
+ACOS gives, and ACOS always answers between 0 and 180. (At cos θ = 1 or −1, at 0 and 180 degrees,
+the point is on the x axis and is its own mirror.) The "180 minus" rule is sine's only.
 
 ## Exercise
 

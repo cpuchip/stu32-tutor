@@ -334,6 +334,14 @@ CONTROLS_FOR["trig-03-the-unit-circle"] = [
     ("a negative angle keyed without its sign", "lesson.md", "```keys U09\n30 +/− SIN\n", "```keys U09\n30 SIN\n", {},
      "U09: printed keys and vector disagree in 33s mode"),
 ]
+CONTROLS_FOR["trig-04-polar-and-rectangular"] = [
+    ("->POL with x and y the wrong way round", "lesson.md", "```keys P01\n4 ENTER 3 BLUE ANGLE →POL\n",
+     "```keys P01\n3 ENTER 4 BLUE ANGLE →POL\n", {}, "P01: printed keys and vector disagree in 33s mode"),
+    ("the second-quadrant angle quoted as ATAN gives it", "lesson.md", 'v="Q01">126.8699<', 'v="Q01">-53.1301<', {},
+     "D-Q01: the prose shows '-53.1301'"),
+    ("->REC with r and the angle the wrong way round", "lesson.md", "```keys R01\n30 ENTER 10 BLUE ANGLE →REC\n",
+     "```keys R01\n10 ENTER 30 BLUE ANGLE →REC\n", {}, "R01: printed keys and vector disagree in 33s mode"),
+]
 CONTROLS_FOR["fn-02-a-table-of-values"] = [
     ("a label's line numbered from the program's top, not its own label", "lesson.md", 'kind="program">U008 RTN<',
      'kind="program">T022 RTN<', {}, "T01B: the device's X line shows 'U008 RTN' (program)"),

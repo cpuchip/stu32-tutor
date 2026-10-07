@@ -38,3 +38,10 @@ P half a unit below; "arm", θ and counterclockwise defined; why 150 mirrors 30.
 `make check`: 11/11 vectors in 33s, 35s and STU, from a fresh and a used core; 12 keys blocks.
 Controls: cos 120 quoted positive, ASIN 0.5 quoted as 150, a negative angle keyed without its sign;
 all red.
+
+## Abacus's accuracy read (#4683, 2026-10-07)
+
+Accepted at 25dd486. The values checked against mpmath; sin² + cos² = exactly 1 is fair to quote (DEG
+trig correctly rounded, 034). (1) The legs |cos θ| and |sin θ| at every angle (degenerate on the axes,
+the identity still holding); (2) the ranges and mirrors, sine's one-angle case at sin θ = ±1; the
+optional clause for cosine's (cos θ = ±1, at 0 and 180) added; (3) −30 and 330 one point.

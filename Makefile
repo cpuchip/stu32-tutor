@@ -45,6 +45,7 @@ controls: tools
 	$(PYTHON) tools/controls.py --core $(CORE_DIR) lessons/trig-01-degrees-and-radians
 	$(PYTHON) tools/controls.py --core $(CORE_DIR) lessons/trig-02-right-triangles
 	$(PYTHON) tools/controls.py --core $(CORE_DIR) lessons/trig-03-the-unit-circle
+	$(PYTHON) tools/controls.py --core $(CORE_DIR) lessons/trig-04-polar-and-rectangular
 
 $(CORE_DIR)/.exported: scripts/export-core.sh
 	scripts/export-core.sh $(FIRMWARE) $(CORE_PIN) $(CORE_DIR)
