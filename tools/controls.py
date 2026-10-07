@@ -137,7 +137,7 @@ CONTROLS_FOR["num-02-fractions"] = [
     ("a display vector that drops an inexact fraction's indicator", "fmt-vectors.txt",
      "| w=21 | 0 5/6 v", "| w=21 | 0 5/6", {}, "D-G04: the display vector's indicator is 'none', the status band has"),
     ("a fraction quoted after the fraction key turned it off",
-     [("fmt-vectors.txt", "| 2.375 | FIX 4 | w=21 | 2.3750", "| 2.375 | FRAC 4095 P | w=21 | 2 3/8"),
+     [("fmt-vectors.txt", "D-G07 | after G07 | 2.375 | FIX 4 | w=21 | 2.3750", "D-G07 | after G07 | 2.375 | FRAC 4095 P | w=21 | 2 3/8"),
       ("lesson.md", '<disp v="G07">2.3750</disp>', '<disp v="G07">2 3/8</disp>')], None, None, {},
      "D-G07: display vector at 'FRAC 4095 P', vector G07 ends at 'FIX 4'"),
     ("an example that turns Fraction display on again, though the one before left it on",

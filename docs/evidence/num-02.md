@@ -41,3 +41,13 @@ moved up beside the toggle; a whole number's display (4); the status band introd
 `make check` at 867ddd5: 10/10 vectors in 33s and 35s, from a fresh and a used core; 11 keys
 blocks; 11 quotes (9 displays, 2 status arrows), each on the device, and all again for a student
 working through in order. Controls: 4/4 red, 1/1 green.
+
+## Abacus's accuracy read (#4301, 2026-10-06)
+
+Values right, and the arrows' meaning and the 4095 default match the 33s guide (p.5-3 and p.5-2,
+per abacus). Two fixes, taken. E02's reason was wrong: 1.5 x 2.666...667 is 4.000...0005, exactly
+half a unit, a tie that half-even rounds to 4; "too small to survive the rounding" was G06's case,
+not this one. The prose now says the product lands exactly halfway and the calculator rounds a tie
+to the even digit. And "choose another display setting" turns Fraction display off had no example:
+G09 (continuing G07: on again, then FIX 4) now shows 2.3750 on the device's X line, which backs it
+on the real path (the runner has no Fraction-display expectation to probe it).

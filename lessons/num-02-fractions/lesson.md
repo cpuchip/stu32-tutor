@@ -59,7 +59,14 @@ again now, and the display goes back to the setting it had before, here FIX 4:
 BLUE →FRAC
 ```
 
-X shows <disp v="G07">2.3750</disp>.
+X shows <disp v="G07">2.3750</disp>. Choosing a setting from the DISP menu turns fraction display
+off as well. Turn it on again, then choose FIX 4:
+
+```keys G09 after=G07
+BLUE →FRAC GOLD DISP FIX 4
+```
+
+X shows <disp v="G09">2.3750</disp>, a decimal again.
 
 ## Adding and multiplying
 
@@ -132,5 +139,5 @@ X shows <disp v="G08">0.8333</disp>.
    ```
 
    X shows <disp v="E02">4</disp>, with no arrow. The stored 2 2/3 is a hair above its true value,
-   but times 1 1/2 the extra is too small to survive the rounding to 34 digits, so the product is
-   exactly 4.
+   and times 1 1/2 the product lands exactly halfway between two 34-digit numbers. The calculator
+   rounds a tie like that to the one ending in an even digit, which here is exactly 4.
