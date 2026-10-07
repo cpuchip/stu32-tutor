@@ -1,0 +1,11 @@
+# trig-02 right triangles: key vectors (the firmware's format). Every example is ours. Each starts
+# MODE33 FIX4 DEG (the setup). Values from build/proto/trig02.py with dmath.py (80 digits, rounded once).
+L01 | a 5 m ladder at 70 degrees: its height, 5 sin 70 | MODE33 FIX4 DEG 5 ENTER 70 SIN * | X=4.698463103929541920270546386623658
+L02 | its foot's distance from the wall, 5 cos 70 | MODE33 FIX4 DEG 5 ENTER 70 COS * | X=1.710100716628343665220498073411298
+T01 | a tree 12 m away seen 35 degrees up: its height, 12 tan 35 | MODE33 FIX4 DEG 12 ENTER 35 TAN * | X=8.402490458516517353502272633337992
+A01 | the 3-4-5 triangle: the angle opposite 3 from sin = 3/5 | MODE33 FIX4 DEG 3 ENTER 5 / ASIN | X=36.86989764584402129685561255909341
+A02 | the same angle from cos = 4/5 | MODE33 FIX4 DEG 4 ENTER 5 / ACOS | X=36.86989764584402129685561255909341
+A03 | and from tan = 3/4 | MODE33 FIX4 DEG 3 ENTER 4 / ATAN | X=36.86989764584402129685561255909341
+E01 | exercise 1: a ramp rising 1 m over 12 m: its angle, ATAN(1/12) | MODE33 FIX4 DEG 1 ENTER 12 / ATAN | X=4.76364169072617758132732763350963
+E02 | exercise 2: a 2.5 m ladder, foot 0.7 m out: its angle, ACOS(0.7/2.5) | MODE33 FIX4 DEG 0.7 ENTER 2.5 / ACOS | X=73.73979529168804259371122511818681
+E02B | continues E02: its height, 2.5 sin of that angle | MODE33 FIX4 DEG 0.7 ENTER 2.5 / ACOS SIN 2.5 * | X=2.4

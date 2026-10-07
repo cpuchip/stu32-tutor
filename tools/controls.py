@@ -318,6 +318,14 @@ CONTROLS_FOR["trig-01-degrees-and-radians"] = [
     ("the exercise's sine left in radians (DEG not set)", "lesson.md", "   BLUE ∡MODE DEG 45 SIN\n", "   45 SIN\n", {},
      "E03: printed keys and vector disagree in 33s mode"),
 ]
+CONTROLS_FOR["trig-02-right-triangles"] = [
+    ("the ladder's height taken with cos (the adjacent side)", "lesson.md", "```keys L01\n5 ENTER 70 SIN ×\n",
+     "```keys L01\n5 ENTER 70 COS ×\n", {}, "L01: printed keys and vector disagree in 33s mode"),
+    ("an angle from SIN instead of ASIN", "lesson.md", "```keys A01\n3 ENTER 5 ÷ GOLD ASIN\n", "```keys A01\n3 ENTER 5 ÷ SIN\n", {},
+     "A01: printed keys and vector disagree in 33s mode"),
+    ("the tree's height quoted from the wrong ratio (12 ÷ tan 35)", "lesson.md", 'v="T01">8.4025<', 'v="T01">17.1378<', {},
+     "D-T01: the prose shows '17.1378'"),
+]
 CONTROLS_FOR["fn-02-a-table-of-values"] = [
     ("a label's line numbered from the program's top, not its own label", "lesson.md", 'kind="program">U008 RTN<',
      'kind="program">T022 RTN<', {}, "T01B: the device's X line shows 'U008 RTN' (program)"),

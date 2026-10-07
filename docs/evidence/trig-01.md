@@ -53,3 +53,11 @@ in order; GRAD named as a third unit not used; 2π ÷ 12 = π ÷ 6 written out; 
 round the edge; the circle centred on the angle's corner; COS and TAN placed; sin x notation; the
 unshown √2 ÷ 2 removed. Not taken: a status quote for degrees (the status band shows no unit there,
 probed; a quote cannot show an absence).
+
+## Abacus's accuracy read (#4666, 2026-10-07)
+
+Accepted at ad71fb2. The three one-unit cases recomputed at 120 digits (the truths right; 45 × round(π/180)
+is the core's …758): not a defect, since radian trig and →RAD/→DEG are under 003 amendment 1's 8-unit
+bar (034 made DEG and GRAD trig correctly rounded); the coming single-input hp Ziv unit will make them
+correct, and they repin to exact then. The unit's scope (fn_torad never reads the mode; 35s guide p.4-14),
+DEG showing no unit (screen.c), GRAD's 400, the keys (layout/stu32-v0.json) and the quoted values confirmed.

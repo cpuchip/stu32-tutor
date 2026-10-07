@@ -72,7 +72,10 @@ Re-run fn-03's side vector W01 (docs/evidence/fn-03.md) at every repin: make che
 linear solvers, LOGIC, CLEAR's STK, →km/→mile, REG/ARG in equations) and adds the 33s's own (x³/∛x,
 the ENG shifts, MEM, FN=, HYP as a prefix, its equation syntax and 40 constants). Of the lessons,
 only poly-04 uses a hidden feature (CMPLX i): at that repin it offers 35s and STU with a
-modes_reason until 039's CMPLX pairs give it a 33s variant. The 33s equation syntax may change
+modes_reason until 039's CMPLX pairs give it a 33s variant.
+The single-input hp Ziv unit (after 041, abacus #4666/#4667) makes radian trig, →RAD/→DEG and the
+inverse trig functions correctly rounded (today within 8 units): repin trig-01's A02 and E01 and
+trig-02's E02, pinned within 1-2 units now, to exact values then. The 33s equation syntax may change
 equation quotes in eq-01..03, exp-04 and poly-02; the 33s pass will say.
 
 ## What this asks of others
