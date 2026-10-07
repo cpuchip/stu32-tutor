@@ -92,9 +92,15 @@ X
 
 The X line shows <disp v="Q05" kind="view">X=4.0000</disp>: SOLVE ends by showing the
 variable it solved for, as VIEW does in rpn-02. The 4 is in X, and it is stored in the variable
-X too: the solution you checked by hand above. The next key clears the view: C only clears it,
-and any other key clears it and then does its own job. To check the solution again, show the equation, press XEQ, and press R/S at X? to
-keep the 4.
+X too: the solution you checked by hand above. The next key clears the view: ← and C only clear
+it, and any other key clears it and then does its own job. Press ←:
+
+```keys Q05C after=Q05
+←
+```
+
+X shows <disp v="Q05C">4.0000</disp>: the view is gone, and the 4 is still in X. To check the
+solution again, show the equation, press XEQ, and press R/S at X? to keep the 4.
 
 ## The × matters
 

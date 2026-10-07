@@ -174,6 +174,8 @@ CONTROLS_FOR["eq-01-equations"] = [
      "Q05A: printed keys and vector disagree in 33s mode: LEFT: the keys end with a prompt waiting"),
     ("checking a second value without showing the equation again", "lesson.md", "```keys Q04 after=Q03\nGOLD EQN XEQ 5 R/S\n",
      "```keys Q04 after=Q03\nXEQ 5 R/S\n", {}, "Q04: printed keys and vector disagree in 33s mode"),
+    ("← over SOLVE's view quoted as clearing X too", "lesson.md", 'v="Q05C">4.0000<', 'v="Q05C">0.0000<', {},
+     "D-Q05C: the prose shows '0.0000'"),
 ]
 CONTROLS_FOR["fn-01-functions-as-programs"] = [
     ("a quoted program line the screen does not show", "lesson.md", 'kind="program">K004 3<', 'kind="program">K004 +<', {},

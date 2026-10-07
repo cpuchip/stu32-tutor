@@ -6,6 +6,7 @@ Q03 | continues Q02: try 4; left minus right is 0, so 4 solves it; 4 is stored i
 Q04 | continues Q03: show it again, try 5; 2 x 5 + 3 is 13, two more than 11 | MODE33 FIX4 EQN 2 * RCL:X + 3 = 11 ENTER XEQ 4 RS EQN XEQ 5 RS | X=2 @X=5
 Q05A | continues Q04: the equation shown again, then SOLVE waits for its variable | MODE33 FIX4 EQN 2 * RCL:X + 3 = 11 ENTER XEQ 4 RS EQN XEQ 5 RS EQN | %EQ=2×X+3=11
 Q05 | continues Q05A: X, and SOLVE finds 4 | MODE33 FIX4 EQN 2 * RCL:X + 3 = 11 ENTER XEQ 4 RS EQN XEQ 5 RS EQN SOLVE:X | X=4 @X=4
+Q05C | continues Q05: the backspace key clears only SOLVE's view; 4 stays in X | MODE33 FIX4 EQN 2 * RCL:X + 3 = 11 ENTER XEQ 4 RS EQN XEQ 5 RS EQN SOLVE:X BKSP | X=4 @X=4
 Q06A | without the x sign: 2X + 3 = 11, typed as a new equation | MODE33 FIX4 EQN 2 RCL:X + 3 = 11 ENTER | %EQ=2X+3=11
 Q06 | continues Q06A: it cannot be worked out: SYNTAX ERROR, after R/S | MODE33 FIX4 EQN 2 RCL:X + 3 = 11 ENTER XEQ 4 RS | ERR
 Q06B | continues Q06: C clears the message, leaving the 4 typed | MODE33 FIX4 EQN 2 RCL:X + 3 = 11 ENTER XEQ 4 RS C | ERR X=4
