@@ -1,0 +1,10 @@
+# poly-04 display vectors: D-nnn is what X shows after key vector nnn, at FIX 4; a value a i b is complex.
+D-C01 | after C01 | -1i0 | FIX 4 | w=21 | -1.0000i0.0000
+D-C02 | after C02 | -16i0 | FIX 4 | w=21 | -16.0000i0.0000
+D-R01 | after R01 | -1i2 | FIX 4 | w=21 | -1.0000i2.0000
+D-R02 | after R02 | -1i-2 | FIX 4 | w=21 | -1.0000i-2.0000
+D-H01 | after H01 | 0i0 | FIX 4 | w=21 | 0.0000i0.0000
+D-H02 | after H02 | 0i0 | FIX 4 | w=21 | 0.0000i0.0000
+D-E01 | after E01 | 2i3 | FIX 4 | w=21 | 2.0000i3.0000
+D-E02 | after E02 | 2i-3 | FIX 4 | w=21 | 2.0000i-3.0000
+D-E03 | after E03 | 0i0 | FIX 4 | w=21 | 0.0000i0.0000

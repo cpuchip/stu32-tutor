@@ -392,8 +392,11 @@ class Lesson:
                     continue
                 for level, want_v in re.findall(r"(?:^|\s)([XYZT])=(\S+)", byid[bid][1][3]):
                     got = seq_val[bid].get(level, "")
+                    # A complex value is its two parts joined by "i" (the vectors' and keyrun's form);
+                    # each part must be equal, so a real never passes for a complex or the reverse.
                     try:
-                        same = Decimal(got) == Decimal(want_v)
+                        gp, wp = got.split("i"), want_v.split("i")
+                        same = len(gp) == len(wp) and all(Decimal(g) == Decimal(w) for g, w in zip(gp, wp))
                     except InvalidOperation:
                         same = False
                     if not same:

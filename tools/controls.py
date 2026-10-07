@@ -259,6 +259,14 @@ CONTROLS_FOR["poly-03-the-quadratic-formula"] = [
     ("a negative discriminant's refusal misquoted", "lesson.md", 'v="N02" kind="message">SQRT(NEG)<',
      'v="N02" kind="message">INVALID DATA<', {}, "N02: the device's X line shows 'SQRT(NEG)' (message)"),
 ]
+CONTROLS_FOR["poly-04-complex-roots"] = [
+    ("a root's i part quoted with the wrong sign", "lesson.md", 'v="R01">-1.0000i2.0000<', 'v="R01">-1.0000i-2.0000<', {},
+     "D-R01: the prose shows '-1.0000i-2.0000'"),
+    ("−b typed without ENTER (the −2 runs into the 0 of 0 i 4)", "lesson.md", "```keys R01\n2 +/− ENTER 0 BLUE CMPLX i 4 + 2 ÷\n",
+     "```keys R01\n2 +/− 0 BLUE CMPLX i 4 + 2 ÷\n", {}, "R01: printed keys and vector disagree in 33s mode"),
+    ("the conjugate checked with its i part's sign lost", "lesson.md", "```keys H02A\n1 +/− BLUE CMPLX i 2 +/−\n",
+     "```keys H02A\n1 +/− BLUE CMPLX i 2\n", {}, "H02A: printed keys and vector disagree in 33s mode"),
+]
 CONTROLS_FOR["fn-02-a-table-of-values"] = [
     ("a label's line numbered from the program's top, not its own label", "lesson.md", 'kind="program">U008 RTN<',
      'kind="program">T022 RTN<', {}, "T01B: the device's X line shows 'U008 RTN' (program)"),

@@ -40,3 +40,8 @@ the SQRT(NEG) cleared with C as in fn-03 (N03, X -16).
 `make check`: 13/13 vectors in 33s and 35s, from a fresh and a used core; 14 keys blocks; 13
 quotes. Controls: b stored without its sign, dividing by 2 instead of 2a, the negative
 discriminant's refusal misquoted; all red.
+
+## Abacus's accuracy read (#4503, 2026-10-07)
+
+Accepted at 48ca808 (19/19 in order, 19 controls sets red). Values confirmed; Q02A traces right;
+statements (1)-(3) right for real quadratics, (4) right by rpn-02's rule.

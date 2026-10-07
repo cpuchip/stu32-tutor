@@ -136,13 +136,20 @@ static int sequence(const char *path)
         if (press_names(&a, tok, ntok)) { printf("IN %s\n", line); return 2; }
         app_ui(&a, &ui);
         screen_lines(&c, &ui, &page);
-        /* X, Y, Z and T as exact numbers ("" for a level that is not a real): a coincidence in X
-           alone (a stray digit that still lands on the right X) must not pass. */
-        static char val[4][96];
+        /* X, Y, Z and T as exact numbers, a complex one as its two parts joined by "i" ("" for a
+           vector): a coincidence in X alone (a stray digit that still lands on the right X) must
+           not pass. */
+        static char val[4][200];
         const ab_val *lv[4] = {&c.x, &c.y, &c.z, &c.t};
         for (int i = 0; i < 4; i++) {
             val[i][0] = '\0';
             if (lv[i]->kind == AB_REAL) abn_to_text(&lv[i]->re, val[i], sizeof val[i]);
+            else if (lv[i]->kind == AB_COMPLEX) {
+                char re[96], im[96];
+                abn_to_text(&lv[i]->re, re, sizeof re);
+                abn_to_text(&lv[i]->im, im, sizeof im);
+                snprintf(val[i], sizeof val[i], "%si%s", re, im);
+            }
         }
         printf("X\t%s\t%s\t%s\nYL\t%s\t%s\t%s\nSTATUS\t%s\t%s\nVAL\t%s\t%s\t%s\t%s\t%s\n", line,
                page.x.kind >= 0 && page.x.kind <= SCREEN_VIEW ? KIND[page.x.kind] : "?", page.x.text,
