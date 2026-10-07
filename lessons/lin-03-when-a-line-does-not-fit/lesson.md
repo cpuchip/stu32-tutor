@@ -165,5 +165,5 @@ the ends and too high in the middle: the mark of points on a curve. Past the dat
 ```
 
 X shows <disp v="E01D">34.0000</disp>, and the next doubling is 64. A high r does not make a line the
-right model; the shape of the points decides. Doubling has its own kind of function, which unit 6
+right model; the shape of the points decides. Doubling has its own kind of function, which exp-01
 meets.

@@ -107,7 +107,7 @@ X shows <disp v="R02">-1.0000i-2.0000</disp>: −1 − 2i.
 The two roots differ only in the sign of their imaginary part. Such a pair is called a complex
 conjugate pair. For a quadratic with real coefficients and a negative discriminant this always
 happens: −b ÷ (2a) is real, √D is a real number times i, and the ± adds and subtracts it, giving
-a + bi and a − bi. (The complex roots of any polynomial with real coefficients come in conjugate
+a pair of the form p + qi and p − qi. (The complex roots of any polynomial with real coefficients come in conjugate
 pairs; that needs more than the formula to show.)
 
 ## Checking a root

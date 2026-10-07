@@ -1,7 +1,7 @@
 ---
 id: exp-01
 title: Growth and decay
-requires: setup shift-keys rpn-arithmetic enter-copies t-copies-down power xroot neg-frac-powers linear-function
+requires: setup shift-keys rpn-arithmetic enter-copies t-copies-down power xroot neg-frac-powers e-arithmetic linear-function
 status: draft prose (accuracy: lessons/ACCEPTED; not yet read by Michael)
 setup: BLUE MODE {mode} GOLD DISP FIX 4
 display: FIX 4
@@ -9,7 +9,7 @@ display: FIX 4
 
 # Growth and decay
 
-A linear function (unit 4) adds the same amount at every step. An exponential function multiplies
+A linear function (lin-01) adds the same amount at every step. An exponential function multiplies
 by the same factor at every step. After n steps from a starting amount a, with a factor b each
 step, the amount is
 
@@ -59,8 +59,9 @@ A medicine whose amount in the body halves every 6 hours has a factor of 0.5 for
 time it takes to halve is called its half-life. Start with 80 mg. The amount does not drop in jumps
 at each halving; it falls smoothly all the time, so a × bⁿ holds for part of a step too, with n a
 fraction. After 15 hours, 15 ÷ 6 = 2.5 half-lives have passed, so 80 × 0.5^2.5 remain. A power of
-2.5 is a power of 2 and a power of one half together: 0.5^2.5 = 0.5² × √0.5, as num-03's powers of
-one half were square roots. yˣ takes any power. First the 2.5:
+2.5 is a power of 2 and a power of one half together: 0.5^2.5 = 0.5² × √0.5, since multiplying
+powers of one number adds the powers (num-04 did it with powers of ten) and num-03's power of one
+half is a square root. yˣ takes any power. First the 2.5:
 
 ```keys D01A
 80 ENTER 0.5 ENTER 15 ENTER 6 ÷

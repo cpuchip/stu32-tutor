@@ -110,7 +110,7 @@ X holds −2. Try the same thing as a power of one third:
 ```
 
 The screen shows <disp v="R07D" kind="message">INVALID yˣ</disp>: yˣ refuses a negative number raised
-to a fractional power. Nothing was lost. Press C to clear the message:
+to a fractional power. Nothing was lost. Press C, the bottom left key, to clear the message:
 
 ```keys R07E after=R07D
 C

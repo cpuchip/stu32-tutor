@@ -9,8 +9,9 @@ display: FIX 4
 
 # The display
 
-The STU-32 keeps 34 significant digits of every number. The screen shows far fewer, and the
-display setting decides which ones. This lesson is about that setting: what each kind shows, and
+The STU-32 keeps 34 significant digits of every number: its digits counted from the first one that
+is not zero, so 0.00456 has three. The screen shows far fewer, and the display setting decides
+which ones. This lesson is about that setting: what each kind shows, and
 why changing it leaves the number underneath as it was.
 
 ## Before you start

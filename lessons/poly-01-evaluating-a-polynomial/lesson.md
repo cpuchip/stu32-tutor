@@ -1,7 +1,7 @@
 ---
 id: poly-01
 title: Evaluating a polynomial
-requires: setup shift-keys enter-copies stack-lift t-copies-down change-sign stack-full function program-entry xeq-program
+requires: setup shift-keys enter-copies stack-lift t-copies-down change-sign stack-full function program-entry xeq-program stopped-program
 status: draft prose (accuracy: lessons/ACCEPTED; not yet read by Michael)
 setup: BLUE MODE {mode} GOLD DISP FIX 4
 display: FIX 4
@@ -20,10 +20,11 @@ polynomial's value with very few keys, by a method that uses the stack the way r
 
 The setup from rpn-01: the mode you chose and FIX 4. The worked example in "On the stack" is one chain, each
 step carrying on from the one before, and so is the program and its runs. Everything else starts
-fresh.
+fresh. If a program is still stopped from fn-03, press GOLD GTO . . before you key in P, as fn-03's
+last answer says.
 
-<mode m="35s,STU">In this mode XEQ and GTO wait, after the label's letter, for ENTER (or a line's
-three digits); the keys below show the ENTER.</mode>
+<mode m="35s,STU">In this mode XEQ and GTO wait, after the label's letter, for ENTER; the keys
+below show the ENTER.</mode>
 
 ```keys setup
 BLUE MODE {mode} GOLD DISP FIX 4

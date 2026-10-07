@@ -12,7 +12,7 @@ display: FIX 4
 exp-03 solved 1.04ⁿ = 2 with logarithms, because the unknown sat alone in the power. Many equations
 are not so tidy. In eˣ = 3x the unknown is both in a power and outside it: taking logarithms gives
 x = ln(3x), with x still on both sides, and no rearranging with the functions on the calculator
-gets it out. SOLVE, from poly-02, does not need it out: it searches for the x that makes the two
+gets it out. SOLVE, from eq-01 and poly-02, does not need it out: it searches for the x that makes the two
 sides equal. This lesson uses it on exponential equations.
 
 ## Before you start

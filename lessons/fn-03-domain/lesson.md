@@ -21,8 +21,8 @@ The setup from rpn-01: the mode you chose and FIX 4. This lesson is one chain: e
 the one before. It enters two programs, R and S, with the program entry, labels, XEQ and RTN of
 fn-01. R is on the XEQ key and S is on 7; neither letter is used in fn-01 or fn-02.
 
-<mode m="35s,STU">In this mode XEQ and GTO wait, after the label's letter, for ENTER (or a line's
-three digits); the keys below show the ENTER.</mode>
+<mode m="35s,STU">In this mode XEQ and GTO wait, after the label's letter, for ENTER; the keys
+below show the ENTER.</mode>
 
 ```keys setup
 BLUE MODE {mode} GOLD DISP FIX 4

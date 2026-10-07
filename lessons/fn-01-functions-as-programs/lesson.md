@@ -19,8 +19,8 @@ rule with XEQ and that letter. The program uses the stack like any other calcula
 The setup from rpn-01: the mode you chose and FIX 4. This whole lesson is one chain: each example carries on
 from the one before, because a program is entered once and then used.
 
-<mode m="35s,STU">In this mode XEQ and GTO wait, after the label's letter, for ENTER (or a line's
-three digits); the keys below show the ENTER.</mode>
+<mode m="35s,STU">In this mode XEQ and GTO wait, after the label's letter, for ENTER; the keys
+below show the ENTER.</mode>
 
 ```keys setup
 BLUE MODE {mode} GOLD DISP FIX 4

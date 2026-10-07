@@ -21,8 +21,8 @@ the one before. It uses the program entry, labels, XEQ and RTN of fn-01. It ente
 and T, and T has a second label inside it, U, for its loop to jump back to. None of these letters
 is used in fn-01.
 
-<mode m="35s,STU">In this mode XEQ and GTO wait, after the label's letter, for ENTER (or a line's
-three digits); the keys below show the ENTER.</mode>
+<mode m="35s,STU">In this mode XEQ and GTO wait, after the label's letter, for ENTER; the keys
+below show the ENTER.</mode>
 
 ```keys setup
 BLUE MODE {mode} GOLD DISP FIX 4

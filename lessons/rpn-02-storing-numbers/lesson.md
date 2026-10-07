@@ -109,7 +109,8 @@ the last purchase. The view stays until your next key, and that key also does it
 0 STO B 12.5 STO + B 7.25 STO + B 30 STO + B GOLD VIEW B 5
 ```
 
-The two exceptions are ← and C, which only clear the view and change nothing else:
+The two exceptions are ← and C (the bottom left key), which only clear the view and change nothing
+else:
 
 ```keys V06C
 0 STO B 12.5 STO + B 7.25 STO + B 30 STO + B GOLD VIEW B ←

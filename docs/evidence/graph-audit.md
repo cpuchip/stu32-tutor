@@ -45,10 +45,17 @@ readers' cited dependencies under the rule above; they were not each re-read. Re
   program; falling, flat and vertical lines; a double root; complex numbers and typing them;
   conjugate pairs; a full turn and negative angles; the ranges of ASIN and ACOS.
 
-## Content findings in accepted lessons (not yet changed)
+## Content findings in accepted lessons
 
-The readers found these in the prose. Each changes an accepted lesson, so each goes to abacus before
-it is published (lessons/ACCEPTED holds a changed lesson back). Kept here until they are made.
+The readers found these in the prose; each was checked against the lesson's line. All but 10 are
+made (build/proto/fix_audit.py), in 14 lessons, which lessons/ACCEPTED holds back until abacus has
+seen them. How each was made: 1, C named as the bottom left key (layout/stu32-v0.json) at its first
+mention (rpn-02) and first press (num-03); 2, the "33" dropped; 3, significant digits defined where
+rpn-03 first says them; 4, "types and solves"; 5, "from eq-01 and poly-02"; 6, lin-01 and exp-01
+named; 7, "a pair of the form p + qi and p − qi"; 8, the reference to fn-02's TABLE section put in an
+STU span; 9, "multiplying powers of one number adds the powers (num-04 did it with powers of ten)";
+11, the three digits dropped; 12, poly-01's opening says to press GOLD GTO . . if a program is still
+stopped from fn-03. 10 stays open: the claim wants a picture, which the site's graphs can give.
 
 1. The C key is never introduced or located: num-03 is the first to press it ("Press C to clear the
    message"), and eq-01, fn-01, fn-03, lin-01, lin-03, poly-02..04 and exp-03 lean on it.

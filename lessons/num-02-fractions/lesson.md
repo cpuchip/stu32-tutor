@@ -96,8 +96,8 @@ answer is exactly 1/2.
 
 Fraction display shows the closest fraction whose bottom number is at most 4095, the calculator's
 limit unless you change it. When the answer is not exactly that fraction, a small arrow in the
-status band says so. The status band is the line at the top of the screen; it also shows the mode,
-33. With fraction display still on, add 1/2 and 1/3:
+status band says so. The status band is the line at the top of the screen. With fraction display
+still on, add 1/2 and 1/3:
 
 ```keys G04 after=G06
 .1.2 ENTER .1.3 +
