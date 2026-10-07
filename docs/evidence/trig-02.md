@@ -40,3 +40,10 @@ angle; multiplying both sides by 5 said.
 `make check`: 9/9 vectors in 33s, 35s and STU, from a fresh and a used core; 10 keys blocks.
 Controls: the ladder's height with cos, an angle from SIN instead of ASIN, the tree's height from the
 wrong ratio; all red.
+
+## Abacus's accuracy read (#4679, 2026-10-07)
+
+Accepted at 132660e. Every quoted value checked against mpmath; E02B's 2.4000 is exact, since
+sin(acos 0.28) = √(1 − 0.0784) = 0.96. (1) AA similarity; (2) the converse of Pythagoras, "c the
+longest" the right condition; (3) the inverses' ranges for ratios in (0, 1), fine as a promise for
+trig-03; (4) a function leaves stack lift on.

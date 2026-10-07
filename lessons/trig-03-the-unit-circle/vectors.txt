@@ -1,0 +1,13 @@
+# trig-03 the unit circle: key vectors (the firmware's format). Every example is ours. Each starts
+# MODE33 FIX4 DEG (the setup). Values from build/proto/trig03.py with dmath.py (80 digits, rounded once).
+U01 | cos 120 | MODE33 FIX4 DEG 120 COS | X=-0.5
+U02 | sin 120 | MODE33 FIX4 DEG 120 SIN | X=0.8660254037844386467637231707529362
+U03 | cos 200 | MODE33 FIX4 DEG 200 COS | X=-0.9396926207859083840541092773247315
+U04 | sin 200 | MODE33 FIX4 DEG 200 SIN | X=-0.3420201433256687330440996146822596
+U05 | sin^2 200 + cos^2 200 | MODE33 FIX4 DEG 200 SIN SQ 200 COS SQ + | X=1
+U06 | sin 150, the same as sin 30 | MODE33 FIX4 DEG 150 SIN | X=0.5
+U07 | ASIN 0.5 gives only 30 | MODE33 FIX4 DEG 0.5 ASIN | X=30
+U08 | sin 390: a full turn and 30 more | MODE33 FIX4 DEG 390 SIN | X=0.5
+U09 | sin(-30): clockwise | MODE33 FIX4 DEG 30 CHS SIN | X=-0.5
+E01 | exercise: ACOS(-0.5) gives 120 | MODE33 FIX4 DEG 0.5 CHS ACOS | X=120
+E02 | the other angle, 360 - 120 = 240: cos 240 | MODE33 FIX4 DEG 240 COS | X=-0.5

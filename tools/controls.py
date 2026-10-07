@@ -326,6 +326,14 @@ CONTROLS_FOR["trig-02-right-triangles"] = [
     ("the tree's height quoted from the wrong ratio (12 ÷ tan 35)", "lesson.md", 'v="T01">8.4025<', 'v="T01">17.1378<', {},
      "D-T01: the prose shows '17.1378'"),
 ]
+CONTROLS_FOR["trig-03-the-unit-circle"] = [
+    ("cos 120 quoted with the sign of the right-hand side", "lesson.md", 'v="U01">-0.5000<', 'v="U01">0.5000<', {},
+     "D-U01: the prose shows '0.5000'"),
+    ("ASIN 0.5 quoted as the other angle", "lesson.md", 'v="U07">30.0000<', 'v="U07">150.0000<', {},
+     "D-U07: the prose shows '150.0000'"),
+    ("a negative angle keyed without its sign", "lesson.md", "```keys U09\n30 +/− SIN\n", "```keys U09\n30 SIN\n", {},
+     "U09: printed keys and vector disagree in 33s mode"),
+]
 CONTROLS_FOR["fn-02-a-table-of-values"] = [
     ("a label's line numbered from the program's top, not its own label", "lesson.md", 'kind="program">U008 RTN<',
      'kind="program">T022 RTN<', {}, "T01B: the device's X line shows 'U008 RTN' (program)"),

@@ -1,7 +1,7 @@
 ---
 id: trig-02
 title: Right triangles
-status: draft prose (non-author read taken; not yet read by abacus or Michael)
+status: draft prose (non-author read taken; accepted for accuracy by abacus #4679; not yet read by Michael)
 setup: BLUE MODE {mode} GOLD DISP FIX 4 BLUE ∡MODE DEG
 display: FIX 4
 ---

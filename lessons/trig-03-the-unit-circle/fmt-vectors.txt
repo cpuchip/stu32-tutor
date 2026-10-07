@@ -1,0 +1,12 @@
+# trig-03 display vectors: D-nnn is what X shows after key vector nnn, at FIX 4.
+D-U01 | after U01 | -0.5 | FIX 4 | w=21 | -0.5000
+D-U02 | after U02 | 0.8660254037844386467637231707529362 | FIX 4 | w=21 | 0.8660
+D-U03 | after U03 | -0.9396926207859083840541092773247315 | FIX 4 | w=21 | -0.9397
+D-U04 | after U04 | -0.3420201433256687330440996146822596 | FIX 4 | w=21 | -0.3420
+D-U05 | after U05 | 1 | FIX 4 | w=21 | 1.0000
+D-U06 | after U06 | 0.5 | FIX 4 | w=21 | 0.5000
+D-U07 | after U07 | 30 | FIX 4 | w=21 | 30.0000
+D-U08 | after U08 | 0.5 | FIX 4 | w=21 | 0.5000
+D-U09 | after U09 | -0.5 | FIX 4 | w=21 | -0.5000
+D-E01 | after E01 | 120 | FIX 4 | w=21 | 120.0000
+D-E02 | after E02 | -0.5 | FIX 4 | w=21 | -0.5000
