@@ -26,8 +26,7 @@ BLUE MODE 33s GOLD DISP FIX 4
 The absolute value of a number, written |x|, is its distance from zero: |5| and |−5| are both 5.
 So |x − 3| = 5 says that x − 3 is 5 or −5, which makes x either 8 or −2.
 
-Absolute value is ABS (gold, above +/−; the ABS in blue above √x does the same). In an equation it
-types ABS with its opening bracket; ▶, the second key on the equation bar, steps out of the bracket
+Absolute value is ABS (gold, above +/−). In an equation it types ABS with its opening bracket; ▶, the second key on the equation bar, steps out of the bracket
 when you are done inside it. Type |x − 3| = 5:
 
 ```keys A01
