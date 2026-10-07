@@ -4,3 +4,4 @@ D-N06 | after N06 | -9 | FIX 4 |  | -9.0000
 D-N07 | after N07 | 9 | FIX 4 |  | 9.0000
 D-N08 | after N08 | 77 | FIX 4 |  | 77.0000
 D-N10A | after N10A | -8 | FIX 4 |  | -8.0000
+D-N08C | after N08C | 19 | FIX 4 |  | 19.0000

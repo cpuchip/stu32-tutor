@@ -11,7 +11,7 @@ display: FIX 4
 When an expression mixes operations, mathematics has an agreed order for them: what is inside
 parentheses first, then powers, then multiplication and division, then addition and subtraction.
 Multiplication and division share a rank and are done left to right, and so are addition and
-subtraction. A minus sign in front of a number counts as a subtraction, so it comes after powers.
+subtraction. A minus sign in front of a number is applied after powers: −3² is the negative of 3².
 So 3 + 4 × 5 is 23: the multiplication comes first. On the STU-32 you do the operations yourself,
 one key at a time, so you choose the order. This lesson is about choosing it.
 
@@ -125,10 +125,21 @@ they fit in the four levels:
 2 ENTER 3 ENTER 4 ENTER 1 + GOLD x² × +
 ```
 
-X shows <disp v="N08">77.0000</disp>. When you typed the 1, all four levels were full: 2 in T, 3 in
-Z, 4 in Y and 1 in X. Each two-number operation (+ and ×) used X and Y and dropped the stack, so
-the 2 moved down one level each time, from T to Z to Y, while T kept a copy; x² used X alone and
-moved nothing. That is why the 2 is in Y for the last +.
+X shows <disp v="N08">77.0000</disp>. Stop after typing the 1, and all four levels are full:
+
+```keys N08S
+2 ENTER 3 ENTER 4 ENTER 1
+```
+
+T holds 2, Z holds 3, Y holds 4 and X holds 1. Each two-number operation (+ and ×) uses X and Y
+and drops the stack, so the 2 moves down one level each time, from T to Z to Y, while T keeps a
+copy; x² uses X alone and moves nothing. Stop again just before the last +:
+
+```keys N08T
+2 ENTER 3 ENTER 4 ENTER 1 + GOLD x² ×
+```
+
+X holds 75 and Y holds 2, ready for the +.
 
 Four levels is the limit. If you press ENTER after the 1, the stack pushes up once more and the 2
 falls off the top:
@@ -137,8 +148,15 @@ falls off the top:
 2 ENTER 3 ENTER 4 ENTER 1 ENTER
 ```
 
-X and Y hold 1, Z holds 4 and T holds 3. The 2 is gone, and the + at the end would have nothing to
-add it to.
+X and Y hold 1, Z holds 4 and T holds 3. The 2 is gone. Carry on with the rest of the keys as if
+nothing had happened:
+
+```keys N08C
+2 ENTER 3 ENTER 4 ENTER 1 ENTER + GOLD x² × +
+```
+
+X shows <disp v="N08C">19.0000</disp>. The last + found a leftover 3 where the 2 should have been,
+and gave a wrong answer with no error to warn you.
 
 The other way is to start from the inside, the (4 + 1), and work outward. It never needs more than
 two levels:
@@ -151,8 +169,14 @@ X holds 77 again. Working from the inside out does not depend on how many number
 hold, so it is the habit to build.
 
 It has one catch. With + and × the order of the two numbers does not matter, but with − and ÷ it
-does. Take 20 − 3 × 4 from the inside out: work out 3 × 4, then type the 20. Now the 20 is in X
-and the 12 in Y, the wrong way round for 20 − 12. Press x↔y before the − to put them right:
+does. Take 20 − 3 × 4 from the inside out: work out 3 × 4, then type the 20.
+
+```keys N10S
+3 ENTER 4 × 20
+```
+
+Now the 20 is in X and the 12 in Y, the wrong way round for 20 − 12. Press x↔y before the − to put
+them right:
 
 ```keys N10
 3 ENTER 4 × 20 x↔y −

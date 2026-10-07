@@ -58,3 +58,15 @@ taken, each new claim with a vector:
 
 `make check` at 867ddd5: 19/19 vectors and 27/27 expectations in 33s and 35s, from a fresh and a
 used core; 20 keys blocks, 19 of 19 vectors shown, pressed in both modes; 5 displays quoted.
+
+## Abacus's accuracy read (#4286, 2026-10-06)
+
+Arithmetic right throughout; N01A and N05A back their narration. Three fixes, all taken. N08's
+narration broke the stopping-point rule: it now has N08S (after the 1: X 1, Y 4, Z 3, T 2) and N08T
+(before the last +: X 75, Y 2), both probed by abacus and passing here. N08B's "the + would have
+nothing to add it to" was wrong: carried on, the last + adds a leftover 3 and gives 19 with no error
+(N08C, now taught as the silent wrong answer). The leading-minus reason ("counts as a subtraction")
+broke on 4 x -3 and is now the bare convention, matching the 35s's precedence (p.6-14, per
+abacus). Applying the rule to the rest of the lesson found one more unbacked position, N10's "the
+20 in X and the 12 in Y", now N10S. The spreadsheet aside stays out (abacus: Excel's page lists
+negation above ^ but gives no -3^2 example, so "9" would be an inference).

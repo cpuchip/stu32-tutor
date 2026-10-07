@@ -11,8 +11,12 @@ N05A | inside N05, just before the second -: the 8 from the top waits in Z | MOD
 N06 | -3 squared, read as -(3 squared): square, then change the sign | MODE33 FIX4 3 SQ CHS | X=-9
 N07 | (-3) squared: change the sign, then square | MODE33 FIX4 3 CHS SQ | X=9
 N08 | 2 + 3 x (4 + 1) squared, left to right, using all four levels | MODE33 FIX4 2 ENTER 3 ENTER 4 ENTER 1 + SQ * + | X=77 Y=2
+N08S | inside N08, after the 1: all four levels full (abacus #4286) | MODE33 FIX4 2 ENTER 3 ENTER 4 ENTER 1 | X=1 Y=4 Z=3 T=2
+N08T | inside N08, before the last +: the 2 has dropped to Y (abacus #4286) | MODE33 FIX4 2 ENTER 3 ENTER 4 ENTER 1 + SQ * | X=75 Y=2
 N08B | a fifth number pushes the top one off: ENTER after the 1 loses the 2 | MODE33 FIX4 2 ENTER 3 ENTER 4 ENTER 1 ENTER | X=1 Y=1 Z=4 T=3
+N08C | N08B carried on: the last + adds a leftover 3, giving 19 with no error (abacus #4286) | MODE33 FIX4 2 ENTER 3 ENTER 4 ENTER 1 ENTER + SQ * + | X=19
 N09 | the same, from the inside out, never more than two levels | MODE33 FIX4 4 ENTER 1 + SQ 3 * 2 + | X=77
+N10S | inside N10, before x<>y: the 20 in X and the 12 in Y | MODE33 FIX4 3 ENTER 4 * 20 | X=20 Y=12
 N10 | inside out with a subtraction: 20 - 3 x 4, x<>y puts the 20 back in Y | MODE33 FIX4 3 ENTER 4 * 20 XY - | X=8
 N10A | the same without x<>y: the - works 12 - 20 | MODE33 FIX4 3 ENTER 4 * 20 - | X=-8
 # Exercises
