@@ -22,6 +22,17 @@ His words: "CC BY-SA, learn.stuffleberry.com, algebra to calculus first", then m
 3. **First course: Algebra to Calculus.** Proposed syllabus: docs/courses/algebra-to-calculus.md.
 4. **First learner: open.** Asked through basecamp when it starts to matter.
 
+## 2026-10-06 (Michael, relayed by abacus #4334: abacus decision 54, abacus 4f9d2d2)
+
+A full learning platform: logins, progress, quizzes, and lessons with animations and graphics,
+built by a new seat that basecamp launches. The lesson files here stay the single source; the
+platform renders them, with the real core compiled to WebAssembly in the page, animations driven by
+the core's traced states (tools/trace.c is the seed), and quizzes judged by the core. Learners are
+13 and over (this answers decision 4's question in part: the age, not yet the level). The order:
+the live calculator first, then animations and quizzes, then accounts. Nothing changes in how
+lessons are written; the new seat will ask about the format (keys blocks, `<disp>` tags,
+continuations), which docs/lesson-format.md is written to answer.
+
 ## 2026-10-06 (abacus, #4218 and #4224)
 
 - Every lesson sets its mode and display in its first keys; vectors pass in 33s and 35s modes.
