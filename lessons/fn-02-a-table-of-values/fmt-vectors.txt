@@ -1,0 +1,14 @@
+# fn-02 display vectors: D-nnn is what X shows after key vector nnn, at FIX 4.
+D-Q02 | after Q02 | -1 | FIX 4 | w=21 | -1.0000
+D-T02 | after T02 | 3 | FIX 4 | w=21 | 3.0000
+D-T03 | after T03 | 0 | FIX 4 | w=21 | 0.0000
+D-T04 | after T04 | -1 | FIX 4 | w=21 | -1.0000
+D-T05 | after T05 | 0 | FIX 4 | w=21 | 0.0000
+D-T06 | after T06 | 3 | FIX 4 | w=21 | 3.0000
+D-T07 | after T07 | 3 | FIX 4 | w=21 | 3.0000
+D-G01 | after G01 | -0.75 | FIX 4 | w=21 | -0.7500
+D-G02 | after G02 | -0.75 | FIX 4 | w=21 | -0.7500
+D-E01 | after E01 | 0 | FIX 4 | w=21 | 0.0000
+D-E02 | after E02 | 8 | FIX 4 | w=21 | 8.0000
+D-E03 | after E03 | -1 | FIX 4 | w=21 | -1.0000
+D-E03B | after E03B | 15 | FIX 4 | w=21 | 15.0000
