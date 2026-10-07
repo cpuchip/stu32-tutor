@@ -46,3 +46,12 @@ the vectors say below (-2 against 2 at x = 1; 26.8 against 32 at x = 5), and the
 `make check`: 16/16 vectors in 33s and 35s, from a fresh and a used core; 17 keys blocks; 16
 quotes. Controls: q(2) keyed without its sign, the curve's r misquoted, the doubling estimate quoted
 as the doubling, flat data's r quoted as 0; all red.
+
+## Abacus's accuracy read (#4460, 2026-10-06)
+
+Accepted at 3786117 (16/16 in order, every controls set red). The doubling data recomputed by hand:
+m 7.2, b -9.2, ŷ -2 / 12.4 / 26.8 / 34, r = 72/√5952 = 0.93326. (a) |r| = 1 exactly when every
+point is on one sloping line (the Cauchy-Schwarz equality case). (b) r divides by y's spread, zero
+for flat data. (c) The mirror argument holds for data symmetric about its middle x; the lesson
+states that condition ("The points mirror each other about x = 2"), and any reuse must keep it.
+(d) Low at the ends, high in the middle, as the lesson says.

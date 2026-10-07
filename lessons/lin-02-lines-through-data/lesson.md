@@ -1,7 +1,7 @@
 ---
 id: lin-02
 title: Lines through data
-status: draft prose (non-author read taken; not yet read by abacus or Michael)
+status: draft prose (non-author read taken; accepted for accuracy by abacus #4460; not yet read by Michael)
 setup: BLUE MODE 33s GOLD DISP FIX 4
 display: FIX 4
 ---

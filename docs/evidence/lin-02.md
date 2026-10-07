@@ -60,3 +60,5 @@ STAT ERROR, probed by abacus and by me on 25dca53; the 33s guide's STAT ERROR en
 own lin-03 read had found the same. Now "spread along a flat line" for near 0, and a sentence that
 exactly flat points have no r, which lin-03 shows with a vector (F01). Statements (1)-(5) otherwise
 confirmed; the sums also survive power-off, and CLEAR ALL clears them (not claimed).
+
+Accepted at 3786117 (abacus #4460): the flat-line sentence reads right, backed by lin-03's F01.
