@@ -282,7 +282,11 @@ int main(int argc, char **argv)
        prompt, or change a device setting issue no op and leave no trace in the core's image. */
     const char *left = a.shift ? "a shift armed" : a.menu >= 0 ? "a menu open" : a.prompt_op >= 0 ? "a prompt waiting"
                      : a.confirm_op >= 0 ? "a yes/no prompt waiting" : memcmp(&a.set, &set0, sizeof set0) ? "a device setting changed" : NULL;
-    if (left) { printf("LEFT: the keys end with %s\n", left); return 1; }
+    /* KEYRUN_OPEN_PROMPT=1: check.py sets it for a block the next block continues, so a stopping
+       point may wait at a prompt ("SOLVE _") that the continuation answers. Nothing else is let off. */
+    bool open_ok = getenv("KEYRUN_OPEN_PROMPT") && a.prompt_op >= 0 && !a.shift && a.menu < 0 &&
+                   a.confirm_op < 0 && !memcmp(&a.set, &set0, sizeof set0);
+    if (left && !open_ok) { printf("LEFT: the keys end with %s\n", left); return 1; }
 
     /* What the device's screen shows on its X line (screen.c), for the quoted displays. */
     static screen_ui ui;

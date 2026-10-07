@@ -50,7 +50,10 @@ display: FIX 4
   only the keys pressed next. Its vector holds the full sequence (Smm's keys, then these). Use it
   wherever the text says "now press", and always after a stopping point: a stopping point leaves a
   number half typed, and a fresh example after it would type into that number.
-- A quoted display is `<disp v="Snn">text</disp>`. An annunciator in the status band (the fraction
+- A quoted display is `<disp v="Snn">text</disp>`. Other screen lines take a kind: `eqn` (an equation shown on X), `prompt` (a prompt
+  on X, like `SOLVE _`, or on the line above, like XEQ's `X?`), `message`, `entry`, `view`, and
+  `status` (a token of the status band). A block may stop at a prompt only when the block right
+  after it continues it (`after=`) and answers it. An annunciator in the status band (the fraction
   indicator ▼ or ▲, RAD) is `<disp v="Snn" kind="status">▼</disp>`. A screen line that is not a value (a VIEW's
   `B=49.75`) is `<disp v="Snn" kind="view">text</disp>`, checked against the device's X line
   (text and kind) since no display vector covers it. The kinds are view, prompt, message and entry

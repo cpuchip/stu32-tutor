@@ -169,6 +169,9 @@ CONTROLS_FOR["eq-01-equations"] = [
      "Q02: the device's X line shows"),
     ("an equation-bar key the bar does not have", "lesson.md", "GOLD EQN 2 × RCL X + 3 = 11 ENTER\n```",
      "GOLD EQN 2 × RCL X + 3 EQUALS 11 ENTER\n```", {}, "Q01: printed keys and vector disagree in 33s mode: KEY"),
+    ("a stopping point left at a prompt that no continuation answers", "lesson.md", "```keys Q05 after=Q05A\nX\n```",
+     "```keys Q05\nGOLD EQN 2 × RCL X + 3 = 11 ENTER GOLD SOLVE X\n```", {},
+     "Q05A: printed keys and vector disagree in 33s mode: LEFT: the keys end with a prompt waiting"),
     ("checking a second value without showing the equation again", "lesson.md", "```keys Q04 after=Q03\nGOLD EQN XEQ 5 R/S\n",
      "```keys Q04 after=Q03\nXEQ 5 R/S\n", {}, "Q04: printed keys and vector disagree in 33s mode"),
 ]

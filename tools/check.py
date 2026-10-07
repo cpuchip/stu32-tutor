@@ -196,6 +196,7 @@ class Lesson:
             else:
                 full[bid] = keys
             blocks.append((bid, full[bid], s0, e0))
+        continued = {after for (_, _, _, _, after) in found if after}
         byid = {v[0]: v for v in vectors}
         shown, screen, screen_y, status = set(), {}, {}, {}
 
@@ -228,7 +229,9 @@ class Lesson:
                     os.unlink(trace)
                     self.bad(f"{bid}: vector fails alone in {mode}s mode:\n{r.stdout}")
                     continue
-                k = self.run(f"{self.core}/build/keyrun", f"{press} {keys}", trace)
+                # A block the next one continues may stop at a prompt the continuation answers.
+                cont = {"KEYRUN_OPEN_PROMPT": "1"} if bid in continued else {}
+                k = self.run(f"{self.core}/build/keyrun", f"{press} {keys}", trace, env=cont)
                 os.unlink(trace)
                 if k.returncode != 0:
                     self.bad(f"{bid}: printed keys and vector disagree in {mode}s mode: "
