@@ -26,6 +26,8 @@ controls: tools
 	$(PYTHON) tools/controls.py --core $(CORE_DIR) lessons/num-03-powers-and-roots
 	$(PYTHON) tools/controls.py --core $(CORE_DIR) lessons/eq-01-equations
 	$(PYTHON) tools/controls.py --core $(CORE_DIR) lessons/fn-01-functions-as-programs
+	$(PYTHON) tools/controls.py --core $(CORE_DIR) lessons/fn-02-a-table-of-values
+	$(PYTHON) tools/controls.py --core $(CORE_DIR) lessons/fn-03-domain
 
 $(CORE_DIR)/.exported: scripts/export-core.sh
 	scripts/export-core.sh $(FIRMWARE) $(CORE_PIN) $(CORE_DIR)

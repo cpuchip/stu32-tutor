@@ -183,6 +183,24 @@ CONTROLS_FOR["fn-01-functions-as-programs"] = [
     ("a program entered with the wrong key", "lesson.md", "```keys F01C after=F01B\n2 × 3 +\n", "```keys F01C after=F01B\n2 × 3 −\n", {},
      "F01C: printed keys and vector disagree in 33s mode: DIFF"),
 ]
+CONTROLS_FOR["fn-02-a-table-of-values"] = [
+    ("a label's line numbered from the program's top, not its own label", "lesson.md", 'kind="program">U008 RTN<',
+     'kind="program">T022 RTN<', {}, "T01B: the device's X line shows 'U008 RTN' (program)"),
+    ("the loop entered without IP", "lesson.md", "GOLD LBL U RCL I BLUE POW IP XEQ Q", "GOLD LBL U RCL I XEQ Q", {},
+     "T01B: printed keys and vector disagree in 33s mode: DIFF"),
+]
+CONTROLS_FOR["fn-03-domain"] = [
+    ("a stopped program quoted as stopped after the line that refused", "lesson.md",
+     'v="S05" kind="program">S004 √x<', 'v="S05" kind="program">S005 RTN<', {},
+     "S05: the device's X line shows 'S004 √x' (program)"),
+    ("program entry quoted at the top while a program is stopped", "lesson.md",
+     'v="D04" kind="program">R002 1/x<', 'v="D04" kind="program">PRGM TOP<', {},
+     "D04: the device's X line shows 'R002 1/x' (program)"),
+    ("the wrong error message", "lesson.md", 'v="S03" kind="message">SQRT(NEG)<',
+     'v="S03" kind="message">DIVIDE BY 0<', {}, "S03: the device's X line shows 'SQRT(NEG)' (message)"),
+    ("a negative input keyed with − instead of +/−", "lesson.md", "2 +/− XEQ R", "2 − XEQ R", {},
+     "E01: printed keys and vector disagree in 33s mode"),
+]
 CONTROLS_FOR["rpn-03-the-display"].append(
     ("an example that relies on a setting the one before it changed", "lesson.md",
      "```keys P01\nGOLD DISP FIX 4 2 ENTER 3 ÷\n", "```keys P01\n2 ENTER 3 ÷\n", {},
