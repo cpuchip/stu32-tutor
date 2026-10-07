@@ -214,6 +214,16 @@ CONTROLS_FOR["lin-01-slope-and-intercept"] = [
     ("the intercept quoted as the slope", "lesson.md", 'v="L03">3.0000<', 'v="L03">2.0000<', {},
      "D-L03: the prose shows '2.0000'"),
 ]
+CONTROLS_FOR["lin-02-lines-through-data"] = [
+    ("a point entered x first (the Σ+ order reversed)", "lesson.md", "```keys D01\nGOLD CLEAR Σ 3 ENTER 1 Σ+\n",
+     "```keys D01\nGOLD CLEAR Σ 1 ENTER 3 Σ+\n", {}, "D01: printed keys and vector disagree in 33s mode"),
+    ("the statistics not cleared first", "lesson.md", "```keys D01\nGOLD CLEAR Σ 3 ENTER 1 Σ+\n",
+     "```keys D01\n3 ENTER 1 Σ+\n", {}, "D01: printed keys and vector disagree in 33s mode"),
+    ("r quoted with the sign of the falling set", "lesson.md", 'v="D05">0.9851<', 'v="D05">-0.9851<', {},
+     "D-D05: the prose shows '-0.9851'"),
+    ("Σ− taken as removing the last point, whatever its values", "lesson.md", "```keys W02A after=W01\n11 ENTER 5 GOLD Σ−\n",
+     "```keys W02A after=W01\nGOLD Σ−\n", {}, "W02A: printed keys and vector disagree in 33s mode"),
+]
 CONTROLS_FOR["fn-02-a-table-of-values"] = [
     ("a label's line numbered from the program's top, not its own label", "lesson.md", 'kind="program">U008 RTN<',
      'kind="program">T022 RTN<', {}, "T01B: the device's X line shows 'U008 RTN' (program)"),

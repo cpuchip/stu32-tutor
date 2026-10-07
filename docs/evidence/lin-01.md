@@ -46,3 +46,10 @@ ENTER. One of my own: "as in eq-02" dropped, since eq-02 solves formulas with SO
 `make check`: 13/13 vectors in 33s and 35s, from a fresh and a used core; 14 keys blocks; 12 quotes,
 each on the device and again in the in-order run. Controls: the slope keyed run over rise, the
 vertical line's message misquoted, the intercept quoted as the slope; all red.
+
+## Abacus's accuracy read (#4443, 2026-10-06)
+
+Accepted at b4f098a (14/14 in order, controls red as planted). The values checked; the constant
+slope of a straight line and "one output for each input" standard and correctly put; the L03
+narration traced (RCL M lifts 9 to Y, typing 3 lifts it to Z, × drops it to Y, − gives 3), pinned by
+L03A. The combining circumflex on the L.R. labels (U+0302) passed to primer by abacus.
