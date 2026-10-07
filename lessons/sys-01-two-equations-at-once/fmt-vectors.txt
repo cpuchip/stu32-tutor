@@ -1,0 +1,18 @@
+# sys-01 display vectors: D-nnn is what X shows after key vector nnn, at FIX 4.
+D-C01 | after C01 | 40 | FIX 4 | w=21 | 40.0000
+D-C02 | after C02 | 15 | FIX 4 | w=21 | 15.0000
+D-C03 | after C03 | 37 | FIX 4 | w=21 | 37.0000
+D-C04 | after C04 | 15 | FIX 4 | w=21 | 15.0000
+D-L01 | after L01 | 7 | FIX 4 | w=21 | 7.0000
+D-L02 | after L02 | 8 | FIX 4 | w=21 | 8.0000
+D-F01 | after F01 | 4 | FIX 4 | w=21 | 4.0000
+D-F02 | after F02 | 2 | FIX 4 | w=21 | 2.0000
+D-P01 | after P01 | 2 | FIX 4 | w=21 | 2.0000
+D-P02 | after P02 | 0 | FIX 4 | w=21 | 0.0000
+D-E01 | after E01 | 4 | FIX 4 | w=21 | 4.0000
+D-E01B | after E01B | 2 | FIX 4 | w=21 | 2.0000
+D-E01C | after E01C | 16 | FIX 4 | w=21 | 16.0000
+D-E02 | after E02 | 3 | FIX 4 | w=21 | 3.0000
+D-E04 | after E04 | 0 | FIX 4 | w=21 | 0.0000
+D-E03 | after E03 | 15 | FIX 4 | w=21 | 15.0000
+D-E03B | after E03B | 25 | FIX 4 | w=21 | 25.0000

@@ -74,6 +74,11 @@ eq-03's A03 (guesses 10 and 20, root 8) at the next repin.
 Field check 8 (abacus #4764): typed entry counts leading zeros toward the 34 digits (0.0000 then
 34 digits keeps 29), while rpn-03's "keeps 34 significant digits of every number" is true of
 results. If the field check leaves it so, a later lesson on typing long numbers says it.
+043 (abacus #4780, cc8e048): SOLVE on a built-in linear solver skips the letter, as the 35s does. At
+d75fc75 the keys stop at SOLVE _, and a coefficient typed there is taken as a letter (1 is Y), so
+every input shifts and the answer is wrong with no warning (found by the student run, #4778).
+Unit 8's solver lesson (sys-02, 35s and STU only, decision 58) is written with the guide's keys
+and held until a repin past 043; sys-01 (elimination by hand) does not use the solver.
 041 (decision 58, abacus #4645): 33s mode hides what the HP 33s lacked (CMPLX i, vectors, the
 linear solvers, LOGIC, CLEAR's STK, →km/→mile, REG/ARG in equations) and adds the 33s's own (x³/∛x,
 the ENG shifts, MEM, FN=, HYP as a prefix, its equation syntax and 40 constants). Of the lessons,

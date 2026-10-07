@@ -205,3 +205,9 @@ trig-mirror | One sine, two angles; the ranges of ASIN and ACOS | trig-03 | One 
 # trig-04 Polar and rectangular
 to-polar | Rectangular to polar (→POL) | trig-04 | Rectangular to polar
 to-rect | Polar to rectangular (→REC) | trig-04 | Polar to rectangular
+
+# sys-01 Two equations at once
+system | A system of equations and its solution | sys-01 | -
+check-pair | Checking a pair in both equations | sys-01 | Checking a pair
+elimination | Elimination | sys-01 | Elimination
+no-or-every-solution | No solution, or every solution: parallel lines and one line twice | sys-01 | No solution, or every solution

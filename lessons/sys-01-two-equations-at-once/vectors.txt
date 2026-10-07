@@ -1,0 +1,19 @@
+# sys-01 two equations at once: key vectors (the firmware's format). Every example is ours. Each
+# starts MODE33 FIX4 (the lesson's setup). Values from build/proto/sys01.py (exact fractions).
+C01 | the pair (5, 10) in 2x + 3y: 40, not 37 | MODE33 FIX4 5 STO:X 10 STO:Y 2 RCL:X * 3 RCL:Y * + | X=40 @X=5 @Y=10
+C02 | continues C01: x + y with the same pair: 15, as the second equation wants | MODE33 FIX4 5 STO:X 10 STO:Y 2 RCL:X * 3 RCL:Y * + RCL:X RCL:Y + | X=15
+C03 | the pair (8, 7) in 2x + 3y: 37 | MODE33 FIX4 8 STO:X 7 STO:Y 2 RCL:X * 3 RCL:Y * + | X=37 @X=8 @Y=7
+C04 | continues C03: x + y: 15; (8, 7) fits both | MODE33 FIX4 8 STO:X 7 STO:Y 2 RCL:X * 3 RCL:Y * + RCL:X RCL:Y + | X=15
+L01 | elimination: y = 37 - 2 x 15 | MODE33 FIX4 37 ENTER 2 ENTER 15 * - | X=7
+L02 | continues L01: y kept in Y; x = 15 - y | MODE33 FIX4 37 ENTER 2 ENTER 15 * - STO:Y 15 RCL:Y - | X=8 @Y=7
+F01 | the fruit: y = (6.5 - 0.75 x 6) / (1.25 - 0.75) | MODE33 FIX4 6.5 ENTER 0.75 ENTER 6 * - 1.25 ENTER 0.75 - / | X=4
+F02 | continues F01: x = 6 - y | MODE33 FIX4 6.5 ENTER 0.75 ENTER 6 * - 1.25 ENTER 0.75 - / STO:Y 6 RCL:Y - | X=2 @Y=4
+P01 | parallel lines: the second minus the first leaves 0 = 5 - 3 | MODE33 FIX4 5 ENTER 3 - | X=2
+P02 | the same line twice: 6 - 2 x 3 = 0, so 0 = 0 | MODE33 FIX4 6 ENTER 2 ENTER 3 * - | X=0
+E01 | exercise 1: x = 16 - 2 x 6 | MODE33 FIX4 16 ENTER 2 ENTER 6 * - | X=4
+E01B | continues E01: x in X, y = 6 - x | MODE33 FIX4 16 ENTER 2 ENTER 6 * - STO:X 6 RCL:X - | X=2 @X=4
+E01C | continues E01B: the check, 3x + 2y with (4, 2) | MODE33 FIX4 16 ENTER 2 ENTER 6 * - STO:X 6 RCL:X - STO:Y 3 RCL:X * 2 RCL:Y * + | X=16 @Y=2
+E02 | exercise 2: second - 2 x first leaves 0 = 5 - 2 x 1 | MODE33 FIX4 5 ENTER 2 ENTER 1 * - | X=3
+E04 | exercise 4: second - 2 x first leaves 0 = 4 - 2 x 2 | MODE33 FIX4 4 ENTER 2 ENTER 2 * - | X=0
+E03 | exercise 3: the coins, y = (2.75 - 0.05 x 40) / (0.10 - 0.05) | MODE33 FIX4 2.75 ENTER 0.05 ENTER 40 * - 0.10 ENTER 0.05 - / | X=15
+E03B | continues E03: x = 40 - y | MODE33 FIX4 2.75 ENTER 0.05 ENTER 40 * - 0.10 ENTER 0.05 - / STO:Y 40 RCL:Y - | X=25 @Y=15

@@ -342,6 +342,16 @@ CONTROLS_FOR["trig-04-polar-and-rectangular"] = [
     ("->REC with r and the angle the wrong way round", "lesson.md", "```keys R01\n30 ENTER 10 BLUE ANGLE →REC\n",
      "```keys R01\n10 ENTER 30 BLUE ANGLE →REC\n", {}, "R01: printed keys and vector disagree in 33s mode"),
 ]
+CONTROLS_FOR["sys-01-two-equations-at-once"] = [
+    ("a pair that fits one equation quoted as fitting both", "lesson.md", 'v="C01">40.0000<', 'v="C01">37.0000<', {},
+     "D-C01: the prose shows '37.0000'"),
+    ("elimination done the wrong way round: (37 - 15) x 2", "lesson.md", "```keys L01\n37 ENTER 2 ENTER 15 × −\n",
+     "```keys L01\n37 ENTER 15 − 2 ×\n", {}, "L01: printed keys and vector disagree in 33s mode"),
+    ("no solution read off a 0 = 0", "lesson.md", 'v="E02">3.0000<', 'v="E02">0.0000<', {},
+     "D-E02: the prose shows '0.0000'"),
+    ("the fruit's bottom taken the wrong way round: 0.75 - 1.25", "lesson.md", "6 × − 1.25 ENTER 0.75 − ÷\n```\n\nX shows",
+     "6 × − 0.75 ENTER 1.25 − ÷\n```\n\nX shows", {}, "F01: printed keys and vector disagree in 33s mode"),
+]
 CONTROLS_FOR["fn-02-a-table-of-values"] = [
     ("a label's line numbered from the program's top, not its own label", "lesson.md", 'kind="program">U008 RTN<',
      'kind="program">T022 RTN<', {}, "T01B: the device's X line shows 'U008 RTN' (program)"),
