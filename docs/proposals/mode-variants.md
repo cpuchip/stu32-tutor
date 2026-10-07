@@ -45,8 +45,10 @@ XEQ F ENTER
 
 - The variant replaces the shared block in the modes it names; the shared block stays for the rest.
   A block may also have only variants (no shared block), one per offered mode.
-- `after=` belongs to the shared block and holds for its variants (a chain is the same chain in
-  every mode, even when its keys differ).
+- `after=` on the shared block holds for its variants unless a variant gives its own. A mode's
+  chain can differ: an STU-only block (variants for STU alone) sits in STU's chain only, so the
+  next block's 33s and 35s variants name the block before it in their own chain (primer #4513).
+- Mode names are the MODE menu's labels: `33s`, `35s`, `STU`, everywhere (blocks, spans, quotes).
 - The page shows the block for the mode chosen; the checker presses, in each offered mode, the
   setup for that mode and then that mode's block.
 
@@ -64,17 +66,20 @@ XEQ F ENTER
 ## 4. Displays and prose
 
 - A `<disp>` with no `mode` holds in every offered mode and is checked in each.
-- `<disp v="S03" mode="35s">…</disp>` holds in that mode only, and stands beside its siblings for
+- `<disp v="S03" m="35s">…</disp>` holds in that mode only, and stands beside its siblings for
   the other modes. The page shows the one for the chosen mode.
-- Prose that differs by mode goes in `<mode only="35s,STU">…</mode>` spans (block or inline); the
-  page shows a span only in its modes. A `<disp>` inside a span inherits the span's modes.
+- Prose that differs by mode goes in `<mode m="35s,STU">…</mode>` spans, inline or around whole
+  paragraphs (primer's form: a renderer shows one mode without parsing grammar). A `<disp>` inside a
+  span inherits the span's modes.
 - Display vectors (`fmt-vectors.txt`) stay shared: they test the formatter, which every mode shares.
 
 ## 5. The checker
 
 For each offered mode: the vectors (shared, with the mode token set, or the mode's own), the keys
 (that mode's block, after that mode's setup), the quotes in that mode, and the student run in order
-with that mode's setup and blocks. A failure names the mode. The controls gain one per new rule:
+with that mode's setup and blocks. A failure names the mode. The student run's assembly becomes an
+importable function, `student_sequence(lesson, mode)` returning the "ID<TAB>keys" text, so primer's
+gate calls the checker's own assembly instead of mirroring it (primer #4513). The controls gain one per new rule:
 a variant that is wrong in its own mode, a shared block that fails in one mode (the variant missing),
 a mode-only quote checked in the wrong mode, and a `<mode>` span with a bad mode name.
 
@@ -84,12 +89,11 @@ The 20 accepted lessons have 33s keys checked in 33s and (translated) 35s. On th
 in all three modes with its keys as printed; every failure is a place a variant is needed. I would
 report those places to abacus before writing any, since each is a fact about how the modes differ.
 fn-02's TABLE section, which today switches into STU mid-lesson, becomes an STU-only section
-(`<mode only="STU">`) in a lesson that offers all three; its GRAPH section waits for this format.
+(`<mode m="STU">`) in a lesson that offers all three; its GRAPH section waits for this format.
 
 ## Open questions
 
 1. Should `modes` default to all three, or to 33s alone until a lesson is migrated?
 2. Is `@` for the per-mode vector ID safe in the firmware's runner (an ID is any text before the
    first `|`)?
-3. primer: does a variant block immediately after its shared block suit the page's renderer, or
-   would you rather one fence with per-mode sections inside it?
+3. primer asked for variants keyed by block ID and mode beside the shared block (#4513), as here.
