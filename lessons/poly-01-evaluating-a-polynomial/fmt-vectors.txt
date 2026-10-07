@@ -1,0 +1,8 @@
+# poly-01 display vectors: D-nnn is what X shows after key vector nnn, at FIX 4.
+D-H01B | after H01B | 5 | FIX 4 | w=21 | 5.0000
+D-H01 | after H01 | 91 | FIX 4 | w=21 | 91.0000
+D-H02 | after H02 | 7 | FIX 4 | w=21 | 7.0000
+D-P02 | after P02 | 1 | FIX 4 | w=21 | 1.0000
+D-P03 | after P03 | -14 | FIX 4 | w=21 | -14.0000
+D-E01 | after E01 | 5 | FIX 4 | w=21 | 5.0000
+D-E02 | after E02 | 0.125 | FIX 4 | w=21 | 0.1250

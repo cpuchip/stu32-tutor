@@ -1,0 +1,14 @@
+# poly-01 evaluating a polynomial: key vectors (the firmware's format). Every example is ours.
+# Each starts MODE33 FIX4 (the lesson's setup). Exact values from build/proto/poly01.py.
+H01A | p(4) by Horner: the stack filled with 4, then 2 in X (4 in Y, Z, T) | MODE33 FIX4 4 ENTER ENTER ENTER 2 | X=2 Y=4 Z=4 T=4
+H01C | continues H01A: x gives 8; typing 3 lifts: a 4 falls off the top (Z, T hold 4) | MODE33 FIX4 4 ENTER ENTER ENTER 2 * 3 | X=3 Y=8 Z=4 T=4
+H01B | continues H01C: - gives 5, and T copies its 4 down: 4 in Y, Z, T again | MODE33 FIX4 4 ENTER ENTER ENTER 2 * 3 - | X=5 Y=4 Z=4 T=4
+H01 | continues H01B: x 4 + x 5 - | MODE33 FIX4 4 ENTER ENTER ENTER 2 * 3 - * 4 + * 5 - | X=91
+H02 | p(2) the same way | MODE33 FIX4 2 ENTER ENTER ENTER 2 * 3 - * 4 + * 5 - | X=7
+P01A | program P: Horner for p, entered (P015) | MODE33 FIX4 PRGM LBL:P ENTER ENTER ENTER 2 * 3 - * 4 + * 5 - RTN | %LINES=15 %PC=P015
+P01 | continues P01A: program entry off | MODE33 FIX4 PRGM LBL:P ENTER ENTER ENTER 2 * 3 - * 4 + * 5 - RTN PRGM | %LINES=15
+P02 | continues P01: p(1.5) | MODE33 FIX4 PRGM LBL:P ENTER ENTER ENTER 2 * 3 - * 4 + * 5 - RTN PRGM 1.5 XEQ:P | X=1
+P03 | continues P02: p(-1) | MODE33 FIX4 PRGM LBL:P ENTER ENTER ENTER 2 * 3 - * 4 + * 5 - RTN PRGM 1.5 XEQ:P 1 CHS XEQ:P | X=-14
+E01 | exercise 1: x^3 - 2x + 1 at x = 2, with 0 for the missing x^2 | MODE33 FIX4 2 ENTER ENTER ENTER 1 * 0 + * 2 - * 1 + | X=5
+E02A | exercise 2: r as program N (N015) | MODE33 FIX4 PRGM LBL:N ENTER ENTER ENTER 1 * 0 + * 2 - * 1 + RTN | %LINES=15 %PC=N015
+E02 | continues E02A: program entry off, r(0.5) | MODE33 FIX4 PRGM LBL:N ENTER ENTER ENTER 1 * 0 + * 2 - * 1 + RTN PRGM 0.5 XEQ:N | X=0.125

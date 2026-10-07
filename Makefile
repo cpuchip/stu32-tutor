@@ -34,6 +34,7 @@ controls: tools
 	$(PYTHON) tools/controls.py --core $(CORE_DIR) lessons/lin-01-slope-and-intercept
 	$(PYTHON) tools/controls.py --core $(CORE_DIR) lessons/lin-02-lines-through-data
 	$(PYTHON) tools/controls.py --core $(CORE_DIR) lessons/lin-03-when-a-line-does-not-fit
+	$(PYTHON) tools/controls.py --core $(CORE_DIR) lessons/poly-01-evaluating-a-polynomial
 
 $(CORE_DIR)/.exported: scripts/export-core.sh
 	scripts/export-core.sh $(FIRMWARE) $(CORE_PIN) $(CORE_DIR)

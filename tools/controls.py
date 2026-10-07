@@ -234,6 +234,14 @@ CONTROLS_FOR["lin-03-when-a-line-does-not-fit"] = [
     ("flat data's r quoted as 0 instead of the refusal", "lesson.md", 'v="F01" kind="message">STAT ERROR<',
      'v="F01">0.0000<', {}, "F01: working through in order, X shows 'STAT ERROR' (message)"),
 ]
+CONTROLS_FOR["poly-01-evaluating-a-polynomial"] = [
+    ("the stack filled with two ENTERs, not three", "lesson.md", "```keys H02\n2 ENTER ENTER ENTER 2 ×",
+     "```keys H02\n2 ENTER ENTER 2 ×", {}, "H02: printed keys and vector disagree in 33s mode"),
+    ("a coefficient's sign lost (+ 3 for − 3)", "lesson.md", "```keys H01B after=H01C\n−\n",
+     "```keys H01B after=H01C\n+\n", {}, "H01B: printed keys and vector disagree in 33s mode"),
+    ("the missing power's 0 left out", "lesson.md", "   2 ENTER ENTER ENTER 1 × 0 + × 2 − × 1 +\n",
+     "   2 ENTER ENTER ENTER 1 × 2 − × 1 +\n", {}, "E01: printed keys and vector disagree in 33s mode"),
+]
 CONTROLS_FOR["fn-02-a-table-of-values"] = [
     ("a label's line numbered from the program's top, not its own label", "lesson.md", 'kind="program">U008 RTN<',
      'kind="program">T022 RTN<', {}, "T01B: the device's X line shows 'U008 RTN' (program)"),
