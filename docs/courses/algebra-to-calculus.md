@@ -68,6 +68,12 @@ quotes in eq-01..03 failed until they became kind="view", and nothing else moved
 stopped program. 036b (ruled, not landed): in 35s and STU mode XEQ and GTO take a letter then ENTER;
 keyrun will press ENTER after a letter that leaves an XEQ/GTO prompt open (abacus #4470, #4477).
 Re-run fn-03's side vector W01 (docs/evidence/fn-03.md) at every repin: make check does not.
+041 (decision 58, abacus #4645): 33s mode hides what the HP 33s lacked (CMPLX i, vectors, the
+linear solvers, LOGIC, CLEAR's STK, →km/→mile, REG/ARG in equations) and adds the 33s's own (x³/∛x,
+the ENG shifts, MEM, FN=, HYP as a prefix, its equation syntax and 40 constants). Of the lessons,
+only poly-04 uses a hidden feature (CMPLX i): at that repin it offers 35s and STU with a
+modes_reason until 039's CMPLX pairs give it a 33s variant. The 33s equation syntax may change
+equation quotes in eq-01..03, exp-04 and poly-02; the 33s pass will say.
 
 ## What this asks of others
 
