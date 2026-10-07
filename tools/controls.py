@@ -267,6 +267,14 @@ CONTROLS_FOR["poly-04-complex-roots"] = [
     ("the conjugate checked with its i part's sign lost", "lesson.md", "```keys H02A\n1 +/− BLUE CMPLX i 2 +/−\n",
      "```keys H02A\n1 +/− BLUE CMPLX i 2\n", {}, "H02A: printed keys and vector disagree in 33s mode"),
 ]
+CONTROLS_FOR["exp-01-growth-and-decay"] = [
+    ("4% growth keyed as a factor of 0.04", "lesson.md", "```keys G01\n500 ENTER 1.04 ENTER 10 yˣ ×\n",
+     "```keys G01\n500 ENTER 0.04 ENTER 10 yˣ ×\n", {}, "G01: printed keys and vector disagree in 33s mode"),
+    ("15% loss keyed as a factor of 1.15", "lesson.md", "   18000 ENTER 0.85 ENTER 4 yˣ ×\n",
+     "   18000 ENTER 1.15 ENTER 4 yˣ ×\n", {}, "E02: printed keys and vector disagree in 33s mode"),
+    ("the decay quoted as halfway between 20 and 10", "lesson.md", 'v="D01">14.1421<', 'v="D01">15.0000<', {},
+     "D-D01: the prose shows '15.0000'"),
+]
 CONTROLS_FOR["fn-02-a-table-of-values"] = [
     ("a label's line numbered from the program's top, not its own label", "lesson.md", 'kind="program">U008 RTN<',
      'kind="program">T022 RTN<', {}, "T01B: the device's X line shows 'U008 RTN' (program)"),

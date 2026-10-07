@@ -38,6 +38,7 @@ controls: tools
 	$(PYTHON) tools/controls.py --core $(CORE_DIR) lessons/poly-02-roots-with-solve
 	$(PYTHON) tools/controls.py --core $(CORE_DIR) lessons/poly-03-the-quadratic-formula
 	$(PYTHON) tools/controls.py --core $(CORE_DIR) lessons/poly-04-complex-roots
+	$(PYTHON) tools/controls.py --core $(CORE_DIR) lessons/exp-01-growth-and-decay
 
 $(CORE_DIR)/.exported: scripts/export-core.sh
 	scripts/export-core.sh $(FIRMWARE) $(CORE_PIN) $(CORE_DIR)

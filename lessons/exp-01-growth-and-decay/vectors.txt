@@ -1,0 +1,10 @@
+# exp-01 growth and decay: key vectors (the firmware's format). Every example is ours. Each starts
+# MODE33 FIX4 (the lesson's setup). Exact values from build/proto/exp01.py.
+G01 | 500 growing 4% a year for 10 years: 500 x 1.04^10 | MODE33 FIX4 500 ENTER 1.04 ENTER 10 POW * | X=740.12214245917196288
+G02 | adding 4% of 500 (20) each year instead: 500 + 20 x 10 | MODE33 FIX4 500 ENTER 20 ENTER 10 * + | X=700
+D01A | 80 mg halving every 6 hours: stopped after 15 / 6: 2.5 in X, 0.5 in Y, 80 in Z and T | MODE33 FIX4 80 ENTER 0.5 ENTER 15 ENTER 6 / | X=2.5 Y=0.5 Z=80 T=80
+D01 | continues D01A: 0.5^2.5, then x 80: after 15 hours | MODE33 FIX4 80 ENTER 0.5 ENTER 15 ENTER 6 / POW * | X=14.14213562373095048801688724209698
+R01 | 1200 to 1452 in two years: the yearly factor, the square root of 1452/1200 | MODE33 FIX4 1452 ENTER 1200 / 2 XROOT | X=1.1
+E01 | exercise 1: 2000 at 3% a year for 25 years (1.03^25 rounded, then x 2000 rounded) | MODE33 FIX4 2000 ENTER 1.03 ENTER 25 POW * | X=4187.555859308429526297187681803752
+E02 | exercise 2: 18000 losing 15% a year for 4 years: factor 0.85 | MODE33 FIX4 18000 ENTER 0.85 ENTER 4 POW * | X=9396.1125
+E03 | exercise 3: 8000 to 9261 in 3 years: the cube root of 9261/8000 | MODE33 FIX4 9261 ENTER 8000 / 3 XROOT | X=1.05
