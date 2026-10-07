@@ -27,9 +27,10 @@ new number and pushes X up, as it would after an operation.
 A display setting stays until you change it. Each example below is written out in full from the
 setup, so if you have just changed the setting, an example that needs FIX 4 sets it again.
 
-<!-- SHOW: unit 030 (abacus-firmware c904cb3) adds SHOW, which shows all 34 digits of X for as
-long as the key is held. When it lands, a short section goes after "FIX: a fixed number of decimal
-places", on two thirds. -->
+<!-- SHOW: unit 030 (abacus-firmware c904cb3) adds SHOW, to see all of X's digits when the format
+hides them (abacus decision 46). How it is pressed and dismissed comes from the unit, not from
+here. When it lands, a short section goes after "FIX: a fixed number of decimal places", on two
+thirds. -->
 
 ## FIX: a fixed number of decimal places
 
