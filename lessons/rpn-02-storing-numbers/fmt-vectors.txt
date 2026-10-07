@@ -1,0 +1,6 @@
+# rpn-02 display vectors: D-Vnn is what X shows after key vector Vnn, at FIX 2. The prose quotes only these.
+D-V01 | after V01: FIX 2 rounds what is shown, not what is stored | 0.0825 | FIX 2 |  | 0.08
+D-V02 | after V02 | 3.3 | FIX 2 |  | 3.30
+D-V04 | after V04 | 9 | FIX 2 |  | 9.00
+D-V07 | after V07 | 42 | FIX 2 |  | 42.00
+D-E01 | after E01 | 291.6 | FIX 2 |  | 291.60

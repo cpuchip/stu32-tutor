@@ -29,10 +29,12 @@ import tempfile
 sys.stdout.reconfigure(encoding="utf-8")
 
 SETTING = re.compile(r"^(FIX|SCI|ENG)(\d+)$|^ALL$")
-DISP = re.compile(r'<disp v="([^"]+)">(.*?)</disp>', re.S)
+DISP = re.compile(r'<disp v="([^"]+)"(?: kind="(view|prompt|message|entry)")?>(.*?)</disp>', re.S)
 KEYS_BLOCK = re.compile(r"^[ \t]*```keys[ \t]+(\S+)[ \t]*\n(.*?)^[ \t]*```[ \t]*$", re.M | re.S)
+SHOWS = re.compile(r"\b(shows?|showing|shown|displays?|displayed|screen|reads|appears?)\b", re.I)
 FENCE = re.compile(r"^[ \t]*(```|~~~)(.*)$", re.M)
-DIRTY = "RAD 9 ENTER 8 ENTER 7 ENTER 6 SQRT"    # a used calculator: lift enabled, LAST x 6
+# A used calculator: every variable A-Z holds 7, RAD, the stack full, lift enabled, LAST x 6.
+DIRTY = " ".join(["RAD"] + [f"7 STO:{v}" for v in "ABCDEFGHIJKLMNOPQRSTUVWXYZ"] + "9 ENTER 8 ENTER 7 ENTER 6 SQRT".split())
 MAX_EXPECT = 64                                 # the runner keeps no more than this per vector
 EM_DASH = ("\u2014", "&mdash;", "&#8212;", "&#x2014;", "&#X2014;")
 
@@ -225,11 +227,18 @@ class Lesson:
         if body.count("<disp") != len(quotes):
             self.bad(f"{body.count('<disp')} <disp tags, {len(quotes)} of the checked form <disp v=\"ID\">text</disp>")
         for q in quotes:
-            vid, shown_text = q.group(1), q.group(2)
+            vid, qkind, shown_text = q.group(1), q.group(2) or "value", q.group(3)
             before = [b for b in blocks if b[3] <= q.start() and b[0] != "setup"]
             if not before or before[-1][0] != vid:
                 self.bad(f'<disp v="{vid}"> is not under its own example '
                          f'(it follows {before[-1][0] if before else "no example"})')
+            if qkind != "value":
+                # A VIEW's "B=49.75" is no value the formatter's vectors cover: the device's own
+                # screen line is the check, kind and text both.
+                kind, stext = screen.get(vid, ("?", ""))
+                if kind != qkind or stext.strip() != shown_text:
+                    self.bad(f"{vid}: the device's X line shows '{stext}' ({kind}), the prose '{shown_text}' ({qkind})")
+                continue
             f = fmt_by.get("D-" + vid)
             if not f:
                 self.bad(f'<disp v="{vid}"> has no display vector D-{vid}')
@@ -248,13 +257,17 @@ class Lesson:
             if kind != "value" or stext.strip() != shown_text:
                 self.bad(f"D-{vid}: the device's X line shows '{stext}' ({kind}), the prose '{shown_text}'")
         self.notes.append(f"displays quoted: {len(quotes)}")
-        # A number written in the display's own form (FIX n places) outside a tag is a display
-        # claim nothing checked.
+        # A sentence that says what the screen shows, with a number in the display's own form
+        # (FIX n places) outside a tag, is a display claim nothing checked. A number given as an
+        # input ("a 7.25 item") is not a claim about the screen, so only such sentences count.
         m = SETTING.match(sorted(settings)[0]) if settings else None
         if m and m.group(1) == "FIX" and int(m.group(2)) > 0:
             prose = DISP.sub("", KEYS_BLOCK.sub("", body))
-            for n in re.findall(r"(?<![\d.])-?\d+\.\d{%d}(?!\d|\.\d)" % int(m.group(2)), prose):
-                self.bad(f"'{n}' looks like a display at {want} but is not in a <disp> tag")
+            fixed = re.compile(r"(?<![\d.])-?\d+\.\d{%d}(?!\d|\.\d)" % int(m.group(2)))
+            for sentence in re.split(r"(?<=[.!?:])\s+", prose):
+                if SHOWS.search(sentence):
+                    for n in fixed.findall(sentence):
+                        self.bad(f"'{n}' looks like a display at {want} but is not in a <disp> tag")
 
         # 5. Voice, the front matter included.
         dashes = sum(text.count(d) for d in EM_DASH)

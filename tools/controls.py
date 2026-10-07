@@ -95,7 +95,33 @@ GREENS = [
     ("a hyphen is not an em-dash", "lesson.md", "## Two numbers, one operation", "## Two numbers - one operation"),
     ("a number in other than the display's form is not a display", "lesson.md", "scientific form.\n",
      "scientific form. A price of 1.05 or 21.5 is fine to write.\n"),
+    ("an input written in the display's form, in a sentence about no screen", "lesson.md", "scientific form.\n",
+     "scientific form. A rate of 0.0825 is typed as it is written.\n"),
 ]
+
+
+# Controls that need a lesson's own content (rpn-02's VIEW line). A lesson not named here gets the
+# lists above, which are anchored on rpn-01.
+CONTROLS_FOR = {
+    "rpn-02-storing-numbers": [
+        ("a quoted VIEW line the screen does not show", "lesson.md", 'kind="view">B=49.75<', 'kind="view">B=49.70<', {},
+         "V06: the device's X line shows 'B=49.75' (view), the prose 'B=49.70' (view)"),
+        ("a VIEW line quoted as a value", "lesson.md", '<disp v="V06" kind="view">', '<disp v="V06">', {},
+         "has no display vector D-V06"),
+        ("a quoted line of the wrong kind", "lesson.md", 'kind="view">B=49.75<', 'kind="prompt">B=49.75<', {},
+         "(view), the prose 'B=49.75' (prompt)"),
+        ("a stored value shown rounded but quoted whole", "lesson.md", '<disp v="V01">0.08</disp>', '<disp v="V01">0.0825</disp>',
+         {}, "D-V01: the prose shows '0.0825'"),
+        ("a variable key that is not the letter's", "lesson.md", "0.0825 STO A 40 RCL × A\n", "0.0825 STO A 40 RCL × B\n", {},
+         "V03: printed keys and vector disagree in 33s mode: DIFF"),
+    ],
+}
+GREENS_FOR = {
+    "rpn-02-storing-numbers": [
+        ("a price written in prose at the display's places", "lesson.md", "## A running total\n",
+         "## A running total\n\nA 12.50 lunch and a 7.25 coffee are typed as 12.5 and 7.25.\n"),
+    ],
+}
 
 
 def run_check(core, lesson, env):
@@ -113,6 +139,8 @@ def main():
     ap.add_argument("lesson")
     a = ap.parse_args()
     lesson = a.lesson.rstrip("/")
+    controls = CONTROLS_FOR.get(os.path.basename(lesson), CONTROLS)
+    greens = GREENS_FOR.get(os.path.basename(lesson), GREENS)
     bad = 0
     with tempfile.TemporaryDirectory() as tmp:
         clean = os.path.join(tmp, "clean")
@@ -122,7 +150,7 @@ def main():
             print("FAIL the clean lesson does not pass, so no control means anything:\n" + out)
             return 1
         print("ok   the clean lesson passes")
-        for name, fn, old, new, env, want in CONTROLS:
+        for name, fn, old, new, env, want in controls:
             d = os.path.join(tmp, "c")
             shutil.rmtree(d, ignore_errors=True)
             shutil.copytree(lesson, d)
@@ -150,7 +178,7 @@ def main():
                 line = next(l.strip() for l in out.splitlines() if want in l)
                 print(f"ok   {name}\n       -> {line[:150]}")
         greens_bad = 0
-        for name, fn, old, new in GREENS:
+        for name, fn, old, new in greens:
             d = os.path.join(tmp, "g")
             shutil.rmtree(d, ignore_errors=True)
             shutil.copytree(lesson, d)
@@ -167,8 +195,8 @@ def main():
                 greens_bad += 1
             else:
                 print(f"ok   {name} (still passes)")
-    print(f"{len(CONTROLS) - bad}/{len(CONTROLS)} controls red as planted; "
-          f"{len(GREENS) - greens_bad}/{len(GREENS)} harmless changes still green")
+    print(f"{len(controls) - bad}/{len(controls)} controls red as planted; "
+          f"{len(greens) - greens_bad}/{len(greens)} harmless changes still green")
     bad += greens_bad
     return 1 if bad else 0
 

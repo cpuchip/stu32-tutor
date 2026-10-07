@@ -39,6 +39,13 @@ calculator computes, and derivatives arrive at the end, as Casimir lands.
 
 About 40 lessons in all. Unit 0 needs perhaps 6 more; units 1 to 12 three or four each.
 
+**Settled with abacus (#4263, 2026-10-06):** GRAPH and TABLE do not come before units 3 to 7
+(the accepted order is unit 029 STU's ALG, then the 35s's and 33s's ALG and the stack depth;
+"TABLE next, after 029?" is on the roadmap as Michael's call). So units 3 to 7 use the
+program-loop table (ISG, VIEW) and hand-drawn graphs, and each place a TABLE key would replace the
+loop carries a `TABLE:` note in the lesson source, so the later edit is small. The d/dx key has no
+plan yet (Casimir is at CAS 003; the core integration unit is not written); abacus will say when.
+
 ## What this asks of others
 
 - **abacus:** each lesson's accuracy read, as for rpn-01. Whether GRAPH/TABLE are planned before

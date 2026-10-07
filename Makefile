@@ -19,6 +19,7 @@ check: tools
 # Proves the checker can fail: one planted fault at a time, each must turn it red for its own reason.
 controls: tools
 	$(PYTHON) tools/controls.py --core $(CORE_DIR) lessons/rpn-01-the-stack
+	$(PYTHON) tools/controls.py --core $(CORE_DIR) lessons/rpn-02-storing-numbers
 
 $(CORE_DIR)/.exported: scripts/export-core.sh
 	scripts/export-core.sh $(FIRMWARE) $(CORE_PIN) $(CORE_DIR)

@@ -1,0 +1,16 @@
+# rpn-02 storing numbers: key vectors (the firmware's format). Every example is ours. Each starts
+# MODE33 FIX2 (the lesson's setup); make check also runs them in 35s mode and from a used core
+# (every variable holding 7), so no example leans on an empty variable.
+V01 | STO A keeps a copy of X in the variable A; X keeps its number | MODE33 FIX2 0.0825 STO:A | X=0.0825 @A=0.0825
+V02 | RCL A brings it back: the tax at 8.25% on 40 | MODE33 FIX2 0.0825 STO:A 40 RCL:A * | X=3.3 @A=0.0825
+V03 | recall arithmetic: RCL then x then A multiplies X by A in one step | MODE33 FIX2 0.0825 STO:A 40 RCL*:A | X=3.3 Y=0.0825 @A=0.0825
+V03A | RCL - A works X minus A: 25 minus 10 | MODE33 FIX2 10 STO:A 25 RCL-:A | X=15 @A=10
+V04 | a stored number is untouched by work on the stack | MODE33 FIX2 9 STO:C 1 ENTER 2 + RCL:C | X=9 Y=3 @C=9
+V05 | a running total: store 0, then STO + adds X into B | MODE33 FIX2 0 STO:B 12.5 STO+:B 7.25 STO+:B 30 STO+:B | X=30 @B=49.75
+V06 | VIEW shows a variable without touching the stack | MODE33 FIX2 0 STO:B 12.5 STO+:B 7.25 STO+:B 30 STO+:B VIEW:B | X=30 @B=49.75
+V06B | after VIEW, the next key does its own job: 5 is typed and the stack lifts | MODE33 FIX2 0 STO:B 12.5 STO+:B 7.25 STO+:B 30 STO+:B VIEW:B 5 | X=5 Y=30 @B=49.75
+V07 | a formula with two stored numbers: a rectangle 3.5 by 12 | MODE33 FIX2 3.5 STO:W 12 STO:L RCL:L RCL:W * | X=42 @W=3.5 @L=12
+V08 | the same W and L, reused: the perimeter 2 x (L + W) | MODE33 FIX2 3.5 STO:W 12 STO:L RCL:L RCL:W + 2 * | X=31 @W=3.5 @L=12
+# Exercises
+E01 | exercise 1: 250 grown by 8% twice, the 1.08 stored in G | MODE33 FIX2 1.08 STO:G 250 RCL*:G RCL*:G | X=291.6 @G=1.08
+E02 | exercise 2: 100 in D, spend 23.40 and 9.60 with STO - | MODE33 FIX2 100 STO:D 23.4 STO-:D 9.6 STO-:D | X=9.6 @D=67

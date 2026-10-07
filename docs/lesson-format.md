@@ -46,7 +46,9 @@ display: FIX 4
   then the legend printed in that colour (`GOLD LASTx`, never `LASTx` alone). A number is its
   digits (`1.05`). A soft key is the label its menu shows (`FIX`, `33s`). A variable is its letter
   (`STO A`).
-- A quoted display is `<disp v="Snn">text</disp>`.
+- A quoted display is `<disp v="Snn">text</disp>`. A screen line that is not a value (a VIEW's
+  `B=49.75`) is `<disp v="Snn" kind="view">text</disp>`, checked against the device's X line
+  (text and kind) since no display vector covers it.
 - No em-dashes (the house voice, external-voice skill). No child is ever named.
 
 ## What `make check` proves
@@ -79,7 +81,7 @@ keys no longer do what it says when the layout or the keymap changes (the layout
 
 ## Controls
 
-`make controls` plants one fault at a time in a copy of the pilot and requires `make check` to
+`make controls` plants one fault at a time in a copy of rpn-01 (and, for what only rpn-02 has, of rpn-02) and requires `make check` to
 fail for that fault's own reason (30 controls, and 3 harmless changes that must stay green: tools/controls.py lists them). A fault that does
 not apply to the file is reported as an error, not counted as a pass.
 
