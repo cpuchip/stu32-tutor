@@ -100,7 +100,7 @@ temperature is about 98.6 degrees Fahrenheit:
 ```
 
 X shows <disp v="T01">37.0000</disp>. Now the other way: how many degrees Fahrenheit is 100 degrees
-Celsius? EQN shows the temperature formula, the one you used last, so solve it for F:
+Celsius? EQN shows the last equation you viewed, here the temperature formula, so solve it for F:
 
 ```keys T02 after=T01
 GOLD EQN GOLD SOLVE F 100 R/S
