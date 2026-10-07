@@ -32,8 +32,9 @@ Displays, each at the setting its example ends in, all as predicted before the r
 
 ## Student run
 
-C08 sets SCI 2 for its answer; C08B (a continuation) sets FIX 2 again, so the exercises' quoted
-displays hold for a student working in order. The hypothetical "0.004 would show as 0.00" was
+~~C08 sets SCI 2 for its answer; C08B (a continuation) sets FIX 2 again, so the exercises' quoted
+displays hold for a student working in order.~~ (Superseded by the non-author read below: FIX 2
+already shows 8 x 10^21 in scientific form, so C08's SCI 2 and C08B were cut.) The hypothetical "0.004 would show as 0.00" was
 flagged by the untagged-display check and reworded.
 
 ## Non-author read (2026-10-06)
