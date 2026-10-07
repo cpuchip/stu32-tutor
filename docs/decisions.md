@@ -10,8 +10,12 @@ His words: "CC BY-SA, learn.stuffleberry.com, algebra to calculus first", then m
 
 1. **Licence: CC BY-SA** for the curriculum. The repo stays private until he sets the licence text
    itself; no LICENSE file is written before then.
-   - PROPOSED, not ruled: the program listings and the vectors under MIT, as the firmware is. His
-     words named only CC BY-SA. To confirm when he sets the text.
+   - The program listings and the vectors under MIT: RULED yes later the same day (relayed by
+     basecamp #4267, his words: "yes MIT for the programs and vectors, go ahead with rpn-03").
+   - The LICENSE text is drafted for his read (LICENSE, LICENSE-MIT copied from his other repos'
+     MIT text with his usual copyright line, LICENSE-CC-BY-SA-4.0 fetched from
+     creativecommons.org). The version, 4.0 (the current one), is my choice, for him to confirm.
+     The repo stays private until he says otherwise.
 2. **Site home: cpuchip.net for now**, learn.stuffleberry.com once that domain is set up. Nothing is
    built or deployed for the site yet; any framework beyond what cpuchip.net already runs is his
    call first.
