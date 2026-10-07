@@ -242,6 +242,15 @@ CONTROLS_FOR["poly-01-evaluating-a-polynomial"] = [
     ("the missing power's 0 left out", "lesson.md", "   2 ENTER ENTER ENTER 1 × 0 + × 2 − × 1 +\n",
      "   2 ENTER ENTER ENTER 1 × 2 − × 1 +\n", {}, "E01: printed keys and vector disagree in 33s mode"),
 ]
+CONTROLS_FOR["poly-02-roots-with-solve"] = [
+    ("guesses that straddle two roots (0 and 2.5) quoted as the first", "lesson.md",
+     "```keys S01 after=R05\n0 STO X 1.5 GOLD EQN", "```keys S01 after=R05\n0 STO X 2.5 GOLD EQN", {},
+     "S01: printed keys and vector disagree in 33s mode"),
+    ("a sign misread in the table of values", "lesson.md", 'v="R04">-0.3750<', 'v="R04">0.3750<', {},
+     "D-R04: the prose shows '0.3750'"),
+    ("x² + 1 quoted as having a root", "lesson.md", 'v="N01" kind="message">NO ROOT FND<',
+     'v="N01" kind="view">X=0.0000<', {}, "N01: the device's X line shows 'NO ROOT FND' (message)"),
+]
 CONTROLS_FOR["fn-02-a-table-of-values"] = [
     ("a label's line numbered from the program's top, not its own label", "lesson.md", 'kind="program">U008 RTN<',
      'kind="program">T022 RTN<', {}, "T01B: the device's X line shows 'U008 RTN' (program)"),
