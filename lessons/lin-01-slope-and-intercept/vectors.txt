@@ -1,0 +1,15 @@
+# lin-01 slope and intercept: key vectors (the firmware's format). Every example is ours. Each
+# starts MODE33 FIX4 (the lesson's setup). L07 divides by zero on purpose, hence ERR.
+L01 | the slope through (3, 9) and (5, 13): rise 13 - 9 over run 5 - 3 | MODE33 FIX4 13 ENTER 9 - 5 ENTER 3 - / | X=2
+L02 | continues L01: the slope kept in M | MODE33 FIX4 13 ENTER 9 - 5 ENTER 3 - / STO:M | X=2 @M=2
+L03A | continues L02: b = 9 - m x 3, stopped after RCL M 3: 9 in Z, m in Y, 3 in X | MODE33 FIX4 13 ENTER 9 - 5 ENTER 3 - / STO:M 9 RCL:M 3 | X=3 Y=2 Z=9
+L03 | continues L03A: x makes m x 3, - takes it from 9; kept in B | MODE33 FIX4 13 ENTER 9 - 5 ENTER 3 - / STO:M 9 RCL:M 3 * - STO:B | X=3 @B=3 @M=2
+L04 | continues L03: the line at x = 5 gives the other point's y | MODE33 FIX4 13 ENTER 9 - 5 ENTER 3 - / STO:M 9 RCL:M 3 * - STO:B 5 RCL:M * RCL:B + | X=13
+L05 | a falling line: (0, 10) and (5, 0) | MODE33 FIX4 0 ENTER 10 - 5 ENTER 0 - / | X=-2
+L06 | a flat line: (1, 4) and (3, 4) | MODE33 FIX4 4 ENTER 4 - 3 ENTER 1 - / | X=0
+L07 | a vertical line: (3, 1) and (3, 5): the run is 0 | MODE33 FIX4 5 ENTER 1 - 3 ENTER 3 - / | ERR
+L07B | continues L07: C clears the message; the run, 0, is in X, the rise in Y | MODE33 FIX4 5 ENTER 1 - 3 ENTER 3 - / C | ERR X=0 Y=4
+L07C | continues L07B: x<>y shows the rise | MODE33 FIX4 5 ENTER 1 - 3 ENTER 3 - / C XY | ERR X=4 Y=0
+E01 | exercise 1: the slope through (-1, 5) and (3, 13) | MODE33 FIX4 13 ENTER 5 - 3 ENTER 1 CHS - / | X=2
+E01B | continues E01: the intercept b = 5 - m x (-1) | MODE33 FIX4 13 ENTER 5 - 3 ENTER 1 CHS - / STO:M 5 RCL:M 1 CHS * - | X=7 @M=2
+E02 | exercise 2: the slope through (0, 1) and (4, 4) | MODE33 FIX4 4 ENTER 1 - 4 ENTER 0 - / | X=0.75

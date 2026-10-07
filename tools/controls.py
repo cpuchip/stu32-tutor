@@ -206,6 +206,14 @@ CONTROLS_FOR["eq-03-two-answers-and-inequalities"] = [
     ("a guess keyed without its sign", "lesson.md", "```keys A04 after=A03\n0 STO X 10 +/− ",
      "```keys A04 after=A03\n0 STO X 10 ", {}, "A04: printed keys and vector disagree in 33s mode"),
 ]
+CONTROLS_FOR["lin-01-slope-and-intercept"] = [
+    ("the slope keyed run over rise", "lesson.md", "```keys L01\n13 ENTER 9 − 5 ENTER 3 − ÷\n",
+     "```keys L01\n5 ENTER 3 − 13 ENTER 9 − ÷\n", {}, "L01: printed keys and vector disagree in 33s mode"),
+    ("a vertical line's message misquoted", "lesson.md", 'v="L07" kind="message">DIVIDE BY 0<',
+     'v="L07" kind="message">INVALID DATA<', {}, "L07: the device's X line shows 'DIVIDE BY 0' (message)"),
+    ("the intercept quoted as the slope", "lesson.md", 'v="L03">3.0000<', 'v="L03">2.0000<', {},
+     "D-L03: the prose shows '2.0000'"),
+]
 CONTROLS_FOR["fn-02-a-table-of-values"] = [
     ("a label's line numbered from the program's top, not its own label", "lesson.md", 'kind="program">U008 RTN<',
      'kind="program">T022 RTN<', {}, "T01B: the device's X line shows 'U008 RTN' (program)"),
