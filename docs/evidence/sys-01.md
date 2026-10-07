@@ -63,3 +63,10 @@ findings, all taken:
 `make check`: 17/17 vectors in 33s, 35s and STU, from a fresh and a used core, and the student run in
 order in each mode. Controls (4): the pair quoted as fitting both, elimination the wrong way round, the
 fruit's bottom reversed, no solution read off 0 = 0; all red.
+
+## Abacus's accuracy read (#4793, 2026-10-07)
+
+Accepted at f5dc8a0. Every value rechecked by hand. (1) multiplying both sides by any number, dividing by
+a non-zero one, and equals taken from equals: true. (2) the slopes −1 and −2/3, distinct, meet once
+(vertical lines are not in play). (3) same slope, different intercepts: parallel. (4) 0 = 0 the same
+line, 0 = c (c not 0) none, including when both unknowns go at once.
