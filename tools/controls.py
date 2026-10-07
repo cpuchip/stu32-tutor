@@ -287,6 +287,14 @@ CONTROLS_FOR["exp-01-growth-and-decay"] = [
     ("the decay quoted as halfway between 20 and 10", "lesson.md", 'v="D01">14.1421<', 'v="D01">15.0000<', {},
      "D-D01: the prose shows '15.0000'"),
 ]
+CONTROLS_FOR["exp-02-the-number-e"] = [
+    ("a monthly rate keyed as the yearly one (no ÷ 12)", "lesson.md", "```keys C02\n1000 ENTER 0.06 ENTER 12 ÷ 1 + 12 yˣ ×\n",
+     "```keys C02\n1000 ENTER 0.06 1 + 12 yˣ ×\n", {}, "C02: printed keys and vector disagree in 33s mode"),
+    ("continuous growth keyed with 10ˣ for eˣ", "lesson.md", "```keys G01\n1000 ENTER 0.06 eˣ ×\n",
+     "```keys G01\n1000 ENTER 0.06 GOLD 10ˣ ×\n", {}, "G01: printed keys and vector disagree in 33s mode"),
+    ("the limit quoted as e to more places than FIX 4 shows", "lesson.md", 'v="L03">2.7183<', 'v="L03">2.71828<', {},
+     "D-L03: the prose shows '2.71828'"),
+]
 CONTROLS_FOR["fn-02-a-table-of-values"] = [
     ("a label's line numbered from the program's top, not its own label", "lesson.md", 'kind="program">U008 RTN<',
      'kind="program">T022 RTN<', {}, "T01B: the device's X line shows 'U008 RTN' (program)"),
