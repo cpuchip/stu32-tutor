@@ -10,7 +10,7 @@ C06 | a power of ten typed with a negative exponent: 4 E -3 | MODE33 FIX2 4 E 3 
 C06B | +/- before E makes the front number negative instead | MODE33 FIX2 4 CHS E 3 ENTER | X=-4000
 C07 | 6 E 5 times 4 E -3 | MODE33 FIX2 6 E 5 ENTER 4 E 3 CHS * | X=2400
 C09 | 9 E -6 divided by 3 E 2 | MODE33 FIX2 9 E 6 CHS ENTER 3 E 2 / | X=3E-8
-C08 | 3.2 E 12 times 2.5 E 9: too big for FIX 2, shown in scientific form | MODE33 FIX2 3.2 E 12 ENTER 2.5 E 9 * | X=8E21
+C08 | 3.2 E 12 times 2.5 E 9: too long for the line at FIX 2, shown in scientific form | MODE33 FIX2 3.2 E 12 ENTER 2.5 E 9 * | X=8E21
 # Exercises
 E01 | exercise 1: 12% of 250 | MODE33 FIX2 250 ENTER 12 PCT | X=30
 E02 | exercise 2: the change from 40 to 46 | MODE33 FIX2 40 ENTER 46 PCTCHG | X=15

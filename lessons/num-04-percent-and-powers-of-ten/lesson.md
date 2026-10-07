@@ -118,8 +118,8 @@ form the same way. Two large numbers, 3.2 × 10¹² and 2.5 × 10⁹; 3.2 × 2.5
 3.2 E 12 ENTER 2.5 E 9 ×
 ```
 
-X shows <disp v="C08">8.00E21</disp>, which is 8 × 10²¹: too big for FIX 2 to show with its two
-places.
+X shows <disp v="C08">8.00E21</disp>, which is 8 × 10²¹. Written out at FIX 2 it would need more
+than 30 characters, too long to fit the line, so the calculator shows it in scientific form.
 
 ## Exercises
 

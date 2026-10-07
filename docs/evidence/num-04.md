@@ -63,3 +63,11 @@ prose changed (867ddd5):
 `make check` at 867ddd5: 16/16 vectors and 22/22 expectations in 33s and 35s, from a fresh and a
 used core; 17 keys blocks, 16 of 16 shown, pressed in both modes; 13 displays quoted; worked
 through in order.
+
+## Abacus's accuracy read (#4323, 2026-10-06)
+
+All values right; key positions match keymap.c. One fix: C08's reason. FIX falls back to
+scientific form when the text will not fit the X line's 21 characters (screen.c FMT_WIDTH), not
+because of its two places; 8 x 10^21 written out at FIX 2 is 32 characters. The prose now says so.
+Abacus confirmed % and %CHG preserve Y per the 33s manual (p.4-6) and the %CHG formula. Unit 1
+complete.
