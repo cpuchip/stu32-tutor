@@ -96,7 +96,8 @@ keep the 4.
 
 ## The × matters
 
-The calculator does not multiply two things written side by side in an equation. Type the same
+In the 33s mode you set at the start (and in 35s mode), the calculator does not multiply two things
+written side by side in an equation. Type the same
 equation without the ×. Typing while an equation is showing starts a new one, and the first stays
 in the calculator's list:
 

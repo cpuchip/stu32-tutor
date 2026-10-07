@@ -28,7 +28,7 @@ calculator computes, and derivatives arrive at the end, as Casimir lands.
 | 2 | Equations and inequalities | linear equations; rearranging formulas; absolute value; checking a solution | the equation editor; SOLVE as a checker first, then as a solver | now |
 | 3 | Functions | a function as a rule; evaluating; domain; a table of values by hand | a function as a labelled program (LBL ... RTN, XEQ); a loop that prints a table (ISG, VIEW) | now; a TABLE key later would shorten it |
 | 4 | Linear functions | slope and intercept; lines through data | linear regression (slope, intercept, r, predicted x and y) | now |
-| 5 | Polynomials and rational functions | evaluation, roots, the quadratic formula, complex roots | Horner's method as a 4-level-stack program; SOLVE; CMPLX | now |
+| 5 | Polynomials and rational functions | evaluation, roots, the quadratic formula, complex roots (SOLVE finds one root near its guesses, not all: say so, abacus #4340) | Horner's method as a 4-level-stack program; SOLVE; CMPLX | now |
 | 6 | Exponentials and logarithms | growth and decay; logs; solving exponential equations | e^x, 10^x, LN, LOG; SOLVE | now |
 | 7 | Trigonometry | angles in degrees and radians; right triangles; the unit circle; inverse functions; polar and rectangular | DEG/RAD; SIN COS TAN and inverses; ->P ->R; vectors | now |
 | 8 | Systems of equations | two and three equations in two and three unknowns | the built-in exact 2x2 and 3x3 solvers; when there is no solution or many | now |
