@@ -2,7 +2,7 @@
 id: poly-03
 title: The quadratic formula
 status: draft prose (non-author read taken; accepted for accuracy by abacus #4503; not yet read by Michael)
-setup: BLUE MODE 33s GOLD DISP FIX 4
+setup: BLUE MODE {mode} GOLD DISP FIX 4
 display: FIX 4
 ---
 
@@ -19,12 +19,12 @@ are, before you work out any of them. This lesson uses the formula on the stack,
 
 ## Before you start
 
-The setup from rpn-01: 33s mode and FIX 4. Each section's examples are one chain; each section and
+The setup from rpn-01: the mode you chose and FIX 4. Each section's examples are one chain; each section and
 the exercise start fresh. A, B, C and D are on the top row, each printed small at the lower right
 of its key as rpn-02 showed: A on √x, B on eˣ, C on LN, D on yˣ.
 
 ```keys setup
-BLUE MODE 33s GOLD DISP FIX 4
+BLUE MODE {mode} GOLD DISP FIX 4
 ```
 
 ## Two roots

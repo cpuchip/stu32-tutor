@@ -4,7 +4,9 @@ C01A | i typed: 0, then CMPLX i, then 1 (shown 0i1_) | MODE33 FIX4 0 CI 1 | X=0i
 C01 | continues C01A: i times i | MODE33 FIX4 0 CI 1 ENTER * | X=-1i0
 C02 | 4i squared | MODE33 FIX4 0 CI 4 ENTER * | X=-16i0
 V01 | the square root key refuses a complex number: INVALID DATA | MODE33 FIX4 16 CHS CI 0 SQRT | ERR
+V01B | continues V01: C clears the message | MODE33 FIX4 16 CHS CI 0 SQRT C | ERR
 V02 | x^2 refuses it too | MODE33 FIX4 0 CI 1 SQ | ERR
+V02B | continues V02: C clears the message | MODE33 FIX4 0 CI 1 SQ C | ERR
 R01 | x^2 + 2x + 5: (-2 + 4i) / 2 | MODE33 FIX4 2 CHS ENTER 0 CI 4 + 2 / | X=-1i2
 R02 | (-2 - 4i) / 2 | MODE33 FIX4 2 CHS ENTER 0 CI 4 - 2 / | X=-1i-2
 H01 | -1 + 2i in x^2 + 2x + 5 by Horner | MODE33 FIX4 1 CHS CI 2 ENTER ENTER ENTER 1 * 2 + * 5 + | X=0i0

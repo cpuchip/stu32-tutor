@@ -2,7 +2,7 @@
 id: poly-02
 title: Roots with SOLVE
 status: draft prose (non-author read taken; accepted for accuracy by abacus #4486; not yet read by Michael)
-setup: BLUE MODE 33s GOLD DISP FIX 4
+setup: BLUE MODE {mode} GOLD DISP FIX 4
 display: FIX 4
 ---
 
@@ -18,11 +18,11 @@ it (eq-03). So the work is in deciding where to look, and in knowing when you ha
 
 ## Before you start
 
-The setup from rpn-01: 33s mode and FIX 4. The examples about c are one chain, each carrying on from
+The setup from rpn-01: the mode you chose and FIX 4. The examples about c are one chain, each carrying on from
 the one before; the one about x² + 1 starts fresh, and so does the exercise.
 
 ```keys setup
-BLUE MODE 33s GOLD DISP FIX 4
+BLUE MODE {mode} GOLD DISP FIX 4
 ```
 
 ## Typing c
@@ -125,7 +125,13 @@ GOLD EQN RCL X yˣ 2 + 1 ENTER GOLD SOLVE X
 
 The screen shows <disp v="N01" kind="message">NO ROOT FND</disp>: SOLVE searched and found no root.
 None exists among the real numbers, the only numbers these lessons have used so far. x² + 1 does
-have roots, but they are complex numbers, which poly-04 meets.
+have roots, but they are complex numbers, which poly-04 meets. Clear the message with C before you
+go on<mode m="35s,STU">: in this mode a key pressed while a message shows only clears it, so the
+next example's first key would be lost</mode>.
+
+```keys N02 after=N01
+C
+```
 
 ## Exercise
 

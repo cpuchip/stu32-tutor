@@ -2,7 +2,7 @@
 id: lin-02
 title: Lines through data
 status: draft prose (non-author read taken; accepted for accuracy by abacus #4460; not yet read by Michael)
-setup: BLUE MODE 33s GOLD DISP FIX 4
+setup: BLUE MODE {mode} GOLD DISP FIX 4
 display: FIX 4
 ---
 
@@ -16,11 +16,11 @@ did not measure. This lesson finds that line for the seedling.
 
 ## Before you start
 
-The setup from rpn-01: 33s mode and FIX 4. All the examples in the lesson are one chain, each
+The setup from rpn-01: the mode you chose and FIX 4. All the examples in the lesson are one chain, each
 carrying on from the one before; each exercise starts fresh.
 
 ```keys setup
-BLUE MODE 33s GOLD DISP FIX 4
+BLUE MODE {mode} GOLD DISP FIX 4
 ```
 
 ## Entering the data

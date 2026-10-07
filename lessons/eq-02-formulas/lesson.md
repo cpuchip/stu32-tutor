@@ -2,7 +2,7 @@
 id: eq-02
 title: Solving a formula for any letter
 status: draft prose (non-author read taken; not yet read by abacus or Michael)
-setup: BLUE MODE 33s GOLD DISP FIX 4
+setup: BLUE MODE {mode} GOLD DISP FIX 4
 display: FIX 4
 ---
 
@@ -15,12 +15,12 @@ for whichever letter you need.
 
 ## Before you start
 
-The setup from rpn-01: 33s mode and FIX 4. Work the examples in order: each one either carries on
+The setup from rpn-01: the mode you chose and FIX 4. Work the examples in order: each one either carries on
 from the one before or starts fresh, and the text says which. eq-01 showed how to type an equation,
 check it with XEQ, and solve it with SOLVE; this lesson uses all three.
 
 ```keys setup
-BLUE MODE 33s GOLD DISP FIX 4
+BLUE MODE {mode} GOLD DISP FIX 4
 ```
 
 ## One unknown, the others asked for

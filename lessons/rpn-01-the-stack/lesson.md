@@ -2,7 +2,7 @@
 id: rpn-01
 title: The stack and ENTER
 status: draft prose, for Michael's read (values and keys reviewed by abacus at d70b031)
-setup: BLUE MODE 33s GOLD DISP FIX 4
+setup: BLUE MODE {mode} GOLD DISP FIX 4
 display: FIX 4
 ---
 
@@ -24,12 +24,16 @@ gold above it.
 Some functions open a menu. Its choices appear as labels along the bottom of the screen, and the
 six blank keys just under the screen choose them. These are the soft keys.
 
-Put the calculator in 33s mode and show four decimal places. Press blue, then ENTER (MODE is
-printed in blue above it), and the mode menu opens; press the soft key under 33s. Then press gold
-and 2 (DISP, in gold), the soft key under FIX, and 4.
+The STU-32 has three modes. 33s and 35s mode behave like two older calculators, the HP 33s and the
+HP 35s; STU mode is the STU-32's own, with features those two never had. Choose one on this page,
+and every lesson shows the keys for it. Where the modes differ, the lessons say so.
+
+Put the calculator in your mode and show four decimal places. Press blue, then ENTER (MODE is
+printed in blue above it), and the mode menu opens; press the soft key under your mode. Then
+press gold and 2 (DISP, in gold), the soft key under FIX, and 4.
 
 ```keys setup
-BLUE MODE 33s GOLD DISP FIX 4
+BLUE MODE {mode} GOLD DISP FIX 4
 ```
 
 The screen shows four lines, labelled T, Z, Y and X from top to bottom. X, at the bottom, is the

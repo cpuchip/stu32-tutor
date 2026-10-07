@@ -2,7 +2,7 @@
 id: rpn-03
 title: The display
 status: draft prose (non-author read taken; not yet read by abacus or Michael)
-setup: BLUE MODE 33s GOLD DISP FIX 4
+setup: BLUE MODE {mode} GOLD DISP FIX 4
 display: FIX 4
 ---
 
@@ -14,10 +14,10 @@ why changing it leaves the number underneath as it was.
 
 ## Before you start
 
-The setup is the one from rpn-01: 33s mode and FIX 4.
+The setup is the one from rpn-01: the mode you chose and FIX 4.
 
 ```keys setup
-BLUE MODE 33s GOLD DISP FIX 4
+BLUE MODE {mode} GOLD DISP FIX 4
 ```
 
 The display settings live in the DISP menu (gold, then 2). Its soft keys are FIX, SCI, ENG and

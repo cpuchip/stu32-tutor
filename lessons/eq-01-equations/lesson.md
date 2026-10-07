@@ -2,7 +2,7 @@
 id: eq-01
 title: Equations, and checking a solution
 status: draft prose (non-author read taken; not yet read by abacus or Michael)
-setup: BLUE MODE 33s GOLD DISP FIX 4
+setup: BLUE MODE {mode} GOLD DISP FIX 4
 display: FIX 4
 ---
 
@@ -14,11 +14,11 @@ is how you know any answer is right, yours or the calculator's.
 
 ## Before you start
 
-The setup from rpn-01: 33s mode and FIX 4. Work the examples in order; most of them carry on from
+The setup from rpn-01: the mode you chose and FIX 4. Work the examples in order; most of them carry on from
 the one before, and the text says when.
 
 ```keys setup
-BLUE MODE 33s GOLD DISP FIX 4
+BLUE MODE {mode} GOLD DISP FIX 4
 ```
 
 A word about names. The unknown in an equation is usually called x, and on the calculator it is
@@ -104,30 +104,52 @@ solution again, show the equation, press XEQ, and press R/S at X? to keep the 4.
 
 ## The × matters
 
-In the 33s mode you set at the start (and in 35s mode), the calculator does not multiply two things
-written side by side in an equation. Type the same
-equation without the ×. Typing while an equation is showing starts a new one, and the first stays
-in the calculator's list:
+<mode m="33s,35s">
+In this mode the calculator does not multiply two things written side by side in an equation, as
+the HP 33s and 35s did not.
+</mode>
+<mode m="STU">
+In STU mode the calculator does multiply two things written side by side, as algebra does: 2X
+means 2 × X. The 33s and 35s modes do not, so this section differs there.
+</mode>
+
+Type the same equation without the ×. Typing while an equation is showing starts a new one, and
+the first stays in the calculator's list:
 
 ```keys Q06A
 GOLD EQN 2 RCL X + 3 = 11 ENTER
 ```
 
+<mode m="33s,35s">
 The screen shows <disp v="Q06A" kind="eqn">2X+3=11</disp>. It is stored as typed, but it cannot be
 worked out. The trouble shows only when the calculator tries, after R/S:
+</mode>
+<mode m="STU">
+The screen shows <disp v="Q06A" kind="eqn">2×X+3=11</disp>: the calculator put the × in for you.
+Work it out at 4, after R/S:
+</mode>
 
 ```keys Q06 after=Q06A
 XEQ 4 R/S
 ```
 
+<mode m="33s,35s">
 The screen shows <disp v="Q06" kind="message">SYNTAX ERROR</disp>. Press C to clear the message:
+</mode>
 
-```keys Q06B after=Q06
+```keys Q06B after=Q06 mode=33s,35s
 C
 ```
 
+<mode m="33s,35s">
 X shows <disp v="Q06B">4.0000</disp>. That is the 4 you typed at X?, left on the X line; it is not an
 answer.
+</mode>
+<mode m="STU">
+X shows <disp v="Q06">0.0000</disp>: left minus right is zero, so 4 is a solution, as it was with
+the ×. In the 33s and 35s modes the same keys end in SYNTAX ERROR, so a lesson written for them
+always types the ×. Typing it in STU mode does no harm.
+</mode>
 
 ## Exercises
 

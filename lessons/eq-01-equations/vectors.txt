@@ -9,7 +9,9 @@ Q05 | continues Q05A: X, and SOLVE finds 4 | MODE33 FIX4 EQN 2 * RCL:X + 3 = 11 
 Q05C | continues Q05: the backspace key clears only SOLVE's view; 4 stays in X | MODE33 FIX4 EQN 2 * RCL:X + 3 = 11 ENTER XEQ 4 RS EQN XEQ 5 RS EQN SOLVE:X BKSP | X=4 @X=4
 Q06A | without the x sign: 2X + 3 = 11, typed as a new equation | MODE33 FIX4 EQN 2 RCL:X + 3 = 11 ENTER | %EQ=2X+3=11
 Q06 | continues Q06A: it cannot be worked out: SYNTAX ERROR, after R/S | MODE33 FIX4 EQN 2 RCL:X + 3 = 11 ENTER XEQ 4 RS | ERR
-Q06B | continues Q06: C clears the message, leaving the 4 typed | MODE33 FIX4 EQN 2 RCL:X + 3 = 11 ENTER XEQ 4 RS C | ERR X=4
+Q06B@33s,35s | continues Q06: C clears the message, leaving the 4 typed | MODE33 FIX4 EQN 2 RCL:X + 3 = 11 ENTER XEQ 4 RS C | ERR X=4
+Q06A@STU | STU: 2X is 2 x X (decision 53): stored with the x | MODE33 FIX4 EQN 2 RCL:X + 3 = 11 ENTER | %EQ=2×X+3=11
+Q06@STU | continues Q06A: STU works it out at 4: left minus right, 0 | MODE33 FIX4 EQN 2 RCL:X + 3 = 11 ENTER XEQ 4 RS | X=0
 # Exercises
 E01 | exercise 1: does 3 solve 5x - 4 = 11? | MODE33 FIX4 EQN 5 * RCL:X - 4 = 11 ENTER XEQ 3 RS | X=0
 E02 | exercise 2: solve 3x + 7 = 1 | MODE33 FIX4 EQN 3 * RCL:X + 7 = 1 ENTER SOLVE:X | X=-2 @X=-2

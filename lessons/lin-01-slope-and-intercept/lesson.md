@@ -2,7 +2,7 @@
 id: lin-01
 title: Slope and intercept
 status: draft prose (non-author read taken; accepted for accuracy by abacus #4443; not yet read by Michael)
-setup: BLUE MODE 33s GOLD DISP FIX 4
+setup: BLUE MODE {mode} GOLD DISP FIX 4
 display: FIX 4
 ---
 
@@ -16,13 +16,13 @@ b from two points on a line.
 
 ## Before you start
 
-The setup from rpn-01: 33s mode and FIX 4. The examples in the first two sections are one chain,
+The setup from rpn-01: the mode you chose and FIX 4. The examples in the first two sections are one chain,
 each carrying on from the one before. In the third, each slope starts fresh. Two variables hold the
 answers, as in rpn-02: M for the slope and B for the intercept. M is on the ENTER key and B on the eˣ
 key; after STO, the next key means only its letter, so STO M is STO then ENTER.
 
 ```keys setup
-BLUE MODE 33s GOLD DISP FIX 4
+BLUE MODE {mode} GOLD DISP FIX 4
 ```
 
 ## The slope from two points

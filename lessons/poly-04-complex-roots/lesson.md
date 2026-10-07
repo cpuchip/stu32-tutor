@@ -2,7 +2,7 @@
 id: poly-04
 title: Complex roots
 status: draft prose (non-author read taken; accepted for accuracy by abacus #4509; not yet read by Michael)
-setup: BLUE MODE 33s GOLD DISP FIX 4
+setup: BLUE MODE {mode} GOLD DISP FIX 4
 display: FIX 4
 ---
 
@@ -14,11 +14,11 @@ quadratic formula was pointing at.
 
 ## Before you start
 
-The setup from rpn-01: 33s mode and FIX 4. Most examples start fresh; where one carries on from the
+The setup from rpn-01: the mode you chose and FIX 4. Most examples start fresh; where one carries on from the
 one before, it says so.
 
 ```keys setup
-BLUE MODE 33s GOLD DISP FIX 4
+BLUE MODE {mode} GOLD DISP FIX 4
 ```
 
 ## A number whose square is −1
@@ -64,14 +64,26 @@ The calculator will not take that square root for you. √x on a complex number:
 16 +/− BLUE CMPLX i 0 √x
 ```
 
-The screen shows <disp v="V01" kind="message">INVALID DATA</disp>, and x² refuses one the same way:
+The screen shows <disp v="V01" kind="message">INVALID DATA</disp>. Clear it with C before you go
+on<mode m="35s,STU"> (in this mode a key pressed over a message only clears it)</mode>:
+
+```keys V01B after=V01
+C
+```
+
+x² refuses a complex number the same way:
 
 ```keys V02
 0 BLUE CMPLX i 1 GOLD x²
 ```
 
-The screen shows <disp v="V02" kind="message">INVALID DATA</disp>. So work out √(−d) as √d × i
-yourself, and type it as a complex number.
+The screen shows <disp v="V02" kind="message">INVALID DATA</disp>. Clear it too:
+
+```keys V02B after=V02
+C
+```
+
+So work out √(−d) as √d × i yourself, and type it as a complex number.
 
 ## The roots of x² + 2x + 5
 

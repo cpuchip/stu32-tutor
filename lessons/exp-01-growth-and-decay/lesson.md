@@ -2,7 +2,7 @@
 id: exp-01
 title: Growth and decay
 status: draft prose (non-author read taken; not yet read by abacus or Michael)
-setup: BLUE MODE 33s GOLD DISP FIX 4
+setup: BLUE MODE {mode} GOLD DISP FIX 4
 display: FIX 4
 ---
 
@@ -20,11 +20,11 @@ exponential growth and decay, using yˣ from num-03.
 
 ## Before you start
 
-The setup from rpn-01: 33s mode and FIX 4. Every example starts fresh, except where one says it
+The setup from rpn-01: the mode you chose and FIX 4. Every example starts fresh, except where one says it
 carries on.
 
 ```keys setup
-BLUE MODE 33s GOLD DISP FIX 4
+BLUE MODE {mode} GOLD DISP FIX 4
 ```
 
 ## Growth

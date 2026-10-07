@@ -2,7 +2,7 @@
 id: rpn-02
 title: Storing numbers
 status: draft prose (non-author read taken; not yet read by abacus or Michael)
-setup: BLUE MODE 33s GOLD DISP FIX 2
+setup: BLUE MODE {mode} GOLD DISP FIX 2
 display: FIX 2
 ---
 
@@ -15,10 +15,10 @@ them, named A to Z, and a variable keeps its number until you change it.
 ## Before you start
 
 This lesson works in money, so set the display to two decimal places: blue, then ENTER (MODE), the
-soft key under 33s, then gold, 2 (DISP), the soft key under FIX, and 2.
+soft key under your mode, then gold, 2 (DISP), the soft key under FIX, and 2.
 
 ```keys setup
-BLUE MODE 33s GOLD DISP FIX 2
+BLUE MODE {mode} GOLD DISP FIX 2
 ```
 
 Each variable's letter is printed small at the lower right of a key. After STO, RCL or VIEW, the

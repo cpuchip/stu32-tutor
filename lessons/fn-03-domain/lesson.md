@@ -2,7 +2,7 @@
 id: fn-03
 title: Domain
 status: draft prose (non-author read taken; accepted for accuracy by abacus #4415; not yet read by Michael)
-setup: BLUE MODE 33s GOLD DISP FIX 4
+setup: BLUE MODE {mode} GOLD DISP FIX 4
 display: FIX 4
 ---
 
@@ -16,12 +16,12 @@ input it cannot take, and reads what the calculator says.
 
 ## Before you start
 
-The setup from rpn-01: 33s mode and FIX 4. This lesson is one chain: each example carries on from
+The setup from rpn-01: the mode you chose and FIX 4. This lesson is one chain: each example carries on from
 the one before. It enters two programs, R and S, with the program entry, labels, XEQ and RTN of
 fn-01. R is on the XEQ key and S is on 7; neither letter is used in fn-01 or fn-02.
 
 ```keys setup
-BLUE MODE 33s GOLD DISP FIX 4
+BLUE MODE {mode} GOLD DISP FIX 4
 ```
 
 ## Two functions

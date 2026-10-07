@@ -2,7 +2,7 @@
 id: lin-03
 title: When a line does not fit
 status: draft prose (non-author read taken; accepted for accuracy by abacus #4460; not yet read by Michael)
-setup: BLUE MODE 33s GOLD DISP FIX 4
+setup: BLUE MODE {mode} GOLD DISP FIX 4
 display: FIX 4
 ---
 
@@ -19,11 +19,11 @@ is the wrong kind.
 
 ## Before you start
 
-The setup from rpn-01: 33s mode and FIX 4. The examples in each section are one chain; each section
+The setup from rpn-01: the mode you chose and FIX 4. The examples in each section are one chain; each section
 and the exercise start fresh, with the sums cleared.
 
 ```keys setup
-BLUE MODE 33s GOLD DISP FIX 4
+BLUE MODE {mode} GOLD DISP FIX 4
 ```
 
 ## A curve

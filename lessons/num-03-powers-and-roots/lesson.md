@@ -2,7 +2,7 @@
 id: num-03
 title: Powers and roots
 status: draft prose (not yet read by a non-author, abacus or Michael)
-setup: BLUE MODE 33s GOLD DISP FIX 4
+setup: BLUE MODE {mode} GOLD DISP FIX 4
 display: FIX 4
 ---
 
@@ -14,11 +14,11 @@ rest. This lesson is about those keys, and about the order of the two numbers th
 
 ## Before you start
 
-The setup from rpn-01: 33s mode and FIX 4. Work the examples in order; when one carries on from the
+The setup from rpn-01: the mode you chose and FIX 4. Work the examples in order; when one carries on from the
 example before it, the text says so.
 
 ```keys setup
-BLUE MODE 33s GOLD DISP FIX 4
+BLUE MODE {mode} GOLD DISP FIX 4
 ```
 
 ## Squares and square roots

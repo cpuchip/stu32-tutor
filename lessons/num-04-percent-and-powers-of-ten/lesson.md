@@ -2,7 +2,7 @@
 id: num-04
 title: Percent and powers of ten
 status: draft prose (non-author read taken; not yet read by abacus or Michael)
-setup: BLUE MODE 33s GOLD DISP FIX 2
+setup: BLUE MODE {mode} GOLD DISP FIX 2
 display: FIX 2
 ---
 
@@ -13,11 +13,11 @@ numbers, written with powers of ten. This lesson finishes the unit on numbers wi
 
 ## Before you start
 
-The percents here are prices, so set two decimal places: 33s mode and FIX 2. Work the examples in
+The percents here are prices, so set two decimal places: the mode you chose and FIX 2. Work the examples in
 order; when one carries on from the example before it, the text says so.
 
 ```keys setup
-BLUE MODE 33s GOLD DISP FIX 2
+BLUE MODE {mode} GOLD DISP FIX 2
 ```
 
 The two percent keys are on the 1/x key, fifth in the top row: % in gold above it, %CHG in blue.

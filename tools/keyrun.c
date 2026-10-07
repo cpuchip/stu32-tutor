@@ -23,6 +23,7 @@
 #include "calc.h"
 #include "keymap.h"
 #include "keys.h"
+#include "report.h"
 #include "resolve.h"
 #include "state.h"
 
@@ -107,18 +108,6 @@ static int press_names(app_state *a, char **tok, int ntok)
     return r;
 }
 
-static const char *const KIND[] = {"value", "entry", "eqn", "program", "message", "prompt", "view"};
-
-/* A graph shown (unit 033b): its texts as screen.c draws them, one source: the readout ("x=... y=..."),
-   the window labels XMIN XMAX YMIN YMAX, and the note. Nothing is printed when no graph shows. */
-static void print_graph(const char *id, const screen_page *page)
-{
-    if (!page->graph_on) return;
-    const screen_graph_text *g = &page->graph;
-    printf("GRAPH\t%s\t%s\t%s\t%s\t%s\t%s\t%s\n", id, g->readout, g->xmin, g->xmax, g->ymin,
-           g->ymax, g->note);
-}
-
 /* keyrun --sequence FILE: a student working through a lesson. Each line is "ID<TAB>keys"; every
    line is pressed on ONE device, in order, with nothing reset between them (the setup first). After
    each line the X line and the status band are printed, so a quoted display can be compared with
@@ -149,26 +138,9 @@ static int sequence(const char *path)
         if (press_names(&a, tok, ntok)) { printf("IN %s\n", line); return 2; }
         app_ui(&a, &ui);
         screen_lines(&c, &ui, &page);
-        /* X, Y, Z and T as exact numbers, a complex one as its two parts joined by "i" ("" for a
-           vector): a coincidence in X alone (a stray digit that still lands on the right X) must
-           not pass. */
-        static char val[4][200];
-        const ab_val *lv[4] = {&c.x, &c.y, &c.z, &c.t};
-        for (int i = 0; i < 4; i++) {
-            val[i][0] = '\0';
-            if (lv[i]->kind == AB_REAL) abn_to_text(&lv[i]->re, val[i], sizeof val[i]);
-            else if (lv[i]->kind == AB_COMPLEX) {
-                char re[96], im[96];
-                abn_to_text(&lv[i]->re, re, sizeof re);
-                abn_to_text(&lv[i]->im, im, sizeof im);
-                snprintf(val[i], sizeof val[i], "%si%s", re, im);
-            }
-        }
-        printf("X\t%s\t%s\t%s\nYL\t%s\t%s\t%s\nSTATUS\t%s\t%s\nVAL\t%s\t%s\t%s\t%s\t%s\n", line,
-               page.x.kind >= 0 && page.x.kind <= SCREEN_VIEW ? KIND[page.x.kind] : "?", page.x.text,
-               line, page.y.kind >= 0 && page.y.kind <= SCREEN_VIEW ? KIND[page.y.kind] : "?", page.y.text,
-               line, page.status.text, line, val[0], val[1], val[2], val[3]);
-        print_graph(line, &page);
+        static char rep[4096];
+        if (kr_report(&c, &page, line, rep, sizeof rep) < 0) { fprintf(stderr, "report too long\n"); return 2; }
+        fputs(rep, stdout);
     }
     fclose(f);
     return 0;
@@ -262,10 +234,9 @@ int main(int argc, char **argv)
                na, n_app, n_vec, at);
         return 1;
     }
-    printf("OK %d ops\nX\t%s\t%s\nYL\t%s\t%s\nSTATUS\t%s\n", na,
-           page.x.kind >= 0 && page.x.kind <= SCREEN_VIEW ? KIND[page.x.kind] : "?", page.x.text,
-           page.y.kind >= 0 && page.y.kind <= SCREEN_VIEW ? KIND[page.y.kind] : "?", page.y.text,
-           page.status.text);
-    print_graph("-", &page);
+    printf("OK %d ops\nX\t%s\t%s\nYL\t%s\t%s\nSTATUS\t%s\n", na, kr_kind(page.x.kind), page.x.text,
+           kr_kind(page.y.kind), page.y.text, page.status.text);
+    static char gline[512];
+    if (kr_graph_line(&page, "-", gline, sizeof gline) > 0) fputs(gline, stdout);
     return 0;
 }

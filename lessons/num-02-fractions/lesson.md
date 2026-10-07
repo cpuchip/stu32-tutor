@@ -2,7 +2,7 @@
 id: num-02
 title: Fractions
 status: draft prose (non-author read taken; not yet read by abacus or Michael)
-setup: BLUE MODE 33s GOLD DISP FIX 4
+setup: BLUE MODE {mode} GOLD DISP FIX 4
 display: FIX 4
 ---
 
@@ -14,11 +14,11 @@ decimal with 34 significant digits, and this lesson is about both sides of that.
 
 ## Before you start
 
-The setup from rpn-01: 33s mode and FIX 4. Work the examples in order: several of them carry on
+The setup from rpn-01: the mode you chose and FIX 4. Work the examples in order: several of them carry on
 from the one before, and the text says when.
 
 ```keys setup
-BLUE MODE 33s GOLD DISP FIX 4
+BLUE MODE {mode} GOLD DISP FIX 4
 ```
 
 ## Typing a fraction

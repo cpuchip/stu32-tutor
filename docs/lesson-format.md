@@ -11,13 +11,13 @@ expectations`, one example per line. Rules (abacus, 2026-10-06):
 
 - Every vector's keys begin `MODE33` and a display setting (`FIX4`, `SCI2`, `ALL`...), so nothing
   depends on how the core started (`ab_init` gives ALL, MEMORY CLEAR gives FIX 4).
-- Every vector passes in 33s mode as written and again with `MODE33` changed to `MODE35`. A lesson
-  that is about a difference between the modes says so in its front matter (`modes: 33` and a
-  `modes_reason:`); the differences are abacus decisions 22, 45 and 46.
-- STU features (TABLE, GRAPH: decision 52) are reached inside a vector by `STU` and left by `MODE33`,
-  the lesson's mode again; after the first token, mode tokens only alternate STU, MODE33, STU... The 35s run makes every
-  `MODE33` a `MODE35`, and every printed `33s` soft key a `35s`, so a block that comes back from
-  STU prints `BLUE MODE 33s` and is checked both ways (fn-02's TABLE section).
+- Modes (decision 56): a lesson is checked in each mode it offers, 33s, 35s and STU unless its front
+  matter says otherwise. In each mode, a vector's first token, `MODE33`, is set to that mode's
+  (`MODE35`, `STU`); no other mode token may follow it. A vector whose ID carries `@` and a list of
+  modes (`Q06@STU`, `Q06B@33s,35s`) applies in those modes only, and replaces the shared vector of
+  the same ID there: where a mode's maths or keys differ (decision 53's implied multiplication, an
+  STU-only TABLE), and where a block exists in some modes only. The differences between the modes
+  are abacus decisions 22, 45, 46, 52, 53 and 56.
 - Avoid E with no mantissa and the first key after an error, unless that is the lesson.
 - Every vector has at least one expectation, and every expected value is recomputed independently
   (exact rationals, mpmath or SymPy) with the computation kept in `docs/evidence/`.
@@ -38,13 +38,19 @@ Front matter:
 ---
 id: rpn-01
 title: The stack and ENTER
-setup: BLUE MODE 33s GOLD DISP FIX 4
+setup: BLUE MODE {mode} GOLD DISP FIX 4
 display: FIX 4
 ---
 ```
 
-- `setup` is the keys the student presses once; the checker presses them before every example.
-  The lesson prints them in a ```` ```keys setup ```` block, which must match.
+- `modes:` lists the modes the lesson offers, by the MODE menu's labels (`33s 35s STU`, the
+  default). A lesson that offers fewer says why in `modes_reason:`. The page opens in the link's
+  mode, else the reader's remembered one, else STU, else `default:`, else the first offered
+  (docs/proposals/mode-variants.md).
+
+- `setup` is the keys the student presses once, with `{mode}` for MODE's soft key; the checker
+  presses them, the mode filled in, before every example. The lesson prints them, `{mode}` and all,
+  in a ```` ```keys setup ```` block, which must match (the page fills in the mode).
 - Each example is a ```` ```keys Snn ```` block: the keys the student presses, by the legends
   printed on the STU-32 (abacus `layout/stu32-v0.json`). A shifted function is `GOLD` or `BLUE` and
   then the legend printed in that colour (`GOLD LASTx`, never `LASTx` alone). A number is its
@@ -54,6 +60,13 @@ display: FIX 4
   only the keys pressed next. Its vector holds the full sequence (Smm's keys, then these). Use it
   wherever the text says "now press", and always after a stopping point: a stopping point leaves a
   number half typed, and a fresh example after it would type into that number.
+- A block with no `mode=` is shared: it is printed and checked in every offered mode. Where a mode
+  needs other keys, a variant follows it at once with the same ID, ```` ```keys Snn mode=35s,STU ````,
+  and replaces it in the modes it names; a block may also have variants only (an STU-only example).
+  A variant may carry its own `after=`; otherwise it continues what its shared block continues.
+- Prose that differs by mode goes in `<mode m="35s,STU">...</mode>` spans, inline or around whole
+  paragraphs; a quote for one mode is `<disp v="Snn" m="STU">...</disp>`, and a quote inside a span
+  holds in the span's modes. No span inside a span.
 - A quoted display is `<disp v="Snn">text</disp>`. Other screen lines take a kind: `eqn` (an equation shown on X), `prompt` (a prompt
   on X, like `SOLVE _`, or on the line above, like XEQ's `X?`), `message`, `entry`, `view`, and
   `status` (a token of the status band). A block may stop at a prompt only when the block right
@@ -71,28 +84,31 @@ display: FIX 4
 
 ## What `make check` proves
 
-For each lesson:
+For each lesson, in each mode it offers, on that mode's view of it (its blocks, spans and quotes):
 
-1. `vectors.txt` passes on the firmware's runner in 33s and 35s modes, each from a fresh core and
-   from a used one (the stack full, LAST x set, RAD), so no example leans on an empty stack.
+1. The mode's vectors pass on the firmware's runner, each from a fresh core and from a used one
+   (the stack full, LAST x set, RAD), so no example leans on an empty stack.
 2. `fmt-vectors.txt` passes on the firmware's display runner.
 3. Every keys block, after the setup, is pressed on the device's own key layer (`firmware/app.c`
    through `app_key`, as the device, tally's app and the panels press theirs) by `tools/keyrun`,
-   in 33s mode and again with the setup's 33s soft key made 35s. Each name is resolved to a key
+   after the setup with the mode filled in. Each name is resolved to a key
    from the firmware's keymap (`km_lookup`, the menus, the letter layer), never from a table of
    ours; a soft-key label that is also a printed legend is refused as ambiguous. Every op that
    reaches the core is logged on both paths (`tools/trace.c`, a linker wrap of `ab_do_arg`), and
    the two logs must be the same ops with the same arguments in the same order. The vector's ops
    are then replayed on a fresh core and its state image must equal the one the keys left. The
    keys must leave the device at rest: no shift armed, no menu or prompt open, no device setting
-   changed. Every vector is shown by a block, and only the first key of a vector sets the mode,
-   apart from STU and the MODE33 back from it (rule 1).
+   changed. Every vector of the mode is shown by a block of the mode's view, and only the first key
+   of a vector sets the mode.
 4. Every quoted display sits under its own example (after its block, before the next), is the
    text the device's screen shows on its X line after those keys (`screen_lines`; a value, not a
    number being typed or a message), and is its display vector's text, at the setting the vectors
    set and with the device's default options, of the vector's exact X result.
-5. A student working through: the setup once, then every block in lesson order on one device, with
-   nothing reset between them (a continuation presses only its own keys). After each block, every
+5. A student working through in the mode: the setup once, then every block of the mode's view in
+   order on one device, with nothing reset between them (a continuation presses only its own keys;
+   `student_sequence(lesson, mode)` in tools/check.py assembles them, and the learning page's gate
+   calls it). It found, the first time it ran in 35s and STU, that a key pressed over a message only
+   clears it there, so a lesson clears each message with C before the next example. After each block, every
    exact X, Y, Z and T in its vector must hold, and every quoted display and status annunciator must
    be what that student sees. Checks 1-4 judge each example from the setup; this one catches what
    an example inherits from the one before it: a display setting, Fraction display, a number still
@@ -110,8 +126,8 @@ keys no longer do what it says when the layout or the keymap changes (the layout
 ## Controls
 
 `make controls` plants one fault at a time in a copy of rpn-01 (and, for what only rpn-02 has, of rpn-02) and requires `make check` to
-fail for that fault's own reason (30 controls, and 3 harmless changes that must stay green: tools/controls.py lists them). A fault that does
-not apply to the file is reported as an error, not counted as a pass.
+fail for that fault's own reason; every lesson has its own set (tools/controls.py lists them, with the harmless changes that must stay
+green). A fault that does not apply to the file, or applies more than once, is reported as an error, not counted as a pass.
 
 ## What it does not prove yet
 

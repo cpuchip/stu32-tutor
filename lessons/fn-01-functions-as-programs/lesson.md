@@ -2,7 +2,7 @@
 id: fn-01
 title: Functions as programs
 status: draft prose (non-author read taken; not yet read by abacus or Michael)
-setup: BLUE MODE 33s GOLD DISP FIX 4
+setup: BLUE MODE {mode} GOLD DISP FIX 4
 display: FIX 4
 ---
 
@@ -15,11 +15,11 @@ rule with XEQ and that letter. The program uses the stack like any other calcula
 
 ## Before you start
 
-The setup from rpn-01: 33s mode and FIX 4. This whole lesson is one chain: each example carries on
+The setup from rpn-01: the mode you chose and FIX 4. This whole lesson is one chain: each example carries on
 from the one before, because a program is entered once and then used.
 
 ```keys setup
-BLUE MODE 33s GOLD DISP FIX 4
+BLUE MODE {mode} GOLD DISP FIX 4
 ```
 
 ## Entering a program
@@ -48,9 +48,9 @@ the Σ+ key:
 F
 ```
 
-The X line shows <disp v="F01B" kind="program">F001 LBL F ·33</disp>: line 1 of program F. The ·33
-marks it as written in 33s mode; it will run as a 33s-mode program even if you change the mode
-later.
+The X line shows <disp v="F01B" kind="program" m="33s">F001 LBL F ·33</disp><disp v="F01B" kind="program" m="35s">F001 LBL F ·35</disp><disp v="F01B" kind="program" m="STU">F001 LBL F ·STU</disp>: line 1 of program F. The mark after the
+label is the mode it was written in<mode m="33s">, 33s</mode><mode m="35s">, 35s</mode><mode m="STU">, STU</mode>;
+the program will run in that mode even if you change the mode later.
 
 Now the rule itself. The program will find x in X when it starts, so the rule is the keys you would
 press with x already there: multiply by 2, add 3.
@@ -119,7 +119,7 @@ program, and F is left as it was. G is on the STO key:
 GOLD LBL G
 ```
 
-The X line shows <disp v="G01B" kind="program">G001 LBL G ·33</disp>. Record the rule, end it, and
+The X line shows <disp v="G01B" kind="program" m="33s">G001 LBL G ·33</disp><disp v="G01B" kind="program" m="35s">G001 LBL G ·35</disp><disp v="G01B" kind="program" m="STU">G001 LBL G ·STU</disp>. Record the rule, end it, and
 turn program entry off:
 
 ```keys G01 after=G01B

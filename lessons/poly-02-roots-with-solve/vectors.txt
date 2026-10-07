@@ -9,6 +9,7 @@ S01 | continues: guesses 0 and 1.5: the root 1 | MODE33 FIX4 EQN RCL:X POW 3 - 6
 S02 | continues: guesses 1.5 and 2.5: the root 2 | MODE33 FIX4 EQN RCL:X POW 3 - 6 * RCL:X POW 2 + 11 * RCL:X - 6 ENTER XEQ 0 RS EQN XEQ 1.5 RS EQN XEQ 2.5 RS EQN XEQ 4 RS 0 STO:X 1.5 EQN SOLVE:X 1.5 STO:X 2.5 EQN SOLVE:X | X=2 @X=2
 S03 | continues: guesses 2.5 and 4: the root 3 (to within 3E-33) | MODE33 FIX4 EQN RCL:X POW 3 - 6 * RCL:X POW 2 + 11 * RCL:X - 6 ENTER XEQ 0 RS EQN XEQ 1.5 RS EQN XEQ 2.5 RS EQN XEQ 4 RS 0 STO:X 1.5 EQN SOLVE:X 1.5 STO:X 2.5 EQN SOLVE:X 2.5 STO:X 4 EQN SOLVE:X | X=3.000000000000000000000000000000003 @X=3.000000000000000000000000000000003
 N01 | x^2 + 1: no real root: NO ROOT FND | MODE33 FIX4 EQN RCL:X POW 2 + 1 ENTER SOLVE:X | ERR
+N02 | continues N01: C clears the message (on a 35s and in STU a key over a message only clears it) | MODE33 FIX4 EQN RCL:X POW 2 + 1 ENTER SOLVE:X C | ERR
 E01 | exercise: d(x) = x^3 - 3x + 1, typed (no x^2 term) | MODE33 FIX4 EQN RCL:X POW 3 - 3 * RCL:X + 1 ENTER | %EQ=X^3-3×X+1
 E01A | continues: d(-2) | MODE33 FIX4 EQN RCL:X POW 3 - 3 * RCL:X + 1 ENTER XEQ 2 CHS RS | X=-1
 E01B | continues: d(-1) | MODE33 FIX4 EQN RCL:X POW 3 - 3 * RCL:X + 1 ENTER XEQ 2 CHS RS EQN XEQ 1 CHS RS | X=3

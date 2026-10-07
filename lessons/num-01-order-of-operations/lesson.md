@@ -2,7 +2,7 @@
 id: num-01
 title: Order of operations
 status: draft prose (not yet read by a non-author, abacus or Michael)
-setup: BLUE MODE 33s GOLD DISP FIX 4
+setup: BLUE MODE {mode} GOLD DISP FIX 4
 display: FIX 4
 ---
 
@@ -17,10 +17,10 @@ one key at a time, so you choose the order. This lesson is about choosing it.
 
 ## Before you start
 
-The setup from rpn-01: 33s mode and FIX 4. Each example below is written out in full from it.
+The setup from rpn-01: the mode you chose and FIX 4. Each example below is written out in full from it.
 
 ```keys setup
-BLUE MODE 33s GOLD DISP FIX 4
+BLUE MODE {mode} GOLD DISP FIX 4
 ```
 
 Squaring is x² (gold, above √x).

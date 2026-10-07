@@ -1,8 +1,8 @@
 ---
 id: fn-02
 title: A table of values
-status: draft prose (accepted for accuracy by abacus #4399; the TABLE section added since, at abacus; not yet read by Michael)
-setup: BLUE MODE 33s GOLD DISP FIX 4
+status: draft prose (accepted for accuracy by abacus #4399, its TABLE section #4441; GRAPH added since; not yet read by Michael)
+setup: BLUE MODE {mode} GOLD DISP FIX 4
 display: FIX 4
 ---
 
@@ -10,18 +10,18 @@ display: FIX 4
 
 A table of values lists a function's outputs for a run of inputs, side by side. It is the first
 picture of a function: from it you can see where the function is zero, where it is smallest, and
-how it rises and falls. This lesson builds one with a short program that loops, builds the same
-one again with the calculator's TABLE, and then draws the graph from it by hand.
+how it rises and falls. This lesson builds one with a short program that loops, and then draws the
+graph from it by hand.<mode m="STU"> At the end, STU mode's TABLE and GRAPH do both for you.</mode>
 
 ## Before you start
 
-The setup from rpn-01: 33s mode and FIX 4. This lesson is one chain: each example carries on from
+The setup from rpn-01: the mode you chose and FIX 4. This lesson is one chain: each example carries on from
 the one before. It uses the program entry, labels, XEQ and RTN of fn-01. It enters two programs, Q
 and T, and T has a second label inside it, U, for its loop to jump back to. None of these letters
 is used in fn-01.
 
 ```keys setup
-BLUE MODE 33s GOLD DISP FIX 4
+BLUE MODE {mode} GOLD DISP FIX 4
 ```
 
 ## The function
@@ -139,81 +139,7 @@ The last row stays showing: X shows <disp v="T07">3.0000</disp>. The whole table
 |---|---|---|---|---|---|
 | q(x) | 3 | 0 | −1 | 0 | 3 |
 
-## The same table from TABLE
-
-The mode menu you used in the setup has three modes. 33s and 35s mode behave like two older
-calculators, the HP 33s and the HP 35s. STU mode is the STU-32's own, with features those two never
-had. One of them is TABLE, which makes a table like the one program T printed, from an expression,
-with no program. Switch to STU mode: press blue, then ENTER for the mode menu, then the soft key
-under STU:
-
-```keys B01 after=T07
-BLUE MODE STU
-```
-
-The status band shows <disp v="B01" kind="status">STU</disp>. TABLE works on the equation list of
-eq-01, and an entry there may be an expression with no = sign. Type x² − 4x + 3 that way, with yˣ
-for the power and no =:
-
-```keys B02 after=B01
-GOLD EQN RCL X yˣ 2 − 4 × RCL X + 3 ENTER
-```
-
-The screen shows <disp v="B02" kind="eqn">X^2-4×X+3</disp>; ^ means "to the power of". With no =,
-TABLE gives the expression's value. (With an =, it would give left minus right, as XEQ does.)
-
-TABLE, blue above 8, opens a menu: VAR picks the variable, START and STEP each take the number in X,
-as STO does, and GO shows the table. TABLE uses the equation last shown, even after Equation mode
-is off, and its first variable unless you pick another: here X, the only one. The step is 1 unless
-it has been set to something else, so only the start needs setting. Turn Equation mode off first,
-because a digit typed while the equation shows starts a new equation (eq-01). Then start at 0.
-START closes the menu:
-
-```keys B03 after=B02
-GOLD EQN 0 BLUE TABLE START
-```
-
-Open it again for GO:
-
-```keys B04 after=B03
-BLUE TABLE GO
-```
-
-The X line shows the row for x = 0: <disp v="B04" kind="row">0.0000 3.0000</disp>, x on the left
-and q(x) on the right. The row on the X line is the selected one, and the status band shows
-<disp v="B04" kind="status">TABLE</disp>. The table does not stop at the start: the three lines
-above hold the rows before it, x = −3, −2 and −1, so four rows show at once, and the one just above
-reads −1 and 8. ▼ moves down a row:
-
-```keys B05 after=B04
-▼
-```
-
-The X line shows <disp v="B05" kind="row">1.0000 0.0000</disp>. Three more:
-
-```keys B06 after=B05
-▼ ▼ ▼
-```
-
-The X line shows <disp v="B06" kind="row">4.0000 3.0000</disp>, the last row of T's table; ▲ moves
-back up. ENTER copies the selected row's q(x) to X and leaves the table; C leaves it without
-copying. Take the 3. The rest of this lesson, like the lessons before it, is written for 33s mode,
-so switch back:
-
-```keys B07 after=B06
-ENTER BLUE MODE 33s
-```
-
-X shows <disp v="B07">3.0000</disp>. The two ways give the same table. T is still worth having:
-TABLE needs STU mode, and a program is something you can change to do more at each row.
-
 ## Drawing the graph
-
-<!-- GRAPH: firmware unit 033 (abacus #4315) will plot the equation shown against TABLE's variable,
-with X from −10 to 10 and Y fitted to the curve, and a trace whose ENTER copies the traced value to
-X. STU mode only. When it lands, this section gains the same curve on the screen, kept beside the
-drawing by hand, and the TABLE section's switch back to 33s mode moves to after the graph (both
-need STU; a non-author read, 2026-10-06). -->
 
 On squared paper, draw an x axis across and a q axis up, and mark each row as a point: (0, 3),
 (1, 0), (2, −1), (3, 0) and (4, 3). The curve comes down from 3, crosses the x axis at x = 1, is
@@ -222,7 +148,7 @@ lowest in the table at x = 2, crosses the x axis again at x = 3, and rises back 
 A table shows only its rows, so check what happens between two of them before joining the points.
 Halfway on each side of 2:
 
-```keys G01 after=B07
+```keys G01 after=T07
 1.5 XEQ Q
 ```
 
@@ -276,3 +202,114 @@ with a not zero, has this shape, which is called a parabola.
    ```
 
    X shows <disp v="E03B">15.0000</disp> with 6 in Y: q(6) = 36 − 24 + 3. One more R/S ends it.
+
+<mode m="33s,35s">
+
+## In STU mode
+
+STU mode can build this table and draw this graph itself, with TABLE and GRAPH. The 33s and 35s
+never had them; choose STU on this page to see how.
+
+</mode>
+<mode m="STU">
+
+## TABLE and GRAPH
+
+STU mode can do both of this lesson's jobs itself: TABLE builds the table, and GRAPH draws the
+curve. Neither needs a program. They work on the equation list of eq-01, and an entry there may be
+an expression with no = sign. Type x² − 4x + 3 that way, with yˣ for the power:
+
+```keys B02 mode=STU
+GOLD EQN RCL X yˣ 2 − 4 × RCL X + 3 ENTER
+```
+
+The screen shows <disp v="B02" kind="eqn">X^2-4×X+3</disp>; ^ means "to the power of". With no =,
+TABLE and GRAPH use the expression's value. (With an =, they would use left minus right, as XEQ does.)
+
+TABLE, blue above 8, opens a menu: VAR picks the variable, START and STEP each take the number in X,
+as STO does, and GO shows the table. TABLE uses the equation last shown, even after Equation mode
+is off, and its first variable unless you pick another: here X, the only one. The step is 1 unless
+it has been set to something else, so only the start needs setting. Turn Equation mode off first,
+because a digit typed while the equation shows starts a new equation (eq-01). Then start at 0.
+START closes the menu:
+
+```keys B03 after=B02 mode=STU
+GOLD EQN 0 BLUE TABLE START
+```
+
+Open it again for GO:
+
+```keys B04 after=B03 mode=STU
+BLUE TABLE GO
+```
+
+The X line shows the row for x = 0: <disp v="B04" kind="row">0.0000 3.0000</disp>, x on the left
+and q(x) on the right. The row on the X line is the selected one, and the status band shows
+<disp v="B04" kind="status">TABLE</disp>. The table does not stop at the start: the three lines
+above hold the rows before it, x = −3, −2 and −1, so four rows show at once, and the one just above
+reads −1 and 8. ▼ moves down a row:
+
+```keys B05 after=B04 mode=STU
+▼
+```
+
+The X line shows <disp v="B05" kind="row">1.0000 0.0000</disp>. Three more:
+
+```keys B06 after=B05 mode=STU
+▼ ▼ ▼
+```
+
+The X line shows <disp v="B06" kind="row">4.0000 3.0000</disp>, the last row of T's table; ▲ moves
+back up. ENTER copies the selected row's q(x) to X and leaves the table; C leaves it without
+copying:
+
+```keys B07 after=B06 mode=STU
+ENTER
+```
+
+X shows <disp v="B07">3.0000</disp>. The same table T printed, with no program.
+
+GRAPH, blue above 7, draws the same expression against the same variable. Its menu sets the window:
+XMIN and XMAX, the ends of the x axis, each from X as START does (YMIN and YMAX too, though by
+default GRAPH fits the y axis to the curve). The screen is 400 columns wide, and each column is one
+value of x. With XMIN −2 and XMAX 5.98 the columns are 0.02 apart, and column 200, where the trace
+starts, falls exactly on x = 2:
+
+```keys W01 after=B07 mode=STU
+2 +/− BLUE GRAPH XMIN 5.98 BLUE GRAPH XMAX
+```
+
+X shows <disp v="W01">5.9800</disp>, the XMAX just set. Now GO:
+
+```keys W02 after=W01 mode=STU
+BLUE GRAPH GO
+```
+
+The curve is drawn column by column, the parabola of the drawing by hand. The y axis was fitted
+from <disp v="W02" kind="ymin">-1.8000</disp> to <disp v="W02" kind="ymax">15.8000</disp>: the
+lowest and highest values of q between −2 and 5.98, with a margin of a twentieth of their span each
+way. Below the curve the trace shows where it stands: <disp v="W02" kind="readout">x=2.0000 y=-1.0000</disp>,
+the lowest point. ▶ moves the trace one column right:
+
+```keys W03 after=W02 mode=STU
+▶
+```
+
+The readout shows <disp v="W03" kind="readout">x=2.0200 y=-0.9996</disp>. Two columns left, to the
+other side of 2:
+
+```keys W04 after=W03 mode=STU
+◀ ◀
+```
+
+The readout shows <disp v="W04" kind="readout">x=1.9800 y=-0.9996</disp>: the same height either
+side of 2, the mirror the drawing by hand showed with 1.5 and 2.5. ENTER copies the traced value to
+X and leaves the graph:
+
+```keys W05 after=W04 mode=STU
+ENTER
+```
+
+X shows <disp v="W05">-0.9996</disp>.
+
+</mode>

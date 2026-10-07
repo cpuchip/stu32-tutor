@@ -2,7 +2,7 @@
 id: eq-03
 title: Two answers, and inequalities
 status: draft prose (not yet read by a non-author, abacus or Michael)
-setup: BLUE MODE 33s GOLD DISP FIX 4
+setup: BLUE MODE {mode} GOLD DISP FIX 4
 display: FIX 4
 ---
 
@@ -14,11 +14,11 @@ eq-01 answers a second question: which side of an answer a value is on.
 
 ## Before you start
 
-The setup from rpn-01: 33s mode and FIX 4. Work the examples in order: each one either carries on
+The setup from rpn-01: the mode you chose and FIX 4. Work the examples in order: each one either carries on
 from the one before or starts fresh, and the text says which.
 
 ```keys setup
-BLUE MODE 33s GOLD DISP FIX 4
+BLUE MODE {mode} GOLD DISP FIX 4
 ```
 
 ## An equation with two answers
