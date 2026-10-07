@@ -1,6 +1,7 @@
 ---
 id: fn-01
 title: Functions as programs
+requires: setup shift-keys soft-keys rpn-arithmetic stack-lift swap-roll change-sign stack-full x-squared status-band clear-message
 status: draft prose (accuracy: lessons/ACCEPTED; not yet read by Michael)
 setup: BLUE MODE {mode} GOLD DISP FIX 4
 display: FIX 4

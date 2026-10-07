@@ -1,6 +1,7 @@
 ---
 id: trig-03
 title: The unit circle
+requires: setup shift-keys stack-lift change-sign graph-by-hand angle-unit sin-key trig-ratios inverse-trig pythagoras
 status: draft prose (accuracy: lessons/ACCEPTED; not yet read by Michael)
 setup: BLUE MODE {mode} GOLD DISP FIX 4 BLUE ∡MODE DEG
 display: FIX 4

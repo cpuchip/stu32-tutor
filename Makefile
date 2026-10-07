@@ -14,10 +14,12 @@ LESSONS ?= $(wildcard lessons/*/)
 
 .PHONY: check controls tools clean
 check: tools
+	$(PYTHON) tools/graph.py
 	$(PYTHON) tools/check.py --core $(CORE_DIR) $(LESSONS)
 
 # Proves the checker can fail: one planted fault at a time, each must turn it red for its own reason.
 controls: tools
+	$(PYTHON) tools/graph.py --selftest
 	$(PYTHON) tools/controls.py --core $(CORE_DIR) lessons/rpn-01-the-stack
 	$(PYTHON) tools/controls.py --core $(CORE_DIR) lessons/rpn-02-storing-numbers
 	$(PYTHON) tools/controls.py --core $(CORE_DIR) lessons/rpn-03-the-display

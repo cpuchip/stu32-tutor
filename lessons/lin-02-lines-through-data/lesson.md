@@ -1,6 +1,7 @@
 ---
 id: lin-02
 title: Lines through data
+requires: setup shift-keys soft-keys slope intercept falling-flat
 status: draft prose (accuracy: lessons/ACCEPTED; not yet read by Michael)
 setup: BLUE MODE {mode} GOLD DISP FIX 4
 display: FIX 4

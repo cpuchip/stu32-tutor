@@ -1,6 +1,7 @@
 ---
 id: num-02
 title: Fractions
+requires: setup shift-keys rpn-arithmetic display-rounds
 status: draft prose (accuracy: lessons/ACCEPTED; not yet read by Michael)
 setup: BLUE MODE {mode} GOLD DISP FIX 4
 display: FIX 4

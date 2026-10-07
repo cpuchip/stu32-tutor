@@ -4,7 +4,7 @@ the working tree).
 
 Reads lessons/ACCEPTED at REV. A lesson is publishable when its lesson.md, vectors.txt and
 fmt-vectors.txt at REV equal those at the last commit its line names (the accepted commit, or the
-last change abacus has seen), the front matter's status line aside. --list prints the publishable ids,
+last change abacus has seen), the front matter's status and requires lines aside. --list prints the publishable ids,
 one a line, for the site's build; otherwise each lesson is reported. Exit 1 if any listed lesson is
 held back or unknown, 0 if all are publishable."""
 import argparse
@@ -34,13 +34,14 @@ def show(rev, path):
 
 
 def sans_status(text):
-    """The text with the front matter's status line removed: the one line that may change freely."""
+    """The text with the front matter's status and requires lines removed: the lesson's bookkeeping,
+    which may change without abacus (its accuracy read covers the prose, keys and values)."""
     if text is None:
         return None
     m = re.match(r"^---\n(.*?\n)---\n", text, re.S)
     if not m:
         return text
-    head = "".join(l for l in m.group(1).splitlines(True) if not l.startswith("status:"))
+    head = "".join(l for l in m.group(1).splitlines(True) if not l.startswith(("status:", "requires:")))
     return "---\n" + head + "---\n" + text[m.end():]
 
 

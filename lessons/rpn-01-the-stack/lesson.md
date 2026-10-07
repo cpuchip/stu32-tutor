@@ -1,6 +1,7 @@
 ---
 id: rpn-01
 title: The stack and ENTER
+requires:
 status: draft prose (accuracy: lessons/ACCEPTED; not yet read by Michael)
 setup: BLUE MODE {mode} GOLD DISP FIX 4
 display: FIX 4

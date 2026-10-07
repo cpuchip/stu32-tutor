@@ -1,6 +1,7 @@
 ---
 id: exp-02
 title: The number e
+requires: setup shift-keys rpn-arithmetic enter-copies stack-lift display-rounds power reciprocal growth
 status: draft prose (accuracy: lessons/ACCEPTED; not yet read by Michael)
 setup: BLUE MODE {mode} GOLD DISP FIX 4
 display: FIX 4

@@ -1,6 +1,7 @@
 ---
 id: exp-01
 title: Growth and decay
+requires: setup shift-keys rpn-arithmetic enter-copies t-copies-down power xroot neg-frac-powers linear-function
 status: draft prose (accuracy: lessons/ACCEPTED; not yet read by Michael)
 setup: BLUE MODE {mode} GOLD DISP FIX 4
 display: FIX 4

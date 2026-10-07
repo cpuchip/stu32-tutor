@@ -1,6 +1,7 @@
 ---
 id: trig-04
 title: Polar and rectangular
+requires: setup shift-keys soft-keys enter-copies swap-roll change-sign angle-unit sin-key trig-ratios inverse-trig pythagoras unit-circle pythagorean-identity full-turn trig-mirror
 status: draft prose (accuracy: lessons/ACCEPTED; not yet read by Michael)
 setup: BLUE MODE {mode} GOLD DISP FIX 4 BLUE ∡MODE DEG
 display: FIX 4

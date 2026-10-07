@@ -1,6 +1,7 @@
 ---
 id: lin-03
 title: When a line does not fit
+requires: setup shift-keys clear-message slope intercept falling-flat sigma-plus regression y-hat correlation
 status: draft prose (accuracy: lessons/ACCEPTED; not yet read by Michael)
 setup: BLUE MODE {mode} GOLD DISP FIX 4
 display: FIX 4

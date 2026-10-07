@@ -1,6 +1,7 @@
 ---
 id: poly-01
 title: Evaluating a polynomial
+requires: setup shift-keys enter-copies stack-lift t-copies-down change-sign stack-full function program-entry xeq-program
 status: draft prose (accuracy: lessons/ACCEPTED; not yet read by Michael)
 setup: BLUE MODE {mode} GOLD DISP FIX 4
 display: FIX 4

@@ -1,6 +1,7 @@
 ---
 id: num-01
 title: Order of operations
+requires: setup shift-keys rpn-arithmetic enter-copies stack-lift stack-levels swap-roll t-copies-down
 status: draft prose (accuracy: lessons/ACCEPTED; not yet read by Michael)
 setup: BLUE MODE {mode} GOLD DISP FIX 4
 display: FIX 4

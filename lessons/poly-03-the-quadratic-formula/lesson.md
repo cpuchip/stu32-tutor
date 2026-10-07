@@ -1,6 +1,7 @@
 ---
 id: poly-03
 title: The quadratic formula
+requires: setup shift-keys change-sign sto rcl minus-and-power square-root clear-message sqrt-negative polynomial root sign-change root-count
 status: draft prose (accuracy: lessons/ACCEPTED; not yet read by Michael)
 setup: BLUE MODE {mode} GOLD DISP FIX 4
 display: FIX 4

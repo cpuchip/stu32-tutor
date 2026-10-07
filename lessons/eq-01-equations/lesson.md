@@ -1,6 +1,7 @@
 ---
 id: eq-01
 title: Equations, and checking a solution
+requires: setup shift-keys soft-keys status-band sto clear-message
 status: draft prose (accuracy: lessons/ACCEPTED; not yet read by Michael)
 setup: BLUE MODE {mode} GOLD DISP FIX 4
 display: FIX 4

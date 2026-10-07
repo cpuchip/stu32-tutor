@@ -43,6 +43,12 @@ display: FIX 4
 ---
 ```
 
+- `requires:` lists the topics (lessons/TOPICS slugs) the lesson leans on and does not teach, on one
+  line, space-separated; empty for a first lesson. A topic is required when a learner who skipped
+  the lesson that teaches it would be lost or misled; a key named only as a landmark, or an idea
+  re-taught in place, is not. TOPICS gives each topic its lesson and section (- for the opening);
+  `tools/graph.py` (in `make check`) refuses an unknown slug, a lesson requiring its own topic, a
+  heading not in its lesson, and a cycle. A new lesson adds its topics to TOPICS.
 - `status:` is `draft prose (accuracy: lessons/ACCEPTED; not yet read by Michael)` until Michael's
   read; the learning page marks a draft. Acceptance is never written here: lessons/ACCEPTED is the
   one record of what abacus has accepted, the list the site publishes from, checked by

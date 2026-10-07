@@ -1,6 +1,7 @@
 ---
 id: num-04
 title: Percent and powers of ten
+requires: setup shift-keys rpn-arithmetic stack-lift stack-levels change-sign fix read-e type-e fix-overflow
 status: draft prose (accuracy: lessons/ACCEPTED; not yet read by Michael)
 setup: BLUE MODE {mode} GOLD DISP FIX 2
 display: FIX 2

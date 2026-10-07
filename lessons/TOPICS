@@ -1,0 +1,207 @@
+# The topics the lessons teach, and where: the prerequisite graph's vocabulary.
+#
+# slug | title | lesson id (@modes if taught only in a mode section) | the lesson's ## heading, or -
+#
+# A heading of - is the lesson's opening, the paragraphs before its first ## heading. A lesson's
+# front matter `requires:` lists the topics it leans on and does not teach. Each topic is taught once,
+# in the section named; the learning page links a required topic back to that section.
+# tools/graph.py (run by make check) refuses an unknown slug, a heading not in its lesson, a lesson
+# requiring a topic it teaches, and a cycle between lessons. Audited 2026-10-07 by four non-author
+# readers against every line of the 28 lessons (docs/evidence/graph-audit.md).
+
+# rpn-01 The stack and ENTER
+shift-keys | The gold and blue shift keys | rpn-01 | Before you start
+soft-keys | Soft keys and menus | rpn-01 | Before you start
+stack-levels | The stack: X, Y, Z and T | rpn-01 | Before you start
+setup | The setup: a mode and FIX | rpn-01 | Before you start
+rpn-arithmetic | Two numbers, one operation | rpn-01 | Two numbers, one operation
+backspace | ← takes back a digit | rpn-01 | Two numbers, one operation
+enter-copies | ENTER copies X into Y | rpn-01 | ENTER copies
+stack-lift | A result moves up when you type the next number; the stack drops after an operation | rpn-01 | A result is a number you can keep using
+swap-roll | x↔y and R↓ | rpn-01 | Moving the stack
+last-x | LAST x | rpn-01 | LAST x
+change-sign | +/−: negative numbers | rpn-01 | Negative numbers
+t-copies-down | T copies down | rpn-01 | T copies down
+
+# rpn-02 Storing numbers
+letter-keys | The letters on the keys | rpn-02 | Before you start
+sto | STO: storing a number in a variable | rpn-02 | STO puts a number away
+rcl | RCL: recalling a variable | rpn-02 | RCL brings it back
+rcl-arithmetic | Recall arithmetic: RCL ×, RCL +, RCL −, RCL ÷ | rpn-02 | RCL brings it back
+variables-off-stack | Variables are not on the stack | rpn-02 | Variables are not on the stack
+sto-arithmetic | STO + and STO − | rpn-02 | A running total
+view | VIEW: looking at a variable | rpn-02 | A running total
+
+# rpn-03 The display
+fix | FIX: a fixed number of places | rpn-03 | FIX: a fixed number of decimal places
+display-rounds | The display rounds; the calculator keeps 34 digits | rpn-03 | FIX: a fixed number of decimal places
+read-e | Reading a power of ten (E) | rpn-03 | Reading a power of ten
+sci | SCI: scientific notation | rpn-03 | SCI: scientific notation
+eng | ENG: engineering notation | rpn-03 | ENG: engineering notation
+fix-overflow | When FIX switches to scientific form | rpn-03 | When FIX runs out of room
+type-e | Typing a power of ten with E | rpn-03 | Typing a power of ten
+all | ALL: no padding | rpn-03 | ALL: no padding
+
+# num-01 Order of operations
+x-squared | x²: squaring | num-01 | Before you start
+mult-before-add | Multiplication before addition | num-01 | Multiplication before addition
+parentheses | Parentheses first | num-01 | Parentheses first
+powers-first | Powers before multiplication | num-01 | Powers before multiplication
+fraction-bar | A fraction bar: top, bottom, then divide | num-01 | A fraction: top, bottom, then divide
+minus-and-power | −3², and +/− on a result in X | num-01 | A minus sign and a power
+stack-full | A full stack loses T; working from the inside out | num-01 | Two ways through a longer one
+
+# num-02 Fractions
+type-fraction | Typing a fraction | num-02 | Typing a fraction
+frac-display | Fraction display (→FRAC) | num-02 | Showing fractions
+fraction-arithmetic | Adding and multiplying fractions | num-02 | Adding and multiplying
+status-band | The status band | num-02 | When the answer is not exact
+frac-not-exact | When a fraction is not exact: the arrows | num-02 | When the answer is not exact
+
+# num-03 Powers and roots
+square-root | √x: the square root | num-03 | Squares and square roots
+power | yˣ: any power | num-03 | Any power: yˣ
+xroot | ˣ√y: roots of any order | num-03 | Roots of any order
+neg-frac-powers | Negative and fractional powers | num-03 | Negative and fractional powers
+clear-message | C clears a message | num-03 | Negative and fractional powers
+power-tower | Powers in a tower: the top first | num-03 | The order of two powers
+ten-to-x | 10ˣ | num-03 | Two shortcuts
+reciprocal | 1/x | num-03 | Two shortcuts
+
+# num-04 Percent and powers of ten
+percent | A percent of a number | num-04 | A percent of a number
+percent-change | Percent change | num-04 | Percent change
+neg-e | Typing a negative power of ten | num-04 | Negative powers of ten
+e-arithmetic | Calculating with powers of ten | num-04 | Calculating with powers of ten
+
+# eq-01 Equations, and checking a solution
+eqn-typing | Equation mode: typing an equation | eq-01 | Typing an equation
+xeq-check | XEQ: the X? prompt, R/S, and left minus right | eq-01 | Checking an answer
+solve | SOLVE | eq-01 | Letting the calculator solve it
+times-matters | Typing the × in an equation | eq-01 | The × matters
+equation-list | The equation list: a new equation keeps the old | eq-01 | The × matters
+
+# eq-02 Solving a formula for any letter
+solve-prompts | SOLVE asks for the other letters | eq-02 | One unknown, the others asked for
+solve-any-letter | Solving the same formula for another letter | eq-02 | The same formula, another letter
+eqn-last-viewed | EQN shows the last equation you viewed | eq-02 | A formula with more in it
+
+# eq-03 Two answers, and inequalities
+abs | ABS: absolute value | eq-03 | An equation with two answers
+eqn-brackets | A function's bracket in an equation, and ▶ | eq-03 | An equation with two answers
+solve-guesses | SOLVE's two guesses | eq-03 | Pointing SOLVE at an answer
+inequalities | Inequalities | eq-03 | Inequalities
+
+# fn-01 Functions as programs
+function | A function: one output for each input | fn-01 | -
+program-entry | Entering a program: PRGM, LBL and RTN | fn-01 | Entering a program
+xeq-program | XEQ: running a program | fn-01 | Using the function
+program-copy | Using x twice in a program | fn-01 | A second program
+program-pointer | The program pointer goes back to the top | fn-01 | A second program
+program-edit | Fixing a line in a program | fn-01 | Fixing a mistake
+
+# fn-02 A table of values
+loop | A loop: ISG and GTO | fn-02 | A loop
+subroutine | A program running another (XEQ inside a program) | fn-02 | A loop
+table-by-program | A table of values from a program | fn-02 | Reading the table
+graph-by-hand | Drawing a graph from a table | fn-02 | Drawing the graph
+table-graph | TABLE and GRAPH | fn-02@STU | TABLE and GRAPH
+
+# fn-03 Domain
+domain | Domain: where a function is defined | fn-03 | Dividing by zero
+divide-by-zero | Dividing by zero | fn-03 | Dividing by zero
+sqrt-negative | The square root of a negative number | fn-03 | The square root of a negative number
+stopped-program | Keying into a stopped program, and GTO . . | fn-03 | A stopped program
+
+# lin-01 Slope and intercept
+linear-function | A linear function: y = mx + b | lin-01 | -
+slope | Slope from two points | lin-01 | The slope from two points
+intercept | The intercept | lin-01 | The intercept
+falling-flat | Falling, flat and vertical lines | lin-01 | Lines that fall, lines that are flat
+
+# lin-02 Lines through data
+sigma-plus | Σ+: entering data | lin-02 | Entering the data
+regression | The least-squares line (L.R.) | lin-02 | The line
+y-hat | ŷ: the line's y for an x | lin-02 | The line
+correlation | r: how well a line fits | lin-02 | How well a line fits
+estimate | Estimating: x̂, and going past the data | lin-02 | Estimating
+sigma-minus | Σ−: removing a point | lin-02 | Fixing a mistake
+
+# lin-03 When a line does not fit
+model | A model | lin-03 | -
+curve-data | Data on a curve | lin-03 | A curve
+perfect-fit | A perfect fit | lin-03 | A perfect fit
+flat-no-r | A flat line has no r | lin-03 | A flat line
+
+# poly-01 Evaluating a polynomial
+polynomial | A polynomial, its coefficients and its degree | poly-01 | -
+horner | Nesting (Horner's way) | poly-01 | Nesting
+horner-stack | Nesting on the stack | poly-01 | On the stack
+horner-program | A polynomial as a program | poly-01 | As a program
+
+# poly-02 Roots with SOLVE
+root | A root: where a polynomial is 0 | poly-02 | -
+expression | An expression without =: SOLVE and XEQ | poly-02 | Typing c
+eqn-power | yˣ in an equation (^) | poly-02 | Typing c
+sign-change | Where to look: a change of sign | poly-02 | Where to look
+root-count | At most n roots: the factor x − r | poly-02 | Where to look
+root-per-gap | One root in each gap | poly-02 | One root in each gap
+no-real-root | A polynomial with no real root | poly-02 | A polynomial with no real root
+
+# poly-03 The quadratic formula
+quadratic | A quadratic | poly-03 | -
+quadratic-formula | The quadratic formula | poly-03 | Two roots
+discriminant | The discriminant | poly-03 | Two roots
+double-root | A double root | poly-03 | One root
+negative-discriminant | No real root: a negative discriminant | poly-03 | No real root
+
+# poly-04 Complex roots
+complex | Complex numbers and i, and typing them | poly-04 | A number whose square is −1
+complex-roots | Complex roots, in conjugate pairs | poly-04 | The roots of x² + 2x + 5
+complex-check | Checking a complex root | poly-04 | Checking a root
+
+# exp-01 Growth and decay
+growth | Growth by a factor | exp-01 | Growth
+decay | Decay and half-life | exp-01 | Decay
+find-factor | Finding the factor | exp-01 | Finding the factor
+
+# exp-02 The number e
+compounding | Compounding | exp-02 | Compounding more often
+e | The number e, and eˣ | exp-02 | The number e
+continuous | Continuous growth | exp-02 | Continuous growth
+power-of-power | A power of a power multiplies the powers | exp-02 | Continuous growth
+
+# exp-03 Logarithms
+log | Logarithms: what power? | exp-03 | What power?
+ln | LN: the natural logarithm | exp-03 | What power?
+log-solve | Solving for the power | exp-03 | Solving for the power
+no-log | Halving, and numbers with no logarithm | exp-03 | Halving, and numbers with no logarithm
+doubling-time | Doubling time: ln 2 ÷ r | exp-03 | Continuous growth
+
+# exp-04 Exponential equations
+eqn-exp | eˣ in an equation | exp-04 | Typing it
+line-meets-curve | A line meets a curve bending one way at most twice | exp-04 | Where to look
+solve-vs-log | SOLVE agrees with the logarithms | exp-04 | SOLVE agrees with the logarithms
+
+# trig-01 Degrees and radians
+radian | The radian | trig-01 | -
+angle-unit | The angle unit (∡MODE) | trig-01 | Before you start
+sin-key | SIN, COS and TAN read the angle unit | trig-01 | The same keys, two answers
+convert-angle | →RAD and →DEG | trig-01 | Converting
+pi-radians | π in radians | trig-01 | π in radians
+arc-length | Arc length | trig-01 | Arc length
+
+# trig-02 Right triangles
+trig-ratios | sin, cos and tan as ratios | trig-02 | -
+inverse-trig | ASIN, ACOS and ATAN | trig-02 | An angle from two sides
+pythagoras | Pythagoras' rule | trig-02 | An angle from two sides
+
+# trig-03 The unit circle
+unit-circle | The unit circle | trig-03 | Sine and cosine on a circle
+pythagorean-identity | cos²θ + sin²θ = 1 | trig-03 | cos²θ + sin²θ = 1
+full-turn | A full turn, and negative angles | trig-03 | Around again
+trig-mirror | One sine, two angles; the ranges of ASIN and ACOS | trig-03 | One sine, two angles
+
+# trig-04 Polar and rectangular
+to-polar | Rectangular to polar (→POL) | trig-04 | Rectangular to polar
+to-rect | Polar to rectangular (→REC) | trig-04 | Polar to rectangular

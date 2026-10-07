@@ -1,6 +1,7 @@
 ---
 id: fn-02
 title: A table of values
+requires: setup shift-keys soft-keys enter-copies stack-lift swap-roll change-sign sto rcl x-squared power status-band eqn-typing xeq-check equation-list program-entry xeq-program program-edit
 status: draft prose (accuracy: lessons/ACCEPTED; not yet read by Michael)
 setup: BLUE MODE {mode} GOLD DISP FIX 4
 display: FIX 4

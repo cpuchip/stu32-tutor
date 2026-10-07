@@ -1,6 +1,7 @@
 ---
 id: exp-03
 title: Logarithms
+requires: setup shift-keys stack-lift display-rounds power neg-frac-powers ten-to-x clear-message growth decay e continuous power-of-power
 status: draft prose (accuracy: lessons/ACCEPTED; not yet read by Michael)
 setup: BLUE MODE {mode} GOLD DISP FIX 4
 display: FIX 4

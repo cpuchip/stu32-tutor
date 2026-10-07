@@ -1,6 +1,7 @@
 ---
 id: poly-04
 title: Complex roots
+requires: setup shift-keys soft-keys x-squared square-root clear-message root-count horner horner-stack quadratic quadratic-formula discriminant double-root negative-discriminant
 status: draft prose (accuracy: lessons/ACCEPTED; not yet read by Michael)
 setup: BLUE MODE {mode} GOLD DISP FIX 4
 display: FIX 4

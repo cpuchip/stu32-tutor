@@ -1,6 +1,7 @@
 ---
 id: poly-02
 title: Roots with SOLVE
+requires: setup shift-keys display-rounds power clear-message eqn-typing xeq-check solve solve-guesses graph-by-hand polynomial
 status: draft prose (accuracy: lessons/ACCEPTED; not yet read by Michael)
 setup: BLUE MODE {mode} GOLD DISP FIX 4
 display: FIX 4

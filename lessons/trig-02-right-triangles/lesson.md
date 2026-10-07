@@ -1,6 +1,7 @@
 ---
 id: trig-02
 title: Right triangles
+requires: setup shift-keys enter-copies stack-lift angle-unit sin-key
 status: draft prose (accuracy: lessons/ACCEPTED; not yet read by Michael)
 setup: BLUE MODE {mode} GOLD DISP FIX 4 BLUE ∡MODE DEG
 display: FIX 4

@@ -1,6 +1,7 @@
 ---
 id: eq-03
 title: Two answers, and inequalities
+requires: setup shift-keys change-sign sto eqn-typing xeq-check solve
 status: draft prose (accuracy: lessons/ACCEPTED; not yet read by Michael)
 setup: BLUE MODE {mode} GOLD DISP FIX 4
 display: FIX 4

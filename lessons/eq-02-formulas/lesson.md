@@ -1,6 +1,7 @@
 ---
 id: eq-02
 title: Solving a formula for any letter
+requires: setup shift-keys change-sign view eqn-typing xeq-check solve
 status: draft prose (accuracy: lessons/ACCEPTED; not yet read by Michael)
 setup: BLUE MODE {mode} GOLD DISP FIX 4
 display: FIX 4
