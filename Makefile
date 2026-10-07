@@ -4,7 +4,7 @@
 # git archive into build/ (never built in the firmware's own checkout). Its Makefile builds the
 # runners with its own recipes; we add only the trace (tools/trace.c) at link time.
 # On fermion, run it in the gcc:14 container: scripts/check-docker.sh.
-CORE_PIN := 50e644f
+CORE_PIN := 25dca53
 FIRMWARE ?= ../abacus-firmware
 CORE_DIR := build/core-$(CORE_PIN)
 PYTHON ?= python3
@@ -24,7 +24,10 @@ controls: tools
 	$(PYTHON) tools/controls.py --core $(CORE_DIR) lessons/num-01-order-of-operations
 	$(PYTHON) tools/controls.py --core $(CORE_DIR) lessons/num-02-fractions
 	$(PYTHON) tools/controls.py --core $(CORE_DIR) lessons/num-03-powers-and-roots
+	$(PYTHON) tools/controls.py --core $(CORE_DIR) lessons/num-04-percent-and-powers-of-ten
 	$(PYTHON) tools/controls.py --core $(CORE_DIR) lessons/eq-01-equations
+	$(PYTHON) tools/controls.py --core $(CORE_DIR) lessons/eq-02-formulas
+	$(PYTHON) tools/controls.py --core $(CORE_DIR) lessons/eq-03-two-answers-and-inequalities
 	$(PYTHON) tools/controls.py --core $(CORE_DIR) lessons/fn-01-functions-as-programs
 	$(PYTHON) tools/controls.py --core $(CORE_DIR) lessons/fn-02-a-table-of-values
 	$(PYTHON) tools/controls.py --core $(CORE_DIR) lessons/fn-03-domain

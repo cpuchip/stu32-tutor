@@ -61,9 +61,9 @@ curve; the arrow keys trace along it, and ENTER copies the traced value to X; 1/
 its asymptote. STU only, like TABLE (032), whose rows are start + k x step, with ENTER copying a
 row's value to X.
 
-**Repin watches (firmware units that will change quoted screens):** 035 makes SOLVE end by
-viewing the root (W=3.5000) and clears its stale prompt (abacus #4346); eq-01 and eq-02 quote SOLVE
-results as values today and will fail at that repin until their quotes become kind="view".
+**Repin watches (firmware units that will change quoted screens):** 035 (SOLVE ends by viewing the
+root, W=3.5000, with no stale prompt) FIRED at the repin to 25dca53, as predicted: the 13 SOLVE
+quotes in eq-01..03 failed until they became kind="view", and nothing else moved.
 036 makes the GTO prompt take "." (GTO . . to PRGM TOP, abacus #4415): fn-03 then teaches it as the
 way out of a stopped program (a note marks the place); nothing quoted changes. Re-run fn-03's side
 vector W01 (docs/evidence/fn-03.md) at every repin: make check does not.

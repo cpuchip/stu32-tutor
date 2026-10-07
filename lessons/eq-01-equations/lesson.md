@@ -90,8 +90,10 @@ variable's letter, so the 6 key now means X:
 X
 ```
 
-X shows <disp v="Q05">4.0000</disp>, and the 4 is stored in the variable X too: the solution you
-checked by hand above. To check it again, show the equation, press XEQ, and press R/S at X? to
+The X line shows <disp v="Q05" kind="view">X=4.0000</disp>: SOLVE ends by showing the
+variable it solved for, as VIEW does in rpn-02. The 4 is in X, and it is stored in the variable
+X too: the solution you checked by hand above. The next key clears the view: C only clears it,
+and any other key clears it and then does its own job. To check the solution again, show the equation, press XEQ, and press R/S at X? to
 keep the 4.
 
 ## The × matters
@@ -142,7 +144,7 @@ answer.
    GOLD EQN 3 × RCL X + 7 = 1 ENTER GOLD SOLVE X
    ```
 
-   X shows <disp v="E02">-2.0000</disp>. To check it, show the equation again, press XEQ, and R/S to
+   The X line shows <disp v="E02" kind="view">X=-2.0000</disp>. To check it, show the equation again, press XEQ, and R/S to
    keep the −2 the variable X holds:
 
    ```keys E02B after=E02

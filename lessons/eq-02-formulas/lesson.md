@@ -46,7 +46,7 @@ Now it shows <disp v="S01B" kind="prompt">L?</disp>. Its length is 12:
 12 R/S
 ```
 
-X shows <disp v="S01">3.5000</disp>: the width is 3.5, which is 42 ÷ 12. SOLVE stored it in the
+The X line shows <disp v="S01" kind="view">W=3.5000</disp>: the width is 3.5, which is 42 ÷ 12. SOLVE stored it in the
 variable W. Each value you typed at a prompt was stored too; VIEW (from rpn-02) shows that A holds
 the 42:
 
@@ -78,7 +78,7 @@ Now it asks <disp v="S02B" kind="prompt">W?</disp>, with the 3.5 showing. R/S ke
 R/S
 ```
 
-X shows <disp v="S02">12.0000</disp>, the length you started from. One formula, typed once, answered
+The X line shows <disp v="S02" kind="view">L=12.0000</disp>, the length you started from. One formula, typed once, answered
 for two different letters.
 
 ## A formula with more in it
@@ -99,14 +99,14 @@ temperature is about 98.6 degrees Fahrenheit:
 98.6 R/S
 ```
 
-X shows <disp v="T01">37.0000</disp>. Now the other way: how many degrees Fahrenheit is 100 degrees
+The X line shows <disp v="T01" kind="view">C=37.0000</disp>. Now the other way: how many degrees Fahrenheit is 100 degrees
 Celsius? EQN shows the last equation you viewed, here the temperature formula, so solve it for F:
 
 ```keys T02 after=T01
 GOLD EQN GOLD SOLVE F 100 R/S
 ```
 
-X shows <disp v="T02">212.0000</disp>.
+The X line shows <disp v="T02" kind="view">F=212.0000</disp>.
 
 ## Exercises
 
@@ -123,7 +123,7 @@ X shows <disp v="T02">212.0000</disp>.
    GOLD EQN RCL D = RCL R × RCL T ENTER GOLD SOLVE T 150 R/S 60 R/S
    ```
 
-   X shows <disp v="E01">2.5000</disp>: two and a half hours.
+   The X line shows <disp v="E01" kind="view">T=2.5000</disp>: two and a half hours.
 
 2. The keys:
 
@@ -131,4 +131,4 @@ X shows <disp v="T02">212.0000</disp>.
    GOLD EQN RCL F = 1.8 × RCL C + 32 ENTER GOLD SOLVE C 40 +/− R/S
    ```
 
-   X shows <disp v="E02">-40.0000</disp>: −40 degrees is the same in both scales.
+   The X line shows <disp v="E02" kind="view">C=-40.0000</disp>: −40 degrees is the same in both scales.

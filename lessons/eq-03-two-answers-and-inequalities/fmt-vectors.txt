@@ -1,10 +1,5 @@
 # eq-03 display vectors: D-nnn is what X shows after key vector nnn, at FIX 4.
 D-A02 | after A02 | 0 | FIX 4 | w=21 | 0.0000
-D-A03 | after A03 | 8 | FIX 4 | w=21 | 8.0000
-D-A04 | after A04 | -2 | FIX 4 | w=21 | -2.0000
 D-B01 | after B01 | -8 | FIX 4 | w=21 | -8.0000
 D-B02 | after B02 | 2 | FIX 4 | w=21 | 2.0000
-D-E01 | after E01 | 3 | FIX 4 | w=21 | 3.0000
-D-E01B | after E01B | -5 | FIX 4 | w=21 | -5.0000
-D-E02 | after E02 | 2 | FIX 4 | w=21 | 2.0000
 D-E02B | after E02B | 6 | FIX 4 | w=21 | 6.0000

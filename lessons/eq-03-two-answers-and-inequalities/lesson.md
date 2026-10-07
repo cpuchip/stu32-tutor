@@ -54,14 +54,14 @@ and solve. XEQ has already left Equation mode, so STO stores the 10.
 10 STO X 20 GOLD EQN GOLD SOLVE X
 ```
 
-X shows <disp v="A03">8.0000</disp>. SOLVE leaves Equation mode too, so STO works straight away.
+The X line shows <disp v="A03" kind="view">X=8.0000</disp>. SOLVE leaves Equation mode too, so STO works straight away.
 Now guesses on the other side, 0 and −10:
 
 ```keys A04 after=A03
 0 STO X 10 +/− GOLD EQN GOLD SOLVE X
 ```
 
-X shows <disp v="A04">-2.0000</disp>. Both answers, found by giving SOLVE guesses near each one. When
+The X line shows <disp v="A04" kind="view">X=-2.0000</disp>. Both answers, found by giving SOLVE guesses near each one. When
 you expect more than one answer, work out roughly where they are first, by reasoning as above or by
 checking values with XEQ and watching where left minus right changes sign, then guess near each.
 
@@ -110,13 +110,13 @@ would count only for ≤, "less than or equal to".
    GOLD EQN GOLD ABS RCL X + 1 ▶ = 4 ENTER GOLD EQN 0 STO X 10 GOLD EQN GOLD SOLVE X
    ```
 
-   X shows <disp v="E01">3.0000</disp>. Then guesses 0 and −10 for the second:
+   The X line shows <disp v="E01" kind="view">X=3.0000</disp>. Then guesses 0 and −10 for the second:
 
    ```keys E01B after=E01
    0 STO X 10 +/− GOLD EQN GOLD SOLVE X
    ```
 
-   X shows <disp v="E01B">-5.0000</disp>.
+   The X line shows <disp v="E01B" kind="view">X=-5.0000</disp>.
 
 2. The boundary is where 3x − 6 = 0. Right after ENTER the equation is still showing, so SOLVE can
    follow at once:
@@ -125,7 +125,7 @@ would count only for ≤, "less than or equal to".
    GOLD EQN 3 × RCL X − 6 = 0 ENTER GOLD SOLVE X
    ```
 
-   X shows <disp v="E02">2.0000</disp>. Test 4, above the boundary:
+   The X line shows <disp v="E02" kind="view">X=2.0000</disp>. Test 4, above the boundary:
 
    ```keys E02B after=E02
    GOLD EQN XEQ 4 R/S

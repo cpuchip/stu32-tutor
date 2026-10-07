@@ -1,8 +1,2 @@
 # eq-02 display vectors: D-nnn is what X shows after key vector nnn, at FIX 4.
-D-S01 | after S01 | 3.5 | FIX 4 | w=21 | 3.5000
-D-S02 | after S02 | 12 | FIX 4 | w=21 | 12.0000
-D-T01 | after T01 | 37 | FIX 4 | w=21 | 37.0000
-D-T02 | after T02 | 212 | FIX 4 | w=21 | 212.0000
-D-E01 | after E01 | 2.5 | FIX 4 | w=21 | 2.5000
-D-E02 | after E02 | -40 | FIX 4 | w=21 | -40.0000
 D-S02A | after S02A: the variable's value at its prompt | 42 | FIX 4 | w=21 | 42.0000

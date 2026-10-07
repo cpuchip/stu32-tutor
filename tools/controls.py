@@ -183,6 +183,27 @@ CONTROLS_FOR["fn-01-functions-as-programs"] = [
     ("a program entered with the wrong key", "lesson.md", "```keys F01C after=F01B\n2 × 3 +\n", "```keys F01C after=F01B\n2 × 3 −\n", {},
      "F01C: printed keys and vector disagree in 33s mode: DIFF"),
 ]
+CONTROLS_FOR["num-04-percent-and-powers-of-ten"] = [
+    ("a small number quoted in FIX form, where the display falls back to scientific", "lesson.md",
+     'v="C06">4.00E-3<', 'v="C06">0.00<', {}, "D-C06: the prose shows '0.00'"),
+    ("% keyed as %CHG", "lesson.md", "```keys C01\n80 ENTER 15 GOLD %\n", "```keys C01\n80 ENTER 15 BLUE %CHG\n", {},
+     "C01: printed keys and vector disagree in 33s mode"),
+]
+CONTROLS_FOR["eq-02-formulas"] = [
+    ("a SOLVE root's view under the wrong letter", "lesson.md", 'kind="view">W=3.5000<', 'kind="view">A=3.5000<', {},
+     "S01: the device's X line shows 'W=3.5000' (view)"),
+    ("a SOLVE root quoted as a plain value (before firmware 035)", "lesson.md",
+     'The X line shows <disp v="S01" kind="view">W=3.5000</disp>', 'X shows <disp v="S01">3.5000</disp>', {},
+     "S01: working through in order, X shows 'W=3.5000' (view), the prose '3.5000'"),
+    ("solved for the wrong letter", "lesson.md", "GOLD EQN GOLD SOLVE F 100 R/S", "GOLD EQN GOLD SOLVE C 100 R/S", {},
+     "T02: printed keys and vector disagree in 33s mode"),
+]
+CONTROLS_FOR["eq-03-two-answers-and-inequalities"] = [
+    ("the other root quoted", "lesson.md", 'kind="view">X=8.0000<', 'kind="view">X=-2.0000<', {},
+     "A03: the device's X line shows 'X=8.0000' (view)"),
+    ("a guess keyed without its sign", "lesson.md", "```keys A04 after=A03\n0 STO X 10 +/− ",
+     "```keys A04 after=A03\n0 STO X 10 ", {}, "A04: printed keys and vector disagree in 33s mode"),
+]
 CONTROLS_FOR["fn-02-a-table-of-values"] = [
     ("a label's line numbered from the program's top, not its own label", "lesson.md", 'kind="program">U008 RTN<',
      'kind="program">T022 RTN<', {}, "T01B: the device's X line shows 'U008 RTN' (program)"),

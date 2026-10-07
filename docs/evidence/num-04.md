@@ -71,3 +71,8 @@ scientific form when the text will not fit the X line's 21 characters (screen.c 
 because of its two places; 8 x 10^21 written out at FIX 2 is 32 characters. The prose now says so.
 Abacus confirmed % and %CHG preserve Y per the 33s manual (p.4-6) and the %CHG formula. Unit 1
 complete.
+
+## Controls (added 2026-10-06, at the repin to 25dca53)
+
+num-04 had none. Added: a small number quoted in FIX form where the display falls back to
+scientific (C06), % keyed as %CHG (C01); both red.
