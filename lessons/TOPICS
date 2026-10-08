@@ -241,6 +241,7 @@ at-least-one | At least one, through not | prob-01 | And
 probability-combinations | Probability with combinations | prob-01 | Counting with combinations
 random | RAND, and a die from it | prob-01 | Random numbers
 seed | SEED: the same numbers again | prob-01 | Random numbers
+expected-value | Expected value: what a bet is worth on average | prob-01 | Expected value: what a bet is worth
 
 # lim-01 Approaching a limit
 limit | A limit: the value a function closes in on | lim-01 | -
@@ -260,3 +261,10 @@ integral | The integral: the limit of sums of rectangles | int-01 | -
 riemann-sum | Adding up rectangles | int-01 | Adding up rectangles
 integrate-key | The built-in integral, and its uncertainty | int-01 | The built-in integral
 signed-area | Area below the axis counts negative | int-01 | Area below the axis
+
+# prob-01b Loot boxes, gacha, and the odds against you (prob-01's material from another angle)
+pull-chance | One pull: a published rate, and not getting it | prob-01b | One pull
+at-least-one-pulls | At least one in many independent pulls | prob-01b | At least one in many pulls
+mean-tries | How many tries, on average: 1 ÷ p | prob-01b | How many pulls, on average
+pity-timer | A pity timer's average, as a geometric sum | prob-01b | A pity timer
+exactly-k | Exactly k successes in n tries | prob-01b | Exactly how many

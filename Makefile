@@ -53,6 +53,7 @@ controls: tools
 	$(PYTHON) tools/controls.py --core $(CORE_DIR) lessons/seq-01-sequences-and-sums
 	$(PYTHON) tools/controls.py --core $(CORE_DIR) lessons/cnt-01-counting
 	$(PYTHON) tools/controls.py --core $(CORE_DIR) lessons/prob-01-probability
+	$(PYTHON) tools/controls.py --core $(CORE_DIR) lessons/prob-01b-loot-boxes
 	$(PYTHON) tools/controls.py --core $(CORE_DIR) lessons/lim-01-approaching-a-limit
 	$(PYTHON) tools/controls.py --core $(CORE_DIR) lessons/lim-02-rates-of-change
 	$(PYTHON) tools/controls.py --core $(CORE_DIR) lessons/int-01-area-under-a-curve

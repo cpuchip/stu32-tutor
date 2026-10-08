@@ -6,6 +6,8 @@ N01 | not a 6: 1 - 1/6 | MODE33 FIX4 1 ENTER 1 ENTER 6 / - | X=0.833333333333333
 A01 | two dice, both 6: 1/6 x 1/6 | MODE33 FIX4 1 ENTER 6 / 1 ENTER 6 / * | X=0.02777777777777777777777777777777779
 A02 | at least one 6 in four rolls: 1 - (5/6)^4 | MODE33 FIX4 1 ENTER 5 ENTER 6 / 4 POW - | X=0.517746913580246913580246913580247
 H01 | five hearts in a 5-card hand: C(13, 5) / C(52, 5) | MODE33 FIX4 13 ENTER 5 NCR 52 ENTER 5 NCR / | X=0.000495198079231692677070828331332533
+X01 | a game: pay 1, win 5 on a six: 5/6 - 1 a play | MODE33 FIX4 5 ENTER 6 / 1 - | X=-0.1666666666666666666666666666666667
+X02 | continues X01: 600 plays | MODE33 FIX4 5 ENTER 6 / 1 - 600 * | X=-100
 R01 | RAND: a number from 0 up to 1 | MODE33 FIX4 RAND | X#0.5,0.5
 R02 | continues R01: a die face from it: IP(6 x RAND) + 1, from 1 to 6 | MODE33 FIX4 RAND 6 * IP 1 + | X#3.5,2.5
 S01 | the same seed, the same number: the difference is 0 | MODE33 FIX4 7 SEED RAND STO:A 7 SEED RAND RCL:A - | X=0
@@ -13,4 +15,7 @@ E01 | exercise 1: an ace from 52 cards: 4/52 | MODE33 FIX4 4 ENTER 52 / | X=0.07
 E02 | exercise 2: three heads in three flips: 0.5^3 | MODE33 FIX4 0.5 ENTER 3 POW | X=0.125
 E02B | continues E02: at least one tail: 1 - 0.125 | MODE33 FIX4 0.5 ENTER 3 POW 1 XY - | X=0.875
 E03 | exercise 3: 6 of 49 numbers: 1 / C(49, 6) | MODE33 FIX4 1 ENTER 49 ENTER 6 NCR / | X=0.0000000715112384201851626194166170378672
+E03B | continues E03: a 10-million jackpot times that chance | MODE33 FIX4 1 ENTER 49 ENTER 6 NCR / 1 E 7 * | X=0.715112384201851626194166170378672
+E03C | continues E03B: less the 2-dollar ticket | MODE33 FIX4 1 ENTER 49 ENTER 6 NCR / 1 E 7 * 2 - | X=-1.284887615798148373805833829621328
+E05 | exercise 5: a scratch card: 10 x 1/20 + 2 x 1/10 - 1 | MODE33 FIX4 10 ENTER 20 / 2 ENTER 10 / + 1 - | X=-0.3
 E04 | exercise 4: seed 1, a die face, kept; seed 1, a die face: the same, difference 0 | MODE33 FIX4 1 SEED RAND 6 * IP 1 + STO:A 1 SEED RAND 6 * IP 1 + RCL:A - | X=0

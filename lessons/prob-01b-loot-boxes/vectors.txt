@@ -1,0 +1,17 @@
+# prob-01b loot boxes and gacha: key vectors (the firmware's format). Every example is ours. Each
+# starts MODE33 FIX4 (the lesson's setup). Values from build/proto/prob01b.py, modelling the keys.
+P01 | not the rare item in one pull: 1 - 0.01 | MODE33 FIX4 1 ENTER 0.01 - | X=0.99
+P02 | none in 10 pulls: 0.99^10; at least one: 1 minus that | MODE33 FIX4 0.99 ENTER 10 POW 1 XY - | X=0.09561792499119550999
+P03 | at least one in 100 pulls: 1 - 0.99^100 | MODE33 FIX4 0.99 ENTER 100 POW 1 XY - | X=0.6339676587267704950693839734274826
+M01 | pulls for one, on average: 1/0.01 | MODE33 FIX4 0.01 INV | X=100
+M02 | continues M01: at 1.50 a pull | MODE33 FIX4 0.01 INV 1.5 * | X=150
+T01 | a pity timer at 90: the average pulls, (1 - 0.99^90) / 0.01 | MODE33 FIX4 1 ENTER 0.99 ENTER 90 POW - 0.01 / | X=59.52680273216759118976986256662835
+T02 | continues T01: at 1.50 a pull | MODE33 FIX4 1 ENTER 0.99 ENTER 90 POW - 0.01 / 1.5 * | X=89.29020409825138678465479384994252
+K00 | none in 100 pulls: 0.99^100 | MODE33 FIX4 0.99 ENTER 100 POW | X=0.3660323412732295049306160265725174
+K01 | exactly one rare in 100 pulls: C(100,1) x 0.01 x 0.99^99 | MODE33 FIX4 100 ENTER 1 NCR 0.01 * 0.99 ENTER 99 POW * | X=0.3697296376497267726571879056288054
+K02 | exactly two: C(100,2) x 0.01^2 x 0.99^98 | MODE33 FIX4 100 ENTER 2 NCR 0.01 SQ * 0.99 ENTER 98 POW * | X=0.1848648188248633863285939528144027
+R01 | a pull: RAND below 0.01 is the rare item | MODE33 FIX4 RAND | X#0.5,0.5
+E01 | exercise 1: a 5% item, at least one in 20 pulls | MODE33 FIX4 0.95 ENTER 20 POW 1 XY - | X=0.6415140775914577656425895595550537
+E02 | exercise 2: pulls for a 5% item, on average | MODE33 FIX4 0.05 INV | X=20
+E02B | continues E02: at 2 dollars a pull | MODE33 FIX4 0.05 INV 2 * | X=40
+E03 | exercise 3: a pity timer at 20: (1 - 0.95^20) / 0.05 | MODE33 FIX4 1 ENTER 0.95 ENTER 20 POW - 0.05 / | X=12.83028155182915531285179119110107

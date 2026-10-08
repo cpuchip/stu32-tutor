@@ -70,3 +70,29 @@ numbers come from a hidden number the calculator keeps and moves on at each RAND
 not from the number before. (3) independence: true. (4) the faces equally likely to within about 1E-33
 per draw: say no more than "equally likely". The poker and lottery settings are on Michael's roadmap; left
 in until he answers.
+
+## Reframed: why the odds are against you (2026-10-08, decision 63)
+
+Michael: "Keep, framed as why the odds are against you … I DO think we need to teach kids/people NOT to
+gamble." New title and opening; a section on expected value: a game paying 5 dollars on a six for a
+1-dollar play, 5/6 − 1 = −1/6 a play (X01), −100 over 600 plays (X02), with the fair payout (6) named, so
+"the odds are against you" means a negative expected value, not a changed chance; exercise 3 extended to
+a 2-dollar lottery ticket's expected value, 10⁷ ÷ 13,983,816 − 2 = −1.2849 (E03B, E03C); exercise 5, a
+scratch card with two prizes, 10 × 1/20 + 2 × 1/10 − 1 = −0.3 (E05). 19/19 vectors; the core agreed.
+
+The October 2026 general conference talk Michael named is President D. Todd Christofferson's "O Be Wise"
+(Saturday morning, 3 October 2026). The October talks are not yet in gospel-library on this box, so it was
+read in the Church News report (thechurchnews.com, 2026-10-03, "'Gambling is morally wrong,' President
+Christofferson declares", by Sydney Walker), fetched raw and searched for the exact words. The sentence
+that is this section's mathematics: "Of course, the industry’s revenue is the gambler’s loss. Simply put,
+the industry’s entire business model is built on its customers losing money." It is not quoted in the
+lesson: whether a public, CC BY-SA mathematics lesson quotes a church leader is Michael's call, asked
+through abacus.
+
+A non-author read of the reframe: every value matched. Taken: the payout said plainly (the dollar paid is
+gone; a fair game pays 6); expected value defined over the outcomes' net results (5 × 1/6 + 0 × 5/6, less
+the cost); average and total kept apart; 600 plays as the expected loss, with real totals spread around
+it; "games people pay to play" narrowed to games of pure chance run to make money from the bets; "earn"
+made "take in, before their own costs", in total; why people play anyway (one play buys a chance at a
+prize; the expected value is that chance's average cost); the random section's tally linked to the game;
+type-e added to requires; exercise 5 with two prizes.

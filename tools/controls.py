@@ -383,6 +383,8 @@ CONTROLS_FOR["cnt-01-counting"] = [
      "D-F02: the prose shows '8.0658E68'"),
 ]
 CONTROLS_FOR["prob-01-probability"] = [
+    ("the die game quoted as fair (expected value 0)", "lesson.md", 'v="X01">-0.1667<', 'v="X01">0.0000<', {},
+     "D-X01: the prose shows '0.0000'"),
     ("not worked the wrong way round: 1/6 - 1", "lesson.md", "```keys N01\n1 ENTER 1 ENTER 6 ÷ −\n",
      "```keys N01\n1 ENTER 6 ÷ 1 −\n", {}, "N01: printed keys and vector disagree in 33s mode"),
     ("at least one 6 quoted without the not: (5/6)^4", "lesson.md", 'v="A02">0.5177<', 'v="A02">0.4823<', {},
@@ -421,6 +423,14 @@ CONTROLS_FOR["int-01-area-under-a-curve"] = [
      "D-A01: the prose shows '9.0000'"),
     ("the integral's limits the wrong way round", "lesson.md", "GOLD EQN 0 ENTER 3 GOLD EQN GOLD ∫ X",
      "GOLD EQN 3 ENTER 0 GOLD EQN GOLD ∫ X", {}, "I01B: printed keys and vector disagree in 33s mode"),
+]
+CONTROLS_FOR["prob-01b-loot-boxes"] = [
+    ("at least one in 100 quoted as 1 in 100 makes it certain", "lesson.md", 'v="P03">0.6340<', 'v="P03">1.0000<', {},
+     "D-P03: the prose shows '1.0000'"),
+    ("the pity timer's sum without taking 0.99^90 from 1", "lesson.md", "```keys T01\n1 ENTER 0.99 ENTER 90 yˣ − 0.01 ÷\n",
+     "```keys T01\n0.99 ENTER 90 yˣ 0.01 ÷\n", {}, "T01: printed keys and vector disagree in 33s mode"),
+    ("exactly one without the C(100, 1) ways", "lesson.md", "```keys K01\n100 ENTER 1 BLUE PROB Cn,r 0.01 × 0.99 ENTER 99 yˣ ×\n",
+     "```keys K01\n0.01 0.99 ENTER 99 yˣ ×\n", {}, "K01: printed keys and vector disagree in 33s mode"),
 ]
 CONTROLS_FOR["fn-02-a-table-of-values"] = [
     ("a label's line numbered from the program's top, not its own label", "lesson.md", 'kind="program">U008 RTN<',

@@ -1,17 +1,20 @@
 ---
 id: prob-01
-title: Probability
-requires: setup shift-keys soft-keys rpn-arithmetic stack-lift enter-copies stack-levels swap-roll power sto rcl letter-keys read-e fix-overflow multiplication-principle combination
+title: Probability, and why the odds are against you
+requires: setup shift-keys soft-keys rpn-arithmetic stack-lift enter-copies stack-levels swap-roll power sto rcl letter-keys read-e type-e fix-overflow multiplication-principle combination
 status: draft prose (accuracy: lessons/ACCEPTED; not yet read by Michael)
 setup: BLUE MODE {mode} GOLD DISP FIX 4
 display: FIX 4
 ---
 
-# Probability
+# Probability, and why the odds are against you
 
 A probability says how likely something is, as a number from 0 to 1: 0 for what cannot happen, 1 for
 what must, and in between for everything else. This lesson works probabilities out by counting, as
-cnt-01 counted, and then lets the calculator make random numbers to imitate chance.
+cnt-01 counted, and then uses them to answer a question every game of chance hides: over many plays,
+how much does a bet win or lose on average? For a game of chance run to make money, the answer is that
+it loses, and the calculator can show by how much. Last, it lets the calculator make random numbers to
+imitate chance.
 
 ## Before you start
 
@@ -90,6 +93,36 @@ C(52, 5) is worked out:
 X shows <disp v="H01">0.0005</disp>: about 1 hand in 2,000. The number is 0.000495…, and FIX 4 rounds it
 to 0.0005; it has a digit other than 0 within four places, so FIX 4 does not switch to scientific form.
 
+## Expected value: what a bet is worth
+
+A game costs 1 dollar to play. Roll a die: a six pays you 5 dollars, and anything else pays nothing;
+either way the dollar you paid is gone. In many plays, a six comes up about one play in six, so on
+average a play pays 5 × 1/6 + 0 × 5/6, each payout times its probability, added up. 5 × 1/6 is 5 ÷ 6.
+Take away the 1 dollar each play costs, and the average result per play is 5/6 − 1. That average,
+over the outcomes, of what you end up gaining or losing, is the expected value of the bet:
+
+```keys X01
+5 ENTER 6 ÷ 1 −
+```
+
+X shows <disp v="X01">-0.1667</disp>: about 17 cents lost per play, on average. One play can still win;
+the average is what many plays add up to, divided by the number of plays. Carrying on, the expected
+total over 600 plays:
+
+```keys X02 after=X01
+600 ×
+```
+
+X shows <disp v="X02">-100.0000</disp>: a player expects to lose about 100 dollars over 600 plays; real
+totals land above and below that, but the more someone plays, the more surely their average result
+per play comes out close to the 17 cents lost. The chance of a six is fair, 1 in 6; what is against the
+player is the payout. A fair game would pay 6 dollars on a six, and its expected value would be 0. A
+game of pure chance run to make money from its players' bets has to take in more than it pays out, so
+its expected value for the player is below 0: that is what "the odds are against you" means. In total,
+what the people who run it take in, before their own costs, is what the players lose. People play
+anyway because one play buys a chance at a prize; the expected value is what that chance costs, on
+average, every time.
+
 ## Random numbers
 
 RAND, gold above −, makes a random number: more than 0 and less than 1, spread evenly over that range.
@@ -108,7 +141,9 @@ the POW menu, blue above yˣ (fn-02). And 1 more is a die's face, 1 to 6. Carryi
 ```
 
 X shows a whole number from 1 to 6. Press GOLD RAND and then 6 × BLUE POW IP 1 + again, as many times as
-you like, and keep a tally: over many rolls, each face comes up about one time in six.
+you like, and keep a tally: over many rolls, each face comes up about one time in six. Play the game
+of the last section with it, counting 5 dollars for each six and 1 dollar paid each time, and watch
+the total drift down.
 
 The numbers are not truly random: the calculator works each one out from a hidden number it keeps and
 moves on every time. SEED, blue above −, sets that hidden number from X. The same seed gives the same
@@ -127,8 +162,11 @@ X shows <disp v="S01">0.0000</disp>: the two numbers were the same, and so are t
 1. One card is drawn from a shuffled deck of 52, which has 4 aces. What is the chance it is an ace?
 2. A fair coin is flipped three times. What is the chance of three heads? Of at least one tail?
 3. A lottery draws 6 different numbers from 49 at random, and the order they come out in does not
-   matter. What is the chance that one ticket of 6 numbers matches them all?
+   matter. What is the chance that one ticket of 6 numbers matches them all? If a ticket costs 2 dollars
+   and the only prize is 10 million dollars, what is a ticket's expected value?
 4. Seed with 1 and roll a die with RAND. Seed with 1 again and roll again. What do you notice?
+5. A scratch card costs 1 dollar. It pays 10 dollars with probability 1/20, 2 dollars with probability
+   1/10, and nothing otherwise. What is its expected value?
 
 ## Answers
 
@@ -163,7 +201,21 @@ X shows <disp v="S01">0.0000</disp>: the two numbers were the same, and so are t
    ```
 
    X shows <disp v="E03">7.1511E-8</disp>: about 7 in 100 million, or 1 in nearly 14 million, too small for
-   FIX 4's places, so it is shown in scientific form.
+   FIX 4's places, so it is shown in scientific form. The expected value is the prize times that chance,
+   less the ticket. Carrying on, 10 million (1 E 7) times the chance:
+
+   ```keys E03B after=E03
+   1 E 7 ×
+   ```
+
+   X shows <disp v="E03B">0.7151</disp>: a ticket wins about 72 cents, on average. Carrying on, less the
+   2 dollars it cost:
+
+   ```keys E03C after=E03B
+   2 −
+   ```
+
+   X shows <disp v="E03C">-1.2849</disp>: each ticket loses about 1.28 dollars, on average.
 
 4. The same face both times: seeding with 1 again makes the same random number, so the same roll. Keep
    the first face in A, and take it from the second:
@@ -173,3 +225,11 @@ X shows <disp v="S01">0.0000</disp>: the two numbers were the same, and so are t
    ```
 
    X shows <disp v="E04">0.0000</disp>.
+
+5. Each payout times its probability, added up, less the 1 dollar: 10 × 1/20 + 2 × 1/10 − 1.
+
+   ```keys E05
+   10 ENTER 20 ÷ 2 ENTER 10 ÷ + 1 −
+   ```
+
+   X shows <disp v="E05">-0.3000</disp>: 30 cents lost per card, on average.
