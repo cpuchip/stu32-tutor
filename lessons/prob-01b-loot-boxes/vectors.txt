@@ -10,7 +10,7 @@ T02 | continues T01: at 1.50 a pull | MODE33 FIX4 1 ENTER 0.99 ENTER 90 POW - 0.
 K00 | none in 100 pulls: 0.99^100 | MODE33 FIX4 0.99 ENTER 100 POW | X=0.3660323412732295049306160265725174
 K01 | exactly one rare in 100 pulls: C(100,1) x 0.01 x 0.99^99 | MODE33 FIX4 100 ENTER 1 NCR 0.01 * 0.99 ENTER 99 POW * | X=0.3697296376497267726571879056288054
 K02 | exactly two: C(100,2) x 0.01^2 x 0.99^98 | MODE33 FIX4 100 ENTER 2 NCR 0.01 SQ * 0.99 ENTER 98 POW * | X=0.1848648188248633863285939528144027
-R01 | a pull: RAND below 0.01 is the rare item | MODE33 FIX4 RAND | X#0.5,0.5
+R01 | a pull: RAND below 0.1 is a 10% item | MODE33 FIX4 RAND | X#0.5,0.5
 E01 | exercise 1: a 5% item, at least one in 20 pulls | MODE33 FIX4 0.95 ENTER 20 POW 1 XY - | X=0.6415140775914577656425895595550537
 E02 | exercise 2: pulls for a 5% item, on average | MODE33 FIX4 0.05 INV | X=20
 E02B | continues E02: at 2 dollars a pull | MODE33 FIX4 0.05 INV 2 * | X=40

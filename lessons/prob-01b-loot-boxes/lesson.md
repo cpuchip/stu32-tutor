@@ -147,8 +147,8 @@ presses, and often more than a hundred.
 ## What 1% costs
 
 Every number here points the same way: a 1% chance per pull turns into a long and expensive average,
-with no limit on the cost except a timer the game chose to add. The averages hold for each item over
-many items, not for any one player, who may pay far less or far more. Knowing them is how to decide,
+with no limit on the cost except a timer the game chose to add. The averages describe what happens
+across many players, not to any one player, who may pay far less or far more. Knowing them is how to decide,
 before paying, what an item is really worth to you.
 
 ## Exercises
