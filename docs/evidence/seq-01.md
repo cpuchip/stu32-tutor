@@ -50,3 +50,9 @@ No wrong number; every block matched its vector, and the loop runs k = 1 to 15 a
 `make check`: 12/12 vectors in 33s, 35s and STU, from a fresh and a used core, and the student run in
 order in each mode. Controls (3): the nth term with n steps, the geometric sum quoted as the next term,
 the loop's row as 20 + 2k; all red.
+
+## Abacus's accuracy read (#4961, 2026-10-07)
+
+Accepted at 789ac73, every value recomputed in exact fractions (2 × 0.75⁵ = 243/512 = 1.5 × 0.75⁴). (1) the
+pairing, (2) (r − 1)S = a(rⁿ − 1) with r = 1 handled, (3) the n − 1 against exp-01, (4) exercise 2's first
+term: true.
