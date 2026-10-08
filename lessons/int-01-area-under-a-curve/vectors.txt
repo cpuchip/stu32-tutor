@@ -1,0 +1,13 @@
+# int-01 area under a curve: key vectors (the firmware's format). Every example is ours. Each starts
+# MODE33 FIX4 (the lesson's setup). Values from build/proto/int01.py.
+P01A | program A: n rectangles under x^2 on [0, 3], loop B, from the top of program memory | MODE33 FIX4 GTO.. PRGM LBL:A STO:N 1000 / 1 + STO:I 0 STO:T LBL:B RCL:I IP 3 * RCL:N / SQ 3 * RCL:N / STO+:T ISG:I GTO:B RCL:T RTN | %LINES=26
+P01 | continues P01A: program entry off | MODE33 FIX4 GTO.. PRGM LBL:A STO:N 1000 / 1 + STO:I 0 STO:T LBL:B RCL:I IP 3 * RCL:N / SQ 3 * RCL:N / STO+:T ISG:I GTO:B RCL:T RTN PRGM | %LINES=26
+A01 | continues P01: 3 rectangles | MODE33 FIX4 GTO.. PRGM LBL:A STO:N 1000 / 1 + STO:I 0 STO:T LBL:B RCL:I IP 3 * RCL:N / SQ 3 * RCL:N / STO+:T ISG:I GTO:B RCL:T RTN PRGM 3 XEQ:A | X=14
+A02 | continues A01: 30 rectangles | MODE33 FIX4 GTO.. PRGM LBL:A STO:N 1000 / 1 + STO:I 0 STO:T LBL:B RCL:I IP 3 * RCL:N / SQ 3 * RCL:N / STO+:T ISG:I GTO:B RCL:T RTN PRGM 3 XEQ:A 30 XEQ:A | X=9.455
+A03 | continues A02: 300 rectangles | MODE33 FIX4 GTO.. PRGM LBL:A STO:N 1000 / 1 + STO:I 0 STO:T LBL:B RCL:I IP 3 * RCL:N / SQ 3 * RCL:N / STO+:T ISG:I GTO:B RCL:T RTN PRGM 3 XEQ:A 30 XEQ:A 300 XEQ:A | X=9.04505
+I01 | x^2 typed as an expression | MODE33 FIX4 EQN RCL:X POW 2 ENTER | %EQ=X^2
+I01B | continues I01: Equation mode off, 0 ENTER 3, the expression shown, integrate in X: 9, uncertainty 3E-4 | MODE33 FIX4 EQN RCL:X POW 2 ENTER EQN 0 ENTER 3 EQN INTEG:X | X=9 Y=0.0003
+I01C | continues I01B: C leaves the view, x<>y brings the uncertainty down | MODE33 FIX4 EQN RCL:X POW 2 ENTER EQN 0 ENTER 3 EQN INTEG:X C XY | X=0.0003 Y=9
+S01 | x typed; integrated from -1 to 1: 0 | MODE33 FIX4 EQN RCL:X ENTER EQN 1 CHS ENTER 1 EQN INTEG:X | X=0
+E01 | exercise 1: 3x^2 from 0 to 2: 8 | MODE33 FIX4 EQN 3 * RCL:X POW 2 ENTER EQN 0 ENTER 2 EQN INTEG:X | X#8,1E-30
+E02 | exercise 2: x from -2 to 1: 0.5 - 2 = -1.5 | MODE33 FIX4 EQN RCL:X ENTER EQN 2 CHS ENTER 1 EQN INTEG:X | X#-1.5,1E-30

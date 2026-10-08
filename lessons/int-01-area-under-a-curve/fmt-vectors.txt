@@ -1,0 +1,6 @@
+# int-01 display vectors: D-nnn is what X shows after key vector nnn, at FIX 4.
+D-A01 | after A01 | 14 | FIX 4 | w=21 | 14.0000
+D-A02 | after A02 | 9.455 | FIX 4 | w=21 | 9.4550
+D-A03 | after A03 | 9.04505 | FIX 4 | w=21 | 9.0451
+D-S01 | after S01 | 0 | FIX 4 | w=21 | 0.0000
+D-I01C | after I01C | 0.0003 | FIX 4 | w=21 | 0.0003

@@ -254,3 +254,9 @@ average-rate | The average rate of change | lim-02 | The average rate
 instant-rate | The rate at an instant: a limit of averages | lim-02 | The rate at an instant
 derivative | The derivative, named | lim-02 | The rate at an instant
 cancellation | Cancellation: where the digits run out | lim-02 | Where the digits run out
+
+# int-01 Area under a curve
+integral | The integral: the limit of sums of rectangles | int-01 | -
+riemann-sum | Adding up rectangles | int-01 | Adding up rectangles
+integrate-key | The built-in integral, and its uncertainty | int-01 | The built-in integral
+signed-area | Area below the axis counts negative | int-01 | Area below the axis

@@ -412,6 +412,16 @@ CONTROLS_FOR["lim-02-rates-of-change"] = [
     ("the average speed quoted as the speed at an instant", "lesson.md", 'v="A01">8.0000<', 'v="A01">4.0000<', {},
      "D-A01: the prose shows '4.0000'"),
 ]
+CONTROLS_FOR["int-01-area-under-a-curve"] = [
+    ("the strips' heights at their left ends (k - 1)", "lesson.md",
+     "GOLD LBL B RCL I BLUE POW IP 3 × RCL N ÷ GOLD x² 3 × RCL N ÷ STO + T BLUE ISG I GOLD GTO B RCL T",
+     "GOLD LBL B RCL I BLUE POW IP 1 − 3 × RCL N ÷ GOLD x² 3 × RCL N ÷ STO + T BLUE ISG I GOLD GTO B RCL T", {},
+     "P01A: printed keys and vector disagree in 33s mode"),
+    ("three rectangles quoted as the true area", "lesson.md", 'v="A01">14.0000<', 'v="A01">9.0000<', {},
+     "D-A01: the prose shows '9.0000'"),
+    ("the integral's limits the wrong way round", "lesson.md", "GOLD EQN 0 ENTER 3 GOLD EQN GOLD ∫ X",
+     "GOLD EQN 3 ENTER 0 GOLD EQN GOLD ∫ X", {}, "I01B: printed keys and vector disagree in 33s mode"),
+]
 CONTROLS_FOR["fn-02-a-table-of-values"] = [
     ("a label's line numbered from the program's top, not its own label", "lesson.md", 'kind="program">U008 RTN<',
      'kind="program">T022 RTN<', {}, "T01B: the device's X line shows 'U008 RTN' (program)"),
