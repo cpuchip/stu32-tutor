@@ -207,9 +207,15 @@ lesson | rpn-01
 - `course | id | title`: the id is the file's name.
 - `entry | rpn alg`: the entries the course offers, its default first (decision 63: young learners' courses
   default to algebraic, with RPN offered). A lesson that offers only RPN stays RPN.
+- `prerequisite | course-id` (any number, before the units): a course a learner is expected to have
+  done first. None of the three courses names one yet.
 - `unit | n | title`, then its `lesson | id` lines in order. A unit may have no lessons yet; the page
   shows it as in preparation, and shows only lessons on lessons/ACCEPTED.
-- `tools/graph.py` (in `make check`) refuses a malformed line, an unknown or repeated lesson, a lesson
-  requiring a topic taught later in the same course or by a lesson in no course, and a lesson in no
-  course; a topic taught in another course is allowed, and the page links it there. `--json` prints
-  the courses beside the topics and lessons; `make controls` plants five course faults.
+- `tools/graph.py` (in `make check`) refuses a malformed line, an unknown or repeated lesson, an unknown
+  prerequisite, a lesson in no course, and a lesson requiring a topic that is taught later in the same
+  course, by a lesson in no course, or by a lesson neither earlier in this course nor in one of its
+  prerequisites (taken transitively). A learner who starts a course must meet each topic before it,
+  in that course or one it names (abacus #5112: frac-01 leaned on the algebra course's RPN start until
+  pre-algebra had its own, start-01). The same idea taught in two courses is two topics, one each.
+  `--json` prints the courses, prerequisites included, beside the topics and lessons; `make controls`
+  plants seven course faults and checks that a named prerequisite is accepted.

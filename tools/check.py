@@ -586,7 +586,10 @@ class Lesson:
                 # screen line is the check, kind and text both.
                 kind, stext = screen.get(vid, ("?", ""))
                 if not line_says((kind, stext), screen_y.get(vid, ("?", "")), qkind, shown_text):
-                    self.bad(f"{vid}: the device's X line shows '{stext}' ({kind}), the prose '{shown_text}' ({qkind}) ({mode})")
+                    if qkind == "line":                 # the algebraic line is in Y's place: say what is there
+                        kind, stext = screen_y.get(vid, ("?", ""))
+                    where = "line above X" if qkind == "line" else "X line"
+                    self.bad(f"{vid}: the device's {where} shows '{stext}' ({kind}), the prose '{shown_text}' ({qkind}) ({mode})")
                 continue
             # A quote that differs by mode or entry (33s's real part against 35s's a i b) has its own
             # display vector, D-ID@mode (or @entry, or both), as a vector has ID@modes; the narrowest
@@ -689,7 +692,10 @@ class Lesson:
                 continue
             kind, stext = seq_x.get(vid, ("?", ""))
             if not line_says((kind, stext), seq_y.get(vid, ("?", "")), qkind, shown_text):
-                self.bad(f"{vid}: working through in order, X shows '{stext}' ({kind}), the prose '{shown_text}' ({mode})")
+                if qkind == "line":
+                    kind, stext = seq_y.get(vid, ("?", ""))
+                where = "the line above X" if qkind == "line" else "X"
+                self.bad(f"{vid}: working through in order, {where} shows '{stext}' ({kind}), the prose '{shown_text}' ({mode})")
 
 
 def main():

@@ -497,6 +497,24 @@ CONTROLS_FOR["frac-01-equivalent-fractions"] = [
      "setup: BLUE MODE {mode} BLUE MODE {entry} GOLD DISP FIX 4\n", {},
      "printed keys and vector disagree in STU alg mode"),
 ]
+CONTROLS_FOR["start-01-the-calculator"] = [
+    ("the setup printed without its entry", "lesson.md", "```keys setup\nBLUE MODE {mode} BLUE MODE {entry} GOLD DISP FIX 4\n",
+     "```keys setup\nBLUE MODE {mode} GOLD DISP FIX 4\n", {}, "the setup block"),
+    ("an answer quoted without FIX 4's digits", "lesson.md", '<disp v="C01">12.0000<', '<disp v="C01">12<', {},
+     "D-C01: the prose shows '12'"),
+    ("ANS's line misquoted", "lesson.md", 'kind="line">ANS×2<', 'kind="line">2×ANS<', {},
+     "the prose '2×ANS' (line) (STU alg)"),
+    ("LASTx printed without its shift", "lesson.md", "100 − GOLD LASTx ENTER", "100 − LASTx ENTER", {},
+     "C03: printed keys and vector disagree in STU alg mode: KEY"),
+    ("the RPN subtraction without x↔y (24 − 100)", "lesson.md", "100 x↔y −\n", "100 −\n", {},
+     "C03: printed keys and vector disagree in STU rpn mode"),
+    ("fraction display turned on as a fresh example, not carrying on", "lesson.md", "```keys F02 after=F01\n",
+     "```keys F02\n", {}, "F02: printed keys and vector disagree"),
+    ("the arrow quoted the wrong way", "lesson.md", 'kind="status">▼<', 'kind="status">▲<', {},
+     "F03: the status band shows"),
+    ("exercise 2 without fraction display turned on", "lesson.md", "BLUE →FRAC 9 ÷ 4 ENTER\n", "9 ÷ 4 ENTER\n", {},
+     "E02: printed keys and vector disagree in STU alg mode"),
+]
 CONTROLS_FOR["rpn-03-the-display"].append(
     ("an example that relies on a setting the one before it changed", "lesson.md",
      "```keys P01\nGOLD DISP FIX 4 2 ENTER 3 ÷\n", "```keys P01\n2 ENTER 3 ÷\n", {},

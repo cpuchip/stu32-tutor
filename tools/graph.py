@@ -172,12 +172,15 @@ def load_courses(root):
 
 def check_courses(course_texts, graph):
     """(problems, courses). A course file: `course | id | title`, `entry | rpn alg` (offered, default first),
-    then `unit | n | title` and `lesson | id` lines in order. Refused: a malformed line; an unknown or repeated
-    lesson; a lesson requiring a topic taught later in the same course, or taught by no lesson in any course."""
+    any `prerequisite | course-id` lines (courses a learner is expected to have done first), then `unit | n |
+    title` and `lesson | id` lines in order. Refused: a malformed line; an unknown or repeated lesson; an
+    unknown prerequisite; a lesson requiring a topic taught later in the same course, by no lesson in any
+    course, or by a lesson that is neither earlier in this course nor in one of its prerequisites (taken
+    transitively): a learner who starts the course would meet the topic nowhere before it (abacus #5112)."""
     bad, courses, in_some = [], {}, set()
     parsed = []
     for name, text in course_texts.items():
-        c = {"file": name, "id": None, "title": None, "entry": ["rpn"], "units": []}
+        c = {"file": name, "id": None, "title": None, "entry": ["rpn"], "prerequisites": [], "units": []}
         for n, line in enumerate(text.splitlines(), 1):
             if not line.strip() or line.lstrip().startswith("#"):
                 continue
@@ -187,20 +190,37 @@ def check_courses(course_texts, graph):
                 c["id"], c["title"] = args
             elif kind == "entry" and len(args) == 1 and args[0].split() and all(e in ENTRIES for e in args[0].split()):
                 c["entry"] = args[0].split()
+            elif kind == "prerequisite" and len(args) == 1 and args[0] and not c["units"]:
+                c["prerequisites"].append(args[0])
             elif kind == "unit" and len(args) == 2:
                 c["units"].append({"n": args[0], "title": args[1], "lessons": []})
             elif kind == "lesson" and len(args) == 1 and c["units"]:
                 c["units"][-1]["lessons"].append(args[0])
             else:
-                bad.append(f"{name}:{n}: expected course | id | title, entry | rpn alg, unit | n | title, or lesson | id")
+                bad.append(f"{name}:{n}: expected course | id | title, entry | rpn alg, prerequisite | course-id "
+                           f"(before the units), unit | n | title, or lesson | id")
         if not c["id"] or f"{c['id']}.course" != name:
             bad.append(f"{name}: its course line must name it ({name[:-7]})")
         parsed.append(c)
         for u in c["units"]:
             in_some.update(u["lessons"])
     topics = graph["topics"]
+    by_id = {c["id"]: c for c in parsed if c["id"]}
+    for c in parsed:
+        for p in c["prerequisites"]:
+            if p not in by_id or p == c["id"]:
+                bad.append(f"{c['file']}: prerequisite {p} is not another course")
     for c in parsed:
         order = [l for u in c["units"] for l in u["lessons"]]
+        # The lessons of its prerequisites, taken transitively.
+        before, todo, done = set(), list(c["prerequisites"]), {c["id"]}
+        while todo:
+            p = todo.pop()
+            if p in done or p not in by_id:
+                continue
+            done.add(p)
+            before.update(l for u in by_id[p]["units"] for l in u["lessons"])
+            todo.extend(by_id[p]["prerequisites"])
         seen = set()
         for i, lid in enumerate(order):
             if lid not in graph["lessons"]:
@@ -215,7 +235,10 @@ def check_courses(course_texts, graph):
                     bad.append(f"{c['file']}: {lid} requires '{slug}', taught later in the course by {src}")
                 elif src is not None and src not in in_some:
                     bad.append(f"{c['file']}: {lid} requires '{slug}', taught by {src}, which is in no course")
-        courses[c["id"]] = {k: c[k] for k in ("title", "entry", "units")}
+                elif src is not None and src not in order and src not in before:
+                    bad.append(f"{c['file']}: {lid} requires '{slug}', taught by {src}, which is neither earlier "
+                               f"in this course nor in a prerequisite course")
+        courses[c["id"]] = {k: c[k] for k in ("title", "entry", "prerequisites", "units")}
     for lid in sorted(set(graph["lessons"]) - in_some):
         bad.append(f"{lid}: in no course")
     return bad, courses
@@ -233,15 +256,28 @@ def selftest_courses(course_texts, graph):
          "taught later in the course"),
         ("a malformed line", t + "lessn | rpn-01\n", "expected course"),
         ("a lesson in no course", t.replace("lesson | int-01\n", ""), "int-01: in no course"),
+        ("an unknown prerequisite", t.replace("entry | rpn\n", "entry | rpn\nprerequisite | no-such-course\n"),
+         "prerequisite no-such-course is not another course"),
     ]
+    # A second course listing a lesson whose requires the algebra course teaches: refused without the
+    # prerequisite line, accepted with it.
+    lone = "course | lone | Lone\nunit | 1 | One\nlesson | int-01\n"
+    plants.append(("a lesson requiring what only another course teaches, that course not a prerequisite",
+                   lone, "int-01 requires"))
     red = 0
     for pname, text, why in plants:
-        problems = check_courses({**course_texts, name: text}, graph)[0]
+        texts = {**course_texts, "lone.course": text} if text is lone else {**course_texts, name: text}
+        problems = check_courses(texts, graph)[0]
         hit = [p for p in problems if why in p]
         print(f"{'ok  ' if hit else 'FAIL'} {pname}" + (f"\n       -> {hit[0]}" if hit else f": {problems[:2]}"))
         red += bool(hit)
     print(f"{red}/{len(plants)} course controls red as planted")
-    return red == len(plants)
+    with_pre = lone.replace("unit | 1", "prerequisite | algebra-to-calculus\nunit | 1")
+    still = [p for p in check_courses({**course_texts, "lone.course": with_pre}, graph)[0] if "lone.course" in p]
+    green = not still
+    print(f"{'ok  ' if green else 'FAIL'} the same course naming the algebra course as its prerequisite is accepted"
+          + ("" if green else f": {still[:2]}"))
+    return red == len(plants) and green
 
 
 def main():

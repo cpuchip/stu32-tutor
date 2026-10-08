@@ -86,3 +86,15 @@ of the setup. All red; one harmless change (a block's RPN variant written first)
 control as first written passed: it removed `e="alg"` from a quote that sat inside an alg span, which
 the span already scopes; the redundant attribute came out of the lesson and the control now removes
 the span.
+
+## Accuracy (abacus #5112, 2026-10-08) and the course it sits in
+
+Accepted for accuracy at 8f32367, every value checked in exact rationals, with one wording fix:
+"the number the calculator divided by" credited the calculator with a method it does not have (it
+computed 0.375 and displayed 3/8). Fixed, with its sibling ("Dividing 111 by it gave 3"): now the
+number that divides both, found from 3/8 being in lowest terms (111 = 3k, 296 = 8k).
+
+Held from the site on course structure: everything frac-01 required was taught only in the algebra
+course, RPN-first. Now its requires are pre-algebra's own start, start-01 (docs/evidence/start-01.md),
+its prose sends the learner there instead of rpn-01 and num-02, and graph.py refuses a requirement
+taught neither earlier in the course nor in a named prerequisite course.

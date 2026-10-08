@@ -273,5 +273,13 @@ exactly-k | Exactly k successes in n tries | prob-01b | Exactly how many
 fraction-parts | A fraction: equal pieces in a whole, and pieces taken | frac-01 | Making equivalent fractions by hand
 equivalent-fractions | Equivalent fractions: the same amount, top and bottom multiplied alike | frac-01 | Making equivalent fractions by hand
 simplest-form | Simplest form: top and bottom divided alike | frac-01 | Simplest form
-alg-line | Typing a calculation as written, ENTER as = (algebraic entry) | frac-01 | A fraction is a division
 fraction-is-division | A fraction is a division | frac-01 | A fraction is a division
+
+# start-01 Getting started with the calculator (pre-algebra unit 0: the course's own start, abacus #5112)
+calc-shift-keys | The gold and blue shift keys | start-01 | Before you start
+calc-soft-keys | Soft keys and menus | start-01 | Before you start
+calc-setup | The setup: the mode, how you type (ALG or RPN), and FIX | start-01 | Before you start
+calc-first-calculation | A calculation: typed as written with ENTER as =, or on the stack | start-01 | A first calculation
+calc-ans | Using the last answer (ANS, or the stack) | start-01 | Using the answer
+calc-frac-display | Fraction display (→FRAC): a whole number, then the fraction in simplest form | start-01 | Fractions on the screen
+calc-frac-arrows | When a fraction is not exact: the arrow in the status band | start-01 | Fractions on the screen

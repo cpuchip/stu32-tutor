@@ -4,7 +4,7 @@ title: Equivalent fractions
 modes: STU
 modes_reason: algebraic entry, this course's default, is STU mode's alone (firmware 029); RPN is offered in STU mode too
 entries: alg rpn
-requires: setup shift-keys soft-keys frac-display frac-not-exact rpn-arithmetic
+requires: calc-setup calc-shift-keys calc-soft-keys calc-first-calculation calc-frac-display calc-frac-arrows
 status: pilot, draft prose (accuracy: lessons/ACCEPTED; not yet read by Michael; the bakery is a placeholder world)
 setup: BLUE MODE {mode} BLUE MODE {entry} GOLD DISP FIX 4 BLUE →FRAC
 display: FIX 4
@@ -23,12 +23,10 @@ two names for one amount. Fractions like that are called equivalent fractions.
 
 ## Before you start
 
-Set the calculator up as in rpn-01: the mode, then the display. This lesson adds two things. Right
-after the mode, choose how you type:
-<entry e="alg">ALG, which lets you type a calculation the way it is written.</entry>
-<entry e="rpn">RPN, the stack.</entry>
-And at the end, →FRAC turns on fraction display (num-02), so the calculator shows its answers as
-fractions.
+Set the calculator up as in start-01: the mode, how you type
+<entry e="alg">(ALG)</entry><entry e="rpn">(RPN)</entry>, and the display. Then press BLUE →FRAC to
+turn on fraction display, so the calculator shows its answers as fractions. It stays on for the whole
+lesson.
 
 ```keys setup
 BLUE MODE {mode} BLUE MODE {entry} GOLD DISP FIX 4 BLUE →FRAC
@@ -77,7 +75,7 @@ Share 2 pies equally among 4 people, and each person gets 2/4 of a pie. Sharing 
 The screen shows <disp v="Q01">0 1/2</disp>.
 <entry e="alg">The line you typed stays on the screen above the answer: <disp v="Q01" kind="line">2÷4</disp>.</entry>
 The 0 in front means no whole pies, and then 1/2. Fraction display shows a fraction in simplest form
-(for a bottom number up to 4095, num-02), so 2/4 comes out as 1/2. Now type 1/2 itself:
+(when it is exact, with no arrow in the status band: start-01), so 2/4 comes out as 1/2. Now type 1/2 itself:
 
 ```keys Q02 entry=alg
 1 ÷ 2 ENTER
@@ -122,8 +120,9 @@ once, the calculator goes first:
 
 The screen shows <disp v="Q04">0 3/8</disp>. So 111/296 = 3/8: exactly 3 pies in every 8 were apple.
 
-Now the hand work can find the number the calculator divided by. Dividing 111 by it gave 3, so 3
-times it is 111. And 111 = 3 × 37, so the number is 37. If that is right, 8 times 37 is 296. Work out
+Now the hand work can find the number that divides both 111 and 296. Since 111/296 is 3/8, some
+number goes into 111 exactly 3 times and into 296 exactly 8 times, so 3 times it is 111. And
+111 = 3 × 37, so the number is 37. If that is right, 8 times 37 is 296. Work out
 8 × 37 by hand: 8 × 30 = 240 and 8 × 7 = 56, and 240 + 56 = 296. Then check it:
 
 ```keys Q05 entry=alg
