@@ -61,3 +61,12 @@ Every block matched its vector. Taken:
 order in each mode. Controls (4): "not" worked as 1/6 − 1, at least one 6 quoted without the not, the
 same seed shown without seeding again, a die face claimed outside 1 to 6 (the tolerance checked); all
 red.
+
+## Abacus's accuracy read (#4965, 2026-10-07)
+
+Accepted at 6f0b68d, with two wording changes, made: RAND gives more than 0 (fn_rand draws k/10³⁴, 0 < k <
+10³⁴; the guide's 0 < x < 1), so "at least 0" became "more than 0", in the die paragraph too; and the
+numbers come from a hidden number the calculator keeps and moves on at each RAND, which SEED sets from X,
+not from the number before. (3) independence: true. (4) the faces equally likely to within about 1E-33
+per draw: say no more than "equally likely". The poker and lottery settings are on Michael's roadmap; left
+in until he answers.

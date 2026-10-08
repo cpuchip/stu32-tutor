@@ -92,14 +92,14 @@ to 0.0005; it has a digit other than 0 within four places, so FIX 4 does not swi
 
 ## Random numbers
 
-RAND, gold above −, makes a random number: at least 0 and less than 1, spread evenly over that range.
+RAND, gold above −, makes a random number: more than 0 and less than 1, spread evenly over that range.
 Each press gives the next one:
 
 ```keys R01
 GOLD RAND
 ```
 
-A random number makes a die. Times 6, it is at least 0 and less than 6. Its whole part, the part before
+A random number makes a die. Times 6, it is more than 0 and less than 6. Its whole part, the part before
 the point (the whole part of 4.73 is 4), is then 0, 1, 2, 3, 4 or 5, each as likely; IP gives it, in
 the POW menu, blue above yˣ (fn-02). And 1 more is a die's face, 1 to 6. Carrying on:
 
@@ -110,9 +110,9 @@ the POW menu, blue above yˣ (fn-02). And 1 more is a die's face, 1 to 6. Carryi
 X shows a whole number from 1 to 6. Press GOLD RAND and then 6 × BLUE POW IP 1 + again, as many times as
 you like, and keep a tally: over many rolls, each face comes up about one time in six.
 
-The numbers are not truly random: the calculator works each one out from the one before. SEED, blue
-above −, sets where that work starts, from the number in X. The same seed gives the same numbers
-again, which is useful when a result has to be repeated. Seed with 7 and keep the first number in A;
+The numbers are not truly random: the calculator works each one out from a hidden number it keeps and
+moves on every time. SEED, blue above −, sets that hidden number from X. The same seed gives the same
+numbers again, which is useful when a result has to be repeated. Seed with 7 and keep the first number in A;
 seed with 7 again and make a number. RCL A brings the first one back to X, and − takes it from the
 second:
 
