@@ -262,9 +262,16 @@ riemann-sum | Adding up rectangles | int-01 | Adding up rectangles
 integrate-key | The built-in integral, and its uncertainty | int-01 | The built-in integral
 signed-area | Area below the axis counts negative | int-01 | Area below the axis
 
-# prob-01b Loot boxes, gacha, and the odds against you (prob-01's material from another angle)
+# prob-01b Loot boxes, gacha, and what 1% really costs (prob-01's material from another angle)
 pull-chance | One pull: a published rate, and not getting it | prob-01b | One pull
 at-least-one-pulls | At least one in many independent pulls | prob-01b | At least one in many pulls
 mean-tries | How many tries, on average: 1 ÷ p | prob-01b | How many pulls, on average
 pity-timer | A pity timer's average, as a geometric sum | prob-01b | A pity timer
 exactly-k | Exactly k successes in n tries | prob-01b | Exactly how many
+
+# frac-01 Equivalent fractions (pre-algebra P5's pilot; algebraic entry first, RPN offered)
+fraction-parts | A fraction: equal pieces in a whole, and pieces taken | frac-01 | Making equivalent fractions by hand
+equivalent-fractions | Equivalent fractions: the same amount, top and bottom multiplied alike | frac-01 | Making equivalent fractions by hand
+simplest-form | Simplest form: top and bottom divided alike | frac-01 | Simplest form
+alg-line | Typing a calculation as written, ENTER as = (algebraic entry) | frac-01 | A fraction is a division
+fraction-is-division | A fraction is a division | frac-01 | A fraction is a division

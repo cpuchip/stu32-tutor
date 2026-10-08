@@ -22,6 +22,12 @@ its first token, MODE33, is set to the mode's own). For each lesson and each off
   6. A student working through, in that mode: the setup once, then every block of the view in order
      on one device with nothing reset (student_sequence); every exact X, Y, Z, T and every quoted
      display must hold for that student too.
+A lesson may also offer entries (front matter `entries:`, the default first: rpn, alg; decision 63).
+Entry is a second axis built like modes: the setup presses {entry} right after {mode}, a keys block
+may be a variant for `entry=alg`, a span is <entry e="alg">, a quote <disp ... e="alg">, a vector
+ID@alg, and every step above runs once for each (mode, entry). A lesson with no `entries:` is RPN
+and its setup has no {entry}. Algebraic entry is STU mode's alone (firmware 029 rule 2), so a lesson
+offering alg offers STU mode only.
 A file with no vectors, or a vector with no expectation, fails: a check that checks nothing is
 not a pass.
 """
@@ -38,12 +44,16 @@ sys.stdout.reconfigure(encoding="utf-8")
 # The modes a lesson can offer, by the MODE menu's labels, and the vector token that sets each.
 MODES = {"33s": "MODE33", "35s": "MODE35", "STU": "STU"}
 ALL_MODES = ["33s", "35s", "STU"]
+# The entries a lesson can offer, by name, and the MODE menu's soft key (and vector token) for each.
+ENTRIES = {"rpn": "RPN", "alg": "ALG"}
+ALL_ENTRIES = ["rpn", "alg"]
 SETTING = re.compile(r"^(FIX|SCI|ENG)(\d+)$|^ALL$")
-DISP = re.compile(r'<disp v="([^"]+)"(?: kind="(view|prompt|message|entry|status|eqn|program|row|readout|xmin|xmax|ymin|ymax|note)")?>(.*?)</disp>', re.S)
+DISP = re.compile(r'<disp v="([^"]+)"(?: kind="(view|prompt|message|entry|status|eqn|program|row|line|readout|xmin|xmax|ymin|ymax|note)")?>(.*?)</disp>', re.S)
 # A <disp> as written, attributes in any order (v, kind, m); mode_view rewrites it to DISP's form.
 DISP_ANY = re.compile(r'<disp((?:\s+[a-z]+="[^"]*")*)\s*>(.*?)</disp>', re.S)
 ATTR = re.compile(r'([a-z]+)="([^"]*)"')
 MODE_SPAN = re.compile(r'<mode m="([^"]*)">(.*?)</mode>', re.S)
+ENTRY_SPAN = re.compile(r'<entry e="([^"]*)">(.*?)</entry>', re.S)
 # A graph's texts as screen.c draws them (unit 033b; keyrun's GRAPH line): the trace readout, the window labels
 # and the plotted form's note.
 GRAPH_KINDS = ("readout", "xmin", "xmax", "ymin", "ymax", "note")
@@ -54,7 +64,7 @@ FRAC_SETTINGS = {"/C", "SF:7", "CF:7", "SF:8", "CF:8", "SF:9", "CF:9"}  # change
 # mode= variants.
 KEYS_BLOCK = re.compile(r"^[ \t]*```keys[ \t]+([^\s=]+)(?:[ \t]+after=(\S+))?[ \t]*\n(.*?)^[ \t]*```[ \t]*$", re.M | re.S)
 KEYS_ANY = re.compile(r"^([ \t]*)```keys[ \t]+([^\s=]+)((?:[ \t]+[a-z]+=\S+)*)[ \t]*\n(.*?)^[ \t]*```[ \t]*$", re.M | re.S)
-KEYS_FENCE = re.compile(r"^```keys[ \t]+[^\s=]+(?:[ \t]+(?:after|mode)=\S+)*[ \t]*$")
+KEYS_FENCE = re.compile(r"^```keys[ \t]+[^\s=]+(?:[ \t]+(?:after|mode|entry)=\S+)*[ \t]*$")
 SHOWS = re.compile(r"\b(shows?|showed|showing|shown|displays?|displayed|screen|reads|appears?)\b", re.I)
 FENCE = re.compile(r"^[ \t]*(```|~~~)(.*)$", re.M)
 # A used calculator: every variable A-Z holds 7, RAD, the stack full, lift enabled, LAST x 6.
@@ -101,14 +111,54 @@ def lesson_modes(meta):
     return [m for m in ALL_MODES if m in modes], None
 
 
+def lesson_entries(meta, modes):
+    """The entries a lesson offers, the default first, and any problem. A lesson with no `entries:`
+    gives [None]: RPN, with no {entry} in its setup and no entry token in its vectors."""
+    if "entries" not in meta:
+        return [None], None
+    entries = meta["entries"].split()
+    if not entries or any(e not in ENTRIES for e in entries) or len(set(entries)) != len(entries):
+        return [None], f"front matter `entries: {meta['entries']}`: give some of rpn alg, once each, the default first"
+    if "alg" in entries and modes != ["STU"]:
+        return entries, ("front matter offers alg in a mode other than STU: algebraic entry is STU mode's alone "
+                         "(firmware 029 rule 2), so the lesson gives `modes: STU` and a `modes_reason`")
+    return entries, None
+
+
 def mode_list(text):
     return [m.strip() for m in text.split(",") if m.strip()]
 
 
-def mode_view(body, mode, problems):
-    """The lesson as read in one mode: each block ID's variant for the mode (or its shared block),
-    the <mode> spans for the mode, the <disp> quotes for the mode in DISP's form. Problems with the
-    variants and attributes as written are appended to problems (once, for the first mode)."""
+def scope_fit(modes, entries, mode, entry):
+    """How a variant scoped to some modes and entries (None: any) fits (mode, entry): None if it does
+    not apply there, else the number of axes it names, so that the narrower variant wins."""
+    if modes is not None and mode not in modes:
+        return None
+    if entries is not None and (entry or "rpn") not in entries:
+        return None
+    return (modes is not None) + (entries is not None)
+
+
+def pick(cands, mode, entry, what, problems):
+    """The candidate that fits (mode, entry) most narrowly, from (modes, entries, item) triples; two
+    that fit equally narrowly are a problem (appended once per pair, when problems is given)."""
+    fits = [(scope_fit(ms, es, mode, entry), item) for ms, es, item in cands]
+    fits = [(f, item) for f, item in fits if f is not None]
+    if not fits:
+        return None
+    best = max(f for f, _ in fits)
+    top = [item for f, item in fits if f == best]
+    if len(top) > 1 and problems is not None:
+        where = mode + (f" {entry}" if entry else "")
+        problems.append(f"{what}: {len(top)} variants for {where}")
+    return top[0]
+
+
+def mode_view(body, mode, problems, entry=None):
+    """The lesson as read in one mode and entry (None: a lesson that offers none): each block ID's
+    variant for them (or its shared block), the <mode> and <entry> spans for them, the <disp> quotes
+    for them in DISP's form. Problems with the variants and attributes as written are appended to
+    problems (once, for the first mode and entry)."""
     report = problems is not None
     found = list(KEYS_ANY.finditer(body))
     # Group the blocks by ID, in order, and check the variants as written.
@@ -117,108 +167,123 @@ def mode_view(body, mode, problems):
         indent, bid, attrs, keys = m.group(1), m.group(2), m.group(3), m.group(4)
         a = dict(re.findall(r"([a-z]+)=(\S+)", attrs))
         for k in a:
-            if k not in ("after", "mode") and report:
+            if k not in ("after", "mode", "entry") and report:
                 problems.append(f"keys block {bid}: unknown attribute {k}=")
         ms = mode_list(a["mode"]) if "mode" in a else None
-        if ms is not None and report:
-            for x in ms:
+        es = mode_list(a["entry"]) if "entry" in a else None
+        if report:
+            for x in ms or []:
                 if x not in MODES:
                     problems.append(f"keys block {bid}: mode={a['mode']} names {x}, not one of 33s 35s STU")
+            for x in es or []:
+                if x not in ENTRIES:
+                    problems.append(f"keys block {bid}: entry={a['entry']} names {x}, not one of rpn alg")
         if bid not in groups:
             groups[bid] = []
             order.append(bid)
         elif report and found[i - 1].group(2) != bid:
             problems.append(f"keys block {bid}: its variants must follow it at once")
-        groups[bid].append((m, ms, a.get("after"), indent, keys))
+        groups[bid].append((m, ms, es, a.get("after"), indent, keys))
     if report:
         for bid, g in groups.items():
-            shared = [x for x in g if x[1] is None]
+            shared = [x for x in g if x[1] is None and x[2] is None]
             if len(shared) > 1:
-                problems.append(f"keys block {bid}: {len(shared)} shared blocks (no mode=)")
-            seen = {}
-            for x in g:
-                for md in x[1] or []:
-                    if md in seen:
-                        problems.append(f"keys block {bid}: two variants for {md}")
-                    seen[md] = True
-    # Rewrite: the chosen block in the plain form, every other block of the ID removed.
+                problems.append(f"keys block {bid}: {len(shared)} shared blocks (no mode= or entry=)")
+    # Rewrite: the chosen block in the plain form, every other block of the ID removed. Two variants
+    # that fit this mode and entry equally narrowly are a problem here (the caller views each pair
+    # the lesson offers).
     out, pos = [], 0
     for m in found:
         out.append(body[pos:m.start()])
         pos = m.end()
         bid = m.group(2)
         g = groups[bid]
-        chosen = next((x for x in g if x[1] and mode in x[1]), None) or next((x for x in g if x[1] is None), None)
+        chosen = pick([(x[1], x[2], x) for x in g], mode, entry, f"keys block {bid}", problems)
         if chosen is None or chosen[0] is not m:
             continue
-        after = chosen[2] or next((x[2] for x in g if x[1] is None and x[2]), None)
-        indent = chosen[3]
+        after = chosen[3] or next((x[3] for x in g if x[1] is None and x[2] is None and x[3]), None)
+        indent = chosen[4]
         head = f"{indent}```keys {bid}" + (f" after={after}" if after else "")
-        keys_text = chosen[4]
+        keys_text = chosen[5]
         out.append(f"{head}\n{keys_text}{indent}```")
     out.append(body[pos:])
     view = "".join(out)
-    # Spans: kept (their text) in their modes, removed in the others. No span inside a span.
+    # Spans: kept (their text) in their modes or entries, removed in the others. No span inside a
+    # span of its own kind; a <mode> span may hold an <entry> span, and the reverse.
 
-    def span(m):
-        ms = mode_list(m.group(1))
-        if report:
-            for x in ms:
-                if x not in MODES:
-                    problems.append(f'<mode m="{m.group(1)}">: {x} is not one of 33s 35s STU')
-            if "<mode" in m.group(2):
-                problems.append("a <mode> span inside a <mode> span")
-        return m.group(2) if mode in ms else ""
-    view = MODE_SPAN.sub(span, view)
+    def span_of(kind, attr, names, here):
+        def span(m):
+            ms = mode_list(m.group(1))
+            if report:
+                for x in ms:
+                    if x not in names:
+                        problems.append(f'<{kind} {attr}="{m.group(1)}">: {x} is not one of {" ".join(names)}')
+                if f"<{kind}" in m.group(2):
+                    problems.append(f"a <{kind}> span inside a <{kind}> span")
+            return m.group(2) if here in ms else ""
+        return span
+    view = MODE_SPAN.sub(span_of("mode", "m", list(MODES), mode), view)
+    view = ENTRY_SPAN.sub(span_of("entry", "e", ALL_ENTRIES, entry or "rpn"), view)
     if report and ("<mode" in view or "</mode>" in view):
         problems.append("a <mode> tag not in the form <mode m=\"...\">...</mode>")
+    if report and ("<entry" in view or "</entry>" in view):
+        problems.append("an <entry> tag not in the form <entry e=\"...\">...</entry>")
 
-    # Quotes: those for this mode, in DISP's form (v, then kind).
+    # Quotes: those for this mode and entry, in DISP's form (v, then kind).
     def disp(m):
         a = dict(ATTR.findall(m.group(1)))
         for k in a:
-            if k not in ("v", "kind", "m") and report:
+            if k not in ("v", "kind", "m", "e") and report:
                 problems.append(f"<disp> with unknown attribute {k}=")
-        if "m" in a:
-            ms = mode_list(a["m"])
-            if report:
-                for x in ms:
-                    if x not in MODES:
-                        problems.append(f'<disp v="{a.get("v")}" m="{a["m"]}">: {x} is not one of 33s 35s STU')
-            if mode not in ms:
-                return ""
+        for attr, names, here in (("m", MODES, mode), ("e", ENTRIES, entry or "rpn")):
+            if attr in a:
+                ms = mode_list(a[attr])
+                if report:
+                    for x in ms:
+                        if x not in names:
+                            problems.append(f'<disp v="{a.get("v")}" {attr}="{a[attr]}">: {x} is not one of {" ".join(names)}')
+                if here not in ms:
+                    return ""
         kind = f' kind="{a["kind"]}"' if "kind" in a else ""
         return f'<disp v="{a.get("v", "")}"{kind}>{m.group(2)}</disp>'
     return DISP_ANY.sub(disp, view)
 
 
-def vectors_for_mode(vectors, mode, problems=None):
-    """The vectors that apply in a mode, by their plain ID: a vector ID@m1,m2 applies in the modes it
-    names and replaces the shared one (no @) there."""
-    shared, scoped = {}, {}
+def split_scope(text):
+    """ID@33s,alg -> (ID, modes or None, entries or None, unknown names)."""
+    base, _, sc = text.partition("@")
+    names = mode_list(sc)
+    ms = [x for x in names if x in MODES] or None
+    es = [x for x in names if x in ENTRIES] or None
+    return base, ms, es, [x for x in names if x not in MODES and x not in ENTRIES]
+
+
+def vectors_for_mode(vectors, mode, problems=None, entry=None):
+    """The vectors that apply in a mode and entry, by their plain ID: a vector ID@m1,e1 applies in
+    the modes and entries it names (either axis left out: any) and replaces a broader one there."""
+    by_base = {}
     for vid, parts, line in vectors:
-        base, _, ms = vid.partition("@")
-        if not ms:
-            shared[base] = (base, parts, line)
-            continue
-        names = mode_list(ms)
+        base, ms, es, unknown = split_scope(vid)
         if problems is not None:
-            for x in names:
-                if x not in MODES:
-                    problems.append(f"vector {vid}: {x} is not one of 33s 35s STU")
-        if mode in names:
-            if base in scoped and problems is not None:
-                problems.append(f"vector {base}: two vectors for {mode}")
-            scoped[base] = (base, parts, line)
-    out = dict(shared)
-    out.update(scoped)
-    return list(out.values())
+            for x in unknown:
+                problems.append(f"vector {vid}: {x} is not one of 33s 35s STU rpn alg")
+        by_base.setdefault(base, []).append((ms, es, (base, parts, line)))
+    out = []
+    for base, cands in by_base.items():
+        v = pick(cands, mode, entry, f"vector {base}", problems)
+        if v is not None:
+            out.append(v)
+    return out
 
 
-def variant(parts, mode, dirty):
-    """A vector line in a mode, from a fresh or a used core: its first token, MODE33, set to the mode's."""
+def variant(parts, mode, dirty, entry=None):
+    """A vector line in a mode and entry, from a fresh or a used core: its first token, MODE33, set to
+    the mode's, and the entry's token after it when the lesson offers entries (as its setup presses
+    them, the entry right after the mode)."""
     toks = parts[2].split()
     toks[0] = MODES[mode]
+    if entry:
+        toks.insert(1, ENTRIES[entry])
     if dirty:
         toks = DIRTY.split() + toks
     return " | ".join(parts[:2] + [" ".join(toks)] + parts[3:])
@@ -244,14 +309,19 @@ def view_blocks(view):
     return out, problems
 
 
-def student_sequence(lesson_dir, mode):
-    """The keys a student presses working through a lesson in a mode, as keyrun --sequence reads
-    them: "setup<TAB>keys", then "ID<TAB>keys" for every block of the mode's view in order. The
-    learning page's gate calls this (primer #4513), so the page and the checker press the same keys."""
+def student_sequence(lesson_dir, mode, entry=None):
+    """The keys a student presses working through a lesson in a mode and entry, as keyrun --sequence
+    reads them: "setup<TAB>keys", then "ID<TAB>keys" for every block of the view in order. The
+    learning page's gate calls this (primer #4513), so the page and the checker press the same keys.
+    With no entry given, a lesson that offers entries is worked in its default (the first listed)."""
     text = open(os.path.join(lesson_dir, "lesson.md"), encoding="utf-8").read()
     meta, body = front_matter(text)
+    if entry is None and meta.get("entries", "").split():
+        entry = meta["entries"].split()[0]
     setup = " ".join(meta.get("setup", "").split()).replace("{mode}", mode)
-    blocks, _ = view_blocks(mode_view(body, mode, None))
+    if entry:
+        setup = setup.replace("{entry}", ENTRIES[entry])
+    blocks, _ = view_blocks(mode_view(body, mode, None, entry))
     lines = [f"setup\t{setup}"] + [f"{bid}\t{own}" for bid, own, _, _, _, _ in blocks if bid != "setup"]
     return "\n".join(lines) + "\n"
 
@@ -324,14 +394,32 @@ class Lesson:
             self.bad("front matter has no `setup:` keys (the mode and the display setting, as pressed)")
         elif setup_t.split().count("{mode}") != 1:
             self.bad("the setup must press MODE's soft key as {mode}, once (the page and the checker fill it in)")
+        entries, why = lesson_entries(meta, lesson_modes(meta)[0])
+        if why:
+            self.bad(why)
+        st = setup_t.split()
+        if entries == [None]:
+            if "{entry}" in st:
+                self.bad("the setup presses {entry}, but the front matter offers no `entries:`")
+        elif st.count("{entry}") != 1 or "{mode}" not in st:
+            self.bad("the setup must press MODE's soft key as {entry}, once, right after {mode}")
+        else:
+            # The vectors set the entry right after the mode (variant), so the setup presses it there:
+            # the same shift and MODE key again, then {entry}.
+            i = st.index("{mode}")
+            if i < 2 or st[i + 1:i + 4] != st[i - 2:i] + ["{entry}"]:
+                self.bad(f"the setup must press the entry right after the mode, "
+                         f"'{' '.join(st[max(i - 2, 0):i])} {{mode}} {' '.join(st[max(i - 2, 0):i])} {{entry}}'")
         for m in FENCE.finditer(body):
             line = m.group(0).strip()           # a fence may be indented (in a list item)
             if "key" in m.group(2).lower() and not KEYS_FENCE.match(line):
                 self.bad(f"a fence that looks like keys but is not checked: '{line}'")
         problems = []
-        mode_view(body, modes[0], problems)
-        vectors_for_mode(vectors, modes[0], problems)
-        for p in problems:
+        for mode in modes:
+            for entry in entries:
+                mode_view(body, mode, problems, entry)
+                vectors_for_mode(vectors, mode, problems, entry)
+        for p in dict.fromkeys(problems):
             self.bad(p)
         if self.fail:
             return
@@ -346,24 +434,30 @@ class Lesson:
                 self.notes.append("displays: " + out[-1].split(": ", 1)[-1])
         self.quoted = 0
         for mode in modes:
-            self.check_mode(mode, meta, body, vectors, fmts, settings, setup_t)
+            for entry in entries:
+                self.check_mode(mode, entry, meta, body, vectors, fmts, settings, setup_t)
         self.notes.append(f"displays quoted: {self.quoted} (all modes)")
-        self.notes.append("worked through in order in each mode")
+        self.notes.append("worked through in order in each mode" + (" and entry" if entries != [None] else ""))
 
         # 5. Voice, the front matter included.
         dashes = sum(text.count(d) for d in EM_DASH)
         if dashes:
             self.bad(f"{dashes} em-dash(es) in lesson.md")
 
-    def check_mode(self, mode, meta, body, all_vectors, fmts, settings, setup_t):
-        view = mode_view(body, mode, None)
-        vectors = vectors_for_mode(all_vectors, mode)
+    def check_mode(self, md, entry, meta, body, all_vectors, fmts, settings, setup_t):
+        # md is the mode; `mode` names the mode and entry in messages ("33s", or "STU alg").
+        mode = md if entry is None else f"{md} {entry}"
+        view = mode_view(body, md, None, entry)
+        vectors = vectors_for_mode(all_vectors, md, None, entry)
         ids = [v[0] for v in vectors]
-        setup = setup_t.replace("{mode}", mode)
+        setup = setup_t.replace("{mode}", md).replace("{entry}", ENTRIES[entry] if entry else "")
+        # An ALG result is ANS, shown in X's place; the stack is untouched (firmware 029 rule 6), so
+        # its vectors expect N= where an RPN vector expects X=.
+        result = "N" if entry == "alg" else "X"
 
         # 1. The maths, from a fresh core and from a used one.
         for dirty in (False, True):
-            r = self.run_vectors([variant(v[1], mode, dirty) for v in vectors])
+            r = self.run_vectors([variant(v[1], md, dirty, entry) for v in vectors])
             where = f"{mode} mode, {'a used' if dirty else 'a fresh'} core"
             if r.returncode != 0:
                 self.bad(f"vectors in {where}:\n{r.stdout}{r.stderr}")
@@ -390,6 +484,10 @@ class Lesson:
             # spaced to the line's width; the prose writes them with single spaces between.
             if qkind == "row":
                 return xline[0] == "value" and " ".join(xline[1].split()) == text
+            # The algebraic line as typed sits in Y's place above its result (firmware 029, proposal 3),
+            # an equation line to keyrun.
+            if qkind == "line":
+                return yline[0] == "eqn" and yline[1].strip() == text
             return xline[0] == qkind and xline[1].strip() == text
         for bid, keys, _, _ in blocks:
             if bid == "setup":                  # the setup as printed for the student, {mode} and all
@@ -402,7 +500,7 @@ class Lesson:
             shown.add(bid)
             fd, trace = tempfile.mkstemp(suffix=".trace")
             os.close(fd)
-            r = self.run_vectors([variant(byid[bid][1], mode, False)], env={"STU_TRACE": trace})
+            r = self.run_vectors([variant(byid[bid][1], md, False, entry)], env={"STU_TRACE": trace})
             if r.returncode != 0:
                 os.unlink(trace)
                 self.bad(f"{bid}: vector fails alone in {mode} mode:\n{r.stdout}")
@@ -430,7 +528,10 @@ class Lesson:
         self.notes.append(f"{mode} keys: {len(blocks)} blocks, {len(shown)} of {len(ids)} vectors shown")
 
         # 4. Quoted displays: beside their example, on the device's screen, verified by the formatter.
-        fmt_by = {f[0]: f[1] for f in fmts}
+        fmt_scoped = {}
+        for fid, fparts, _ in fmts:
+            base, ms, es, _ = split_scope(fid)
+            fmt_scoped.setdefault(base, []).append((ms, es, fparts))
 
         def spelled(tok):                       # FIX4 -> "FIX 4", the display vectors' form
             m = SETTING.match(tok)
@@ -487,9 +588,10 @@ class Lesson:
                 if not line_says((kind, stext), screen_y.get(vid, ("?", "")), qkind, shown_text):
                     self.bad(f"{vid}: the device's X line shows '{stext}' ({kind}), the prose '{shown_text}' ({qkind}) ({mode})")
                 continue
-            # A quote that differs by mode (33s's real part against 35s's a i b) has its own display
-            # vector, D-ID@mode, as a vector has ID@modes; else the one display vector D-ID serves.
-            f = fmt_by.get(f"D-{vid}@{mode}") or fmt_by.get("D-" + vid)
+            # A quote that differs by mode or entry (33s's real part against 35s's a i b) has its own
+            # display vector, D-ID@mode (or @entry, or both), as a vector has ID@modes; the narrowest
+            # that fits serves, else the one display vector D-ID.
+            f = pick(fmt_scoped.get("D-" + vid, []), md, entry, f"display vector D-{vid}", None)
             if not f:
                 self.bad(f'<disp v="{vid}"> has no display vector D-{vid}')
                 continue
@@ -514,9 +616,9 @@ class Lesson:
             if f[4] not in ("", DEVICE_WIDTH):
                 self.bad(f"D-{vid}: display options '{f[4]}'; a quoted display uses the device's ('{DEVICE_WIDTH}' or none)")
             v = byid.get(vid)
-            xs = re.findall(r"(?:^|\s)X=(\S+)", v[1][3]) if v else []
+            xs = re.findall(r"(?:^|\s)%s=(\S+)" % result, v[1][3]) if v else []
             if not xs or xs[-1] != f[2]:
-                self.bad(f"D-{vid}: value {f[2]} is not vector {vid}'s exact X result ({xs[-1] if xs else 'none'})")
+                self.bad(f"D-{vid}: value {f[2]} is not vector {vid}'s exact {result} result ({xs[-1] if xs else 'none'})")
             kind, stext = screen.get(vid, ("?", ""))
             if kind != "value" or stext.strip() != shown_text:
                 self.bad(f"D-{vid}: the device's X line shows '{stext}' ({kind}), the prose '{shown_text}' ({mode})")
@@ -537,7 +639,7 @@ class Lesson:
         # carries whatever the last example left (a display setting, Fraction display, a number still
         # being typed), so every quoted display must also be what that student sees.
         with tempfile.NamedTemporaryFile("w", suffix=".seq", delete=False, encoding="utf-8") as t:
-            t.write(student_sequence(self.d, mode))
+            t.write(student_sequence(self.d, md, entry))
         r = self.run(f"{self.core}/build/keyrun", "--sequence", t.name)
         os.unlink(t.name)
         seq_x, seq_y, seq_st, seq_val, seq_graph = {}, {}, {}, {}, {}

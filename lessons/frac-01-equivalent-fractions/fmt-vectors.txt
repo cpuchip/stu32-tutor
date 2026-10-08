@@ -1,0 +1,11 @@
+# frac-01 display vectors: D-ID is what X shows after vector ID, with fraction display on
+# (FRAC 4095 P, num-02's default), the same in both entries.
+D-Q01 | after Q01 | 0.5 | FRAC 4095 P | w=21 | 0 1/2
+D-Q02 | after Q02 | 0.5 | FRAC 4095 P | w=21 | 0 1/2
+D-Q03 | after Q03 | 0.75 | FRAC 4095 P | w=21 | 0 3/4
+D-Q04 | after Q04 | 0.375 | FRAC 4095 P | w=21 | 0 3/8
+D-Q05 | after Q05 | 296 | FRAC 4095 P | w=21 | 296
+D-E01 | after E01 | 0.6 | FRAC 4095 P | w=21 | 0 3/5
+D-E02 | after E02 | 0.75 | FRAC 4095 P | w=21 | 0 3/4
+D-E03 | after E03 | 0.4 | FRAC 4095 P | w=21 | 0 2/5
+D-E03B | after E03B | 0.4 | FRAC 4095 P | w=21 | 0 2/5

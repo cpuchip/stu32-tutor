@@ -57,12 +57,17 @@ calculator rhythm before thirty are written. Proposed: P5's first lesson (equiva
 fractions are where a pre-algebra year spends most of its time and where the calculator's →FRAC
 can check hand work exactly.
 
+Written 2026-10-08: lessons/frac-01-equivalent-fractions (docs/evidence/frac-01.md), the first lesson
+to offer entries, algebraic first with RPN offered, in STU mode. The bakery in it is a placeholder
+until question 4 is answered.
+
 ## Questions for Michael (through abacus)
 
 1. Where is the pre-algebra learner now, and what book or program do they use (for the entry point
    and the order; read for scope only)?
-2. Hand first, calculator second: right for them?
+2. Hand first, calculator second: right for them? ANSWERED yes (decision 63, abacus #5022).
 3. RPN or algebraic entry for a young learner? The algebra course is RPN first (decision 7). If STU
    mode's algebraic entry (firmware unit 029) is on the calculator they use, a pre-algebra track
-   could start there and meet the stack later.
+   could start there and meet the stack later. ANSWERED (decision 63): algebraic by default, RPN
+   offered; built as the entry axis (docs/lesson-format.md, `entries:`).
 4. The story: one world shared by both tracks, or one per track? Any setting they would enjoy?

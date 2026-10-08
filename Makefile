@@ -57,6 +57,7 @@ controls: tools
 	$(PYTHON) tools/controls.py --core $(CORE_DIR) lessons/lim-01-approaching-a-limit
 	$(PYTHON) tools/controls.py --core $(CORE_DIR) lessons/lim-02-rates-of-change
 	$(PYTHON) tools/controls.py --core $(CORE_DIR) lessons/int-01-area-under-a-curve
+	$(PYTHON) tools/controls.py --core $(CORE_DIR) lessons/frac-01-equivalent-fractions
 
 $(CORE_DIR)/.exported: scripts/export-core.sh
 	scripts/export-core.sh $(FIRMWARE) $(CORE_PIN) $(CORE_DIR)

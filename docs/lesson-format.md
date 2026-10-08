@@ -18,6 +18,13 @@ expectations`, one example per line. Rules (abacus, 2026-10-06):
   the same ID there: where a mode's maths or keys differ (decision 53's implied multiplication, an
   STU-only TABLE), and where a block exists in some modes only. The differences between the modes
   are abacus decisions 22, 45, 46, 52, 53 and 56.
+- Entries (decision 63; agreed with primer #5027): a lesson that offers entries (front matter
+  `entries:`) is also checked in each entry, and the entry's token (`RPN`, `ALG`) is put right after
+  the mode's. A vector's `@` list may name entries as well as modes (`Q01@alg`, `Q01@STU,rpn`); the
+  narrowest vector that fits a mode and entry serves, and two that fit equally narrowly are refused.
+  On the algebraic line a result is ANS, shown in X's place, and the stack is left alone (firmware
+  029 rule 6), so an `alg` vector expects `N=` (and `%LINE=`, the line as typed) where an RPN vector
+  expects `X=`.
 - Avoid E with no mantissa and the first key after an error, unless that is the lesson.
 - Every vector has at least one expectation, and every expected value is recomputed independently
   (exact rationals, mpmath or SymPy) with the computation kept in `docs/evidence/`.
@@ -57,10 +64,18 @@ display: FIX 4
   default). A lesson that offers fewer says why in `modes_reason:`. The page opens in the link's
   mode, else the reader's remembered one, else STU, else `default:`, else the first offered
   (docs/proposals/mode-variants.md).
+- `entries:` lists the entries the lesson offers, `rpn` and `alg`, the default first (`entries: alg
+  rpn` for the young courses, decision 63). A lesson with no `entries:` is RPN only, as every lesson
+  of the algebra course is, and nothing about it changes. Algebraic entry is STU mode's alone
+  (firmware 029 rule 2: the 33s and 35s modes refuse ALG), so a lesson offering `alg` gives
+  `modes: STU` and a `modes_reason:`.
 
 - `setup` is the keys the student presses once, with `{mode}` for MODE's soft key; the checker
   presses them, the mode filled in, before every example. The lesson prints them, `{mode}` and all,
-  in a ```` ```keys setup ```` block, which must match (the page fills in the mode).
+  in a ```` ```keys setup ```` block, which must match (the page fills in the mode). A lesson that
+  offers entries presses `{entry}` too, right after the mode with the same keys (`BLUE MODE {mode}
+  BLUE MODE {entry}`), because its vectors set the entry right after the mode; the page fills in
+  `RPN` or `ALG`, the MODE menu's labels.
 - Each example is a ```` ```keys Snn ```` block: the keys the student presses, by the legends
   printed on the STU-32 (abacus `layout/stu32-v0.json`). A shifted function is `GOLD` or `BLUE` and
   then the legend printed in that colour (`GOLD LASTx`, never `LASTx` alone). A number is its
@@ -79,6 +94,14 @@ display: FIX 4
   holds in the span's modes. No span inside a span. A value quoted differently by mode (33s's real
   part of a pair against 35s's a i b, poly-04) has its own display vector, `D-Snn@33s`, which that
   mode's quote uses before `D-Snn`.
+- Entries are built the same way: a variant ```` ```keys Snn entry=alg ```` (which may also carry
+  `mode=`), prose in `<entry e="alg">...</entry>` spans, a quote `<disp v="Snn" e="alg">`, and a
+  display vector `D-Snn@alg`. A `<mode>` span may hold an `<entry>` span and the reverse; neither
+  holds one of its own kind. On the algebraic line, `ENTER` is the = key (there is no `=` legend),
+  a bracket pair is the soft key `()` with `▶` to step out, and a fraction is typed as a division.
+  ANS is `GOLD LASTx` (LASTx's key types ANS on the line, firmware 029's answers); its vector token
+  is `LASTX`, not `ANS`, which is another op (measured 2026-10-08: the printed key and an `ANS`
+  vector disagree, and a `LASTX` vector gives the same line and result).
 - A quoted display is `<disp v="Snn">text</disp>`. Other screen lines take a kind: `eqn` (an equation shown on X), `prompt` (a prompt
   on X, like `SOLVE _`, or on the line above, like XEQ's `X?`), `message`, `entry`, `view`, and
   `status` (a token of the status band). A block may stop at a prompt only when the block right
@@ -88,7 +111,9 @@ display: FIX 4
   (text and kind) since no display vector covers it. The kinds are view, prompt, message, entry
   (a number still being typed shows with its cursor: 7_) and row (TABLE's selected row on the X
   line, the variable's value then the equation's, written with one space between:
-  `<disp v="B04" kind="row">0.0000 3.0000</disp>`; the device spaces them to the line's width).
+  `<disp v="B04" kind="row">0.0000 3.0000</disp>`; the device spaces them to the line's width),
+  and line (the algebraic line as typed, shown in Y's place above the result: `<disp v="Q01"
+  kind="line" e="alg">2÷4</disp>`).
   A quoted value's display vector may carry
   `w=21`, the device's X-line width (firmware/screen.c FMT_WIDTH); the runner's default of 22
   agrees with the device only for short values.
@@ -96,7 +121,8 @@ display: FIX 4
 
 ## What `make check` proves
 
-For each lesson, in each mode it offers, on that mode's view of it (its blocks, spans and quotes):
+For each lesson, in each mode it offers (and each entry, for a lesson that offers entries: every
+step below runs once per mode and entry), on that mode's view of it (its blocks, spans and quotes):
 
 1. The mode's vectors pass on the firmware's runner, each from a fresh core and from a used one
    (the stack full, LAST x set, RAD), so no example leans on an empty stack.
@@ -115,11 +141,12 @@ For each lesson, in each mode it offers, on that mode's view of it (its blocks, 
 4. Every quoted display sits under its own example (after its block, before the next), is the
    text the device's screen shows on its X line after those keys (`screen_lines`; a value, not a
    number being typed or a message), and is its display vector's text, at the setting the vectors
-   set and with the device's default options, of the vector's exact X result.
+   set and with the device's default options, of the vector's exact X result (N, ANS, on the
+   algebraic line).
 5. A student working through in the mode: the setup once, then every block of the mode's view in
    order on one device, with nothing reset between them (a continuation presses only its own keys;
-   `student_sequence(lesson, mode)` in tools/check.py assembles them, and the learning page's gate
-   calls it). It found, the first time it ran in 35s and STU, that a key pressed over a message only
+   `student_sequence(lesson, mode, entry)` in tools/check.py assembles them, and the learning page's
+   gate calls it; with no entry, a lesson that offers entries is worked in its default). It found, the first time it ran in 35s and STU, that a key pressed over a message only
    clears it there, so a lesson clears each message with C before the next example. After each block, every
    exact X, Y, Z and T in its vector must hold, and every quoted display and status annunciator must
    be what that student sees. Checks 1-4 judge each example from the setup; this one catches what
@@ -146,6 +173,10 @@ green). A fault that does not apply to the file, or applies more than once, is r
 - Keys written in inline code are not seen; only fenced keys blocks are checked. A number written
   in the prose in the display's FIX form (12.0000 at FIX 4) outside a `<disp>` tag fails, but any
   other wording of what the screen shows ("X holds 12") is checked only by the vectors behind it.
+- On the algebraic line, the student run (check 5) sees the result only as the screen shows it: the
+  exact X, Y, Z and T it compares are the stack, which ALG leaves alone, and keyrun does not report
+  ANS. The exact result (N=) is checked by the vectors, from the setup, and the quoted displays
+  carry it through the student's order.
 - The words around an example are not checked against it. A machine check cannot tell that an
   explanation of correct keys is wrong; the non-author read exists for that (rpn-01's first draft
   said each x used a copy T dropped, and none did).
