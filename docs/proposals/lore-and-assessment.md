@@ -34,18 +34,42 @@ like lessons/TOPICS. Three files under `lore/`:
   survey ship `appears_in` geometry; Thornwick's ledger `carried_by` the survey's youngest; one era
   `before` the next.
 
-A lesson's front matter names who appears in it: `cast: name name`.
+A lesson's front matter names who appears in it, in two kinds (abacus #5227):
+- **`cast: name name`:** characters the story leans on. A reader must already have met them.
+- **`walk-ons: name name`:** characters whose part stands alone, readable without their home lesson.
+
+**Why two kinds.** Under open routes (section 3) a learner reaches a lesson by any path the
+prerequisites allow, so "before" has no single meaning. A check against one course order would pass
+a lesson that some route reaches before the character's home lesson. The rule must hold on every
+route.
 
 **What graph.py refuses:**
-- a name in `cast:` that is not in ENTITIES;
+- a name in `cast:` or `walk-ons:` that is not in ENTITIES;
 - an entity whose home lesson does not exist;
-- a character who appears before their home lesson in the course order of their own course;
+- a `cast:` character whose home lesson is not among the lesson's prerequisites, taken transitively
+  through the lesson graph. Every route to the lesson then passes through the home, whatever order
+  the learner takes. A course's own cast is introduced in its unit 0, which every later lesson of
+  the course requires, so the rule costs that cast nothing;
 - an edge with an unknown verb, or an endpoint that is not an entity.
+
+That a walk-on's text stands alone cannot be machine-checked. The non-author read checks it, reading
+the lesson as a learner who has not met them.
 
 **A cameo** is a character in a lesson outside their home course. graph.py marks it, and `--json`
 gives each cameo its home lesson. Those are the "graph links back to where those characters live
-originally" Michael asked for: data primer renders, not prose to maintain. One rule: a cameo never
-carries mathematics or plot a learner needs. It is a door back to another course, never a wall.
+originally" Michael asked for: data primer renders, not prose to maintain.
+
+A cameo never carries mathematics; the graph does. A cameo the plot leans on is in `cast:` and must
+pass the prerequisite rule above, so its home lesson is on every route to it. A passing appearance is
+a walk-on, readable alone, with the link back as an invitation, not a dependency. It is a door back
+to another course, never a wall.
+
+**Controls,** one for each rule:
+- a `cast:` character whose home is not a prerequisite;
+- a cast name not in the lore;
+- an edge with an unknown verb;
+- a walk-on that the planted text leans on, caught by the read, not by graph.py. That limit is
+  stated, not hidden.
 
 **Loreworks** (pg-ai-stewards' world engine) models a world the same way: entities with kind, name,
 aliases, summary and source references, and typed directed edges with a verb vocabulary. It gives the
