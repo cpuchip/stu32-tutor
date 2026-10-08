@@ -30,4 +30,8 @@ void kr_advance(app_state *a, uint32_t ms);
    between ticks (primer #5109), where kr_key's 100 ms would lurch it. */
 void kr_key_now(app_state *a, int key);
 
+/* That key released at the clock's present time: an app that steers by held keys (Babal) ends a turn
+   on the release (primer #5126). */
+void kr_key_up_now(app_state *a, int key);
+
 #endif

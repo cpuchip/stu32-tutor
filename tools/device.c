@@ -38,6 +38,11 @@ void kr_key_now(app_state *a, int key)
     app_key(a, key, now);
 }
 
+void kr_key_up_now(app_state *a, int key)
+{
+    app_key_up(a, key, now);
+}
+
 void kr_advance(app_state *a, uint32_t ms)
 {
     while (ms--) app_tick(a, &PWR, now += 1);
