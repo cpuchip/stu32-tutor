@@ -47,3 +47,10 @@ All 13 vectors agreed with the quotes; 52!'s rounding checked by hand. Taken:
 `make check`: 13/13 vectors in 33s, 35s and STU, from a fresh and a used core, and the student run in
 order in each mode. Controls (3): a team counted with Pn,r, n and r reversed, 52! quoted with one power
 of ten too many; all red.
+
+## Abacus's accuracy read (#4963, 2026-10-07)
+
+Accepted at 92b63e9, every value in exact math; 52! is 80658175170943878571660636856403766975… exactly, so
+…0377 at the 34th digit. (1) to (5) true. On (4): r > n is not the only refusal. Cn,r and Pn,r also give
+INVALID DATA, stack untouched, for a negative or fractional n or r, and for a huge n (1E40; C(1000, 500) is
+given). The lesson's sentence is true as written; no later line may say r > n is the only case.
