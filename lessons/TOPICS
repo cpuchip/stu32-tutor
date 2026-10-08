@@ -241,3 +241,10 @@ at-least-one | At least one, through not | prob-01 | And
 probability-combinations | Probability with combinations | prob-01 | Counting with combinations
 random | RAND, and a die from it | prob-01 | Random numbers
 seed | SEED: the same numbers again | prob-01 | Random numbers
+
+# lim-01 Approaching a limit
+limit | A limit: the value a function closes in on | lim-01 | -
+limit-by-approach | Coming close from both sides | lim-01 | Coming close
+limit-numeric | A limit with no algebra: sin(x)/x | lim-01 | A limit no algebra here can do
+no-limit | Limits that do not exist: growing without end, two sides that disagree | lim-01 | Limits that do not exist
+digits-floor | Too close: the 34 digits run out | lim-01 | Coming close

@@ -393,6 +393,17 @@ CONTROLS_FOR["prob-01-probability"] = [
     ("a die face claimed far outside 1 to 6 (the tolerance is checked)", "vectors.txt", "| X#3.5,2.5", "| X#10,0.5", {},
      "R02"),
 ]
+CONTROLS_FOR["lim-01-approaching-a-limit"] = [
+    ("program L without x<>y: (x^2 - 1) divided the wrong way", "lesson.md",
+     "GOLD LBL L ENTER GOLD x² 1 − x↔y 1 − ÷ BLUE RTN", "GOLD LBL L ENTER GOLD x² 1 − 1 − ÷ BLUE RTN", {},
+     "P01A: printed keys and vector disagree in 33s mode"),
+    ("two sides that disagree quoted as agreeing", "lesson.md", 'v="N04">-1.0000<', 'v="N04">1.0000<', {},
+     "D-N04: the prose shows '1.0000'"),
+    ("sin(x)/x quoted at FIX 4, hiding the approach", "lesson.md", 'v="S02">0.999983333<', 'v="S02">1.0000<', {},
+     "D-S02: the prose shows '1.0000'"),
+    ("the limit from below quoted as from above", "lesson.md", 'v="L04">1.9000<', 'v="L04">2.1000<', {},
+     "D-L04: the prose shows '2.1000'"),
+]
 CONTROLS_FOR["fn-02-a-table-of-values"] = [
     ("a label's line numbered from the program's top, not its own label", "lesson.md", 'kind="program">U008 RTN<',
      'kind="program">T022 RTN<', {}, "T01B: the device's X line shows 'U008 RTN' (program)"),
