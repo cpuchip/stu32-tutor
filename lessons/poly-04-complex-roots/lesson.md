@@ -192,8 +192,9 @@ ENTER 2 +/− ENTER 1 +/− BLUE CMPLX × 4 +/− ENTER 2 +/− BLUE CMPLX + 0 E
 
 X shows <disp v="H02" m="35s,STU">0.0000i0.0000</disp><disp v="H02" m="33s">0.0000</disp><mode m="33s">
 and Y holds 0</mode>. Both roots check. Counted with complex numbers, a polynomial of degree n, for n of
-1 or more, always has exactly n roots, a double root counted twice and a triple root three times.
-Among the real numbers it can have fewer, as x² + 2x + 5 has none.
+1 or more, always has exactly n roots, when a root that repeats is counted as many times as it
+repeats: a double root twice, a triple root three times. Among the real numbers it can have fewer, as
+x² + 2x + 5 has none.
 
 ## Exercise
 

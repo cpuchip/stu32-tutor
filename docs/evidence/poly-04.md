@@ -86,3 +86,11 @@ Z and T when a pair is typed (rpn-01's lift, two numbers); that CMPLX keeps the 
 and that CMPLX ÷ divides the first by the second; a picture of the four levels; H02A's Y named; 2z and
 −4z said to be worked in the head; √(−d) = √d × i stated as the chosen root of two (shared text); "of
 degree 1 or more" (shared text).
+
+## Abacus's read of the 33s version (#4975, 2026-10-07)
+
+Accepted at 0c1f1a1, the 33s path rechecked by hand; the pair order matches 039; CMPLX ÷ and "no complex
+square root key" true of 33s mode (a √ can still be had as CMPLX yˣ with 0.5, so the lesson does not say it
+cannot be computed); √(−d) as the principal root true. One change, made: "exactly n roots" is true only
+counted with multiplicity, so it now says "when a root that repeats is counted as many times as it
+repeats" (as CAS 005 will print MULT 2).
