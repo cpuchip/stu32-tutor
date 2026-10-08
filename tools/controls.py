@@ -370,6 +370,14 @@ CONTROLS_FOR["seq-01-sequences-and-sums"] = [
     ("the loop's row k as 20 + 2k (one row out)", "lesson.md", "IP 2 × 18 + STO + T BLUE ISG I GOLD GTO W RCL T",
      "IP 2 × 20 + STO + T BLUE ISG I GOLD GTO W RCL T", {}, "P01B: printed keys and vector disagree in 33s mode"),
 ]
+CONTROLS_FOR["cnt-01-counting"] = [
+    ("a team counted with order (Pn,r for Cn,r)", "lesson.md", "```keys C01\n10 ENTER 3 BLUE PROB Cn,r\n",
+     "```keys C01\n10 ENTER 3 BLUE PROB Pn,r\n", {}, "C01: printed keys and vector disagree in 33s mode"),
+    ("n and r typed the wrong way round", "lesson.md", "```keys P01\n10 ENTER 3 BLUE PROB Pn,r\n",
+     "```keys P01\n3 ENTER 10 BLUE PROB Pn,r\n", {}, "P01: printed keys and vector disagree in 33s mode"),
+    ("52! quoted with one power of ten too many", "lesson.md", 'v="F02">8.0658E67<', 'v="F02">8.0658E68<', {},
+     "D-F02: the prose shows '8.0658E68'"),
+]
 CONTROLS_FOR["fn-02-a-table-of-values"] = [
     ("a label's line numbered from the program's top, not its own label", "lesson.md", 'kind="program">U008 RTN<',
      'kind="program">T022 RTN<', {}, "T01B: the device's X line shows 'U008 RTN' (program)"),

@@ -1,0 +1,13 @@
+# cnt-01 display vectors: D-nnn is what X shows after key vector nnn, at FIX 4.
+D-M01 | after M01 | 24 | FIX 4 | w=21 | 24.0000
+D-F01 | after F01 | 120 | FIX 4 | w=21 | 120.0000
+D-F02 | after F02 | 8.065817517094387857166063685640377E+67 | FIX 4 | w=21 | 8.0658E67
+D-F03 | after F03 | 1 | FIX 4 | w=21 | 1.0000
+D-P01 | after P01 | 720 | FIX 4 | w=21 | 720.0000
+D-C01 | after C01 | 120 | FIX 4 | w=21 | 120.0000
+D-C02 | after C02 | 2598960 | FIX 4 | w=21 | 2,598,960.0000
+D-C03B | after C03B | 5 | FIX 4 | w=21 | 5.0000
+D-E01 | after E01 | 10000 | FIX 4 | w=21 | 10,000.0000
+D-E02 | after E02 | 720 | FIX 4 | w=21 | 720.0000
+D-E03 | after E03 | 56 | FIX 4 | w=21 | 56.0000
+D-E04 | after E04 | 1320 | FIX 4 | w=21 | 1,320.0000

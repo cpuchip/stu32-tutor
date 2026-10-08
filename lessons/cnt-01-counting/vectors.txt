@@ -1,0 +1,15 @@
+# cnt-01 counting: key vectors (the firmware's format). Every example is ours. Each starts
+# MODE33 FIX4 (the lesson's setup). Values from build/proto/cnt01.py. C03 asks the impossible, hence ERR.
+M01 | outfits: 3 shirts x 4 trousers x 2 pairs of shoes | MODE33 FIX4 3 ENTER 4 * 2 * | X=24
+F01 | 5 books in a row: 5! | MODE33 FIX4 5 FACT | X=120
+F02 | a deck of 52 in a row: 52!, rounded to 34 digits | MODE33 FIX4 52 FACT | X=8.065817517094387857166063685640377E+67
+F03 | 0! = 1 | MODE33 FIX4 0 FACT | X=1
+P01 | first, second, third of 10 runners: P(10, 3) | MODE33 FIX4 10 ENTER 3 NPR | X=720
+C01 | 3 of 10 for a team, order not counted: C(10, 3) | MODE33 FIX4 10 ENTER 3 NCR | X=120
+C02 | 5-card hands from 52: C(52, 5) | MODE33 FIX4 52 ENTER 5 NCR | X=2598960
+C03 | 5 from 2: none: INVALID DATA | MODE33 FIX4 2 ENTER 5 NCR | ERR
+C03B | continues C03: C clears the message; 5 still in X, 2 in Y | MODE33 FIX4 2 ENTER 5 NCR C | ERR X=5 Y=2
+E01 | exercise 1: 4-digit codes: 10^4 | MODE33 FIX4 10 ENTER 4 POW | X=10000
+E02 | exercise 2: 6 people in a row: 6! | MODE33 FIX4 6 FACT | X=720
+E03 | exercise 3: 3 toppings of 8: C(8, 3) | MODE33 FIX4 8 ENTER 3 NCR | X=56
+E04 | exercise 4: president, vice-president, treasurer of 12: P(12, 3) | MODE33 FIX4 12 ENTER 3 NPR | X=1320

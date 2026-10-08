@@ -226,3 +226,9 @@ arithmetic-sum | The sum of an arithmetic sequence | seq-01 | Arithmetic sequenc
 geometric-sequence | Geometric sequences: the nth term | seq-01 | Geometric sequences
 geometric-sum | The sum of a geometric sequence | seq-01 | Geometric sequences
 summing-loop | Checking a sum with a loop | seq-01 | Checking a sum with a loop
+
+# cnt-01 Counting
+multiplication-principle | Multiplying the choices | cnt-01 | Multiplying the choices
+factorial | The factorial, n! | cnt-01 | Orders: the factorial
+permutation | Permutations: choosing in order, P(n, r) | cnt-01 | Choosing in order: permutations
+combination | Combinations: choosing without order, C(n, r) | cnt-01 | Choosing without order: combinations
