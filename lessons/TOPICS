@@ -211,3 +211,10 @@ system | A system of equations and its solution | sys-01 | -
 check-pair | Checking a pair in both equations | sys-01 | Checking a pair
 elimination | Elimination | sys-01 | Elimination
 no-or-every-solution | No solution, or every solution: parallel lines and one line twice | sys-01 | No solution, or every solution
+
+# sys-02 The built-in solvers
+solver-2x2 | The 2×2 solver: A to F, and the answers | sys-02@35s,STU | The 2×2 solver
+solver-keep | Keeping a number at the solver's prompt | sys-02@35s,STU | Keeping a number
+solver-form | Into the solver's form: rearranging, and 0 for a missing unknown | sys-02@35s,STU | Into the solver's form
+solver-3x3 | The 3×3 solver: A to L | sys-02@35s,STU | Three equations
+solver-none-many | NO SOLUTION and MULT SOLUTION | sys-02@35s,STU | No solution, or every solution

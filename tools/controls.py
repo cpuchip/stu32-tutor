@@ -352,6 +352,14 @@ CONTROLS_FOR["sys-01-two-equations-at-once"] = [
     ("the fruit's bottom taken the wrong way round: 0.75 - 1.25", "lesson.md", "6 × − 1.25 ENTER 0.75 − ÷\n```\n\nX shows",
      "6 × − 0.75 ENTER 1.25 − ÷\n```\n\nX shows", {}, "F01: printed keys and vector disagree in 33s mode"),
 ]
+CONTROLS_FOR["sys-02-the-built-in-solvers"] = [
+    ("A and B typed the wrong way round", "lesson.md", "```keys T01 after=T01B\n2 R/S 3 R/S 37 R/S",
+     "```keys T01 after=T01B\n3 R/S 2 R/S 37 R/S", {}, "T01: printed keys and vector disagree in 35s mode"),
+    ("y quoted as x's value", "lesson.md", 'kind="view">Y=7.0000<', 'kind="view">Y=8.0000<', {},
+     "T02: the device's X line shows 'Y=7.0000' (view)"),
+    ("one line twice quoted as no solution", "lesson.md", 'kind="message">MULT SOLUTION<',
+     'kind="message">NO SOLUTION<', {}, "N02: the device's X line shows 'MULT SOLUTION' (message)"),
+]
 CONTROLS_FOR["fn-02-a-table-of-values"] = [
     ("a label's line numbered from the program's top, not its own label", "lesson.md", 'kind="program">U008 RTN<',
      'kind="program">T022 RTN<', {}, "T01B: the device's X line shows 'U008 RTN' (program)"),

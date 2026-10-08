@@ -49,6 +49,7 @@ controls: tools
 	$(PYTHON) tools/controls.py --core $(CORE_DIR) lessons/trig-03-the-unit-circle
 	$(PYTHON) tools/controls.py --core $(CORE_DIR) lessons/trig-04-polar-and-rectangular
 	$(PYTHON) tools/controls.py --core $(CORE_DIR) lessons/sys-01-two-equations-at-once
+	$(PYTHON) tools/controls.py --core $(CORE_DIR) lessons/sys-02-the-built-in-solvers
 
 $(CORE_DIR)/.exported: scripts/export-core.sh
 	scripts/export-core.sh $(FIRMWARE) $(CORE_PIN) $(CORE_DIR)
