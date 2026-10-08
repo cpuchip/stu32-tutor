@@ -404,6 +404,14 @@ CONTROLS_FOR["lim-01-approaching-a-limit"] = [
     ("the limit from below quoted as from above", "lesson.md", 'v="L04">1.9000<', 'v="L04">2.1000<', {},
      "D-L04: the prose shows '2.1000'"),
 ]
+CONTROLS_FOR["lim-02-rates-of-change"] = [
+    ("program D without taking away d(1)", "lesson.md", "GOLD LBL D STO H 1 + GOLD x² 2 × 2 − RCL H ÷ BLUE RTN",
+     "GOLD LBL D STO H 1 + GOLD x² 2 × RCL H ÷ BLUE RTN", {}, "P01A: printed keys and vector disagree in 33s mode"),
+    ("the cancelled h = 1E-34 quoted as if it still gave 4", "lesson.md", 'v="D05">0.0000<', 'v="D05">4.0000<', {},
+     "D-D05: the prose shows '4.0000'"),
+    ("the average speed quoted as the speed at an instant", "lesson.md", 'v="A01">8.0000<', 'v="A01">4.0000<', {},
+     "D-A01: the prose shows '4.0000'"),
+]
 CONTROLS_FOR["fn-02-a-table-of-values"] = [
     ("a label's line numbered from the program's top, not its own label", "lesson.md", 'kind="program">U008 RTN<',
      'kind="program">T022 RTN<', {}, "T01B: the device's X line shows 'U008 RTN' (program)"),

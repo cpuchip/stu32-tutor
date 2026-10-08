@@ -54,6 +54,7 @@ controls: tools
 	$(PYTHON) tools/controls.py --core $(CORE_DIR) lessons/cnt-01-counting
 	$(PYTHON) tools/controls.py --core $(CORE_DIR) lessons/prob-01-probability
 	$(PYTHON) tools/controls.py --core $(CORE_DIR) lessons/lim-01-approaching-a-limit
+	$(PYTHON) tools/controls.py --core $(CORE_DIR) lessons/lim-02-rates-of-change
 
 $(CORE_DIR)/.exported: scripts/export-core.sh
 	scripts/export-core.sh $(FIRMWARE) $(CORE_PIN) $(CORE_DIR)

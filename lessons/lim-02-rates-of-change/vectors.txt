@@ -1,0 +1,16 @@
+# lim-02 rates of change: key vectors (the firmware's format). Every example is ours. Each starts
+# MODE33 FIX4 (the lesson's setup). Values from build/proto/lim02.py, modelling the keys.
+A01 | the average speed from t = 1 to t = 3: (2 x 3^2 - 2 x 1^2) / (3 - 1) | MODE33 FIX4 2 ENTER 3 SQ * 2 ENTER 1 SQ * - 3 ENTER 1 - / | X=8
+P01A | program D: (d(1 + h) - d(1)) / h, from the top of program memory | MODE33 FIX4 GTO.. PRGM LBL:D STO:H 1 + SQ 2 * 2 - RCL:H / RTN | %LINES=12
+P01 | continues P01A: program entry off | MODE33 FIX4 GTO.. PRGM LBL:D STO:H 1 + SQ 2 * 2 - RCL:H / RTN PRGM | %LINES=12
+D01 | continues P01: h = 0.1 | MODE33 FIX4 GTO.. PRGM LBL:D STO:H 1 + SQ 2 * 2 - RCL:H / RTN PRGM 0.1 XEQ:D | X=4.2
+D02 | continues D01: h = 0.01 | MODE33 FIX4 GTO.. PRGM LBL:D STO:H 1 + SQ 2 * 2 - RCL:H / RTN PRGM 0.1 XEQ:D 0.01 XEQ:D | X=4.02
+D03 | continues D02: h = 0.001 | MODE33 FIX4 GTO.. PRGM LBL:D STO:H 1 + SQ 2 * 2 - RCL:H / RTN PRGM 0.1 XEQ:D 0.01 XEQ:D 0.001 XEQ:D | X=4.002
+D03B | continues D03: from below, h = -0.001 | MODE33 FIX4 GTO.. PRGM LBL:D STO:H 1 + SQ 2 * 2 - RCL:H / RTN PRGM 0.1 XEQ:D 0.01 XEQ:D 0.001 XEQ:D 0.001 CHS XEQ:D | X=3.998
+D04 | continues D03B: h = 1E-20: exactly 4 (the 2h^2 lost) | MODE33 FIX4 GTO.. PRGM LBL:D STO:H 1 + SQ 2 * 2 - RCL:H / RTN PRGM 0.1 XEQ:D 0.01 XEQ:D 0.001 XEQ:D 0.001 CHS XEQ:D 1 E 20 CHS XEQ:D | X=4
+D05 | continues D04: h = 1E-34: 1 + h rounds to 1: 0 | MODE33 FIX4 GTO.. PRGM LBL:D STO:H 1 + SQ 2 * 2 - RCL:H / RTN PRGM 0.1 XEQ:D 0.01 XEQ:D 0.001 XEQ:D 0.001 CHS XEQ:D 1 E 20 CHS XEQ:D 1 E 34 CHS XEQ:D | X=0
+D06 | continues D05: h = 6E-34: 1 + h rounds up: 6.67 | MODE33 FIX4 GTO.. PRGM LBL:D STO:H 1 + SQ 2 * 2 - RCL:H / RTN PRGM 0.1 XEQ:D 0.01 XEQ:D 0.001 XEQ:D 0.001 CHS XEQ:D 1 E 20 CHS XEQ:D 1 E 34 CHS XEQ:D 6 E 34 CHS XEQ:D | X=6.666666666666666666666666666666667
+E01 | exercise 1, continues D06: h = 1E-40: 0 | MODE33 FIX4 GTO.. PRGM LBL:D STO:H 1 + SQ 2 * 2 - RCL:H / RTN PRGM 0.1 XEQ:D 0.01 XEQ:D 0.001 XEQ:D 0.001 CHS XEQ:D 1 E 20 CHS XEQ:D 1 E 34 CHS XEQ:D 6 E 34 CHS XEQ:D 1 E 40 CHS XEQ:D | X=0
+E02 | exercise 2: x^3 at 2, h = 0.001: (2.001^3 - 8) / 0.001 | MODE33 FIX4 2.001 ENTER 3 POW 8 - 0.001 / | X=12.006001
+E02B | continues E02: h = 0.0001 | MODE33 FIX4 2.001 ENTER 3 POW 8 - 0.001 / 2.0001 ENTER 3 POW 8 - 0.0001 / | X=12.00060001
+E03 | exercise 3: 2^x from 0 to 3: (2^3 - 1) / 3 | MODE33 FIX4 2 ENTER 3 POW 1 - 3 / | X=2.333333333333333333333333333333333

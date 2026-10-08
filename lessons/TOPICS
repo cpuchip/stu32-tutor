@@ -248,3 +248,9 @@ limit-by-approach | Coming close from both sides | lim-01 | Coming close
 limit-numeric | A limit with no algebra: sin(x)/x | lim-01 | A limit no algebra here can do
 no-limit | Limits that do not exist: growing without end, two sides that disagree | lim-01 | Limits that do not exist
 digits-floor | Too close: the 34 digits run out | lim-01 | Coming close
+
+# lim-02 Rates of change
+average-rate | The average rate of change | lim-02 | The average rate
+instant-rate | The rate at an instant: a limit of averages | lim-02 | The rate at an instant
+derivative | The derivative, named | lim-02 | The rate at an instant
+cancellation | Cancellation: where the digits run out | lim-02 | Where the digits run out

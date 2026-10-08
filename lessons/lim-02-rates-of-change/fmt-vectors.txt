@@ -1,0 +1,13 @@
+# lim-02 display vectors: D-nnn is what X shows after key vector nnn, at FIX 4.
+D-A01 | after A01 | 8 | FIX 4 | w=21 | 8.0000
+D-D01 | after D01 | 4.2 | FIX 4 | w=21 | 4.2000
+D-D02 | after D02 | 4.02 | FIX 4 | w=21 | 4.0200
+D-D03 | after D03 | 4.002 | FIX 4 | w=21 | 4.0020
+D-D03B | after D03B | 3.998 | FIX 4 | w=21 | 3.9980
+D-D04 | after D04 | 4 | FIX 4 | w=21 | 4.0000
+D-D05 | after D05 | 0 | FIX 4 | w=21 | 0.0000
+D-D06 | after D06 | 6.666666666666666666666666666666667 | FIX 4 | w=21 | 6.6667
+D-E01 | after E01 | 0 | FIX 4 | w=21 | 0.0000
+D-E02 | after E02 | 12.006001 | FIX 4 | w=21 | 12.0060
+D-E02B | after E02B | 12.00060001 | FIX 4 | w=21 | 12.0006
+D-E03 | after E03 | 2.333333333333333333333333333333333 | FIX 4 | w=21 | 2.3333
