@@ -51,3 +51,11 @@ Program A traced by hand for n = 3 (14) and every value matched. Taken:
 `make check`: 11/11 vectors in 33s, 35s and STU, from a fresh and a used core, and the student run in
 order in each mode. Controls (3): the strips' heights at their left ends, three rectangles quoted as the
 area, the integral's ends the wrong way round; all red.
+
+## Abacus's accuracy read (#5015, 2026-10-07)
+
+Accepted at 1ecb23c, every value in exact fractions. The uncertainty fits the core's rule, U = 10⁻ⁿ |b − a| in
+FIX n (3 × 10⁻⁴ at FIX 4, 3 × 10⁻⁸ at FIX 8; core/calc.c above integ_core). One change, made: Y is U plus the
+integrator's own error estimate (Gauss-Kronrod), not a proven bound, so "That is a bound" became "That is a
+cautious estimate, meant to be on the safe side, not the actual error: the true error is usually far
+smaller". (1), (3), (4), (5) true; the counter is current.fffii, step 1 when ii is 00.

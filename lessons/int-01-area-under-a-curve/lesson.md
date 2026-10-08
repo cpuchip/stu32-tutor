@@ -119,8 +119,8 @@ leaves the view and x↔y brings that figure down:
 C x↔y
 ```
 
-X shows <disp v="I01C">0.0003</disp>. That is a bound, not the actual error: the true error can be far
-smaller, and here the 9 is exactly right. With more places showing, run ∫ again and the figure shrinks:
+X shows <disp v="I01C">0.0003</disp>. That is a cautious estimate, meant to be on the safe side, not the
+actual error: the true error is usually far smaller, and here the 9 is exactly right. With more places showing, run ∫ again and the figure shrinks:
 at FIX 8 it is three hundred-millionths.
 
 ## Area below the axis
