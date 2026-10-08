@@ -40,15 +40,14 @@ BLUE MODE {mode} GOLD DISP FIX 4
 
 ## The 2×2 solver
 
-Open the list:
+Open the list. It may open at one of your equations, so press NEW, the fourth soft key, which goes to
+EQN LIST TOP wherever the list opened, and keeps your equations:
 
 ```keys T01Z
-GOLD EQN
+GOLD EQN NEW
 ```
 
-On a calculator where you have not used the list, it opens at EQN LIST TOP. If it opens at one of your
-equations instead, press NEW, the fourth soft key, which goes to EQN LIST TOP. From the top, ▲ goes
-up to the 3×3 solver and ▲ again to the 2×2, however many equations you have:
+From the top, ▲ goes up to the 3×3 solver and ▲ again to the 2×2, however many equations you have:
 
 ```keys T01A after=T01Z
 ▲ ▲

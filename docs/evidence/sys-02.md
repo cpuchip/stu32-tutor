@@ -33,9 +33,10 @@ Every answer is a short decimal, which the solvers' 34-digit elimination must gi
   the top (probed with two equations of the learner's own). EQN opens at the last entry viewed. So
   from the top ▲ ▲ is the 2×2 solver, from it ▼ is the 3×3, and from that ▲ is the 2×2, whatever the
   learner's equations. The list's soft keys are ▲ ▼ EDIT NEW CAS EXIT (firmware/keymap.c, "EQN LIST");
-  NEW goes to EQN LIST TOP from anywhere (probed). The vector runner has no token for NEW, so the
-  lesson's keys open the list with EQN alone (the top on a fresh list) and the prose tells a learner
-  whose list opens elsewhere to press NEW.
+  NEW goes to EQN LIST TOP from anywhere (probed). The vector runner had no token for NEW, so the
+  first keys opened the list with EQN alone and the prose told a learner to press NEW; from the repin
+  to c7ab388 (its EQTOP token, abacus #4948, soroban #4950) the keys are GOLD EQN NEW, as every
+  learner presses them.
 - An earlier draft went one ▼ from the top to the 2×2 solver: true on a fresh list, and the check's
   fresh student run passed it, but wrong for any learner with equations (▼ from the top is their first
   equation). Found by the self-audit against the firmware's own vector M26, then probed.

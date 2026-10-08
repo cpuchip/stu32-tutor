@@ -357,6 +357,8 @@ CONTROLS_FOR["sys-02-the-built-in-solvers"] = [
      "```keys T01 after=T01B\n3 R/S 2 R/S 37 R/S", {}, "T01: printed keys and vector disagree in 35s mode"),
     ("y quoted as x's value", "lesson.md", 'kind="view">Y=7.0000<', 'kind="view">Y=8.0000<', {},
      "T02: the device's X line shows 'Y=7.0000' (view)"),
+    ("the list opened without NEW (only right on a fresh list)", "lesson.md", "```keys T01Z\nGOLD EQN NEW\n",
+     "```keys T01Z\nGOLD EQN\n", {}, "T01Z: printed keys and vector disagree in 35s mode"),
     ("one line twice quoted as no solution", "lesson.md", 'kind="message">MULT SOLUTION<',
      'kind="message">NO SOLUTION<', {}, "N02: the device's X line shows 'MULT SOLUTION' (message)"),
 ]
