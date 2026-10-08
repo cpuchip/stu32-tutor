@@ -67,3 +67,10 @@ Every keys block matched its vector and every quoted value. The findings, all ta
 `make check`: 23/23 vectors in 35s and STU, from a fresh and a used core, and the student run in order
 in each mode. Controls (3): A and B typed the wrong way round, y quoted as x's value, one line twice
 quoted as no solution; all red.
+
+## Abacus's accuracy read (#4942, 2026-10-07)
+
+Accepted at d3a2dcf, every value rechecked by hand (the market by summing the three: 4(x + y + z) = 32).
+(1) linear, (2) the 0 for a missing unknown, (4) no solvers in 33s mode: true. (3) MULT SOLUTION as one
+line: true for these cases; the edge, should a lesson ever generalize, is 0x + 0y = 0 twice, MULT with
+the whole plane. An EQTOP vector token is asked of soroban, so the keys can open the list with NEW.
