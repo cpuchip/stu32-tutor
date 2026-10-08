@@ -23,7 +23,7 @@ Recomputed with Python's `fractions.Fraction` (exact rationals), independently o
 
 ## Runs
 
-`make check` at core f839cb9 (2026-10-06, gcc:14 container on fermion): 14/14 vectors and 20/20
+`make check` at core f839cb9 (2026-10-06, in the gcc:14 container): 14/14 vectors and 20/20
 expectations in 33s mode and in 35s mode; 4/4 display vectors; 14 of 14 vectors shown by their
 printed keys, each the same ops and the same core state; 4 displays quoted.
 

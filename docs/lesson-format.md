@@ -1,7 +1,7 @@
 # Lesson format
 
 A lesson is a folder `lessons/<id>/` with three files. The examples exist as vectors before any
-prose is written around them, and `make check` (on fermion: `scripts/check-docker.sh`) runs every
+prose is written around them, and `make check` (or `scripts/check-docker.sh`, in a container) runs every
 one of them on the STU-32's own core at `CORE_PIN`.
 
 ## vectors.txt: the maths

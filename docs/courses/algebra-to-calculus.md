@@ -69,6 +69,9 @@ stopped program. 036b (in 35s and STU mode XEQ and GTO take a letter then ENTER)
 repin to d75fc75: fn-01..03 and poly-01 carry 35s,STU variants with the ENTER, and say so.
 034 (→POL's θ correctly rounded) landed there too: trig-04's (3, 4) angle is exact, unpinned.
 Re-run fn-03's side vector W01 (docs/evidence/fn-03.md) at every repin: make check does not.
+SHOW (firmware unit 030, decision 46) lets a learner see all of X's digits when the format hides them;
+when it lands, rpn-03 gains a short section after "FIX: a fixed number of decimal places", on two
+thirds. (This note was a comment in rpn-03's source until the public scrub.)
 042 (SOLVE with both guesses on one side of a root, abacus #4683) landed by the repin to 7776c7c:
 eq-03's A03 (guesses 10 and 20, root 8) passes there unchanged, in all three modes.
 Field check 8 (abacus #4764): typed entry counts leading zeros toward the 34 digits (0.0000 then

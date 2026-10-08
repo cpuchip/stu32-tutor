@@ -3,7 +3,7 @@
 # The core is the firmware at CORE_PIN, a commit pushed to cpuchip/abacus-firmware, exported with
 # git archive into build/ (never built in the firmware's own checkout). Its Makefile builds the
 # runners with its own recipes; we add only the trace (tools/trace.c) at link time.
-# On fermion, run it in the gcc:14 container: scripts/check-docker.sh.
+# Without a native toolchain, run it in the gcc:14 container: scripts/check-docker.sh.
 CORE_PIN := c7ab388
 FIRMWARE ?= ../abacus-firmware
 CORE_DIR := build/core-$(CORE_PIN)

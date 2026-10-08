@@ -13,6 +13,9 @@ Private until Michael sets the curriculum's licence. Everything here is written 
 
 ## Running
 
+The lessons can be read, used and adapted from this repository alone, under the licences below. Running
+the checks needs the STU-32 firmware and its build inputs, which are not public yet.
+
 `make check` runs every lesson on the firmware's core at `CORE_PIN` (a pushed commit of cpuchip/abacus-firmware, exported with git archive). `make controls` proves the check can fail. It needs four clones side by side, each fetched so the pin it is asked for is on its origin:
 
 1. this repo;
@@ -20,4 +23,9 @@ Private until Michael sets the curriculum's licence. Everything here is written 
 3. cpuchip/stu32-arcade at `../stu32-arcade`: the games the firmware's APPS lists (its `games.list`), compiled only, never read;
 4. cpuchip/casimir at `../casim`: the computer algebra the core links from CAS 004 (the firmware's `CASIM_PIN`), compiled only.
 
-The firmware's build finds 3 and 4 through `GAMES_REPOS` (the directory holding stu32-arcade) and `CASIM_REPO` (the casimir clone); `scripts/check-docker.sh` sets both. Natively, set them to the paths above, since the build runs inside the exported copy under build/. Then `make check`, with gcc, make, git and python3. On fermion, which has no native toolchain for the core: `scripts/check-docker.sh` (or `scripts/check-docker.sh controls`), in the gcc:14 container.
+The firmware's build finds 3 and 4 through `GAMES_REPOS` (the directory holding stu32-arcade) and `CASIM_REPO` (the casimir clone); `scripts/check-docker.sh` sets both. Natively, set them to the paths above, since the build runs inside the exported copy under build/. Then `make check`, with gcc, make, git and python3. Without a native toolchain for the core: `scripts/check-docker.sh` (or `scripts/check-docker.sh controls`), in the gcc:14 container.
+
+## Trademarks
+
+HP, 35s, 33s and the other product names in this repository are trademarks of their respective owners,
+used only to identify compatible behaviour.
