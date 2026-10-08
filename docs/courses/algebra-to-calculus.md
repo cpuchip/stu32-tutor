@@ -79,6 +79,9 @@ d75fc75 the keys stop at SOLVE _, and a coefficient typed there is taken as a le
 every input shifts and the answer is wrong with no warning (found by the student run, #4778).
 Unit 8's solver lesson (sys-02, 35s and STU only, decision 58) is written with the guide's keys;
 043 landed by the repin to 7776c7c (accepted d6bab25); sys-02 is written on it.
+An equation cannot start with "(": the "( )" soft key is only on the bar while typing, and EQN LIST's bar is
+full (abacus #4983, a unit for soroban). lim-01 uses a program instead; at the repin past that unit,
+an expression with a leading bracket can be typed in Equation mode.
 041 (decision 58, abacus #4645): 33s mode hides what the HP 33s lacked (CMPLX i, vectors, the
 linear solvers, LOGIC, CLEAR's STK, →km/→mile, REG/ARG in equations) and adds the 33s's own (x³/∛x,
 the ENG shifts, MEM, FN=, HYP as a prefix, its equation syntax and 40 constants). Of the lessons,

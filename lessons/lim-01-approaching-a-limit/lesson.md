@@ -111,8 +111,8 @@ Here the algebra settles it. (x − 1) × (x + 1) is x² + x − x − 1, which 
 1, f(x) is (x − 1) × (x + 1) divided by x − 1, which is x + 1. Near 1, x + 1 is as near to 2 as you like.
 f is x + 1 with one point missing, and the limit fills the gap.
 
-Coming close also has a floor on any calculator. The STU-32 keeps 34 digits (rpn-03), so a number
-closer to 1 than the 34th digit is just 1. 1 plus 10⁻³⁴, minus 1:
+Coming close also has a floor on any calculator. The STU-32 keeps 34 digits (rpn-03), so 1 + 10⁻³⁴
+would need a 35th digit, and it is just 1. 1 plus 10⁻³⁴, minus 1:
 
 ```keys Z01
 1 E 34 +/− ENTER 1 + 1 −

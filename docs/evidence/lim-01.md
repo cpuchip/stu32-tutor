@@ -51,3 +51,12 @@ No wrong value; every display and stack trace came out right. Taken:
 `make check`: 24/24 vectors in 33s, 35s and STU, from a fresh and a used core, and the student run in
 order in each mode. Controls (4): program L without x↔y, sin(x)/x quoted at FIX 4, the limit from below
 quoted as from above, two sides that disagree quoted as agreeing; all red.
+
+## Abacus's accuracy read (#4983, 2026-10-07)
+
+Accepted at b51615a, every value rechecked (sin x/x 0.998334166468…, 0.999983333417…, 0.999999833333…;
+(2ˣ − 1)/x 0.693387…, 0.693171…; ln 2 0.693147…). One change, made: the spacing of 34-digit numbers is
+not the same on both sides of 1 (the 34th digit is the 10⁻³³ place above 1 and 10⁻³⁴ below), so "a number
+closer to 1 than the 34th digit is just 1" was false from below (1 − 10⁻³⁴ is 0.999…9, 34 nines, probed by
+abacus); now "1 + 10⁻³⁴ would need a 35th digit, and it is just 1". The "( )" question: not intended;
+EQN LIST's bar is full, and abacus is giving soroban a unit to let an equation start with a bracket.
