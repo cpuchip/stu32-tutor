@@ -1,0 +1,14 @@
+# Pre-algebra (proposed, docs/courses/pre-algebra.md; hand first, calculator second, decision 63).
+# Algebraic entry first, RPN offered (decision 63). Lessons are in preparation; the pilot is P5's first.
+course | pre-algebra | Pre-algebra
+entry | alg rpn
+unit | 1 | Whole numbers
+unit | 2 | The language of algebra
+unit | 3 | Factors and multiples
+unit | 4 | Integers
+unit | 5 | Fractions
+unit | 6 | Decimals, ratio and rate
+unit | 7 | Percent and proportion
+unit | 8 | The properties of numbers
+unit | 9 | Linear equations
+unit | 10 | The coordinate plane

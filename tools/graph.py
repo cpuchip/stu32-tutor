@@ -161,18 +161,107 @@ def selftest(topics_text, lessons):
     return red == len(plants)
 
 
+ENTRIES = ("rpn", "alg")
+
+
+def load_courses(root):
+    """{file name: text} for courses/*.course."""
+    return {os.path.basename(p): open(p, encoding="utf-8").read()
+            for p in sorted(glob.glob(os.path.join(root, "courses", "*.course")))}
+
+
+def check_courses(course_texts, graph):
+    """(problems, courses). A course file: `course | id | title`, `entry | rpn alg` (offered, default first),
+    then `unit | n | title` and `lesson | id` lines in order. Refused: a malformed line; an unknown or repeated
+    lesson; a lesson requiring a topic taught later in the same course, or taught by no lesson in any course."""
+    bad, courses, in_some = [], {}, set()
+    parsed = []
+    for name, text in course_texts.items():
+        c = {"file": name, "id": None, "title": None, "entry": ["rpn"], "units": []}
+        for n, line in enumerate(text.splitlines(), 1):
+            if not line.strip() or line.lstrip().startswith("#"):
+                continue
+            parts = [p.strip() for p in line.split("|")]
+            kind, args = parts[0], parts[1:]
+            if kind == "course" and len(args) == 2:
+                c["id"], c["title"] = args
+            elif kind == "entry" and len(args) == 1 and args[0].split() and all(e in ENTRIES for e in args[0].split()):
+                c["entry"] = args[0].split()
+            elif kind == "unit" and len(args) == 2:
+                c["units"].append({"n": args[0], "title": args[1], "lessons": []})
+            elif kind == "lesson" and len(args) == 1 and c["units"]:
+                c["units"][-1]["lessons"].append(args[0])
+            else:
+                bad.append(f"{name}:{n}: expected course | id | title, entry | rpn alg, unit | n | title, or lesson | id")
+        if not c["id"] or f"{c['id']}.course" != name:
+            bad.append(f"{name}: its course line must name it ({name[:-7]})")
+        parsed.append(c)
+        for u in c["units"]:
+            in_some.update(u["lessons"])
+    topics = graph["topics"]
+    for c in parsed:
+        order = [l for u in c["units"] for l in u["lessons"]]
+        seen = set()
+        for i, lid in enumerate(order):
+            if lid not in graph["lessons"]:
+                bad.append(f"{c['file']}: lesson {lid} is not a lesson")
+                continue
+            if lid in seen:
+                bad.append(f"{c['file']}: lesson {lid} is listed twice")
+            seen.add(lid)
+            for slug in graph["lessons"][lid]["requires"]:
+                src = topics.get(slug, {}).get("lesson")
+                if src in order and order.index(src) > i:
+                    bad.append(f"{c['file']}: {lid} requires '{slug}', taught later in the course by {src}")
+                elif src is not None and src not in in_some:
+                    bad.append(f"{c['file']}: {lid} requires '{slug}', taught by {src}, which is in no course")
+        courses[c["id"]] = {k: c[k] for k in ("title", "entry", "units")}
+    for lid in sorted(set(graph["lessons"]) - in_some):
+        bad.append(f"{lid}: in no course")
+    return bad, courses
+
+
+def selftest_courses(course_texts, graph):
+    """Each planted course fault must be refused, and for its own reason."""
+    name = "algebra-to-calculus.course"
+    t = course_texts[name]
+    plants = [
+        ("an unknown lesson in a course", t + "lesson | no-such-01\n", "is not a lesson"),
+        ("a lesson listed twice", t + "lesson | rpn-01\n", "is listed twice"),
+        ("a lesson before the one that teaches what it requires",
+         t.replace("lesson | rpn-01\n", "").replace("lesson | rpn-02\n", "lesson | rpn-02\nlesson | rpn-01\n"),
+         "taught later in the course"),
+        ("a malformed line", t + "lessn | rpn-01\n", "expected course"),
+        ("a lesson in no course", t.replace("lesson | int-01\n", ""), "int-01: in no course"),
+    ]
+    red = 0
+    for pname, text, why in plants:
+        problems = check_courses({**course_texts, name: text}, graph)[0]
+        hit = [p for p in problems if why in p]
+        print(f"{'ok  ' if hit else 'FAIL'} {pname}" + (f"\n       -> {hit[0]}" if hit else f": {problems[:2]}"))
+        red += bool(hit)
+    print(f"{red}/{len(plants)} course controls red as planted")
+    return red == len(plants)
+
+
 def main():
     topics_text, lessons = load(ROOT)
     if "--selftest" in sys.argv:
-        return 0 if selftest(topics_text, lessons) else 1
+        ok = selftest(topics_text, lessons)
+        ok = selftest_courses(load_courses(ROOT), check(topics_text, lessons)[1]) and ok
+        return 0 if ok else 1
     bad, graph = check(topics_text, lessons)
+    cbad, graph["courses"] = check_courses(load_courses(ROOT), graph)
+    bad += cbad
     if "--json" in sys.argv:
         print(json.dumps(graph, ensure_ascii=False, indent=1))
     for b in bad:
         print(f"GRAPH {b}", file=sys.stderr)
     edges = sum(len(v["needs"]) for v in graph["lessons"].values())
+    listed = sum(len(u["lessons"]) for c in graph["courses"].values() for u in c["units"])
     print(f"graph: {len(graph['topics'])} topics, {len(graph['lessons'])}/{len(lessons)} lessons, "
-          f"{edges} lesson links, {len(bad)} problems", file=sys.stderr)
+          f"{edges} lesson links, {len(graph['courses'])} courses ({listed} lessons listed), {len(bad)} problems",
+          file=sys.stderr)
     return 1 if bad else 0
 
 

@@ -1,0 +1,53 @@
+# Algebra to Calculus: the course's units and lessons in order (docs/courses/algebra-to-calculus.md).
+# kind | fields. tools/graph.py checks every lesson, and that no lesson requires a topic taught later here.
+course | algebra-to-calculus | Algebra to Calculus
+entry | rpn
+unit | 0 | The calculator
+lesson | rpn-01
+lesson | rpn-02
+lesson | rpn-03
+unit | 1 | Numbers
+lesson | num-01
+lesson | num-02
+lesson | num-03
+lesson | num-04
+unit | 2 | Equations and inequalities
+lesson | eq-01
+lesson | eq-02
+lesson | eq-03
+unit | 3 | Functions
+lesson | fn-01
+lesson | fn-02
+lesson | fn-03
+unit | 4 | Linear functions
+lesson | lin-01
+lesson | lin-02
+lesson | lin-03
+unit | 5 | Polynomials
+lesson | poly-01
+lesson | poly-02
+lesson | poly-03
+lesson | poly-04
+unit | 6 | Exponentials and logarithms
+lesson | exp-01
+lesson | exp-02
+lesson | exp-03
+lesson | exp-04
+unit | 7 | Trigonometry
+lesson | trig-01
+lesson | trig-02
+lesson | trig-03
+lesson | trig-04
+unit | 8 | Systems of equations
+lesson | sys-01
+lesson | sys-02
+unit | 9 | Sequences, counting and probability
+lesson | seq-01
+lesson | cnt-01
+lesson | prob-01
+unit | 10 | Toward calculus: limits and rates
+lesson | lim-01
+lesson | lim-02
+unit | 11 | The derivative
+unit | 12 | The integral
+lesson | int-01

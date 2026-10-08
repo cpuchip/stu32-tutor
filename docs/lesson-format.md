@@ -160,3 +160,25 @@ green). A fault that does not apply to the file, or applies more than once, is r
 - Some correct keys are refused (false reds, not false passes): a shifted key with no legend in
   that shift, Equation mode's soft keys, CLR ALL?'s yes, and CONST's later pages.
 - Pedagogy and voice: those are read by someone who did not write the lesson, and are Michael's.
+
+## Courses
+
+A course is a file `courses/<id>.course` (decision 63: courses a learner takes, not one long list), lines
+`kind | fields` with `#` comments:
+
+```
+course | algebra-to-calculus | Algebra to Calculus
+entry | rpn
+unit | 0 | The calculator
+lesson | rpn-01
+```
+
+- `course | id | title`: the id is the file's name.
+- `entry | rpn alg`: the entries the course offers, its default first (decision 63: young learners' courses
+  default to algebraic, with RPN offered). A lesson that offers only RPN stays RPN.
+- `unit | n | title`, then its `lesson | id` lines in order. A unit may have no lessons yet; the page
+  shows it as in preparation, and shows only lessons on lessons/ACCEPTED.
+- `tools/graph.py` (in `make check`) refuses a malformed line, an unknown or repeated lesson, a lesson
+  requiring a topic taught later in the same course or by a lesson in no course, and a lesson in no
+  course; a topic taught in another course is allowed, and the page links it there. `--json` prints
+  the courses beside the topics and lessons; `make controls` plants five course faults.
