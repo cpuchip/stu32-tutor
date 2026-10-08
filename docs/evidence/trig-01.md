@@ -61,3 +61,11 @@ is the core's …758): not a defect, since radian trig and →RAD/→DEG are und
 bar (034 made DEG and GRAD trig correctly rounded); the coming single-input hp Ziv unit will make them
 correct, and they repin to exact then. The unit's scope (fn_torad never reads the mode; 35s guide p.4-14),
 DEG showing no unit (screen.c), GRAD's 400, the keys (layout/stu32-v0.json) and the quoted values confirmed.
+
+## Repin to 7776c7c (2026-10-07): firmware 044, correct rounding
+
+044 (abacus #4905; soroban #4902, its work/044-vectors.txt N01 to N03) makes radian trig and
+→RAD correctly rounded. A02 (RAD 30 SIN) and E01 (45 →RAD) failed alone on their one-unit pins,
+as the watch predicted, and are now the oracle's exact values: −0.9880316240928617899877489072944582
+and 0.7853981633974483096156608458198757. build/proto/trig01.py has no pins left. The prose's four-place
+quotes did not move.

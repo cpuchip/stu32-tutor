@@ -3,6 +3,8 @@ id: poly-04
 title: Complex roots
 requires: setup shift-keys soft-keys x-squared square-root clear-message root-count horner horner-stack quadratic quadratic-formula discriminant double-root negative-discriminant
 status: draft prose (accuracy: lessons/ACCEPTED; not yet read by Michael)
+modes: 35s STU
+modes_reason: In 33s mode, as on an HP 33s, CMPLX does not type a complex number with i (firmware 041); a 33s version, with the 33s's pairs of numbers, is to come.
 setup: BLUE MODE {mode} GOLD DISP FIX 4
 display: FIX 4
 ---
@@ -31,9 +33,9 @@ whose imaginary part is 0.
 
 The calculator keeps both parts of a complex number in one stack level. To type one, type the real
 part, then press CMPLX (blue above +/−), which opens a menu like MODE in rpn-01, and press the soft
-key under i; then type the imaginary part. (Typing a complex number with i like this is the
-STU-32's own way, taken from the HP 35s, in every mode; an HP 33s itself keeps the two parts as a
-pair of numbers on the stack instead.) i itself is 0 + 1i:
+key under i; then type the imaginary part. (Typing a complex number with i like this is the HP
+35s's way, and STU mode's. An HP 33s keeps the two parts as a pair of numbers on the stack instead,
+and so does 33s mode, which is why this lesson is offered in 35s and STU mode.) i itself is 0 + 1i:
 
 ```keys C01A
 0 BLUE CMPLX i 1

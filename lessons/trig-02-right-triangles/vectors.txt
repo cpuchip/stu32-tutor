@@ -7,5 +7,5 @@ A01 | the 3-4-5 triangle: the angle opposite 3 from sin = 3/5 | MODE33 FIX4 DEG 
 A02 | the same angle from cos = 4/5 | MODE33 FIX4 DEG 4 ENTER 5 / ACOS | X=36.86989764584402129685561255909341
 A03 | and from tan = 3/4 | MODE33 FIX4 DEG 3 ENTER 4 / ATAN | X=36.86989764584402129685561255909341
 E01 | exercise 1: a ramp rising 1 m over 12 m: its angle, ATAN(1/12) | MODE33 FIX4 DEG 1 ENTER 12 / ATAN | X=4.76364169072617758132732763350963
-E02 | exercise 2: a 2.5 m ladder, foot 0.7 m out: its angle, ACOS(0.7/2.5) | MODE33 FIX4 DEG 0.7 ENTER 2.5 / ACOS | X=73.73979529168804259371122511818681
+E02 | exercise 2: a 2.5 m ladder, foot 0.7 m out: its angle, ACOS(0.7/2.5) | MODE33 FIX4 DEG 0.7 ENTER 2.5 / ACOS | X=73.73979529168804259371122511818682
 E02B | continues E02: its height, 2.5 sin of that angle | MODE33 FIX4 DEG 0.7 ENTER 2.5 / ACOS SIN 2.5 * | X=2.4

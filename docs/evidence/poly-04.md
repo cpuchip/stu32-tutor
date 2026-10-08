@@ -56,3 +56,12 @@ reads real, i, imaginary, and +/− applies to the part being typed. (3) Faithfu
 conjugate pair from the formula's ±√, the general fact needing more. (5) the fundamental theorem of
 algebra with multiplicity. Optional note taken: typing a complex number with CMPLX i is the STU-32's
 own (from the 35s); an HP 33s keeps complex numbers as pairs, so a one-sentence aside now says so.
+
+## Repin to 7776c7c (2026-10-07): firmware 041, 33s mode as a 33s
+
+041 (decision 58) hides CMPLX's i in 33s mode, as on an HP 33s. At the repin poly-04's vectors failed
+in 33s mode alone (C01A onward: the i not typed), as the watch predicted, and passed in 35s and STU.
+So the lesson offers `modes: 35s STU`, with a modes_reason; its topics are tagged @35s,STU in TOPICS;
+the sentence that said typing with i works "in every mode" now says it is the 35s's way and STU's,
+and why 33s mode is not offered. Two controls moved from 33s mode to 35s mode. A 33s version, with
+the 33s's pairs, is to come.

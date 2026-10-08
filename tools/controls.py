@@ -275,9 +275,9 @@ CONTROLS_FOR["poly-04-complex-roots"] = [
     ("a root's i part quoted with the wrong sign", "lesson.md", 'v="R01">-1.0000i2.0000<', 'v="R01">-1.0000i-2.0000<', {},
      "D-R01: the prose shows '-1.0000i-2.0000'"),
     ("−b typed without ENTER (the −2 runs into the 0 of 0 i 4)", "lesson.md", "```keys R01\n2 +/− ENTER 0 BLUE CMPLX i 4 + 2 ÷\n",
-     "```keys R01\n2 +/− 0 BLUE CMPLX i 4 + 2 ÷\n", {}, "R01: printed keys and vector disagree in 33s mode"),
+     "```keys R01\n2 +/− 0 BLUE CMPLX i 4 + 2 ÷\n", {}, "R01: printed keys and vector disagree in 35s mode"),
     ("the conjugate checked with its i part's sign lost", "lesson.md", "```keys H02A\n1 +/− BLUE CMPLX i 2 +/−\n",
-     "```keys H02A\n1 +/− BLUE CMPLX i 2\n", {}, "H02A: printed keys and vector disagree in 33s mode"),
+     "```keys H02A\n1 +/− BLUE CMPLX i 2\n", {}, "H02A: printed keys and vector disagree in 35s mode"),
 ]
 CONTROLS_FOR["exp-01-growth-and-decay"] = [
     ("4% growth keyed as a factor of 0.04", "lesson.md", "```keys G01\n500 ENTER 1.04 ENTER 10 yˣ ×\n",

@@ -69,25 +69,26 @@ stopped program. 036b (in 35s and STU mode XEQ and GTO take a letter then ENTER)
 repin to d75fc75: fn-01..03 and poly-01 carry 35s,STU variants with the ENTER, and say so.
 034 (→POL's θ correctly rounded) landed there too: trig-04's (3, 4) angle is exact, unpinned.
 Re-run fn-03's side vector W01 (docs/evidence/fn-03.md) at every repin: make check does not.
-042 (SOLVE with both guesses on one side of a root, abacus #4683) is not in d75fc75: re-run
-eq-03's A03 (guesses 10 and 20, root 8) at the next repin.
+042 (SOLVE with both guesses on one side of a root, abacus #4683) landed by the repin to 7776c7c:
+eq-03's A03 (guesses 10 and 20, root 8) passes there unchanged, in all three modes.
 Field check 8 (abacus #4764): typed entry counts leading zeros toward the 34 digits (0.0000 then
 34 digits keeps 29), while rpn-03's "keeps 34 significant digits of every number" is true of
 results. If the field check leaves it so, a later lesson on typing long numbers says it.
 043 (abacus #4780, cc8e048): SOLVE on a built-in linear solver skips the letter, as the 35s does. At
 d75fc75 the keys stop at SOLVE _, and a coefficient typed there is taken as a letter (1 is Y), so
 every input shifts and the answer is wrong with no warning (found by the student run, #4778).
-Unit 8's solver lesson (sys-02, 35s and STU only, decision 58) is written with the guide's keys
-and held until a repin past 043; sys-01 (elimination by hand) does not use the solver.
+Unit 8's solver lesson (sys-02, 35s and STU only, decision 58) is written with the guide's keys;
+043 landed by the repin to 7776c7c (accepted d6bab25), so sys-02 can be written now.
 041 (decision 58, abacus #4645): 33s mode hides what the HP 33s lacked (CMPLX i, vectors, the
 linear solvers, LOGIC, CLEAR's STK, →km/→mile, REG/ARG in equations) and adds the 33s's own (x³/∛x,
 the ENG shifts, MEM, FN=, HYP as a prefix, its equation syntax and 40 constants). Of the lessons,
-only poly-04 uses a hidden feature (CMPLX i): at that repin it offers 35s and STU with a
-modes_reason until 039's CMPLX pairs give it a 33s variant.
-The single-input hp Ziv unit (after 041, abacus #4666/#4667) makes radian trig, →RAD/→DEG and the
-inverse trig functions correctly rounded (today within 8 units): repin trig-01's A02 and E01 and
-trig-02's E02, pinned within 1-2 units now, to exact values then. The 33s equation syntax may change
-equation quotes in eq-01..03, exp-04 and poly-02; the 33s pass will say.
+only poly-04 uses a hidden feature (CMPLX i). FIRED at the repin to 7776c7c, as predicted: poly-04's
+vectors failed in 33s mode alone, and it now offers 35s and STU with a modes_reason, its topics
+tagged @35s,STU in TOPICS, until a 33s variant with the 33s's CMPLX pairs is written.
+The 33s equation syntax (041 D) moved nothing: eq-01..03, exp-04 and poly-02 pass in 33s mode.
+The single-input Ziv unit, 044 (abacus #4905, accepted at 7776c7c), makes every one-input
+function correctly rounded. FIRED at the repin to 7776c7c, as predicted: trig-01's A02 and E01 and
+trig-02's E02 failed on their pins alone, and are exact now (…4582, …757, …682), unpinned.
 
 ## What this asks of others
 

@@ -156,9 +156,9 @@ double-root | A double root | poly-03 | One root
 negative-discriminant | No real root: a negative discriminant | poly-03 | No real root
 
 # poly-04 Complex roots
-complex | Complex numbers and i, and typing them | poly-04 | A number whose square is −1
-complex-roots | Complex roots, in conjugate pairs | poly-04 | The roots of x² + 2x + 5
-complex-check | Checking a complex root | poly-04 | Checking a root
+complex | Complex numbers and i, and typing them | poly-04@35s,STU | A number whose square is −1
+complex-roots | Complex roots, in conjugate pairs | poly-04@35s,STU | The roots of x² + 2x + 5
+complex-check | Checking a complex root | poly-04@35s,STU | Checking a root
 
 # exp-01 Growth and decay
 growth | Growth by a factor | exp-01 | Growth

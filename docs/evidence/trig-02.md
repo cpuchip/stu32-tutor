@@ -47,3 +47,9 @@ Accepted at 132660e. Every quoted value checked against mpmath; E02B's 2.4000 is
 sin(acos 0.28) = √(1 − 0.0784) = 0.96. (1) AA similarity; (2) the converse of Pythagoras, "c the
 longest" the right condition; (3) the inverses' ranges for ratios in (0, 1), fine as a promise for
 trig-03; (4) a function leaves stack lift on.
+
+## Repin to 7776c7c (2026-10-07): firmware 044, correct rounding
+
+044 (abacus #4905) makes inverse trig correctly rounded in every unit. E02 (DEG ACOS 0.28) failed
+alone on its pin, as predicted, and is now the truth, 73.73979529168804259371122511818682 (soroban's
+N04). E02B, 2.5 × sin of it, is still exactly 2.4. The four-place quotes did not move.

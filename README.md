@@ -13,10 +13,11 @@ Private until Michael sets the curriculum's licence. Everything here is written 
 
 ## Running
 
-`make check` runs every lesson on the firmware's core at `CORE_PIN` (a pushed commit of cpuchip/abacus-firmware, exported with git archive). `make controls` proves the check can fail. It needs three clones side by side:
+`make check` runs every lesson on the firmware's core at `CORE_PIN` (a pushed commit of cpuchip/abacus-firmware, exported with git archive). `make controls` proves the check can fail. It needs four clones side by side, each fetched so the pin it is asked for is on its origin:
 
 1. this repo;
-2. cpuchip/abacus-firmware at `../abacus-firmware`, fetched so that `CORE_PIN` is on one of its remote branches;
-3. cpuchip/stu32-arcade at `../stu32-arcade` (the apps the firmware's app layer links, compiled only, never read): the export checks it out at the firmware's `ARCADE_PIN` and fails without it. A different place can be given as `scripts/export-core.sh`'s fourth argument.
+2. cpuchip/abacus-firmware at `../abacus-firmware` (`CORE_PIN`);
+3. cpuchip/stu32-arcade at `../stu32-arcade`: the games the firmware's APPS lists (its `games.list`), compiled only, never read;
+4. cpuchip/casimir at `../casim`: the computer algebra the core links from CAS 004 (the firmware's `CASIM_PIN`), compiled only.
 
-Then `make check`, with gcc, make, git and python3. On fermion, which has no native toolchain for the core: `scripts/check-docker.sh` (or `scripts/check-docker.sh controls`), in the gcc:14 container.
+The firmware's build finds 3 and 4 through `GAMES_REPOS` (the directory holding stu32-arcade) and `CASIM_REPO` (the casimir clone); `scripts/check-docker.sh` sets both. Natively, set them to the paths above, since the build runs inside the exported copy under build/. Then `make check`, with gcc, make, git and python3. On fermion, which has no native toolchain for the core: `scripts/check-docker.sh` (or `scripts/check-docker.sh controls`), in the gcc:14 container.
