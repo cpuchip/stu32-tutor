@@ -26,4 +26,8 @@ void kr_press(app_state *a, int key);
    runs an app (a game) live (primer #5069). keyrun does not use it. */
 void kr_advance(app_state *a, uint32_t ms);
 
+/* One key at the clock's present time, with no jump: for a live app whose step is the time elapsed
+   between ticks (primer #5109), where kr_key's 100 ms would lurch it. */
+void kr_key_now(app_state *a, int key);
+
 #endif
