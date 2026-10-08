@@ -218,3 +218,11 @@ solver-keep | Keeping a number at the solver's prompt | sys-02@35s,STU | Keeping
 solver-form | Into the solver's form: rearranging, and 0 for a missing unknown | sys-02@35s,STU | Into the solver's form
 solver-3x3 | The 3×3 solver: A to L | sys-02@35s,STU | Three equations
 solver-none-many | NO SOLUTION and MULT SOLUTION | sys-02@35s,STU | No solution, or every solution
+
+# seq-01 Sequences and sums
+sequence | A sequence and its terms | seq-01 | -
+arithmetic-sequence | Arithmetic sequences: the nth term | seq-01 | Arithmetic sequences
+arithmetic-sum | The sum of an arithmetic sequence | seq-01 | Arithmetic sequences
+geometric-sequence | Geometric sequences: the nth term | seq-01 | Geometric sequences
+geometric-sum | The sum of a geometric sequence | seq-01 | Geometric sequences
+summing-loop | Checking a sum with a loop | seq-01 | Checking a sum with a loop

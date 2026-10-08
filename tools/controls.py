@@ -362,6 +362,14 @@ CONTROLS_FOR["sys-02-the-built-in-solvers"] = [
     ("one line twice quoted as no solution", "lesson.md", 'kind="message">MULT SOLUTION<',
      'kind="message">NO SOLUTION<', {}, "N02: the device's X line shows 'MULT SOLUTION' (message)"),
 ]
+CONTROLS_FOR["seq-01-sequences-and-sums"] = [
+    ("the nth term with n steps, not n - 1", "lesson.md", "```keys A01\n20 ENTER 14 ENTER 2 × +\n",
+     "```keys A01\n20 ENTER 15 ENTER 2 × +\n", {}, "A01: printed keys and vector disagree in 33s mode"),
+    ("the geometric sum quoted as the next term", "lesson.md", 'v="G02">3,069.0000<', 'v="G02">3,072.0000<', {},
+     "D-G02: the prose shows '3,072.0000'"),
+    ("the loop's row k as 20 + 2k (one row out)", "lesson.md", "IP 2 × 18 + STO + T BLUE ISG I GOLD GTO W RCL T",
+     "IP 2 × 20 + STO + T BLUE ISG I GOLD GTO W RCL T", {}, "P01B: printed keys and vector disagree in 33s mode"),
+]
 CONTROLS_FOR["fn-02-a-table-of-values"] = [
     ("a label's line numbered from the program's top, not its own label", "lesson.md", 'kind="program">U008 RTN<',
      'kind="program">T022 RTN<', {}, "T01B: the device's X line shows 'U008 RTN' (program)"),

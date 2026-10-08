@@ -1,0 +1,14 @@
+# seq-01 sequences and sums: key vectors (the firmware's format). Every example is ours. Each
+# starts MODE33 FIX4 (the lesson's setup). Values from build/proto/seq01.py.
+A01 | the 15th row: 20 + 14 x 2 | MODE33 FIX4 20 ENTER 14 ENTER 2 * + | X=48
+A02 | all 15 rows: 15 x (20 + 48) / 2 | MODE33 FIX4 15 ENTER 20 ENTER 48 + * 2 / | X=510
+G01 | the 10th term of 3, 6, 12, ...: 3 x 2^9 | MODE33 FIX4 3 ENTER 2 ENTER 9 POW * | X=1536
+G02 | the sum of 10 terms: 3 x (2^10 - 1) / (2 - 1) | MODE33 FIX4 3 ENTER 2 ENTER 10 POW 1 - * 2 ENTER 1 - / | X=3069
+P01A | program Z: the total T to 0, the counter 1.015 in I | MODE33 FIX4 PRGM LBL:Z 0 STO:T 1.015 STO:I | %LINES=5
+P01B | continues P01A: the loop W: k = IP(I), the term 18 + 2k added to T; ISG I, GTO W; then T | MODE33 FIX4 PRGM LBL:Z 0 STO:T 1.015 STO:I LBL:W RCL:I IP 2 * 18 + STO+:T ISG:I GTO:W RCL:T RTN | %LINES=17
+P01 | continues P01B: program entry off | MODE33 FIX4 PRGM LBL:Z 0 STO:T 1.015 STO:I LBL:W RCL:I IP 2 * 18 + STO+:T ISG:I GTO:W RCL:T RTN PRGM | %LINES=17
+P02 | continues P01: XEQ Z adds the 15 rows: 510 | MODE33 FIX4 PRGM LBL:Z 0 STO:T 1.015 STO:I LBL:W RCL:I IP 2 * 18 + STO+:T ISG:I GTO:W RCL:T RTN PRGM XEQ:Z | X=510 @T=510
+E01 | exercise 1: the 30th term of 7, 11, 15, ...: 7 + 29 x 4 | MODE33 FIX4 7 ENTER 29 ENTER 4 * + | X=123
+E01B | continues E01: with 123 in X, the sum (123 + 7) x 30 / 2 | MODE33 FIX4 7 ENTER 29 ENTER 4 * + 7 + 30 * 2 / | X=1950
+E02 | exercise 2: the 5th bounce: 2 x 0.75^5 | MODE33 FIX4 2 ENTER 0.75 ENTER 5 POW * | X=0.474609375
+E03 | exercise 3: 1 + 2 + ... + 512 = 2^10 - 1 | MODE33 FIX4 2 ENTER 10 POW 1 - | X=1023

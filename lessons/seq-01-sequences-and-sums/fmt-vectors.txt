@@ -1,0 +1,10 @@
+# seq-01 display vectors: D-nnn is what X shows after key vector nnn, at FIX 4.
+D-A01 | after A01 | 48 | FIX 4 | w=21 | 48.0000
+D-A02 | after A02 | 510 | FIX 4 | w=21 | 510.0000
+D-G01 | after G01 | 1536 | FIX 4 | w=21 | 1,536.0000
+D-G02 | after G02 | 3069 | FIX 4 | w=21 | 3,069.0000
+D-P02 | after P02 | 510 | FIX 4 | w=21 | 510.0000
+D-E01 | after E01 | 123 | FIX 4 | w=21 | 123.0000
+D-E01B | after E01B | 1950 | FIX 4 | w=21 | 1,950.0000
+D-E02 | after E02 | 0.474609375 | FIX 4 | w=21 | 0.4746
+D-E03 | after E03 | 1023 | FIX 4 | w=21 | 1,023.0000
