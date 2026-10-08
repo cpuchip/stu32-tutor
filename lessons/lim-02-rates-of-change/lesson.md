@@ -145,8 +145,9 @@ steps is rounded to the nearer one. 1 + 10⁻³⁴ is less than halfway to the n
 ```
 
 X shows <disp v="D06">6.6667</disp>, far from 4. 1 + 6 × 10⁻³⁴ is more than halfway to the next step, so
-it rounds up to 1 + 10⁻³³: the h that went into d is not the h it is divided by. From there the
-arithmetic is exact. d(1 + 10⁻³³) − d(1) is 4 × 10⁻³³, and 4 × 10⁻³³ ÷ (6 × 10⁻³⁴) is 40 ÷ 6. The
+it rounds up to 1 + 10⁻³³: the h that went into d is not the h it is divided by. From there nothing
+else matters: d(1 + 10⁻³³) − d(1) is 4 × 10⁻³³ (the square drops only 10⁻⁶⁶, far below), and
+4 × 10⁻³³ ÷ (6 × 10⁻³⁴) is 40 ÷ 6. The
 subtraction lost nothing itself; what it did was leave only the one digit in which the two values
 differ, so the small rounding of 1 + h became the whole answer. A subtraction of two nearly equal
 numbers, which leaves only the digits where they differ so that any earlier rounding becomes all of the

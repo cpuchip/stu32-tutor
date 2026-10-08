@@ -51,3 +51,10 @@ Every display matched; program D and A01 traced right. Taken:
 `make check`: 14/14 vectors in 33s, 35s and STU, from a fresh and a used core, and the student run in
 order in each mode. Controls (3): program D without taking away d(1), h = 10⁻³⁴ quoted as 4, the average
 speed quoted as the instant one; all red.
+
+## Abacus's accuracy read (#4988, 2026-10-07)
+
+Accepted at ef4e250; all 14 values modelled in 34-digit decimal, half even, and matching; 1 + 5 × 10⁻³⁴ ties
+to 1. (1), (3), (4), (5) true. (2) nearly: "From there the arithmetic is exact" was not quite, since squaring
+1 + 10⁻³³ rounds away 10⁻⁶⁶; now "From there nothing else matters … (the square drops only 10⁻⁶⁶, far
+below)". The subtraction itself is exact, as the lesson says.
