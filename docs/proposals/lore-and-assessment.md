@@ -38,7 +38,7 @@ A lesson's front matter names who appears in it, in two kinds (abacus #5227):
 - **`cast: name name`:** characters the story leans on. A reader must already have met them.
 - **`walk-ons: name name`:** characters whose part stands alone, readable without their home lesson.
 
-**Why two kinds.** Under open routes (section 3) a learner reaches a lesson by any path the
+**Why two kinds.** Under free routes (section 3) a learner reaches a lesson by any path the
 prerequisites allow, so "before" has no single meaning. A check against one course order would pass
 a lesson that some route reaches before the character's home lesson. The rule must hold on every
 route.
@@ -139,8 +139,11 @@ prerequisite graph already says which lessons a learner is ready for: those whos
 they have met. What I would add:
 
 - **`--json` gains, per lesson, the topics it teaches and the lessons that unlock it.** primer can
-  then draw a map where any lesson whose requirements are met is open, in any course. That is the
-  roguelike shape: the learner chooses the next room among the open doors.
+  then draw a map where every lesson whose requirements are met is marked ready, in any course. That
+  is the roguelike shape: the learner chooses the next room among the ready doors. Ready is guidance,
+  never a lock (primer's "gateways guide, never lock"): a lesson not yet ready still opens by its
+  link, since there are no logins and nothing to lock with. The map says what it leans on, and links
+  there.
 - **Entry points are each course's unit 0** (start-01, rpn-01, and geometry's when written), plus
   wherever placement lands a learner.
 - **Each unit's story stands alone** (a one-line recap opens it), so a learner who takes units out
@@ -156,7 +159,8 @@ they have met. What I would add:
    or loreworks as the home.
 2. **Wrong-answer hints in the quizzes,** each tied to a named slip (recommended), or right/wrong
    only.
-3. **Open routes:** any lesson whose requirements are met is open (recommended), or the courses in
-   order with the map as a guide.
+3. **Routes:** any lesson whose requirements are met is marked ready, in any course, with every lesson
+   still reachable by its link (recommended); or the courses in order, with the map as a guide. Locks
+   versus guidance is his question, which basecamp is putting to him.
 4. **The first course to get its bible and cast:** pre-algebra (two lessons written, the bakery
    already in them), as recommended, or another.
