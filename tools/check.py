@@ -17,7 +17,7 @@ its first token, MODE33, is set to the mode's own). For each lesson and each off
      leave the device at rest. Every vector of the mode is shown by a block of the view.
   4. Every <disp v="ID">text</disp> of the view sits after block ID and before the next block, is the
      text the device's screen shows after those keys in that mode, and (for a value) is the text of
-     display vector D-ID, of vector ID's exact X result.
+     display vector D-ID@mode if there is one, else D-ID, of vector ID's exact X result.
   5. No em-dash anywhere in lesson.md, as a character or an entity.
   6. A student working through, in that mode: the setup once, then every block of the view in order
      on one device with nothing reset (student_sequence); every exact X, Y, Z, T and every quoted
@@ -487,7 +487,9 @@ class Lesson:
                 if not line_says((kind, stext), screen_y.get(vid, ("?", "")), qkind, shown_text):
                     self.bad(f"{vid}: the device's X line shows '{stext}' ({kind}), the prose '{shown_text}' ({qkind}) ({mode})")
                 continue
-            f = fmt_by.get("D-" + vid)
+            # A quote that differs by mode (33s's real part against 35s's a i b) has its own display
+            # vector, D-ID@mode, as a vector has ID@modes; else the one display vector D-ID serves.
+            f = fmt_by.get(f"D-{vid}@{mode}") or fmt_by.get("D-" + vid)
             if not f:
                 self.bad(f'<disp v="{vid}"> has no display vector D-{vid}')
                 continue

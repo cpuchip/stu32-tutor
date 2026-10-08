@@ -272,7 +272,11 @@ CONTROLS_FOR["poly-03-the-quadratic-formula"] = [
      'v="N02" kind="message">INVALID DATA<', {}, "N02: the device's X line shows 'SQRT(NEG)' (message)"),
 ]
 CONTROLS_FOR["poly-04-complex-roots"] = [
-    ("a root's i part quoted with the wrong sign", "lesson.md", 'v="R01">-1.0000i2.0000<', 'v="R01">-1.0000i-2.0000<', {},
+    ("33s: a pair typed real part first", "lesson.md", "```keys C01A mode=33s\n1 ENTER 0\n",
+     "```keys C01A mode=33s\n0 ENTER 1\n", {}, "C01A: printed keys and vector disagree in 33s mode"),
+    ("33s: the imaginary part quoted as the X line", "lesson.md", '<disp v="R01" m="33s">-1.0000<',
+     '<disp v="R01" m="33s">2.0000<', {}, "D-R01: the prose shows '2.0000'"),
+    ("a root's i part quoted with the wrong sign", "lesson.md", 'v="R01" m="35s,STU">-1.0000i2.0000<', 'v="R01" m="35s,STU">-1.0000i-2.0000<', {},
      "D-R01: the prose shows '-1.0000i-2.0000'"),
     ("−b typed without ENTER (the −2 runs into the 0 of 0 i 4)", "lesson.md", "```keys R01\n2 +/− ENTER 0 BLUE CMPLX i 4 + 2 ÷\n",
      "```keys R01\n2 +/− 0 BLUE CMPLX i 4 + 2 ÷\n", {}, "R01: printed keys and vector disagree in 35s mode"),

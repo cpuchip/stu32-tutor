@@ -65,3 +65,24 @@ So the lesson offers `modes: 35s STU`, with a modes_reason; its topics are tagge
 the sentence that said typing with i works "in every mode" now says it is the 35s's way and STU's,
 and why 33s mode is not offered. Two controls moved from 33s mode to 35s mode. A 33s version, with
 the 33s's pairs, is to come.
+
+## The 33s version (2026-10-07, core c7ab388): firmware 039's pairs
+
+poly-04 is offered in all three modes again. In 33s mode, as on an HP 33s, a complex number is a pair
+(imaginary in Y, real in X, typed imaginary ENTER real), and CMPLX before +, −, ×, ÷ works on the pair
+in Z and T and the pair in Y and X (work/039-33s-cmplx-pairs.md and its vectors read for the layout).
+Every block has a mode=33s variant, vectors ID@33s, and its own display vectors D-ID@33s (the real part
+on the X line), for which check.py now looks before D-ID. The √x and x² refusals are a 35s,STU-only
+section: 33s mode has no complex values to refuse. Horner's keys need a complex number in every level,
+which pairs cannot give, so the 33s check is term by term: z × z with CMPLX ×, then + 2z (worked in the
+head) with CMPLX +, then + c as a pair. The oracle asserts each term in exact Gaussian arithmetic; the
+stacks were traced by hand before the vectors ran, and 11/11 pair vectors (22 expectations) passed first
+time. Controls added: a pair typed real part first; the imaginary part quoted as the X line.
+
+A non-author read of the 33s path traced every block by hand and agreed with every vector. Taken: "CMPLX
+has no square root among its operations" (039 lists yˣ) became "there is no complex square root key";
+the ENTER between two pairs named in the prose wherever the keys have it; why a result pair moves up to
+Z and T when a pair is typed (rpn-01's lift, two numbers); that CMPLX keeps the first number in Z and T,
+and that CMPLX ÷ divides the first by the second; a picture of the four levels; H02A's Y named; 2z and
+−4z said to be worked in the head; √(−d) = √d × i stated as the chosen root of two (shared text); "of
+degree 1 or more" (shared text).

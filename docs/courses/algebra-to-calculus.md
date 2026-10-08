@@ -84,7 +84,8 @@ linear solvers, LOGIC, CLEAR's STK, →km/→mile, REG/ARG in equations) and add
 the ENG shifts, MEM, FN=, HYP as a prefix, its equation syntax and 40 constants). Of the lessons,
 only poly-04 uses a hidden feature (CMPLX i). FIRED at the repin to 7776c7c, as predicted: poly-04's
 vectors failed in 33s mode alone, and it now offers 35s and STU with a modes_reason, its topics
-tagged @35s,STU in TOPICS, until a 33s variant with the 33s's CMPLX pairs is written.
+tagged @35s,STU in TOPICS, until a 33s variant with the 33s's CMPLX pairs was written: it is, and poly-04
+offers all three modes again (D-ID@33s display vectors for the pairs' real parts).
 The 33s equation syntax (041 D) moved nothing: eq-01..03, exp-04 and poly-02 pass in 33s mode.
 The single-input Ziv unit, 044 (abacus #4905, accepted at 7776c7c), makes every one-input
 function correctly rounded. FIRED at the repin to 7776c7c, as predicted: trig-01's A02 and E01 and

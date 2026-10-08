@@ -76,7 +76,9 @@ display: FIX 4
   A variant may carry its own `after=`; otherwise it continues what its shared block continues.
 - Prose that differs by mode goes in `<mode m="35s,STU">...</mode>` spans, inline or around whole
   paragraphs; a quote for one mode is `<disp v="Snn" m="STU">...</disp>`, and a quote inside a span
-  holds in the span's modes. No span inside a span.
+  holds in the span's modes. No span inside a span. A value quoted differently by mode (33s's real
+  part of a pair against 35s's a i b, poly-04) has its own display vector, `D-Snn@33s`, which that
+  mode's quote uses before `D-Snn`.
 - A quoted display is `<disp v="Snn">text</disp>`. Other screen lines take a kind: `eqn` (an equation shown on X), `prompt` (a prompt
   on X, like `SOLVE _`, or on the line above, like XEQ's `X?`), `message`, `entry`, `view`, and
   `status` (a token of the status band). A block may stop at a prompt only when the block right

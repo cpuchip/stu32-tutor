@@ -1,17 +1,29 @@
 # poly-04 complex roots: key vectors (the firmware's format). Every example is ours. Each starts
-# MODE33 FIX4 (the lesson's setup). CI is the i that separates a complex number's parts (unit 009).
-C01A | i typed: 0, then CMPLX i, then 1 (shown 0i1_) | MODE33 FIX4 0 CI 1 | X=0i1
-C01 | continues C01A: i times i | MODE33 FIX4 0 CI 1 ENTER * | X=-1i0
-C02 | 4i squared | MODE33 FIX4 0 CI 4 ENTER * | X=-16i0
-V01 | the square root key refuses a complex number: INVALID DATA | MODE33 FIX4 16 CHS CI 0 SQRT | ERR
-V01B | continues V01: C clears the message | MODE33 FIX4 16 CHS CI 0 SQRT C | ERR
-V02 | x^2 refuses it too | MODE33 FIX4 0 CI 1 SQ | ERR
-V02B | continues V02: C clears the message | MODE33 FIX4 0 CI 1 SQ C | ERR
-R01 | x^2 + 2x + 5: (-2 + 4i) / 2 | MODE33 FIX4 2 CHS ENTER 0 CI 4 + 2 / | X=-1i2
-R02 | (-2 - 4i) / 2 | MODE33 FIX4 2 CHS ENTER 0 CI 4 - 2 / | X=-1i-2
-H01 | -1 + 2i in x^2 + 2x + 5 by Horner | MODE33 FIX4 1 CHS CI 2 ENTER ENTER ENTER 1 * 2 + * 5 + | X=0i0
-H02A | -1 - 2i typed: +/- before i for the real part, after it for the i part (-1i-2_) | MODE33 FIX4 1 CHS CI 2 CHS | X=-1i-2
-H02 | continues H02A: -1 - 2i in x^2 + 2x + 5 by Horner | MODE33 FIX4 1 CHS CI 2 CHS ENTER ENTER ENTER 1 * 2 + * 5 + | X=0i0
-E01 | exercise: x^2 - 4x + 13: (4 + 6i) / 2 | MODE33 FIX4 4 ENTER 0 CI 6 + 2 / | X=2i3
-E02 | (4 - 6i) / 2 | MODE33 FIX4 4 ENTER 0 CI 6 - 2 / | X=2i-3
-E03 | 2 + 3i in x^2 - 4x + 13 by Horner | MODE33 FIX4 2 CI 3 ENTER ENTER ENTER 1 * 4 - * 13 + | X=0i0
+# MODE33 FIX4 (the lesson's setup). @35s,STU: CI, the i that separates a complex number's parts (unit 009).
+# @33s: pairs, the imaginary part in Y and the real in X, CMPLX:op on them (units 039, 041).
+C01A@35s,STU | i typed: 0, then CMPLX i, then 1 (shown 0i1_) | MODE33 FIX4 0 CI 1 | X=0i1
+C01@35s,STU | continues C01A: i times i | MODE33 FIX4 0 CI 1 ENTER * | X=-1i0
+C02@35s,STU | 4i squared | MODE33 FIX4 0 CI 4 ENTER * | X=-16i0
+V01@35s,STU | the square root key refuses a complex number: INVALID DATA | MODE33 FIX4 16 CHS CI 0 SQRT | ERR
+V01B@35s,STU | continues V01: C clears the message | MODE33 FIX4 16 CHS CI 0 SQRT C | ERR
+V02@35s,STU | x^2 refuses it too | MODE33 FIX4 0 CI 1 SQ | ERR
+V02B@35s,STU | continues V02: C clears the message | MODE33 FIX4 0 CI 1 SQ C | ERR
+R01@35s,STU | x^2 + 2x + 5: (-2 + 4i) / 2 | MODE33 FIX4 2 CHS ENTER 0 CI 4 + 2 / | X=-1i2
+R02@35s,STU | (-2 - 4i) / 2 | MODE33 FIX4 2 CHS ENTER 0 CI 4 - 2 / | X=-1i-2
+H01@35s,STU | -1 + 2i in x^2 + 2x + 5 by Horner | MODE33 FIX4 1 CHS CI 2 ENTER ENTER ENTER 1 * 2 + * 5 + | X=0i0
+H02A@35s,STU | -1 - 2i typed: +/- before i for the real part, after it for the i part (-1i-2_) | MODE33 FIX4 1 CHS CI 2 CHS | X=-1i-2
+H02@35s,STU | continues H02A: -1 - 2i in x^2 + 2x + 5 by Horner | MODE33 FIX4 1 CHS CI 2 CHS ENTER ENTER ENTER 1 * 2 + * 5 + | X=0i0
+E01@35s,STU | exercise: x^2 - 4x + 13: (4 + 6i) / 2 | MODE33 FIX4 4 ENTER 0 CI 6 + 2 / | X=2i3
+E02@35s,STU | (4 - 6i) / 2 | MODE33 FIX4 4 ENTER 0 CI 6 - 2 / | X=2i-3
+E03@35s,STU | 2 + 3i in x^2 - 4x + 13 by Horner | MODE33 FIX4 2 CI 3 ENTER ENTER ENTER 1 * 4 - * 13 + | X=0i0
+C01A@33s | i as a pair: 1 ENTER 0 (imaginary 1 in Y, real 0 being typed in X) | MODE33 FIX4 1 ENTER 0 | X=0 Y=1
+C01@33s | continues C01A: i again, then CMPLX x: -1 + 0i | MODE33 FIX4 1 ENTER 0 ENTER 1 ENTER 0 CMPLX:* | X=-1 Y=0
+C02@33s | 4i times 4i: -16 + 0i | MODE33 FIX4 4 ENTER 0 ENTER 4 ENTER 0 CMPLX:* | X=-16 Y=0
+R01@33s | (-2 + 4i) / (2 + 0i): -1 + 2i | MODE33 FIX4 4 ENTER 2 CHS ENTER 0 ENTER 2 CMPLX:/ | X=-1 Y=2
+R02@33s | (-2 - 4i) / (2 + 0i): -1 - 2i | MODE33 FIX4 4 CHS ENTER 2 CHS ENTER 0 ENTER 2 CMPLX:/ | X=-1 Y=-2
+H01@33s | -1 + 2i: z x z, + 2z (-2 + 4i), + 5 (5 + 0i): 0 | MODE33 FIX4 2 ENTER 1 CHS ENTER 2 ENTER 1 CHS CMPLX:* 4 ENTER 2 CHS CMPLX:+ 0 ENTER 5 CMPLX:+ | X=0 Y=0
+H02A@33s | -1 - 2i as a pair: -2 ENTER -1 | MODE33 FIX4 2 CHS ENTER 1 CHS | X=-1 Y=-2
+H02@33s | continues H02A: z x z, + 2z (-2 - 4i), + 5: 0 | MODE33 FIX4 2 CHS ENTER 1 CHS ENTER 2 CHS ENTER 1 CHS CMPLX:* 4 CHS ENTER 2 CHS CMPLX:+ 0 ENTER 5 CMPLX:+ | X=0 Y=0
+E01@33s | exercise: (4 + 6i) / 2: 2 + 3i | MODE33 FIX4 6 ENTER 4 ENTER 0 ENTER 2 CMPLX:/ | X=2 Y=3
+E02@33s | (4 - 6i) / 2: 2 - 3i | MODE33 FIX4 6 CHS ENTER 4 ENTER 0 ENTER 2 CMPLX:/ | X=2 Y=-3
+E03@33s | 2 + 3i: z x z, - 4z (-8 - 12i), + 13: 0 | MODE33 FIX4 3 ENTER 2 ENTER 3 ENTER 2 CMPLX:* 12 CHS ENTER 8 CHS CMPLX:+ 0 ENTER 13 CMPLX:+ | X=0 Y=0
