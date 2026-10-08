@@ -113,6 +113,16 @@ placement (docs/proposals/placement.md).
 - **Checkpoints:** a short set at the end of a unit, drawn from the unit's topics, worked by hand
   and then checked. The result says which sections to revisit, and nothing is sent anywhere.
 
+**One judge, in C** (primer #5229). The page and the harness must judge an answer the same way.
+tools/judge.c, beside report.c, would compare a core value with an item's expectation: exact for
+`X=` and `N=`, the vector's tolerance for `X#c,t`. The page compiles it with the core. The runner's
+own comparison lives in the firmware's test code, which tutor compiles but does not read, so judge.c
+is ours, and `make check` proves it agrees: every expectation in every lesson is run through both
+judge.c and the runner, with planted near-misses on each side. Any disagreement fails the check.
+
+Each item also carries how it is answered: "work it" (on the calculator, where the keys are the
+skill) or "type it" (the number only, where the hand work is the skill).
+
 **What check.py and the controls add:**
 - every quiz block has a passing vector;
 - no quiz's answer is quoted in the prose before its block, so the lesson does not give it away;
