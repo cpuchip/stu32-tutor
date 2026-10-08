@@ -33,6 +33,10 @@ the live calculator first, then animations and quizzes, then accounts. Nothing c
 lessons are written; the new seat will ask about the format (keys blocks, `<disp>` tags,
 continuations), which docs/lesson-format.md is written to answer.
 
+Note, 2026-10-08: abacus decision 63 supersedes "Learners are 13 and over" above: learners under 13
+come only through a parent's account, after the COPPA reading (abacus 202fc0d). The paragraph above
+is kept as it was decided.
+
 ## 2026-10-06 (abacus, #4218 and #4224)
 
 - Every lesson sets its mode and display in its first keys; vectors pass in 33s and 35s modes.
