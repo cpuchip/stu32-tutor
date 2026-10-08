@@ -1,6 +1,7 @@
 # The story world: two shapes (PROPOSAL, for Michael)
 
-**Status:** a proposal against the roadmap's story-world card (abacus #5211). Not ruled. Nothing here is
+**Status:** RULED 2026-10-08: Shape B, with cameos that link back to each character's home course
+(Michael, via basecamp #5221). The next step is docs/proposals/lore-and-assessment.md. Nothing here is
 written into a lesson until he chooses.
 
 **His direction** (relayed verbatim by basecamp, #5210): "maybe an adventure track like fantasy to
