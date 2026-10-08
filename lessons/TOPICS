@@ -232,3 +232,12 @@ multiplication-principle | Multiplying the choices | cnt-01 | Multiplying the ch
 factorial | The factorial, n! | cnt-01 | Orders: the factorial
 permutation | Permutations: choosing in order, P(n, r) | cnt-01 | Choosing in order: permutations
 combination | Combinations: choosing without order, C(n, r) | cnt-01 | Choosing without order: combinations
+
+# prob-01 Probability
+probability | Probability as counting: ways over all | prob-01 | Counting the ways
+complement | Not: 1 minus the probability | prob-01 | Not
+independent | And: independent events multiply | prob-01 | And
+at-least-one | At least one, through not | prob-01 | And
+probability-combinations | Probability with combinations | prob-01 | Counting with combinations
+random | RAND, and a die from it | prob-01 | Random numbers
+seed | SEED: the same numbers again | prob-01 | Random numbers

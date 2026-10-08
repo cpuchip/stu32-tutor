@@ -52,6 +52,7 @@ controls: tools
 	$(PYTHON) tools/controls.py --core $(CORE_DIR) lessons/sys-02-the-built-in-solvers
 	$(PYTHON) tools/controls.py --core $(CORE_DIR) lessons/seq-01-sequences-and-sums
 	$(PYTHON) tools/controls.py --core $(CORE_DIR) lessons/cnt-01-counting
+	$(PYTHON) tools/controls.py --core $(CORE_DIR) lessons/prob-01-probability
 
 $(CORE_DIR)/.exported: scripts/export-core.sh
 	scripts/export-core.sh $(FIRMWARE) $(CORE_PIN) $(CORE_DIR)

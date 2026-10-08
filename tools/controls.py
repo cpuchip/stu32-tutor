@@ -378,6 +378,17 @@ CONTROLS_FOR["cnt-01-counting"] = [
     ("52! quoted with one power of ten too many", "lesson.md", 'v="F02">8.0658E67<', 'v="F02">8.0658E68<', {},
      "D-F02: the prose shows '8.0658E68'"),
 ]
+CONTROLS_FOR["prob-01-probability"] = [
+    ("not worked the wrong way round: 1/6 - 1", "lesson.md", "```keys N01\n1 ENTER 1 ENTER 6 ÷ −\n",
+     "```keys N01\n1 ENTER 6 ÷ 1 −\n", {}, "N01: printed keys and vector disagree in 33s mode"),
+    ("at least one 6 quoted without the not: (5/6)^4", "lesson.md", 'v="A02">0.5177<', 'v="A02">0.4823<', {},
+     "D-A02: the prose shows '0.4823'"),
+    ("the same seed shown without seeding again", "lesson.md",
+     "7 BLUE SEED GOLD RAND STO A 7 BLUE SEED GOLD RAND RCL A −", "7 BLUE SEED GOLD RAND STO A GOLD RAND RCL A −",
+     {}, "S01: printed keys and vector disagree in 33s mode"),
+    ("a die face claimed far outside 1 to 6 (the tolerance is checked)", "vectors.txt", "| X#3.5,2.5", "| X#10,0.5", {},
+     "R02"),
+]
 CONTROLS_FOR["fn-02-a-table-of-values"] = [
     ("a label's line numbered from the program's top, not its own label", "lesson.md", 'kind="program">U008 RTN<',
      'kind="program">T022 RTN<', {}, "T01B: the device's X line shows 'U008 RTN' (program)"),
