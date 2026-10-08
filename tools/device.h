@@ -22,4 +22,8 @@ void kr_settle(app_state *a);
 /* A key pressed and settled: kr_key, then kr_settle. */
 void kr_press(app_state *a, int key);
 
+/* The device's clock moved forward ms, one tick a millisecond, as real time passes: for a page that
+   runs an app (a game) live (primer #5069). keyrun does not use it. */
+void kr_advance(app_state *a, uint32_t ms);
+
 #endif

@@ -32,3 +32,8 @@ void kr_press(app_state *a, int key)
     kr_key(a, key);
     kr_settle(a);
 }
+
+void kr_advance(app_state *a, uint32_t ms)
+{
+    while (ms--) app_tick(a, &PWR, now += 1);
+}
