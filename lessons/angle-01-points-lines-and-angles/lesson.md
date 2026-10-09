@@ -100,7 +100,7 @@ Step 3 is where the usual mistake happens: reading the other scale. The two scal
 The screen shows <disp v="P01">130.0000</disp>. The check is to look before you read: an angle
 narrower than the corner of a page is less than 90°, so it cannot be 130°.
 
-**Draw it.** Draw a ray from a point B. Put the protractor's centre on B with its edge along the
+**Draw it.** Draw a ray from a point B. Put the protractor's centre on B with its 0 line along the
 ray, find 50 on the scale that starts at 0 on your ray, and mark a dot there. Join B to the dot.
 Then check it: put the protractor's 0 line along your new arm instead, and read the angle again from
 the scale that starts at 0 there. It should still be 50°.
@@ -125,7 +125,7 @@ the other way round is the rest of the full turn, 360 − 50:
 ```
 
 The screen shows <disp v="R01">310.0000</disp>, a reflex angle. When nobody says which, "the angle"
-means the one less than 180°.
+means the one not more than 180°.
 
 ## Back to the bay
 

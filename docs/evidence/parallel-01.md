@@ -8,7 +8,7 @@ the line, X= on the stack), the first items in an algebraic-first course.
 ## Expected values
 
 Oracle: build/proto/g1.py. The angle beside 65 (180 − 65), co-interior 65 + 115, the exercises
-(180 − 58; 180 − 104). The unit's checkpoint, seven items, each slip its own working:
+(180 − 58; 180 − 104). The unit's checkpoint, nine items, each slip its own working:
 - CPG1A: on a straight line with 47 is 133; slips 90 − 47 = 43, 360 − 47 = 313.
 - CPG1B: opposite 38 is 38; slip 180 − 38 = 142.
 - CPG1C: round a point with 100 and 145 is 115; slips 100 + 145 = 245, 360 − 100 = 260, 360 − 145 = 215.
@@ -16,6 +16,8 @@ Oracle: build/proto/g1.py. The angle beside 65 (180 − 65), co-interior 65 + 11
 - CPG1E: in a right angle with 23 is 67; slip 180 − 23 = 157.
 - CPG1F: the reflex angle of 130 is 230; slip 180 − 130 = 50.
 - CPG1G: alternate to 72 is 72; slip 180 − 72 = 108.
+- CPG1H: corresponding to 58 is 58; slip 180 − 58 = 122.
+- CPG1I: an acute angle read as 140 on one scale is 40; slip 140 (the wrong scale's reading).
 
 ## Sources
 
@@ -23,8 +25,11 @@ Written fresh. Corresponding angles for parallel lines are taken as given, and s
 of the parallel statement Euclid took without proof, usually called his fifth postulate: it is
 Postulate 5 in the usual modern numbering, and Axiom xii in Casey's 1885 edition (books/Euclid,
 read 2026-10-09: two lines meeting a third with the interior angles on one side less than two right
-angles meet on that side). Euclid's own I.29 derives the equal angles from it; the lesson does not
-quote him. Alternate and co-interior angles are then reasoned from it, with
+angles, "being produced shall meet at some finite distance"). Casey's wording does not say on which
+side; the lesson's "on that side" follows the usual modern statement of the postulate (not checked
+against a translation here), and it is true, since the lines cannot meet on the other side, where the
+two angles add to more than 180°. Euclid's own I.29 derives the equal angles from it (abacus #5553:
+I.27-28 are the converse, I.29 the equal angles); the lesson does not quote him. Alternate and co-interior angles are then reasoned from it, with
 vertically opposite angles (angle-02) and angles on a straight line.
 
 ## Non-author read (2026-10-09)

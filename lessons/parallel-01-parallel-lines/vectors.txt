@@ -42,3 +42,11 @@ CPG1G@alg | checkpoint: alternate to 72 | MODE33 FIX4 72 ENTER | N=72 %LINE=72
 CPG1G@rpn | checkpoint: alternate to 72 | MODE33 FIX4 72 ENTER | X=72
 CPG1G1@alg | slip: taken as co-interior | MODE33 FIX4 180 - 72 ENTER | N=108 %LINE=180-72
 CPG1G1@rpn | slip: taken as co-interior | MODE33 FIX4 180 ENTER 72 - | X=108
+CPG1H@alg | checkpoint: corresponding to 58 | MODE33 FIX4 58 ENTER | N=58 %LINE=58
+CPG1H@rpn | checkpoint: corresponding to 58 | MODE33 FIX4 58 ENTER | X=58
+CPG1H1@alg | slip: the angle beside it | MODE33 FIX4 180 - 58 ENTER | N=122 %LINE=180-58
+CPG1H1@rpn | slip: the angle beside it | MODE33 FIX4 180 ENTER 58 - | X=122
+CPG1I@alg | checkpoint: an acute angle read as 140 on one scale | MODE33 FIX4 40 ENTER | N=40 %LINE=40
+CPG1I@rpn | checkpoint: an acute angle read as 140 on one scale | MODE33 FIX4 40 ENTER | X=40
+CPG1I1@alg | slip: read on the wrong scale | MODE33 FIX4 140 ENTER | N=140 %LINE=140
+CPG1I1@rpn | slip: read on the wrong scale | MODE33 FIX4 140 ENTER | X=140

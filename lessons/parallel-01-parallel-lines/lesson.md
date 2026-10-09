@@ -63,7 +63,8 @@ v, s and w. Measured, they come out equal. For parallel lines this is the starti
 of this lesson builds on, and it is taken as given, not shown. Euclid, too, took a statement about
 parallel lines as given without proof, usually called his fifth postulate (some editions call it his
 twelfth axiom), and this is one form of it. His own form says: if a line crosses two lines and the
-two angles between them on one side add to less than 180°, those two lines meet on that side.
+two angles between them on one side add to less than 180°, those two lines meet on that side. From
+it he proved that corresponding angles are equal (his Book I, proposition 29).
 Corresponding angles are equal when the lines are parallel.
 
 So at every crossing on the coast road the angles are the same. The road meets Harbour Street at
@@ -215,4 +216,20 @@ topics: alternate-angles
 answer: type
 calculator: no
 slip: CPG1G1 | taken as co-interior | Co-interior angles add to 180°, but alternate angles are equal.
+```
+
+```item CPG1H
+prompt: A line crosses two parallel lines. At the first crossing, one of the four angles is 58°. What is the angle in the same place at the second crossing, in degrees?
+topics: corresponding-angles
+answer: type
+calculator: no
+slip: CPG1H1 | the angle beside it | That is the angle beside it on a straight line. Corresponding angles, in the same place at each crossing, are equal.
+```
+
+```item CPG1I
+prompt: An angle is plainly narrower than the corner of a page. Read on one scale of a protractor, it shows 140. What is the angle, in degrees?
+topics: protractor angle-kinds
+answer: type
+calculator: no
+slip: CPG1I1 | read on the wrong scale | An angle narrower than a page corner is less than 90°, so 140 is the other scale's reading. The two scales add to 180.
 ```
