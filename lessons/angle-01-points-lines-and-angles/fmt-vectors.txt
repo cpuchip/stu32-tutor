@@ -1,0 +1,9 @@
+# angle-01 points, lines and angles display vectors: D-ID is what X shows after vector ID, the same in both entries.
+D-K01 | after K01 | 45 | FIX 4 | w=21 | 45.0000
+D-P01 | after P01 | 130 | FIX 4 | w=21 | 130.0000
+D-R01 | after R01 | 310 | FIX 4 | w=21 | 310.0000
+D-B01 | after B01 | 75 | FIX 4 | w=21 | 75.0000
+D-E01 | after E01 | 300 | FIX 4 | w=21 | 300.0000
+D-E02 | after E02 | 45 | FIX 4 | w=21 | 45.0000
+D-E03 | after E03 | 120 | FIX 4 | w=21 | 120.0000
+D-E04 | after E04 | 105 | FIX 4 | w=21 | 105.0000

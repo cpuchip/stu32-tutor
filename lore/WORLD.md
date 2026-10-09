@@ -40,6 +40,16 @@ turns it into bread and pies.
 The ledger matters later: Maren's ledger is kept by her family after her, and in the survey age it
 goes to sea as the first page of a ship's log.
 
+## The survey age: Gullhaven (geometry)
+
+Long after Thornwick's market days, its people have reached the sea. Gullhaven is a harbour town on a
+wide bay, with a lighthouse that marks the way in. Its streets are new, and nobody has yet drawn a
+true map of the town or the bay.
+
+- **Corwen** surveys Gullhaven: directions as angles from fixed points, distances by chain, all of it
+  drawn to scale. Unit 1 measures the bay from the end of the harbour wall and the streets where the
+  roads meet; later units are the bridge, the lighthouse and the stars the course plan names.
+
 ## The rules every story keeps
 
 1. **The mathematics picks the plot, never the reverse.** Each unit's story turns on one problem that

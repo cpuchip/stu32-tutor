@@ -681,6 +681,36 @@ CONTROLS_FOR["frac-03-multiplying-fractions"] = [
     ("the bracket's line misquoted", "lesson.md", 'kind="line">3÷4÷(3÷8)<', 'kind="line">3÷4÷3÷8<', {},
      "the prose '3÷4÷3÷8' (line) (STU alg)"),
 ]
+CONTROLS_FOR["angle-01-points-lines-and-angles"] = [
+    ("the wrong scale's reading quoted as the angle", "lesson.md", '<disp v="P01">130.0000<', '<disp v="P01">50.0000<', {},
+     "D-P01: the prose shows '50.0000'"),
+    ("a turn cut into 6, not 8", "lesson.md", "```keys K01 entry=alg\n360 ÷ 8 ENTER\n",
+     "```keys K01 entry=alg\n360 ÷ 6 ENTER\n", {}, "K01: printed keys and vector disagree in STU alg mode"),
+    ("RPN's reflex angle taken the wrong way round", "lesson.md", "```keys R01 entry=rpn\n360 ENTER 50 −\n",
+     "```keys R01 entry=rpn\n50 ENTER 360 −\n", {}, "R01: printed keys and vector disagree in STU rpn mode"),
+    ("the angles from the wall added, not taken away", "lesson.md", '<disp v="B01">75.0000<', '<disp v="B01">145.0000<', {},
+     "D-B01: the prose shows '145.0000'"),
+]
+CONTROLS_FOR["angle-02-angle-pairs"] = [
+    ("the opposite angle quoted as the one beside it", "lesson.md", '<disp v="V02">70.0000<', '<disp v="V02">110.0000<', {},
+     "D-V02: the prose shows '110.0000'"),
+    ("an angle round the point added, not taken away", "lesson.md", "```keys P01 entry=alg\n360 − 120 − 95 ENTER\n",
+     "```keys P01 entry=alg\n360 − 120 + 95 ENTER\n", {}, "P01: printed keys and vector disagree in STU alg mode"),
+    ("RPN taking 180 from 70", "lesson.md", "```keys S01 entry=rpn\n180 ENTER 70 −\n",
+     "```keys S01 entry=rpn\n70 ENTER 180 −\n", {}, "S01: printed keys and vector disagree in STU rpn mode"),
+    ("the angle beside 41 quoted as 41", "lesson.md", '<disp v="E04">139.0000<', '<disp v="E04">41.0000<', {},
+     "D-E04: the prose shows '41.0000'"),
+]
+CONTROLS_FOR["parallel-01-parallel-lines"] = [
+    ("the angle beside q quoted as equal to it", "lesson.md", '<disp v="A01">115.0000<', '<disp v="A01">65.0000<', {},
+     "D-A01: the prose shows '65.0000'"),
+    ("co-interior angles typed as equal", "lesson.md", "```keys I01 entry=alg\n65 + 115 ENTER\n",
+     "```keys I01 entry=alg\n65 + 65 ENTER\n", {}, "I01: printed keys and vector disagree in STU alg mode"),
+    ("RPN adding where it should take away", "lesson.md", "   ```keys E03 entry=rpn\n   180 ENTER 104 −\n",
+     "   ```keys E03 entry=rpn\n   180 ENTER 104 +\n", {}, "E03: printed keys and vector disagree in STU rpn mode"),
+    ("a slip that is the answer itself", "lesson.md", "slip: CPG1E1 | a straight line",
+     "slip: CPG1E | a straight line", {}, "item CPG1E: slip CPG1E (a straight line, not a right angle) gives the answer itself"),
+]
 CONTROLS_FOR["rpn-03-the-display"].append(
     ("an example that relies on a setting the one before it changed", "lesson.md",
      "```keys P01\nGOLD DISP FIX 4 2 ENTER 3 ÷\n", "```keys P01\n2 ENTER 3 ÷\n", {},

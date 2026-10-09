@@ -261,6 +261,8 @@ keys no longer do what it says when the layout or the keymap changes (the layout
 `make controls` plants one fault at a time in a copy of rpn-01 (and, for what only rpn-02 has, of rpn-02) and requires `make check` to
 fail for that fault's own reason; every lesson has its own set (tools/controls.py lists them, with the harmless changes that must stay
 green). A fault that does not apply to the file, or applies more than once, is reported as an error, not counted as a pass.
+`make controls` runs every folder in lessons/ and placement/, and a folder with no set fails it, so a new lesson cannot be left
+out (until 2026-10-09 the Makefile named each lesson, and the first three geometry lessons were missed until their count was read).
 
 ## What it does not prove yet
 

@@ -1,0 +1,5 @@
+# parallel-01 parallel lines display vectors: D-ID is what X shows after vector ID, the same in both entries.
+D-A01 | after A01 | 115 | FIX 4 | w=21 | 115.0000
+D-I01 | after I01 | 180 | FIX 4 | w=21 | 180.0000
+D-E01 | after E01 | 122 | FIX 4 | w=21 | 122.0000
+D-E03 | after E03 | 76 | FIX 4 | w=21 | 76.0000

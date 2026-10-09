@@ -20,62 +20,12 @@ check: tools
 	$(PYTHON) tools/judge_check.py --core $(CORE_DIR)
 
 # Proves the checker can fail: one planted fault at a time, each must turn it red for its own reason.
+# Every lesson and placement folder is run, so a new one cannot be skipped: controls.py fails one with none.
 controls: tools
 	$(PYTHON) tools/graph.py --selftest
 	bash scripts/judge-controls.sh $(CORE_DIR)
-	$(PYTHON) tools/controls.py --core $(CORE_DIR) lessons/rpn-01-the-stack
-	$(PYTHON) tools/controls.py --core $(CORE_DIR) lessons/rpn-02-storing-numbers
-	$(PYTHON) tools/controls.py --core $(CORE_DIR) lessons/rpn-03-the-display
-	$(PYTHON) tools/controls.py --core $(CORE_DIR) lessons/num-01-order-of-operations
-	$(PYTHON) tools/controls.py --core $(CORE_DIR) lessons/num-02-fractions
-	$(PYTHON) tools/controls.py --core $(CORE_DIR) lessons/num-03-powers-and-roots
-	$(PYTHON) tools/controls.py --core $(CORE_DIR) lessons/num-04-percent-and-powers-of-ten
-	$(PYTHON) tools/controls.py --core $(CORE_DIR) lessons/eq-01-equations
-	$(PYTHON) tools/controls.py --core $(CORE_DIR) lessons/eq-02-formulas
-	$(PYTHON) tools/controls.py --core $(CORE_DIR) lessons/eq-03-two-answers-and-inequalities
-	$(PYTHON) tools/controls.py --core $(CORE_DIR) lessons/fn-01-functions-as-programs
-	$(PYTHON) tools/controls.py --core $(CORE_DIR) lessons/fn-02-a-table-of-values
-	$(PYTHON) tools/controls.py --core $(CORE_DIR) lessons/fn-03-domain
-	$(PYTHON) tools/controls.py --core $(CORE_DIR) lessons/lin-01-slope-and-intercept
-	$(PYTHON) tools/controls.py --core $(CORE_DIR) lessons/lin-02-lines-through-data
-	$(PYTHON) tools/controls.py --core $(CORE_DIR) lessons/lin-03-when-a-line-does-not-fit
-	$(PYTHON) tools/controls.py --core $(CORE_DIR) lessons/poly-01-evaluating-a-polynomial
-	$(PYTHON) tools/controls.py --core $(CORE_DIR) lessons/poly-02-roots-with-solve
-	$(PYTHON) tools/controls.py --core $(CORE_DIR) lessons/poly-03-the-quadratic-formula
-	$(PYTHON) tools/controls.py --core $(CORE_DIR) lessons/poly-04-complex-roots
-	$(PYTHON) tools/controls.py --core $(CORE_DIR) lessons/exp-01-growth-and-decay
-	$(PYTHON) tools/controls.py --core $(CORE_DIR) lessons/exp-02-the-number-e
-	$(PYTHON) tools/controls.py --core $(CORE_DIR) lessons/exp-03-logarithms
-	$(PYTHON) tools/controls.py --core $(CORE_DIR) lessons/exp-04-exponential-equations
-	$(PYTHON) tools/controls.py --core $(CORE_DIR) lessons/trig-01-degrees-and-radians
-	$(PYTHON) tools/controls.py --core $(CORE_DIR) lessons/trig-02-right-triangles
-	$(PYTHON) tools/controls.py --core $(CORE_DIR) lessons/trig-03-the-unit-circle
-	$(PYTHON) tools/controls.py --core $(CORE_DIR) lessons/trig-04-polar-and-rectangular
-	$(PYTHON) tools/controls.py --core $(CORE_DIR) lessons/sys-01-two-equations-at-once
-	$(PYTHON) tools/controls.py --core $(CORE_DIR) lessons/sys-02-the-built-in-solvers
-	$(PYTHON) tools/controls.py --core $(CORE_DIR) lessons/seq-01-sequences-and-sums
-	$(PYTHON) tools/controls.py --core $(CORE_DIR) lessons/cnt-01-counting
-	$(PYTHON) tools/controls.py --core $(CORE_DIR) lessons/prob-01-probability
-	$(PYTHON) tools/controls.py --core $(CORE_DIR) lessons/prob-01b-loot-boxes
-	$(PYTHON) tools/controls.py --core $(CORE_DIR) lessons/lim-01-approaching-a-limit
-	$(PYTHON) tools/controls.py --core $(CORE_DIR) lessons/lim-02-rates-of-change
-	$(PYTHON) tools/controls.py --core $(CORE_DIR) lessons/der-01-the-derivative
-	$(PYTHON) tools/controls.py --core $(CORE_DIR) lessons/der-02-the-power-rule
-	$(PYTHON) tools/controls.py --core $(CORE_DIR) lessons/der-03-using-the-derivative
-	$(PYTHON) tools/controls.py --core $(CORE_DIR) lessons/int-01-area-under-a-curve
-	$(PYTHON) tools/controls.py --core $(CORE_DIR) lessons/start-01-the-calculator
-	$(PYTHON) tools/controls.py --core $(CORE_DIR) lessons/whole-01-adding-and-subtracting
-	$(PYTHON) tools/controls.py --core $(CORE_DIR) lessons/whole-02-multiplying-and-dividing
-	$(PYTHON) tools/controls.py --core $(CORE_DIR) lessons/expr-01-letters-for-numbers
-	$(PYTHON) tools/controls.py --core $(CORE_DIR) lessons/expr-02-solving-by-undoing
-	$(PYTHON) tools/controls.py --core $(CORE_DIR) lessons/factor-01-factors-and-primes
-	$(PYTHON) tools/controls.py --core $(CORE_DIR) lessons/factor-02-common-factors-and-multiples
-	$(PYTHON) tools/controls.py --core $(CORE_DIR) lessons/neg-01-negative-numbers
-	$(PYTHON) tools/controls.py --core $(CORE_DIR) lessons/neg-02-multiplying-and-dividing-negatives
-	$(PYTHON) tools/controls.py --core $(CORE_DIR) lessons/frac-01-equivalent-fractions
-	$(PYTHON) tools/controls.py --core $(CORE_DIR) lessons/frac-02-adding-fractions
-	$(PYTHON) tools/controls.py --core $(CORE_DIR) lessons/frac-03-multiplying-fractions
-	$(PYTHON) tools/controls.py --core $(CORE_DIR) placement/algebra-to-calculus
+	@set -e; for d in $(LESSONS) $(PLACEMENT); do echo "controls: $${d%/}"; \
+	    $(PYTHON) tools/controls.py --core $(CORE_DIR) $${d%/}; done
 
 $(CORE_DIR)/.exported: scripts/export-core.sh
 	scripts/export-core.sh $(FIRMWARE) $(CORE_PIN) $(CORE_DIR)

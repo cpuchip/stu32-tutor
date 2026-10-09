@@ -1,0 +1,10 @@
+# angle-02 angle pairs display vectors: D-ID is what X shows after vector ID, the same in both entries.
+D-S01 | after S01 | 110 | FIX 4 | w=21 | 110.0000
+D-C01 | after C01 | 55 | FIX 4 | w=21 | 55.0000
+D-P01 | after P01 | 145 | FIX 4 | w=21 | 145.0000
+D-V01 | after V01 | 110 | FIX 4 | w=21 | 110.0000
+D-V02 | after V02 | 70 | FIX 4 | w=21 | 70.0000
+D-E01 | after E01 | 52 | FIX 4 | w=21 | 52.0000
+D-E02 | after E02 | 28 | FIX 4 | w=21 | 28.0000
+D-E03 | after E03 | 120 | FIX 4 | w=21 | 120.0000
+D-E04 | after E04 | 139 | FIX 4 | w=21 | 139.0000

@@ -350,3 +350,23 @@ over-a-whole | Fractions over 1, and fraction display's whole number | frac-02 |
 # frac-03 Multiplying and dividing fractions (pre-algebra unit 5)
 multiply-fractions | Multiplying fractions: tops times tops, bottoms times bottoms | frac-03 | Multiplying
 divide-fractions | Dividing by a fraction: how many fit, and multiplying by it flipped | frac-03 | Dividing
+
+# angle-01 Points, lines and angles (geometry unit 1)
+point-line | Points, lines, segments and rays | angle-01 | Points and lines
+angle | An angle: two rays from one point, and the turn between them | angle-01 | Angles
+degrees | Degrees: a full turn is 360° | angle-01 | Degrees
+protractor | Measuring with a protractor, and its two scales | angle-01 | A protractor
+angle-kinds | Acute, right, obtuse, straight and reflex angles | angle-01 | Kinds of angle
+
+# angle-02 Angle pairs (geometry unit 1)
+straight-line-angles | Angles on a straight line add to 180° | angle-02 | On a straight line
+complementary | Angles in a right angle add to 90° | angle-02 | In a right angle
+angles-at-a-point | Angles round a point add to 360° | angle-02 | Round a point
+vertical-angles | Vertically opposite angles are equal, and why | angle-02 | Where two lines cross
+
+# parallel-01 Parallel lines and a line across them (geometry unit 1)
+parallel | Parallel lines | parallel-01 | Parallel lines
+transversal | A transversal and its eight angles | parallel-01 | A line across
+corresponding-angles | Corresponding angles are equal for parallel lines (taken as given) | parallel-01 | Corresponding angles
+alternate-angles | Alternate angles are equal, and why | parallel-01 | Alternate angles
+co-interior | Co-interior angles add to 180°, and why | parallel-01 | Co-interior angles

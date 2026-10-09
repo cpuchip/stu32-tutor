@@ -19,3 +19,5 @@ character | Maren | start-01 | Runs Thornwick's bakery; keeps its accounts by ha
 character | Tobin | whole-01 | Carries the bakery's orders across Thornwick and keeps a tally of what goes where.
 character | Hesk | whole-01 | Runs the mill; knows to the sack how much grain the town has and how long it must last.
 object | Maren's ledger | start-01 | The bakery's accounts in Maren's hand; in the survey age, the first page of a ship's log.
+place | Gullhaven | angle-01 | A harbour town on a wide bay, in the survey age; its lighthouse marks the way in.
+character | Corwen | angle-01 | Surveys Gullhaven and its bay, by angle and distance, for the town's first true map.

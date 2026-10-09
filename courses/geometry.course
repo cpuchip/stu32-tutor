@@ -1,8 +1,12 @@
 # Geometry (proposed, docs/courses/geometry.md; draw, measure, then prove). Algebraic entry first, RPN
-# offered (decision 63). Lessons are in preparation; the pilot is G1's first.
+# offered (decision 63). Unit 1 is written; the rest are in preparation.
 course | geometry | Geometry
 entry | alg rpn
+prerequisite | pre-algebra
 unit | 1 | Points, lines and angles
+lesson | angle-01
+lesson | angle-02
+lesson | parallel-01
 unit | 2 | Triangles
 unit | 3 | Pythagoras and distance
 unit | 4 | Area

@@ -15,3 +15,5 @@ Hesk | lives_in | Thornwick
 Tobin | works_with | Maren
 Maren | keeps | Maren's ledger
 Maren's ledger | passes_to | the survey age
+Gullhaven | located_in | the survey age
+Corwen | lives_in | Gullhaven
