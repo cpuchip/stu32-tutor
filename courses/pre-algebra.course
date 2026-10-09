@@ -5,7 +5,11 @@ entry | alg rpn
 unit | 0 | The calculator, algebraic first
 lesson | start-01
 unit | 1 | Whole numbers
+lesson | whole-01
+lesson | whole-02
 unit | 2 | The language of algebra
+lesson | expr-01
+lesson | expr-02
 unit | 3 | Factors and multiples
 unit | 4 | Integers
 unit | 5 | Fractions

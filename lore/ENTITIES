@@ -14,8 +14,8 @@ age | the far age | world | The advanced courses' age: a drive to the stars (lef
 place | Thornwick | world | A hill town where two roads cross the river Thorn; its market fills the square.
 place | the Thorn | world | The river through Thornwick, which turns the mill.
 place | the bakery | start-01 | Maren's bakery on Thornwick's square.
-place | the mill | world | The mill on the Thorn that grinds Thornwick's grain.
+place | the mill | whole-01 | The mill on the Thorn that grinds Thornwick's grain.
 character | Maren | start-01 | Runs Thornwick's bakery; keeps its accounts by hand and checks them on the calculator.
-character | Tobin | world | Carries the bakery's orders across Thornwick and keeps a tally of what goes where.
-character | Hesk | world | Runs the mill; knows to the sack how much grain the town has and how long it must last.
+character | Tobin | whole-01 | Carries the bakery's orders across Thornwick and keeps a tally of what goes where.
+character | Hesk | whole-01 | Runs the mill; knows to the sack how much grain the town has and how long it must last.
 object | Maren's ledger | start-01 | The bakery's accounts in Maren's hand; in the survey age, the first page of a ship's log.

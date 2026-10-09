@@ -1,0 +1,8 @@
+# whole-01 adding and subtracting display vectors: D-ID is what X shows after vector ID, the same in both entries.
+D-A01 | after A01 | 5331 | FIX 4 | w=21 | 5,331.0000
+D-B01 | after B01 | 374 | FIX 4 | w=21 | 374.0000
+D-A02 | after A02 | 2232 | FIX 4 | w=21 | 2,232.0000
+D-A03 | after A03 | 4331 | FIX 4 | w=21 | 4,331.0000
+D-E01 | after E01 | 3205 | FIX 4 | w=21 | 3,205.0000
+D-E02 | after E02 | 2247 | FIX 4 | w=21 | 2,247.0000
+D-E03 | after E03 | 3230 | FIX 4 | w=21 | 3,230.0000

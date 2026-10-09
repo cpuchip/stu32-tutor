@@ -1,0 +1,18 @@
+# expr-02 solving by undoing display vectors: D-ID is what X shows after vector ID, the same in both entries.
+D-U01 | after U01 | 15 | FIX 4 | w=21 | 15.0000
+D-U02 | after U02 | 5 | FIX 4 | w=21 | 5.0000
+D-W01 | after W01 | 1.666666666666666666666666666666667 | FIX 4 | w=21 | 1.6667
+D-C01 | after C01 | 20 | FIX 4 | w=21 | 20.0000
+D-U03 | after U03 | 5 | FIX 4 | w=21 | 5.0000
+D-U04 | after U04 | 20 | FIX 4 | w=21 | 20.0000
+D-C02 | after C02 | 3 | FIX 4 | w=21 | 3.0000
+D-E01 | after E01 | 24 | FIX 4 | w=21 | 24.0000
+D-E01B | after E01B | 12 | FIX 4 | w=21 | 12.0000
+D-E01C | after E01C | 12 | FIX 4 | w=21 | 12.0000
+D-E01D | after E01D | 31 | FIX 4 | w=21 | 31.0000
+D-E02 | after E02 | 35 | FIX 4 | w=21 | 35.0000
+D-E02B | after E02B | 7 | FIX 4 | w=21 | 7.0000
+D-E03 | after E03 | 6 | FIX 4 | w=21 | 6.0000
+D-E03B | after E03B | 18 | FIX 4 | w=21 | 18.0000
+D-E04 | after E04 | 36 | FIX 4 | w=21 | 36.0000
+D-E04B | after E04B | 12 | FIX 4 | w=21 | 12.0000

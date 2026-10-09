@@ -1,0 +1,12 @@
+# expr-01 letters for numbers display vectors: D-ID is what X shows after vector ID, the same in both entries.
+D-P01 | after P01 | 84 | FIX 4 | w=21 | 84.0000
+D-V01 | after V01 | 4 | FIX 4 | w=21 | 4.0000
+D-V02 | after V02 | 17 | FIX 4 | w=21 | 17.0000
+D-V03 | after V03 | 10 | FIX 4 | w=21 | 10.0000
+D-V04 | after V04 | 35 | FIX 4 | w=21 | 35.0000
+D-E01 | after E01 | 6 | FIX 4 | w=21 | 6.0000
+D-E01B | after E01B | 21 | FIX 4 | w=21 | 21.0000
+D-E02 | after E02 | 15 | FIX 4 | w=21 | 15.0000
+D-E02B | after E02B | 47 | FIX 4 | w=21 | 47.0000
+D-E03 | after E03 | 5 | FIX 4 | w=21 | 5.0000
+D-E03B | after E03B | 20 | FIX 4 | w=21 | 20.0000

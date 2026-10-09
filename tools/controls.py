@@ -577,6 +577,46 @@ CONTROLS_FOR["algebra-to-calculus"] = [    # placement/algebra-to-calculus (grap
      "item U2A: a placement item needs places:"),
     ("a wrong answer", "vectors.txt", "MODE33 FIX4 19 | X=19", "MODE33 FIX4 19 | X=18", {}, "vectors in 33s mode"),
 ]
+CONTROLS_FOR["whole-01-adding-and-subtracting"] = [
+    ("a carry dropped in the quoted sum", "lesson.md", '<disp v="A01">5,331.0000<', '<disp v="A01">5,231.0000<', {},
+     "D-A01: the prose shows '5,231.0000'"),
+    ("a quote without the device's comma", "lesson.md", '<disp v="A03">4,331.0000<', '<disp v="A03">4331.0000<', {},
+     "D-A03: the prose shows '4331.0000'"),
+    ("RPN's subtraction in the wrong order", "lesson.md", "```keys A02 entry=rpn\n5000 ENTER 2768 −\n",
+     "```keys A02 entry=rpn\n2768 ENTER 5000 −\n", {}, "A02: printed keys and vector disagree in STU rpn mode"),
+    ("the algebraic line added where it should take away", "lesson.md", "```keys A02 entry=alg\n5000 − 2768 ENTER\n",
+     "```keys A02 entry=alg\n5000 + 2768 ENTER\n", {}, "A02: printed keys and vector disagree in STU alg mode"),
+]
+CONTROLS_FOR["whole-02-multiplying-and-dividing"] = [
+    ("INT÷ pressed without its gold shift", "lesson.md", "```keys D02 entry=alg\nGOLD INT÷ 59", "```keys D02 entry=alg\nINT÷ 59", {},
+     "D02: printed keys and vector disagree in STU alg mode"),
+    ("RPN's Rmdr with the divisor first", "lesson.md", "```keys D03 entry=rpn\n59 ENTER 9 BLUE Rmdr\n",
+     "```keys D03 entry=rpn\n9 ENTER 59 BLUE Rmdr\n", {}, "D03: printed keys and vector disagree in STU rpn mode"),
+    ("the comma left out of RMDR(1000,7)", "lesson.md", "BLUE Rmdr 1000 GOLD , 7 ▶ ENTER", "BLUE Rmdr 1000 7 ▶ ENTER", {},
+     "D05: printed keys and vector disagree in STU alg mode"),
+    ("the remainder misquoted", "lesson.md", '<disp v="D03">5.0000<', '<disp v="D03">4.0000<', {},
+     "D-D03: the prose shows '4.0000'"),
+]
+CONTROLS_FOR["expr-01-letters-for-numbers"] = [
+    ("the number typed where RCL X should be", "lesson.md", "```keys V02 entry=alg after=V01\n3 × RCL N + 5 ENTER\n",
+     "```keys V02 entry=alg after=V01\n3 × 4 + 5 ENTER\n", {}, "V02: printed keys and vector disagree in STU alg mode"),
+    ("the number stored under the wrong letter", "lesson.md", "```keys V01\n4 STO N\n", "```keys V01\n4 STO A\n", {},
+     "V01: printed keys and vector disagree"),
+    ("the line quoted without its ×", "lesson.md", 'kind="line">3×N+5<', 'kind="line">3N+5<', {},
+     "the prose '3N+5' (line) (STU alg)"),
+    ("RPN adding before it multiplies", "lesson.md", "```keys V02 entry=rpn after=V01\n3 ENTER RCL N × 5 +\n",
+     "```keys V02 entry=rpn after=V01\n3 ENTER RCL N 5 + ×\n", {}, "V02: printed keys and vector disagree in STU rpn mode"),
+]
+CONTROLS_FOR["expr-02-solving-by-undoing"] = [
+    ("the ×3 undone before the +5", "lesson.md", "```keys U01 entry=alg\n20 − 5 ENTER\n", "```keys U01 entry=alg\n20 ÷ 3 ENTER\n", {},
+     "U01: printed keys and vector disagree in STU alg mode"),
+    ("the answer misquoted", "lesson.md", '<disp v="U02">5.0000<', '<disp v="U02">6.0000<', {},
+     "D-U02: the prose shows '6.0000'"),
+    ("the check adding before it multiplies", "lesson.md", "```keys C01 entry=rpn\n3 ENTER 5 × 5 +\n",
+     "```keys C01 entry=rpn\n3 ENTER 5 + 5 ×\n", {}, "C01: printed keys and vector disagree in STU rpn mode"),
+    ("the ÷4 undone by dividing again", "lesson.md", "```keys U04 entry=alg after=U03\n× 4 ENTER\n",
+     "```keys U04 entry=alg after=U03\n÷ 4 ENTER\n", {}, "U04: printed keys and vector disagree in STU alg mode"),
+]
 CONTROLS_FOR["rpn-03-the-display"].append(
     ("an example that relies on a setting the one before it changed", "lesson.md",
      "```keys P01\nGOLD DISP FIX 4 2 ENTER 3 ÷\n", "```keys P01\n2 ENTER 3 ÷\n", {},

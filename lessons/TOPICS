@@ -299,3 +299,26 @@ tangent-equation | The tangent line's equation: y = f(a) + f′(a)(x − a) | de
 extremes | Lowest and highest points: where the derivative is 0, and its sign either side | der-03 | Lowest and highest points
 local-extremes | Local maximum and minimum | der-03 | Lowest and highest points
 graph-fcn | GRAPH's FCN page: EXTR, SLOPE, TANL | der-03@STU | On the graph
+
+# whole-01 Adding and subtracting (pre-algebra unit 1)
+place-value | Place value: what a digit is worth by where it sits | whole-01 | Place value
+column-addition | Adding column by column, carrying | whole-01 | Adding, column by column
+column-subtraction | Taking away column by column, borrowing | whole-01 | Taking away, column by column
+estimating | Estimating by rounding, to catch a slip | whole-01 | Estimating, to catch a slip
+
+# whole-02 Multiplying and dividing (pre-algebra unit 1)
+partial-products | Multiplying in parts | whole-02 | Multiplying in parts
+quotient-remainder | Quotient and remainder, and INT÷ and Rmdr | whole-02 | Dividing, and what is left over
+long-division | Long division | whole-02 | Long division
+
+# expr-01 Letters for numbers (pre-algebra unit 2)
+variable | A variable: a letter for a number that can change | expr-01 | A letter stands for a number
+algebraic-expression | An expression, and 7n for 7 × n | expr-01 | A letter stands for a number
+evaluating | Evaluating: putting a number in for the letter | expr-01 | A letter stands for a number
+multiply-first | Multiply before you add | expr-01 | Multiply before you add
+store-letter | STO and RCL: the calculator holding a letter's number | expr-01 | Letting the calculator hold the number
+
+# expr-02 Solving by undoing (pre-algebra unit 2)
+equation | An equation, and solving it | expr-02 | An equation
+undoing | Undoing the steps in the opposite order | expr-02 | An equation
+check-by-putting-back | Checking an answer by putting it back | expr-02 | Check by putting it back

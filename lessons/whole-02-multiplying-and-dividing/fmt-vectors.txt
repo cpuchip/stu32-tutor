@@ -1,0 +1,12 @@
+# whole-02 multiplying and dividing display vectors: D-ID is what X shows after vector ID, the same in both entries.
+D-M01 | after M01 | 1058 | FIX 4 | w=21 | 1,058.0000
+D-D01 | after D01 | 6.555555555555555555555555555555556 | FIX 4 | w=21 | 6.5556
+D-D02 | after D02 | 6 | FIX 4 | w=21 | 6.0000
+D-D03 | after D03 | 5 | FIX 4 | w=21 | 5.0000
+D-D04 | after D04 | 142 | FIX 4 | w=21 | 142.0000
+D-D05 | after D05 | 6 | FIX 4 | w=21 | 6.0000
+D-E01 | after E01 | 555 | FIX 4 | w=21 | 555.0000
+D-E02 | after E02 | 8 | FIX 4 | w=21 | 8.0000
+D-E02B | after E02B | 4 | FIX 4 | w=21 | 4.0000
+D-E03 | after E03 | 52 | FIX 4 | w=21 | 52.0000
+D-E03B | after E03B | 1 | FIX 4 | w=21 | 1.0000

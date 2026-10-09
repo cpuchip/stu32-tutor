@@ -452,8 +452,8 @@ def selftest_lore(entities, edges, lessons, graph):
         ("a cast character whose home is not on every route", entities, edges,
          {**lessons, "rpn-01": ({**lessons["rpn-01"][0], "cast": "Maren"}, lessons["rpn-01"][1])},
          "rpn-01: 'Maren' is cast:, but their home start-01 is not among its prerequisites"),
-        ("a cast character no lesson introduces", entities, edges,
-         {**lessons, first: ({**meta, "cast": "Tobin"}, text)}, "'Tobin' is cast:, but no lesson introduces them"),
+        ("a cast entity no lesson introduces", entities, edges,
+         {**lessons, first: ({**meta, "cast": "Thornwick"}, text)}, "'Thornwick' is cast:, but no lesson introduces them"),
     ]
     red = 0
     for pname, en, ed, ls, why in plants:
