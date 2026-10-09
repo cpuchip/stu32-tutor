@@ -53,8 +53,8 @@ From the top, ▲ goes up to the 3×3 solver and ▲ again to the 2×2, however 
 ▲ ▲
 ```
 
-The X line shows <disp v="T01A" kind="eqn">2*2 lin. solve</disp>. SOLVE runs it. Unlike eq-02's SOLVE
-W, you press no letter after it: it asks for the six numbers in turn, A first.
+The X line shows <disp v="T01A" kind="eqn">2*2 lin. solve</disp>. SOLVE runs it. Unlike SOLVE
+W in eq-02, you press no letter after it: it asks for the six numbers in turn, A first.
 
 ```keys T01B after=T01A
 GOLD SOLVE
@@ -82,8 +82,8 @@ C leaves the view, as it leaves VIEW's (rpn-02):
 C
 ```
 
-X shows <disp v="T03">8.0000</disp>. The answers are on the stack, x in X and y in Y (rpn-01's levels),
-and in the variables X and Y. So sys-01's check works straight away, 2x + 3y:
+X shows <disp v="T03">8.0000</disp>. The answers are on the stack, x in X and y in Y (the levels of rpn-01),
+and in the variables X and Y. So the check from sys-01 works straight away, 2x + 3y:
 
 ```keys T04 after=T03
 2 RCL X × 3 RCL Y × +
@@ -93,7 +93,7 @@ X shows <disp v="T04">37.0000</disp>, the first equation's right side.
 
 ## Keeping a number
 
-sys-01's fruit stall: 0.75x + 1.25y = 6.5 and x + y = 6. EQN opens at the last entry you viewed
+The fruit stall from sys-01: 0.75x + 1.25y = 6.5 and x + y = 6. EQN opens at the last entry you viewed
 (eq-02), which is the 2×2 solver:
 
 ```keys F01A after=T04
@@ -168,7 +168,7 @@ shows <disp v="M02" kind="view">Y=2.0000</disp>, and
 
 ## No solution, or every solution
 
-sys-01's two awkward cases go to the 2×2 solver too. EQN now opens at the 3×3 solver, and ▲ goes up
+The two awkward cases from sys-01 go to the 2×2 solver too. EQN now opens at the 3×3 solver, and ▲ goes up
 to the 2×2:
 
 ```keys N01A after=M03
@@ -198,10 +198,10 @@ every point of one line, as in sys-01. Here the line is the first equation, x + 
 
 ## Exercises
 
-1. Solve 3x + 2y = 16 and x + y = 6 with the 2×2 solver (sys-01's first exercise, by hand there).
+1. Solve 3x + 2y = 16 and x + y = 6 with the 2×2 solver (the first exercise of sys-01, by hand there).
    Watch what the prompts show before you keep a number.
 2. Solve x + y + z = 6, 2x − y + z = 3 and x + 2y − z = 2 with the 3×3 solver.
-3. What does the 2×2 solver say about 2x − y = 1 and 4x − 2y = 5 (sys-01's second exercise)?
+3. What does the 2×2 solver say about 2x − y = 1 and 4x − 2y = 5 (the second exercise of sys-01)?
 4. Solve x + y = 5, y + z = 7 and x + z = 6 with the 3×3 solver.
 
 ## Answers

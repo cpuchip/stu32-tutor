@@ -146,7 +146,7 @@ the area below it, 0.5 − 0.5, which is 0.
 
 ## Answers
 
-1. 8. 3x² stays above the axis, so its integral is the area. Type it (with the ×, as eq-01's lesson
+1. 8. 3x² stays above the axis, so its integral is the area. Type it (with the ×, as eq-01
    said), put 0 and 2 on the stack, and integrate:
 
    ```keys E01

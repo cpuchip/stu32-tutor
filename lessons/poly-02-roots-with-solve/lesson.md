@@ -29,7 +29,7 @@ BLUE MODE {mode} GOLD DISP FIX 4
 ## Typing c
 
 Equation mode, as in eq-01, with yˣ for the powers. c has no = sign<mode m="STU">, as the expression
-in fn-02's TABLE section had none</mode>: SOLVE treats an expression on its own as equal to 0, and XEQ gives its
+in the TABLE section of fn-02 had none</mode>: SOLVE treats an expression on its own as equal to 0, and XEQ gives its
 value.
 
 ```keys R01

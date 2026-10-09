@@ -49,6 +49,8 @@ CONTROLS = [
      "no display vector D-S05"),
     ("an em-dash in the prose", "lesson.md", "## Two numbers, one operation", "## Two numbers \u2014 one operation", {},
      "em-dash"),
+    ("a lesson id written as a possessive", "lesson.md", "To add 7 and 5, type 7,", "To add 7 and 5 (rpn-02's way), type 7,", {},
+     "lesson id rpn-02 written as a possessive"),
     ("the same ops from a different state (planted CLx behind the trace)", None, None, None, {"KEYRUN_FAULT": "state"},
      "STATE: the same"),
     # From the 2026-10-06 outside review (docs/evidence/rpn-01.md), one control per finding fixed.
@@ -656,6 +658,26 @@ CONTROLS_FOR["neg-02-multiplying-and-dividing-negatives"] = [
      "```keys D02 entry=alg\n12 +/− ÷ 4 ENTER\n", {}, "D02: printed keys and vector disagree in STU alg mode"),
     ("RPN's Rmdr of 7, not −7", "lesson.md", "```keys F02 entry=rpn\n7 +/− ENTER 2 BLUE Rmdr\n",
      "```keys F02 entry=rpn\n7 ENTER 2 BLUE Rmdr\n", {}, "F02: printed keys and vector disagree in STU rpn mode"),
+]
+CONTROLS_FOR["frac-02-adding-fractions"] = [
+    ("the tops-and-bottoms slip quoted as the answer", "lesson.md", '<disp v="A01">0 5/8<', '<disp v="A01">0 1/3<', {},
+     "D-A01: the prose shows '0 1/3'"),
+    ("a fraction typed with + for ÷", "lesson.md", "```keys A02 entry=alg\n2 ÷ 5 + 1 ÷ 2 ENTER\n",
+     "```keys A02 entry=alg\n2 ÷ 5 + 1 + 2 ENTER\n", {}, "A02: printed keys and vector disagree in STU alg mode"),
+    ("RPN taking away in the wrong order", "lesson.md", "```keys S01 entry=rpn\n7 ENTER 8 ÷ 1 ENTER 4 ÷ −\n",
+     "```keys S01 entry=rpn\n1 ENTER 4 ÷ 7 ENTER 8 ÷ −\n", {}, "S01: printed keys and vector disagree in STU rpn mode"),
+    ("the mixed number misquoted", "lesson.md", '<disp v="A03">1 1/4<', '<disp v="A03">5/4<', {},
+     "D-A03: the prose shows '5/4'"),
+]
+CONTROLS_FOR["frac-03-multiplying-fractions"] = [
+    ("the brackets left out of the division", "lesson.md", "```keys D01 entry=alg\n3 ÷ 4 ÷ () 3 ÷ 8 ▶ ENTER\n",
+     "```keys D01 entry=alg\n3 ÷ 4 ÷ 3 ÷ 8 ENTER\n", {}, "D01: printed keys and vector disagree in STU alg mode"),
+    ("the product misquoted", "lesson.md", '<disp v="M01">0 3/8<', '<disp v="M01">0 4/6<', {},
+     "D-M01: the prose shows '0 4/6'"),
+    ("RPN multiplying where it should divide", "lesson.md", "```keys D01 entry=rpn\n3 ENTER 4 ÷ 3 ENTER 8 ÷ ÷\n",
+     "```keys D01 entry=rpn\n3 ENTER 4 ÷ 3 ENTER 8 ÷ ×\n", {}, "D01: printed keys and vector disagree in STU rpn mode"),
+    ("the bracket's line misquoted", "lesson.md", 'kind="line">3÷4÷(3÷8)<', 'kind="line">3÷4÷3÷8<', {},
+     "the prose '3÷4÷3÷8' (line) (STU alg)"),
 ]
 CONTROLS_FOR["rpn-03-the-display"].append(
     ("an example that relies on a setting the one before it changed", "lesson.md",

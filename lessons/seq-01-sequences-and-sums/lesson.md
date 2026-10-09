@@ -57,7 +57,7 @@ X shows <disp v="A02">510.0000</disp> seats.
 ## Geometric sequences
 
 A sequence that multiplies by the same number at every step is geometric, and the number is its
-common ratio, r: exp-01's growth by a factor is a geometric sequence. A colony of cells starts with 3
+common ratio, r: growth by a factor (exp-01) is a geometric sequence. A colony of cells starts with 3
 and doubles every hour: 3, 6, 12, 24, …. The nth term is n − 1 steps after the first, so it is the
 first term multiplied by r once for each of those steps: 3 × 2ⁿ⁻¹. (exp-01 counted its steps from the
 start, a × bⁿ after n steps; here the first term is the start, so the nth is n − 1 steps on.) The 10th:
@@ -86,7 +86,7 @@ X shows <disp v="G02">3,069.0000</disp>.
 
 A formula is quicker, but adding the terms one by one is a check that needs no sum formula. Program Z
 adds the theatre's 15 rows. It keeps the total in the variable T (on 8), and a counter in I (on R↓)
-as fn-02's loop kept its counter: 1.015 counts from 1 up to and including 15. Z is on the 2 key and
+as the loop in fn-02 kept its counter: 1.015 counts from 1 up to and including 15. Z is on the 2 key and
 its loop label, W, on 5:
 
 ```keys P01A

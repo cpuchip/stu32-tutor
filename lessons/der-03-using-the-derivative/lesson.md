@@ -11,8 +11,8 @@ display: FIX 4
 
 A derivative is a function that gives a curve's slope at each point. This lesson puts that to work
 twice: to find the straight line that best fits a curve near a point, and to find where a curve turns,
-from falling to rising or back. The examples use fn-02's function q(x) = x² − 4x + 3, whose graph you drew by hand, and
-by der-02's rules q′(x) = 2x − 4.
+from falling to rising or back. The examples use the function from fn-02, q(x) = x² − 4x + 3, whose graph you drew by hand, and
+by the rules of der-02, q′(x) = 2x − 4.
 
 ## Before you start
 
@@ -27,7 +27,7 @@ BLUE MODE {mode} GOLD DISP FIX 4
 
 der-01 called the tangent line at a the line through (a, f(a)) with slope f′(a). That line is
 y = f(a) + f′(a)(x − a). At x = a it gives f(a), and each 1 added to x adds f′(a) to y, so it is the line
-through that point with that slope (lin-01's slope). At x = 3,
+through that point with that slope (the slope of lin-01). At x = 3,
 q(3) = 9 − 12 + 3 = 0 and q′(3) = 2 × 3 − 4 = 2, so the tangent line is y = 0 + 2(x − 3), or y = 2x − 6.
 
 Near the point, the tangent line and the curve are very close. At x = 3.1, q is worked out on the
@@ -62,7 +62,7 @@ makes it the best straight-line stand-in for the curve near the point.
 
 ## Lowest and highest points
 
-On fn-02's graph of q, the curve falls, turns at its lowest point, and rises. Where it falls, its
+On the graph of q from fn-02, the curve falls, turns at its lowest point, and rises. Where it falls, its
 slope is negative; where it rises, positive. At the turn the tangent line is flat: the slope is 0. So
 where a smooth curve turns, its derivative is 0, and the turns are among the places where f′ = 0.
 
@@ -92,7 +92,7 @@ q's lowest point anywhere, not only nearby. Its height, q(2):
 2 ENTER GOLD x² x↔y 4 × − 3 +
 ```
 
-X shows <disp v="S02">-1.0000</disp>. The lowest point of q is (2, −1), the turn fn-02's drawing showed.
+X shows <disp v="S02">-1.0000</disp>. The lowest point of q is (2, −1), the turn the drawing in fn-02 showed.
 
 A curve can have more than one. f(x) = x³ − 3x has f′(x) = 3x² − 3, which is 0 when x² = 1: at x = 1 and
 x = −1. The slope's sign tells which is which. f′(−2) = 9 is positive, f′(0) = −3 negative, and
@@ -121,7 +121,7 @@ points in this mode.</mode>
 ## On the graph
 
 STU mode's GRAPH (fn-02) has tools that find these points from the picture. Type q, turn Equation
-mode off, and set fn-02's window, XMIN −2 and XMAX 5.98: its 400 columns are 0.02 apart, so column 200,
+mode off, and set the window from fn-02, XMIN −2 and XMAX 5.98: its 400 columns are 0.02 apart, so column 200,
 where the trace starts, is x = 2 (fn-02).</mode>
 
 ```keys G01 mode=STU
@@ -240,7 +240,7 @@ slip: K01B | f(2), not f′(2) | That is the height at 2. Take the derivative fi
 ```
 
 ```item K02
-prompt: lim-02's ball has gone d(t) = 2t² metres after t seconds. How fast is it going when it has rolled 32 metres?
+prompt: The ball from lim-02 has gone d(t) = 2t² metres after t seconds. How fast is it going when it has rolled 32 metres?
 topics: derivative-function
 answer: type
 calculator: no

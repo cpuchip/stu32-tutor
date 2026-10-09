@@ -15,7 +15,7 @@ step, the amount is
 
 a × bⁿ.
 
-A factor above 1 makes growth, and a factor between 0 and 1 makes decay. lin-03's doubling data was
+A factor above 1 makes growth, and a factor between 0 and 1 makes decay. the doubling data in lin-03 was
 exponential, with a factor of 2, which is why a line described it so badly. This lesson works with
 exponential growth and decay, using yˣ from num-03.
 
@@ -60,7 +60,7 @@ time it takes to halve is called its half-life. Start with 80 mg. The amount doe
 at each halving; it falls smoothly all the time, so a × bⁿ holds for part of a step too, with n a
 fraction. After 15 hours, 15 ÷ 6 = 2.5 half-lives have passed, so 80 × 0.5^2.5 remain. A power of
 2.5 is a power of 2 and a power of one half together: 0.5^2.5 = 0.5² × √0.5, since multiplying
-powers of one number adds the powers (num-04 did it with powers of ten) and num-03's power of one
+powers of one number adds the powers (num-04 did it with powers of ten) and, as in num-03, the power of one
 half is a square root. yˣ takes any power. First the 2.5:
 
 ```keys D01A

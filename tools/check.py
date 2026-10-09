@@ -502,6 +502,12 @@ class Lesson:
         dashes = sum(text.count(d) for d in EM_DASH)
         if dashes:
             self.bad(f"{dashes} em-dash(es) in lesson.md")
+        # The page renders a lesson id in prose as its linked title (abacus #5459), so a possessive id
+        # ("lim-02's ball") reads as "[Rates of change]'s ball" (primer #5463): name the thing, then the
+        # lesson ("the ball from lim-02").
+        for pid in sorted(set(re.findall(r"\b([a-z]+-\d{2}[a-z]?)'s\b", body))):
+            self.bad(f"lesson id {pid} written as a possessive ({pid}'s): the page renders it as a title; "
+                     f"write 'the … from {pid}'")
 
     def check_mode(self, md, entry, meta, body, all_vectors, fmts, settings, setup_t):
         # md is the mode; `mode` names the mode and entry in messages ("33s", or "STU alg").

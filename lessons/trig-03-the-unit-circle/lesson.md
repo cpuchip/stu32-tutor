@@ -48,7 +48,7 @@ negative below the x axis.
                         |
 ```
 
-For an angle between 0 and 90 degrees this is trig-02's triangle: O, P, and the point below P on the x
+For an angle between 0 and 90 degrees this is the triangle of trig-02: O, P, and the point below P on the x
 axis make a right triangle whose hypotenuse is the arm, of length 1, so sin θ = up ÷ 1 and
 cos θ = across ÷ 1. Beyond 90 degrees there is no right triangle with that angle, but P still has
 coordinates, and those are the sine and cosine.

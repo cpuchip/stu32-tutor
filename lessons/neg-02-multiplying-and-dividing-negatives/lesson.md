@@ -13,7 +13,7 @@ cast: Hesk
 
 # Multiplying and dividing negatives
 
-Hesk's pond cools by 4 degrees every hour of a winter night. Write a change of 4 degrees colder as −4.
+On a winter night the air by Hesk's mill pond cools by 4 degrees every hour. Write a change of 4 degrees colder as −4.
 After 3 hours the change is −4 three times over: 3 × (−4). What does a negative times a number give,
 and what about a negative times a negative? This lesson finds the rules, says why they hold, and
 checks them on the calculator.
@@ -39,7 +39,7 @@ to the left from 0: −12.
 3 ENTER 4 +/− ×
 ```
 
-The screen shows <disp v="M01">-12.0000</disp>. After 3 hours the pond is 12 degrees colder. A positive
+The screen shows <disp v="M01">-12.0000</disp>. After 3 hours the air is 12 degrees colder. A positive
 times a negative is negative. And the order of multiplying does not matter (3 × 4 and 4 × 3 are the
 same rows turned around), so a negative times a positive, like (−4) × 3, is negative too.
 
@@ -55,7 +55,7 @@ Watch a pattern, multiplying −4 by 3, then 2, then 1, then 0:
 Each time the first number goes down by 1, there is one −4 fewer, so the answer is the last one with a
 −4 taken away. Taking away −4 adds 4 (neg-01). So going on below zero, each step still adds 4:
 (−1) × (−4) = 0 + 4 = 4, (−2) × (−4) = 8, (−3) × (−4) = 12. A negative times a negative is positive.
-On the pond: if it cools 4 degrees an hour, then 3 hours ago, which is −3 hours, it was 12 degrees
+On the thermometer: if the air cools 4 degrees an hour, then 3 hours ago, which is −3 hours, it was 12 degrees
 warmer.
 
 ```keys M02 entry=alg
@@ -99,7 +99,7 @@ The screen shows <disp v="D02">3.0000</disp>. The same signs, positive; differen
 ## INT÷ and Rmdr with a negative
 
 −7 ÷ 2 is −3.5. INT÷ (whole-02) gives an integer. This calculator always takes the integer at or below
-the answer: the nearest one to its left on the number line. (For 84 ÷ 6, which is exactly 14, that is
+the answer: the nearest one at or to its left on the number line. (For 84 ÷ 6, which is exactly 14, that is
 14 itself.) The integer below −3.5 is −4, not −3:
 
 ```keys F01 entry=alg

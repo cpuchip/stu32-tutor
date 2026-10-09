@@ -68,8 +68,8 @@ other root:
 RCL B +/− RCL D √x − 2 RCL A × ÷
 ```
 
-X shows <disp v="Q04">1.0000</disp>: (4 − 2) ÷ 2. The roots are 1 and 3, the two zeros in fn-02's
-table.
+X shows <disp v="Q04">1.0000</disp>: (4 − 2) ÷ 2. The roots are 1 and 3, the two zeros in the table
+of fn-02.
 
 ## One root
 

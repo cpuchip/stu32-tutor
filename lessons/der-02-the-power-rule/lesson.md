@@ -25,7 +25,7 @@ BLUE MODE {mode} GOLD DISP FIX 4
 
 ## Powers of x
 
-Do der-01's algebra for x³. (a + h)³ is (a + h)² × (a + h), which is (a² + 2ah + h²)(a + h). Multiplied
+Do the algebra from der-01 for x³. (a + h)³ is (a + h)² × (a + h), which is (a² + 2ah + h²)(a + h). Multiplied
 out, that is a³ + a²h + 2a²h + 2ah² + ah² + h³, and collecting like terms, a³ + 3a²h + 3ah² + h³. Take
 away a³ and divide by h: the average rate is 3a² + 3ah + h², for any h that
 is not 0. As h shrinks, 3ah and h² shrink to 0, and the average closes in on 3a². So the derivative of
@@ -57,7 +57,7 @@ flat line, with slope 0.
 Two more rules come straight from the averages.
 - A number times a function. (2(a + h)² − 2a²) ÷ h is 2 × ((a + h)² − a²) ÷ h: twice the average of
   t². Whatever that average closes in on, twice it closes in on twice as much. So the derivative of
-  k times a function is k times its derivative: for 2t², 2 × 2t = 4t, which is der-01's answer.
+  k times a function is k times its derivative: for 2t², 2 × 2t = 4t, which is the answer der-01 found.
 - A sum. For f + g, the change from a to a + h is f's change plus g's change, so the average of the
   sum is f's average plus g's average. If those close in on f′(a) and g′(a), their sum closes in on
   f′(a) + g′(a): the derivative of a sum is the sum of the derivatives. A difference is a sum with a

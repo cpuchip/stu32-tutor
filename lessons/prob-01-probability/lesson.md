@@ -60,7 +60,7 @@ X shows <disp v="N01">0.8333</disp>.
 
 Two events are independent when one happening does not change the chances of the other, as with two
 dice. The probability that both happen is then the two probabilities multiplied. For two fair dice
-you can see why by counting: cnt-01's rule of multiplying the choices gives 6 × 6 = 36 outcomes, all
+you can see why by counting: the rule from cnt-01, multiplying the choices, gives 6 × 6 = 36 outcomes, all
 equally likely, and only one of them is a 6 and a 6, so 1 in 36, which is 1/6 × 1/6. Both dice
 showing 6, as 1/6 times 1/6:
 

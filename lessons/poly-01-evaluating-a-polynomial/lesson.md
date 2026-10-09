@@ -20,8 +20,8 @@ polynomial's value with very few keys, by a method that uses the stack the way r
 
 The setup from rpn-01: the mode you chose and FIX 4. The worked example in "On the stack" is one chain, each
 step carrying on from the one before, and so is the program and its runs. Everything else starts
-fresh. If a program is still stopped from fn-03, press GOLD GTO . . before you key in P, as fn-03's
-last answer says.
+fresh. If a program is still stopped from fn-03, press GOLD GTO . . before you key in P, as the last answer
+in fn-03 says.
 
 <mode m="35s,STU">In this mode XEQ and GTO wait, after the label's letter, for ENTER; the keys
 below show the ENTER.</mode>

@@ -64,7 +64,7 @@ result in B:
 × − STO B
 ```
 
-X shows <disp v="L03">3.0000</disp>: b = 9 − 6. The line is y = 2x + 3, fn-01's f.
+X shows <disp v="L03">3.0000</disp>: b = 9 − 6. The line is y = 2x + 3, the f of fn-01.
 
 Check it with the other point. At x = 5 the line should give 13:
 

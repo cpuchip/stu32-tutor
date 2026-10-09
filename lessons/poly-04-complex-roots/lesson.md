@@ -150,8 +150,8 @@ pairs; that needs more than the formula to show.)
 
 ## Checking a root
 
-A root makes the polynomial 0. <mode m="35s,STU">Put −1 + 2i into x² + 2x + 5 with poly-01's Horner
-keys: fill the stack with it, then 1 ×, 2 +, ×, 5 +. The stack holds a complex number in each level
+A root makes the polynomial 0. <mode m="35s,STU">Put −1 + 2i into x² + 2x + 5 with the Horner
+keys of poly-01: fill the stack with it, then 1 ×, 2 +, ×, 5 +. The stack holds a complex number in each level
 just as it holds a real one, so the same keys work. Here +/− comes before the i, so it makes the real
 part negative:</mode><mode m="33s">Put −1 + 2i into x² + 2x + 5. Horner's keys need a complex number in
 every stack level, and here a pair takes two levels, so work it out term by term instead. x² is z × z:

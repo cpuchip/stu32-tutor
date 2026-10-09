@@ -9,7 +9,7 @@ display: FIX 4
 
 # The derivative
 
-lim-02's ball rolls down a ramp, and after t seconds it has gone d(t) = 2t² metres. At t = 1 it is going
+The ball from lim-02 rolls down a ramp, and after t seconds it has gone d(t) = 2t² metres. At t = 1 it is going
 4 metres a second: the averages over shorter and shorter times close in on 4. But the ball has a speed
 at every moment, not only at t = 1. This lesson finds them all at once, as a new function, and tries
 it on the calculator.
@@ -42,7 +42,7 @@ d′(t), and here d′(t) = 4t.
 
 ## Checking it
 
-Program V works out lim-02's average for any time, not only t = 1. (lim-02's program D may still be in
+Program V works out the average from lim-02 for any time, not only t = 1. (Program D from lim-02 may still be in
 memory, so this one is V, for velocity.) The time a waits in A; with h in X,
 V keeps h in H, adds a, squares, doubles to get d(a + h), then takes away d(a) = 2a², worked out the
 same way, and divides by h. First GOLD GTO . . (fn-03) moves to the top of program memory. (If you

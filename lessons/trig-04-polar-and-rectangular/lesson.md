@@ -27,8 +27,8 @@ positive x axis as in trig-03. A point in polar form is written (r, θ).
             |    x
 ```
 
-The point lies on trig-03's arm, r times as far out as the point P on the unit circle. Every length
-is stretched by r and the angle stays the same, as with trig-02's scaled triangles, so
+The point lies on the arm from trig-03, r times as far out as the point P on the unit circle. Every length
+is stretched by r and the angle stays the same, as with the scaled triangles of trig-02, so
 
 x = r cos θ, y = r sin θ, and r = √(x² + y²)
 

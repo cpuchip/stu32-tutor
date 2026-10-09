@@ -13,9 +13,9 @@ cast: Hesk
 
 # Negative numbers
 
-In winter, Hesk watches the mill pond. At dawn the water is 5 degrees Celsius; by night it is 8
-degrees colder. How cold is it tonight? Water starts to freeze at 0 degrees Celsius, and tonight is
-colder than that, so the answer needs a number below zero. This lesson is about those numbers: what
+In winter, Hesk keeps a thermometer by the mill pond. At dawn the air is 5 degrees Celsius; by night
+it is 8 degrees colder. How cold is it tonight? Water freezes at 0 degrees Celsius, and tonight the air
+is colder than that, so the pond will freeze over, and the answer needs a number below zero. This lesson is about those numbers: what
 they mean, how they line up, and how to add and take them away.
 
 ## Before you start
@@ -37,7 +37,7 @@ middle, the positive numbers to the right and the negatives to the left:
 ```
 
 Further right is bigger. So 5 is bigger than −3, and −3 is bigger than −8, even though 8 is bigger
-than 3: −8 is further below zero. On the pond, −3 degrees is warmer than −8.
+than 3: −8 is further below zero. On Hesk's thermometer, −3 degrees is warmer than −8.
 
 The sign − now has two jobs. Between two numbers it means take away, as in 5 − 8. In front of one
 number it means below zero, as in −8. When a negative number follows an operation, brackets keep the
@@ -45,9 +45,10 @@ two jobs apart: 5 + (−8) is "5 plus negative 8".
 
 ## Adding a negative
 
-Adding a positive number moves right along the line; adding a negative moves left. The pond at 5
+Adding a positive number moves right along the line; adding a negative moves left. The air at 5
 degrees, 8 degrees colder: 5 + (−8). Start at 5 and move 8 to the left: 5 steps reach 0, and 3 more
-reach −3. So 5 + (−8) = −3, the same as 5 − 8. Tonight the pond is 3 degrees below zero.
+reach −3. So 5 + (−8) = −3, the same as 5 − 8. Tonight the air is 3 degrees below zero, and the pond's top
+freezes.
 
 On the calculator, the − key takes away, and +/− flips the sign of the number being typed: 8 becomes
 −8 (and −8 would become 8 again).
@@ -91,7 +92,7 @@ The screen shows <disp v="A04">-8.0000</disp>.
 ## Taking away a negative
 
 Taking away is the opposite of adding, so taking away a negative moves the other way: right. One way to
-picture it: in the morning the pond is −4 degrees, and the sun takes away 6 degrees of cold:
+picture it: in the morning the air is −4 degrees, and the sun takes away 6 degrees of cold:
 −4 − (−6). Start at −4 and move 6 to the right: 4 steps reach 0, and 2 more reach 2. So
 −4 − (−6) = 2, the same as −4 + 6. Taking away a negative is adding the positive: − (−6) is + 6.
 
