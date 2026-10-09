@@ -33,8 +33,8 @@ by it. So half of 3/4 is 1/2 × 3/4. Picture the pan cut into quarters, with 3 q
 quarter: the 4 quarters, each cut in 2, make 2 × 4 = 8 pieces in the pan, eighths. Half of the fudge
 is one piece from each of the 3 quarters: 1 × 3 = 3 of those eighths. So 1/2 × 3/4 = 3/8. That is the
 rule: multiply the tops, and multiply the bottoms. 1/2 × 3/4 = (1 × 3)/(2 × 4) = 3/8. The answer is
-smaller than 3/4, as half of anything is: multiplying by a fraction less than 1 makes a number
-smaller.
+smaller than 3/4, as half of any amount is: multiplying a positive number by a fraction less than 1
+makes it smaller.
 
 ```keys M01 entry=alg
 1 ÷ 2 × 3 ÷ 4 ENTER
@@ -64,8 +64,8 @@ The screen shows <disp v="M02">0 1/2</disp>.
 ## Dividing
 
 3/4 ÷ 3/8 asks how many pieces of 3/8 fit in 3/4. In eighths, 3/4 is 6/8, and 6 eighths hold two
-pieces of 3 eighths: 2. There is a shortcut that always works: dividing by a fraction is multiplying
-by it flipped, its top and bottom swapped. 3/4 ÷ 3/8 = 3/4 × 8/3 = 24/12 = 2. Why: a whole pan is 8
+pieces of 3 eighths: 2. There is a shortcut that works for dividing by any fraction but 0 (you can't divide by 0): dividing by
+a fraction is multiplying by it flipped, its top and bottom swapped. 3/4 ÷ 3/8 = 3/4 × 8/3 = 24/12 = 2. Why: a whole pan is 8
 eighths, and each piece is 3 eighths, so a whole pan holds 8 ÷ 3 = 8/3 pieces (2 2/3). 3/4 of a pan
 holds 3/4 of that many, and "of" is times: 3/4 × 8/3.
 

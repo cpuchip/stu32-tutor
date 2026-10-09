@@ -75,7 +75,8 @@ The screen shows <disp v="A02">0 9/10</disp>.
 The LCM earns its keep when neither bottom divides the other. 1/4 + 1/6: multiplying the bottoms gives
 24, but the LCM is 12 (4 = 2 × 2 and 6 = 2 × 3, so two 2s and a 3). 1/4 = 3/12 and 1/6 = 2/12, so the
 sum is 5/12. (Over 24 it would be 6/24 + 4/24 = 10/24, which then simplifies to 5/12: the same answer,
-with more work.) Twelfths do not come out as ending decimals, so this one stays a hand example.
+with more work.) 5/12 does not come out as an ending decimal (it is 0.41666…), so this one stays a hand
+example.
 
 ## Taking away
 

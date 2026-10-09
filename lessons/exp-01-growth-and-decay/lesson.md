@@ -15,7 +15,7 @@ step, the amount is
 
 a × bⁿ.
 
-A factor above 1 makes growth, and a factor between 0 and 1 makes decay. the doubling data in lin-03 was
+A factor above 1 makes growth, and a factor between 0 and 1 makes decay. The doubling data in lin-03 was
 exponential, with a factor of 2, which is why a line described it so badly. This lesson works with
 exponential growth and decay, using yˣ from num-03.
 

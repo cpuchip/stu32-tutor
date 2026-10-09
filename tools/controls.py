@@ -51,6 +51,8 @@ CONTROLS = [
      "em-dash"),
     ("a lesson id written as a possessive", "lesson.md", "To add 7 and 5, type 7,", "To add 7 and 5 (rpn-02's way), type 7,", {},
      "lesson id rpn-02 written as a possessive"),
+    ("a lesson id written as a possessive, curly apostrophe", "lesson.md", "To add 7 and 5, type 7,",
+     "To add 7 and 5 (rpn-02’s way), type 7,", {}, "lesson id rpn-02 written as a possessive"),
     ("the same ops from a different state (planted CLx behind the trace)", None, None, None, {"KEYRUN_FAULT": "state"},
      "STATE: the same"),
     # From the 2026-10-06 outside review (docs/evidence/rpn-01.md), one control per finding fixed.

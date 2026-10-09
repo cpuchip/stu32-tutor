@@ -505,7 +505,7 @@ class Lesson:
         # The page renders a lesson id in prose as its linked title (abacus #5459), so a possessive id
         # ("lim-02's ball") reads as "[Rates of change]'s ball" (primer #5463): name the thing, then the
         # lesson ("the ball from lim-02").
-        for pid in sorted(set(re.findall(r"\b([a-z]+-\d{2}[a-z]?)'s\b", body))):
+        for pid in sorted(set(re.findall(r"\b([a-z]+-\d{2}[a-z]?)['’]s\b", body))):     # straight or curly
             self.bad(f"lesson id {pid} written as a possessive ({pid}'s): the page renders it as a title; "
                      f"write 'the … from {pid}'")
 
