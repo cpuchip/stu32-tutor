@@ -529,6 +529,20 @@ CONTROLS_FOR["der-01-the-derivative"] = [
     ("Equation mode left on before exercise 3", "lesson.md", "   ```keys E02C after=E02B mode=STU\n   GOLD EQN\n   ```\n", "", {},
      "E03: working through in order"),
 ]
+CONTROLS_FOR["der-02-the-power-rule"] = [
+    ("the cube's x↔y left out (4 x 2.001^3 taken)", "lesson.md", "2.001 ENTER ENTER 3 yˣ x↔y 4 ×", "2.001 ENTER ENTER 3 yˣ 4 ×", {},
+     "P01: printed keys and vector disagree in 33s mode"),
+    ("an average quoted as the exact 8", "lesson.md", '<disp v="P01">8.0060<', '<disp v="P01">8.0000<', {},
+     "D-P01: the prose shows '8.0000'"),
+    ("Casimir's 3x² − 4 misquoted", "lesson.md", 'kind="eqn">3×X^2-4<', 'kind="eqn">3X^2-4<', {},
+     "B01: the device's X line shows '3×X^2-4' (eqn)"),
+    ("1/x's average with + for −", "lesson.md", "2.001 1/x 0.5 − 0.001 ÷", "2.001 1/x 0.5 + 0.001 ÷", {},
+     "R01: printed keys and vector disagree in 33s mode"),
+    ("exercise 2 with no ENTER: 1.001 squared in the typing", "lesson.md", "1.001 ENTER GOLD x²", "1.001 GOLD x²", {},
+     "E02: printed keys and vector disagree in 33s mode"),
+    ("Equation mode left on after D/DX of 1/x", "lesson.md", "```keys R03 after=R02 mode=STU\nGOLD EQN\n```\n", "", {},
+     "E01: working through in order"),
+]
 CONTROLS_FOR["rpn-03-the-display"].append(
     ("an example that relies on a setting the one before it changed", "lesson.md",
      "```keys P01\nGOLD DISP FIX 4 2 ENTER 3 ÷\n", "```keys P01\n2 ENTER 3 ÷\n", {},

@@ -288,3 +288,8 @@ calc-frac-arrows | When a fraction is not exact: the arrow in the status band | 
 derivative-function | The derivative as a function: d′(t) | der-01 | The speed at every moment
 tangent-line | The tangent line: the derivative as a slope | der-01 | A picture: the tangent line
 cas-derivative | D/DX: Casimir's derivative as a rule | der-01@STU | The derivative on the calculator
+
+# der-02 The power rule (unit 11)
+power-rule | The power rule: the derivative of xⁿ is n·xⁿ⁻¹ | der-02 | Powers of x
+constant-derivative | A constant's derivative is 0 | der-02 | Powers of x
+sum-multiple-rules | Sums and constant multiples, term by term | der-02 | Sums and multiples

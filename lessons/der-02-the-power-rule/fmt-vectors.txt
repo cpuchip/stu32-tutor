@@ -1,0 +1,6 @@
+# der-02 display vectors: D-nnn is what X shows after key vector nnn, at FIX 4.
+D-P01 | after P01 | 8.006001 | FIX 4 | w=21 | 8.0060
+D-B02 | after B02 | 8 | FIX 4 | w=21 | 8.0000
+D-R01 | after R01 | -0.2498750624687656171914042978511 | FIX 4 | w=21 | -0.2499
+D-E01 | after E01 | 20.030020005 | FIX 4 | w=21 | 20.0300
+D-E02 | after E02 | 5.001 | FIX 4 | w=21 | 5.0010

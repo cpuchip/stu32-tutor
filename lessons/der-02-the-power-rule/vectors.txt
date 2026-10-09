@@ -1,0 +1,14 @@
+# der-02 the power rule: key vectors (the firmware's format). Every example is ours. Each starts
+# MODE33 FIX4 (the lesson's setup). Values from build/proto/der02.py, modelling the keys; Casimir's
+# texts as the core writes them at c7ab388.
+P01 | (f(2.001) - f(2)) / 0.001, f(x) = x^3 - 4x + 1 | MODE33 FIX4 2.001 ENTER ENTER 3 POW XY 4 * - 1 + 1 - 0.001 / | X=8.006001
+B01@STU | STU: D/DX of X^3-4X+1 in X | MODE33 FIX4 EQN RCL:X POW 3 - 4 * RCL:X + 1 ENTER CASD:X | %EQ=3×X^2-4
+B02@STU | continues B01: XEQ at X = 2 | MODE33 FIX4 EQN RCL:X POW 3 - 4 * RCL:X + 1 ENTER CASD:X XEQ 2 RS | X=8
+R01 | 1/x from 2 to 2.001: (1/2.001 - 0.5) / 0.001 | MODE33 FIX4 2.001 INV 0.5 - 0.001 / | X=-0.2498750624687656171914042978511
+R02@STU | STU: D/DX of 1/X | MODE33 FIX4 EQN 1 / RCL:X ENTER CASD:X | %EQ=-1÷X^2
+R03@STU | continues R02: Equation mode off | MODE33 FIX4 EQN 1 / RCL:X ENTER CASD:X EQN | %EQN=2
+E01 | exercise 1: (5 x 1.001^4 - 5) / 0.001 | MODE33 FIX4 1.001 ENTER 4 POW 5 * 5 - 0.001 / | X=20.030020005
+E02 | exercise 2: (1.001^2 + 3 x 1.001 - 4) / 0.001 | MODE33 FIX4 1.001 ENTER SQ XY 3 * + 4 - 0.001 / | X=5.001
+E02B@STU | exercise 2, STU: D/DX of X^2+3X | MODE33 FIX4 EQN RCL:X POW 2 + 3 * RCL:X ENTER CASD:X | %EQ=2×X+3
+E02C@STU | continues E02B: Equation mode off | MODE33 FIX4 EQN RCL:X POW 2 + 3 * RCL:X ENTER CASD:X EQN | %EQN=2
+E03@STU | exercise 3, STU: D/DX of 7 | MODE33 FIX4 EQN 7 ENTER CASD:X | %EQ=0
