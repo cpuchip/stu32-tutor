@@ -1,7 +1,8 @@
 # Placement: finding a learner's course and unit (PROPOSAL, for Michael)
 
-**Status:** a proposal against the roadmap's placement card (abacus #5211). Nothing is built until he
-says go. If he does, tutor writes the questions and the rules, and primer builds the page.
+**Status:** RULED GO (decision 67, 2026-10-09): by hand, with the calculator offered where an item
+justifies it, and the result remembered in the browser. Built as docs/lesson-format.md's Placement
+(placement/algebra-to-calculus, 22 items); primer builds the page.
 
 **His words** (basecamp #5210): "I was wondering for one of them if we could create a pre-assesment
 that helps find the right course for a student."

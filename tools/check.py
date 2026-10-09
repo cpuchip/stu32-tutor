@@ -56,9 +56,10 @@ MODE_SPAN = re.compile(r'<mode m="([^"]*)">(.*?)</mode>', re.S)
 ENTRY_SPAN = re.compile(r'<entry e="([^"]*)">(.*?)</entry>', re.S)
 # ```item ID```: a quiz or checkpoint item (docs/lesson-format.md, Items). Its fields, one a line:
 # prompt, topics, answer (type or work), calculator (yes or no), keys (the working, needed for work),
-# and any number of slip lines, "slip: VID | name | hint".
+# places (in a placement file: the unit it shows a learner is ready for), and any number of slip lines,
+# "slip: VID | name | hint".
 ITEM_BLOCK = re.compile(r"^[ \t]*```item[ \t]+(\S+)[ \t]*\n(.*?)^[ \t]*```[ \t]*$", re.M | re.S)
-ITEM_FIELDS = ("prompt", "topics", "answer", "calculator", "keys", "slip")
+ITEM_FIELDS = ("prompt", "topics", "answer", "calculator", "keys", "places", "slip")
 
 
 def parse_items(view):
@@ -586,9 +587,16 @@ class Lesson:
         # item's working after the attempt, so its vectors need no keys block.
         items = parse_items(view)
         quotes_at = [(q.group(1), q.start()) for q in DISP.finditer(view)]
+        placement = meta.get("kind") == "placement"
         for iid, at, fields, slips, problems in items:
             for p in problems:
                 self.bad(p)
+            # A placement file's items each place a unit (graph.py checks the unit and its topics);
+            # elsewhere an item places nothing.
+            if placement and not re.fullmatch(r"\d+", fields.get("places", "")):
+                self.bad(f"item {iid}: a placement item needs places: and a unit number")
+            if not placement and "places" in fields:
+                self.bad(f"item {iid}: places: is for placement files (front matter kind: placement)")
             if iid not in byid:
                 self.bad(f"item {iid} names no vector in {mode} mode")
                 continue

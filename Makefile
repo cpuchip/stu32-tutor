@@ -11,11 +11,12 @@ PYTHON ?= python3
 TRACE_O := $(abspath build/trace.o)
 WRAP := -Wl,--wrap=ab_do_arg -Wl,--wrap=ab_memory_clear -Wl,--wrap=ab_eqn_add -Wl,--wrap=ab_view_key
 LESSONS ?= $(wildcard lessons/*/)
+PLACEMENT ?= $(wildcard placement/*/)
 
 .PHONY: check controls tools clean
 check: tools
 	$(PYTHON) tools/graph.py
-	$(PYTHON) tools/check.py --core $(CORE_DIR) $(LESSONS)
+	$(PYTHON) tools/check.py --core $(CORE_DIR) $(LESSONS) $(PLACEMENT)
 	$(PYTHON) tools/judge_check.py --core $(CORE_DIR)
 
 # Proves the checker can fail: one planted fault at a time, each must turn it red for its own reason.
@@ -64,6 +65,7 @@ controls: tools
 	$(PYTHON) tools/controls.py --core $(CORE_DIR) lessons/int-01-area-under-a-curve
 	$(PYTHON) tools/controls.py --core $(CORE_DIR) lessons/start-01-the-calculator
 	$(PYTHON) tools/controls.py --core $(CORE_DIR) lessons/frac-01-equivalent-fractions
+	$(PYTHON) tools/controls.py --core $(CORE_DIR) placement/algebra-to-calculus
 
 $(CORE_DIR)/.exported: scripts/export-core.sh
 	scripts/export-core.sh $(FIRMWARE) $(CORE_PIN) $(CORE_DIR)

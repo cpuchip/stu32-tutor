@@ -572,6 +572,11 @@ CONTROLS_FOR["der-03-using-the-derivative"] = [
     ("an item's answer quoted before it asks", "lesson.md", "## Checkpoint\n", "## Checkpoint\n\nX shows <disp v=\"K01\">10.0000</disp>.\n", {},
      "item K01: K01 is shown before the item asks it"),
 ]
+CONTROLS_FOR["algebra-to-calculus"] = [    # placement/algebra-to-calculus (graph.py --selftest plants the course rules)
+    ("a placement item with no places:", "lesson.md", "calculator: no\nplaces: 2\n```\n\n```item U2B", "calculator: no\n```\n\n```item U2B", {},
+     "item U2A: a placement item needs places:"),
+    ("a wrong answer", "vectors.txt", "MODE33 FIX4 19 | X=19", "MODE33 FIX4 19 | X=18", {}, "vectors in 33s mode"),
+]
 CONTROLS_FOR["rpn-03-the-display"].append(
     ("an example that relies on a setting the one before it changed", "lesson.md",
      "```keys P01\nGOLD DISP FIX 4 2 ENTER 3 ÷\n", "```keys P01\n2 ENTER 3 ÷\n", {},

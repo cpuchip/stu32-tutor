@@ -290,15 +290,104 @@ def selftest_courses(course_texts, graph):
     return red == len(plants) and green
 
 
+def load_placement(root):
+    """{dir name: lesson.md text} for placement/*/ (docs/lesson-format.md, Placement)."""
+    return {os.path.basename(os.path.dirname(p)): open(p, encoding="utf-8").read()
+            for p in sorted(glob.glob(os.path.join(root, "placement", "*", "lesson.md")))}
+
+
+def check_placement(placement_texts, graph):
+    """Problems, and each course's placement items and unit gateways added to graph["courses"]. An item
+    `places: N` is evidence a learner can start unit N, so every topic it names is taught before unit N
+    (in the course, or in a course it names as a prerequisite). Units from 2 on that have lessons need
+    two items or more: unit 1 is where a learner who passes nothing starts, and unit 0 (the calculator)
+    is taught to everyone. A unit's gateway is what its lessons require from before it."""
+    bad = []
+    courses, topics = graph["courses"], graph["topics"]
+    for cid, c in courses.items():                  # the gateways, for the page's search
+        unit_of = {l: i for i, u in enumerate(c["units"]) for l in u["lessons"]}
+        for i, u in enumerate(c["units"]):
+            gate = set()
+            for l in u["lessons"]:
+                for slug in graph["lessons"].get(l, {}).get("requires", []):
+                    src = topics.get(slug, {}).get("lesson")
+                    if src not in unit_of or unit_of[src] < i:
+                        gate.add(slug)
+            u["gateway"] = sorted(gate)
+    for name, text in placement_texts.items():
+        meta = dict(re.findall(r"^(\w+):[ \t]*(.*)$", text.split("\n---", 1)[0], re.M))
+        cid = meta.get("course")
+        if meta.get("kind") != "placement" or cid not in courses:
+            bad.append(f"placement/{name}: front matter needs kind: placement and course: a course id")
+            continue
+        c = courses[cid]
+        unit_of = {l: i for i, u in enumerate(c["units"]) for l in u["lessons"]}
+        index = {u["n"]: i for i, u in enumerate(c["units"])}
+        items, count = [], {}
+        for im in re.finditer(r"^[ \t]*```item[ \t]+(\S+)[ \t]*\n(.*?)^[ \t]*```", text, re.M | re.S):
+            f = dict(re.findall(r"^[ \t]*(\w+):[ \t]*(.*)$", im.group(2), re.M))
+            iid, n = im.group(1), f.get("places", "")
+            if n not in index:
+                bad.append(f"placement/{name}: item {iid} places unit '{n}', not a unit of {cid}")
+                continue
+            for slug in f.get("topics", "").split():
+                src = topics.get(slug, {}).get("lesson")
+                if slug not in topics:
+                    bad.append(f"placement/{name}: item {iid} names topic '{slug}', which is not a topic")
+                elif src in unit_of and unit_of[src] >= index[n]:
+                    bad.append(f"placement/{name}: item {iid} places unit {n} but tests '{slug}', taught in "
+                               f"unit {c['units'][unit_of[src]]['n']} by {src}")
+                elif src not in unit_of and not any(src in [l for u in courses[p]["units"] for l in u["lessons"]]
+                                                    for p in c.get("prerequisites", []) if p in courses):
+                    bad.append(f"placement/{name}: item {iid} tests '{slug}', taught by {src}, outside {cid}")
+            count[n] = count.get(n, 0) + 1
+            items.append({"id": iid, "places": n, "topics": f.get("topics", "").split(),
+                          "answer": f.get("answer"), "calculator": f.get("calculator"), "prompt": f.get("prompt")})
+        for i, u in enumerate(c["units"]):
+            if i >= 2 and u["lessons"] and count.get(u["n"], 0) < 2:
+                bad.append(f"placement/{name}: unit {u['n']} has {count.get(u['n'], 0)} items; a unit with lessons needs 2")
+        c["placement"] = items
+    return bad
+
+
+def selftest_placement(placement_texts, graph):
+    """Each planted placement fault must be refused, and for its own reason."""
+    if "algebra-to-calculus" not in placement_texts:
+        print("FAIL no placement/algebra-to-calculus to plant faults in")
+        return False
+    t = placement_texts["algebra-to-calculus"]
+    plants = [
+        ("an item testing what its own unit teaches", t.replace("topics: power-rule\n", "topics: integral\n", 1),
+         "tests 'integral', taught in unit 12"),
+        ("a unit left with one item", re.sub(r"```item U5B\n.*?```\n", "", t, count=1, flags=re.S),
+         "unit 5 has 1 items"),
+        ("an item placing a unit the course lacks", t.replace("places: 12\n", "places: 99\n", 1),
+         "places unit '99', not a unit"),
+    ]
+    red = 0
+    for pname, text, why in plants:
+        g = json.loads(json.dumps(graph))
+        problems = check_placement({"algebra-to-calculus": text}, g) if text != t else ["(the plant did not apply)"]
+        hit = [p for p in problems if why in p]
+        print(f"{'ok  ' if hit else 'FAIL'} {pname}" + (f"\n       -> {hit[0]}" if hit else f": {problems[:2]}"))
+        red += bool(hit)
+    print(f"{red}/{len(plants)} placement controls red as planted")
+    return red == len(plants)
+
+
 def main():
     topics_text, lessons = load(ROOT)
     if "--selftest" in sys.argv:
         ok = selftest(topics_text, lessons)
-        ok = selftest_courses(load_courses(ROOT), check(topics_text, lessons)[1]) and ok
+        g = check(topics_text, lessons)[1]
+        ok = selftest_courses(load_courses(ROOT), g) and ok
+        g["courses"] = check_courses(load_courses(ROOT), g)[1]
+        ok = selftest_placement(load_placement(ROOT), g) and ok
         return 0 if ok else 1
     bad, graph = check(topics_text, lessons)
     cbad, graph["courses"] = check_courses(load_courses(ROOT), graph)
     bad += cbad
+    bad += check_placement(load_placement(ROOT), graph)
     if "--json" in sys.argv:
         print(json.dumps(graph, ensure_ascii=False, indent=1))
     for b in bad:

@@ -168,6 +168,33 @@ against exact arithmetic at, inside and past its edges. `make controls` builds t
 that calls every answer right, one with an exclusive edge, one that counts trailing zeros) and each
 must turn that check red (scripts/judge-controls.sh).
 
+## Placement
+
+A placement check finds where a learner should start a course (Michael, decision 67: "Both by hand and
+calculator where appropriate … give them the option for it on screen"; the result remembered in the
+browser; docs/proposals/placement.md). Its items live in `placement/<course>/lesson.md`, front matter
+`kind: placement` and `course: <id>`, with their answers in that folder's vectors.txt. They are items
+as above, with one more field:
+
+- `places: N`: answering it right is evidence the learner can start unit N. Every topic it names must
+  be taught before unit N, in the course or a prerequisite course it names (graph.py refuses one
+  taught in unit N or later).
+- Every unit from 2 on that has lessons needs two items or more. Unit 1 is where a learner who passes
+  nothing starts; unit 0, the calculator, is taught to everyone and is suggested with any result.
+- `graph.py --json` gives each course's `placement` items and each unit's `gateway`: the topics its
+  lessons require from before it.
+
+**The page's rules** (primer builds them; nothing is sent anywhere):
+1. Search the course's units 2 to the last, as a binary search: ask the items that place the middle
+   unit of what is left.
+2. Both right: the learner is ready for that unit, so search the later half. Either wrong or left
+   blank: search the earlier half.
+3. The result is the last unit whose items were both right, or unit 1 if none were. Show it as "start
+   at unit N", with unit 0 suggested beside it, and with each missed item's topics linked to the
+   sections that teach them.
+4. The learner may start anywhere instead. The result is a suggestion, never a lock, and is kept only in
+   the browser.
+
 ## What `make check` proves
 
 For each lesson, in each mode it offers (and each entry, for a lesson that offers entries: every
