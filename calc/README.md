@@ -16,7 +16,7 @@ The image is **private**: it holds the firmware's binaries.
 ## Build
 
 ```
-bash calc/build.sh            # stu32-calc:fw-<pin>.cas-<casim>, from a committed tree
+bash calc/build.sh            # stu32-calc:fw-<pin>.cas-<casim>.t-<this repo's commit>, from a committed tree
 bash calc/build.sh --fresh    # the same, after removing this pin's core export (a rebuild from scratch)
 bash calc/build.sh --dev      # an uncommitted tree; the pins say "<commit>-dirty" and the tag ends -dev
 ```
@@ -61,10 +61,12 @@ The image is `--image TAG`, `$STU32_CALC_IMAGE`, or the one tagged for the Makef
     a setup of your own.
   - **The run:** every step is pressed on one device, in order, by `keyrun --sequence`, the same student run that
     `make check` passes for every lesson.
-  - **Each step reports:** the X and Y display lines with their kinds, the status band, X/Y/Z/T as exact text, and
-    any graph.
-  - **Algebraic entry:** the result there is ANS, which this report does not carry yet, so the display line is the
-    only place it shows. For an exact value, use RPN entry, where the result is X.
+  - **Each step reports:** the X and Y display lines with their kinds, the status band, X/Y/Z/T as exact text,
+    `ans` and `shown`, and any graph.
+    - `ans` is the last result, exact: algebraic entry's answer, which leaves the stack untouched. A book record
+      uses `ans` in algebraic entry and X in RPN.
+    - `shown` is the value an algebraic X line shows: a history entry while one is selected, else `ans` (soroban
+      #5854).
 - `vectors [--display]`
   - **stdin:** a vectors file in the core's tokens (`ID | note | STU RPN FIX4 … | X=…`), or a display-vectors file.
   - **Status:** PASS or FAIL, with the runner's report lines.
@@ -98,7 +100,7 @@ A client's entry for it:
 
 ```json
 {"command": "python", "args": ["<repo>/calc/mcp/server.py"],
- "env": {"STU32_CALC_IMAGE": "stu32-calc:fw-628c96c.cas-dbb6d4c"}}
+ "env": {"STU32_CALC_IMAGE": "stu32-calc:fw-<pin>.cas-<casim>.t-<commit>"}}
 ```
 
 ## Problem records

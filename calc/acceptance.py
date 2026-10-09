@@ -8,6 +8,7 @@ Every call goes through calc/run.sh, the way a caller makes it. The tests:
              its display vectors, the student run of each lesson, and a list of Casimir ops. Every vectors
              call must PASS and every student run be OK, as make check finds at the same pin. The outputs
              (wall times dropped) are hashed: the digest is what a rebuild must reproduce.
+  ans        an algebraic result is reported exact as ans (and shown), the stack untouched
   planted    a vector with a wrong expectation FAILs, naming it
   runaway    an endless program stops at the core's own RUN LIMIT; 300 of them in one call stop at the
              entry program's CPU limit (TIMEOUT, cpu 10 s, exit 124); with that off, at its wall clock
@@ -171,6 +172,15 @@ def t_probe(image, keep):
                      if k.startswith("casim")}
 
 
+def t_ans(image):
+    rc, ans, _ = call(image, ["keys", "--mode", "STU", "--entry", "alg"], "A\t3452 + 1879 ENTER\n")
+    last = (ans.get("steps") or [{}])[-1]
+    say("ans", rc == 0 and last.get("ans") == "+5331E+0" and last.get("shown") == "+5331E+0"
+        and last.get("stack", {}).get("X") == "+0E-6176",
+        f"alg 3452 + 1879: ans {last.get('ans')}, shown {last.get('shown')}, X {last.get('stack', {}).get('X')} "
+        f"(the stack untouched)")
+
+
 def t_planted(image):
     d = os.path.join(ROOT, "lessons", "whole-01-adding-and-subtracting")
     vectors = check.read_vectors(os.path.join(d, "vectors.txt"), 4)
@@ -305,6 +315,7 @@ def main():
     if want("pins"): t_pins(image)
     if want("cost"): t_cost(image)
     if want("probe") or rebuild: t_probe(image, keep)
+    if want("ans"): t_ans(image)
     if want("planted"): t_planted(image)
     if want("runaway"): t_runaway(image)
     if want("floods"): t_floods(image)

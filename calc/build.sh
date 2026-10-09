@@ -82,7 +82,8 @@ base $BASE
 EOF
 
 # 3. The image, with no network.
-tag="stu32-calc:fw-${pin}.cas-${cas_pin:0:7}$suffix"
+# The tools' commit is in the tag too, so two builds at one pin never share a tag.
+tag="stu32-calc:fw-${pin}.cas-${cas_pin:0:7}.t-${tutor:0:7}$suffix"
 docker build --network none -q -f calc/Dockerfile \
     --build-arg BASE="$BASE" \
     --label "org.opencontainers.image.title=stu32-calc" \

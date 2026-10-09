@@ -318,7 +318,7 @@ static const char *mode_key(const char *m)
     return !strcmp(m, "STU") || !strcmp(m, "33s") || !strcmp(m, "35s") ? m : NULL;
 }
 
-/* keyrun's report, a step at a time: X, YL, STATUS, VAL and sometimes GRAPH (tools/report.c). */
+/* keyrun's report, a step at a time: X, YL, STATUS, VAL, ANS and sometimes GRAPH (tools/report.c). */
 static void jsteps(char *out)
 {
     fputs("\"steps\":[", stdout);
@@ -353,6 +353,10 @@ static void jsteps(char *out)
             fputs(",\"Y\":", stdout); jstr(f[3]);
             fputs(",\"Z\":", stdout); jstr(f[4]);
             fputs(",\"T\":", stdout); jstr(f[5]); putchar('}');
+        } else if (!strcmp(f[0], "ANS") && n == 4) {
+            /* ans: the last result, exact (algebraic entry's answer); shown: what an algebraic X line shows */
+            fputs(",\"ans\":", stdout); jstr(f[2]);
+            fputs(",\"shown\":", stdout); jstr(f[3]);
         } else if (!strcmp(f[0], "GRAPH") && n == 8) {
             fputs(",\"graph\":{\"readout\":", stdout); jstr(f[2]);
             fputs(",\"xmin\":", stdout); jstr(f[3]);
@@ -461,7 +465,7 @@ static int cmd_keys(int argc, char **argv)
             const char *e = strchr(p, '\n');
             size_t len = e ? (size_t)(e - p) : strlen(p);
             int report = !strncmp(p, "X\t", 2) || !strncmp(p, "YL\t", 3) || !strncmp(p, "STATUS\t", 7) ||
-                         !strncmp(p, "VAL\t", 4) || !strncmp(p, "GRAPH\t", 6);
+                         !strncmp(p, "VAL\t", 4) || !strncmp(p, "ANS\t", 4) || !strncmp(p, "GRAPH\t", 6);
             if (!report && n + len + 1 < sizeof det) {
                 if (n) det[n++] = '\n';
                 memcpy(det + n, p, len);

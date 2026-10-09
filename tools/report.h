@@ -22,7 +22,10 @@ int kr_graph_line(const screen_page *page, const char *id, char *out, size_t cap
      YL<TAB>id<TAB>kind<TAB>text
      STATUS<TAB>id<TAB>text
      VAL<TAB>id<TAB>x<TAB>y<TAB>z<TAB>t
+     ANS<TAB>id<TAB>ans<TAB>shown
      GRAPH<TAB>...          (only with a graph shown)
+   ANS is the last result (calc.h's ans: algebraic entry's result, the stack untouched) and shown the value an
+   algebraic X line shows: a history entry while one is selected, else ans (screen.c's rule; soroban #5854).
    The length written, or -1 when out is too small. */
 int kr_report(const ab_calc *c, const screen_page *page, const char *id, char *out, size_t cap);
 

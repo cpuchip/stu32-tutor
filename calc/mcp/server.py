@@ -31,9 +31,9 @@ TOOLS = [
     {"name": "calc_keys",
      "description": "Press STU-32 keys, by their printed names (e.g. '3452 ENTER 1879 +', 'GOLD EQN 2 × RCL X yˣ 2 "
                     "ENTER CAS D/DX X'), on one fresh calculator, step after step. With mode, the lessons' setup is "
-                    "pressed first. Each step answers the X and Y display lines, the status band, and X/Y/Z/T as exact "
-                    "34-digit text. For an exact result use entry rpn (an algebraic result is ANS, shown only on the "
-                    "display line).",
+                    "pressed first. Each step answers the X and Y display lines, the status band, X/Y/Z/T as exact "
+                    "34-digit text, and ans (the last result, exact: algebraic entry's answer) and shown (what an "
+                    "algebraic X line shows). An exact result is X in rpn entry, ans in alg.",
      "inputSchema": {"type": "object", "required": ["steps"], "additionalProperties": False, "properties": {
          "steps": {"type": "array", "minItems": 1, "maxItems": 1000, "items": {"type": "string"},
                    "description": "one step per item: printed key names separated by spaces, optionally 'ID<TAB>keys'"},
@@ -181,6 +181,11 @@ def selftest():
     sc = r["result"]["structuredContent"]
     expect("calc_keys", sc["status"] == "OK" and sc["steps"][-1]["stack"]["X"] == "+5331E+0" and not r["result"]["isError"],
            f"{sc['status']} X={sc['steps'][-1]['stack']['X']}")
+    r = ask("tools/call", {"name": "calc_keys", "arguments": {"mode": "STU", "entry": "alg",
+                                                              "steps": ["A\t3452 + 1879 ENTER"]}})
+    sc = r["result"]["structuredContent"]
+    expect("calc_keys alg", sc["status"] == "OK" and sc["steps"][-1].get("ans") == "+5331E+0",
+           f"{sc['status']} ans={sc['steps'][-1].get('ans')}")
     r = ask("tools/call", {"name": "calc_vectors", "arguments": {
         "text": "V1 | 3452 + 1879 | STU RPN FIX4 3452 ENTER 1879 + | X=5332\n"}})
     sc = r["result"]["structuredContent"]

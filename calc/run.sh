@@ -26,7 +26,8 @@ while [ $# -gt 0 ]; do
 done
 if [ -z "$image" ]; then
     pin="$(sed -n 's/^CORE_PIN := //p' "$here/Makefile")"
-    image="$(docker image ls --format '{{.Repository}}:{{.Tag}}' "stu32-calc" | grep -E ":fw-$pin\.cas-[0-9a-f]{7}$" | head -1)"
+    # The newest image for the pin (docker lists the newest first), never a -dev, -rebuild or other suffix.
+    image="$(docker image ls --format '{{.Repository}}:{{.Tag}}' "stu32-calc" | grep -E ":fw-$pin\.cas-[0-9a-f]{7}\.t-[0-9a-f]{7}$" | head -1)"
     [ -n "$image" ] || { echo '{"status":"NO_IMAGE","detail":"no stu32-calc image for the Makefile pin; calc/build.sh"}'; exit 1; }
 fi
 tmp="$(mktemp -d)"
