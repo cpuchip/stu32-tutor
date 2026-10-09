@@ -617,6 +617,26 @@ CONTROLS_FOR["expr-02-solving-by-undoing"] = [
     ("the ÷4 undone by dividing again", "lesson.md", "```keys U04 entry=alg after=U03\n× 4 ENTER\n",
      "```keys U04 entry=alg after=U03\n÷ 4 ENTER\n", {}, "U04: printed keys and vector disagree in STU alg mode"),
 ]
+CONTROLS_FOR["factor-01-factors-and-primes"] = [
+    ("a remainder misquoted as 0 (5 called a factor of 84)", "lesson.md", '<disp v="R03">4.0000<', '<disp v="R03">0.0000<', {},
+     "D-R03: the prose shows '0.0000'"),
+    ("Rmdr pressed without its blue shift", "lesson.md", "```keys R04 entry=alg\nBLUE Rmdr 91", "```keys R04 entry=alg\nRmdr 91", {},
+     "R04: printed keys and vector disagree in STU alg mode"),
+    ("a factor left out of the factor tree's check", "lesson.md", "```keys F01 entry=alg\n2 × 2 × 3 × 7 ENTER\n",
+     "```keys F01 entry=alg\n2 × 3 × 7 ENTER\n", {}, "F01: printed keys and vector disagree in STU alg mode"),
+    ("RPN's Rmdr with the numbers swapped", "lesson.md", "```keys R05 entry=rpn\n97 ENTER 7 BLUE Rmdr\n",
+     "```keys R05 entry=rpn\n7 ENTER 97 BLUE Rmdr\n", {}, "R05: printed keys and vector disagree in STU rpn mode"),
+]
+CONTROLS_FOR["factor-02-common-factors-and-multiples"] = [
+    ("the LCM built with one 3 too few", "lesson.md", "```keys M01 entry=alg\n2 × 2 × 3 × 3 ENTER\n",
+     "```keys M01 entry=alg\n2 × 2 × 3 ENTER\n", {}, "M01: printed keys and vector disagree in STU alg mode"),
+    ("the box count misquoted", "lesson.md", '<disp v="G03">14.0000<', '<disp v="G03">15.0000<', {},
+     "D-G03: the prose shows '15.0000'"),
+    ("INT÷ for Rmdr in the GCF check", "lesson.md", "```keys G01 entry=alg\nBLUE Rmdr 84", "```keys G01 entry=alg\nGOLD INT÷ 84", {},
+     "G01: printed keys and vector disagree in STU alg mode"),
+    ("RPN's LCM missing a factor", "lesson.md", "   ```keys E03 entry=rpn\n   2 ENTER 2 × 2 × 3 ×\n",
+     "   ```keys E03 entry=rpn\n   2 ENTER 2 × 3 ×\n", {}, "E03: printed keys and vector disagree in STU rpn mode"),
+]
 CONTROLS_FOR["rpn-03-the-display"].append(
     ("an example that relies on a setting the one before it changed", "lesson.md",
      "```keys P01\nGOLD DISP FIX 4 2 ENTER 3 ÷\n", "```keys P01\n2 ENTER 3 ÷\n", {},

@@ -322,3 +322,12 @@ store-letter | STO and RCL: the calculator holding a letter's number | expr-01 |
 equation | An equation, and solving it | expr-02 | An equation
 undoing | Undoing the steps in the opposite order | expr-02 | An equation
 check-by-putting-back | Checking an answer by putting it back | expr-02 | Check by putting it back
+
+# factor-01 Factors and primes (pre-algebra unit 3)
+divides | Divides and factor: a remainder of 0, and the tests for 2, 3 and 5 | factor-01 | Divides, and factors
+prime | Primes, and how far to test | factor-01 | Primes
+prime-factorization | A prime factorization by a factor tree | factor-01 | Breaking a number into primes
+
+# factor-02 Common factors and multiples (pre-algebra unit 3)
+gcf | The greatest common factor | factor-02 | The greatest common factor
+lcm | The least common multiple | factor-02 | The least common multiple

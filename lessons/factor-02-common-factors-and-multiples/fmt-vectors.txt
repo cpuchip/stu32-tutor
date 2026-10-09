@@ -1,0 +1,13 @@
+# factor-02 common factors and multiples display vectors: D-ID is what X shows after vector ID, the same in both entries.
+D-G01 | after G01 | 0 | FIX 4 | w=21 | 0.0000
+D-G02 | after G02 | 0 | FIX 4 | w=21 | 0.0000
+D-G03 | after G03 | 14 | FIX 4 | w=21 | 14.0000
+D-G04 | after G04 | 15 | FIX 4 | w=21 | 15.0000
+D-M01 | after M01 | 36 | FIX 4 | w=21 | 36.0000
+D-M02 | after M02 | 0 | FIX 4 | w=21 | 0.0000
+D-M03 | after M03 | 0 | FIX 4 | w=21 | 0.0000
+D-E01 | after E01 | 0 | FIX 4 | w=21 | 0.0000
+D-E01B | after E01B | 0 | FIX 4 | w=21 | 0.0000
+D-E02 | after E02 | 20 | FIX 4 | w=21 | 20.0000
+D-E03 | after E03 | 24 | FIX 4 | w=21 | 24.0000
+D-E04 | after E04 | 120 | FIX 4 | w=21 | 120.0000

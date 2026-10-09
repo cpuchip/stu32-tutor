@@ -68,6 +68,8 @@ controls: tools
 	$(PYTHON) tools/controls.py --core $(CORE_DIR) lessons/whole-02-multiplying-and-dividing
 	$(PYTHON) tools/controls.py --core $(CORE_DIR) lessons/expr-01-letters-for-numbers
 	$(PYTHON) tools/controls.py --core $(CORE_DIR) lessons/expr-02-solving-by-undoing
+	$(PYTHON) tools/controls.py --core $(CORE_DIR) lessons/factor-01-factors-and-primes
+	$(PYTHON) tools/controls.py --core $(CORE_DIR) lessons/factor-02-common-factors-and-multiples
 	$(PYTHON) tools/controls.py --core $(CORE_DIR) lessons/frac-01-equivalent-fractions
 	$(PYTHON) tools/controls.py --core $(CORE_DIR) placement/algebra-to-calculus
 

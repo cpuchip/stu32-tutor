@@ -1,0 +1,10 @@
+# factor-01 factors and primes display vectors: D-ID is what X shows after vector ID, the same in both entries.
+D-R01 | after R01 | 0 | FIX 4 | w=21 | 0.0000
+D-R02 | after R02 | 0 | FIX 4 | w=21 | 0.0000
+D-R03 | after R03 | 4 | FIX 4 | w=21 | 4.0000
+D-R04 | after R04 | 0 | FIX 4 | w=21 | 0.0000
+D-R05 | after R05 | 6 | FIX 4 | w=21 | 6.0000
+D-F01 | after F01 | 84 | FIX 4 | w=21 | 84.0000
+D-E01 | after E01 | 0 | FIX 4 | w=21 | 0.0000
+D-E02 | after E02 | 60 | FIX 4 | w=21 | 60.0000
+D-E03 | after E03 | 5 | FIX 4 | w=21 | 5.0000
