@@ -96,3 +96,13 @@ it; "games people pay to play" narrowed to games of pure chance run to make mone
 made "take in, before their own costs", in total; why people play anyway (one play buys a chance at a
 prize; the expected value is that chance's average cost); the random section's tally linked to the game;
 type-e added to requires; exercise 5 with two prizes.
+
+## The quotation (decision 67, 2026-10-09)
+
+Michael: "Sure lets quote it, talk text is posted" (abacus a6a3c73), with the official link. The
+sentence was read against the official page, not the Church News report. I fetched the page's raw
+HTML: its title is "O Be Wise", "By President D. Todd Christofferson". The lesson's quotation was
+compared with the page byte for byte, typographic apostrophes included, and is identical (145
+characters). It follows the expected-value paragraph it states in other words, set as a blockquote,
+with the talk named and linked and "not part of this lesson's licence" beside it. LICENSE gains
+clause 3: quotations from others' works are under neither licence.

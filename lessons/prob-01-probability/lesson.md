@@ -123,6 +123,13 @@ what the people who run it take in, before their own costs, is what the players 
 anyway because one play buys a chance at a prize; the expected value is what that chance costs, on
 average, every time.
 
+President D. Todd Christofferson put the same arithmetic plainly in a general conference talk:
+
+> "Of course, the industry’s revenue is the gambler’s loss. Simply put, the industry’s entire business model is built on its customers losing money."
+
+From "O Be Wise", October 2026 general conference (https://www.churchofjesuschrist.org/study/general-conference/2026/10/19christofferson?lang=eng). The quotation is his, not part of this
+lesson's licence.
+
 ## Random numbers
 
 RAND, gold above −, makes a random number: more than 0 and less than 1, spread evenly over that range.

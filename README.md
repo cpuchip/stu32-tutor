@@ -2,7 +2,7 @@
 
 An original math, physics and programming curriculum around the STU-32 calculator, and the site that teaches it (working name tutor).
 
-Private until Michael sets the curriculum's licence. Everything here is written fresh: published textbooks are used for scope and order only, and no text, figure or problem is copied from any of them or from any calculator's manual.
+Public since 2026-10-09, under the licences in LICENSE. Everything here is written fresh: published textbooks are used for scope and order only, and no text, figure or problem is copied from any of them or from any calculator's manual. A quotation from someone else's work is marked as one, with its source.
 
 ## Layout
 
