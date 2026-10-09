@@ -1,0 +1,9 @@
+# neg-01 negative numbers display vectors: D-ID is what X shows after vector ID, the same in both entries.
+D-A01 | after A01 | -3 | FIX 4 | w=21 | -3.0000
+D-S01 | after S01 | -85 | FIX 4 | w=21 | -85.0000
+D-A04 | after A04 | -8 | FIX 4 | w=21 | -8.0000
+D-A02 | after A02 | 2 | FIX 4 | w=21 | 2.0000
+D-A03 | after A03 | -8 | FIX 4 | w=21 | -8.0000
+D-E01 | after E01 | 3 | FIX 4 | w=21 | 3.0000
+D-E02 | after E02 | -7 | FIX 4 | w=21 | -7.0000
+D-E03 | after E03 | -3 | FIX 4 | w=21 | -3.0000

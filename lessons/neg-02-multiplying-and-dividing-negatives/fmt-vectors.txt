@@ -1,0 +1,14 @@
+# neg-02 multiplying and dividing negatives display vectors: D-ID is what X shows after vector ID, the same in both entries.
+D-M01 | after M01 | -12 | FIX 4 | w=21 | -12.0000
+D-M02 | after M02 | 12 | FIX 4 | w=21 | 12.0000
+D-D01 | after D01 | -3 | FIX 4 | w=21 | -3.0000
+D-D02 | after D02 | 3 | FIX 4 | w=21 | 3.0000
+D-F01 | after F01 | -4 | FIX 4 | w=21 | -4.0000
+D-F02 | after F02 | 1 | FIX 4 | w=21 | 1.0000
+D-C01 | after C01 | -7 | FIX 4 | w=21 | -7.0000
+D-E01 | after E01 | -30 | FIX 4 | w=21 | -30.0000
+D-E02 | after E02 | 24 | FIX 4 | w=21 | 24.0000
+D-E03 | after E03 | 4 | FIX 4 | w=21 | 4.0000
+D-E04 | after E04 | -4 | FIX 4 | w=21 | -4.0000
+D-E04B | after E04B | 2 | FIX 4 | w=21 | 2.0000
+D-E05 | after E05 | -5 | FIX 4 | w=21 | -5.0000

@@ -331,3 +331,13 @@ prime-factorization | A prime factorization by a factor tree | factor-01 | Break
 # factor-02 Common factors and multiples (pre-algebra unit 3)
 gcf | The greatest common factor | factor-02 | The greatest common factor
 lcm | The least common multiple | factor-02 | The least common multiple
+
+# neg-01 Negative numbers (pre-algebra unit 4)
+negative-number | Negative numbers, the integers, and the number line | neg-01 | Below zero
+add-negatives | Adding a negative: moving left | neg-01 | Adding a negative
+subtract-negatives | Taking away a negative is adding | neg-01 | Taking away a negative
+
+# neg-02 Multiplying and dividing negatives (pre-algebra unit 4)
+sign-rules | The sign rules for multiplying, from a pattern | neg-02 | A negative times a negative
+divide-negatives | Dividing negatives: the same sign rule | neg-02 | Dividing
+floor-division | INT÷ and Rmdr with a negative: the whole number below | neg-02 | INT÷ and Rmdr with a negative

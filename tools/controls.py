@@ -637,6 +637,26 @@ CONTROLS_FOR["factor-02-common-factors-and-multiples"] = [
     ("RPN's LCM missing a factor", "lesson.md", "   ```keys E03 entry=rpn\n   2 ENTER 2 × 2 × 3 ×\n",
      "   ```keys E03 entry=rpn\n   2 ENTER 2 × 3 ×\n", {}, "E03: printed keys and vector disagree in STU rpn mode"),
 ]
+CONTROLS_FOR["neg-01-negative-numbers"] = [
+    ("−3 quoted without its sign", "lesson.md", '<disp v="A01">-3.0000<', '<disp v="A01">3.0000<', {},
+     "D-A01: the prose shows '3.0000'"),
+    ("the slip's keys changed: −8 finished first", "lesson.md", "```keys S01\n8 +/− 5 ENTER\n",
+     "```keys S01\n8 +/− + 5 ENTER\n", {}, "S01: printed keys and vector disagree in STU alg mode"),
+    ("taking away −6 typed as taking away 6", "lesson.md", "```keys A02 entry=alg\n4 +/− − 6 +/− ENTER\n",
+     "```keys A02 entry=alg\n4 +/− − 6 ENTER\n", {}, "A02: printed keys and vector disagree in STU alg mode"),
+    ("the line quoted as written on paper", "lesson.md", 'kind="line">5+-8<', 'kind="line">5+(-8)<', {},
+     "the prose '5+(-8)' (line) (STU alg)"),
+]
+CONTROLS_FOR["neg-02-multiplying-and-dividing-negatives"] = [
+    ("a negative times a negative quoted as negative", "lesson.md", '<disp v="M02">12.0000<', '<disp v="M02">-12.0000<', {},
+     "D-M02: the prose shows '-12.0000'"),
+    ("the floored quotient quoted as chopped (−3)", "lesson.md", '<disp v="F01">-4.0000<', '<disp v="F01">-3.0000<', {},
+     "D-F01: the prose shows '-3.0000'"),
+    ("the divisor's sign left off", "lesson.md", "```keys D02 entry=alg\n12 +/− ÷ 4 +/− ENTER\n",
+     "```keys D02 entry=alg\n12 +/− ÷ 4 ENTER\n", {}, "D02: printed keys and vector disagree in STU alg mode"),
+    ("RPN's Rmdr of 7, not −7", "lesson.md", "```keys F02 entry=rpn\n7 +/− ENTER 2 BLUE Rmdr\n",
+     "```keys F02 entry=rpn\n7 ENTER 2 BLUE Rmdr\n", {}, "F02: printed keys and vector disagree in STU rpn mode"),
+]
 CONTROLS_FOR["rpn-03-the-display"].append(
     ("an example that relies on a setting the one before it changed", "lesson.md",
      "```keys P01\nGOLD DISP FIX 4 2 ENTER 3 ÷\n", "```keys P01\n2 ENTER 3 ÷\n", {},
