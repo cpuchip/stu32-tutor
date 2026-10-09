@@ -58,6 +58,7 @@ controls: tools
 	$(PYTHON) tools/controls.py --core $(CORE_DIR) lessons/lim-02-rates-of-change
 	$(PYTHON) tools/controls.py --core $(CORE_DIR) lessons/der-01-the-derivative
 	$(PYTHON) tools/controls.py --core $(CORE_DIR) lessons/der-02-the-power-rule
+	$(PYTHON) tools/controls.py --core $(CORE_DIR) lessons/der-03-using-the-derivative
 	$(PYTHON) tools/controls.py --core $(CORE_DIR) lessons/int-01-area-under-a-curve
 	$(PYTHON) tools/controls.py --core $(CORE_DIR) lessons/start-01-the-calculator
 	$(PYTHON) tools/controls.py --core $(CORE_DIR) lessons/frac-01-equivalent-fractions

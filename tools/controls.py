@@ -543,6 +543,22 @@ CONTROLS_FOR["der-02-the-power-rule"] = [
     ("Equation mode left on after D/DX of 1/x", "lesson.md", "```keys R03 after=R02 mode=STU\nGOLD EQN\n```\n", "", {},
      "E01: working through in order"),
 ]
+CONTROLS_FOR["der-03-using-the-derivative"] = [
+    ("the tangent's value quoted as the curve's", "lesson.md", '<disp v="T02">0.2000<', '<disp v="T02">0.2100<', {},
+     "D-T02: the prose shows '0.2100'"),
+    ("SOLVE answered with the wrong variable", "lesson.md", "4 ENTER GOLD SOLVE X\n", "4 ENTER GOLD SOLVE Y\n", {},
+     "S01: printed keys and vector disagree in 33s mode"),
+    ("f(−1) keyed as f(1): the +/− left out", "lesson.md", "```keys C01\n1 +/− ENTER ENTER", "```keys C01\n1 ENTER ENTER", {},
+     "C01: printed keys and vector disagree in 33s mode"),
+    ("EXTR's readout misquoted", "lesson.md", 'kind="readout">EXTRM: 2.0000<', 'kind="readout">EXTRM: 1.9999<', {},
+     "G03: the graph's readout shows 'EXTRM: 2.0000'"),
+    ("TANL pressed without its gold shift", "lesson.md", "```keys G05 after=G04 mode=STU\nGOLD TANL\n", "```keys G05 after=G04 mode=STU\nTANL\n", {},
+     "G05: printed keys and vector disagree in STU mode"),
+    ("the trace left at x = 2: EXTR has nothing to find", "lesson.md", "BLUE GRAPH GO 6 6 6 6 6\n", "BLUE GRAPH GO\n", {},
+     "G02: printed keys and vector disagree in STU mode"),
+    ("the graph left open before the exercises", "lesson.md", "```keys G06 after=G05 mode=STU\nC\n```\n", "", {},
+     "E01: working through in order"),
+]
 CONTROLS_FOR["rpn-03-the-display"].append(
     ("an example that relies on a setting the one before it changed", "lesson.md",
      "```keys P01\nGOLD DISP FIX 4 2 ENTER 3 ÷\n", "```keys P01\n2 ENTER 3 ÷\n", {},

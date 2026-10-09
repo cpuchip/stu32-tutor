@@ -293,3 +293,9 @@ cas-derivative | D/DX: Casimir's derivative as a rule | der-01@STU | The derivat
 power-rule | The power rule: the derivative of xⁿ is n·xⁿ⁻¹ | der-02 | Powers of x
 constant-derivative | A constant's derivative is 0 | der-02 | Powers of x
 sum-multiple-rules | Sums and constant multiples, term by term | der-02 | Sums and multiples
+
+# der-03 Using the derivative (unit 11)
+tangent-equation | The tangent line's equation: y = f(a) + f′(a)(x − a) | der-03 | The tangent line
+extremes | Lowest and highest points: where the derivative is 0, and its sign either side | der-03 | Lowest and highest points
+local-extremes | Local maximum and minimum | der-03 | Lowest and highest points
+graph-fcn | GRAPH's FCN page: EXTR, SLOPE, TANL | der-03@STU | On the graph
