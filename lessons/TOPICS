@@ -341,3 +341,12 @@ subtract-negatives | Taking away a negative is adding | neg-01 | Taking away a n
 sign-rules | The sign rules for multiplying, from a pattern | neg-02 | A negative times a negative
 divide-negatives | Dividing negatives: the same sign rule | neg-02 | Dividing
 floor-division | INT÷ and Rmdr with a negative: the whole number below | neg-02 | INT÷ and Rmdr with a negative
+
+# frac-02 Adding and subtracting fractions (pre-algebra unit 5)
+common-bottom | A common bottom number, by the LCM | frac-02 | A common bottom
+subtract-fractions | Taking away fractions | frac-02 | Taking away
+over-a-whole | Fractions over 1, and fraction display's whole number | frac-02 | Over a whole
+
+# frac-03 Multiplying and dividing fractions (pre-algebra unit 5)
+multiply-fractions | Multiplying fractions: tops times tops, bottoms times bottoms | frac-03 | Multiplying
+divide-fractions | Dividing by a fraction: how many fit, and multiplying by it flipped | frac-03 | Dividing

@@ -1,0 +1,8 @@
+# frac-02 adding and subtracting fractions display vectors: D-ID is what X shows after vector ID, the same in both entries.
+D-A01 | after A01 | 0.625 | FRAC 4095 P | w=21 | 0 5/8
+D-A02 | after A02 | 0.9 | FRAC 4095 P | w=21 | 0 9/10
+D-S01 | after S01 | 0.625 | FRAC 4095 P | w=21 | 0 5/8
+D-A03 | after A03 | 1.25 | FRAC 4095 P | w=21 | 1 1/4
+D-E01 | after E01 | 0.625 | FRAC 4095 P | w=21 | 0 5/8
+D-E02 | after E02 | 0.5 | FRAC 4095 P | w=21 | 0 1/2
+D-E03 | after E03 | 1.125 | FRAC 4095 P | w=21 | 1 1/8

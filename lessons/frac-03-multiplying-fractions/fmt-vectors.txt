@@ -1,0 +1,8 @@
+# frac-03 multiplying and dividing fractions display vectors: D-ID is what X shows after vector ID, the same in both entries.
+D-M01 | after M01 | 0.375 | FRAC 4095 P | w=21 | 0 3/8
+D-M02 | after M02 | 0.5 | FRAC 4095 P | w=21 | 0 1/2
+D-D01 | after D01 | 2 | FRAC 4095 P | w=21 | 2
+D-D02 | after D02 | 0.03125 | FRAC 4095 P | w=21 | 0 1/32
+D-E01 | after E01 | 0.1 | FRAC 4095 P | w=21 | 0 1/10
+D-E02 | after E02 | 3.5 | FRAC 4095 P | w=21 | 3 1/2
+D-E03 | after E03 | 4 | FRAC 4095 P | w=21 | 4

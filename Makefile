@@ -73,6 +73,8 @@ controls: tools
 	$(PYTHON) tools/controls.py --core $(CORE_DIR) lessons/neg-01-negative-numbers
 	$(PYTHON) tools/controls.py --core $(CORE_DIR) lessons/neg-02-multiplying-and-dividing-negatives
 	$(PYTHON) tools/controls.py --core $(CORE_DIR) lessons/frac-01-equivalent-fractions
+	$(PYTHON) tools/controls.py --core $(CORE_DIR) lessons/frac-02-adding-fractions
+	$(PYTHON) tools/controls.py --core $(CORE_DIR) lessons/frac-03-multiplying-fractions
 	$(PYTHON) tools/controls.py --core $(CORE_DIR) placement/algebra-to-calculus
 
 $(CORE_DIR)/.exported: scripts/export-core.sh
