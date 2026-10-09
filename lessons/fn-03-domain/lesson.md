@@ -238,3 +238,34 @@ its end does the same, as fn-01 showed: the pointer goes back to the top when a 
 
    X shows <disp v="E03B">-0.0100</disp>: 1.99 − 2, the negative number the square root refused. S
    is stopped at its √x again, so press GOLD GTO . . before you key in a new program.
+
+## Checkpoint
+
+Questions on the whole unit. Work each by hand first (a few offer the calculator), then give your answer; the page checks it. A wrong answer that comes from a common slip gets a hint that names the step.
+
+```item CP3A
+prompt: f(x) = x² − 2x. What is f(3)?
+topics: function
+answer: type
+calculator: no
+slip: CP3A1 | 2x read as 2 | The 2x means 2 times x: take away 2 × 3.
+slip: CP3A2 | added the 2x | It is minus 2x: 9 − 6.
+```
+
+```item CP3B
+prompt: For which x is 1 ÷ (x − 5) not defined?
+topics: domain divide-by-zero
+answer: type
+calculator: no
+slip: CP3B1 | the sign turned | The bottom is 0 when x − 5 = 0, so x = 5.
+slip: CP3B2 | x = 0 | At x = 0 the bottom is −5, which is fine; find where it is 0.
+```
+
+```item CP3C
+prompt: What is the smallest x for which √(x − 4) is defined?
+topics: domain sqrt-negative
+answer: type
+calculator: no
+slip: CP3C1 | x = 0 | The number under the root, x − 4, must not be negative, so x is at least 4.
+slip: CP3C2 | more than 0, not 0 or more | The square root of 0 is 0, which is defined, so x − 4 can be 0: x = 4.
+```

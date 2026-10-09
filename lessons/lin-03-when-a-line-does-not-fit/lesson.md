@@ -167,3 +167,34 @@ the ends and too high in the middle: the mark of points on a curve. Past the dat
 X shows <disp v="E01D">34.0000</disp>, and the next doubling is 64. A high r does not make a line the
 right model; the shape of the points decides. Doubling has its own kind of function, which exp-01
 meets.
+
+## Checkpoint
+
+Questions on the whole unit. Work each by hand first (a few offer the calculator), then give your answer; the page checks it. A wrong answer that comes from a common slip gets a hint that names the step.
+
+```item CP4A
+prompt: What is the slope of the line through (2, 5) and (6, 13)?
+topics: slope
+answer: type
+calculator: no
+slip: CP4A1 | run over rise | Rise over run: the change in y on top, (13 − 5) ÷ (6 − 2).
+slip: CP4A2 | the points in different orders | Take the points in the same order, top and bottom: (13 − 5) ÷ (6 − 2).
+```
+
+```item CP4B
+prompt: The line y = 2x + b goes through (1, 7). What is b?
+topics: intercept
+answer: type
+calculator: no
+slip: CP4B1 | added the 2 | Put x = 1 and y = 7 in: 7 = 2 + b, so b = 7 − 2.
+slip: CP4B2 | divided by 2 | The b is added to 2x, not multiplied: 7 = 2 × 1 + b, so b = 7 − 2.
+```
+
+```item CP4C
+prompt: For y = 3x − 4, what is y when x = 10?
+topics: linear-function
+answer: type
+calculator: no
+slip: CP4C1 | added the 4 | It is minus 4: 30 − 4.
+slip: CP4C2 | took 4 from x first | Multiply first: 3 × 10, then take away 4.
+```

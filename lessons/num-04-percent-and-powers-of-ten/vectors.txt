@@ -17,3 +17,13 @@ E02 | exercise 2: the change from 40 to 46 | MODE33 FIX2 40 ENTER 46 PCTCHG | X=
 E03 | exercise 3: 2.5 E 6 times 4 E -2 | MODE33 FIX2 2.5 E 6 ENTER 4 E 2 CHS * | X=100000
 E04 | exercise 4: 20% off 60 | MODE33 FIX2 60 ENTER 20 PCT - | X=48
 E05 | exercise 5: the change from 60 back up to 80 | MODE33 FIX2 60 ENTER 80 PCTCHG | X=33.33333333333333333333333333333333
+# Checkpoint (build/proto/checkpoints.py): the answers and the slips' own working.
+CP1A | checkpoint, unit 1: the answer typed | MODE33 FIX2 50 | X=50
+CP1A1 | slip: added before multiplying | MODE33 FIX2 2 ENTER 3 + 4 SQ * | X=80
+CP1A2 | slip: squared the 3 × 4 | MODE33 FIX2 3 ENTER 4 * SQ 2 + | X=146
+CP1B | checkpoint, unit 1: the answer typed | MODE33 FIX2 36 | X=36
+CP1B1 | slip: times 15, not 15 per hundred | MODE33 FIX2 240 ENTER 15 * | X=3600
+CP1B2 | slip: divided by 15 | MODE33 FIX2 240 ENTER 15 / | X=16
+CP1C | checkpoint, unit 1: the answer typed | MODE33 FIX2 32000 | X=32000
+CP1C1 | slip: times 4, not ten to the 4 | MODE33 FIX2 3.2 ENTER 4 * | X=12.8
+CP1C2 | slip: one place too many | MODE33 FIX2 3.2 ENTER 100000 * | X=320000

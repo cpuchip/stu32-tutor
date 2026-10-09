@@ -11,3 +11,10 @@ I01C | continues I01B: C leaves the view, x<>y brings the uncertainty down | MOD
 S01 | x typed; integrated from -1 to 1: 0 | MODE33 FIX4 EQN RCL:X ENTER EQN 1 CHS ENTER 1 EQN INTEG:X | X=0
 E01 | exercise 1: 3x^2 from 0 to 2: 8 | MODE33 FIX4 EQN 3 * RCL:X POW 2 ENTER EQN 0 ENTER 2 EQN INTEG:X | X#8,1E-30
 E02 | exercise 2: x from -2 to 1: 0.5 - 2 = -1.5 | MODE33 FIX4 EQN RCL:X ENTER EQN 2 CHS ENTER 1 EQN INTEG:X | X#-1.5,1E-30
+# Checkpoint (build/proto/checkpoints.py): the answers and the slips' own working.
+CP12A | checkpoint, unit 12: the answer typed | MODE33 FIX4 9 | X=9
+CP12A1 | slip: the whole rectangle | MODE33 FIX4 6 ENTER 3 * | X=18
+CP12A2 | slip: the slope times the width | MODE33 FIX4 2 ENTER 3 * | X=6
+CP12B | checkpoint, unit 12: the answer typed | MODE33 FIX4 2 CHS | X=-2
+CP12B1 | slip: the area, not the integral | MODE33 FIX4 2 | X=2
+CP12B2 | slip: the rectangle | MODE33 FIX4 2 ENTER 2 * CHS | X=-4

@@ -242,3 +242,33 @@ every point of one line, as in sys-01. Here the line is the first equation, x + 
 
    The X line shows <disp v="E04" kind="view">X=2.0000</disp>, and y and z are 3 and 4: 2 + 3 is 5,
    3 + 4 is 7, and 2 + 4 is 6.
+
+## Checkpoint
+
+Questions on the whole unit. Work each by hand first (a few offer the calculator), then give your answer; the page checks it. A wrong answer that comes from a common slip gets a hint that names the step.
+
+```item CP8A
+prompt: x + y = 10 and x − y = 2. What is x?
+topics: elimination
+answer: type
+calculator: no
+slip: CP8A1 | found y | That is y. Adding the two equations gives 2x = 12.
+slip: CP8A2 | forgot to halve | Adding the equations gives 2x = 12; divide by 2.
+```
+
+```item CP8B
+prompt: 2x + 3y = 12 and x = 3. What is y?
+topics: check-pair
+answer: type
+calculator: no
+slip: CP8B1 | divided by the wrong number | With x = 3, 2 × 3 + 3y = 12, so 3y = 6: divide by 3.
+slip: CP8B2 | found 3y | That is 3y; divide by 3.
+```
+
+```item CP8C
+prompt: x + y = 5 and x + y = 7. How many pairs (x, y) make both true?
+topics: no-or-every-solution
+answer: type
+calculator: no
+slip: CP8C1 | one | The sum x + y cannot be 5 and 7 at once, so no pair works.
+```

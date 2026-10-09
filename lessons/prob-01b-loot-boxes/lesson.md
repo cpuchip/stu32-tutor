@@ -189,3 +189,34 @@ before paying, what an item is really worth to you.
    ```
 
    X shows <disp v="E03">12.8303</disp> pulls, fewer than the 20 without the timer.
+
+## Checkpoint
+
+Questions on the whole unit. Work each by hand first (a few offer the calculator), then give your answer; the page checks it. A wrong answer that comes from a common slip gets a hint that names the step.
+
+```item CP9A
+prompt: In how many ways can 2 of 6 people be chosen, if the order does not matter?
+topics: combination
+answer: type
+calculator: no
+slip: CP9A1 | counted each pair twice | 6 × 5 counts each pair twice, once in each order: divide by 2.
+slip: CP9A2 | 6 times 2 | Count the pairs: 6 × 5 ÷ 2.
+```
+
+```item CP9B
+prompt: A fair coin is tossed twice. What is the probability of two heads?
+topics: independent
+answer: type
+calculator: no
+slip: CP9B1 | one head | Both tosses must be heads: 1/2 times 1/2.
+slip: CP9B2 | added | A head and then a head again: multiply, 1/2 × 1/2, not add.
+```
+
+```item CP9C
+prompt: A game costs 1 coin to play. A fair coin is tossed: heads pays 3 coins, and tails pays nothing. What is the expected value of one play, counting its cost?
+topics: expected-value
+answer: type
+calculator: no
+slip: CP9C1 | left out the cost | Take away the coin each play costs: 3 × 1/2 − 1.
+slip: CP9C2 | the payout as sure | The 3 coins come only half the time: 3 × 1/2, then − 1.
+```

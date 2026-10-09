@@ -197,3 +197,25 @@ no smaller. Here 0.001 already suggested 4.
    ```
 
    X shows <disp v="E03">2.3333</disp>.
+
+## Checkpoint
+
+Questions on the whole unit. Work each by hand first (a few offer the calculator), then give your answer; the page checks it. A wrong answer that comes from a common slip gets a hint that names the step.
+
+```item CP10A
+prompt: What is the average rate of change of x² from x = 2 to x = 4?
+topics: average-rate
+answer: type
+calculator: no
+slip: CP10A1 | forgot to divide | Divide the change in x² by the change in x, 4 − 2.
+slip: CP10A2 | divided by 4 | The change in x is 4 − 2 = 2, not 4.
+```
+
+```item CP10B
+prompt: What does (x² − 9) ÷ (x − 3) close in on as x approaches 3?
+topics: limit limit-by-approach
+answer: type
+calculator: no
+slip: CP10B1 | 0 ÷ 0 read as 0 | At 3 it is 0 ÷ 0, which tells nothing; near 3 it equals x + 3.
+slip: CP10B2 | x itself | Near 3 it equals x + 3, so it closes in on 3 + 3.
+```

@@ -11,3 +11,13 @@ E01 | exercise 1: abs(x + 1) = 4 from guesses 0 and 10 (EQN first leaves Equatio
 E01B | continues E01: from guesses 0 and -10 | MODE33 FIX4 EQN ABS RCL:X + 1 > = 4 ENTER EQN 0 STO:X 10 EQN SOLVE:X 0 STO:X 10 CHS EQN SOLVE:X | X=-5 @X=-5
 E02 | exercise 2: 3x - 6 > 0: the boundary by SOLVE | MODE33 FIX4 EQN 3 * RCL:X - 6 = 0 ENTER SOLVE:X | X=2 @X=2
 E02B | continues E02: test 4: left minus right is 6, positive | MODE33 FIX4 EQN 3 * RCL:X - 6 = 0 ENTER SOLVE:X EQN XEQ 4 RS | X=6
+# Checkpoint (build/proto/checkpoints.py): the answers and the slips' own working.
+CP2A | checkpoint, unit 2: the answer typed | MODE33 FIX4 5 | X=5
+CP2A1 | slip: took the 7 away instead of adding it | MODE33 FIX4 13 ENTER 7 - 4 / | X=1.5
+CP2A2 | slip: undid the × 4 first | MODE33 FIX4 13 ENTER 4 / 7 + | X=10.25
+CP2B | checkpoint, unit 2: the answer typed | MODE33 FIX4 7 | X=7
+CP2B1 | slip: took the 2 away instead of adding it | MODE33 FIX4 5 ENTER 2 - | X=3
+CP2B2 | slip: the smaller answer | MODE33 FIX4 5 CHS ENTER 2 + | X=-3
+CP2C | checkpoint, unit 2: the answer typed | MODE33 FIX4 3 | X=3
+CP2C1 | slip: the edge itself | MODE33 FIX4 8 ENTER 2 / | X=4
+CP2C2 | slip: added the 1 | MODE33 FIX4 9 ENTER 1 + 2 / | X=5

@@ -134,3 +134,34 @@ would count only for ≤, "less than or equal to".
 
    X shows <disp v="E02B">6.0000</disp>: positive, so the left side, 3x − 6, is more than 0 at 4. The
    inequality is true for every x greater than 2: x > 2.
+
+## Checkpoint
+
+Questions on the whole unit. Work each by hand first (a few offer the calculator), then give your answer; the page checks it. A wrong answer that comes from a common slip gets a hint that names the step.
+
+```item CP2A
+prompt: Solve 4x − 7 = 13. What is x?
+topics: solve xeq-check
+answer: type
+calculator: no
+slip: CP2A1 | took the 7 away instead of adding it | Undo the − 7 by adding 7: 13 + 7 = 20, then ÷ 4.
+slip: CP2A2 | undid the × 4 first | Undo in the opposite order: the − 7 first, then the × 4.
+```
+
+```item CP2B
+prompt: |x − 2| = 5 has two answers. What is the larger one?
+topics: abs
+answer: type
+calculator: no
+slip: CP2B1 | took the 2 away instead of adding it | If x − 2 = 5, then x is 2 more than 5.
+slip: CP2B2 | the smaller answer | That is the other answer, from x − 2 = −5. The larger comes from x − 2 = 5.
+```
+
+```item CP2C
+prompt: What is the largest whole number x with 2x + 1 < 9?
+topics: inequalities
+answer: type
+calculator: no
+slip: CP2C1 | the edge itself | The inequality 2x + 1 < 9 means x < 4, and 4 itself is not less than 4.
+slip: CP2C2 | added the 1 | Undo the + 1 by taking it away: 9 − 1 = 8.
+```

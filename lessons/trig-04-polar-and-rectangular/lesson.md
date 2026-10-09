@@ -137,3 +137,33 @@ X shows <disp v="R02">5.0000</disp>: y, 10 sin 30°.
    ```
 
    X shows <disp v="E02B">1.4142</disp>, above: the point is up and to the left, at 135 degrees.
+
+## Checkpoint
+
+Questions on the whole unit. Work each by hand first (a few offer the calculator), then give your answer; the page checks it. A wrong answer that comes from a common slip gets a hint that names the step.
+
+```item CP7A
+prompt: A right triangle's two shorter sides are 5 and 12. How long is its hypotenuse?
+topics: pythagoras
+answer: type
+calculator: no
+slip: CP7A1 | added the sides | Square each side, add, then take the square root: 25 + 144 = 169.
+slip: CP7A2 | stopped at the square | That is the hypotenuse squared; take its square root.
+```
+
+```item CP7B
+prompt: In a right triangle, the hypotenuse is 10 and the side opposite angle A is 6. What is sin A?
+topics: trig-ratios pythagoras
+answer: type
+calculator: no
+slip: CP7B1 | the cosine | That is the adjacent side over the hypotenuse, the cosine. The sine is the opposite side over the hypotenuse: 6 ÷ 10.
+slip: CP7B2 | the tangent | That is the opposite side over the adjacent side, the tangent. The sine divides by the hypotenuse.
+```
+
+```item CP7C
+prompt: A point is at r = 2 and angle 90°. What is its x?
+topics: to-rect
+answer: type
+calculator: no
+slip: CP7C1 | r itself | At 90° the point is straight up, on the y axis, so x = r × cos 90° = 0.
+```

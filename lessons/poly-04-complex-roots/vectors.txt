@@ -27,3 +27,13 @@ H02@33s | continues H02A: z x z, + 2z (-2 - 4i), + 5: 0 | MODE33 FIX4 2 CHS ENTE
 E01@33s | exercise: (4 + 6i) / 2: 2 + 3i | MODE33 FIX4 6 ENTER 4 ENTER 0 ENTER 2 CMPLX:/ | X=2 Y=3
 E02@33s | (4 - 6i) / 2: 2 - 3i | MODE33 FIX4 6 CHS ENTER 4 ENTER 0 ENTER 2 CMPLX:/ | X=2 Y=-3
 E03@33s | 2 + 3i: z x z, - 4z (-8 - 12i), + 13: 0 | MODE33 FIX4 3 ENTER 2 ENTER 3 ENTER 2 CMPLX:* 12 CHS ENTER 8 CHS CMPLX:+ 0 ENTER 13 CMPLX:+ | X=0 Y=0
+# Checkpoint (build/proto/checkpoints.py): the answers and the slips' own working.
+CP5A | checkpoint, unit 5: the answer typed | MODE33 FIX4 36 CHS | X=-36
+CP5A1 | slip: added the 4ac | MODE33 FIX4 4 SQ 4 ENTER 13 * + | X=68
+CP5A2 | slip: the order turned round | MODE33 FIX4 4 ENTER 13 * 4 SQ - | X=36
+CP5B | checkpoint, unit 5: the answer typed | MODE33 FIX4 5 | X=5
+CP5B1 | slip: the smaller root | MODE33 FIX4 2 | X=2
+CP5B2 | slip: the sign of −b | MODE33 FIX4 5 CHS | X=-5
+CP5C | checkpoint, unit 5: the answer typed | MODE33 FIX4 15 | X=15
+CP5C1 | slip: cubed the 2x | MODE33 FIX4 2 ENTER 2 * 3 POW 2 - 1 + | X=63
+CP5C2 | slip: took the 1 away | MODE33 FIX4 2 ENTER 3 POW 2 * 2 - 1 - | X=13

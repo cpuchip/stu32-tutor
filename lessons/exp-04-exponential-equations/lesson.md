@@ -141,3 +141,34 @@ The X line shows <disp v="E02" kind="view">X=-2.8625</disp>.
 ```
 
 The X line shows <disp v="E03" kind="view">X=2.4449</disp>.
+
+## Checkpoint
+
+Questions on the whole unit. Work each by hand first (a few offer the calculator), then give your answer; the page checks it. A wrong answer that comes from a common slip gets a hint that names the step.
+
+```item CP6A
+prompt: Solve 2ˣ = 32.
+topics: log-solve
+answer: type
+calculator: no
+slip: CP6A1 | divided by 2 | The 2ˣ is 2 multiplied by itself x times: count the 2s in 32.
+slip: CP6A2 | counted the doublings | Count the 2s multiplied, not the steps between them: 2 × 2 × 2 × 2 × 2 = 32.
+```
+
+```item CP6B
+prompt: What is log 10,000 (base 10)?
+topics: log
+answer: type
+calculator: no
+slip: CP6B1 | divided by 10 | The log of 10,000 asks which power of 10 is 10,000.
+slip: CP6B2 | counted the digits | Count the zeros, not the digits: 10,000 = 10⁴.
+```
+
+```item CP6C
+prompt: 1000 coins grow by 10% each year. How many after 3 years?
+topics: growth
+answer: type
+calculator: yes
+slip: CP6C1 | the same 100 each year | Each year's 10% is of the new amount: times 1.1, three times.
+slip: CP6C2 | times 3, not three times 1.1 | Each year multiplies by 1.1 again: 1000 × 1.1 × 1.1 × 1.1, not 1000 × 1.1 × 3.
+```

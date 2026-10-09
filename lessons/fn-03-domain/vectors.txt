@@ -21,3 +21,13 @@ E01 | exercise 1, continues S09: r(-2) | MODE33 FIX4 PRGM LBL:R INV RTN LBL:S 2 
 E02 | exercise 2, continues E01: s(2.25) = square root of 0.25 | MODE33 FIX4 PRGM LBL:R INV RTN LBL:S 2 - SQRT RTN PRGM 4 XEQ:R 0 XEQ:R C PRGM PRGM 6 XEQ:S 2 XEQ:S 1 XEQ:S C PRGM PRGM GTO.. PRGM PRGM 2 CHS XEQ:R 2.25 XEQ:S | ERR X=0.5
 E03 | exercise 3, continues E02: s(1.99) is refused | MODE33 FIX4 PRGM LBL:R INV RTN LBL:S 2 - SQRT RTN PRGM 4 XEQ:R 0 XEQ:R C PRGM PRGM 6 XEQ:S 2 XEQ:S 1 XEQ:S C PRGM PRGM GTO.. PRGM PRGM 2 CHS XEQ:R 2.25 XEQ:S 1.99 XEQ:S | ERR
 E03B | continues E03: C; X holds 1.99 - 2 | MODE33 FIX4 PRGM LBL:R INV RTN LBL:S 2 - SQRT RTN PRGM 4 XEQ:R 0 XEQ:R C PRGM PRGM 6 XEQ:S 2 XEQ:S 1 XEQ:S C PRGM PRGM GTO.. PRGM PRGM 2 CHS XEQ:R 2.25 XEQ:S 1.99 XEQ:S C | ERR X=-0.01
+# Checkpoint (build/proto/checkpoints.py): the answers and the slips' own working.
+CP3A | checkpoint, unit 3: the answer typed | MODE33 FIX4 3 | X=3
+CP3A1 | slip: 2x read as 2 | MODE33 FIX4 3 SQ 2 - | X=7
+CP3A2 | slip: added the 2x | MODE33 FIX4 3 SQ 3 ENTER 2 * + | X=15
+CP3B | checkpoint, unit 3: the answer typed | MODE33 FIX4 5 | X=5
+CP3B1 | slip: the sign turned | MODE33 FIX4 5 CHS | X=-5
+CP3B2 | slip: x = 0 | MODE33 FIX4 0 | X=0
+CP3C | checkpoint, unit 3: the answer typed | MODE33 FIX4 4 | X=4
+CP3C1 | slip: x = 0 | MODE33 FIX4 0 | X=0
+CP3C2 | slip: more than 0, not 0 or more | MODE33 FIX4 4 ENTER 1 + | X=5

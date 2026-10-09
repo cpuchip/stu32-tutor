@@ -15,3 +15,13 @@ E01 | exercise 1: a 5% item, at least one in 20 pulls | MODE33 FIX4 0.95 ENTER 2
 E02 | exercise 2: pulls for a 5% item, on average | MODE33 FIX4 0.05 INV | X=20
 E02B | continues E02: at 2 dollars a pull | MODE33 FIX4 0.05 INV 2 * | X=40
 E03 | exercise 3: a pity timer at 20: (1 - 0.95^20) / 0.05 | MODE33 FIX4 1 ENTER 0.95 ENTER 20 POW - 0.05 / | X=12.83028155182915531285179119110107
+# Checkpoint (build/proto/checkpoints.py): the answers and the slips' own working.
+CP9A | checkpoint, unit 9: the answer typed | MODE33 FIX4 15 | X=15
+CP9A1 | slip: counted each pair twice | MODE33 FIX4 6 ENTER 5 * | X=30
+CP9A2 | slip: 6 times 2 | MODE33 FIX4 6 ENTER 2 * | X=12
+CP9B | checkpoint, unit 9: the answer typed | MODE33 FIX4 0.25 | X=0.25
+CP9B1 | slip: one head | MODE33 FIX4 1 ENTER 2 / | X=0.5
+CP9B2 | slip: added | MODE33 FIX4 1 ENTER 2 / 1 ENTER 2 / + | X=1
+CP9C | checkpoint, unit 9: the answer typed | MODE33 FIX4 0.5 | X=0.5
+CP9C1 | slip: left out the cost | MODE33 FIX4 3 ENTER 2 / | X=1.5
+CP9C2 | slip: the payout as sure | MODE33 FIX4 3 ENTER 1 - | X=2

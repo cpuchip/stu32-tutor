@@ -16,3 +16,13 @@ E01 | exercise: doubling, 2 4 8 16 32 at x = 1 to 5: r | MODE33 FIX4 CLSIGMA 2 E
 E01B | continues E01: the line at x = 1 gives -2, below zero | MODE33 FIX4 CLSIGMA 2 ENTER 1 SIGMA+ 4 ENTER 2 SIGMA+ 8 ENTER 3 SIGMA+ 16 ENTER 4 SIGMA+ 32 ENTER 5 SIGMA+ CORR 1 YHAT | X=-2
 E01C | continues E01B: the line at x = 3 gives 12.4; the data says 8 | MODE33 FIX4 CLSIGMA 2 ENTER 1 SIGMA+ 4 ENTER 2 SIGMA+ 8 ENTER 3 SIGMA+ 16 ENTER 4 SIGMA+ 32 ENTER 5 SIGMA+ CORR 1 YHAT 3 YHAT | X=12.4
 E01D | continues E01C: the line at x = 6 gives 34; doubling gives 64 | MODE33 FIX4 CLSIGMA 2 ENTER 1 SIGMA+ 4 ENTER 2 SIGMA+ 8 ENTER 3 SIGMA+ 16 ENTER 4 SIGMA+ 32 ENTER 5 SIGMA+ CORR 1 YHAT 3 YHAT 6 YHAT | X=34
+# Checkpoint (build/proto/checkpoints.py): the answers and the slips' own working.
+CP4A | checkpoint, unit 4: the answer typed | MODE33 FIX4 2 | X=2
+CP4A1 | slip: run over rise | MODE33 FIX4 4 ENTER 8 / | X=0.5
+CP4A2 | slip: the points in different orders | MODE33 FIX4 13 ENTER 5 - 2 ENTER 6 - / | X=-2
+CP4B | checkpoint, unit 4: the answer typed | MODE33 FIX4 5 | X=5
+CP4B1 | slip: added the 2 | MODE33 FIX4 7 ENTER 2 + | X=9
+CP4B2 | slip: divided by 2 | MODE33 FIX4 7 ENTER 2 / | X=3.5
+CP4C | checkpoint, unit 4: the answer typed | MODE33 FIX4 26 | X=26
+CP4C1 | slip: added the 4 | MODE33 FIX4 3 ENTER 10 * 4 + | X=34
+CP4C2 | slip: took 4 from x first | MODE33 FIX4 10 ENTER 4 - 3 * | X=18

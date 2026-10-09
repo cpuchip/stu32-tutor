@@ -236,3 +236,34 @@ and Y holds −3</mode>: 2 − 3i. Check 2 + 3i<mode m="35s,STU">, with 1 ×, th
 
 X shows <disp v="E03" m="35s,STU">0.0000i0.0000</disp><disp v="E03" m="33s">0.0000</disp><mode m="33s">
 and Y holds 0</mode>.
+
+## Checkpoint
+
+Questions on the whole unit. Work each by hand first (a few offer the calculator), then give your answer; the page checks it. A wrong answer that comes from a common slip gets a hint that names the step.
+
+```item CP5A
+prompt: What is the discriminant b² − 4ac of x² + 4x + 13?
+topics: discriminant
+answer: type
+calculator: no
+slip: CP5A1 | added the 4ac | It is b² minus 4ac: 16 − 52.
+slip: CP5A2 | the order turned round | The b² comes first: 16 − 52, not 52 − 16.
+```
+
+```item CP5B
+prompt: What is the larger root of x² − 7x + 10?
+topics: root quadratic-formula
+answer: type
+calculator: no
+slip: CP5B1 | the smaller root | That is the other root. (7 ± √(49 − 40)) ÷ 2 gives 5 and 2; the larger is 5.
+slip: CP5B2 | the sign of −b | In the formula −b is −(−7) = 7, so the roots are (7 ± 3) ÷ 2, both positive.
+```
+
+```item CP5C
+prompt: Evaluate 2x³ − x + 1 at x = 2.
+topics: polynomial
+answer: type
+calculator: no
+slip: CP5C1 | cubed the 2x | The 2x³ is 2 times x³: cube x first, 2³ = 8, then double it.
+slip: CP5C2 | took the 1 away | It is plus 1 at the end.
+```

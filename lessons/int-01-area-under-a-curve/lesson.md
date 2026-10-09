@@ -164,3 +164,25 @@ the area below it, 0.5 − 0.5, which is 0.
    ```
 
    The X line shows <disp v="E02" kind="view">∫=-1.5000</disp>, and the area is 2 + 0.5.
+
+## Checkpoint
+
+Questions on the whole unit. Work each by hand first (a few offer the calculator), then give your answer; the page checks it. A wrong answer that comes from a common slip gets a hint that names the step.
+
+```item CP12A
+prompt: What is the area under y = 2x from x = 0 to x = 3?
+topics: integral riemann-sum
+answer: type
+calculator: no
+slip: CP12A1 | the whole rectangle | The area is a triangle, half the 3 by 6 rectangle.
+slip: CP12A2 | the slope times the width | The height at x = 3 is 6: the triangle is ½ × 3 × 6.
+```
+
+```item CP12B
+prompt: What is the integral of y = x − 2 from x = 0 to x = 2?
+topics: integral signed-area
+answer: type
+calculator: no
+slip: CP12B1 | the area, not the integral | The line is below the x axis there, so the integral counts that area as negative.
+slip: CP12B2 | the rectangle | It is a triangle, ½ × 2 × 2, below the axis.
+```

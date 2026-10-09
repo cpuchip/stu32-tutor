@@ -10,3 +10,12 @@ E01 | exercise 1: (-5, -12) to polar | MODE33 FIX4 DEG 12 CHS ENTER 5 CHS TOPOL 
 E01B | continues E01: the angle | MODE33 FIX4 DEG 12 CHS ENTER 5 CHS TOPOL XY | X=-112.6198649480404261729490108766797
 E02 | exercise 2: polar (2, 135 degrees) to rectangular | MODE33 FIX4 DEG 135 ENTER 2 TOREC | X=-1.414213562373095048801688724209698 Y=1.414213562373095048801688724209698
 E02B | continues E02: y | MODE33 FIX4 DEG 135 ENTER 2 TOREC XY | X=1.414213562373095048801688724209698
+# Checkpoint (build/proto/checkpoints.py): the answers and the slips' own working.
+CP7A | checkpoint, unit 7: the answer typed | MODE33 FIX4 13 | X=13
+CP7A1 | slip: added the sides | MODE33 FIX4 5 ENTER 12 + | X=17
+CP7A2 | slip: stopped at the square | MODE33 FIX4 5 SQ 12 SQ + | X=169
+CP7B | checkpoint, unit 7: the answer typed | MODE33 FIX4 0.6 | X=0.6
+CP7B1 | slip: the cosine | MODE33 FIX4 8 ENTER 10 / | X=0.8
+CP7B2 | slip: the tangent | MODE33 FIX4 6 ENTER 8 / | X=0.75
+CP7C | checkpoint, unit 7: the answer typed | MODE33 FIX4 0 | X=0
+CP7C1 | slip: r itself | MODE33 FIX4 2 | X=2

@@ -13,3 +13,13 @@ E01B | continues: XEQ at 0 | MODE33 FIX4 EQN 2 POW RCL:X = RCL:X + 3 ENTER XEQ 3
 E01C | continues: XEQ at 3 | MODE33 FIX4 EQN 2 POW RCL:X = RCL:X + 3 ENTER XEQ 3 CHS RS EQN XEQ 0 RS EQN XEQ 3 RS | X=2
 E02 | continues: guesses -3 and 0 | MODE33 FIX4 EQN 2 POW RCL:X = RCL:X + 3 ENTER XEQ 3 CHS RS EQN XEQ 0 RS EQN XEQ 3 RS 3 CHS STO:X 0 EQN SOLVE:X | X=-2.862500371220298824887996366649381 @X=-2.862500371220298824887996366649381
 E03 | continues: guesses 0 and 3 | MODE33 FIX4 EQN 2 POW RCL:X = RCL:X + 3 ENTER XEQ 3 CHS RS EQN XEQ 0 RS EQN XEQ 3 RS 3 CHS STO:X 0 EQN SOLVE:X 0 STO:X 3 EQN SOLVE:X | X=2.444907554610207051743845256107619 @X=2.444907554610207051743845256107619
+# Checkpoint (build/proto/checkpoints.py): the answers and the slips' own working.
+CP6A | checkpoint, unit 6: the answer typed | MODE33 FIX4 5 | X=5
+CP6A1 | slip: divided by 2 | MODE33 FIX4 32 ENTER 2 / | X=16
+CP6A2 | slip: counted the doublings | MODE33 FIX4 4 | X=4
+CP6B | checkpoint, unit 6: the answer typed | MODE33 FIX4 4 | X=4
+CP6B1 | slip: divided by 10 | MODE33 FIX4 10000 ENTER 10 / | X=1000
+CP6B2 | slip: counted the digits | MODE33 FIX4 5 | X=5
+CP6C | checkpoint, unit 6: the answer typed | MODE33 FIX4 1331 | X=1331
+CP6C1 | slip: the same 100 each year | MODE33 FIX4 1000 ENTER 300 + | X=1300
+CP6C2 | slip: times 3, not three times 1.1 | MODE33 FIX4 1000 ENTER 1.1 * 3 * | X=3300

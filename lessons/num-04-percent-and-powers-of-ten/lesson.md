@@ -173,3 +173,34 @@ than 30 characters, too long to fit the line, so the calculator shows it in scie
 
    X shows <disp v="E05">33.33</disp>: a rise of about 33%, where the fall was 25%. The same 20 is
    a bigger part of 60 than of 80, so going back up takes a bigger percent than coming down.
+
+## Checkpoint
+
+Questions on the whole unit. Work each by hand first (a few offer the calculator), then give your answer; the page checks it. A wrong answer that comes from a common slip gets a hint that names the step.
+
+```item CP1A
+prompt: Work out 2 + 3 × 4².
+topics: mult-before-add powers-first
+answer: type
+calculator: no
+slip: CP1A1 | added before multiplying | Multiplying comes before adding: work out 3 × 4² first.
+slip: CP1A2 | squared the 3 × 4 | The power belongs to the 4 alone: square 4, then multiply by 3.
+```
+
+```item CP1B
+prompt: What is 15% of 240?
+topics: percent
+answer: type
+calculator: no
+slip: CP1B1 | times 15, not 15 per hundred | 15% is 15 per hundred: 15 ÷ 100 × 240.
+slip: CP1B2 | divided by 15 | 15% of a number is 15 ÷ 100 times it, not the number divided by 15.
+```
+
+```item CP1C
+prompt: Write 3.2 × 10⁴ as an ordinary number.
+topics: read-e
+answer: type
+calculator: no
+slip: CP1C1 | times 4, not ten to the 4 | 10⁴ is 10 × 10 × 10 × 10, not 4.
+slip: CP1C2 | one place too many | The point moves 4 places to the right, not 5.
+```
