@@ -141,7 +141,7 @@ Questions on the whole unit. Work each by hand first (a few offer the calculator
 
 ```item CP2A
 prompt: Solve 4x − 7 = 13. What is x?
-topics: solve xeq-check
+topics: xeq-check
 answer: type
 calculator: no
 slip: CP2A1 | took the 7 away instead of adding it | Undo the − 7 by adding 7: 13 + 7 = 20, then ÷ 4.
