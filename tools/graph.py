@@ -350,6 +350,121 @@ def check_placement(placement_texts, graph):
     return bad
 
 
+LORE_KINDS = ("character", "place", "object", "age")
+LORE_VERBS = ("lives_in", "located_in", "works_with", "keeps", "made", "passes_to", "before")
+
+
+def load_lore(root):
+    """(entity lines, edge lines) from lore/ENTITIES and lore/EDGES, as (line number, fields)."""
+    out = []
+    for name in ("ENTITIES", "EDGES"):
+        path = os.path.join(root, "lore", name)
+        rows = []
+        if os.path.exists(path):
+            for n, line in enumerate(open(path, encoding="utf-8"), 1):
+                if line.strip() and not line.lstrip().startswith("#"):
+                    rows.append((n, [p.strip() for p in line.split("|")]))
+        out.append(rows)
+    return out
+
+
+def check_lore(entities, edges, lessons, graph):
+    """Problems, and graph["lore"] (lore/WORLD.md's files). A lesson's front matter names who appears
+    in it: cast: (characters the story leans on) and walk-ons: (parts that stand alone), each a comma
+    list. A cast: character's home lesson is the lesson itself or among its prerequisites, taken
+    transitively, so every route to the lesson meets them first (abacus #5227); a walk-on's standing
+    alone is the non-author read's to check. A cameo is an appearance outside the character's home
+    course; --json gives each its home, for the page's link back."""
+    bad, ents = [], {}
+    for n, f in entities:
+        if len(f) != 4 or not all(f):
+            bad.append(f"lore/ENTITIES:{n}: expected 'kind | name | home | summary'")
+            continue
+        kind, name, home, summary = f
+        if kind not in LORE_KINDS:
+            bad.append(f"lore/ENTITIES:{n}: kind '{kind}' is not one of {' '.join(LORE_KINDS)}")
+        if name in ents:
+            bad.append(f"lore/ENTITIES:{n}: '{name}' is given twice")
+        if home != "world" and home not in graph["lessons"]:
+            bad.append(f"lore/ENTITIES:{n}: '{name}' lives in '{home}', which is not a lesson (or world)")
+        ents[name] = {"kind": kind, "home": home, "summary": summary}
+    rels = []
+    for n, f in edges:
+        if len(f) != 3 or not all(f):
+            bad.append(f"lore/EDGES:{n}: expected 'from | verb | to'")
+            continue
+        a, verb, b = f
+        if verb not in LORE_VERBS:
+            bad.append(f"lore/EDGES:{n}: verb '{verb}' is not one of {' '.join(LORE_VERBS)}")
+        for end in (a, b):
+            if end not in ents:
+                bad.append(f"lore/EDGES:{n}: '{end}' is not an entity")
+        rels.append({"from": a, "verb": verb, "to": b})
+    # Every lesson's prerequisites, transitively.
+    before = {}
+
+    def reach(lid, seen=None):
+        if lid in before:
+            return before[lid]
+        out = set()
+        for d in graph["lessons"].get(lid, {}).get("needs", []):
+            out.add(d)
+            out |= reach(d)
+        before[lid] = out
+        return out
+    course_of = {l: cid for cid, c in graph.get("courses", {}).items() for u in c["units"] for l in u["lessons"]}
+    appear, cameos = {}, []
+    for lid, (meta, _) in lessons.items():
+        cast = [x.strip() for x in meta.get("cast", "").split(",") if x.strip()]
+        walk = [x.strip() for x in meta.get("walk-ons", "").split(",") if x.strip()]
+        if not cast and not walk:
+            continue
+        appear[lid] = {"cast": cast, "walk_ons": walk}
+        for who in cast + walk:
+            if who not in ents:
+                bad.append(f"{lid}: '{who}' appears, but is not in lore/ENTITIES")
+                continue
+            home = ents[who]["home"]
+            if who in cast:
+                if home == "world":
+                    bad.append(f"{lid}: '{who}' is cast:, but no lesson introduces them; make them a walk-on")
+                elif home != lid and home not in reach(lid):
+                    bad.append(f"{lid}: '{who}' is cast:, but their home {home} is not among its prerequisites")
+            if home not in ("world", lid) and course_of.get(home) != course_of.get(lid):
+                cameos.append({"lesson": lid, "name": who, "home": home, "home_course": course_of.get(home)})
+    graph["lore"] = {"entities": ents, "edges": rels, "appearances": appear, "cameos": cameos}
+    return bad
+
+
+def selftest_lore(entities, edges, lessons, graph):
+    """Each planted lore fault must be refused, and for its own reason."""
+    first = sorted(l for l in lessons if l != "start-01")[0]
+    meta, text = lessons[first]
+    plants = [
+        ("an entity of no known kind", entities + [(99, ["dragon", "Zed", "world", "x"])], edges, lessons,
+         "kind 'dragon'"),
+        ("an edge with an unknown verb", entities, edges + [(99, ["Maren", "rules", "Thornwick"])], lessons,
+         "verb 'rules'"),
+        ("an edge to no entity", entities, edges + [(99, ["Maren", "lives_in", "Nowhere"])], lessons,
+         "'Nowhere' is not an entity"),
+        ("a cast name not in the lore", entities, edges, {**lessons, first: ({**meta, "cast": "Nobody"}, text)},
+         "'Nobody' appears, but is not in lore/ENTITIES"),
+        ("a cast character whose home is not on every route", entities, edges,
+         {**lessons, "rpn-01": ({**lessons["rpn-01"][0], "cast": "Maren"}, lessons["rpn-01"][1])},
+         "rpn-01: 'Maren' is cast:, but their home start-01 is not among its prerequisites"),
+        ("a cast character no lesson introduces", entities, edges,
+         {**lessons, first: ({**meta, "cast": "Tobin"}, text)}, "'Tobin' is cast:, but no lesson introduces them"),
+    ]
+    red = 0
+    for pname, en, ed, ls, why in plants:
+        problems = check_lore(en, ed, ls, json.loads(json.dumps(graph)))
+        hit = [p for p in problems if why in p]
+        print(f"{'ok  ' if hit else 'FAIL'} {pname}" + (f"\n       -> {hit[0]}" if hit else f": {problems[:2]}"))
+        red += bool(hit)
+    print(f"{red}/{len(plants)} lore controls red as planted")
+    return red == len(plants)
+
+
 def selftest_placement(placement_texts, graph):
     """Each planted placement fault must be refused, and for its own reason."""
     if "algebra-to-calculus" not in placement_texts:
@@ -383,11 +498,13 @@ def main():
         ok = selftest_courses(load_courses(ROOT), g) and ok
         g["courses"] = check_courses(load_courses(ROOT), g)[1]
         ok = selftest_placement(load_placement(ROOT), g) and ok
+        ok = selftest_lore(*load_lore(ROOT), lessons, g) and ok
         return 0 if ok else 1
     bad, graph = check(topics_text, lessons)
     cbad, graph["courses"] = check_courses(load_courses(ROOT), graph)
     bad += cbad
     bad += check_placement(load_placement(ROOT), graph)
+    bad += check_lore(*load_lore(ROOT), lessons, graph)
     if "--json" in sys.argv:
         print(json.dumps(graph, ensure_ascii=False, indent=1))
     for b in bad:

@@ -1,0 +1,17 @@
+# Relations between the world's entities (lore/WORLD.md): from | verb | to. The verbs: lives_in,
+# located_in, works_with, keeps, made, passes_to, before. tools/graph.py refuses an unknown verb and
+# an end that is not an entity.
+
+the market age | before | the survey age
+the survey age | before | the engine age
+the engine age | before | the far age
+Thornwick | located_in | the market age
+the Thorn | located_in | Thornwick
+the bakery | located_in | Thornwick
+the mill | located_in | Thornwick
+Maren | lives_in | Thornwick
+Tobin | lives_in | Thornwick
+Hesk | lives_in | Thornwick
+Tobin | works_with | Maren
+Maren | keeps | Maren's ledger
+Maren's ledger | passes_to | the survey age

@@ -1,0 +1,21 @@
+# The world's characters, places, objects and ages (lore/WORLD.md). Every name is a stand-in until
+# Michael rules on who designs the world.
+#
+# kind | name | home | summary
+#
+# kind is character, place, object or age. home is the lesson that introduces the entity, or world
+# for one that belongs to the whole world. tools/graph.py refuses an unknown kind, a home lesson that
+# is not a lesson, and a name given twice.
+
+age | the market age | world | Pre-algebra's age: trade, recipes, shares, a harvest that must last.
+age | the survey age | world | Geometry's age: maps, a bridge, a lighthouse, the stars for the way.
+age | the engine age | world | Algebra to Calculus's age: engines, then the first rocket.
+age | the far age | world | The advanced courses' age: a drive to the stars (left open).
+place | Thornwick | world | A hill town where two roads cross the river Thorn; its market fills the square.
+place | the Thorn | world | The river through Thornwick, which turns the mill.
+place | the bakery | start-01 | Maren's bakery on Thornwick's square.
+place | the mill | world | The mill on the Thorn that grinds Thornwick's grain.
+character | Maren | start-01 | Runs Thornwick's bakery; keeps its accounts by hand and checks them on the calculator.
+character | Tobin | world | Carries the bakery's orders across Thornwick and keeps a tally of what goes where.
+character | Hesk | world | Runs the mill; knows to the sack how much grain the town has and how long it must last.
+object | Maren's ledger | start-01 | The bakery's accounts in Maren's hand; in the survey age, the first page of a ship's log.

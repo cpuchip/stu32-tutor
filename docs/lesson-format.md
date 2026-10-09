@@ -195,6 +195,24 @@ as above, with one more field:
 4. The learner may start anywhere instead. The result is a suggestion, never a lock, and is kept only in
    the browser.
 
+## Lore: who appears
+
+The world's canon is in `lore/` (lore/WORLD.md: the world, its ages, the rules every story keeps;
+lore/ENTITIES and lore/EDGES, one line each, shaped to import one to one into loreworks for its 3D
+view). A lesson names who appears in it in its front matter, as comma lists (a name may have spaces):
+
+- `cast: Maren`: characters the story leans on. Each one's home lesson (in lore/ENTITIES) is this
+  lesson or among its prerequisites, taken transitively, so every route to the lesson meets them
+  first. A character no lesson introduces (home `world`) cannot be cast.
+- `walk-ons: Tobin`: parts that stand alone; a learner who has never met them loses nothing. That is
+  the non-author read's to check, not graph.py's.
+
+graph.py (in `make check`) refuses an unknown kind or verb, an edge end or appearance that is not an
+entity, a home that is not a lesson, and a cast character not met on every route. `--json` gives the
+lore, each lesson's appearances, and every cameo (a character outside their home course) with the
+home lesson the page links back to. Every name in lore/ is a stand-in until Michael rules on who
+designs the world.
+
 ## What `make check` proves
 
 For each lesson, in each mode it offers (and each entry, for a lesson that offers entries: every

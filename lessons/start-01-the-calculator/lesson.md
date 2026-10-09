@@ -5,7 +5,8 @@ modes: STU
 modes_reason: algebraic entry, this course's default, is STU mode's alone (firmware 029); RPN is offered in STU mode too
 entries: alg rpn
 requires:
-status: draft prose (accuracy: lessons/ACCEPTED; not yet read by Michael; the bakery is a placeholder world)
+status: draft prose (accuracy: lessons/ACCEPTED; not yet read by Michael; Thornwick and its names are stand-ins, lore/WORLD.md)
+cast: Maren
 setup: BLUE MODE {mode} BLUE MODE {entry} GOLD DISP FIX 4
 display: FIX 4
 ---
@@ -14,7 +15,9 @@ display: FIX 4
 
 In this course you work each idea out by hand first, and then the STU-32 checks your answer. This
 lesson shows how to set the calculator up, how to type a calculation, how to use the last answer,
-and how to make the calculator show fractions. The examples come from a bakery.
+and how to make the calculator show fractions. The examples come from Thornwick, a market town where
+two roads cross a river, and its bakery, which Maren runs. Maren keeps the bakery's accounts in a
+ledger by hand, then checks them on the calculator, which is how this course works too.
 
 ## Before you start
 

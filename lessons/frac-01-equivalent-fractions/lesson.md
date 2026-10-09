@@ -5,16 +5,17 @@ modes: STU
 modes_reason: algebraic entry, this course's default, is STU mode's alone (firmware 029); RPN is offered in STU mode too
 entries: alg rpn
 requires: calc-setup calc-shift-keys calc-soft-keys calc-first-calculation calc-frac-display calc-frac-arrows
-status: pilot, draft prose (accuracy: lessons/ACCEPTED; not yet read by Michael; the bakery is a placeholder world)
+status: pilot, draft prose (accuracy: lessons/ACCEPTED; not yet read by Michael; Thornwick and its names are stand-ins, lore/WORLD.md)
+cast: Maren
 setup: BLUE MODE {mode} BLUE MODE {entry} GOLD DISP FIX 4 BLUE →FRAC
 display: FIX 4
 ---
 
 # Equivalent fractions
 
-Two pies come out of the bakery's oven, the same size. The baker cuts the first into 4 equal pieces
-and the second into 2 equal pieces. One customer buys 2 pieces of the first pie. Another buys 1 piece
-of the second. Who got more pie?
+In Thornwick's market, two pies come out of the oven at Maren's bakery, the same size. Maren cuts the
+first into 4 equal pieces and the second into 2 equal pieces. One customer buys 2 pieces of the first
+pie. Another buys 1 piece of the second. Who got more pie?
 
 Work it out by hand first. Draw two circles the same size. Cut the first into 4 equal parts and
 shade 2 of them: that is 2/4 of a pie. Cut the second into 2 equal parts and shade 1: that is 1/2 of
