@@ -84,6 +84,23 @@ The image is `--image TAG`, `$STU32_CALC_IMAGE`, or the one tagged for the Makef
   - KILLED: a signal.
 - **The core's own limit:** an endless program stops at the core's RUN LIMIT message before any of these.
 
+## MCP
+
+`calc/mcp/server.py` is a stdio MCP server using only the standard library. It offers four tools: `calc_keys`,
+`calc_vectors`, `calc_casim` and `calc_pins`.
+- **One call per container:** each tool call is one `run.sh` call, so every call gets the container's limits and the
+  outer deadline. The server keeps no state and never runs the core itself.
+- **Errors:** a tool answer is an error (`isError`) only when the call did not run (a bad request, a bad key, a limit,
+  no image). FAIL and Casimir's statuses are answers.
+- **Self-test:** `python calc/mcp/server.py --selftest` starts the server and speaks to it.
+
+A client's entry for it:
+
+```json
+{"command": "python", "args": ["<repo>/calc/mcp/server.py"],
+ "env": {"STU32_CALC_IMAGE": "stu32-calc:fw-628c96c.cas-dbb6d4c"}}
+```
+
 ## Problem records
 
 `tools/records.py FILE.jsonl` checks the pilot's problem records (abacus #5698, #5737):
