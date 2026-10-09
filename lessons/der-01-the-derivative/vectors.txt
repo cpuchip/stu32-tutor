@@ -1,0 +1,16 @@
+# der-01 the derivative as a function: key vectors (the firmware's format). Every example is ours.
+# Each starts MODE33 FIX4 (the lesson's setup). Values from build/proto/der01.py, modelling the keys;
+# Casimir's texts (4×T, 2×X) as the core writes them at c7ab388.
+V01A | program V: (d(A + h) - d(A)) / h, d(t) = 2t^2, from the top of program memory | MODE33 FIX4 GTO.. PRGM LBL:V STO:H RCL:A + SQ 2 * RCL:A SQ 2 * - RCL:H / RTN | %LINES=15
+V01 | continues V01A: program entry off | MODE33 FIX4 GTO.. PRGM LBL:V STO:H RCL:A + SQ 2 * RCL:A SQ 2 * - RCL:H / RTN PRGM | %LINES=15
+D01 | continues V01: A = 3, h = 0.001 | MODE33 FIX4 GTO.. PRGM LBL:V STO:H RCL:A + SQ 2 * RCL:A SQ 2 * - RCL:H / RTN PRGM 3 STO:A 0.001 XEQ:V | X=12.002 @A=3
+D02 | continues D01: h = -0.001 | MODE33 FIX4 GTO.. PRGM LBL:V STO:H RCL:A + SQ 2 * RCL:A SQ 2 * - RCL:H / RTN PRGM 3 STO:A 0.001 XEQ:V 0.001 CHS XEQ:V | X=11.998
+D02B | continues D02: h = 0.0001 | MODE33 FIX4 GTO.. PRGM LBL:V STO:H RCL:A + SQ 2 * RCL:A SQ 2 * - RCL:H / RTN PRGM 3 STO:A 0.001 XEQ:V 0.001 CHS XEQ:V 0.0001 XEQ:V | X=12.0002
+D03 | continues D02: A = 0.5, h = 0.001 | MODE33 FIX4 GTO.. PRGM LBL:V STO:H RCL:A + SQ 2 * RCL:A SQ 2 * - RCL:H / RTN PRGM 3 STO:A 0.001 XEQ:V 0.001 CHS XEQ:V 0.0001 XEQ:V 0.5 STO:A 0.001 XEQ:V | X=2.002 @A=0.5
+B01@STU | STU: D/DX of 2T^2 in T | MODE33 FIX4 EQN 2 * RCL:T POW 2 ENTER CASD:T | %EQ=4×T
+B02@STU | continues B01: XEQ the derivative, T = 3 at its prompt | MODE33 FIX4 EQN 2 * RCL:T POW 2 ENTER CASD:T XEQ 3 RS | X=12
+E01 | exercise 1: (2 x 5.001^2 - 50) / 0.001 | MODE33 FIX4 5.001 SQ 2 * 50 - 0.001 / | X=20.002
+E02 | exercise 2: (3.001^2 - 9) / 0.001 | MODE33 FIX4 3.001 SQ 9 - 0.001 / | X=6.001
+E02B@STU | exercise 2, STU: D/DX of X^2 in X | MODE33 FIX4 EQN RCL:X POW 2 ENTER CASD:X | %EQ=2×X
+E02C@STU | continues E02B: Equation mode off, the list kept (x^2 and 2x) | MODE33 FIX4 EQN RCL:X POW 2 ENTER CASD:X EQN | %EQN=2
+E03 | exercise 3: (2 x 3.001^2 - 18) / 0.001 | MODE33 FIX4 3.001 SQ 2 * 18 - 0.001 / | X=12.002

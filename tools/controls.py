@@ -515,6 +515,20 @@ CONTROLS_FOR["start-01-the-calculator"] = [
     ("exercise 2 without fraction display turned on", "lesson.md", "BLUE →FRAC 9 ÷ 4 ENTER\n", "9 ÷ 4 ENTER\n", {},
      "E02: printed keys and vector disagree in STU alg mode"),
 ]
+CONTROLS_FOR["der-01-the-derivative"] = [
+    ("d(a) in program V not doubled", "lesson.md", "RCL A GOLD x² 2 × − RCL H", "RCL A GOLD x² − RCL H", {},
+     "V01A: printed keys and vector disagree in 33s mode"),
+    ("the speed at t = 3 quoted as exactly 12", "lesson.md", '<disp v="D01">12.0020<', '<disp v="D01">12.0000<', {},
+     "D-D01: the prose shows '12.0000'"),
+    ("h from below keyed with − instead of +/−", "lesson.md", "```keys D02 after=D01\n0.001 +/− XEQ V\n",
+     "```keys D02 after=D01\n0.001 − XEQ V\n", {}, "D02: printed keys and vector disagree in 33s mode"),
+    ("D/DX answered with X, not the equation's T", "lesson.md", "CAS D/DX T\n", "CAS D/DX X\n", {},
+     "B01: printed keys and vector disagree in STU mode"),
+    ("Casimir's result misquoted", "lesson.md", 'kind="eqn">4×T<', 'kind="eqn">4T<', {},
+     "B01: the device's X line shows '4×T' (eqn)"),
+    ("Equation mode left on before exercise 3", "lesson.md", "   ```keys E02C after=E02B mode=STU\n   GOLD EQN\n   ```\n", "", {},
+     "E03: working through in order"),
+]
 CONTROLS_FOR["rpn-03-the-display"].append(
     ("an example that relies on a setting the one before it changed", "lesson.md",
      "```keys P01\nGOLD DISP FIX 4 2 ENTER 3 ÷\n", "```keys P01\n2 ENTER 3 ÷\n", {},

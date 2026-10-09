@@ -283,3 +283,8 @@ calc-first-calculation | A calculation: typed as written with ENTER as =, or on 
 calc-ans | Using the last answer (ANS, or the stack) | start-01 | Using the answer
 calc-frac-display | Fraction display (→FRAC): a whole number, then the fraction in simplest form | start-01 | Fractions on the screen
 calc-frac-arrows | When a fraction is not exact: the arrow in the status band | start-01 | Fractions on the screen
+
+# der-01 The derivative (unit 11)
+derivative-function | The derivative as a function: d′(t) | der-01 | The speed at every moment
+tangent-line | The tangent line: the derivative as a slope | der-01 | A picture: the tangent line
+cas-derivative | D/DX: Casimir's derivative as a rule | der-01@STU | The derivative on the calculator

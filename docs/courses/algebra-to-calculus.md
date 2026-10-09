@@ -14,10 +14,12 @@ Each unit teaches the mathematics, the calculator keys that do it, and one small
 programming thread runs through the course instead of sitting at the end. Every example and
 exercise is a vector before it is prose (docs/lesson-format.md). Lessons run 15 to 25 minutes.
 
-The calculator decides some of the order. Today the core has no graphing or tables (the GRAPH,
-TABLE and TUTOR menus are not defined at abacus-firmware 153d606) and no derivative key (Casimir's
-d/dx is accepted on its own but not yet in the core). So graphs are drawn by hand from values the
-calculator computes, and derivatives arrive at the end, as Casimir lands.
+The calculator decides some of the order. When the course was planned, the core had no graphing or
+tables (the GRAPH, TABLE and TUTOR menus were not defined at abacus-firmware 153d606) and no
+derivative key (Casimir's d/dx was accepted on its own but not yet in the core). So graphs are drawn
+by hand from values the calculator computes, and derivatives arrive at the end. All three have since
+landed, in STU mode: TABLE (032), GRAPH (033, 040) and D/DX (CAS 004), each added to the lessons as a
+STU section beside the hand method, which every mode keeps.
 
 ## Units
 
@@ -34,7 +36,7 @@ calculator computes, and derivatives arrive at the end, as Casimir lands.
 | 8 | Systems of equations | two and three equations in two and three unknowns | the built-in exact 2x2 and 3x3 solvers; when there is no solution or many | now |
 | 9 | Sequences, counting and probability | sequences and sums; factorials, combinations, permutations | n!, nCr, nPr; a summing loop; RAND | now |
 | 10 | Toward calculus: limits and rates | a limit by approaching; average and instantaneous rate; where 34 digits help and where cancellation still bites | difference quotients as a program; the stack and LAST x | now |
-| 11 | The derivative | the derivative as a limit, then by rules; checking a derivative by value | numeric first; Casimir's d/dx when it is in the core | waits on Casimir in the core |
+| 11 | The derivative | the derivative as a function (der-01); the power rule by hand (der-02); tangent lines and highest and lowest points (der-03) | a difference-quotient program in every mode; STU: Casimir's D/DX on EQN LIST's CAS key (CAS 004), GRAPH's SLOPE and EXTR (040) | der-01 drafted 2026-10-08; der-02 and der-03 proposed |
 | 12 | The integral | area by sums; the integral; the fundamental theorem checked numerically | a Riemann-sum program; the built-in integral | now (the theorem's symbolic side waits on Casimir) |
 
 About 40 lessons in all. Unit 0 needs perhaps 6 more; units 1 to 12 three or four each.
@@ -43,8 +45,9 @@ About 40 lessons in all. Unit 0 needs perhaps 6 more; units 1 to 12 three or fou
 (the accepted order is unit 029 STU's ALG, then the 35s's and 33s's ALG and the stack depth;
 "TABLE next, after 029?" is on the roadmap as Michael's call). So units 3 to 7 use the
 program-loop table (ISG, VIEW) and hand-drawn graphs, and each place a TABLE key would replace the
-loop carries a `TABLE:` note in the lesson source, so the later edit is small. The d/dx key has no
-plan yet (Casimir is at CAS 003; the core integration unit is not written); abacus will say when.
+loop carries a `TABLE:` note in the lesson source, so the later edit is small. The d/dx key landed
+as CAS 004 (in the core at c7ab388): EQN LIST's fifth soft key, CAS, then D/DX and the variable, STU
+only; its result is a new equation in Casimir's text (4×T, 3×X^2-4, -1÷X^2), probed 2026-10-08.
 
 **Ruled by Michael (abacus decisions 52-53, #4294 and #4297, 2026-10-06):** TABLE next, GRAPH
 after (firmware units 032 TABLE, then GRAPH; 030 SHOW and 031 first). Both are STU-mode features,
