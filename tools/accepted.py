@@ -46,12 +46,16 @@ def sans_status(text):
 
 
 def lesson_dirs(rev):
-    """id -> lessons/<dir> at rev, read from each lesson's front matter."""
+    """id -> lessons/<dir> or placement/<dir> at rev, read from each one's front matter. A placement
+    check is accepted and held like a lesson (abacus #5355)."""
     out = {}
-    paths = git("ls-files", "lessons/").stdout.split() if rev == "." else \
-        git("ls-tree", "--name-only", rev, "lessons/").stdout.split()
-    if rev == ".":
-        paths = sorted({"/".join(p.split("/")[:2]) for p in paths if p.count("/") >= 2})
+    paths = []
+    for top in ("lessons/", "placement/"):
+        found = git("ls-files", top).stdout.split() if rev == "." else \
+            git("ls-tree", "--name-only", rev, top).stdout.split()
+        if rev == ".":
+            found = sorted({"/".join(p.split("/")[:2]) for p in found if p.count("/") >= 2})
+        paths += found
     for path in paths:
         text = show(rev, f"{path}/lesson.md")
         m = text and re.search(r"^id:\s*(\S+)", text, re.M)
