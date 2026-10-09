@@ -54,6 +54,64 @@ DISP_ANY = re.compile(r'<disp((?:\s+[a-z]+="[^"]*")*)\s*>(.*?)</disp>', re.S)
 ATTR = re.compile(r'([a-z]+)="([^"]*)"')
 MODE_SPAN = re.compile(r'<mode m="([^"]*)">(.*?)</mode>', re.S)
 ENTRY_SPAN = re.compile(r'<entry e="([^"]*)">(.*?)</entry>', re.S)
+# ```item ID```: a quiz or checkpoint item (docs/lesson-format.md, Items). Its fields, one a line:
+# prompt, topics, answer (type or work), calculator (yes or no), keys (the working, needed for work),
+# and any number of slip lines, "slip: VID | name | hint".
+ITEM_BLOCK = re.compile(r"^[ \t]*```item[ \t]+(\S+)[ \t]*\n(.*?)^[ \t]*```[ \t]*$", re.M | re.S)
+ITEM_FIELDS = ("prompt", "topics", "answer", "calculator", "keys", "slip")
+
+
+def parse_items(view):
+    """(id, start, fields, slips, problems) for each item block of a view."""
+    out = []
+    for m in ITEM_BLOCK.finditer(view):
+        fields, slips, problems = {}, [], []
+        for raw in m.group(2).splitlines():
+            line = raw.strip()
+            if not line:
+                continue
+            k, sep, v = line.partition(":")
+            k, v = k.strip(), v.strip()
+            if not sep or k not in ITEM_FIELDS:
+                problems.append(f"item {m.group(1)}: a line not one of {', '.join(ITEM_FIELDS)}: '{line}'")
+            elif k == "slip":
+                parts = [p.strip() for p in v.split("|")]
+                if len(parts) != 3 or not all(parts):
+                    problems.append(f"item {m.group(1)}: a slip is 'slip: VID | name | hint': '{line}'")
+                else:
+                    slips.append(tuple(parts))
+            elif k in fields:
+                problems.append(f"item {m.group(1)}: {k} given twice")
+            else:
+                fields[k] = v
+        for k in ("prompt", "topics", "answer", "calculator"):
+            if not fields.get(k):
+                problems.append(f"item {m.group(1)}: no {k}:")
+        if fields.get("answer") not in (None, "type", "work"):
+            problems.append(f"item {m.group(1)}: answer: is type or work")
+        if fields.get("calculator") not in (None, "yes", "no"):
+            problems.append(f"item {m.group(1)}: calculator: is yes or no")
+        if fields.get("answer") == "work" and not fields.get("keys"):
+            problems.append(f"item {m.group(1)}: answer: work needs the working, as keys:")
+        out.append((m.group(1), m.start(), fields, slips, problems))
+    return out
+
+
+def answer_of(parts, result):
+    """A vector's answer, as an item judges it: ("exact", value) from its last result= expectation, or
+    ("within", center, tol) from result#c,t; None when it has neither."""
+    exps = parts[3].split()
+    within = [e for e in exps if re.match(rf"^{result}#[^,]+,\S+$", e)]
+    exact = [e for e in exps if e.startswith(f"{result}=")]
+    try:
+        if exact:
+            return ("exact", Decimal(exact[-1].split("=", 1)[1]))
+        if within:
+            c, t = within[-1][2:].split(",", 1)
+            return ("within", Decimal(c), Decimal(t))
+    except InvalidOperation:
+        return None
+    return None
 # A graph's texts as screen.c draws them (unit 033b; keyrun's GRAPH line): the trace readout, the window labels
 # and the plotted form's note.
 GRAPH_KINDS = ("readout", "xmin", "xmax", "ymin", "ymax", "note")
@@ -522,10 +580,58 @@ class Lesson:
                 status[bid] = sl[0].split() if sl else []
                 gl = [l.split("\t") for l in k.stdout.splitlines() if l.startswith("GRAPH\t")]
                 graph[bid] = dict(zip(GRAPH_KINDS, gl[0][2:8])) if gl and len(gl[0]) == 8 else {}
+        # 3b. Items (docs/lesson-format.md, Items): the answer and each slip are vectors of this view;
+        # the working printed with an item presses to its answer's ops; each slip's value is not the
+        # answer; and nothing shows the answer or a slip before the item asks it. The page reveals an
+        # item's working after the attempt, so its vectors need no keys block.
+        items = parse_items(view)
+        quotes_at = [(q.group(1), q.start()) for q in DISP.finditer(view)]
+        for iid, at, fields, slips, problems in items:
+            for p in problems:
+                self.bad(p)
+            if iid not in byid:
+                self.bad(f"item {iid} names no vector in {mode} mode")
+                continue
+            want = answer_of(byid[iid][1], result)
+            if want is None:
+                self.bad(f"item {iid}: its vector has no {result}= or {result}# answer in {mode} mode")
+                continue
+            shown.add(iid)
+            for sid, name, _ in slips:
+                if sid not in byid:
+                    self.bad(f"item {iid}: slip {sid} names no vector in {mode} mode")
+                    continue
+                shown.add(sid)
+                got = answer_of(byid[sid][1], result)
+                if got is None or got[0] != "exact":
+                    self.bad(f"item {iid}: slip {sid} needs an exact {result}= value")
+                    continue
+                v = got[1]
+                same = v == want[1] if want[0] == "exact" else abs(v - want[1]) <= want[2]
+                if same:
+                    self.bad(f"item {iid}: slip {sid} ({name}) gives the answer itself, {v} ({mode})")
+            for name in [iid] + [s[0] for s in slips]:
+                if any(b[0] == name and b[2] < at for b in blocks) or any(v == name and p < at for v, p in quotes_at):
+                    self.bad(f"item {iid}: {name} is shown before the item asks it ({mode})")
+            if fields.get("keys"):
+                keys = " ".join(fields["keys"].split())
+                fd, trace = tempfile.mkstemp(suffix=".trace")
+                os.close(fd)
+                r = self.run_vectors([variant(byid[iid][1], md, False, entry)], env={"STU_TRACE": trace})
+                if r.returncode != 0:
+                    os.unlink(trace)
+                    self.bad(f"item {iid}: vector fails alone in {mode} mode:\n{r.stdout}")
+                    continue
+                k = self.run(f"{self.core}/build/keyrun", f"{setup} {keys}", trace)
+                os.unlink(trace)
+                if k.returncode != 0:
+                    self.bad(f"item {iid}: its keys and vector disagree in {mode} mode: "
+                             f"{k.stdout.strip()}{k.stderr.strip()}")
         for vid in ids:
             if vid not in shown:
                 self.bad(f"vector {vid} is shown by no keys block in {mode} mode")
-        self.notes.append(f"{mode} keys: {len(blocks)} blocks, {len(shown)} of {len(ids)} vectors shown")
+        self.notes.append(f"{mode} keys: {len(blocks)} blocks, {len(shown)} of {len(ids)} vectors shown"
+                          + (f", {len(items)} items" if items else ""))
 
         # 4. Quoted displays: beside their example, on the device's screen, verified by the formatter.
         fmt_scoped = {}

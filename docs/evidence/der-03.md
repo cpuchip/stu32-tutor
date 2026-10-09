@@ -96,3 +96,19 @@ Every value and all six stack walkthroughs checked correct. Taken:
 - **SOLVE finds one root near its guess:** said, with 3x² − 3 as the case.
 - **Exercise 2 uses the lesson's own test,** g′(−4) and g′(−2).
 - **The opening:** the derivative is a function that gives the slope at each point.
+
+## The unit 11 checkpoint (decision 67, 2026-10-09)
+
+The first items in the curriculum (docs/lesson-format.md, Items). Each answer and each slip is a vector
+run on the core in every mode; each slip's keys are the slip's own working. Oracle: build/proto/der03.py.
+
+| Item | Question | Answer | Slips (value: the slip) |
+|---|---|---|---|
+| K01 | f′(2) for x³ − 2x | 10 | 12: the −2x dropped (3 × 2²); 4: f(2) itself |
+| K02 | the ball's speed at 32 metres | 16 (t = 4) | 128: d′(32), the distance put in; 4: the time |
+| K03 | how low x² − 6x + 10 goes (worked, calculator offered) | 1 (at x = 3) | 3: the x, not the height; 10: g(0) |
+
+Asserted by hand in the oracle: 3 × 4 − 2 = 10; 2t² = 32 at t = 4; d′(4) = 16; g′(3) = 0 and g ≥ 1 on a
+grid from −5 to 12. Controls (6 more, all red): a slip equal to the answer, a slip naming no vector, a
+worked item's keys giving another number, a worked item with no working, an item with no answer:
+line, and the answer quoted before the item.

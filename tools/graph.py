@@ -97,6 +97,12 @@ def check(topics_text, lessons):
             if not set(offered) <= set(modes):
                 bad.append(f"{lid}: requires '{slug}', taught only in {','.join(modes)} mode, but offers {' '.join(offered)}")
             needs.add(src)
+        # An item's topics (docs/lesson-format.md, Items) are where a miss links back: each must be a topic.
+        for im in re.finditer(r"^[ \t]*```item[ \t]+(\S+)[ \t]*\n(.*?)^[ \t]*```", lessons[lid][1], re.M | re.S):
+            tl = re.search(r"^[ \t]*topics:(.*)$", im.group(2), re.M)
+            for slug in (tl.group(1).split() if tl else []):
+                if slug not in topics:
+                    bad.append(f"{lid}: item {im.group(1)} names topic '{slug}', which is not a topic")
         if len(set(req)) != len(req):
             bad.append(f"{lid}: requires a topic twice")
         graph[lid] = {"requires": req, "teaches": teaches[lid], "needs": sorted(needs)}
@@ -142,6 +148,10 @@ def selftest(topics_text, lessons):
         ("a missing requires: line", topics_text,
          {**lessons, first: ({k: v for k, v in lessons[first][0].items() if k != "requires"}, lessons[first][1])},
          "no requires: line"),
+        ("an item naming a topic that is not one", topics_text,
+         {**lessons, first: (lessons[first][0], lessons[first][1] + "\n```item Z99\nprompt: p\ntopics: no-such-topic\n"
+                             "answer: type\ncalculator: no\n```\n")},
+         "item Z99 names topic 'no-such-topic'"),
     ]
     # A cycle: the first lesson that needs another is made to be needed by it.
     g = check(topics_text, lessons)[1]["lessons"]

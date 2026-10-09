@@ -558,6 +558,19 @@ CONTROLS_FOR["der-03-using-the-derivative"] = [
      "G02: printed keys and vector disagree in STU mode"),
     ("the graph left open before the exercises", "lesson.md", "```keys G06 after=G05 mode=STU\nC\n```\n", "", {},
      "E01: working through in order"),
+    # Items (decision 67): the checkpoint's rules.
+    ("a slip that is the answer itself", "lesson.md", "slip: K01A | the −2x term dropped", "slip: K01 | the −2x term dropped", {},
+     "item K01: slip K01 (the −2x term dropped) gives the answer itself"),
+    ("a slip that names no vector", "lesson.md", "slip: K02B |", "slip: K02Z |", {},
+     "item K02: slip K02Z names no vector"),
+    ("a worked item's keys that make another number", "lesson.md", "keys: 3 ENTER GOLD x² x↔y 6 × − 10 +",
+     "keys: 3 ENTER GOLD x² x↔y 6 × + 10 +", {}, "item K03: its keys and vector disagree"),
+    ("a worked item with no working", "lesson.md", "keys: 3 ENTER GOLD x² x↔y 6 × − 10 +\n", "", {},
+     "item K03: answer: work needs the working"),
+    ("an item with no answer: line", "lesson.md", "answer: type\ncalculator: no\nslip: K02A", "calculator: no\nslip: K02A", {},
+     "item K02: no answer:"),
+    ("an item's answer quoted before it asks", "lesson.md", "## Checkpoint\n", "## Checkpoint\n\nX shows <disp v=\"K01\">10.0000</disp>.\n", {},
+     "item K01: K01 is shown before the item asks it"),
 ]
 CONTROLS_FOR["rpn-03-the-display"].append(
     ("an example that relies on a setting the one before it changed", "lesson.md",

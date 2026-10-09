@@ -119,6 +119,55 @@ display: FIX 4
   agrees with the device only for short values.
 - No em-dashes (the house voice, external-voice skill). No child is ever named.
 
+## Items: quizzes and checkpoints
+
+An item asks a question the learner works by hand and then answers; the page judges the answer with
+the core. Michael ruled them in (decision 67: "hints tied to slips", the calculator offered where an
+item justifies it). An item is a fenced block in lesson.md, its fields one a line:
+
+````
+```item K01
+prompt: f(x) = x³ − 2x. What is f′(2)?
+topics: power-rule sum-multiple-rules
+answer: type
+calculator: no
+slip: K01A | the −2x term dropped | Every term has a derivative: −2x gives −2.
+slip: K01B | f(2), not f′(2) | That is the height at 2. Take the derivative first, then put in 2.
+```
+````
+
+- `prompt:` the question, as the page shows it.
+- `topics:` the TOPICS slugs it tests; a miss links back to the section that teaches each.
+- `answer:` `type` (the learner types the number; the hand work is the skill) or `work` (the learner
+  works it on the calculator; the keys are part of the skill).
+- `calculator:` `yes` or `no`: whether the page offers its calculator while the item is open.
+- `keys:` the working, as printed keys, shown after the attempt. Needed for `work`.
+- `slip: VID | name | hint`, any number: a wrong answer a learner is likely to give, the slip that
+  gives it, and the hint the page shows when the learner's answer is that slip's value.
+- The answer is vector `ID` in vectors.txt, and each slip is vector `VID`, written and run like every
+  example, in every mode and entry the lesson offers. A slip's keys are the slip's own working (the
+  −2x dropped: `2 x² 3 ×`), so its wrong value is made by the core, not typed in. A `type` item's
+  vector is the answer typed (`10`).
+- The answer is the vector's last `X=` (`N=` on the algebraic line), or its `X#c,t` for a numeric
+  answer. Each slip needs an exact value, and it must not be the answer (or, with a tolerance,
+  within it).
+- Nothing before an item may show its answer or a slip: no keys block and no `<disp>` of their IDs.
+  The item's own vectors need no keys block; the page reveals them after the attempt.
+- Items are not part of the student run (check 5): a learner's own answer leaves the device in a
+  state no lesson can know, so items come at the end of a lesson (a unit's checkpoint is a
+  `## Checkpoint` section in its last lesson).
+
+**One judge.** tools/judge.c compares the learner's value with an expectation: `judge_expect("X=10",
+"+10E+0")` is right, `judge_expect("X#2,1E-15", got)` is right when |got − 2| ≤ 10⁻¹⁵, computed
+exactly. It reads decimal text only (no core), so the learning page compiles it as it does report.c,
+and the page and the checker cannot judge differently. `make check` proves it agrees with the
+firmware's vector runner (tools/judge_check.py): for every exact expectation in every lesson, in the
+lesson's own mode and entry, the same value written in another form (the core's E-form, a trailing
+zero) must pass both, and one unit off in the 34th digit must fail both; and its tolerance is checked
+against exact arithmetic at, inside and past its edges. `make controls` builds three wrong judges (one
+that calls every answer right, one with an exclusive edge, one that counts trailing zeros) and each
+must turn that check red (scripts/judge-controls.sh).
+
 ## What `make check` proves
 
 For each lesson, in each mode it offers (and each entry, for a lesson that offers entries: every

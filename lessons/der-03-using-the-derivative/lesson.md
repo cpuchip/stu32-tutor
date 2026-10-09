@@ -224,3 +224,36 @@ C
    ```
 
    X shows <disp v="E04">0.0010</disp>, and h(−0.1) is −0.001: a slope of 0 with no turn.
+
+## Checkpoint
+
+Three questions on the whole unit. Work each by hand first, then give your answer; the calculator
+checks it. A wrong answer that comes from a common slip gets a hint that names the step.
+
+```item K01
+prompt: f(x) = x³ − 2x. What is f′(2)?
+topics: power-rule sum-multiple-rules
+answer: type
+calculator: no
+slip: K01A | the −2x term dropped | Every term has a derivative: −2x gives −2.
+slip: K01B | f(2), not f′(2) | That is the height at 2. Take the derivative first, then put in 2.
+```
+
+```item K02
+prompt: lim-02's ball has gone d(t) = 2t² metres after t seconds. How fast is it going when it has rolled 32 metres?
+topics: derivative-function
+answer: type
+calculator: no
+slip: K02A | d′ of the distance | d′ takes a time. First find when it has rolled 32 metres.
+slip: K02B | the time, not the speed | That is when. Now find d′ at that time.
+```
+
+```item K03
+prompt: g(x) = x² − 6x + 10. How low does g go?
+topics: extremes
+answer: work
+calculator: yes
+keys: 3 ENTER GOLD x² x↔y 6 × − 10 +
+slip: K03A | the x, not the height | That is where g is lowest. How low is g there?
+slip: K03B | g(0) | Find where g′ is 0 first; 0 is only where the graph crosses the y axis.
+```

@@ -16,10 +16,12 @@ LESSONS ?= $(wildcard lessons/*/)
 check: tools
 	$(PYTHON) tools/graph.py
 	$(PYTHON) tools/check.py --core $(CORE_DIR) $(LESSONS)
+	$(PYTHON) tools/judge_check.py --core $(CORE_DIR)
 
 # Proves the checker can fail: one planted fault at a time, each must turn it red for its own reason.
 controls: tools
 	$(PYTHON) tools/graph.py --selftest
+	bash scripts/judge-controls.sh $(CORE_DIR)
 	$(PYTHON) tools/controls.py --core $(CORE_DIR) lessons/rpn-01-the-stack
 	$(PYTHON) tools/controls.py --core $(CORE_DIR) lessons/rpn-02-storing-numbers
 	$(PYTHON) tools/controls.py --core $(CORE_DIR) lessons/rpn-03-the-display
@@ -67,10 +69,11 @@ $(CORE_DIR)/.exported: scripts/export-core.sh
 	scripts/export-core.sh $(FIRMWARE) $(CORE_PIN) $(CORE_DIR)
 
 # build/vectors in the export is the firmware's runner linked with the trace; build/keyrun is ours.
-tools: $(CORE_DIR)/.exported tools/trace.c tools/keyrun.c tools/resolve.c tools/resolve.h tools/report.c tools/report.h tools/device.c tools/device.h tools/keyrun.mk scripts/export-core.sh
+tools: $(CORE_DIR)/.exported tools/judge.c tools/judge.h tools/judge_test.c tools/trace.c tools/keyrun.c tools/resolve.c tools/resolve.h tools/report.c tools/report.h tools/device.c tools/device.h tools/keyrun.mk scripts/export-core.sh
 	$(MAKE) -s -C $(CORE_DIR) build/fmt_vectors
 	$(MAKE) -s -C $(CORE_DIR) build/abn_intel.o build/intel/libbid.a
 	cc -std=c11 -O2 -Wall -Wextra -Werror -I$(CORE_DIR)/core -c tools/trace.c -o build/trace.o
+	cc -std=c11 -O2 -Wall -Wextra -Werror -o build/judge_test tools/judge_test.c tools/judge.c
 	rm -f $(CORE_DIR)/build/vectors $(CORE_DIR)/build/keyrun
 	$(MAKE) -s -C $(CORE_DIR) build/vectors LIBS="-lm $(TRACE_O) $(WRAP)"
 	$(MAKE) -s -C $(CORE_DIR) -f $(abspath tools/keyrun.mk) build/keyrun \
