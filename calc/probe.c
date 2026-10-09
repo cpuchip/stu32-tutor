@@ -34,9 +34,16 @@ static const char *reach(int type)
     return out;
 }
 
+static const char *readable(const char *path)
+{
+    return access(path, R_OK) == 0 ? "ok" : strerrorname_np(errno);
+}
+
 int main(void)
 {
-    printf("{\"uid\":%d,\"write_root\":\"%s\",\"write_opt\":\"%s\",\"write_tmp\":\"%s\","
+    printf("{\"licenses\":\"%s %s %s\",", readable("/licenses/abacus-firmware-MIT.txt"),
+           readable("/licenses/casimir-MIT.txt"), readable("/licenses/intel-dfp-BSD-3.txt"));
+    printf("\"uid\":%d,\"write_root\":\"%s\",\"write_opt\":\"%s\",\"write_tmp\":\"%s\","
            "\"tcp_1.1.1.1:53\":\"%s\",\"udp_1.1.1.1:53\":\"%s\"}\n",
            (int)getuid(), write_at("/probe-written"), write_at("/opt/stu32/probe-written"),
            write_at("/tmp/probe-written"), reach(SOCK_STREAM), reach(SOCK_DGRAM));

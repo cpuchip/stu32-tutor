@@ -44,18 +44,22 @@ if [ -n "$(git status --porcelain -- tools calc scripts Makefile docs/lesson-for
     if [ "$dev" = 1 ]; then tutor="$tutor-dirty"; suffix="$suffix-dev"
     else echo "build.sh: tools/, calc/, scripts/, the Makefile or lesson-format.md has uncommitted changes; commit them first (or --dev)" >&2; exit 1; fi
 fi
-core="build/core-$pin"
+# The image's own export of the core, apart from make check's build/core-PIN, so building the image never
+# changes what make check runs.
+core="build/calc/core-$pin"
 stage="build/calc/stage-$pin$suffix"
 if [ "$fresh" = 1 ]; then rm -rf "$core" "$stage"; fi
 rm -rf "$stage"
-mkdir -p "$stage/opt/stu32/bin" "$stage/opt/stu32/licenses" "$stage/opt/stu32/doc"
+mkdir -p "$stage/opt/stu32/bin" "$stage/opt/stu32/doc" "$stage/licenses"
 
-# 1. The runners, exactly as make check builds them.
-GCC_IMAGE="$GCC" bash scripts/check-docker.sh tools
+# 1. The runners, by make check's own recipes (make tools), into the image's export.
+GCC_IMAGE="$GCC" bash scripts/check-docker.sh tools CORE_DIR="$core"
 [ "$(cat "$core/.exported")" = "$fw_full" ] || { echo "build.sh: $core is not $fw_full" >&2; exit 1; }
 
 # 2. Casimir's CLI at CASIM_PIN, the entry program, and every binary stripped into the stage. Casimir's
-# build reads the firmware checkout beside it (../abacus-firmware), so that is mounted there, read only.
+# build reads the firmware checkout beside it (../abacus-firmware) at casim's own CORE_PIN file; that file
+# is set to the firmware pin, as casim's own repins do, so the CLI's core is the device's (abacus #5868,
+# soroban #5866: one core in the image). The core the CLI was built on is read back from its build.
 w() { if command -v cygpath >/dev/null; then cygpath -w "$1"; else echo "$1"; fi; }
 MSYS_NO_PATHCONV=1 docker run --rm \
     -v "$(w "$here"):/w/stu32-tutor" -v "$(w "$casim"):/w/casim:ro" -v "$(w "$fw"):/x/abacus-firmware:ro" \
@@ -63,25 +67,33 @@ MSYS_NO_PATHCONV=1 docker run --rm \
     -w /w/stu32-tutor "$GCC" bash -euo pipefail -c "
         mkdir -p /x/casim
         git -C /w/casim archive $cas_full | tar -x -C /x/casim
+        echo $fw_full > /x/casim/CORE_PIN
         make -s -C /x/casim build/casim >/dev/null
+        cat /x/casim/build/core/.pin > $stage/casim-core
         cc -std=c11 -O2 -Wall -Wextra -Werror calc/stu32calc.c -o /tmp/stu32-calc
         for b in $core/build/keyrun $core/build/vectors $core/build/fmt_vectors /x/casim/build/casim /tmp/stu32-calc; do
             strip -o $stage/opt/stu32/bin/\$(basename \$b) \$b
         done
-        cp /x/casim/LICENSE $stage/opt/stu32/licenses/casimir-MIT.txt"
-cp "$core/third_party/LICENSE.intel-dfp.txt" "$stage/opt/stu32/licenses/intel-dfp-BSD-3.txt"
+        cp /x/casim/LICENSE $stage/licenses/casimir-MIT.txt"
+cas_core="$(tr -d '[:space:]' < "$stage/casim-core")"
+rm "$stage/casim-core"
+[ "$cas_core" = "$fw_full" ] || { echo "build.sh: Casimir's CLI was built on core $cas_core, not $fw_full" >&2; exit 1; }
+# 3. The licences, at /licenses (abacus #5868): the firmware's MIT, Casimir's MIT, Intel's BSD-3 notice.
+cp "$core/LICENSE" "$stage/licenses/abacus-firmware-MIT.txt"
+cp "$core/third_party/LICENSE.intel-dfp.txt" "$stage/licenses/intel-dfp-BSD-3.txt"
 cp docs/lesson-format.md "$stage/opt/stu32/doc/lesson-format.md"
 intel_sha="$(sed -n 's/.*sha256 `\([0-9a-f]\{64\}\)`.*/\1/p' "$core/third_party/README.md" | head -1)"
 cat > "$stage/opt/stu32/pins" <<EOF
 firmware $fw_full
 casim $cas_full
+casim-core $cas_core
 stu32-tutor $tutor
 intel-dfp-sha256 $intel_sha
 builder $GCC
 base $BASE
 EOF
 
-# 3. The image, with no network.
+# 4. The image, with no network.
 # The tools' commit is in the tag too, so two builds at one pin never share a tag.
 tag="stu32-calc:fw-${pin}.cas-${cas_pin:0:7}.t-${tutor:0:7}$suffix"
 docker build --network none -q -f calc/Dockerfile \
@@ -94,4 +106,4 @@ docker build --network none -q -f calc/Dockerfile \
     --label "net.cpuchip.stu32.builder=$GCC" \
     -t "$tag" "$stage" >/dev/null
 echo "build.sh: $tag"
-(cd "$stage" && find opt -type f | sort | xargs sha256sum)
+(cd "$stage" && find opt licenses -type f | sort | xargs sha256sum)

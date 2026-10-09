@@ -2,7 +2,7 @@
 """calc/acceptance.py IMAGE [--rebuild IMAGE2] [--only NAME ...]: stu32-calc's acceptance (abacus #5737).
 
 Every call goes through calc/run.sh, the way a caller makes it. The tests:
-  pins       the image names the Makefile's pin
+  pins       the image names the Makefile's pin, and Casimir's CLI was built on that same core
   cost       the per-call start cost, 10 calls
   probe      the fixed probe set: every lesson's and placement's vectors in each of its modes and entries,
              its display vectors, the student run of each lesson, and a list of Casimir ops. Every vectors
@@ -15,7 +15,8 @@ Every call goes through calc/run.sh, the way a caller makes it. The tests:
              (TIMEOUT, wall 15 s); with the inner layer off (--test-no-inner), at run.sh's deadline
              (TIMEOUT, layer outside); and no container is left in any case
   floods     an output flood (OUTPUT_LIMIT) and an input flood (INPUT_LIMIT), each exit 124
-  posture    calc/probe.c run as the entry point under run.sh's flags: no write anywhere, no network
+  posture    calc/probe.c run as the entry point under run.sh's flags: no write anywhere, no network, the
+             licences readable at /licenses
   nonet      the entry program and runners under strace on a slice of the probe set: no network syscall
   rebuild    with --rebuild, the probe digest of IMAGE2 (built from scratch at the same pins) equals IMAGE's
 Prints one line per check and exits 1 if any fails.
@@ -142,7 +143,9 @@ def t_pins(image):
     rc, ans, _ = call(image, ["pins"])
     pin = open(os.path.join(ROOT, "Makefile"), encoding="utf-8").read().split("CORE_PIN := ")[1].split()[0]
     fw = ans.get("pins", {}).get("firmware", "")
-    say("pins", rc == 0 and fw.startswith(pin), f"firmware {fw[:12]}, casim {ans.get('pins', {}).get('casim', '')[:12]}, "
+    one_core = ans.get("pins", {}).get("casim-core") == fw
+    say("pins", rc == 0 and fw.startswith(pin) and one_core, f"one core: {one_core}; "
+        f"firmware {fw[:12]}, casim {ans.get('pins', {}).get('casim', '')[:12]}, "
         f"tutor {ans.get('pins', {}).get('stu32-tutor', '')[:12]}")
 
 
@@ -264,7 +267,7 @@ def t_posture(image):
         return
     writes_ok = all(p[k] != "ok" for k in ("write_root", "write_opt", "write_tmp"))
     net_ok = all(p[k] != "ok" for k in ("tcp_1.1.1.1:53", "udp_1.1.1.1:53"))
-    say("posture", writes_ok and net_ok and p["uid"] == 65532, json.dumps(p))
+    say("posture", writes_ok and net_ok and p["uid"] == 65532 and p.get("licenses") == "ok ok ok", json.dumps(p))
 
 
 def t_nonet():
