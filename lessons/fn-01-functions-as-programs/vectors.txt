@@ -22,3 +22,22 @@ D01 | continues M03: LBL F again is refused: DUPLICAT.LBL | MODE33 FIX4 PRGM LBL
 D02 | continues D01: C clears it; program entry off; F is unchanged | MODE33 FIX4 PRGM LBL:F 2 * 3 + RTN PRGM 5 XEQ:F 1.5 XEQ:F 4 CHS XEQ:F PRGM LBL:G ENTER SQ + RTN PRGM 3 XEQ:G PRGM LBL:K 2 * 3 + BKSP - RTN PRGM 10 XEQ:K PRGM LBL:F C PRGM 5 XEQ:F | ERR X=13
 E01 | exercise 1, continues D02: h(x) = 5 - 2x as H; h(4) | MODE33 FIX4 PRGM LBL:F 2 * 3 + RTN PRGM 5 XEQ:F 1.5 XEQ:F 4 CHS XEQ:F PRGM LBL:G ENTER SQ + RTN PRGM 3 XEQ:G PRGM LBL:K 2 * 3 + BKSP - RTN PRGM 10 XEQ:K PRGM LBL:F C PRGM 5 XEQ:F PRGM LBL:H 2 * 5 XY - RTN PRGM 4 XEQ:H | ERR X=-3
 E02 | exercise 2, continues E01: g(-2) = 4 - 2 | MODE33 FIX4 PRGM LBL:F 2 * 3 + RTN PRGM 5 XEQ:F 1.5 XEQ:F 4 CHS XEQ:F PRGM LBL:G ENTER SQ + RTN PRGM 3 XEQ:G PRGM LBL:K 2 * 3 + BKSP - RTN PRGM 10 XEQ:K PRGM LBL:F C PRGM 5 XEQ:F PRGM LBL:H 2 * 5 XY - RTN PRGM 4 XEQ:H 2 CHS XEQ:G | ERR X=2
+# From before and Mixed review (decision 76): each answer typed, its working (W, abacus #6439), and the slips'.
+FN1F1 | from before: 3 + 4 × 5 − 2, the answer typed | MODE33 FIX4 21 | X=21
+FN1F1W | its working | MODE33 FIX4 3 ENTER 4 ENTER 5 * + 2 - | X=21
+FN1F1A | slip: (3 + 4) × 5 − 2 | MODE33 FIX4 3 ENTER 4 + 5 * 2 - | X=33
+FN1F2 | from before: 6² − 2 × 6, the answer typed | MODE33 FIX4 24 | X=24
+FN1F2W | its working | MODE33 FIX4 6 SQ 2 ENTER 6 * - | X=24
+FN1F2A | slip: 6 × 2 − 2 × 6 | MODE33 FIX4 6 ENTER 2 * 2 ENTER 6 * - | X=0
+FN1M1 | mixed review: f(5) for 3x − 4, typed | MODE33 FIX4 11 | X=11
+FN1M1W | its working | MODE33 FIX4 3 ENTER 5 * 4 - | X=11
+FN1M1A | slip: 3 + 5 − 4 | MODE33 FIX4 3 ENTER 5 + 4 - | X=4
+FN1M2 | mixed review: (10 − 4) ÷ (1 + 2), typed | MODE33 FIX4 2 | X=2
+FN1M2W | its working | MODE33 FIX4 10 ENTER 4 - 1 ENTER 2 + / | X=2
+FN1M2A | slip: 10 − 4 ÷ 1 + 2 | MODE33 FIX4 10 ENTER 4 ENTER 1 / - 2 + | X=8
+FN1M3 | mixed review: g(−3) for x² + x, typed | MODE33 FIX4 6 | X=6
+FN1M3W | its working: (−3)² + (−3) | MODE33 FIX4 3 CHS SQ 3 - | X=6
+FN1M3A | slip: −(3²) + (−3) | MODE33 FIX4 3 SQ CHS 3 - | X=-12
+FN1M4 | mixed review: √(5² − 4²), typed | MODE33 FIX4 3 | X=3
+FN1M4W | its working | MODE33 FIX4 5 SQ 4 SQ - SQRT | X=3
+FN1M4A | slip: 5 − 4 | MODE33 FIX4 5 ENTER 4 - | X=1

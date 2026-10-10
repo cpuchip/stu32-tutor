@@ -15,6 +15,26 @@ or takes the square root of something that can be negative, has inputs it cannot
 inputs are left out of its domain. This lesson writes two such functions as programs, gives each an
 input it cannot take, and reads what the calculator says.
 
+## From before
+
+Two from before, by hand: one from unit 1, and one boundary from eq-03.
+
+```item FN3F1
+prompt: Work out 1 ÷ 0.25.
+topics: reciprocal
+answer: type
+calculator: no
+slip: FN3F1A | multiplied instead | Dividing by a quarter asks how many quarters make 1: four.
+```
+
+```item FN3F2
+prompt: 2x − 8 ≥ 0 has its boundary where 2x − 8 = 0. What x is that?
+topics: inequalities
+answer: type
+calculator: no
+slip: FN3F2A | kept the minus sign | Undo the − 8 by adding 8: 2x = 8, then ÷ 2.
+```
+
 ## Before you start
 
 The setup from rpn-01: the mode you chose and FIX 4. This lesson is one chain: each example carries on from
@@ -238,6 +258,43 @@ its end does the same, as fn-01 showed: the pointer goes back to the top when a 
 
    X shows <disp v="E03B">-0.0100</disp>: 1.99 − 2, the negative number the square root refused. S
    is stopped at its √x again, so press GOLD GTO . . before you key in a new program.
+
+## Mixed review
+
+Four from this lesson and the ones before it, in no order. Work each by hand unless it says to use
+the calculator.
+
+```item FN3M1
+prompt: For √(x − 1) at x = 0.75, what is the number under the root?
+topics: sqrt-negative
+answer: type
+calculator: no
+slip: FN3M1A | took x from 1 | It is x − 1: 0.75 − 1, below zero. That is why the root is refused.
+```
+
+```item FN3M2
+prompt: Work out 2⁻¹ + 2⁰.
+topics: neg-frac-powers
+answer: type
+calculator: no
+slip: FN3M2A | read the powers as numbers to add | 2⁻¹ is 1 ÷ 2, and any number to the power 0 is 1.
+```
+
+```item FN3M3
+prompt: For which x is 6 ÷ (2x − 4) not defined?
+topics: divide-by-zero
+answer: type
+calculator: no
+slip: FN3M3A | the sign turned | The bottom is 0 when 2x − 4 = 0: 2x = 4.
+```
+
+```item FN3M4
+prompt: For 2x + 1 = 7, what is left minus right at x = 2?
+topics: xeq-check
+answer: type
+calculator: no
+slip: FN3M4A | the left side alone | Left minus right: 2 × 2 + 1 is 5, and 5 − 7.
+```
 
 ## Checkpoint
 

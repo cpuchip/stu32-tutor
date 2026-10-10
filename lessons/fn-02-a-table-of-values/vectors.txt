@@ -29,3 +29,21 @@ W02@STU | continues W01: GO: Y fitted to -1.8 .. 15.8; the trace at column 200, 
 W03@STU | continues W02: one column right: x = 2.02 | MODE33 FIX4 EQN RCL:X POW 2 - 4 * RCL:X + 3 ENTER EQN 0 TSTART TABLE TDOWN TDOWN TDOWN TDOWN ENTER 2 CHS XMIN 5.98 XMAX GRAPH GRIGHT | %GCUR=201 %GX:201=2.02 %GY:201=-0.9996
 W04@STU | continues W03: two columns left: x = 1.98, the same height | MODE33 FIX4 EQN RCL:X POW 2 - 4 * RCL:X + 3 ENTER EQN 0 TSTART TABLE TDOWN TDOWN TDOWN TDOWN ENTER 2 CHS XMIN 5.98 XMAX GRAPH GRIGHT GLEFT GLEFT | %GCUR=199 %GX:199=1.98 %GY:199=-0.9996
 W05@STU | continues W04: ENTER copies the traced value to X and leaves | MODE33 FIX4 EQN RCL:X POW 2 - 4 * RCL:X + 3 ENTER EQN 0 TSTART TABLE TDOWN TDOWN TDOWN TDOWN ENTER 2 CHS XMIN 5.98 XMAX GRAPH GRIGHT GLEFT GLEFT ENTER | X=-0.9996 %GRAPH=0
+# From before and Mixed review (decision 76): each answer typed, its working (W, abacus #6439), and the slips'.
+FN2F1 | from before: 3⁴, the answer typed | MODE33 FIX4 81 | X=81
+FN2F1W | its working | MODE33 FIX4 3 ENTER 4 POW | X=81
+FN2F1A | slip: 3 × 4 | MODE33 FIX4 3 ENTER 4 * | X=12
+FN2F2 | from before: f(−4) for 2x + 3, the answer typed | MODE33 FIX4 5 CHS | X=-5
+FN2F2W | its working | MODE33 FIX4 2 ENTER 4 CHS * 3 + | X=-5
+FN2F2A | slip: 2 × 4 + 3 | MODE33 FIX4 2 ENTER 4 * 3 + | X=11
+FN2M1 | mixed review: crossings of a curve through the points, a count, typed | MODE33 FIX4 2 | X=2
+FN2M1A | slip: none, since no point is on the axis | MODE33 FIX4 0 | X=0
+FN2M2 | mixed review: 2 × 3² + 1, typed | MODE33 FIX4 19 | X=19
+FN2M2W | its working | MODE33 FIX4 3 SQ 2 * 1 + | X=19
+FN2M2A | slip: (2 × 3)² + 1 | MODE33 FIX4 2 ENTER 3 * SQ 1 + | X=37
+FN2M3 | mixed review: q(−1) for x² − 4x + 3, typed | MODE33 FIX4 8 | X=8
+FN2M3W | its working: (−1)² − 4 × (−1) + 3 | MODE33 FIX4 1 CHS SQ 4 ENTER 1 CHS * - 3 + | X=8
+FN2M3A | slip: −(1²) + 4 + 3 | MODE33 FIX4 1 SQ CHS 4 + 3 + | X=6
+FN2M4 | mixed review: (2 + 3)² − 10, typed | MODE33 FIX4 15 | X=15
+FN2M4W | its working | MODE33 FIX4 2 ENTER 3 + SQ 10 - | X=15
+FN2M4A | slip: 2 + 3² − 10 | MODE33 FIX4 2 ENTER 3 SQ + 10 - | X=1

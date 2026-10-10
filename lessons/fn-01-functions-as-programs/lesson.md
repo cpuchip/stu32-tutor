@@ -14,6 +14,26 @@ A function is a rule that turns an input into an output. The rule f(x) = 2x + 3 
 record the keys of the rule once and give them a letter, and then a number in X goes through the
 rule with XEQ and that letter. The program uses the stack like any other calculation.
 
+## From before
+
+Two from unit 1, by hand. A function's rule is arithmetic like this, done in the right order.
+
+```item FN1F1
+prompt: Work out 3 + 4 × 5 − 2.
+topics: mult-before-add
+answer: type
+calculator: no
+slip: FN1F1A | worked left to right | Multiplication comes first: 4 × 5 is 20, then 3 + 20 − 2.
+```
+
+```item FN1F2
+prompt: Work out 6² − 2 × 6.
+topics: x-squared
+answer: type
+calculator: no
+slip: FN1F2A | doubled 6 instead of squaring it | 6² is 6 × 6, which is 36, not 6 × 2.
+```
+
 ## Before you start
 
 The setup from rpn-01: the mode you chose and FIX 4. This whole lesson is one chain: each example carries on
@@ -227,3 +247,40 @@ clear them, so for each new function, pick a letter no program uses yet.
    ```
 
    X shows <disp v="E02">2.0000</disp>: (−2)² + (−2) = 4 − 2.
+
+## Mixed review
+
+Four from this lesson and the ones before it, in no order. Work each by hand unless it says to use
+the calculator.
+
+```item FN1M1
+prompt: f(x) = 3x − 4. What is f(5)?
+topics: function
+answer: type
+calculator: no
+slip: FN1M1A | read 3x as 3 + x | 3x means 3 times x: 3 × 5 is 15, then take away 4.
+```
+
+```item FN1M2
+prompt: Work out (10 − 4) ÷ (1 + 2).
+topics: fraction-bar
+answer: type
+calculator: no
+slip: FN1M2A | divided only the 4 | The brackets come first: 6 ÷ 3.
+```
+
+```item FN1M3
+prompt: g(x) = x² + x. What is g(−3)?
+topics: function
+answer: type
+calculator: no
+slip: FN1M3A | squared 3, then made it negative | g(−3) puts −3 in for x: (−3)² is 9, then 9 + (−3).
+```
+
+```item FN1M4
+prompt: Work out √(5² − 4²).
+topics: square-root
+answer: type
+calculator: no
+slip: FN1M4A | took the root of each square | Work out under the root first: 25 − 16 is 9, and √9 is 3.
+```

@@ -31,3 +31,26 @@ CP3B2 | slip: x = 0 | MODE33 FIX4 0 | X=0
 CP3C | checkpoint, unit 3: the answer typed | MODE33 FIX4 4 | X=4
 CP3C1 | slip: x = 0 | MODE33 FIX4 0 | X=0
 CP3C2 | slip: more than 0, not 0 or more | MODE33 FIX4 4 ENTER 1 + | X=5
+# From before and Mixed review (decision 76): each answer typed, its working (W, abacus #6439), and the slips'.
+FN3F1 | from before: 1 ÷ 0.25, the answer typed | MODE33 FIX4 4 | X=4
+FN3F1W | its working | MODE33 FIX4 0.25 INV | X=4
+FN3F1A | slip: 1 × 0.25 | MODE33 FIX4 1 ENTER 0.25 * | X=0.25
+FN3F2 | from before: the boundary of 2x − 8 ≥ 0, typed | MODE33 FIX4 4 | X=4
+FN3F2W | its working | MODE33 FIX4 8 ENTER 2 / | X=4
+FN3F2A | slip: −8 ÷ 2 | MODE33 FIX4 8 CHS ENTER 2 / | X=-4
+FN3M1 | mixed review: x − 1 at 0.75, typed | MODE33 FIX4 0.25 CHS | X=-0.25
+FN3M1W | its working | MODE33 FIX4 0.75 ENTER 1 - | X=-0.25
+FN3M1A | slip: 1 − 0.75 | MODE33 FIX4 1 ENTER 0.75 - | X=0.25
+FN3M2 | mixed review: 2⁻¹ + 2⁰, typed | MODE33 FIX4 1.5 | X=1.5
+FN3M2W | its working | MODE33 FIX4 2 ENTER 1 CHS POW 2 ENTER 0 POW + | X=1.5
+FN3M2A | slip: −1 + 0 | MODE33 FIX4 1 CHS | X=-1
+FN3M3 | mixed review: where 6 ÷ (2x − 4) is not defined, typed | MODE33 FIX4 2 | X=2
+FN3M3W | its working: 2x − 4 = 0 | MODE33 FIX4 4 ENTER 2 / | X=2
+FN3M3A | slip: −4 ÷ 2 | MODE33 FIX4 4 CHS ENTER 2 / | X=-2
+FN3M4 | mixed review: left minus right of 2x + 1 = 7 at 2, typed | MODE33 FIX4 2 CHS | X=-2
+FN3M4W | its working | MODE33 FIX4 2 ENTER 2 * 1 + 7 - | X=-2
+FN3M4A | slip: the left side alone | MODE33 FIX4 2 ENTER 2 * 1 + | X=5
+# The checkpoint's working (abacus #6439): each computed answer made by the core.
+CP3AW | CP3A's working: 3² − 2 × 3 | MODE33 FIX4 3 SQ 2 ENTER 3 * - | X=3
+CP3BW | CP3B's working: x − 5 = 0 | MODE33 FIX4 0 ENTER 5 + | X=5
+CP3CW | CP3C's working: x − 4 = 0 | MODE33 FIX4 0 ENTER 4 + | X=4

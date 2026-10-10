@@ -14,6 +14,26 @@ picture of a function: from it you can see where the function is zero, where it 
 how it rises and falls. This lesson builds one with a short program that loops, and then draws the
 graph from it by hand.<mode m="STU"> At the end, STU mode's TABLE and GRAPH do both for you.</mode>
 
+## From before
+
+Two from before, by hand: one from unit 1, and one function from fn-01.
+
+```item FN2F1
+prompt: Work out 3⁴.
+topics: power
+answer: type
+calculator: no
+slip: FN2F1A | 3 × 4, not 3⁴ | 3⁴ is four 3s multiplied: 3 × 3 × 3 × 3.
+```
+
+```item FN2F2
+prompt: f(x) = 2x + 3. What is f(−4)?
+topics: function
+answer: type
+calculator: no
+slip: FN2F2A | lost the minus sign | f(−4) puts −4 in for x: 2 × (−4) is −8, then + 3.
+```
+
 ## Before you start
 
 The setup from rpn-01: the mode you chose and FIX 4. This lesson is one chain: each example carries on from
@@ -341,3 +361,41 @@ ENTER
 X shows <disp v="W05">-0.9996</disp>.
 
 </mode>
+
+## Mixed review
+
+Four from this lesson and the ones before it, in no order. Work each by hand unless it says to use
+the calculator.
+
+```item FN2M1
+prompt: The points (0, −2), (1, 1), (2, 2), (3, 1) and (4, −2) are drawn and joined by a smooth curve. How many times does it cross the x axis?
+topics: graph-by-hand
+answer: type
+calculator: no
+working: none
+slip: FN2M1A | no point is on the axis | No point has 0 as its second number, but the sign changes twice: from 0 to 1, and from 3 to 4.
+```
+
+```item FN2M2
+prompt: Work out 2 × 3² + 1.
+topics: powers-first
+answer: type
+calculator: no
+slip: FN2M2A | squared 2 × 3 | The power belongs to the 3 alone: 3² is 9, then 2 × 9 + 1.
+```
+
+```item FN2M3
+prompt: q(x) = x² − 4x + 3. What is q(−1)?
+topics: function
+answer: type
+calculator: no
+slip: FN2M3A | squared 1, then made it negative | (−1)² is 1, and −4 × (−1) is +4: 1 + 4 + 3.
+```
+
+```item FN2M4
+prompt: Work out (2 + 3)² − 10.
+topics: parentheses
+answer: type
+calculator: no
+slip: FN2M4A | squared only the 3 | The brackets come first: 2 + 3 is 5, and 5² is 25.
+```
