@@ -531,6 +531,13 @@ def selftest_review(lessons, placement_texts, graph):
         print(f"FAIL no {lid} to plant review sections in")
         return False
     meta, text = lessons[lid]
+    # The plants model a lesson without the sections, so the lesson's own come out first (poly-02 has had
+    # them since 29bb6ae, and a second copy of each would refuse every plant for being twice).
+    text = re.sub(rf"^## (?:{FROM_BEFORE}|{MIXED_REVIEW})\n.*?(?=^## |\Z)", "", text, flags=re.M | re.S)
+    if FROM_BEFORE in text or MIXED_REVIEW in text:
+        print(f"FAIL {lid}'s own review sections did not come out")
+        return False
+    lessons = {**lessons, lid: (meta, text)}
     topics = graph["topics"]
     unit_of = {l: u["n"] for c in graph["courses"].values() for u in c["units"] for l in u["lessons"]}
     earlier = prerequisites(graph)[lid]
