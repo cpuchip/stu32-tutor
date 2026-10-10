@@ -178,7 +178,7 @@ prompt: Work out 3/4 × 2/3, as a decimal.
 topics: multiply-fractions
 answer: type
 calculator: no
-slip: FR3M1A | multiplied across | Tops times tops and bottoms times bottoms: 6/12, which is 1/2.
+slip: FR3M1A | multiplied crosswise | Multiply straight across: tops times tops and bottoms times bottoms: 6/12, which is 1/2.
 ```
 
 ```item FR3M2

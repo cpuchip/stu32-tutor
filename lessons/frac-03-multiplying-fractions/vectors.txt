@@ -31,8 +31,8 @@ FR3M1@alg | mixed review: 3/4 × 2/3, typed | MODE33 FIX4 FDISP 0.5 ENTER | N=0.
 FR3M1@rpn | mixed review: 3/4 × 2/3, typed | MODE33 FIX4 FDISP 0.5 ENTER | X=0.5
 FR3M1W@alg | its working | MODE33 FIX4 FDISP 3 / 4 * 2 / 3 ENTER | N=0.5 %LINE=3÷4×2÷3
 FR3M1W@rpn | its working | MODE33 FIX4 FDISP 3 ENTER 4 / 2 ENTER 3 / * | X=0.5
-FR3M1A@alg | slip: across, 3 × 3 ÷ (4 × 2) | MODE33 FIX4 FDISP 3 * 3 ENTER / 8 ENTER | N=1.125 %LINE=ANS÷8
-FR3M1A@rpn | slip: across, 3 × 3 ÷ (4 × 2) | MODE33 FIX4 FDISP 3 ENTER 3 * 4 ENTER 2 * / | X=1.125
+FR3M1A@alg | slip: crosswise, 3 × 3 ÷ (4 × 2) | MODE33 FIX4 FDISP 3 * 3 ENTER / 8 ENTER | N=1.125 %LINE=ANS÷8
+FR3M1A@rpn | slip: crosswise, 3 × 3 ÷ (4 × 2) | MODE33 FIX4 FDISP 3 ENTER 3 * 4 ENTER 2 * / | X=1.125
 FR3M2@alg | mixed review: the top of 12/16 in simplest form, typed | MODE33 FIX4 FDISP 3 ENTER | N=3 %LINE=3
 FR3M2@rpn | mixed review: the top of 12/16 in simplest form, typed | MODE33 FIX4 FDISP 3 ENTER | X=3
 FR3M2W@alg | its working: 12 ÷ 4 | MODE33 FIX4 FDISP 12 / 4 ENTER | N=3 %LINE=12÷4
