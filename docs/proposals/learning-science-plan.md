@@ -53,18 +53,21 @@ lesson, the accepted lessons stay on the site while the work goes on, and abacus
 - Each has its answer and working, plus slips where a likely one exists. This is the corrective feedback the 2019
   trial's fourth caveat names.
 
-**The checks:**
-- **check.py** (per lesson):
-  - an item before the first keys block must sit in `## From before`, and be `type` and `calculator: no`;
-  - no two consecutive items of a Mixed review share a topic;
-  - the two sections appear at most once each, in their places.
-- **graph.py** (needs the graph):
-  - every topic of a From-before item is taught by a lesson this lesson requires, outside unit 0, and is not taught
-    here;
-  - a Mixed review names at least two topics taught in earlier lessons;
-  - item IDs are unique across lessons and placement. The review queue (step 6) keys on them.
-- **Controls:** one planted fault for each rule, all red, in graph.py's `--selftest` and `make controls`. Their
-  harmless twins (a From-before item moved within its section, a mixed review reordered with no repeat) stay green.
+**The checks** (built in graph.py, stu32-tutor after d4a5f08). This plan first split them between check.py and
+graph.py. None of them needs the core, so all of them went into graph.py, whose selftest runs with no core or
+Docker:
+- an item followed by a keys block must sit in `## From before`, and be `type` and `calculator: no`;
+- `## From before` comes before the first keys block, the setup included, and holds two items or more;
+- every topic of a From-before item is taught by one of the lesson's prerequisites, taken transitively, outside
+  unit 0, and is not taught here;
+- `## Mixed review` holds four items or more, at least two of them on earlier lessons' topics. No two
+  consecutive items share a topic, and the section comes before any `## Checkpoint`;
+- each section appears at most once;
+- item IDs are unique across lessons and placement. The review queue (step 6) keys on them.
+
+**Controls:** 14 planted faults, each refused for its own reason. Two harmless twins pass: both sections as
+planned, and the same with each section reordered with no repeat. A separate run of 12 mutants weakens one rule
+each, and every one turns the selftest red.
 
 **Spacing, as an authoring rule:** where the course has one, at least one From-before item comes from an earlier
 unit, not the lesson just before. Section 3 of the proposal gives the reason: the longer the gap, the longer it

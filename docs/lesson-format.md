@@ -157,7 +157,37 @@ slip: K01B | f(2), not f′(2) | That is the height at 2. Take the derivative fi
   The item's own vectors need no keys block; the page reveals them after the attempt.
 - Items are not part of the student run (check 5): a learner's own answer leaves the device in a
   state no lesson can know, so items come at the end of a lesson (a unit's checkpoint is a
-  `## Checkpoint` section in its last lesson).
+  `## Checkpoint` section in its last lesson). The one exception is a From-before set (below), whose
+  items leave the device alone.
+- An item's ID is its own across every lesson and placement file: the browser's review queue keys on
+  it, so an item whose question changes takes a new ID.
+
+### Review sections
+
+Two sections bring earlier lessons back (decision 76; docs/proposals/learning-science-plan.md):
+- **`## From before`** opens a lesson, after its opening and before its first keys block (the setup
+  included). It holds two items or more on topics taught by the lesson's prerequisites, taken
+  transitively, outside unit 0. Each is `answer: type` and `calculator: no`: worked by hand and typed,
+  so the device the student run presses is untouched. Where the course has one, at least one item comes
+  from an earlier unit, not the lesson just before (spacing; a rule for the writer, read by abacus).
+- **`## Mixed review`** comes after the last keys block, and before `## Checkpoint` where there is one.
+  It holds four items or more, at least two of them on topics taught by earlier lessons, and no two
+  items in a row share a topic (interleaving). Its items may use the calculator, and each carries its
+  answer and working, with slips where a likely one exists.
+
+graph.py (in `make check`) refuses:
+- an item followed by a keys block that is not in `## From before`;
+- a From-before item that is not `type` and `calculator: no`, or that tests a topic the lesson teaches,
+  a topic no prerequisite teaches, or a unit-0 topic;
+- a From-before set after a keys block, or of fewer than two items;
+- a Mixed review of fewer than four items, with fewer than two on earlier topics, with two items in a row
+  sharing a topic, or after the Checkpoint;
+- either section given twice;
+- an item ID used twice anywhere.
+
+`graph.py --selftest` (in `make controls`) plants both sections in a copy of poly-02. That copy must
+pass, and so must a reordered one. Then it plants each fault in turn, and each must be refused for its
+own reason.
 
 **One judge.** tools/judge.c compares the learner's value with an expectation: `judge_expect("X=10",
 "+10E+0")` is right, `judge_expect("X#2,1E-15", got)` is right when |got − 2| ≤ 10⁻¹⁵, computed

@@ -4,7 +4,8 @@
 Refuses: a malformed or repeated topic; a topic whose lesson or ## heading is not there; a lesson
 with no `requires:` line; a required slug that is not a topic; a lesson requiring a topic it teaches;
 a lesson requiring a topic taught only in a mode section (lesson@modes) unless it offers only those
-modes; and a cycle between lessons (A needs B when A requires a topic B teaches). --json prints the
+modes; and a cycle between lessons (A needs B when A requires a topic B teaches). Also the courses,
+placement, lore, drawing tools, and the review sections and item IDs (check_review). --json prints the
 graph for the learning page; --selftest plants each fault and checks it is refused."""
 import glob
 import json
@@ -414,6 +415,202 @@ def selftest_tools(lessons, graph):
     return bool(owner) and red == len(plants)
 
 
+# The review sections (docs/lesson-format.md, Review sections; docs/proposals/learning-science-plan.md, step 0):
+# a From-before set of retrieval items opens a lesson, and a Mixed review interleaves earlier topics near its end.
+FROM_BEFORE, MIXED_REVIEW = "From before", "Mixed review"
+FROM_BEFORE_ITEMS, MIXED_REVIEW_ITEMS = 2, 4         # the pilot's sizes (abacus #6425)
+ITEM = re.compile(r"^[ \t]*```item[ \t]+(\S+)[ \t]*\n(.*?)^[ \t]*```", re.M | re.S)
+KEYS = re.compile(r"^[ \t]*```keys\b", re.M)
+
+
+def prerequisites(graph):
+    """{lesson: every lesson it needs, taken transitively}."""
+    out = {}
+
+    def reach(lid):
+        if lid not in out:
+            out[lid] = set()
+            for d in graph["lessons"].get(lid, {}).get("needs", []):
+                out[lid] |= {d} | reach(d)
+        return out[lid]
+    for lid in graph["lessons"]:
+        reach(lid)
+    return out
+
+
+def lesson_items(text):
+    """(headings [(position, title)], items [(id, position, the ## heading it sits under or None, fields)])."""
+    heads = [(m.start(), m.group(1).strip()) for m in re.finditer(r"^## (.*)$", text, re.M)]
+    items = []
+    for im in ITEM.finditer(text):
+        under = None
+        for pos, h in heads:
+            if pos < im.start():
+                under = h
+        items.append((im.group(1), im.start(), under, dict(re.findall(r"^[ \t]*(\w+):[ \t]*(.*)$", im.group(2), re.M))))
+    return heads, items
+
+
+def check_review(lessons, placement_texts, graph):
+    """Problems. The student run (check 5) presses a lesson's keys blocks in order on one device with nothing
+    reset, so an item followed by a keys block must leave the device alone: it sits in ## From before and is
+    answer: type, calculator: no. ## From before comes before the first keys block, holds FROM_BEFORE_ITEMS
+    items or more, and tests only topics taught by the lesson's prerequisites (transitively) outside unit 0,
+    the calculator. ## Mixed review holds MIXED_REVIEW_ITEMS items or more, two of them on earlier lessons'
+    topics, no two in a row sharing a topic, and comes before any ## Checkpoint. Each section appears at most
+    once. An item's ID is its own across lessons and placement (the browser's review queue keys on it)."""
+    bad, owner = [], {}
+    topics = graph["topics"]
+    unit_of = {l: u["n"] for c in graph.get("courses", {}).values() for u in c["units"] for l in u["lessons"]}
+    before = prerequisites(graph)
+
+    def taught_by(slug):
+        return topics.get(slug, {}).get("lesson")
+    for lid, (meta, text) in sorted(lessons.items()):
+        heads, items = lesson_items(text)
+        names = [h for _, h in heads]
+        at = {h: p for p, h in heads}
+        for sec in (FROM_BEFORE, MIXED_REVIEW):
+            if names.count(sec) > 1:
+                bad.append(f"{lid}: '## {sec}' appears {names.count(sec)} times; once at most")
+        keys = [m.start() for m in KEYS.finditer(text)]
+        if FROM_BEFORE in at and keys and keys[0] < at[FROM_BEFORE]:
+            bad.append(f"{lid}: '## {FROM_BEFORE}' comes after a keys block; it opens the lesson, before the setup")
+        earlier = before.get(lid, set())
+        for iid, pos, under, f in items:
+            owner.setdefault(iid, []).append(lid)
+            if under != FROM_BEFORE and any(k > pos for k in keys):
+                bad.append(f"{lid}: item {iid} comes before a keys block but is not in '## {FROM_BEFORE}': the "
+                           f"student run would meet the device as the learner left it")
+        fb = [i for i in items if i[2] == FROM_BEFORE]
+        mr = [i for i in items if i[2] == MIXED_REVIEW]
+        for iid, _, _, f in fb:
+            if f.get("answer") != "type" or f.get("calculator") != "no":
+                bad.append(f"{lid}: From-before item {iid} must be answer: type and calculator: no, since it "
+                           f"comes before the examples")
+            for slug in f.get("topics", "").split():
+                src = taught_by(slug)
+                if src is None:
+                    continue                                    # an unknown topic is refused by check()
+                if src == lid:
+                    bad.append(f"{lid}: From-before item {iid} tests '{slug}', which this lesson teaches")
+                elif src not in earlier:
+                    bad.append(f"{lid}: From-before item {iid} tests '{slug}', taught by {src}, which is not "
+                               f"among its prerequisites")
+                elif unit_of.get(src) == "0":
+                    bad.append(f"{lid}: From-before item {iid} tests '{slug}', a calculator topic of unit 0 ({src})")
+        if FROM_BEFORE in at and len(fb) < FROM_BEFORE_ITEMS:
+            bad.append(f"{lid}: '## {FROM_BEFORE}' holds {len(fb)} of the {FROM_BEFORE_ITEMS} items it needs")
+        if MIXED_REVIEW in at:
+            if len(mr) < MIXED_REVIEW_ITEMS:
+                bad.append(f"{lid}: '## {MIXED_REVIEW}' holds {len(mr)} of the {MIXED_REVIEW_ITEMS} items it needs")
+            for (a, _, _, fa), (b, _, _, fb_) in zip(mr, mr[1:]):
+                shared = sorted(set(fa.get("topics", "").split()) & set(fb_.get("topics", "").split()))
+                if shared:
+                    bad.append(f"{lid}: Mixed-review items {a} and {b} both test '{shared[0]}'; no two in a row "
+                               f"share a topic")
+            old = sum(1 for _, _, _, f in mr if any(taught_by(s) in earlier for s in f.get("topics", "").split()))
+            if old < 2:
+                bad.append(f"{lid}: '## {MIXED_REVIEW}' has {old} of the 2 items on earlier lessons' topics it needs")
+            if "Checkpoint" in at and at[MIXED_REVIEW] > at["Checkpoint"]:
+                bad.append(f"{lid}: '## {MIXED_REVIEW}' comes after '## Checkpoint'; it goes before it")
+    for name, text in sorted(placement_texts.items()):
+        for im in ITEM.finditer(text):
+            owner.setdefault(im.group(1), []).append(f"placement/{name}")
+    for iid, where in sorted(owner.items()):
+        if len(where) > 1:
+            bad.append(f"item {iid} is in {' and '.join(where)}; an item's ID is its own across the curriculum")
+    return bad
+
+
+def selftest_review(lessons, placement_texts, graph):
+    """A From-before set and a Mixed review planted in a copy of one lesson must pass; each planted fault in
+    them must be refused, and for its own reason."""
+    lid = "poly-02"
+    if lid not in lessons:
+        print(f"FAIL no {lid} to plant review sections in")
+        return False
+    meta, text = lessons[lid]
+    topics = graph["topics"]
+    unit_of = {l: u["n"] for c in graph["courses"].values() for u in c["units"] for l in u["lessons"]}
+    earlier = prerequisites(graph)[lid]
+    old = {}                                    # one earlier topic per earlier lesson outside unit 0
+    for s, v in sorted(topics.items()):
+        if v["lesson"] in earlier and unit_of.get(v["lesson"]) != "0":
+            old.setdefault(v["lesson"], s)
+    (o1, o2) = sorted(old.values())[:2]
+    own = graph["lessons"][lid]["teaches"][0]
+    calc = next(s for s, v in sorted(topics.items()) if unit_of.get(v["lesson"]) == "0" and v["lesson"] in earlier)
+    later = next(s for s, v in sorted(topics.items()) if v["lesson"] not in earlier | {lid})
+
+    def item(iid, topic, answer="type", calculator="no"):
+        return f"```item {iid}\nprompt: p\ntopics: {topic}\nanswer: {answer}\ncalculator: {calculator}\n```\n\n"
+
+    def fb(*its):
+        return f"## {FROM_BEFORE}\n\n" + "".join(its)
+
+    def mr(*its):
+        return f"## {MIXED_REVIEW}\n\n" + "".join(its)
+    first_head = re.search(r"^## ", text, re.M).start()
+    good_fb = fb(item("ZF1", o1), item("ZF2", o2))
+    good_mr = mr(item("ZM1", o1), item("ZM2", own), item("ZM3", o2), item("ZM4", own))
+
+    def lesson(head="", tail="", body=None):
+        t = body if body is not None else text
+        return {**lessons, lid: (meta, t[:first_head] + head + t[first_head:] + tail)}
+    some_id = next((im.group(1) for t in placement_texts.values() for im in ITEM.finditer(t)), None)
+    greens = [
+        ("a From-before set and a Mixed review as the plan has them", lesson(good_fb, "\n" + good_mr)),
+        ("the same with each section's items reordered, no topic repeated in a row",
+         lesson(fb(item("ZF2", o2), item("ZF1", o1)), "\n" + mr(item("ZM2", own), item("ZM1", o1),
+                                                                 item("ZM4", own), item("ZM3", o2)))),
+    ]
+    plants = [
+        ("a From-before item that uses the calculator", lesson(fb(item("ZF1", o1, calculator="yes"), item("ZF2", o2))),
+         "From-before item ZF1 must be answer: type and calculator: no"),
+        ("a From-before item worked on the calculator", lesson(fb(item("ZF1", o1, answer="work"), item("ZF2", o2))),
+         "From-before item ZF1 must be answer: type"),
+        ("a From-before item on a topic the lesson teaches", lesson(fb(item("ZF1", own), item("ZF2", o2))),
+         f"From-before item ZF1 tests '{own}', which this lesson teaches"),
+        ("a From-before item on a topic no prerequisite teaches", lesson(fb(item("ZF1", later), item("ZF2", o2))),
+         f"From-before item ZF1 tests '{later}'"),
+        ("a From-before item on a unit-0 calculator topic", lesson(fb(item("ZF1", calc), item("ZF2", o2))),
+         f"From-before item ZF1 tests '{calc}', a calculator topic of unit 0"),
+        ("a From-before set of one item", lesson(fb(item("ZF1", o1))), f"'## {FROM_BEFORE}' holds 1 of the"),
+        ("a From-before set after the setup", lesson(tail="\n" + good_fb), f"'## {FROM_BEFORE}' comes after a keys block"),
+        ("a section given twice", lesson(good_fb + good_fb.replace("ZF", "ZG")), f"'## {FROM_BEFORE}' appears 2 times"),
+        ("two Mixed-review items in a row on one topic",
+         lesson(tail="\n" + mr(item("ZM1", o1), item("ZM2", o1), item("ZM3", own), item("ZM4", o2))),
+         "Mixed-review items ZM1 and ZM2 both test"),
+        ("a Mixed review of three items", lesson(tail="\n" + mr(item("ZM1", o1), item("ZM2", own), item("ZM3", o2))),
+         f"'## {MIXED_REVIEW}' holds 3 of the"),
+        ("a Mixed review with one earlier topic",
+         lesson(tail="\n" + mr(item("ZM1", o1), item("ZM2", own), item("ZM3", later), item("ZM4", own))),
+         f"'## {MIXED_REVIEW}' has 1 of the 2 items on earlier"),
+        ("a Mixed review after the Checkpoint", lesson(tail="\n## Checkpoint\n\nDone.\n\n" + good_mr),
+         f"'## {MIXED_REVIEW}' comes after '## Checkpoint'"),
+        ("a Mixed review before the examples", lesson(good_mr), "item ZM1 comes before a keys block"),
+    ]
+    if some_id:
+        plants.append(("an item ID a placement item already has",
+                       lesson(tail="\n" + good_mr.replace("ZM1", some_id)), f"item {some_id} is in"))
+    else:
+        print("FAIL no placement item to copy an ID from")
+    ok = True
+    for name, ls in greens:
+        problems = check_review(ls, placement_texts, graph)
+        print(f"{'ok  ' if not problems else 'FAIL'} {name} is accepted" + (f": {problems[:2]}" if problems else ""))
+        ok = ok and not problems
+    red = 0
+    for name, ls, why in plants:
+        problems = check_review(ls, placement_texts, graph)
+        hit = [p for p in problems if why in p]
+        print(f"{'ok  ' if hit else 'FAIL'} {name}" + (f"\n       -> {hit[0]}" if hit else f": {problems[:2]}"))
+        red += bool(hit)
+    print(f"{red}/{len(plants)} review controls red as planted")
+    return ok and bool(some_id) and red == len(plants)
+
+
 LORE_KINDS = ("character", "place", "object", "age")
 LORE_VERBS = ("lives_in", "located_in", "works_with", "keeps", "made", "passes_to", "before")
 
@@ -564,6 +761,7 @@ def main():
         ok = selftest_placement(load_placement(ROOT), g) and ok
         ok = selftest_lore(*load_lore(ROOT), lessons, g) and ok
         ok = selftest_tools(lessons, g) and ok
+        ok = selftest_review(lessons, load_placement(ROOT), g) and ok
         return 0 if ok else 1
     bad, graph = check(topics_text, lessons)
     cbad, graph["courses"] = check_courses(load_courses(ROOT), graph)
@@ -571,6 +769,7 @@ def main():
     bad += check_placement(load_placement(ROOT), graph)
     bad += check_lore(*load_lore(ROOT), lessons, graph)
     bad += check_tools(lessons, graph)
+    bad += check_review(lessons, load_placement(ROOT), graph)
     if "--json" in sys.argv:
         print(json.dumps(graph, ensure_ascii=False, indent=1))
     for b in bad:
