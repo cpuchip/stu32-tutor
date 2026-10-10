@@ -36,6 +36,11 @@ CONTROLS = [
     ("a vector no printed keys show", "vectors.txt", "5 + | X=12\n", "5 + | X=12\nS98 | planted | MODE33 FIX4 1 ENTER 1 + | X=2\n",
      {}, "vector S98 is shown by no keys block"),
     ("a vector with no expectation", "vectors.txt", "5 + | X=12\n", "5 + | \n", {}, "S01: no expectation"),
+    # A | in a description splits the line's fields (U3BW's "|−7|", 2026-10-10; abacus #6605).
+    ("a | inside a vector's description", "vectors.txt", "S01 | ENTER separates two numbers; + uses both |",
+     "S01 | ENTER separates | two numbers; + uses both |", {}, "5 fields, expected 4"),
+    ("a | inside a display vector's line", "fmt-vectors.txt", "| 12 | FIX 4 |  | 12.0000", "| 12 | FIX 4 |  | 12.0000 | x", {},
+     "7 fields, expected 6"),
     ("a vector that does not set its mode", "vectors.txt", "MODE33 FIX4 7 ENTER 5 + |", "FIX4 7 ENTER 5 + |", {},
      "S01: keys must begin MODE33"),
     ("a keys block naming no vector", "lesson.md", "```keys S02\n", "```keys S2\n", {}, "keys block S2 names no vector"),
