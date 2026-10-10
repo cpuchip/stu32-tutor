@@ -4,11 +4,21 @@
 
 #include "report.h"
 
-static const char *const KIND[] = {"value", "entry", "eqn", "program", "message", "prompt", "view"};
-
+/* By name, not by position, so a kind added to screen.h anywhere in its list (SCREEN_LABEL, 057: a CAS
+   label on Y) cannot shift the names of the others. */
 const char *kr_kind(int kind)
 {
-    return kind >= 0 && kind <= SCREEN_VIEW ? KIND[kind] : "?";
+    switch (kind) {
+    case SCREEN_VALUE: return "value";
+    case SCREEN_ENTRY: return "entry";
+    case SCREEN_EQN: return "eqn";
+    case SCREEN_PROGRAM: return "program";
+    case SCREEN_MESSAGE: return "message";
+    case SCREEN_PROMPT: return "prompt";
+    case SCREEN_VIEW: return "view";
+    case SCREEN_LABEL: return "label";
+    default: return "?";
+    }
 }
 
 int kr_graph_line(const screen_page *page, const char *id, char *out, size_t cap)
