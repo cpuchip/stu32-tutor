@@ -154,8 +154,8 @@ The queue is primer's, in the browser only.
 
 ## Step 7: productive failure (choice 6)
 
-**The study is now read.** Sinha & Kapur's 2021 meta-analysis was refused by the publisher on the first try. An
-author-posted copy was opened on 2026-10-10 (`build/learning-science/`, local), and section 8 of the proposal is
+**The study is now read.** Sinha & Kapur's 2021 meta-analysis was refused by the publisher on the first try. A copy posted at
+janfasen.nl was opened on 2026-10-10 (`build/learning-science/`, local), and section 8 of the proposal is
 updated from it.
 
 **What it found:**
@@ -165,11 +165,19 @@ updated from it.
   conceptual knowledge and transfer.
 - For procedures, "a nonsignificant effect (Hedge's g) of -0.03". It "does not hurt or compromise on students'
   knowledge of procedures".
+- **Publication bias:** after allowing for it, the authors' estimate is larger. "Overall, an estimation of true
+  effect sizes after accounting for publication bias suggested a strong effect size favoring PS-I (Hedge's g
+  0.87)." The card should carry both 0.36 and 0.87.
 
 **What bounds it here:**
-- **Age.** "Contrasting trends were, however, observed for younger age learners (second to fifth graders) ... for
-  which effect sizes favored I-PS." The pooled estimate for them "was negative, and these estimates increased (or
-  became more positive) with the age range".
+- **Age, and the kind of skill.** "Contrasting trends were, however, observed for younger age learners (second to
+  fifth graders) and for the learning of domain-general skills, for which effect sizes favored I-PS." For the
+  young, the pooled estimate "was negative, and these estimates increased (or became more positive) with the age
+  range".
+
+  Their example of a domain-general skill is the "control of variable strategy". A maths concept is
+  domain-specific, where they found "moderate effect sizes in favor of PS-I". So the trial stays on one maths
+  concept, and off the calculator's own lessons, whose keystroke skills are not concepts either.
 - **The four strongest predictors** were "instruction building on student solutions, group work as the
   participation structure in the problem-solving phase, evidence for multiple RSM generation in the article, and
   dialogue-dominant social surround facilitation in the instruction phase". A static page has no group and no

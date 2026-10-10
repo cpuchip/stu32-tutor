@@ -23,7 +23,8 @@ into text with pdftotext and the sentence found in it. The sentences are kept in
 entry, with where each copy came from (`build/learning-science/evidence.md`, local).
 
 Where a paper could not be opened, this says so and gives no numbers from it:
-- **Sinha & Kapur (2021):** the publisher refused the fetch at 518630b. An author-posted copy was opened later the
+- **Sinha & Kapur (2021):** the publisher refused the fetch at 518630b. A copy posted at
+  janfasen.nl was opened later the
   same day, after decision 76, and section 8 now quotes it.
 - **Bloom (1984):** the copy is a scan, so its text could not be read; only its title was.
 - **Kulik, Kulik & Bangert-Drowns (1990):** not found as an open copy.
@@ -246,7 +247,7 @@ justify making them stricter.
 ## 8. Productive failure: one trial lesson at most
 
 At 518630b this section said the meta-analysis could not be opened and made no claim from it. It was opened later
-on 2026-10-10 (an author-posted copy), after decision 76 took this choice on that condition. The plan
+on 2026-10-10 (a copy posted at janfasen.nl), after decision 76 took this choice on that condition. The plan
 ([learning-science-plan.md](learning-science-plan.md), step 7) carries the detail.
 
 **The evidence:** Sinha & Kapur (*Rev. Educ. Res.* 2021) report "a meta-analysis of 53 studies with 166
@@ -255,10 +256,11 @@ instruction first.
 - **Concepts and transfer:** "a significant, moderate effect in favor of PS-I (Hedge's g 0.36 [95% confidence
   interval 0.20; 0.51])".
 - **Procedures:** "a nonsignificant effect (Hedge's g) of -0.03".
+- **After publication bias:** "a strong effect size favoring PS-I (Hedge's g 0.87)", by the authors' estimate.
 
 **The limits:**
-- **Age:** "Contrasting trends were, however, observed for younger age learners (second to fifth graders) ... for
-  which effect sizes favored I-PS."
+- **Age and kind of skill:** "Contrasting trends were, however, observed for younger age learners (second to fifth
+  graders) and for the learning of domain-general skills, for which effect sizes favored I-PS."
 - **What a page can't do:** the strongest predictors include group work and teacher dialogue, which a static page
   has neither of.
 - **Narrow evidence:** "nearly 75% of all included comparisons" were in maths and physics.
