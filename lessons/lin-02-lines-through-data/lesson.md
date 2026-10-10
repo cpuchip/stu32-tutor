@@ -15,6 +15,26 @@ No straight line passes through all five points, but one passes closest to them,
 can find it. Its slope and intercept summarise the data, and the line can then estimate a value you
 did not measure. This lesson finds that line for the seedling.
 
+## From before
+
+Two from before, by hand: an intercept from lin-01, and one from unit 1.
+
+```item LN2F1
+prompt: A line has slope 2 and goes through (3, 10). What is its intercept?
+topics: intercept
+answer: type
+calculator: no
+slip: LN2F1A | took away the slope, not the slope times x | b = y − mx: 10 − 2 × 3.
+```
+
+```item LN2F2
+prompt: Work out 0.5 × 8 + 1.5.
+topics: mult-before-add
+answer: type
+calculator: no
+slip: LN2F2A | added first | Multiplication comes before addition: 0.5 × 8 is 4, then + 1.5.
+```
+
 ## Before you start
 
 The setup from rpn-01: the mode you chose and FIX 4. All the examples in the lesson are one chain, each
@@ -192,3 +212,41 @@ Watch the count, and type the point exactly.
 
    X shows <disp v="E02B">-1.9000</disp>: the tank loses about 1.9 litres an hour. Both are
    negative, as r and m always share a sign: the water goes down as the hours go up.
+
+## Mixed review
+
+Four from this lesson and the ones before it, in no order. Work each by hand unless it says to use
+the calculator.
+
+```item LN2M1
+prompt: Points lie very close to a falling line. Their r is near which whole number?
+topics: correlation
+answer: type
+calculator: no
+working: none
+slip: LN2M1A | forgot the sign | r has the same sign as the slope, and a falling line's slope is negative.
+```
+
+```item LN2M2
+prompt: What is the slope of the line through (−2, 1) and (2, 9)?
+topics: slope
+answer: type
+calculator: no
+slip: LN2M2A | took the run as 2 | The run is 2 − (−2), which is 4.
+```
+
+```item LN2M3
+prompt: A line through some data is y = 1.5x + 2. What does it estimate y to be at x = 6?
+topics: estimate
+answer: type
+calculator: no
+slip: LN2M3A | added first | Multiply first: 1.5 × 6 is 9, then + 2.
+```
+
+```item LN2M4
+prompt: Work out √0.25 × 4.
+topics: square-root
+answer: type
+calculator: no
+slip: LN2M4A | halved 0.25 instead of its root | √0.25 is 0.5, since 0.5 × 0.5 is 0.25.
+```

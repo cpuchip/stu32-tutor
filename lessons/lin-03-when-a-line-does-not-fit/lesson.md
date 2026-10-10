@@ -18,6 +18,26 @@ by r but describes badly.
 A model is a rule chosen to describe data. A line is one kind of model; the lesson is about when it
 is the wrong kind.
 
+## From before
+
+Two from before, by hand: one from unit 1, and an estimate from lin-02.
+
+```item LN3F1
+prompt: Work out 3² + 4².
+topics: x-squared
+answer: type
+calculator: no
+slip: LN3F1A | squared the sum | Square each first: 9 + 16. (3 + 4)² is another number.
+```
+
+```item LN3F2
+prompt: The line y = 2x − 1 estimates y at x = 7. What is the estimate?
+topics: estimate
+answer: type
+calculator: no
+slip: LN3F2A | took 1 from x first | Multiply first: 2 × 7 is 14, then take away 1.
+```
+
 ## Before you start
 
 The setup from rpn-01: the mode you chose and FIX 4. The examples in each section are one chain; each section
@@ -167,6 +187,45 @@ the ends and too high in the middle: the mark of points on a curve. Past the dat
 X shows <disp v="E01D">34.0000</disp>, and the next doubling is 64. A high r does not make a line the
 right model; the shape of the points decides. Doubling has its own kind of function, which exp-01
 meets.
+
+## Mixed review
+
+Four from this lesson and the ones before it, in no order. Work each by hand unless it says to use
+the calculator.
+
+```item LN3M1
+prompt: The points (0, 1), (1, 3) and (2, 5) all lie on one rising line. What is their r?
+topics: perfect-fit
+answer: type
+calculator: no
+working: none
+slip: LN3M1A | gave the slope | r measures the fit, not the slope: points exactly on a rising line have r = 1.
+```
+
+```item LN3M2
+prompt: What is the slope of the line through (0, 3) and (2, −1)?
+topics: slope
+answer: type
+calculator: no
+slip: LN3M2A | lost the sign | The rise is −1 − 3, which is −4: the line falls.
+```
+
+```item LN3M3
+prompt: Five points all have y = 4. What is the slope of the best line through them?
+topics: flat-no-r
+answer: type
+calculator: no
+working: none
+slip: LN3M3A | gave the height | Every point is at the same height, so the line is flat: it rises 0.
+```
+
+```item LN3M4
+prompt: f(x) = x² − 1. What is f(−2)?
+topics: function
+answer: type
+calculator: no
+slip: LN3M4A | squared 2, then made it negative | f(−2) puts −2 in for x: (−2)² is 4, then 4 − 1.
+```
 
 ## Checkpoint
 

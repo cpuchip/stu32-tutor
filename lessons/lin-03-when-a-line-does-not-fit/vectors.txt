@@ -26,3 +26,24 @@ CP4B2 | slip: divided by 2 | MODE33 FIX4 7 ENTER 2 / | X=3.5
 CP4C | checkpoint, unit 4: the answer typed | MODE33 FIX4 26 | X=26
 CP4C1 | slip: added the 4 | MODE33 FIX4 3 ENTER 10 * 4 + | X=34
 CP4C2 | slip: took 4 from x first | MODE33 FIX4 10 ENTER 4 - 3 * | X=18
+# From before and Mixed review (decision 76): each answer typed, its working (W, abacus #6439), and the slips'.
+LN3F1 | from before: 3² + 4², the answer typed | MODE33 FIX4 25 | X=25
+LN3F1W | its working | MODE33 FIX4 3 SQ 4 SQ + | X=25
+LN3F1A | slip: (3 + 4)² | MODE33 FIX4 3 ENTER 4 + SQ | X=49
+LN3F2 | from before: y at 7 on y = 2x − 1, the answer typed | MODE33 FIX4 13 | X=13
+LN3F2W | its working | MODE33 FIX4 2 ENTER 7 * 1 - | X=13
+LN3F2A | slip: 2 × (7 − 1) | MODE33 FIX4 7 ENTER 1 - 2 * | X=12
+LN3M1 | mixed review: r for points on one rising line, recalled, typed | MODE33 FIX4 1 | X=1
+LN3M1A | slip: the slope | MODE33 FIX4 2 | X=2
+LN3M2 | mixed review: the slope through (0, 3) and (2, −1), typed | MODE33 FIX4 2 CHS | X=-2
+LN3M2W | its working | MODE33 FIX4 1 CHS ENTER 3 - 2 ENTER 0 - / | X=-2
+LN3M2A | slip: 4 ÷ 2 | MODE33 FIX4 4 ENTER 2 / | X=2
+LN3M3 | mixed review: the slope of a flat line, recalled, typed | MODE33 FIX4 0 | X=0
+LN3M3A | slip: the height | MODE33 FIX4 4 | X=4
+LN3M4 | mixed review: f(−2) for x² − 1, typed | MODE33 FIX4 3 | X=3
+LN3M4W | its working: (−2)² − 1 | MODE33 FIX4 2 CHS SQ 1 - | X=3
+LN3M4A | slip: −(2²) − 1 | MODE33 FIX4 2 SQ CHS 1 - | X=-5
+# The checkpoint's working (abacus #6439): each computed answer made by the core.
+CP4AW | CP4A's working: (13 − 5) ÷ (6 − 2) | MODE33 FIX4 13 ENTER 5 - 6 ENTER 2 - / | X=2
+CP4BW | CP4B's working: b = 7 − 2 × 1 | MODE33 FIX4 7 ENTER 2 ENTER 1 * - | X=5
+CP4CW | CP4C's working: 3 × 10 − 4 | MODE33 FIX4 3 ENTER 10 * 4 - | X=26

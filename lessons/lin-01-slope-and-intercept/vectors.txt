@@ -13,3 +13,22 @@ L07C | continues L07B: x<>y shows the rise | MODE33 FIX4 5 ENTER 1 - 3 ENTER 3 -
 E01 | exercise 1: the slope through (-1, 5) and (3, 13) | MODE33 FIX4 13 ENTER 5 - 3 ENTER 1 CHS - / | X=2
 E01B | continues E01: the intercept b = 5 - m x (-1) | MODE33 FIX4 13 ENTER 5 - 3 ENTER 1 CHS - / STO:M 5 RCL:M 1 CHS * - | X=7 @M=2
 E02 | exercise 2: the slope through (0, 1) and (4, 4) | MODE33 FIX4 4 ENTER 1 - 4 ENTER 0 - / | X=0.75
+# From before and Mixed review (decision 76): each answer typed, its working (W, abacus #6439), and the slips'.
+LN1F1 | from before: (13 − 7) ÷ (5 − 2), the answer typed | MODE33 FIX4 2 | X=2
+LN1F1W | its working | MODE33 FIX4 13 ENTER 7 - 5 ENTER 2 - / | X=2
+LN1F1A | slip: 13 − 7 ÷ 5 − 2 | MODE33 FIX4 13 ENTER 7 ENTER 5 / - 2 - | X=9.6
+LN1F2 | from before: f(0) for 4x − 1, the answer typed | MODE33 FIX4 1 CHS | X=-1
+LN1F2W | its working | MODE33 FIX4 4 ENTER 0 * 1 - | X=-1
+LN1F2A | slip: 4 − 1 | MODE33 FIX4 4 ENTER 1 - | X=3
+LN1M1 | mixed review: the slope through (1, 2) and (4, 11), typed | MODE33 FIX4 3 | X=3
+LN1M1W | its working | MODE33 FIX4 11 ENTER 2 - 4 ENTER 1 - / | X=3
+LN1M1A | slip: (11 − 2) ÷ (1 − 4) | MODE33 FIX4 11 ENTER 2 - 1 ENTER 4 - / | X=-3
+LN1M2 | mixed review: −4² + 20, typed | MODE33 FIX4 4 | X=4
+LN1M2W | its working | MODE33 FIX4 4 SQ CHS 20 + | X=4
+LN1M2A | slip: (−4)² + 20 | MODE33 FIX4 4 CHS SQ 20 + | X=36
+LN1M3 | mixed review: the slope through (2, 7) and (6, 7), typed | MODE33 FIX4 0 | X=0
+LN1M3W | its working | MODE33 FIX4 7 ENTER 7 - 6 ENTER 2 - / | X=0
+LN1M3A | slip: the run | MODE33 FIX4 6 ENTER 2 - | X=4
+LN1M4 | mixed review: g(3) for 5 − 2x, typed | MODE33 FIX4 1 CHS | X=-1
+LN1M4W | its working | MODE33 FIX4 5 ENTER 2 ENTER 3 * - | X=-1
+LN1M4A | slip: (5 − 2) × 3 | MODE33 FIX4 5 ENTER 2 - 3 * | X=9

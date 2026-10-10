@@ -15,6 +15,26 @@ step of 1 to the right. b, the intercept, is the value of y at x = 0, where the 
 vertical axis. f(x) = 2x + 3 from fn-01 is one, with slope 2 and intercept 3. This lesson finds m and
 b from two points on a line.
 
+## From before
+
+Two from before, by hand: one from unit 1, and one function from fn-01.
+
+```item LN1F1
+prompt: Work out (13 − 7) ÷ (5 − 2).
+topics: fraction-bar
+answer: type
+calculator: no
+slip: LN1F1A | divided only the 7 | The brackets come first: 6 ÷ 3.
+```
+
+```item LN1F2
+prompt: f(x) = 4x − 1. What is f(0)?
+topics: function
+answer: type
+calculator: no
+slip: LN1F2A | read 4x at 0 as 4 | 4x at x = 0 is 4 × 0, which is 0. Then take away 1.
+```
+
 ## Before you start
 
 The setup from rpn-01: the mode you chose and FIX 4. The examples in the first two sections are one chain,
@@ -144,3 +164,40 @@ would need every y as its output.
 
    X shows <disp v="E02">0.7500</disp>: three quarters. The point (0, 1) has x = 0, so it is where the
    line crosses the vertical axis: the intercept is 1, and the line is y = 0.75x + 1.
+
+## Mixed review
+
+Four from this lesson and the ones before it, in no order. Work each by hand unless it says to use
+the calculator.
+
+```item LN1M1
+prompt: What is the slope of the line through (1, 2) and (4, 11)?
+topics: slope
+answer: type
+calculator: no
+slip: LN1M1A | the points in different orders | Take the points in the same order, top and bottom: (11 − 2) ÷ (4 − 1).
+```
+
+```item LN1M2
+prompt: Work out −4² + 20.
+topics: minus-and-power
+answer: type
+calculator: no
+slip: LN1M2A | squared −4 | −4² is the negative of 4², so −16. Only (−4)² is 16.
+```
+
+```item LN1M3
+prompt: What is the slope of the line through (2, 7) and (6, 7)?
+topics: falling-flat
+answer: type
+calculator: no
+slip: LN1M3A | gave the run | Rise over run: the rise is 7 − 7, which is 0, so the slope is 0.
+```
+
+```item LN1M4
+prompt: g(x) = 5 − 2x. What is g(3)?
+topics: function
+answer: type
+calculator: no
+slip: LN1M4A | took 2 from 5 first | Multiplication comes first: 2 × 3 is 6, then 5 − 6.
+```

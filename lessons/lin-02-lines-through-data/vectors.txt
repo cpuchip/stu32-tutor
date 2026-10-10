@@ -18,3 +18,21 @@ E01B | continues E01: b | MODE33 FIX4 CLSIGMA 4 ENTER 1 SIGMA+ 6 ENTER 2 SIGMA+ 
 E01C | continues E01B: week 6 | MODE33 FIX4 CLSIGMA 4 ENTER 1 SIGMA+ 6 ENTER 2 SIGMA+ 7 ENTER 3 SIGMA+ 10 ENTER 4 SIGMA+ 13 ENTER 5 SIGMA+ SLOPE YINT 6 YHAT | X=14.6
 E02 | exercise 2: a falling set: water left in a tank, 10 8 7 4 over four hours; r | MODE33 FIX4 CLSIGMA 10 ENTER 1 SIGMA+ 8 ENTER 2 SIGMA+ 7 ENTER 3 SIGMA+ 4 ENTER 4 SIGMA+ CORR | X=-0.9811557810392122775787472346115412
 E02B | continues E02: m | MODE33 FIX4 CLSIGMA 10 ENTER 1 SIGMA+ 8 ENTER 2 SIGMA+ 7 ENTER 3 SIGMA+ 4 ENTER 4 SIGMA+ CORR SLOPE | X=-1.9
+# From before and Mixed review (decision 76): each answer typed, its working (W, abacus #6439), and the slips'.
+LN2F1 | from before: the intercept for slope 2 through (3, 10), the answer typed | MODE33 FIX4 4 | X=4
+LN2F1W | its working: b = y − mx | MODE33 FIX4 10 ENTER 2 ENTER 3 * - | X=4
+LN2F1A | slip: 10 − 2 | MODE33 FIX4 10 ENTER 2 - | X=8
+LN2F2 | from before: 0.5 × 8 + 1.5, the answer typed | MODE33 FIX4 5.5 | X=5.5
+LN2F2W | its working | MODE33 FIX4 0.5 ENTER 8 * 1.5 + | X=5.5
+LN2F2A | slip: 0.5 × (8 + 1.5) | MODE33 FIX4 0.5 ENTER 8 ENTER 1.5 + * | X=4.75
+LN2M1 | mixed review: r near a falling line, recalled, typed | MODE33 FIX4 1 CHS | X=-1
+LN2M1A | slip: forgot the sign | MODE33 FIX4 1 | X=1
+LN2M2 | mixed review: the slope through (−2, 1) and (2, 9), typed | MODE33 FIX4 2 | X=2
+LN2M2W | its working: the run 2 − (−2) | MODE33 FIX4 9 ENTER 1 - 2 ENTER 2 CHS - / | X=2
+LN2M2A | slip: (9 − 1) ÷ 2 | MODE33 FIX4 9 ENTER 1 - 2 / | X=4
+LN2M3 | mixed review: y at 6 on y = 1.5x + 2, typed | MODE33 FIX4 11 | X=11
+LN2M3W | its working | MODE33 FIX4 1.5 ENTER 6 * 2 + | X=11
+LN2M3A | slip: 1.5 × (6 + 2) | MODE33 FIX4 1.5 ENTER 6 ENTER 2 + * | X=12
+LN2M4 | mixed review: √0.25 × 4, typed | MODE33 FIX4 2 | X=2
+LN2M4W | its working | MODE33 FIX4 0.25 SQRT 4 * | X=2
+LN2M4A | slip: 0.25 ÷ 2 × 4 | MODE33 FIX4 0.25 ENTER 2 / 4 * | X=0.5

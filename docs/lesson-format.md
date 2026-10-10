@@ -145,7 +145,8 @@ slip: K01B | f(2), not f′(2) | That is the height at 2. Take the derivative fi
 - `calculator:` `yes` or `no`: whether the page offers its calculator while the item is open.
 - `keys:` the working, as printed keys, shown after the attempt. Needed for `work`.
 - `working: none`, on a `type` item only: its answer is counted or recalled, not computed (how many
-  roots at most; how many prompts). Leave it out for a computed answer.
+  roots at most; how many prompts). The same goes when a working would only retype the answer through one
+  identity step (0 + 5 for x − 5 = 0; abacus #6465). Leave it out for a computed answer.
 - `slip: VID | name | hint`, any number: a wrong answer a learner is likely to give, the slip that
   gives it, and the hint the page shows when the learner's answer is that slip's value.
 - The answer is vector `ID` in vectors.txt, and each slip is vector `VID`, written and run like every
