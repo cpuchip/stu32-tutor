@@ -11,3 +11,22 @@ U08 | sin 390: a full turn and 30 more | MODE33 FIX4 DEG 390 SIN | X=0.5
 U09 | sin(-30): clockwise | MODE33 FIX4 DEG 30 CHS SIN | X=-0.5
 E01 | exercise: ACOS(-0.5) gives 120 | MODE33 FIX4 DEG 0.5 CHS ACOS | X=120
 E02 | the other angle, 360 - 120 = 240: cos 240 | MODE33 FIX4 DEG 240 COS | X=-0.5
+# From before and Mixed review (decision 76): each answer typed, its working (W, abacus #6439), and the slips'.
+TR3F1 | from before: √(1 − 0.36), the answer typed | MODE33 FIX4 0.8 | X=0.8
+TR3F1W | its working | MODE33 FIX4 1 ENTER 0.36 - SQRT | X=0.8
+TR3F1A | slip: 1 − √0.36 | MODE33 FIX4 1 ENTER 0.36 SQRT - | X=0.4
+TR3F2 | from before: the hypotenuse for 9 and 12, the answer typed | MODE33 FIX4 15 | X=15
+TR3F2W | its working | MODE33 FIX4 9 SQ 12 SQ + SQRT | X=15
+TR3F2A | slip: 9 + 12 | MODE33 FIX4 9 ENTER 12 + | X=21
+TR3M1 | mixed review: sin²θ for cos θ = 0.6, typed | MODE33 FIX4 0.64 | X=0.64
+TR3M1W | its working | MODE33 FIX4 1 ENTER 0.6 SQ - | X=0.64
+TR3M1A | slip: 1 − 0.6 | MODE33 FIX4 1 ENTER 0.6 - | X=0.4
+TR3M2 | mixed review: 2 × 0.5² + 1, typed | MODE33 FIX4 1.5 | X=1.5
+TR3M2W | its working | MODE33 FIX4 0.5 SQ 2 * 1 + | X=1.5
+TR3M2A | slip: (2 × 0.5)² + 1 | MODE33 FIX4 2 ENTER 0.5 * SQ 1 + | X=2
+TR3M3 | mixed review: 390° less a turn, typed | MODE33 FIX4 30 | X=30
+TR3M3W | its working | MODE33 FIX4 390 ENTER 360 - | X=30
+TR3M3A | slip: 390 + 360 | MODE33 FIX4 390 ENTER 360 + | X=750
+TR3M4 | mixed review: cos A as 9 ÷ 15, typed | MODE33 FIX4 0.6 | X=0.6
+TR3M4W | its working | MODE33 FIX4 9 ENTER 15 / | X=0.6
+TR3M4A | slip: the sine, 12 ÷ 15 | MODE33 FIX4 12 ENTER 15 / | X=0.8

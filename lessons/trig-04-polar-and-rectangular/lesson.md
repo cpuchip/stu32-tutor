@@ -36,6 +36,26 @@ by Pythagoras' rule, squaring removing any signs (trig-03). The point (3, 4) is 
 3² + 4² = 5², at an angle of about 53 degrees. This lesson converts between the two forms. Both
 conversions use the angle unit that is set, so check it first (trig-01); here it is degrees.
 
+## From before
+
+Two from before, by hand: an angle from trig-03, and one from unit 1.
+
+```item TR4F1
+prompt: −90° points the same way as which angle from 0° to 360°?
+topics: full-turn
+answer: type
+calculator: no
+slip: TR4F1A | dropped the minus | −90° turns clockwise: add a full turn, −90 + 360.
+```
+
+```item TR4F2
+prompt: Work out 5² − 3².
+topics: x-squared
+answer: type
+calculator: no
+slip: TR4F2A | squared the difference | Square each first: 25 − 9. (5 − 3)² is another number.
+```
+
 ## Before you start
 
 The setup from trig-01: the mode you chose, FIX 4, and degrees. Every example starts fresh, except
@@ -138,6 +158,43 @@ X shows <disp v="R02">5.0000</disp>: y, 10 sin 30°.
 
    X shows <disp v="E02B">1.4142</disp>, above: the point is up and to the left, at 135 degrees.
 
+## Mixed review
+
+Four from this lesson and the ones before it, in no order. Work each by hand unless it says to use
+the calculator.
+
+```item TR4M1
+prompt: How far is the point (6, 8) from O?
+topics: to-polar
+answer: type
+calculator: no
+slip: TR4M1A | added the coordinates | r comes from Pythagoras: √(6² + 8²).
+```
+
+```item TR4M2
+prompt: π/3 radians is how many degrees?
+topics: convert-angle
+answer: type
+calculator: no
+slip: TR4M2A | multiplied by 3 | π radians is 180°, so π/3 is 180 ÷ 3.
+```
+
+```item TR4M3
+prompt: A point is at r = 4 and angle 180°. What is its x?
+topics: to-rect
+answer: type
+calculator: no
+slip: TR4M3A | lost the sign | At 180° the point is on the negative x axis: x is 4 × cos 180°, and cos 180° is −1.
+```
+
+```item TR4M4
+prompt: sin θ = 0.8. What is cos²θ?
+topics: pythagorean-identity
+answer: type
+calculator: no
+slip: TR4M4A | did not square the sine | cos²θ is 1 − 0.8², which is 1 − 0.64.
+```
+
 ## Checkpoint
 
 Questions on the whole unit. Work each by hand first (a few offer the calculator), then give your answer; the page checks it. A wrong answer that comes from a common slip gets a hint that names the step.
@@ -165,5 +222,6 @@ prompt: A point is at r = 2 and angle 90°. What is its x?
 topics: to-rect
 answer: type
 calculator: no
+working: none
 slip: CP7C1 | r itself | At 90° the point is straight up, on the y axis, so x = r × cos 90° = 0.
 ```

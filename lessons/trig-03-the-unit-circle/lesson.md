@@ -12,6 +12,26 @@ display: FIX 4
 trig-02 defined sine and cosine with a right triangle, whose other angles are less than 90 degrees.
 But SIN and COS take any angle: 120, 200, 390, or −30. They come from a circle.
 
+## From before
+
+Two from before, by hand: a square root from unit 1, and a hypotenuse from trig-02.
+
+```item TR3F1
+prompt: Work out √(1 − 0.36).
+topics: square-root
+answer: type
+calculator: no
+slip: TR3F1A | took the root of 0.36 first | Work out under the root first: 1 − 0.36 is 0.64, and √0.64 is 0.8.
+```
+
+```item TR3F2
+prompt: A right triangle's two shorter sides are 9 and 12. How long is its hypotenuse?
+topics: pythagoras
+answer: type
+calculator: no
+slip: TR3F2A | added the sides | Square, add, then take the root: 81 + 144 is 225, and √225 is 15.
+```
+
 ## Before you start
 
 The setup from trig-01: the mode you chose, FIX 4, and degrees. Every example starts fresh.
@@ -161,3 +181,40 @@ X shows <disp v="E01">120.0000</disp>. The other is cosine's mirror, 360 − 120
 
 X shows <disp v="E02">-0.5000</disp>. The two angles are 120 and 240 degrees. (180 − 120 = 60 would be
 sine's mirror, and cos 60° is +0.5, not −0.5.)
+
+## Mixed review
+
+Four from this lesson and the ones before it, in no order. Work each by hand unless it says to use
+the calculator.
+
+```item TR3M1
+prompt: cos θ = 0.6. What is sin²θ?
+topics: pythagorean-identity
+answer: type
+calculator: no
+slip: TR3M1A | did not square the cosine | cos²θ + sin²θ = 1, so sin²θ is 1 − 0.6², which is 1 − 0.36.
+```
+
+```item TR3M2
+prompt: Work out 2 × 0.5² + 1.
+topics: powers-first
+answer: type
+calculator: no
+slip: TR3M2A | squared 2 × 0.5 | The power belongs to the 0.5 alone: 0.25, then 2 × 0.25 + 1.
+```
+
+```item TR3M3
+prompt: 390° points the same way as which angle from 0° to 360°?
+topics: full-turn
+answer: type
+calculator: no
+slip: TR3M3A | added a turn | A full turn, 360°, brings you back: take it away, 390 − 360.
+```
+
+```item TR3M4
+prompt: A right triangle has sides 9, 12 and hypotenuse 15. The side 9 is beside angle A. What is cos A?
+topics: trig-ratios
+answer: type
+calculator: no
+slip: TR3M4A | the sine | Cosine is adjacent over hypotenuse: 9 ÷ 15. 12 ÷ 15 is the sine.
+```

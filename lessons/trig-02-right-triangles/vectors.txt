@@ -9,3 +9,22 @@ A03 | and from tan = 3/4 | MODE33 FIX4 DEG 3 ENTER 4 / ATAN | X=36.8698976458440
 E01 | exercise 1: a ramp rising 1 m over 12 m: its angle, ATAN(1/12) | MODE33 FIX4 DEG 1 ENTER 12 / ATAN | X=4.76364169072617758132732763350963
 E02 | exercise 2: a 2.5 m ladder, foot 0.7 m out: its angle, ACOS(0.7/2.5) | MODE33 FIX4 DEG 0.7 ENTER 2.5 / ACOS | X=73.73979529168804259371122511818682
 E02B | continues E02: its height, 2.5 sin of that angle | MODE33 FIX4 DEG 0.7 ENTER 2.5 / ACOS SIN 2.5 * | X=2.4
+# From before and Mixed review (decision 76): each answer typed, its working (W, abacus #6439), and the slips'.
+TR2F1 | from before: the arc for radius 5 and 0.4 radians, the answer typed | MODE33 FIX4 2 | X=2
+TR2F1W | its working | MODE33 FIX4 5 ENTER 0.4 * | X=2
+TR2F1A | slip: 5 + 0.4 | MODE33 FIX4 5 ENTER 0.4 + | X=5.4
+TR2F2 | from before: 6/10 ÷ 2/10, the answer typed | MODE33 FIX4 3 | X=3
+TR2F2W | its working | MODE33 FIX4 6 ENTER 10 / 2 ENTER 10 / / | X=3
+TR2F2A | slip: 0.6 × 0.2 | MODE33 FIX4 0.6 ENTER 0.2 * | X=0.12
+TR2M1 | mixed review: the hypotenuse for 6 and 8, typed | MODE33 FIX4 10 | X=10
+TR2M1W | its working | MODE33 FIX4 6 SQ 8 SQ + SQRT | X=10
+TR2M1A | slip: 6 + 8 | MODE33 FIX4 6 ENTER 8 + | X=14
+TR2M2 | mixed review: 90° as a multiple of π, typed | MODE33 FIX4 0.5 | X=0.5
+TR2M2W | its working | MODE33 FIX4 90 ENTER 180 / | X=0.5
+TR2M2A | slip: 180 ÷ 90 | MODE33 FIX4 180 ENTER 90 / | X=2
+TR2M3 | mixed review: sin A as 7 ÷ 25, typed | MODE33 FIX4 0.28 | X=0.28
+TR2M3W | its working | MODE33 FIX4 7 ENTER 25 / | X=0.28
+TR2M3A | slip: the cosine, 24 ÷ 25 | MODE33 FIX4 24 ENTER 25 / | X=0.96
+TR2M4 | mixed review: the angle for arc 12 and radius 4, typed | MODE33 FIX4 3 | X=3
+TR2M4W | its working | MODE33 FIX4 12 ENTER 4 / | X=3
+TR2M4A | slip: 12 × 4 | MODE33 FIX4 12 ENTER 4 * | X=48

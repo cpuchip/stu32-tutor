@@ -17,6 +17,26 @@ The calculator's sine and the other angle functions read angles in whichever uni
 wrong unit gives a wrong answer with no warning. This lesson sets the unit, sees what it changes,
 and converts between the two.
 
+## From before
+
+Two from num-02, by hand: fractions, which radians are full of.
+
+```item TR1F1
+prompt: Work out 1/2 + 1/4, as a decimal.
+topics: fraction-arithmetic
+answer: type
+calculator: no
+slip: TR1F1A | added the tops over the larger bottom | Give them one bottom: 1/2 is 2/4, and 2/4 + 1/4 is 3/4.
+```
+
+```item TR1F2
+prompt: Work out 3/5 × 10.
+topics: fraction-arithmetic
+answer: type
+calculator: no
+slip: TR1F2A | multiplied the bottom | 10 multiplies the top: 3 × 10 is 30, over 5.
+```
+
 ## Before you start
 
 The setup from rpn-01, the mode you chose and FIX 4, and one thing more: the angle unit. ∡MODE is
@@ -131,3 +151,41 @@ than one radian.
    ```
 
    X shows <disp v="E03">0.7071</disp>.
+
+## Mixed review
+
+Four from this lesson and the ones before it, in no order. Work each by hand unless it says to use
+the calculator.
+
+```item TR1M1
+prompt: A circle has radius 3. How long is the arc for an angle of 2 radians?
+topics: arc-length
+answer: type
+calculator: no
+slip: TR1M1A | added them | Arc length is the radius times the angle in radians: 3 × 2.
+```
+
+```item TR1M2
+prompt: Work out 1/4 + 3/8, as a decimal.
+topics: fraction-arithmetic
+answer: type
+calculator: no
+slip: TR1M2A | added the tops over the larger bottom | Give them one bottom: 1/4 is 2/8, and 2/8 + 3/8 is 5/8.
+```
+
+```item TR1M3
+prompt: Half a turn is π radians. How many degrees is that?
+topics: pi-radians
+answer: type
+calculator: no
+working: none
+slip: TR1M3A | a full turn | A full turn is 360 degrees, and π radians is half of it.
+```
+
+```item TR1M4
+prompt: Write the mixed number 1 2/5 as a decimal.
+topics: type-fraction
+answer: type
+calculator: no
+slip: TR1M4A | read 1 2/5 as 12/5 | 1 2/5 is one and two fifths: 1 + 0.4.
+```

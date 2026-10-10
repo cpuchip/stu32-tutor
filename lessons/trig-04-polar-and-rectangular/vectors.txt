@@ -19,3 +19,25 @@ CP7B1 | slip: the cosine | MODE33 FIX4 8 ENTER 10 / | X=0.8
 CP7B2 | slip: the tangent | MODE33 FIX4 6 ENTER 8 / | X=0.75
 CP7C | checkpoint, unit 7: the answer typed | MODE33 FIX4 0 | X=0
 CP7C1 | slip: r itself | MODE33 FIX4 2 | X=2
+# From before and Mixed review (decision 76): each answer typed, its working (W, abacus #6439), and the slips'.
+TR4F1 | from before: −90° plus a turn, the answer typed | MODE33 FIX4 270 | X=270
+TR4F1W | its working | MODE33 FIX4 90 CHS ENTER 360 + | X=270
+TR4F1A | slip: dropped the minus | MODE33 FIX4 90 | X=90
+TR4F2 | from before: 5² − 3², the answer typed | MODE33 FIX4 16 | X=16
+TR4F2W | its working | MODE33 FIX4 5 SQ 3 SQ - | X=16
+TR4F2A | slip: (5 − 3)² | MODE33 FIX4 5 ENTER 3 - SQ | X=4
+TR4M1 | mixed review: r for (6, 8), typed | MODE33 FIX4 10 | X=10
+TR4M1W | its working | MODE33 FIX4 6 SQ 8 SQ + SQRT | X=10
+TR4M1A | slip: 6 + 8 | MODE33 FIX4 6 ENTER 8 + | X=14
+TR4M2 | mixed review: π/3 in degrees, typed | MODE33 FIX4 60 | X=60
+TR4M2W | its working | MODE33 FIX4 180 ENTER 3 / | X=60
+TR4M2A | slip: 180 × 3 | MODE33 FIX4 180 ENTER 3 * | X=540
+TR4M3 | mixed review: x for r = 4 at 180°, typed | MODE33 FIX4 4 CHS | X=-4
+TR4M3W | its working: 4 × cos 180°, with cos 180° = −1 | MODE33 FIX4 4 ENTER 1 CHS * | X=-4
+TR4M3A | slip: lost the sign | MODE33 FIX4 4 | X=4
+TR4M4 | mixed review: cos²θ for sin θ = 0.8, typed | MODE33 FIX4 0.36 | X=0.36
+TR4M4W | its working | MODE33 FIX4 1 ENTER 0.8 SQ - | X=0.36
+TR4M4A | slip: 1 − 0.8 | MODE33 FIX4 1 ENTER 0.8 - | X=0.2
+# The checkpoint's working (abacus #6439): each computed answer made by the core; CP7C is recalled.
+CP7AW | CP7A's working: √(5² + 12²) | MODE33 FIX4 5 SQ 12 SQ + SQRT | X=13
+CP7BW | CP7B's working: 6 ÷ 10 | MODE33 FIX4 6 ENTER 10 / | X=0.6

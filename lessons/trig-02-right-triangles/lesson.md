@@ -36,6 +36,26 @@ scaled copy of the other: every side twice as long, say, and each ratio the same
 can work them out for any angle, on SIN, COS and TAN, and give any side from one other side and an
 angle, or an angle from two sides.
 
+## From before
+
+Two from before, by hand: an arc from trig-01, and fractions from unit 1.
+
+```item TR2F1
+prompt: A circle has radius 5. How long is the arc for an angle of 0.4 radians?
+topics: arc-length
+answer: type
+calculator: no
+slip: TR2F1A | added them | Arc length is the radius times the angle in radians: 5 × 0.4.
+```
+
+```item TR2F2
+prompt: Work out 6/10 ÷ 2/10.
+topics: fraction-arithmetic
+answer: type
+calculator: no
+slip: TR2F2A | multiplied instead | Dividing asks how many 2/10s make 6/10: three.
+```
+
 ## Before you start
 
 The setup from trig-01: the mode you chose, FIX 4, and degrees. Every example starts fresh, except
@@ -137,3 +157,40 @@ those two.
    ```
 
    X shows <disp v="E02B">2.4000</disp> m. (Check with 0.7² + 2.4² = 2.5².)
+
+## Mixed review
+
+Four from this lesson and the ones before it, in no order. Work each by hand unless it says to use
+the calculator.
+
+```item TR2M1
+prompt: A right triangle's two shorter sides are 6 and 8. How long is its hypotenuse?
+topics: pythagoras
+answer: type
+calculator: no
+slip: TR2M1A | added the sides | Square, add, then take the root: 36 + 64 is 100, and √100 is 10.
+```
+
+```item TR2M2
+prompt: 90° is k × π radians. What is k?
+topics: convert-angle
+answer: type
+calculator: no
+slip: TR2M2A | divided the wrong way | π radians is 180°, so 90° is 90 ÷ 180 of π.
+```
+
+```item TR2M3
+prompt: In a right triangle with sides 7, 24 and hypotenuse 25, the side opposite angle A is 7. What is sin A?
+topics: trig-ratios
+answer: type
+calculator: no
+slip: TR2M3A | the cosine | Sine is opposite over hypotenuse: 7 ÷ 25. 24 ÷ 25 is the cosine.
+```
+
+```item TR2M4
+prompt: An arc of 12 lies on a circle of radius 4. What is its angle in radians?
+topics: arc-length
+answer: type
+calculator: no
+slip: TR2M4A | multiplied | The angle is the arc divided by the radius: 12 ÷ 4.
+```

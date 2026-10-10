@@ -9,3 +9,21 @@ S01 | arc length: 60 degrees on radius 10: 60 to radians times 10 | MODE33 FIX4 
 E01 | exercise 1: 45 degrees to radians | MODE33 FIX4 DEG 45 TORAD | X=0.7853981633974483096156608458198757
 E02 | exercise 2: 2 radians to degrees | MODE33 FIX4 DEG 2 TODEG | X=114.5915590261646417535963096282103
 E03 | exercise 3: DEG: sin 45 degrees | MODE33 FIX4 DEG DEG 45 SIN | X=0.707106781186547524400844362104849
+# From before and Mixed review (decision 76): each answer typed, its working (W, abacus #6439), and the slips'.
+TR1F1 | from before: 1/2 + 1/4, the answer typed | MODE33 FIX4 0.75 | X=0.75
+TR1F1W | its working | MODE33 FIX4 1 ENTER 2 / 1 ENTER 4 / + | X=0.75
+TR1F1A | slip: 2/4 | MODE33 FIX4 2 ENTER 4 / | X=0.5
+TR1F2 | from before: 3/5 × 10, the answer typed | MODE33 FIX4 6 | X=6
+TR1F2W | its working | MODE33 FIX4 3 ENTER 5 / 10 * | X=6
+TR1F2A | slip: 3/50 | MODE33 FIX4 3 ENTER 50 / | X=0.06
+TR1M1 | mixed review: the arc for radius 3 and 2 radians, typed | MODE33 FIX4 6 | X=6
+TR1M1W | its working | MODE33 FIX4 3 ENTER 2 * | X=6
+TR1M1A | slip: 3 + 2 | MODE33 FIX4 3 ENTER 2 + | X=5
+TR1M2 | mixed review: 1/4 + 3/8, typed | MODE33 FIX4 0.625 | X=0.625
+TR1M2W | its working | MODE33 FIX4 1 ENTER 4 / 3 ENTER 8 / + | X=0.625
+TR1M2A | slip: 4/8 | MODE33 FIX4 4 ENTER 8 / | X=0.5
+TR1M3 | mixed review: π radians in degrees, recalled, typed | MODE33 FIX4 180 | X=180
+TR1M3A | slip: a full turn | MODE33 FIX4 360 | X=360
+TR1M4 | mixed review: 1 2/5, typed | MODE33 FIX4 1.4 | X=1.4
+TR1M4W | its working | MODE33 FIX4 2 ENTER 5 / 1 + | X=1.4
+TR1M4A | slip: 12/5 | MODE33 FIX4 12 ENTER 5 / | X=2.4
