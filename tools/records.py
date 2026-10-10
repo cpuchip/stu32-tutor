@@ -17,6 +17,11 @@ THE VERDICT follows from those two comparisons and nothing else:
   CALC      core != mpmath, whatever the book says: a calculator bug or a wrong record; it goes to abacus and soroban
   FLAGGED   printed != core = mpmath: our extraction error or the book's erratum. A person decides which, and writes
             "resolution": {"cause": "extraction" | "erratum", "by": ..., "note": ...}. It is never dropped.
+THE KEYS ARE THE PROBLEM'S OWN WORKING (abacus #5513, held for lessons; #pd-books #5962): every number the keys type
+comes from the problem (its text, problem_latex, problem_expr(s), values) or from how.constants, each with its source
+(a number from the working, such as the 1 in (1 + ln 3)/3, is a constant whose source names the step); and the printed
+answer is never typed as a literal unless it is itself a given. Keys that type the answer reproduce it and prove
+nothing, so such a record is refused, whatever its verdict.
 WHAT THIS CANNOT CATCH: the mpmath expression is written separately from the STU-32 keys, but by the same extractor,
 reading the same problem. A misreading of the problem can therefore hide in both, and the two will agree with each
 other and with nothing in the book. That is what FLAGGED and the human spot-check against a printed copy are for:
@@ -30,7 +35,11 @@ A RECORD (fields; "?" optional):
   printed_answer         the book's answer, verbatim
   printed_value          {kind: integer | decimal | fraction | symbolic, text}: the answer as a value; for a fraction
                          "p/q" or "a b/c"; for symbolic, in Casimir's notation
-  how                    {kind: keys, mode, entry?, angle?, fix?, steps: [...]} or {kind: casim, op, args: [...]}
+  how                    {kind: keys, mode, entry?, angle?, fix?, steps: [...], constants?: [{value, source}]} or
+                         {kind: casim, op, args: [...]}
+  problem_latex?, problem_expr?, problem_exprs?, values?
+                         the problem as printed (LaTeX), as SymPy, and its givens ({symbol: value as printed}): the
+                         numbers the keys may type, beside the problem's text
   core                   {status: "OK", value, display?, pins}: stu32-calc's answer. value is exact text (the stack's
                          X, or Casimir's text); pins as the call returned them
   core.equiv?            symbolic only: {op: "simplify", text: "(printed)-(core)", result}: Casimir's own check that
@@ -43,6 +52,7 @@ A RECORD (fields; "?" optional):
   resolution?            for FLAGGED, as above
 """
 import json
+import re
 import sys
 from decimal import ROUND_HALF_EVEN, ROUND_HALF_UP, Context, Decimal, InvalidOperation
 from fractions import Fraction
@@ -104,6 +114,60 @@ def printed_matches(pv, core_value):
         ("" if ups == evens else f" (half up {ups})")
 
 
+NUMBER = re.compile(r"\d*\.?\d+")
+SETTING = {"FIX", "SCI", "ENG", "ALL"}      # the number after one of these is a display setting, not a value
+
+
+def numbers_in(text):
+    """The numbers written in a text, as Decimals (4.50 and 4.5 are one number)."""
+    out = set()
+    for m in NUMBER.findall(str(text)):
+        try:
+            out.add(Decimal(m).normalize())
+        except InvalidOperation:
+            pass
+    return out
+
+
+def keyed_numbers(steps):
+    """(number, step) for each number typed in the steps: a token of digits and points ("4.5", ".5", "2.3.8",
+    a 33s fraction, gives each part), the number after FIX, SCI, ENG or ALL left out."""
+    out = []
+    for step in steps:
+        toks = step.split("\t")[-1].split()
+        for i, tok in enumerate(toks):
+            if i and toks[i - 1] in SETTING:
+                continue
+            if re.fullmatch(r"[\d.]+", tok) and any(c.isdigit() for c in tok):
+                parts = tok.split(".") if tok.count(".") > 1 else [tok]
+                out += [(Decimal(p).normalize(), step) for p in parts if p]
+    return out
+
+
+def own_working(rec):
+    """The keys must be the problem's own working (abacus #5513, for lessons; #pd-books #5962): every number keyed
+    comes from the problem (its text, problem_latex, problem_expr(s), values) or from how.constants, each with its
+    source; and the printed answer is never keyed as a literal, unless it is itself a given."""
+    bad = []
+    givens = numbers_in(rec.get("problem", "")) | numbers_in(rec.get("problem_latex", ""))
+    for f in ("problem_expr", "problem_exprs"):
+        givens |= numbers_in(json.dumps(rec.get(f, "")))
+    givens |= numbers_in(json.dumps(rec.get("values", {})))
+    consts = rec["how"].get("constants", [])
+    for c in consts:
+        if not str(c.get("source", "")).strip():
+            bad.append(f"how.constants: {c.get('value')!r} has no source")
+    allowed = givens | {n for c in consts for n in numbers_in(c.get("value", ""))}
+    answer = numbers_in(rec["printed_value"].get("text", "")) if rec["printed_value"].get("kind") != "symbolic" else set()
+    for n, step in keyed_numbers(rec["how"].get("steps", [])):
+        if n in answer and n not in givens:
+            bad.append(f"keys type the printed answer's {n} ({step!r}): the keys must work it, not type it")
+        elif n not in allowed:
+            bad.append(f"keys type {n} ({step!r}), which is not in the problem: give it in how.constants with its "
+                       f"source, or work it")
+    return bad
+
+
 def check(rec, seen):
     """(problems, the verdict the values give)."""
     bad = []
@@ -135,6 +199,8 @@ def check(rec, seen):
         bad.append("mpmath.version is empty")
     if not isinstance(mp.get("dps"), int) or mp["dps"] < 40:
         bad.append("mpmath.dps is below 40")
+    if rec["how"].get("kind") == "keys":
+        bad += own_working(rec)
     if bad:
         return bad, None
 
