@@ -19,3 +19,16 @@ E01E | continues: d(2) | MODE33 FIX4 EQN RCL:X POW 3 - 3 * RCL:X + 1 ENTER XEQ 2
 E02 | continues: guesses -2 and -1: a root within 1E-30 of the true one | MODE33 FIX4 EQN RCL:X POW 3 - 3 * RCL:X + 1 ENTER XEQ 2 CHS RS EQN XEQ 1 CHS RS EQN XEQ 0 RS EQN XEQ 1 RS EQN XEQ 2 RS 2 CHS STO:X 1 CHS EQN SOLVE:X | X=-1.879385241571816768108218554649463 @X=-1.879385241571816768108218554649463
 E03 | continues: guesses 0 and 1: a root within 1E-30 of the true one | MODE33 FIX4 EQN RCL:X POW 3 - 3 * RCL:X + 1 ENTER XEQ 2 CHS RS EQN XEQ 1 CHS RS EQN XEQ 0 RS EQN XEQ 1 RS EQN XEQ 2 RS 2 CHS STO:X 1 CHS EQN SOLVE:X 0 STO:X 1 EQN SOLVE:X | X=0.3472963553338606977034332535386298 @X=0.3472963553338606977034332535386298
 E04 | continues: guesses 1 and 2: a root within 1E-30 of the true one | MODE33 FIX4 EQN RCL:X POW 3 - 3 * RCL:X + 1 ENTER XEQ 2 CHS RS EQN XEQ 1 CHS RS EQN XEQ 0 RS EQN XEQ 1 RS EQN XEQ 2 RS 2 CHS STO:X 1 CHS EQN SOLVE:X 0 STO:X 1 EQN SOLVE:X 1 STO:X 2 EQN SOLVE:X | X=1.532088886237956070404785301110833 @X=1.532088886237956070404785301110833
+# From before and Mixed review (decision 76, the pilot): the answers typed, and the slips' own working.
+P2F1 | from before: 3 × 2² − 5, the answer typed | MODE33 FIX4 7 | X=7
+P2F1A | slip: (3 × 2)² − 5 | MODE33 FIX4 3 ENTER 2 * 2 POW 5 - | X=31
+P2F2 | from before: −2² + 5, the answer typed | MODE33 FIX4 1 | X=1
+P2F2A | slip: (−2)² + 5, squared with x² as num-01 does (yˣ refuses a negative base) | MODE33 FIX4 2 CHS SQ 5 + | X=9
+P2M1 | mixed review: the most roots of degree 4, typed | MODE33 FIX4 4 | X=4
+P2M1A | slip: one less than the degree | MODE33 FIX4 4 ENTER 1 - | X=3
+P2M2 | mixed review: p(2.5) for x³ − 2x, typed | MODE33 FIX4 10.625 | X=10.625
+P2M2A | slip: 2.5 × 3 − 2 × 2.5 | MODE33 FIX4 2.5 ENTER 3 * 2 ENTER 2.5 * - | X=2.5
+P2M3 | mixed review: at least one root in a sign change, typed | MODE33 FIX4 1 | X=1
+P2M3A | slip: none | MODE33 FIX4 0 | X=0
+P2M4 | mixed review: the degree of 4x² − x⁵ + 7, typed | MODE33 FIX4 5 | X=5
+P2M4A | slip: the first power written | MODE33 FIX4 2 | X=2

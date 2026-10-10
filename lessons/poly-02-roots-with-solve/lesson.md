@@ -17,6 +17,27 @@ c(x) = x³ − 6x² + 11x − 6
 with SOLVE from eq-01. SOLVE finds one root at a time, usually the one near the two guesses you give
 it (eq-03). So the work is in deciding where to look, and in knowing when you have found them all.
 
+## From before
+
+Two from num-01, by hand, before the calculator comes out. Working out a polynomial at a number is
+this kind of arithmetic.
+
+```item P2F1
+prompt: Work out 3 × 2² − 5.
+topics: powers-first
+answer: type
+calculator: no
+slip: P2F1A | squared 3 × 2 | The power belongs to the 2 alone: 2² is 4, then 3 × 4 is 12.
+```
+
+```item P2F2
+prompt: Work out −2² + 5.
+topics: minus-and-power
+answer: type
+calculator: no
+slip: P2F2A | squared −2 | −2² is the negative of 2², so −4. Only (−2)² is 4.
+```
+
 ## Before you start
 
 The setup from rpn-01: the mode you chose and FIX 4. The examples about c are one chain, each carrying on from
@@ -200,3 +221,40 @@ The X line shows <disp v="E03" kind="view">X=0.3473</disp>.
 
 The X line shows <disp v="E04" kind="view">X=1.5321</disp>. None of d's roots is a whole number or a
 simple fraction, which is why trying whole numbers found only the gaps, and SOLVE found the roots.
+
+## Mixed review
+
+Four from this lesson and the ones before it, in no order. Work each by hand unless it says to use
+the calculator.
+
+```item P2M1
+prompt: At most how many roots can a polynomial of degree 4 have?
+topics: root-count
+answer: type
+calculator: no
+slip: P2M1A | one less than the degree | Each root r gives a factor x − r, and four factors use up degree 4: four at most.
+```
+
+```item P2M2
+prompt: p(x) = x³ − 2x. Work out p(2.5) with XEQ.
+topics: xeq-check
+answer: type
+calculator: yes
+slip: P2M2A | 2.5 × 3, not 2.5³ | x³ is x × x × x. In Equation mode it is yˣ 3, not × 3.
+```
+
+```item P2M3
+prompt: A polynomial q has q(1) = −2 and q(2) = 3. At least how many roots does q have between 1 and 2?
+topics: sign-change
+answer: type
+calculator: no
+slip: P2M3A | none | The graph is one unbroken curve. To go from below the x axis to above it, it must cross.
+```
+
+```item P2M4
+prompt: What is the degree of 4x² − x⁵ + 7?
+topics: polynomial
+answer: type
+calculator: no
+slip: P2M4A | the first power written | The degree is the highest power, wherever it sits: here x⁵.
+```
