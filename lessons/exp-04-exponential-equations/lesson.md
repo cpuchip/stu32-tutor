@@ -15,6 +15,26 @@ x = ln(3x), with x still on both sides, and no rearranging with the functions on
 gets it out. SOLVE, from eq-01 and poly-02, does not need it out: it searches for the x that makes the two
 sides equal. This lesson uses it on exponential equations.
 
+## From before
+
+Two from before, by hand: a logarithm from exp-03, and one from unit 1.
+
+```item EX4F1
+prompt: Solve 10ˣ = 100,000.
+topics: log-solve
+answer: type
+calculator: no
+slip: EX4F1A | divided by 10 | 10ˣ = 100,000 asks what power of 10 it is: count the zeros.
+```
+
+```item EX4F2
+prompt: Work out 3 × 2⁴ − 40.
+topics: powers-first
+answer: type
+calculator: no
+slip: EX4F2A | raised 3 × 2 to the 4th | The power belongs to the 2 alone: 2⁴ is 16, then 3 × 16 − 40.
+```
+
 ## Before you start
 
 The setup from rpn-01: the mode you chose and FIX 4. The examples about eˣ = 3x are one chain, each
@@ -141,6 +161,45 @@ The X line shows <disp v="E02" kind="view">X=-2.8625</disp>.
 ```
 
 The X line shows <disp v="E03" kind="view">X=2.4449</disp>.
+
+## Mixed review
+
+Four from this lesson and the ones before it, in no order. Work each by hand unless it says to use
+the calculator.
+
+```item EX4M1
+prompt: At most how many times can a straight line meet the curve y = eˣ?
+topics: line-meets-curve
+answer: type
+calculator: no
+working: none
+slip: EX4M1A | once | The curve bends one way, so a line can cut it twice, going in and coming out.
+```
+
+```item EX4M2
+prompt: Nested, 3x² + 2x − 1 is (3x + 2)x − 1. Work it out at x = 2, from the inside.
+topics: horner
+answer: type
+calculator: no
+slip: EX4M2A | dropped the brackets | From the inside: 3 × 2 + 2 is 8, then 8 × 2 − 1.
+```
+
+```item EX4M3
+prompt: The logarithms give n = 17.67 for 1.04ⁿ = 2, to 2 decimals. What does SOLVE give, to 2 decimals?
+topics: solve-vs-log
+answer: type
+calculator: no
+working: none
+slip: EX4M3A | a different number | SOLVE and the logarithms answer the same equation, so they agree.
+```
+
+```item EX4M4
+prompt: What is 4% of 2500?
+topics: percent
+answer: type
+calculator: no
+slip: EX4M4A | forgot the hundredth | 4% means 4 hundredths: 0.04 × 2500.
+```
 
 ## Checkpoint
 

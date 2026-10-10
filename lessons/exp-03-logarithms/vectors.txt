@@ -19,3 +19,21 @@ E01B | continues E01: 1.04^28, short of 3 | MODE33 FIX4 3 LN 1.04 LN / 1.04 ENTE
 E01C | continues E01B: 1.04^29, past 3 | MODE33 FIX4 3 LN 1.04 LN / 1.04 ENTER 28 POW 1.04 ENTER 29 POW | X=3.118651451949555811173733171597412
 E02 | exercise 2: losing 20% a day, half after ln 0.5 / ln 0.8 days | MODE33 FIX4 0.5 LN 0.8 LN / | X=3.106283719505389876002398491783575
 E03 | exercise 3: continuous 3%: doubling time ln 2 / 0.03 | MODE33 FIX4 2 LN 0.03 / | X=23.10490601866484364724107071527255
+# From before and Mixed review (decision 76): each answer typed, its working (W, abacus #6439), and the slips'.
+EX3F1 | from before: 10⁻², the answer typed | MODE33 FIX4 0.01 | X=0.01
+EX3F1W | its working | MODE33 FIX4 10 ENTER 2 CHS POW | X=0.01
+EX3F1A | slip: −100 | MODE33 FIX4 100 CHS | X=-100
+EX3F2 | from before: 100 × 1.1², the answer typed | MODE33 FIX4 121 | X=121
+EX3F2W | its working | MODE33 FIX4 100 ENTER 1.1 ENTER 2 POW * | X=121
+EX3F2A | slip: 100 + 10 + 10 | MODE33 FIX4 100 ENTER 20 + | X=120
+EX3M1 | mixed review: log 1000, typed | MODE33 FIX4 3 | X=3
+EX3M1W | its working | MODE33 FIX4 1000 LOG | X=3
+EX3M1A | slip: 1000 ÷ 10 | MODE33 FIX4 1000 ENTER 10 / | X=100
+EX3M2 | mixed review: 400 to 300 as a percent change, typed | MODE33 FIX4 25 CHS | X=-25
+EX3M2W | its working | MODE33 FIX4 300 ENTER 400 - 400 / 100 * | X=-25
+EX3M2A | slip: lost the sign | MODE33 FIX4 25 | X=25
+EX3M3 | mixed review: log x needs x > 0, recalled, typed | MODE33 FIX4 0 | X=0
+EX3M3A | slip: 1 | MODE33 FIX4 1 | X=1
+EX3M4 | mixed review: 1 + 0.12 ÷ 12, typed | MODE33 FIX4 1.01 | X=1.01
+EX3M4W | its working | MODE33 FIX4 0.12 ENTER 12 / 1 + | X=1.01
+EX3M4A | slip: the year's factor | MODE33 FIX4 1.12 | X=1.12

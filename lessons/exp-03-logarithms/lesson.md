@@ -13,6 +13,26 @@ exp-01 and exp-02 worked out an amount after a given time. The opposite question
 common: how long until an amount doubles, or halves? The time is the power in a × bⁿ, so the
 question is "what power?", and the answer is a logarithm.
 
+## From before
+
+Two from before, by hand: a negative power from unit 1, and growth from exp-01.
+
+```item EX3F1
+prompt: Work out 10⁻².
+topics: neg-frac-powers
+answer: type
+calculator: no
+slip: EX3F1A | made it negative | A negative power means one over: 10⁻² is 1 ÷ 10², which is 0.01.
+```
+
+```item EX3F2
+prompt: 100 grows by 10% a year. How much after 2 years?
+topics: growth
+answer: type
+calculator: no
+slip: EX3F2A | added 10 each year | The second year's 10% is of 110: the factor 1.1, twice.
+```
+
 ## Before you start
 
 The setup from rpn-01: the mode you chose and FIX 4. Most examples start fresh; where one carries
@@ -199,3 +219,41 @@ partway through the twelfth year.
    ```
 
    X shows <disp v="E03">23.1049</disp> years.
+
+## Mixed review
+
+Four from this lesson and the ones before it, in no order. Work each by hand unless it says to use
+the calculator.
+
+```item EX3M1
+prompt: What is log 1000 (base 10)?
+topics: log
+answer: type
+calculator: no
+slip: EX3M1A | divided by 10 | log 1000 asks what power of 10 makes 1000: 10³.
+```
+
+```item EX3M2
+prompt: A town falls from 400 to 300 people. What is the percent change?
+topics: percent-change
+answer: type
+calculator: no
+slip: EX3M2A | lost the sign | It fell, so the change is negative: −100 ÷ 400, as a percent.
+```
+
+```item EX3M3
+prompt: log x is defined only for x greater than what number?
+topics: no-log
+answer: type
+calculator: no
+working: none
+slip: EX3M3A | 1 | Numbers between 0 and 1 have logarithms too (log 0.5 is negative). No power of 10 is 0 or below.
+```
+
+```item EX3M4
+prompt: Interest of 12% a year is paid as 1% each month. What factor is that each month?
+topics: compounding
+answer: type
+calculator: no
+slip: EX3M4A | the year's factor | Each month adds 12% ÷ 12, which is 1%: the factor is 1.01.
+```

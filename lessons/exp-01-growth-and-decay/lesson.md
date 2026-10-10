@@ -19,6 +19,27 @@ A factor above 1 makes growth, and a factor between 0 and 1 makes decay. The dou
 exponential, with a factor of 2, which is why a line described it so badly. This lesson works with
 exponential growth and decay, using yˣ from num-03.
 
+## From before
+
+Two from before, by hand: a percent from num-04, and a line from lin-01, which adds where this
+lesson multiplies.
+
+```item EX1F1
+prompt: What is 15% of 80?
+topics: percent
+answer: type
+calculator: no
+slip: EX1F1A | forgot the hundredth | 15% means 15 hundredths: 0.15 × 80.
+```
+
+```item EX1F2
+prompt: A line starts at 5 and adds 3 at every step. What is it after 4 steps?
+topics: linear-function
+answer: type
+calculator: no
+slip: EX1F2A | added before multiplying | Four steps of 3 is 3 × 4, which is 12. Then 5 + 12.
+```
+
 ## Before you start
 
 The setup from rpn-01: the mode you chose and FIX 4. Every example starts fresh, except where one says it
@@ -127,3 +148,40 @@ grows from a bigger amount than the first, so 10% a year is enough, 1200 to 1320
    ```
 
    X shows <disp v="E03">1.0500</disp>: 5% a year.
+
+## Mixed review
+
+Four from this lesson and the ones before it, in no order. Work each by hand unless it says to use
+the calculator.
+
+```item EX1M1
+prompt: 200 grows by a factor of 3 at each step. How much after 2 steps?
+topics: growth
+answer: type
+calculator: no
+slip: EX1M1A | multiplied by the number of steps | Each step multiplies by 3 again: 200 × 3 × 3.
+```
+
+```item EX1M2
+prompt: A price rises from 50 to 60. What is the percent change?
+topics: percent-change
+answer: type
+calculator: no
+slip: EX1M2A | gave the change, not the percent | The change, 10, is a share of where it started: 10 ÷ 50, as a percent.
+```
+
+```item EX1M3
+prompt: A half-life is 1 hour. Of 80 grams, how much is left after 3 hours?
+topics: decay
+answer: type
+calculator: no
+slip: EX1M3A | halved only once | Each hour halves it again: 80, 40, 20, 10.
+```
+
+```item EX1M4
+prompt: Work out 3 × 10⁴ × 2 × 10⁻² as a plain number.
+topics: e-arithmetic
+answer: type
+calculator: no
+slip: EX1M4A | multiplied the powers | Multiply the numbers and add the powers: 6 × 10², which is 600.
+```

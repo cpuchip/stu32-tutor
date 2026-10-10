@@ -8,3 +8,22 @@ R01 | 1200 to 1452 in two years: the yearly factor, the square root of 1452/1200
 E01 | exercise 1: 2000 at 3% a year for 25 years (1.03^25 rounded, then x 2000 rounded) | MODE33 FIX4 2000 ENTER 1.03 ENTER 25 POW * | X=4187.555859308429526297187681803752
 E02 | exercise 2: 18000 losing 15% a year for 4 years: factor 0.85 | MODE33 FIX4 18000 ENTER 0.85 ENTER 4 POW * | X=9396.1125
 E03 | exercise 3: 8000 to 9261 in 3 years: the cube root of 9261/8000 | MODE33 FIX4 9261 ENTER 8000 / 3 XROOT | X=1.05
+# From before and Mixed review (decision 76): each answer typed, its working (W, abacus #6439), and the slips'.
+EX1F1 | from before: 15% of 80, the answer typed | MODE33 FIX4 12 | X=12
+EX1F1W | its working | MODE33 FIX4 0.15 ENTER 80 * | X=12
+EX1F1A | slip: 15 × 80 | MODE33 FIX4 15 ENTER 80 * | X=1200
+EX1F2 | from before: 5 + 3 × 4, the answer typed | MODE33 FIX4 17 | X=17
+EX1F2W | its working | MODE33 FIX4 3 ENTER 4 * 5 + | X=17
+EX1F2A | slip: (5 + 3) × 4 | MODE33 FIX4 5 ENTER 3 + 4 * | X=32
+EX1M1 | mixed review: 200 × 3², typed | MODE33 FIX4 1800 | X=1800
+EX1M1W | its working | MODE33 FIX4 200 ENTER 3 ENTER 2 POW * | X=1800
+EX1M1A | slip: 200 × 3 × 2 | MODE33 FIX4 200 ENTER 3 * 2 * | X=1200
+EX1M2 | mixed review: 50 to 60 as a percent change, typed | MODE33 FIX4 20 | X=20
+EX1M2W | its working | MODE33 FIX4 60 ENTER 50 - 50 / 100 * | X=20
+EX1M2A | slip: the change itself | MODE33 FIX4 60 ENTER 50 - | X=10
+EX1M3 | mixed review: 80 × 0.5³, typed | MODE33 FIX4 10 | X=10
+EX1M3W | its working | MODE33 FIX4 80 ENTER 0.5 ENTER 3 POW * | X=10
+EX1M3A | slip: one halving | MODE33 FIX4 80 ENTER 2 / | X=40
+EX1M4 | mixed review: 3E4 × 2E-2, typed | MODE33 FIX4 600 | X=600
+EX1M4W | its working | MODE33 FIX4 3 ENTER 10 ENTER 4 POW * 2 * 10 ENTER 2 CHS POW * | X=600
+EX1M4A | slip: 6 × 10 to the power 4 × −2 | MODE33 FIX4 6 ENTER 10 ENTER 8 CHS POW * | X=0.00000006

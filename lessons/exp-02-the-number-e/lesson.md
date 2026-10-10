@@ -15,6 +15,26 @@ grows, but by less and less: the total gets closer and closer to a value it neve
 its limit. That limit brings in a number as important as π: e, about 2.7183. The eˣ key raises e to
 a power.
 
+## From before
+
+Two from before, by hand: growth from exp-01, and a percent from num-04.
+
+```item EX2F1
+prompt: 1000 grows by a factor of 1.06 each year. How much after 2 years?
+topics: growth
+answer: type
+calculator: no
+slip: EX2F1A | multiplied by the number of years | Each year multiplies by 1.06 again: 1000 × 1.06 × 1.06.
+```
+
+```item EX2F2
+prompt: What is 6% of 250?
+topics: percent
+answer: type
+calculator: no
+slip: EX2F2A | forgot the hundredth | 6% means 6 hundredths: 0.06 × 250.
+```
+
 ## Before you start
 
 The setup from rpn-01: the mode you chose and FIX 4. Every example starts fresh.
@@ -145,3 +165,41 @@ and continuous growth from an amount a is a × e^(r × t).
 
    X shows <disp v="E03">3,727.0817</disp>: between the yearly and the continuous amounts, and much
    nearer the continuous one.
+
+## Mixed review
+
+Four from this lesson and the ones before it, in no order. Work each by hand unless it says to use
+the calculator.
+
+```item EX2M1
+prompt: (2³)² is one power of 2. What is the power?
+topics: power-of-power
+answer: type
+calculator: no
+slip: EX2M1A | added the powers | A power of a power multiplies them: (2³)² is 2³ × 2³, which is 2⁶.
+```
+
+```item EX2M2
+prompt: An amount goes from 50 to 60 in one step. What is the factor?
+topics: find-factor
+answer: type
+calculator: no
+slip: EX2M2A | gave the difference | The factor is what 50 is multiplied by: 60 ÷ 50.
+```
+
+```item EX2M3
+prompt: What is e⁰?
+topics: e
+answer: type
+calculator: no
+working: none
+slip: EX2M3A | zero | Any number to the power 0 is 1, e too.
+```
+
+```item EX2M4
+prompt: A car loses 20% of its value each year. What factor is that each year?
+topics: decay
+answer: type
+calculator: no
+slip: EX2M4A | gave the share lost | What is kept is 100% − 20%, which is 80%: the factor is 0.8.
+```
