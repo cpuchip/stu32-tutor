@@ -24,3 +24,20 @@ E01B | continues E01: at 1.99 | MODE33 FIX4 2.01 SQ 4 - 2.01 ENTER 2 - / 1.99 SQ
 E02 | exercise 2: (2^x - 1)/x at 0.001 | MODE33 FIX4 2 ENTER 0.001 POW 1 - 0.001 / | X=0.693387462580632537568639303859
 E02B | continues E02: at 0.0001 | MODE33 FIX4 2 ENTER 0.001 POW 1 - 0.001 / 2 ENTER 0.0001 POW 1 - 0.0001 / | X=0.69317120376569192439912602643
 E02C | continues E02B: ln 2 | MODE33 FIX4 2 ENTER 0.001 POW 1 - 0.001 / 2 ENTER 0.0001 POW 1 - 0.0001 / 2 LN | X=0.6931471805599453094172321214581766
+# From before and Mixed review (decision 76): each answer typed, its working (W, abacus #6439), and the slips'.
+LM1F1 | from before: where 1 ÷ (3x − 6) is not defined, the answer typed | MODE33 FIX4 2 | X=2
+LM1F1W | its working: 3x − 6 = 0 | MODE33 FIX4 6 ENTER 3 / | X=2
+LM1F1A | slip: −6 ÷ 3 | MODE33 FIX4 6 CHS ENTER 3 / | X=-2
+LM1F2 | from before: (2² − 1) ÷ (2 − 1), the answer typed | MODE33 FIX4 3 | X=3
+LM1F2W | its working | MODE33 FIX4 2 SQ 1 - 2 ENTER 1 - / | X=3
+LM1F2A | slip: 2² − 1 ÷ 2 − 1 | MODE33 FIX4 2 SQ 1 ENTER 2 / - 1 - | X=2.5
+LM1M1 | mixed review: a limit read from both sides, typed | MODE33 FIX4 3 | X=3
+LM1M1A | slip: x itself | MODE33 FIX4 2 | X=2
+LM1M2 | mixed review: 9^(1/2) × 2⁻¹, typed | MODE33 FIX4 1.5 | X=1.5
+LM1M2W | its working | MODE33 FIX4 9 SQRT 2 INV * | X=1.5
+LM1M2A | slip: 3 × −2 | MODE33 FIX4 9 SQRT 2 CHS * | X=-6
+LM1M3 | mixed review: sin(x)/x at 0, recalled, typed | MODE33 FIX4 1 | X=1
+LM1M3A | slip: 0 | MODE33 FIX4 0 | X=0
+LM1M4 | mixed review: log 0.01, typed | MODE33 FIX4 2 CHS | X=-2
+LM1M4W | its working | MODE33 FIX4 0.01 LOG | X=-2
+LM1M4A | slip: lost the sign | MODE33 FIX4 2 | X=2

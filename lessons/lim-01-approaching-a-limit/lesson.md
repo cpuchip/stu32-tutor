@@ -17,6 +17,27 @@ If they can be made as near to one number as you like by taking x near enough to
 that number is the limit of f(x) as x approaches 1. This lesson finds limits by coming close, and
 shows two that do not exist.
 
+## From before
+
+Two from before, by hand: a gap in a domain from fn-03, and a fraction bar from unit 1. Both come
+back in this lesson.
+
+```item LM1F1
+prompt: For which x is 1 ÷ (3x − 6) not defined?
+topics: divide-by-zero
+answer: type
+calculator: no
+slip: LM1F1A | the sign turned | The bottom is 0 when 3x − 6 = 0: 3x = 6.
+```
+
+```item LM1F2
+prompt: Work out (2² − 1) ÷ (2 − 1).
+topics: fraction-bar
+answer: type
+calculator: no
+slip: LM1F2A | divided only the 1 | The whole top over the whole bottom: 3 ÷ 1.
+```
+
 ## Before you start
 
 The setup from rpn-01: the mode you chose and FIX 4. In each section the examples carry on from one
@@ -244,3 +265,42 @@ two different numbers, so there is no limit. This is why a limit is checked from
    ```
 
    X shows <disp v="E02C">0.6931</disp>: the values close in on it.
+
+## Mixed review
+
+Four from this lesson and the ones before it, in no order. Work each by hand unless it says to use
+the calculator.
+
+```item LM1M1
+prompt: f(1.9) = 2.9 and f(2.1) = 3.1, and nearer x give values ever nearer one number. What is the limit at 2?
+topics: limit-by-approach
+answer: type
+calculator: no
+working: none
+slip: LM1M1A | x itself | The limit is the number the values close in on, from both sides: 3.
+```
+
+```item LM1M2
+prompt: Work out 9^(1/2) × 2⁻¹.
+topics: neg-frac-powers
+answer: type
+calculator: no
+slip: LM1M2A | read 2⁻¹ as −2 | A negative power means one over: 2⁻¹ is 1 ÷ 2.
+```
+
+```item LM1M3
+prompt: sin(x) ÷ x, with x in radians, closes in on what as x approaches 0?
+topics: limit-numeric
+answer: type
+calculator: no
+working: none
+slip: LM1M3A | 0 | sin x and x both go to 0, but their ratio closes in on 1, as the table showed.
+```
+
+```item LM1M4
+prompt: What is log 0.01 (base 10)?
+topics: log
+answer: type
+calculator: no
+slip: LM1M4A | lost the sign | 0.01 is 10⁻², so its logarithm is −2.
+```

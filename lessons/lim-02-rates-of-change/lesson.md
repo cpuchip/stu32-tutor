@@ -15,6 +15,26 @@ is it going at one moment, at t = 1 exactly? A speed is distance over time, but 
 passes. This lesson answers the question with a limit (lim-01), and finds where the calculator's 34
 digits stop helping.
 
+## From before
+
+Two from before, by hand: a rise from lin-01, and one from unit 1.
+
+```item LM2F1
+prompt: y = 3x + 1. How much does y rise from x = 2 to x = 5?
+topics: linear-function
+answer: type
+calculator: no
+slip: LM2F1A | y at 5, not the rise | The rise is y at 5 minus y at 2: 16 − 7.
+```
+
+```item LM2F2
+prompt: Work out 2 × 3² − 2 × 1².
+topics: powers-first
+answer: type
+calculator: no
+slip: LM2F2A | squared the products | The powers belong to the 3 and the 1 alone: 18 − 2.
+```
+
 ## Before you start
 
 The setup from rpn-01: the mode you chose and FIX 4. From the program on, the examples are one chain
@@ -197,6 +217,44 @@ no smaller. Here 0.001 already suggested 4.
    ```
 
    X shows <disp v="E03">2.3333</disp>.
+
+## Mixed review
+
+Four from this lesson and the ones before it, in no order. Work each by hand unless it says to use
+the calculator.
+
+```item LM2M1
+prompt: d(t) = 2t². What is the average speed from t = 1 to t = 3?
+topics: average-rate
+answer: type
+calculator: no
+slip: LM2M1A | forgot to divide | The average rate is the change in d over the change in t: 16 ÷ 2.
+```
+
+```item LM2M2
+prompt: A speed goes from 40 to 50. What is the percent change?
+topics: percent-change
+answer: type
+calculator: no
+slip: LM2M2A | divided by the new speed | The change is a share of where it started: 10 ÷ 40.
+```
+
+```item LM2M3
+prompt: The averages of x² from 3 to 3.1, 3.01 and 3.001 are 6.1, 6.01 and 6.001. What do they close in on?
+topics: instant-rate
+answer: type
+calculator: no
+working: none
+slip: LM2M3A | the last average | Each is nearer 6, and none stops short of it: the rate at 3 is the limit, 6.
+```
+
+```item LM2M4
+prompt: What does (x³ − 1) ÷ (x − 1) close in on as x approaches 1?
+topics: limit
+answer: type
+calculator: no
+slip: LM2M4A | 0 ÷ 0 read as 0 | Top and bottom are both 0 at 1, so look nearby: x³ − 1 is (x − 1)(x² + x + 1), and x² + x + 1 at 1 is 3.
+```
 
 ## Checkpoint
 
