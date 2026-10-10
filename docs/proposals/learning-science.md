@@ -1,6 +1,7 @@
 # Learning science for the lessons (PROPOSAL, for Michael)
 
 **Status:** a proposal (abacus #6119); its citations were checked against the papers by abacus (#6138).
+Michael took all six choices (decision 76); the order is in [learning-science-plan.md](learning-science-plan.md).
 Nothing is built.
 
 **His words** (relayed verbatim by abacus #6119): "For the lessons are we using modern teaching techniques? I
@@ -22,7 +23,8 @@ into text with pdftotext and the sentence found in it. The sentences are kept in
 entry, with where each copy came from (`build/learning-science/evidence.md`, local).
 
 Where a paper could not be opened, this says so and gives no numbers from it:
-- **Sinha & Kapur (2021):** the publisher refused the fetch.
+- **Sinha & Kapur (2021):** the publisher refused the fetch at 518630b. An author-posted copy was opened later the
+  same day, after decision 76, and section 8 now quotes it.
 - **Bloom (1984):** the copy is a scan, so its text could not be read; only its title was.
 - **Kulik, Kulik & Bangert-Drowns (1990):** not found as an open copy.
 - **The expertise-reversal paper (Sweller, Ayres, Kalyuga & Chandler 2003):** not found as an open copy.
@@ -38,7 +40,7 @@ Where a paper could not be opened, this says so and gives no numbers from it:
 | Self-explanation | moderate overall; small to moderate in maths | "Why?" prompts after examples |
 | Feedback on errors | consistent for specific, elaborated feedback; timing depends on the task | already: slips and their hints |
 | Mastery learning | contested: weak on standardized measures | already: "done" means the checkpoint passed, as guidance |
-| Productive failure | not opened here | a question for Michael, not a recommendation |
+| Productive failure | moderate for concepts from grade 6 up; none for procedures; favours instruction first in grades 2 to 5 | one trial lesson at most (section 8) |
 
 ## 1. Interleaved practice: the strongest maths-specific evidence
 
@@ -241,14 +243,30 @@ item shows its working after the attempt, and a miss links back to the section t
 are mastery's two parts: a criterion, and correction. In both they guide, never lock. The evidence does not
 justify making them stricter.
 
-## 8. Productive failure: not recommended yet
+## 8. Productive failure: one trial lesson at most
 
-The meta-analysis by Sinha & Kapur (*Rev. Educ. Res.* 2021) compares problem solving before instruction with
-instruction first. It could not be opened (the publisher refused the fetch), so no claim from it is made here.
+At 518630b this section said the meta-analysis could not be opened and made no claim from it. It was opened later
+on 2026-10-10 (an author-posted copy), after decision 76 took this choice on that condition. The plan
+([learning-science-plan.md](learning-science-plan.md), step 7) carries the detail.
 
-It is named because it pulls the other way from section 4: a puzzle before the explanation, against an example
-before the problem. A puzzle-first opener in one conceptual lesson is possible, judged as the lesson's other
-items are, but the paper must be read first.
+**The evidence:** Sinha & Kapur (*Rev. Educ. Res.* 2021) report "a meta-analysis of 53 studies with 166
+comparisons that compared PS-I with I-PS design". PS-I is problem solving followed by instruction; I-PS is
+instruction first.
+- **Concepts and transfer:** "a significant, moderate effect in favor of PS-I (Hedge's g 0.36 [95% confidence
+  interval 0.20; 0.51])".
+- **Procedures:** "a nonsignificant effect (Hedge's g) of -0.03".
+
+**The limits:**
+- **Age:** "Contrasting trends were, however, observed for younger age learners (second to fifth graders) ... for
+  which effect sizes favored I-PS."
+- **What a page can't do:** the strongest predictors include group work and teacher dialogue, which a static page
+  has neither of.
+- **Narrow evidence:** "nearly 75% of all included comparisons" were in maths and physics.
+
+It pulls the other way from section 4: a puzzle before the explanation, against an example before the problem.
+One conceptual algebra lesson could open with a story problem whose likely attempts are its slips. Its teaching
+would then compare each attempt with the method. That is a trial no one could measure, since nothing about a
+learner is collected.
 
 ## The overviews, for the card
 
