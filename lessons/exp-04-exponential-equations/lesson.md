@@ -185,12 +185,11 @@ slip: EX4M2A | dropped the brackets | From the inside: 3 × 2 + 2 is 8, then 8 �
 ```
 
 ```item EX4M3
-prompt: The logarithms give n = 17.67 for 1.04ⁿ = 2, to 2 decimals. What does SOLVE give, to 2 decimals?
+prompt: Solve 1.04ⁿ = 2 with SOLVE, to 2 decimals.
 topics: solve-vs-log
 answer: type
-calculator: no
-working: none
-slip: EX4M3A | a different number | SOLVE and the logarithms answer the same equation, so they agree.
+calculator: yes
+slip: EX4M3A | growth taken as simple | Simple growth would add 0.04 each step and take 25. Here each step grows on the last, so it takes fewer.
 ```
 
 ```item EX4M4

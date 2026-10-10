@@ -35,8 +35,9 @@ EX4M1A | slip: once | MODE33 FIX4 1 | X=1
 EX4M2 | mixed review: (3x + 2)x − 1 at 2, typed | MODE33 FIX4 15 | X=15
 EX4M2W | its working, from the inside | MODE33 FIX4 3 ENTER 2 * 2 + 2 * 1 - | X=15
 EX4M2A | slip: 3 × 2 + 2 × 2 − 1 | MODE33 FIX4 3 ENTER 2 * 2 ENTER 2 * + 1 - | X=9
-EX4M3 | mixed review: SOLVE agrees with the logarithms, recalled, typed | MODE33 FIX4 17.67 | X=17.67
-EX4M3A | slip: a different number | MODE33 FIX4 17.68 | X=17.68
+EX4M3 | mixed review: 1.04^n = 2 to 2 decimals, typed (ln 2 ÷ ln 1.04 = 17.6729877, mpmath) | MODE33 FIX4 17.67 | X#17.67,0.005
+EX4M3W | its working, with SOLVE as the prompt says, from guesses 10 and 30 | MODE33 FIX4 EQN 1.04 POW RCL:N = 2 ENTER EQN 10 STO:N 30 EQN SOLVE:N | X#17.672987685129713171989648133629,1E-25
+EX4M3A | slip: simple growth, 1 ÷ 0.04 | MODE33 FIX4 1 ENTER 0.04 / | X=25
 EX4M4 | mixed review: 4% of 2500, typed | MODE33 FIX4 100 | X=100
 EX4M4W | its working | MODE33 FIX4 0.04 ENTER 2500 * | X=100
 EX4M4A | slip: 4 × 2500 | MODE33 FIX4 4 ENTER 2500 * | X=10000
