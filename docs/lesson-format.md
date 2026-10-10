@@ -213,6 +213,17 @@ lore, each lesson's appearances, and every cameo (a character outside their home
 home lesson the page links back to. Every name in lore/ is a stand-in until Michael rules on who
 designs the world.
 
+## Drawing tools
+
+A lesson that introduces a drawing tool names it in its front matter, as a space list:
+`tools: point straightedge ruler protractor`. The site adds each tool to the learner's drawing bar
+from that lesson on and never takes it away (stu32-primer's docs/proposals/2026-10-09-geometry-drawing.md).
+The tools are point, straightedge, compass, ruler and protractor (graph.py's TOOLS).
+
+A lesson that introduces no tool has no `tools:` line. graph.py (in `make check`) refuses a name not in
+the list, a tool named twice in one lesson, an empty line, and a tool named by two lessons: only the
+lesson that introduces a tool names it. `--json` gives each tool's lesson, and each lesson's tools.
+
 ## What `make check` proves
 
 For each lesson, in each mode it offers (and each entry, for a lesson that offers entries: every

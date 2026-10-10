@@ -350,6 +350,70 @@ def check_placement(placement_texts, graph):
     return bad
 
 
+# The drawing tools a lesson can introduce (primer's docs/proposals/2026-10-09-geometry-drawing.md, 7681ae4):
+# the site adds each to the learner's bar from its lesson on and never takes it away.
+TOOLS = ("point", "straightedge", "compass", "ruler", "protractor")
+
+
+def check_tools(lessons, graph):
+    """Problems, and graph["tools"] ({tool: the lesson that introduces it}) and each lesson's "tools". A
+    lesson that introduces drawing tools names them in its front matter, `tools: ruler protractor`, a space
+    list. Refused: a name not in TOOLS, a tool named twice in one lesson, and a tool named by two lessons:
+    only the lesson that introduces a tool names it (abacus #6095)."""
+    bad, intro = [], {}
+    for lid, (meta, _) in sorted(lessons.items()):
+        named = meta.get("tools", "").split()
+        if "tools" in meta and not named:
+            bad.append(f"{lid}: an empty tools: line (leave it out when the lesson introduces no tool)")
+        for t in sorted({t for t in named if named.count(t) > 1}):
+            bad.append(f"{lid}: tools: names '{t}' twice")
+        for t in dict.fromkeys(named):
+            if t not in TOOLS:
+                bad.append(f"{lid}: tools: '{t}' is not a drawing tool ({' '.join(TOOLS)})")
+            elif t in intro:
+                bad.append(f"tools: '{t}' is named by both {intro[t]} and {lid}; only the lesson that introduces it names it")
+            else:
+                intro[t] = lid
+        if lid in graph["lessons"]:
+            graph["lessons"][lid]["tools"] = list(dict.fromkeys(named))
+    graph["tools"] = {t: intro.get(t) for t in TOOLS}
+    return bad
+
+
+def selftest_tools(lessons, graph):
+    """Each planted tools: fault must be refused, and for its own reason."""
+    have = check_tools(lessons, json.loads(json.dumps(graph)))
+    if have:
+        print(f"FAIL the clean lessons are refused: {have[:2]}")
+        return False
+    g0 = json.loads(json.dumps(graph))
+    check_tools(lessons, g0)
+    owner = next(((t, l) for t, l in g0["tools"].items() if l), None)
+    other = sorted(l for l in lessons if l != (owner[1] if owner else None))[0]
+
+    def with_tools(lid, value):
+        meta, text = lessons[lid]
+        return {**lessons, lid: ({**meta, "tools": value}, text)}
+    plants = [
+        ("a tool not in the list", with_tools(other, "set-square"), f"{other}: tools: 'set-square' is not a drawing tool"),
+        ("a tool named twice in one lesson", with_tools(other, "compass compass"), f"{other}: tools: names 'compass' twice"),
+        ("an empty tools: line", with_tools(other, ""), f"{other}: an empty tools: line"),
+    ]
+    if owner:
+        plants.append(("a tool named by a second lesson", with_tools(other, owner[0]),
+                       f"tools: '{owner[0]}' is named by both"))
+    else:
+        print("FAIL no lesson introduces a tool, so the second-lesson plant has nothing to copy")
+    red = 0
+    for pname, ls, why in plants:
+        problems = check_tools(ls, json.loads(json.dumps(graph)))
+        hit = [p for p in problems if why in p]
+        print(f"{'ok  ' if hit else 'FAIL'} {pname}" + (f"\n       -> {hit[0]}" if hit else f": {problems[:2]}"))
+        red += bool(hit)
+    print(f"{red}/{len(plants)} tools controls red as planted")
+    return bool(owner) and red == len(plants)
+
+
 LORE_KINDS = ("character", "place", "object", "age")
 LORE_VERBS = ("lives_in", "located_in", "works_with", "keeps", "made", "passes_to", "before")
 
@@ -499,12 +563,14 @@ def main():
         g["courses"] = check_courses(load_courses(ROOT), g)[1]
         ok = selftest_placement(load_placement(ROOT), g) and ok
         ok = selftest_lore(*load_lore(ROOT), lessons, g) and ok
+        ok = selftest_tools(lessons, g) and ok
         return 0 if ok else 1
     bad, graph = check(topics_text, lessons)
     cbad, graph["courses"] = check_courses(load_courses(ROOT), graph)
     bad += cbad
     bad += check_placement(load_placement(ROOT), graph)
     bad += check_lore(*load_lore(ROOT), lessons, graph)
+    bad += check_tools(lessons, graph)
     if "--json" in sys.argv:
         print(json.dumps(graph, ensure_ascii=False, indent=1))
     for b in bad:

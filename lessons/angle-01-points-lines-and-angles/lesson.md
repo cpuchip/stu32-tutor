@@ -9,6 +9,7 @@ status: draft prose (accuracy: lessons/ACCEPTED; not yet read by Michael; Gullha
 setup: BLUE MODE {mode} BLUE MODE {entry} GOLD DISP FIX 4
 display: FIX 4
 cast: Corwen
+tools: point straightedge ruler protractor
 ---
 
 # Points, lines and angles
