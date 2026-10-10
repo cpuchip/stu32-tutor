@@ -14,3 +14,22 @@ E02 | exercise 2: (3.001^2 - 9) / 0.001 | MODE33 FIX4 3.001 SQ 9 - 0.001 / | X=6
 E02B@STU | exercise 2, STU: D/DX of X^2 in X | MODE33 FIX4 EQN RCL:X POW 2 ENTER CASD:X | %EQ=2×X
 E02C@STU | continues E02B: Equation mode off, the list kept (x^2 and 2x) | MODE33 FIX4 EQN RCL:X POW 2 ENTER CASD:X EQN | %EQN=2
 E03 | exercise 3: (2 x 3.001^2 - 18) / 0.001 | MODE33 FIX4 3.001 SQ 2 * 18 - 0.001 / | X=12.002
+# From before and Mixed review (decision 76): each answer typed, its working (W, abacus #6439), and the slips'.
+DR1F1 | from before: the average of 2t² from 2 to 4, the answer typed | MODE33 FIX4 12 | X=12
+DR1F1W | its working | MODE33 FIX4 4 SQ 2 * 2 SQ 2 * - 4 ENTER 2 - / | X=12
+DR1F1A | slip: forgot to divide | MODE33 FIX4 4 SQ 2 * 2 SQ 2 * - | X=24
+DR1F2 | from before: 2 × 5², the answer typed | MODE33 FIX4 50 | X=50
+DR1F2W | its working | MODE33 FIX4 5 SQ 2 * | X=50
+DR1F2A | slip: (2 × 5)² | MODE33 FIX4 2 ENTER 5 * SQ | X=100
+DR1M1 | mixed review: d′(3) = 4 × 3, typed | MODE33 FIX4 12 | X=12
+DR1M1W | its working | MODE33 FIX4 4 ENTER 3 * | X=12
+DR1M1A | slip: d(3) | MODE33 FIX4 3 SQ 2 * | X=18
+DR1M2 | mixed review: (x² − 16) ÷ (x − 4) near 4, typed | MODE33 FIX4 8 | X=8
+DR1M2W | its working: x + 4 at 4 | MODE33 FIX4 4 ENTER 4 + | X=8
+DR1M2A | slip: 0 ÷ 0 read as 0 | MODE33 FIX4 0 | X=0
+DR1M3 | mixed review: f′(5) = 2 × 5, typed | MODE33 FIX4 10 | X=10
+DR1M3W | its working | MODE33 FIX4 2 ENTER 5 * | X=10
+DR1M3A | slip: f(5) | MODE33 FIX4 5 SQ | X=25
+DR1M4 | mixed review: 50 to 35 as a percent change, typed | MODE33 FIX4 30 CHS | X=-30
+DR1M4W | its working | MODE33 FIX4 35 ENTER 50 - 50 / 100 * | X=-30
+DR1M4A | slip: lost the sign | MODE33 FIX4 30 | X=30

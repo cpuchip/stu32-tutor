@@ -12,3 +12,21 @@ E02 | exercise 2: (1.001^2 + 3 x 1.001 - 4) / 0.001 | MODE33 FIX4 1.001 ENTER SQ
 E02B@STU | exercise 2, STU: D/DX of X^2+3X | MODE33 FIX4 EQN RCL:X POW 2 + 3 * RCL:X ENTER CASD:X | %EQ=2×X+3
 E02C@STU | continues E02B: Equation mode off | MODE33 FIX4 EQN RCL:X POW 2 + 3 * RCL:X ENTER CASD:X EQN | %EQN=2
 E03@STU | exercise 3, STU: D/DX of 7 | MODE33 FIX4 EQN 7 ENTER CASD:X | %EQ=0
+# From before and Mixed review (decision 76): each answer typed, its working (W, abacus #6439), and the slips'.
+DR2F1 | from before: d′(5) = 4 × 5, the answer typed | MODE33 FIX4 20 | X=20
+DR2F1W | its working | MODE33 FIX4 4 ENTER 5 * | X=20
+DR2F1A | slip: d(5) | MODE33 FIX4 5 SQ 2 * | X=50
+DR2F2 | from before: (x + 3)x + 2 at 4, the answer typed | MODE33 FIX4 30 | X=30
+DR2F2W | its working, from the inside | MODE33 FIX4 4 ENTER 3 + 4 * 2 + | X=30
+DR2F2A | slip: 4 + 3 × 4 + 2 | MODE33 FIX4 4 ENTER 3 ENTER 4 * + 2 + | X=18
+DR2M1 | mixed review: 5 × 2⁴, typed | MODE33 FIX4 80 | X=80
+DR2M1W | its working | MODE33 FIX4 2 ENTER 4 POW 5 * | X=80
+DR2M1A | slip: 2⁵ | MODE33 FIX4 2 ENTER 5 POW | X=32
+DR2M2 | mixed review: (5² − 1) ÷ (5 − 1), typed | MODE33 FIX4 6 | X=6
+DR2M2W | its working | MODE33 FIX4 5 SQ 1 - 5 ENTER 1 - / | X=6
+DR2M2A | slip: 5² − 1 ÷ 5 − 1 | MODE33 FIX4 5 SQ 1 ENTER 5 / - 1 - | X=23.8
+DR2M3 | mixed review: a constant's derivative, recalled, typed | MODE33 FIX4 0 | X=0
+DR2M3A | slip: the constant itself | MODE33 FIX4 7 | X=7
+DR2M4 | mixed review: the average of x³ from 1 to 3, typed | MODE33 FIX4 13 | X=13
+DR2M4W | its working | MODE33 FIX4 3 ENTER 3 POW 1 - 2 / | X=13
+DR2M4A | slip: forgot to divide | MODE33 FIX4 3 ENTER 3 POW 1 - | X=26

@@ -14,6 +14,26 @@ took an expansion, a division by h and a limit. Doing that for every function wo
 lesson finds the pattern for powers of x, and two rules that build every polynomial's derivative from
 it, so that any polynomial's derivative can be written down at once.
 
+## From before
+
+Two from before, by hand: a speed from der-01, and nesting from poly-01.
+
+```item DR2F1
+prompt: d(t) = 2t² has d′(t) = 4t. What is d′(5)?
+topics: derivative-function
+answer: type
+calculator: no
+slip: DR2F1A | d(5), not d′(5) | d′(5) is the speed at 5: 4 × 5. d(5) is the distance.
+```
+
+```item DR2F2
+prompt: Nested, x² + 3x + 2 is (x + 3)x + 2. Work it out at x = 4, from the inside.
+topics: horner
+answer: type
+calculator: no
+slip: DR2F2A | dropped the brackets | From the inside: 4 + 3 is 7, then 7 × 4 + 2.
+```
+
 ## Before you start
 
 The setup from rpn-01: the mode you chose and FIX 4. Each example starts fresh, except where one says
@@ -177,3 +197,41 @@ GOLD EQN
    ```
 
    <mode m="STU">The screen shows <disp v="E03" kind="eqn">0</disp>.</mode>
+
+## Mixed review
+
+Four from this lesson and the ones before it, in no order. Work each by hand unless it says to use
+the calculator.
+
+```item DR2M1
+prompt: What is the derivative of x⁵ at x = 2?
+topics: power-rule
+answer: type
+calculator: no
+slip: DR2M1A | the function, not its derivative | The derivative of x⁵ is 5x⁴: 5 × 2⁴.
+```
+
+```item DR2M2
+prompt: Work out (5² − 1) ÷ (5 − 1).
+topics: fraction-bar
+answer: type
+calculator: no
+slip: DR2M2A | divided only the 1 | The whole top over the whole bottom: 24 ÷ 4.
+```
+
+```item DR2M3
+prompt: What is the derivative of the constant 7?
+topics: constant-derivative
+answer: type
+calculator: no
+working: none
+slip: DR2M3A | the constant itself | A constant does not change, so its rate of change is 0.
+```
+
+```item DR2M4
+prompt: What is the average rate of change of x³ from x = 1 to x = 3?
+topics: average-rate
+answer: type
+calculator: no
+slip: DR2M4A | forgot to divide | The change in x³ is 27 − 1, over the change in x, 2.
+```

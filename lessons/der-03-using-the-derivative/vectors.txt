@@ -29,3 +29,24 @@ K02B | slip: the time, not the speed | MODE33 FIX4 4 | X=4
 K03 | checkpoint: the lowest height of x^2 - 6x + 10, worked | MODE33 FIX4 3 ENTER SQ XY 6 * - 10 + | X=1
 K03A | slip: the x of the lowest point, not its height | MODE33 FIX4 3 | X=3
 K03B | slip: g(0), not the lowest point | MODE33 FIX4 0 ENTER SQ XY 6 * - 10 + | X=10
+# From before and Mixed review (decision 76): each answer typed, its working (W, abacus #6439), and the slips'.
+DR3F1 | from before: f′(1) for 3x² + x, the answer typed | MODE33 FIX4 7 | X=7
+DR3F1W | its working: 6x + 1 at 1 | MODE33 FIX4 6 ENTER 1 * 1 + | X=7
+DR3F1A | slip: f(1) | MODE33 FIX4 3 ENTER 1 + | X=4
+DR3F2 | from before: where the points are lowest, read, typed | MODE33 FIX4 2 | X=2
+DR3F2A | slip: the lowest height | MODE33 FIX4 0 | X=0
+DR3M1 | mixed review: where 2x − 8 = 0, typed | MODE33 FIX4 4 | X=4
+DR3M1W | its working | MODE33 FIX4 8 ENTER 2 / | X=4
+DR3M1A | slip: dropped the 2 | MODE33 FIX4 8 | X=8
+DR3M2 | mixed review: 3 × 4² − 50, typed | MODE33 FIX4 2 CHS | X=-2
+DR3M2W | its working | MODE33 FIX4 4 SQ 3 * 50 - | X=-2
+DR3M2A | slip: (3 × 4)² − 50 | MODE33 FIX4 3 ENTER 4 * SQ 50 - | X=94
+DR3M3 | mixed review: the tangent of x² at 3, at x = 4, typed | MODE33 FIX4 15 | X=15
+DR3M3W | its working: 3² + 2 × 3 × (4 − 3) | MODE33 FIX4 3 SQ 2 ENTER 3 * 4 ENTER 3 - * + | X=15
+DR3M3A | slip: f(4) | MODE33 FIX4 4 SQ | X=16
+DR3M4 | mixed review: 4 × 2.5, typed | MODE33 FIX4 10 | X=10
+DR3M4W | its working | MODE33 FIX4 4 ENTER 2.5 * | X=10
+DR3M4A | slip: d(2.5) | MODE33 FIX4 2.5 SQ 2 * | X=12.5
+# The checkpoint's working (abacus #6439): K01 and K02 made by the core; K03 is a worked item already.
+K01W | K01's working: 3 × 2² − 2 | MODE33 FIX4 2 SQ 3 * 2 - | X=10
+K02W | K02's working: t = √(32 ÷ 2), then 4t | MODE33 FIX4 32 ENTER 2 / SQRT 4 * | X=16

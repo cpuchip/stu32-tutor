@@ -14,6 +14,26 @@ The ball from lim-02 rolls down a ramp, and after t seconds it has gone d(t) = 2
 at every moment, not only at t = 1. This lesson finds them all at once, as a new function, and tries
 it on the calculator.
 
+## From before
+
+Two from before, by hand: the ball's average speed from lim-02, and one from unit 1.
+
+```item DR1F1
+prompt: d(t) = 2t². What is the average speed from t = 2 to t = 4?
+topics: average-rate
+answer: type
+calculator: no
+slip: DR1F1A | forgot to divide | The average rate is the change in d over the change in t: 24 ÷ 2.
+```
+
+```item DR1F2
+prompt: Work out 2 × 5².
+topics: powers-first
+answer: type
+calculator: no
+slip: DR1F2A | squared 2 × 5 | The power belongs to the 5 alone: 25, then 2 × 25.
+```
+
 ## Before you start
 
 The setup from rpn-01: the mode you chose and FIX 4. The program and the examples after it are one
@@ -183,3 +203,40 @@ XEQ 3 R/S
    ```
 
    X shows <disp v="E03">12.0020</disp>.
+
+## Mixed review
+
+Four from this lesson and the ones before it, in no order. Work each by hand unless it says to use
+the calculator.
+
+```item DR1M1
+prompt: d(t) = 2t² has d′(t) = 4t. How fast is the ball going at t = 3?
+topics: derivative-function
+answer: type
+calculator: no
+slip: DR1M1A | the distance, not the speed | d(3) is how far it has gone. Its speed is d′(3), which is 4 × 3.
+```
+
+```item DR1M2
+prompt: What does (x² − 16) ÷ (x − 4) close in on as x approaches 4?
+topics: limit
+answer: type
+calculator: no
+slip: DR1M2A | 0 ÷ 0 read as 0 | Near 4 the fraction is x + 4, which closes in on 8.
+```
+
+```item DR1M3
+prompt: f(x) = x² has f′(x) = 2x. What is the slope of its tangent line at x = 5?
+topics: tangent-line
+answer: type
+calculator: no
+slip: DR1M3A | the height, not the slope | f(5) is the curve's height there. The slope is f′(5), which is 2 × 5.
+```
+
+```item DR1M4
+prompt: A price falls from 50 to 35. What is the percent change?
+topics: percent-change
+answer: type
+calculator: no
+slip: DR1M4A | lost the sign | It fell, so the change is negative: −15 ÷ 50, as a percent.
+```
