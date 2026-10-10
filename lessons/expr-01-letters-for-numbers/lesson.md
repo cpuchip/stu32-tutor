@@ -9,14 +9,35 @@ status: draft prose (accuracy: lessons/ACCEPTED; not yet read by Michael; Thornw
 setup: BLUE MODE {mode} BLUE MODE {entry} GOLD DISP FIX 4
 display: FIX 4
 cast: Maren, Tobin
+voices: story plain
 ---
 
 # Letters for numbers
 
-Maren sells pies at 7 coins each. Two pies cost 7 × 2 = 14 coins, and ten cost 7 × 10 = 70. Each
+<voice v="story">Maren sells pies at 7 coins each.</voice><voice v="plain">Pies sell at 7 coins each.</voice> Two pies cost 7 × 2 = 14 coins, and ten cost 7 × 10 = 70. Each
 time the rule is the same: 7 times the number of pies. Algebra writes a rule like that once, with a
 letter standing for the number that changes: if n is the number of pies, they cost 7 × n coins. This
 lesson is about letters like n: what they mean, and how to work out what a rule gives for a number.
+
+## From before
+
+Two from unit 1, by hand.
+
+```item EP1F1
+prompt: Work out 34 × 12 by parts: 34 × 10, then 34 × 2.
+topics: partial-products
+answer: type
+calculator: no
+slip: EP1F1A | added the 2 | The second part is 34 × 2, which is 68, not 2.
+```
+
+```item EP1F2
+prompt: Work out 1000 − 364.
+topics: column-subtraction
+answer: type
+calculator: no
+slip: EP1F2A | took the smaller digit from the larger | 0 − 4 needs a borrow, all the way from the thousands.
+```
 
 ## Before you start
 
@@ -49,8 +70,9 @@ The screen shows <disp v="P01">84.0000</disp>: 84 coins.
 
 ## Multiply before you add
 
-Tobin carries orders for 5 coins. For the bakery's small pies, at 3 coins each, an order of n pies
-costs 3n + 5: 3 for each pie, and 5 for carrying. For 4 pies, is that 3 × 4 + 5 = 12 + 5 = 17, or
+<voice v="story">Tobin carries orders for 5 coins. For the bakery's small pies, at 3 coins each, an order of n pies
+costs 3n + 5: 3 for each pie, and 5 for carrying.</voice><voice v="plain">Carrying an order costs 5 coins. For small pies at 3 coins each, an order of n pies
+costs 3n + 5: 3 for each pie, and 5 for carrying.</voice> For 4 pies, is that 3 × 4 + 5 = 12 + 5 = 17, or
 3 × (4 + 5) = 27? Everyone who writes mathematics agrees to read it the first way, so that a line of
 mathematics means the same thing to everyone: multiplying and dividing come before adding and taking
 away, unless brackets say otherwise. So 3n + 5 means 3 times n first, then 5 more. By hand,
@@ -164,3 +186,40 @@ Work each out by hand first, then check it with the number stored under its lett
    ```
 
    The screen shows <disp v="E03B">20.0000</disp>.
+
+## Mixed review
+
+Four from this lesson and the ones before it, in no order. Work each by hand unless it says to use
+the calculator.
+
+```item EP1M1
+prompt: Evaluate 4n + 3 when n = 5.
+topics: evaluating
+answer: type
+calculator: no
+slip: EP1M1A | added before multiplying | 4n means 4 times n: 4 × 5 is 20, then + 3.
+```
+
+```item EP1M2
+prompt: 57 eggs go into boxes of 6. How many eggs are left over?
+topics: quotient-remainder
+answer: type
+calculator: no
+slip: EP1M2A | the full boxes, not what is left | 9 full boxes hold 54, and 57 − 54 are left over.
+```
+
+```item EP1M3
+prompt: Work out 2 + 5 × 6.
+topics: multiply-first
+answer: type
+calculator: no
+slip: EP1M3A | added first | Multiplying comes before adding: 5 × 6 is 30, then 2 + 30.
+```
+
+```item EP1M4
+prompt: Work out 589 + 237.
+topics: column-addition
+answer: type
+calculator: no
+slip: EP1M4A | every carry left out | 9 + 7 is 16: write 6 and carry 1 to the tens, and so on.
+```

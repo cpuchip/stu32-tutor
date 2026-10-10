@@ -9,13 +9,35 @@ status: draft prose (accuracy: lessons/ACCEPTED; not yet read by Michael; Thornw
 setup: BLUE MODE {mode} BLUE MODE {entry} GOLD DISP FIX 4
 display: FIX 4
 cast: Maren, Tobin
+voices: story plain
 ---
 
 # Solving by undoing
 
-Tobin's bill for an order of n of the bakery's small pies is 3n + 5 coins: 3 for each pie, and 5 for
-carrying (expr-01). A customer paid 20 coins. How many pies did she order? Now the total is known and
+<voice v="story">Tobin's bill for an order of n of the bakery's small pies is 3n + 5 coins: 3 for each pie, and 5 for
+carrying (expr-01). A customer paid 20 coins. How many pies did she order?</voice><voice v="plain">The bill for an order of n small pies is 3n + 5 coins: 3 for each pie, and 5 for
+carrying (expr-01). A bill came to 20 coins. How many pies were ordered?</voice> Now the total is known and
 the number of pies is not. This lesson finds it by undoing, step by step, what the rule did.
+
+## From before
+
+Two from before, by hand: a rule from expr-01, and one from unit 1.
+
+```item EP2F1
+prompt: Evaluate 3n + 5 when n = 6.
+topics: evaluating
+answer: type
+calculator: no
+slip: EP2F1A | added before multiplying | 3n means 3 times n: 3 × 6 is 18, then + 5.
+```
+
+```item EP2F2
+prompt: Work out 25 × 14 by parts: 25 × 10, then 25 × 4.
+topics: partial-products
+answer: type
+calculator: no
+slip: EP2F2A | added the 4 | The second part is 25 × 4, which is 100, not 4.
+```
 
 ## Before you start
 
@@ -90,8 +112,9 @@ The screen shows <disp v="C01">20.0000</disp>. It does, so n = 5 is right.
 
 ## Another order of steps
 
-Maren shares a batch of n rolls equally among 4 shelves, and then takes 2 rolls off one shelf for a
-customer. That shelf has 3 left: n ÷ 4 − 2 = 3. The rule divided by 4, then took 2 away. Undo in the
+<voice v="story">Maren shares a batch of n rolls equally among 4 shelves, and then takes 2 rolls off one shelf for a
+customer.</voice><voice v="plain">A batch of n rolls is shared equally among 4 shelves, and then 2 rolls are taken off one shelf for a
+customer.</voice> That shelf has 3 left: n ÷ 4 − 2 = 3. The rule divided by 4, then took 2 away. Undo in the
 opposite order: first add the 2 back, then multiply by 4. By hand: 3 + 2 = 5, then 5 × 4 = 20.
 
 ```keys U03 entry=alg
@@ -131,7 +154,7 @@ Solve each by undoing, by hand first, then check by putting the answer back.
 1. 2a + 7 = 31.
 2. 5b − 3 = 32.
 3. c ÷ 3 + 4 = 10.
-4. Tobin's bill for an order of the small pies was 41 coins (3n + 5, as above). How many pies?
+4. <voice v="story">Tobin's bill for an order of the small pies was 41 coins</voice><voice v="plain">An order of the small pies cost 41 coins</voice> (3n + 5, as above). How many pies?
 
 ## Answers
 
@@ -238,3 +261,40 @@ Solve each by undoing, by hand first, then check by putting the answer back.
    ```
 
    shows <disp v="E04B">12.0000</disp>: 12 pies.
+
+## Mixed review
+
+Four from this lesson and the ones before it, in no order. Work each by hand unless it says to use
+the calculator.
+
+```item EP2M1
+prompt: Solve 4x + 6 = 30 by undoing.
+topics: undoing
+answer: type
+calculator: no
+slip: EP2M1A | undid in the wrong order | The rule multiplied by 4, then added 6: undo the + 6 first, then ÷ 4.
+```
+
+```item EP2M2
+prompt: Work out 20 − 3 × 4.
+topics: multiply-first
+answer: type
+calculator: no
+slip: EP2M2A | took away first | Multiplying comes before taking away: 3 × 4 is 12, then 20 − 12.
+```
+
+```item EP2M3
+prompt: Is n = 7 a solution of 3n − 2 = 19? Put it back: what is 3 × 7 − 2?
+topics: check-by-putting-back
+answer: type
+calculator: no
+slip: EP2M3A | added the 2 | It is 3 × 7 minus 2: 21 − 2.
+```
+
+```item EP2M4
+prompt: 100 rolls go 8 to a box. How many full boxes?
+topics: quotient-remainder
+answer: type
+calculator: no
+slip: EP2M4A | the rolls left over, not the boxes | 12 boxes of 8 hold 96, with 4 left over: 12 full boxes.
+```

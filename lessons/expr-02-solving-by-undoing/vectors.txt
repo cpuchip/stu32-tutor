@@ -34,3 +34,40 @@ E04@alg | exercise 4: 41 - 5 | MODE33 FIX4 41 - 5 ENTER | N=36 %LINE=41-5
 E04@rpn | exercise 4: 41 - 5 | MODE33 FIX4 41 ENTER 5 - | X=36
 E04B@alg | continues E04: / 3 | MODE33 FIX4 41 - 5 ENTER / 3 ENTER | N=12 %LINE=ANS÷3
 E04B@rpn | continues E04: / 3 | MODE33 FIX4 41 ENTER 5 - 3 / | X=12
+# From before and Mixed review (decision 76): each answer typed, its working (W, abacus #6439), and the slip's; @alg the line, @rpn the stack.
+EP2F1@alg | from before: 3n + 5 at 6, typed | MODE33 FIX4 23 ENTER | N=23 %LINE=23
+EP2F1@rpn | from before: 3n + 5 at 6, typed | MODE33 FIX4 23 ENTER | X=23
+EP2F1W@alg | its working | MODE33 FIX4 3 * 6 + 5 ENTER | N=23 %LINE=3×6+5
+EP2F1W@rpn | its working | MODE33 FIX4 3 ENTER 6 * 5 + | X=23
+EP2F1A@alg | slip: 3 × (6 + 5) | MODE33 FIX4 6 + 5 ENTER * 3 ENTER | N=33 %LINE=ANS×3
+EP2F1A@rpn | slip: 3 × (6 + 5) | MODE33 FIX4 6 ENTER 5 + 3 * | X=33
+EP2F2@alg | from before: 25 × 14, typed | MODE33 FIX4 350 ENTER | N=350 %LINE=350
+EP2F2@rpn | from before: 25 × 14, typed | MODE33 FIX4 350 ENTER | X=350
+EP2F2W@alg | its working | MODE33 FIX4 25 * 14 ENTER | N=350 %LINE=25×14
+EP2F2W@rpn | its working | MODE33 FIX4 25 ENTER 14 * | X=350
+EP2F2A@alg | slip: 25 × 10 + 4 | MODE33 FIX4 25 * 10 + 4 ENTER | N=254 %LINE=25×10+4
+EP2F2A@rpn | slip: 25 × 10 + 4 | MODE33 FIX4 25 ENTER 10 * 4 + | X=254
+EP2M1@alg | mixed review: 4x + 6 = 30, typed | MODE33 FIX4 6 ENTER | N=6 %LINE=6
+EP2M1@rpn | mixed review: 4x + 6 = 30, typed | MODE33 FIX4 6 ENTER | X=6
+EP2M1W@alg | its working: undo the + 6, then the × 4 | MODE33 FIX4 30 - 6 ENTER / 4 ENTER | N=6 %LINE=ANS÷4
+EP2M1W@rpn | its working: undo the + 6, then the × 4 | MODE33 FIX4 30 ENTER 6 - 4 / | X=6
+EP2M1A@alg | slip: undone in the wrong order, 30 ÷ 4 − 6 | MODE33 FIX4 30 / 4 - 6 ENTER | N=1.5 %LINE=30÷4-6
+EP2M1A@rpn | slip: undone in the wrong order, 30 ÷ 4 − 6 | MODE33 FIX4 30 ENTER 4 / 6 - | X=1.5
+EP2M2@alg | mixed review: 20 − 3 × 4, typed | MODE33 FIX4 8 ENTER | N=8 %LINE=8
+EP2M2@rpn | mixed review: 20 − 3 × 4, typed | MODE33 FIX4 8 ENTER | X=8
+EP2M2W@alg | its working | MODE33 FIX4 20 - 3 * 4 ENTER | N=8 %LINE=20-3×4
+EP2M2W@rpn | its working | MODE33 FIX4 20 ENTER 3 ENTER 4 * - | X=8
+EP2M2A@alg | slip: (20 − 3) × 4 | MODE33 FIX4 20 - 3 ENTER * 4 ENTER | N=68 %LINE=ANS×4
+EP2M2A@rpn | slip: (20 − 3) × 4 | MODE33 FIX4 20 ENTER 3 - 4 * | X=68
+EP2M3@alg | mixed review: 3 × 7 − 2, typed | MODE33 FIX4 19 ENTER | N=19 %LINE=19
+EP2M3@rpn | mixed review: 3 × 7 − 2, typed | MODE33 FIX4 19 ENTER | X=19
+EP2M3W@alg | its working | MODE33 FIX4 3 * 7 - 2 ENTER | N=19 %LINE=3×7-2
+EP2M3W@rpn | its working | MODE33 FIX4 3 ENTER 7 * 2 - | X=19
+EP2M3A@alg | slip: 3 × 7 + 2 | MODE33 FIX4 3 * 7 + 2 ENTER | N=23 %LINE=3×7+2
+EP2M3A@rpn | slip: 3 × 7 + 2 | MODE33 FIX4 3 ENTER 7 * 2 + | X=23
+EP2M4@alg | mixed review: full boxes of 8 from 100, typed | MODE33 FIX4 12 ENTER | N=12 %LINE=12
+EP2M4@rpn | mixed review: full boxes of 8 from 100, typed | MODE33 FIX4 12 ENTER | X=12
+EP2M4W@alg | its working: INT÷ | MODE33 FIX4 IDIV 100 , 8 > ENTER | N=12 %LINE=IDIV(100,8)
+EP2M4W@rpn | its working: INT÷ | MODE33 FIX4 100 ENTER 8 IDIV | X=12
+EP2M4A@alg | slip: the rolls left over | MODE33 FIX4 RMDR 100 , 8 > ENTER | N=4 %LINE=RMDR(100,8)
+EP2M4A@rpn | slip: the rolls left over | MODE33 FIX4 100 ENTER 8 RMDR | X=4
