@@ -608,9 +608,17 @@ VOICED = ("lesson.md", "cast: Hesk, Tobin\n", "cast: Hesk, Tobin\nvoices: story 
 EX2 = "2. Tobin had 4003 loaves to deliver and has delivered 1756. How many are left?"
 EX2_TWO = ('2. <voice v="story">Tobin had 4003 loaves to deliver and has delivered 1756.</voice><voice v="plain">4003 '
            'loaves are to be delivered, and 1756 of them have been.</voice> How many are left?')
+# A worked example's setup in two voices (line 39), for the numbers rule outside the exercises (abacus #6550).
+L39 = "Hesk's mill ground 3452 kilograms of grain in the summer and 1879 in the autumn. How much in all?"
+L39_TWO = ('<voice v="story">Hesk\'s mill ground 3452 kilograms of grain in the summer and 1879 in the autumn.</voice>'
+           '<voice v="plain">A mill grinds 3452 kilograms of grain in the summer and 1879 in the autumn.</voice> How much in all?')
 CONTROLS_FOR["whole-01-adding-and-subtracting"] += [
     ("a plain exercise with another number", [VOICED, ("lesson.md", EX2, EX2_TWO.replace("1756 of them", "1765 of them"))],
-     None, None, {}, "the plain reading's exercises have other numbers"),
+     None, None, {}, "the plain reading's prose has other numbers"),
+    ("a plain setup with another number outside the exercises",
+     [VOICED, ("lesson.md", EX2, EX2_TWO),
+      ("lesson.md", L39, L39_TWO.replace("and 1879 in the autumn.</voice> How", "and 1897 in the autumn.</voice> How"))],
+     None, None, {}, "the plain reading's prose has other numbers than the story reading's: at numeral"),
     ("a quote inside a voice span", [VOICED, ("lesson.md", EX2, EX2_TWO),
                                      ("lesson.md", '<disp v="A01">5,331.0000</disp>',
                                       '<voice v="story"><disp v="A01">5,331.0000</disp></voice>')],
@@ -755,6 +763,8 @@ CONTROLS_FOR["rpn-03-the-display"].append(
 GREENS_FOR = {
     "whole-01-adding-and-subtracting": [
         ("exercise 2 in two voices, with the same numbers", [VOICED, ("lesson.md", EX2, EX2_TWO)], None, None),
+        ("a worked example's setup reworded in the plain voice, the same numbers",
+         [VOICED, ("lesson.md", EX2, EX2_TWO), ("lesson.md", L39, L39_TWO)], None, None),
     ],
     "frac-01-equivalent-fractions": [
         ("a block's RPN variant written before its algebraic one", "lesson.md",

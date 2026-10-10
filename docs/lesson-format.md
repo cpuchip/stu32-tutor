@@ -186,8 +186,11 @@ course plain; docs/proposals/voices.md).
   Everything outside the spans is shared.
 - **A span holds prose only:** no keys block, no item, no `<disp>`, no `<mode>` or `<entry>` span, no other
   `<voice>` span, and no `##` heading. So every voice has the same examples, quotes, items and sections.
-- **Exercises:** the problems are the same problems in every voice. A voice changes the words that set a problem
-  up, never its numbers.
+- **Numbers:** the problems are the same problems in every voice. A voice changes the words that set a problem up,
+  never its numbers. Every reading's numerals in prose (outside its keys blocks, items, quotes and headings) are the
+  default's, the same values in the same order, in a worked example's setup as in the exercises (abacus #6550). A
+  number that belongs to one voice only, such as a character's age, is spelled out in words, or abacus rules on
+  it.
 - **The cast** (`cast:` and `walk-ons:`, lore/) belongs to the story voice. The plain reading names no one.
 
 check.py refuses:
@@ -197,17 +200,17 @@ check.py refuses:
 - an offered voice with no span of its own;
 - a reading whose keys blocks, items, quotes or `##` headings differ from the default's, in order (a second proof
   under the span rules);
-- a reading whose `## Exercises` numbers differ from the default's.
+- a reading whose numerals in prose differ from the default's.
 
 Every other check then runs on the default reading. graph.py refuses a plain reading that names a cast member or a
 walk-on.
 
 The controls are in whole-01's set:
-- a plain exercise with another number;
+- a plain exercise with another number, and a plain worked-example setup with another number;
 - a quote, a keys block and a heading, each inside a voice span;
 - a span with no `voices:` line;
 - a span in a voice the lesson doesn't offer;
-- and, as a green, the exercise told in both voices.
+- and, as greens, the exercise and the setup told in both voices with the same numbers.
 
 graph.py's selftest plants a plain voice that names its cast.
 

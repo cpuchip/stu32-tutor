@@ -196,15 +196,15 @@ def voice_view(body, voice):
     return VOICE_SPAN.sub(lambda m: m.group(2) if m.group(1) == voice else "", body)
 
 
-def exercise_numbers(text):
-    """The numbers written in a reading's ## Exercises (or ## Exercise) section, in order."""
-    m = re.search(r"^## Exercises?[ \t]*$(.*?)(?=^## |\Z)", text, re.M | re.S)
-    return re.findall(r"\d+(?:[.,]\d+)*", m.group(1)) if m else []
+def prose_numbers(text):
+    """The numerals a reading writes in its prose (outside its keys blocks, items, quotes and headings), in order:
+    a voice may reword a problem's setup, never its numbers (abacus #6550)."""
+    return re.findall(r"\d+(?:[.,]\d+)*", SKELETON.sub(" ", text))
 
 
 def check_voices(meta, body):
     """Problems with a lesson's voices: the spans as written, and the proof that every reading has the default's
-    skeleton (keys blocks, items, quotes and ## headings, in order) and its exercises' numbers."""
+    skeleton (keys blocks, items, quotes and ## headings, in order) and its prose's numbers."""
     voices, why = lesson_voices(meta)
     if why:
         return [why]
@@ -234,9 +234,11 @@ def check_voices(meta, body):
         reading = voice_view(body, v)
         if SKELETON.findall(reading) != SKELETON.findall(base):
             out.append(f"the {v} reading's keys blocks, items, quotes or sections differ from the {voices[0]} reading's")
-        if exercise_numbers(reading) != exercise_numbers(base):
-            out.append(f"the {v} reading's exercises have other numbers than the {voices[0]} reading's: "
-                       f"{exercise_numbers(reading)} against {exercise_numbers(base)}")
+        a, b = prose_numbers(reading), prose_numbers(base)
+        if a != b:
+            i = next((k for k, (x, y) in enumerate(zip(a, b)) if x != y), min(len(a), len(b)))
+            out.append(f"the {v} reading's prose has other numbers than the {voices[0]} reading's: at numeral "
+                       f"{i + 1}, {a[i] if i < len(a) else 'none'} against {b[i] if i < len(b) else 'none'}")
     return out
 
 
