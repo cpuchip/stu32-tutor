@@ -24,3 +24,38 @@ E03@alg | exercise 3: 2 x 2 x 2 x 3 | MODE33 FIX4 2 * 2 * 2 * 3 ENTER | N=24 %LI
 E03@rpn | exercise 3: 2 x 2 x 2 x 3 | MODE33 FIX4 2 ENTER 2 * 2 * 3 * | X=24
 E04@alg | exercise 4: 8 x 15 | MODE33 FIX4 8 * 15 ENTER | N=120 %LINE=8×15
 E04@rpn | exercise 4: 8 x 15 | MODE33 FIX4 8 ENTER 15 * | X=120
+# From before and Mixed review (decision 76): each answer typed, its working (W, abacus #6439), and the slip's; @alg the line, @rpn the stack.
+FC2M4@alg | mixed review: 912 ÷ 8, typed | MODE33 FIX4 114 ENTER | N=114 %LINE=114
+FC2M4@rpn | mixed review: 912 ÷ 8, typed | MODE33 FIX4 114 ENTER | X=114
+FC2M4W@alg | its working | MODE33 FIX4 912 / 8 ENTER | N=114 %LINE=912÷8
+FC2M4W@rpn | its working | MODE33 FIX4 912 ENTER 8 / | X=114
+FC2M4A@alg | slip: 91 ÷ 8 only, the last digit not brought down | MODE33 FIX4 IDIV 91 , 8 > ENTER | N=11 %LINE=IDIV(91,8)
+FC2M4A@rpn | slip: 91 ÷ 8 only, the last digit not brought down | MODE33 FIX4 91 ENTER 8 IDIV | X=11
+FC2F2@alg | from before: whole sevens in 100, typed | MODE33 FIX4 14 ENTER | N=14 %LINE=14
+FC2F2@rpn | from before: whole sevens in 100, typed | MODE33 FIX4 14 ENTER | X=14
+FC2F2W@alg | its working: INT÷ | MODE33 FIX4 IDIV 100 , 7 > ENTER | N=14 %LINE=IDIV(100,7)
+FC2F2W@rpn | its working: INT÷ | MODE33 FIX4 100 ENTER 7 IDIV | X=14
+FC2F2A@alg | slip: the remainder | MODE33 FIX4 RMDR 100 , 7 > ENTER | N=2 %LINE=RMDR(100,7)
+FC2F2A@rpn | slip: the remainder | MODE33 FIX4 100 ENTER 7 RMDR | X=2
+FC2F1@alg | from before: the 2s in 72, counted, typed | MODE33 FIX4 3 ENTER | N=3 %LINE=3
+FC2F1@rpn | from before: the 2s in 72, counted, typed | MODE33 FIX4 3 ENTER | X=3
+FC2F1A@alg | slip: stopped at two | MODE33 FIX4 2 ENTER | N=2 %LINE=2
+FC2F1A@rpn | slip: stopped at two | MODE33 FIX4 2 ENTER | X=2
+FC2M1@alg | mixed review: the GCF of 18 and 30, typed | MODE33 FIX4 6 ENTER | N=6 %LINE=6
+FC2M1@rpn | mixed review: the GCF of 18 and 30, typed | MODE33 FIX4 6 ENTER | X=6
+FC2M1W@alg | its working: the shared primes, 2 × 3 | MODE33 FIX4 2 * 3 ENTER | N=6 %LINE=2×3
+FC2M1W@rpn | its working: the shared primes, 2 × 3 | MODE33 FIX4 2 ENTER 3 * | X=6
+FC2M1A@alg | slip: the LCM, 2 × 3 × 3 × 5 | MODE33 FIX4 2 * 3 * 3 * 5 ENTER | N=90 %LINE=2×3×3×5
+FC2M1A@rpn | slip: the LCM, 2 × 3 × 3 × 5 | MODE33 FIX4 2 ENTER 3 * 3 * 5 * | X=90
+FC2M2@alg | mixed review: 135 left over by 5, typed | MODE33 FIX4 0 ENTER | N=0 %LINE=0
+FC2M2@rpn | mixed review: 135 left over by 5, typed | MODE33 FIX4 0 ENTER | X=0
+FC2M2W@alg | its working: Rmdr | MODE33 FIX4 RMDR 135 , 5 > ENTER | N=0 %LINE=RMDR(135,5)
+FC2M2W@rpn | its working: Rmdr | MODE33 FIX4 135 ENTER 5 RMDR | X=0
+FC2M2A@alg | slip: the quotient | MODE33 FIX4 IDIV 135 , 5 > ENTER | N=27 %LINE=IDIV(135,5)
+FC2M2A@rpn | slip: the quotient | MODE33 FIX4 135 ENTER 5 IDIV | X=27
+FC2M3@alg | mixed review: the LCM of 6 and 9, typed | MODE33 FIX4 18 ENTER | N=18 %LINE=18
+FC2M3@rpn | mixed review: the LCM of 6 and 9, typed | MODE33 FIX4 18 ENTER | X=18
+FC2M3W@alg | its working: 2 × 3 × 3 | MODE33 FIX4 2 * 3 * 3 ENTER | N=18 %LINE=2×3×3
+FC2M3W@rpn | its working: 2 × 3 × 3 | MODE33 FIX4 2 ENTER 3 * 3 * | X=18
+FC2M3A@alg | slip: 6 × 9 | MODE33 FIX4 6 * 9 ENTER | N=54 %LINE=6×9
+FC2M3A@rpn | slip: 6 × 9 | MODE33 FIX4 6 ENTER 9 * | X=54

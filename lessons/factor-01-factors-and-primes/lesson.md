@@ -9,14 +9,35 @@ status: draft prose (accuracy: lessons/ACCEPTED; not yet read by Michael; Thornw
 setup: BLUE MODE {mode} BLUE MODE {entry} GOLD DISP FIX 4
 display: FIX 4
 cast: Maren
+voices: story plain
 ---
 
 # Factors and primes
 
-Maren has 84 pastries to set out in equal rows. 84 in rows of 2 works, and so do rows of 3; rows of 5
+<voice v="story">Maren has 84 pastries to set out in equal rows.</voice><voice v="plain">84 pastries are to be set out in equal rows.</voice> 84 in rows of 2 works, and so do rows of 3; rows of 5
 leave some over. The numbers that make equal rows of 84 are its factors. This lesson finds factors by
 hand, checks them with Rmdr (whole-02), and meets the primes: the numbers with exactly two different
 factors, 1 and themselves.
+
+## From before
+
+Two from unit 1, by hand.
+
+```item FC1F1
+prompt: What is the remainder when 50 is divided by 7?
+topics: quotient-remainder
+answer: type
+calculator: no
+slip: FC1F1A | the quotient, not the remainder | 7 sevens are 49, and 50 − 49 is left over.
+```
+
+```item FC1F2
+prompt: Work out 744 ÷ 6 by long division.
+topics: long-division
+answer: type
+calculator: no
+slip: FC1F2A | stopped before the last digit | Bring down every digit: after 74 comes the 4.
+```
 
 ## Before you start
 
@@ -71,8 +92,9 @@ BLUE Rmdr 84 GOLD , 5 ▶ ENTER
 The screen shows <disp v="R03">4.0000</disp>: 4 over, so 5 is not a factor of 84.
 
 Factors come in pairs that multiply to the number. Testing 1, 2, 3 and so on, 84's pairs are 1 × 84,
-2 × 42, 3 × 28, 4 × 21, 6 × 14 and 7 × 12. So Maren can set out 84 pastries in rows of 1, 2, 3, 4, 6,
-7, 12, 14, 21, 28, 42 or 84.
+2 × 42, 3 × 28, 4 × 21, 6 × 14 and 7 × 12. <voice v="story">So Maren can set out 84 pastries in rows of 1, 2, 3, 4, 6,
+7, 12, 14, 21, 28, 42 or 84.</voice><voice v="plain">So 84 pastries can be set out in rows of 1, 2, 3, 4, 6,
+7, 12, 14, 21, 28, 42 or 84.</voice>
 
 ## Primes
 
@@ -191,3 +213,41 @@ The screen shows <disp v="F01">84.0000</disp>.
    ```
 
    The screen shows <disp v="E03">5.0000</disp>. So 89 is prime.
+
+## Mixed review
+
+Four from this lesson and the ones before it, in no order. Work each by hand unless it says to use
+the calculator.
+
+```item FC1M1
+prompt: Does 9 divide 126? Give the remainder of 126 ÷ 9.
+topics: divides
+answer: type
+calculator: no
+slip: FC1M1A | the quotient, not the remainder | 9 divides 126 when nothing is left over: 9 × 14 is 126.
+```
+
+```item FC1M2
+prompt: Work out 478 + 356.
+topics: column-addition
+answer: type
+calculator: no
+slip: FC1M2A | every carry left out | 8 + 6 is 14: write 4 and carry 1 to the tens, and so on.
+```
+
+```item FC1M3
+prompt: What is the smallest prime greater than 20?
+topics: prime
+answer: type
+calculator: no
+working: none
+slip: FC1M3A | 21 | 21 is 3 × 7, and 22 is 2 × 11. 23 has no factors but 1 and itself.
+```
+
+```item FC1M4
+prompt: Work out 23 × 15 by parts: 23 × 10, then 23 × 5.
+topics: partial-products
+answer: type
+calculator: no
+slip: FC1M4A | added the 5 | The second part is 23 × 5, which is 115, not 5.
+```

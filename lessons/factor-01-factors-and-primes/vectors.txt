@@ -18,3 +18,38 @@ E02@alg | exercise 2: 2 x 2 x 3 x 5 | MODE33 FIX4 2 * 2 * 3 * 5 ENTER | N=60 %LI
 E02@rpn | exercise 2: 2 x 2 x 3 x 5 | MODE33 FIX4 2 ENTER 2 * 3 * 5 * | X=60
 E03@alg | exercise 3: Rmdr of 89 and 7 | MODE33 FIX4 RMDR 89 , 7 > ENTER | N=5 %LINE=RMDR(89,7)
 E03@rpn | exercise 3: Rmdr of 89 and 7 | MODE33 FIX4 89 ENTER 7 RMDR | X=5
+# From before and Mixed review (decision 76): each answer typed, its working (W, abacus #6439), and the slip's; @alg the line, @rpn the stack.
+FC1M4@alg | mixed review: 23 × 15, typed | MODE33 FIX4 345 ENTER | N=345 %LINE=345
+FC1M4@rpn | mixed review: 23 × 15, typed | MODE33 FIX4 345 ENTER | X=345
+FC1M4W@alg | its working | MODE33 FIX4 23 * 15 ENTER | N=345 %LINE=23×15
+FC1M4W@rpn | its working | MODE33 FIX4 23 ENTER 15 * | X=345
+FC1M4A@alg | slip: 23 × 10 + 5 | MODE33 FIX4 23 * 10 + 5 ENTER | N=235 %LINE=23×10+5
+FC1M4A@rpn | slip: 23 × 10 + 5 | MODE33 FIX4 23 ENTER 10 * 5 + | X=235
+FC1M2@alg | mixed review: 478 + 356, typed | MODE33 FIX4 834 ENTER | N=834 %LINE=834
+FC1M2@rpn | mixed review: 478 + 356, typed | MODE33 FIX4 834 ENTER | X=834
+FC1M2W@alg | its working | MODE33 FIX4 478 + 356 ENTER | N=834 %LINE=478+356
+FC1M2W@rpn | its working | MODE33 FIX4 478 ENTER 356 + | X=834
+FC1M2A@alg | slip: every carry left out | MODE33 FIX4 478 + 356 - 110 ENTER | N=724 %LINE=478+356-110
+FC1M2A@rpn | slip: every carry left out | MODE33 FIX4 478 ENTER 356 + 110 - | X=724
+FC1F1@alg | from before: 50 left over by 7, typed | MODE33 FIX4 1 ENTER | N=1 %LINE=1
+FC1F1@rpn | from before: 50 left over by 7, typed | MODE33 FIX4 1 ENTER | X=1
+FC1F1W@alg | its working: Rmdr | MODE33 FIX4 RMDR 50 , 7 > ENTER | N=1 %LINE=RMDR(50,7)
+FC1F1W@rpn | its working: Rmdr | MODE33 FIX4 50 ENTER 7 RMDR | X=1
+FC1F1A@alg | slip: the quotient | MODE33 FIX4 IDIV 50 , 7 > ENTER | N=7 %LINE=IDIV(50,7)
+FC1F1A@rpn | slip: the quotient | MODE33 FIX4 50 ENTER 7 IDIV | X=7
+FC1F2@alg | from before: 744 ÷ 6, typed | MODE33 FIX4 124 ENTER | N=124 %LINE=124
+FC1F2@rpn | from before: 744 ÷ 6, typed | MODE33 FIX4 124 ENTER | X=124
+FC1F2W@alg | its working | MODE33 FIX4 744 / 6 ENTER | N=124 %LINE=744÷6
+FC1F2W@rpn | its working | MODE33 FIX4 744 ENTER 6 / | X=124
+FC1F2A@alg | slip: 74 ÷ 6 only, the last digit not brought down | MODE33 FIX4 IDIV 74 , 6 > ENTER | N=12 %LINE=IDIV(74,6)
+FC1F2A@rpn | slip: 74 ÷ 6 only, the last digit not brought down | MODE33 FIX4 74 ENTER 6 IDIV | X=12
+FC1M1@alg | mixed review: 126 left over by 9, typed | MODE33 FIX4 0 ENTER | N=0 %LINE=0
+FC1M1@rpn | mixed review: 126 left over by 9, typed | MODE33 FIX4 0 ENTER | X=0
+FC1M1W@alg | its working: Rmdr | MODE33 FIX4 RMDR 126 , 9 > ENTER | N=0 %LINE=RMDR(126,9)
+FC1M1W@rpn | its working: Rmdr | MODE33 FIX4 126 ENTER 9 RMDR | X=0
+FC1M1A@alg | slip: the quotient | MODE33 FIX4 IDIV 126 , 9 > ENTER | N=14 %LINE=IDIV(126,9)
+FC1M1A@rpn | slip: the quotient | MODE33 FIX4 126 ENTER 9 IDIV | X=14
+FC1M3@alg | mixed review: the smallest prime past 20, recalled, typed | MODE33 FIX4 23 ENTER | N=23 %LINE=23
+FC1M3@rpn | mixed review: the smallest prime past 20, recalled, typed | MODE33 FIX4 23 ENTER | X=23
+FC1M3A@alg | slip: 21 | MODE33 FIX4 21 ENTER | N=21 %LINE=21
+FC1M3A@rpn | slip: 21 | MODE33 FIX4 21 ENTER | X=21
