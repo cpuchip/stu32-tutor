@@ -9,14 +9,36 @@ status: draft prose (accuracy: lessons/ACCEPTED; not yet read by Michael; Thornw
 setup: BLUE MODE {mode} BLUE MODE {entry} GOLD DISP FIX 4
 display: FIX 4
 cast: Hesk
+voices: story plain
 ---
 
 # Negative numbers
 
-In winter, Hesk keeps a thermometer by the mill pond. At dawn the air is 5 degrees Celsius; by night
+<voice v="story">In winter, Hesk keeps a thermometer by the mill pond.</voice><voice v="plain">In winter, a thermometer hangs by a pond.</voice> At dawn the air is 5 degrees Celsius; by night
 it is 8 degrees colder. How cold is it tonight? Water freezes at 0 degrees Celsius, and tonight the air
 is colder than that, so the pond will freeze over, and the answer needs a number below zero. This lesson is about those numbers: what
 they mean, how they line up, and how to add and take them away.
+
+## From before
+
+Two from whole-01, by hand.
+
+```item NG1F1
+prompt: Work out 803 − 467.
+topics: column-subtraction
+answer: type
+calculator: no
+slip: NG1F1A | took the smaller digit from the larger | 3 − 7 needs a borrow, and the tens are 0, so borrow from the hundreds.
+```
+
+```item NG1F2
+prompt: Round 4762 to the nearest hundred.
+topics: estimating
+answer: type
+calculator: no
+working: none
+slip: NG1F2A | rounded down | The tens digit is 6, which is 5 or more, so it rounds up.
+```
 
 ## Before you start
 
@@ -37,7 +59,7 @@ middle, the positive numbers to the right and the negatives to the left:
 ```
 
 Further right is bigger. So 5 is bigger than −3, and −3 is bigger than −8, even though 8 is bigger
-than 3: −8 is further below zero. On Hesk's thermometer, −3 degrees is warmer than −8.
+than 3: −8 is further below zero. <voice v="story">On Hesk's thermometer, −3 degrees is warmer than −8.</voice><voice v="plain">On a thermometer, −3 degrees is warmer than −8.</voice>
 
 The sign − now has two jobs. Between two numbers it means take away, as in 5 − 8. In front of one
 number it means below zero, as in −8. When a negative number follows an operation, brackets keep the
@@ -167,3 +189,41 @@ Use the number line by hand first, then check.
    The screen shows <disp v="E03">-3.0000</disp>.
 
 4. Left to right on the number line: −7, −2, 0, 5.
+
+## Mixed review
+
+Four from this lesson and the ones before it, in no order. Work each by hand unless it says to use
+the calculator.
+
+```item NG1M1
+prompt: Work out −6 + 9.
+topics: add-negatives
+answer: type
+calculator: no
+slip: NG1M1A | added the sizes and kept the minus | Start at −6 and go 9 to the right: past 0, to 3.
+```
+
+```item NG1M2
+prompt: Work out 1468 + 2579.
+topics: column-addition
+answer: type
+calculator: no
+slip: NG1M2A | every carry left out | 8 + 9 is 17: write 7 and carry 1 to the tens, and so on.
+```
+
+```item NG1M3
+prompt: Work out 4 − (−5).
+topics: subtract-negatives
+answer: type
+calculator: no
+slip: NG1M3A | took away 5, not −5 | Taking away a negative adds it: 4 − (−5) is 4 + 5.
+```
+
+```item NG1M4
+prompt: What is the 7 in 3742 worth?
+topics: place-value
+answer: type
+calculator: no
+working: none
+slip: NG1M4A | the digit, not its worth | The 7 sits in the hundreds column: 7 hundreds, 700.
+```

@@ -26,3 +26,40 @@ E04B@alg | exercise 4: Rmdr of -10 and 3 | MODE33 FIX4 RMDR 10 CHS , 3 > ENTER |
 E04B@rpn | exercise 4: Rmdr of -10 and 3 | MODE33 FIX4 10 CHS ENTER 3 RMDR | X=2
 E05@alg | exercise 5: 15 / (-3) | MODE33 FIX4 15 / 3 CHS ENTER | N=-5 %LINE=15÷-3
 E05@rpn | exercise 5: 15 / (-3) | MODE33 FIX4 15 ENTER 3 CHS / | X=-5
+# From before and Mixed review (decision 76): each answer typed, its working (W, abacus #6439), and the slip's; @alg the line, @rpn the stack.
+NG2F1@alg | from before: −8 + 3, typed | MODE33 FIX4 5 CHS ENTER | N=-5 %LINE=-5
+NG2F1@rpn | from before: −8 + 3, typed | MODE33 FIX4 5 CHS ENTER | X=-5
+NG2F1W@alg | its working | MODE33 FIX4 8 CHS + 3 ENTER | N=-5 %LINE=-8+3
+NG2F1W@rpn | its working | MODE33 FIX4 8 CHS ENTER 3 + | X=-5
+NG2F1A@alg | slip: −8 − 3 | MODE33 FIX4 8 CHS - 3 ENTER | N=-11 %LINE=-8-3
+NG2F1A@rpn | slip: −8 − 3 | MODE33 FIX4 8 CHS ENTER 3 - | X=-11
+NG2F2@alg | from before: 18 × 21, typed | MODE33 FIX4 378 ENTER | N=378 %LINE=378
+NG2F2@rpn | from before: 18 × 21, typed | MODE33 FIX4 378 ENTER | X=378
+NG2F2W@alg | its working | MODE33 FIX4 18 * 21 ENTER | N=378 %LINE=18×21
+NG2F2W@rpn | its working | MODE33 FIX4 18 ENTER 21 * | X=378
+NG2F2A@alg | slip: 18 × 20 + 1 | MODE33 FIX4 18 * 20 + 1 ENTER | N=361 %LINE=18×20+1
+NG2F2A@rpn | slip: 18 × 20 + 1 | MODE33 FIX4 18 ENTER 20 * 1 + | X=361
+NG2M1@alg | mixed review: (−7) × (−6), typed | MODE33 FIX4 42 ENTER | N=42 %LINE=42
+NG2M1@rpn | mixed review: (−7) × (−6), typed | MODE33 FIX4 42 ENTER | X=42
+NG2M1W@alg | its working | MODE33 FIX4 7 CHS * 6 CHS ENTER | N=42 %LINE=-7×-6
+NG2M1W@rpn | its working | MODE33 FIX4 7 CHS ENTER 6 CHS * | X=42
+NG2M1A@alg | slip: kept the minus | MODE33 FIX4 7 CHS * 6 ENTER | N=-42 %LINE=-7×6
+NG2M1A@rpn | slip: kept the minus | MODE33 FIX4 7 CHS ENTER 6 * | X=-42
+NG2M2@alg | mixed review: −3 − (−10), typed | MODE33 FIX4 7 ENTER | N=7 %LINE=7
+NG2M2@rpn | mixed review: −3 − (−10), typed | MODE33 FIX4 7 ENTER | X=7
+NG2M2W@alg | its working | MODE33 FIX4 3 CHS - 10 CHS ENTER | N=7 %LINE=-3--10
+NG2M2W@rpn | its working | MODE33 FIX4 3 CHS ENTER 10 CHS - | X=7
+NG2M2A@alg | slip: −3 − 10 | MODE33 FIX4 3 CHS - 10 ENTER | N=-13 %LINE=-3-10
+NG2M2A@rpn | slip: −3 − 10 | MODE33 FIX4 3 CHS ENTER 10 - | X=-13
+NG2M3@alg | mixed review: 36 ÷ (−4), typed | MODE33 FIX4 9 CHS ENTER | N=-9 %LINE=-9
+NG2M3@rpn | mixed review: 36 ÷ (−4), typed | MODE33 FIX4 9 CHS ENTER | X=-9
+NG2M3W@alg | its working | MODE33 FIX4 36 / 4 CHS ENTER | N=-9 %LINE=36÷-4
+NG2M3W@rpn | its working | MODE33 FIX4 36 ENTER 4 CHS / | X=-9
+NG2M3A@alg | slip: dropped the minus | MODE33 FIX4 36 / 4 ENTER | N=9 %LINE=36÷4
+NG2M3A@rpn | slip: dropped the minus | MODE33 FIX4 36 ENTER 4 / | X=9
+NG2M4@alg | mixed review: 504 ÷ 7, typed | MODE33 FIX4 72 ENTER | N=72 %LINE=72
+NG2M4@rpn | mixed review: 504 ÷ 7, typed | MODE33 FIX4 72 ENTER | X=72
+NG2M4W@alg | its working | MODE33 FIX4 504 / 7 ENTER | N=72 %LINE=504÷7
+NG2M4W@rpn | its working | MODE33 FIX4 504 ENTER 7 / | X=72
+NG2M4A@alg | slip: 50 ÷ 7 only, the last digit not brought down | MODE33 FIX4 IDIV 50 , 7 > ENTER | N=7 %LINE=IDIV(50,7)
+NG2M4A@rpn | slip: 50 ÷ 7 only, the last digit not brought down | MODE33 FIX4 50 ENTER 7 IDIV | X=7

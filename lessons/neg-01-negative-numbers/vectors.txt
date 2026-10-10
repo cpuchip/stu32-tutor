@@ -16,3 +16,36 @@ E02@alg | exercise 2: 2 - 9 | MODE33 FIX4 2 - 9 ENTER | N=-7 %LINE=2-9
 E02@rpn | exercise 2: 2 - 9 | MODE33 FIX4 2 ENTER 9 - | X=-7
 E03@alg | exercise 3: -5 - (-2) | MODE33 FIX4 5 CHS - 2 CHS ENTER | N=-3 %LINE=-5--2
 E03@rpn | exercise 3: -5 - (-2) | MODE33 FIX4 5 CHS ENTER 2 CHS - | X=-3
+# From before and Mixed review (decision 76): each answer typed, its working (W, abacus #6439), and the slip's; @alg the line, @rpn the stack.
+NG1F1@alg | from before: 803 − 467, typed | MODE33 FIX4 336 ENTER | N=336 %LINE=336
+NG1F1@rpn | from before: 803 − 467, typed | MODE33 FIX4 336 ENTER | X=336
+NG1F1W@alg | its working | MODE33 FIX4 803 - 467 ENTER | N=336 %LINE=803-467
+NG1F1W@rpn | its working | MODE33 FIX4 803 ENTER 467 - | X=336
+NG1F1A@alg | slip: the smaller digit from the larger in each column, 464 | MODE33 FIX4 803 - 467 + 128 ENTER | N=464 %LINE=803-467+128
+NG1F1A@rpn | slip: the smaller digit from the larger in each column, 464 | MODE33 FIX4 803 ENTER 467 - 128 + | X=464
+NG1F2@alg | from before: 4762 to the nearest hundred, typed | MODE33 FIX4 4800 ENTER | N=4800 %LINE=4800
+NG1F2@rpn | from before: 4762 to the nearest hundred, typed | MODE33 FIX4 4800 ENTER | X=4800
+NG1F2A@alg | slip: rounded down | MODE33 FIX4 4700 ENTER | N=4700 %LINE=4700
+NG1F2A@rpn | slip: rounded down | MODE33 FIX4 4700 ENTER | X=4700
+NG1M1@alg | mixed review: −6 + 9, typed | MODE33 FIX4 3 ENTER | N=3 %LINE=3
+NG1M1@rpn | mixed review: −6 + 9, typed | MODE33 FIX4 3 ENTER | X=3
+NG1M1W@alg | its working | MODE33 FIX4 6 CHS + 9 ENTER | N=3 %LINE=-6+9
+NG1M1W@rpn | its working | MODE33 FIX4 6 CHS ENTER 9 + | X=3
+NG1M1A@alg | slip: −6 − 9 | MODE33 FIX4 6 CHS - 9 ENTER | N=-15 %LINE=-6-9
+NG1M1A@rpn | slip: −6 − 9 | MODE33 FIX4 6 CHS ENTER 9 - | X=-15
+NG1M2@alg | mixed review: 1468 + 2579, typed | MODE33 FIX4 4047 ENTER | N=4047 %LINE=4047
+NG1M2@rpn | mixed review: 1468 + 2579, typed | MODE33 FIX4 4047 ENTER | X=4047
+NG1M2W@alg | its working | MODE33 FIX4 1468 + 2579 ENTER | N=4047 %LINE=1468+2579
+NG1M2W@rpn | its working | MODE33 FIX4 1468 ENTER 2579 + | X=4047
+NG1M2A@alg | slip: every carry left out | MODE33 FIX4 1468 + 2579 - 110 ENTER | N=3937 %LINE=1468+2579-110
+NG1M2A@rpn | slip: every carry left out | MODE33 FIX4 1468 ENTER 2579 + 110 - | X=3937
+NG1M3@alg | mixed review: 4 − (−5), typed | MODE33 FIX4 9 ENTER | N=9 %LINE=9
+NG1M3@rpn | mixed review: 4 − (−5), typed | MODE33 FIX4 9 ENTER | X=9
+NG1M3W@alg | its working | MODE33 FIX4 4 - 5 CHS ENTER | N=9 %LINE=4--5
+NG1M3W@rpn | its working | MODE33 FIX4 4 ENTER 5 CHS - | X=9
+NG1M3A@alg | slip: 4 − 5 | MODE33 FIX4 4 - 5 ENTER | N=-1 %LINE=4-5
+NG1M3A@rpn | slip: 4 − 5 | MODE33 FIX4 4 ENTER 5 - | X=-1
+NG1M4@alg | mixed review: the 7 in 3742, recalled, typed | MODE33 FIX4 700 ENTER | N=700 %LINE=700
+NG1M4@rpn | mixed review: the 7 in 3742, recalled, typed | MODE33 FIX4 700 ENTER | X=700
+NG1M4A@alg | slip: the digit | MODE33 FIX4 7 ENTER | N=7 %LINE=7
+NG1M4A@rpn | slip: the digit | MODE33 FIX4 7 ENTER | X=7

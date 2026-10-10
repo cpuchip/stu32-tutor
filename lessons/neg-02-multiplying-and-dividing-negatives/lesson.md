@@ -9,14 +9,35 @@ status: draft prose (accuracy: lessons/ACCEPTED; not yet read by Michael; Thornw
 setup: BLUE MODE {mode} BLUE MODE {entry} GOLD DISP FIX 4
 display: FIX 4
 cast: Hesk
+voices: story plain
 ---
 
 # Multiplying and dividing negatives
 
-On a winter night the air by Hesk's mill pond cools by 4 degrees every hour. Write a change of 4 degrees colder as −4.
+<voice v="story">On a winter night the air by Hesk's mill pond cools by 4 degrees every hour.</voice><voice v="plain">On a winter night the air by a pond cools by 4 degrees every hour.</voice> Write a change of 4 degrees colder as −4.
 After 3 hours the change is −4 three times over: 3 × (−4). What does a negative times a number give,
 and what about a negative times a negative? This lesson finds the rules, says why they hold, and
 checks them on the calculator.
+
+## From before
+
+Two from before, by hand: a negative from neg-01, and one from whole-02.
+
+```item NG2F1
+prompt: Work out −8 + 3.
+topics: add-negatives
+answer: type
+calculator: no
+slip: NG2F1A | added the sizes and kept the minus | Start at −8 and go 3 to the right: to −5.
+```
+
+```item NG2F2
+prompt: Work out 18 × 21 by parts: 18 × 20, then 18 × 1.
+topics: partial-products
+answer: type
+calculator: no
+slip: NG2F2A | added the 1 | The second part is 18 × 1, which is 18, not 1.
+```
 
 ## Before you start
 
@@ -220,3 +241,40 @@ Work out the sign first, then the size (the number without its sign), then check
    ```
 
    The screen shows <disp v="E05">-5.0000</disp>.
+
+## Mixed review
+
+Four from this lesson and the ones before it, in no order. Work each by hand unless it says to use
+the calculator.
+
+```item NG2M1
+prompt: Work out (−7) × (−6).
+topics: sign-rules
+answer: type
+calculator: no
+slip: NG2M1A | kept the minus | A negative times a negative is positive.
+```
+
+```item NG2M2
+prompt: Work out −3 − (−10).
+topics: subtract-negatives
+answer: type
+calculator: no
+slip: NG2M2A | took away 10, not −10 | Taking away a negative adds it: −3 + 10.
+```
+
+```item NG2M3
+prompt: Work out 36 ÷ (−4).
+topics: divide-negatives
+answer: type
+calculator: no
+slip: NG2M3A | dropped the minus | A positive divided by a negative is negative.
+```
+
+```item NG2M4
+prompt: Work out 504 ÷ 7 by long division.
+topics: long-division
+answer: type
+calculator: no
+slip: NG2M4A | stopped before the last digit | Bring down every digit: after 50 comes the 4.
+```
