@@ -14,6 +14,27 @@ rule. In 20, 22, 24, 26, … each term is the one before plus 2; in 3, 6, 12, 24
 before times 2. This lesson finds any term of such a sequence without writing out all the terms
 before it, and adds up many terms at once.
 
+## From before
+
+Two from before, by hand: growth from exp-01 and a line from lin-01. They are the two kinds of
+sequence this lesson names.
+
+```item SQ1F1
+prompt: 5 grows by a factor of 2 at each step. What is it after 3 steps?
+topics: growth
+answer: type
+calculator: no
+slip: SQ1F1A | multiplied by the number of steps | Each step multiplies by 2 again: 5 × 2 × 2 × 2.
+```
+
+```item SQ1F2
+prompt: A line starts at 20 and adds 2 at every step. What is it after 5 steps?
+topics: linear-function
+answer: type
+calculator: no
+slip: SQ1F2A | added before multiplying | Five steps of 2 is 2 × 5, which is 10. Then 20 + 10.
+```
+
 ## Before you start
 
 The setup from rpn-01: the mode you chose and FIX 4. Each example starts fresh, except where one says
@@ -166,3 +187,40 @@ X shows <disp v="P02">510.0000</disp>, the sum the formula gave.
    ```
 
    X shows <disp v="E03">1,023.0000</disp>.
+
+## Mixed review
+
+Four from this lesson and the ones before it, in no order. Work each by hand unless it says to use
+the calculator.
+
+```item SQ1M1
+prompt: The sequence 7, 10, 13, … goes on the same way. What is its 10th term?
+topics: arithmetic-sequence
+answer: type
+calculator: no
+slip: SQ1M1A | ten steps, not nine | The 10th term is 9 steps after the first: 7 + 9 × 3.
+```
+
+```item SQ1M2
+prompt: What is 30% of 70?
+topics: percent
+answer: type
+calculator: no
+slip: SQ1M2A | forgot the hundredth | 30% means 30 hundredths: 0.3 × 70.
+```
+
+```item SQ1M3
+prompt: The sequence 3, 6, 12, … goes on the same way. What is its 6th term?
+topics: geometric-sequence
+answer: type
+calculator: no
+slip: SQ1M3A | six doublings, not five | The 6th term is 5 steps after the first: 3 × 2⁵.
+```
+
+```item SQ1M4
+prompt: Work out 2¹⁰.
+topics: power
+answer: type
+calculator: no
+slip: SQ1M4A | 2 × 10, not 2¹⁰ | 2¹⁰ is ten 2s multiplied: 1024.
+```

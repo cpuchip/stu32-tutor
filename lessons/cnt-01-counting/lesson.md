@@ -14,6 +14,26 @@ far too many orders of a deck of cards to list. This lesson counts them without 
 the choices, count orders with a factorial, and choose some of a group with or without caring about
 their order.
 
+## From before
+
+Two from unit 1, by hand.
+
+```item CN1F1
+prompt: Work out 4 × 3 × 2 + 1.
+topics: mult-before-add
+answer: type
+calculator: no
+slip: CN1F1A | added before multiplying | The multiplications come first: 24, then + 1.
+```
+
+```item CN1F2
+prompt: Work out (10 × 9) ÷ 2.
+topics: fraction-bar
+answer: type
+calculator: no
+slip: CN1F2A | multiplied by the 2 | ÷ 2 divides: 90 ÷ 2.
+```
+
 ## Before you start
 
 The setup from rpn-01: the mode you chose and FIX 4. Each example starts fresh, except where one says
@@ -171,3 +191,40 @@ combination.
    ```
 
    X shows <disp v="E04">1,320.0000</disp>.
+
+## Mixed review
+
+Four from this lesson and the ones before it, in no order. Work each by hand unless it says to use
+the calculator.
+
+```item CN1M1
+prompt: What is 4!?
+topics: factorial
+answer: type
+calculator: no
+slip: CN1M1A | added instead | 4! multiplies: 4 × 3 × 2 × 1.
+```
+
+```item CN1M2
+prompt: Work out 5 × 2³ − 1.
+topics: powers-first
+answer: type
+calculator: no
+slip: CN1M2A | cubed 5 × 2 | The power belongs to the 2 alone: 2³ is 8, then 5 × 8 − 1.
+```
+
+```item CN1M3
+prompt: A menu has 3 starters and 4 mains. How many different meals of one starter and one main?
+topics: multiplication-principle
+answer: type
+calculator: no
+slip: CN1M3A | added the choices | Each starter goes with each main: 3 × 4.
+```
+
+```item CN1M4
+prompt: Work out √(4 × 25).
+topics: square-root
+answer: type
+calculator: no
+slip: CN1M4A | halved instead of taking the root | 4 × 25 is 100, and √100 is 10.
+```

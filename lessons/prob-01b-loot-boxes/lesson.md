@@ -17,6 +17,26 @@ a player is to get the item in 10 or 100 pulls, how many pulls it takes on avera
 changes, and what it all costs. It covers the same ideas as prob-01, from another angle. The rates and
 prices here are examples, not any real game's.
 
+## From before
+
+Two from before, by hand: independent tosses from prob-01, and a percent from num-04.
+
+```item PB2F1
+prompt: A fair coin is tossed three times. What is the probability of three tails?
+topics: independent
+answer: type
+calculator: no
+slip: PB2F1A | added the chances | Independent events multiply: 0.5 × 0.5 × 0.5.
+```
+
+```item PB2F2
+prompt: What is 1% of 300?
+topics: percent
+answer: type
+calculator: no
+slip: PB2F2A | took 10% | 1% is one hundredth: 300 ÷ 100.
+```
+
 ## Before you start
 
 The setup from rpn-01: the mode you chose and FIX 4. Each example starts fresh, except where one says it
@@ -189,6 +209,43 @@ before paying, what an item is really worth to you.
    ```
 
    X shows <disp v="E03">12.8303</disp> pulls, fewer than the 20 without the timer.
+
+## Mixed review
+
+Four from this lesson and the ones before it, in no order. Work each by hand unless it says to use
+the calculator.
+
+```item PB2M1
+prompt: A rare item comes in 5% of pulls. How many pulls does it take on average?
+topics: mean-tries
+answer: type
+calculator: no
+slip: PB2M1A | gave the percent | On average it takes 1 ÷ p pulls: 1 ÷ 0.05.
+```
+
+```item PB2M2
+prompt: Add 1 + 2 + 4 + 8 + 16.
+topics: geometric-sum
+answer: type
+calculator: no
+slip: PB2M2A | the next term, not the sum | The sum of 1, 2, 4, 8 and 16 is one less than the next term, 32.
+```
+
+```item PB2M3
+prompt: A rare item comes in 2% of pulls. What is the chance one pull does not give it?
+topics: pull-chance
+answer: type
+calculator: no
+slip: PB2M3A | the chance of getting it | Not getting it is everything else: 1 − 0.02.
+```
+
+```item PB2M4
+prompt: A bet pays 10 coins with probability 0.2, and nothing otherwise. What does it pay on average, before its cost?
+topics: expected-value
+answer: type
+calculator: no
+slip: PB2M4A | the payout as sure | It pays 10 only one time in five, on average: 10 × 0.2.
+```
 
 ## Checkpoint
 

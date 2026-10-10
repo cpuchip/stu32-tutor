@@ -16,6 +16,26 @@ how much does a bet win or lose on average? For a game of chance run to make mon
 it loses, and the calculator can show by how much. Last, it lets the calculator make random numbers to
 imitate chance.
 
+## From before
+
+Two from before, by hand: a combination from cnt-01, and fractions from unit 1.
+
+```item PB1F1
+prompt: In how many ways can 2 of 5 people be chosen, if the order does not matter?
+topics: combination
+answer: type
+calculator: no
+slip: PB1F1A | counted each pair twice | In order there are 5 × 4 = 20, and each pair is counted twice: 20 ÷ 2.
+```
+
+```item PB1F2
+prompt: Work out 1 − 3/8, as a decimal.
+topics: fraction-arithmetic
+answer: type
+calculator: no
+slip: PB1F2A | left out the 1 − | It is what is left of 1 after 3/8: 8/8 − 3/8 is 5/8.
+```
+
 ## Before you start
 
 The setup from rpn-01: the mode you chose and FIX 4. Each example starts fresh, except where one says
@@ -240,3 +260,40 @@ X shows <disp v="S01">0.0000</disp>: the two numbers were the same, and so are t
    ```
 
    X shows <disp v="E05">-0.3000</disp>: 30 cents lost per card, on average.
+
+## Mixed review
+
+Four from this lesson and the ones before it, in no order. Work each by hand unless it says to use
+the calculator.
+
+```item PB1M1
+prompt: A bag holds 8 balls, 2 of them red. One is drawn at random. What is the probability it is red?
+topics: probability
+answer: type
+calculator: no
+slip: PB1M1A | the other colour | The ways that count are the 2 red ones, out of all 8: 2 ÷ 8.
+```
+
+```item PB1M2
+prompt: In how many orders can 6 people stand in a line?
+topics: factorial
+answer: type
+calculator: no
+slip: PB1M2A | added the choices | 6 choices for the first place, 5 for the next, and so on: they multiply, 6!.
+```
+
+```item PB1M3
+prompt: The chance of rain is 0.3. What is the chance of no rain?
+topics: complement
+answer: type
+calculator: no
+slip: PB1M3A | the same chance | Rain or no rain must happen, so the two add to 1: 1 − 0.3.
+```
+
+```item PB1M4
+prompt: Work out 0.5³.
+topics: power
+answer: type
+calculator: no
+slip: PB1M4A | 0.5 × 3, not 0.5³ | 0.5³ is three 0.5s multiplied: 0.5 × 0.5 × 0.5.
+```

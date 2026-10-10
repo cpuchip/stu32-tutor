@@ -19,3 +19,22 @@ E03B | continues E03: a 10-million jackpot times that chance | MODE33 FIX4 1 ENT
 E03C | continues E03B: less the 2-dollar ticket | MODE33 FIX4 1 ENTER 49 ENTER 6 NCR / 1 E 7 * 2 - | X=-1.284887615798148373805833829621328
 E05 | exercise 5: a scratch card: 10 x 1/20 + 2 x 1/10 - 1 | MODE33 FIX4 10 ENTER 20 / 2 ENTER 10 / + 1 - | X=-0.3
 E04 | exercise 4: seed 1, a die face, kept; seed 1, a die face: the same, difference 0 | MODE33 FIX4 1 SEED RAND 6 * IP 1 + STO:A 1 SEED RAND 6 * IP 1 + RCL:A - | X=0
+# From before and Mixed review (decision 76): each answer typed, its working (W, abacus #6439), and the slips'.
+PB1F1 | from before: C(5, 2), the answer typed | MODE33 FIX4 10 | X=10
+PB1F1W | its working | MODE33 FIX4 5 ENTER 2 NCR | X=10
+PB1F1A | slip: P(5, 2) | MODE33 FIX4 5 ENTER 2 NPR | X=20
+PB1F2 | from before: 1 − 3/8, the answer typed | MODE33 FIX4 0.625 | X=0.625
+PB1F2W | its working | MODE33 FIX4 1 ENTER 3 ENTER 8 / - | X=0.625
+PB1F2A | slip: 3/8 | MODE33 FIX4 3 ENTER 8 / | X=0.375
+PB1M1 | mixed review: 2 red of 8, typed | MODE33 FIX4 0.25 | X=0.25
+PB1M1W | its working | MODE33 FIX4 2 ENTER 8 / | X=0.25
+PB1M1A | slip: 6 ÷ 8 | MODE33 FIX4 6 ENTER 8 / | X=0.75
+PB1M2 | mixed review: 6!, typed | MODE33 FIX4 720 | X=720
+PB1M2W | its working | MODE33 FIX4 6 FACT | X=720
+PB1M2A | slip: 6 + 5 + 4 + 3 + 2 + 1 | MODE33 FIX4 6 ENTER 5 + 4 + 3 + 2 + 1 + | X=21
+PB1M3 | mixed review: not rain, typed | MODE33 FIX4 0.7 | X=0.7
+PB1M3W | its working | MODE33 FIX4 1 ENTER 0.3 - | X=0.7
+PB1M3A | slip: the same chance | MODE33 FIX4 0.3 | X=0.3
+PB1M4 | mixed review: 0.5³, typed | MODE33 FIX4 0.125 | X=0.125
+PB1M4W | its working | MODE33 FIX4 0.5 ENTER 3 POW | X=0.125
+PB1M4A | slip: 0.5 × 3 | MODE33 FIX4 0.5 ENTER 3 * | X=1.5

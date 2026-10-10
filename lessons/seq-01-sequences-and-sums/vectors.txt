@@ -12,3 +12,22 @@ E01 | exercise 1: the 30th term of 7, 11, 15, ...: 7 + 29 x 4 | MODE33 FIX4 7 EN
 E01B | continues E01: with 123 in X, the sum (123 + 7) x 30 / 2 | MODE33 FIX4 7 ENTER 29 ENTER 4 * + 7 + 30 * 2 / | X=1950
 E02 | exercise 2: the 5th bounce: 2 x 0.75^5 | MODE33 FIX4 2 ENTER 0.75 ENTER 5 POW * | X=0.474609375
 E03 | exercise 3: 1 + 2 + ... + 512 = 2^10 - 1 | MODE33 FIX4 2 ENTER 10 POW 1 - | X=1023
+# From before and Mixed review (decision 76): each answer typed, its working (W, abacus #6439), and the slips'.
+SQ1F1 | from before: 5 × 2³, the answer typed | MODE33 FIX4 40 | X=40
+SQ1F1W | its working | MODE33 FIX4 5 ENTER 2 ENTER 3 POW * | X=40
+SQ1F1A | slip: 5 × 2 × 3 | MODE33 FIX4 5 ENTER 2 * 3 * | X=30
+SQ1F2 | from before: 20 + 2 × 5, the answer typed | MODE33 FIX4 30 | X=30
+SQ1F2W | its working | MODE33 FIX4 2 ENTER 5 * 20 + | X=30
+SQ1F2A | slip: (20 + 2) × 5 | MODE33 FIX4 20 ENTER 2 + 5 * | X=110
+SQ1M1 | mixed review: the 10th term of 7, 10, 13, typed | MODE33 FIX4 34 | X=34
+SQ1M1W | its working | MODE33 FIX4 9 ENTER 3 * 7 + | X=34
+SQ1M1A | slip: 7 + 10 × 3 | MODE33 FIX4 10 ENTER 3 * 7 + | X=37
+SQ1M2 | mixed review: 30% of 70, typed | MODE33 FIX4 21 | X=21
+SQ1M2W | its working | MODE33 FIX4 0.3 ENTER 70 * | X=21
+SQ1M2A | slip: 30 × 70 | MODE33 FIX4 30 ENTER 70 * | X=2100
+SQ1M3 | mixed review: the 6th term of 3, 6, 12, typed | MODE33 FIX4 96 | X=96
+SQ1M3W | its working | MODE33 FIX4 3 ENTER 2 ENTER 5 POW * | X=96
+SQ1M3A | slip: 3 × 2⁶ | MODE33 FIX4 3 ENTER 2 ENTER 6 POW * | X=192
+SQ1M4 | mixed review: 2¹⁰, typed | MODE33 FIX4 1024 | X=1024
+SQ1M4W | its working | MODE33 FIX4 2 ENTER 10 POW | X=1024
+SQ1M4A | slip: 2 × 10 | MODE33 FIX4 2 ENTER 10 * | X=20
