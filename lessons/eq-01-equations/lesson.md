@@ -209,7 +209,7 @@ Four from this lesson and the ones before it, in no order. Work each by hand unl
 the calculator.
 
 ```item EQ1M1
-prompt: Does 6 solve 3x − 5 = 13? Type it, and give what XEQ shows at x = 6.
+prompt: Type 3x − 5 = 13 and XEQ it at x = 6. What does X show? Does 6 solve it?
 topics: xeq-check
 answer: type
 calculator: yes
