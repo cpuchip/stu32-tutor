@@ -13,6 +13,26 @@ A power is repeated multiplication: 2⁵ is 2 × 2 × 2 × 2 × 2. A root undoes
 of 8 is 2, because 2³ is 8. The STU-32 has keys for the common cases and one key, yˣ, for the
 rest. This lesson is about those keys, and about the order of the two numbers they use.
 
+## From before
+
+Two from num-01 and num-02, by hand.
+
+```item NM3F1
+prompt: Work out (6 − 2) × 5.
+topics: parentheses
+answer: type
+calculator: no
+slip: NM3F1A | multiplied before the brackets | The brackets come first: 6 − 2 is 4, then 4 × 5.
+```
+
+```item NM3F2
+prompt: Work out 2/5 + 1/5, as a decimal.
+topics: fraction-arithmetic
+answer: type
+calculator: no
+slip: NM3F2A | added the bottoms too | Fifths add as fifths: 2/5 + 1/5 is 3/5.
+```
+
 ## Before you start
 
 The setup from rpn-01: the mode you chose and FIX 4. Work the examples in order; when one carries on from the

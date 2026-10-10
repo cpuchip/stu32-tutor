@@ -64,7 +64,7 @@ ITEM_FIELDS = ("prompt", "topics", "answer", "calculator", "keys", "places", "wo
 # The lessons and placement files whose typed items predate that rule; the sweep (decision 76) takes each off
 # as its unit's batch gives every computed item its working. A listed file whose items all have it is refused,
 # so the list cannot outlive its need.
-WORKING_PENDING = {"num-04", "parallel-01",
+WORKING_PENDING = {"parallel-01",
                    "place-algebra-to-calculus"}
 
 

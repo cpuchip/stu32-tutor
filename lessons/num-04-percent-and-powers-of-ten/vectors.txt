@@ -27,3 +27,7 @@ CP1B2 | slip: divided by 15 | MODE33 FIX2 240 ENTER 15 / | X=16
 CP1C | checkpoint, unit 1: the answer typed | MODE33 FIX2 32000 | X=32000
 CP1C1 | slip: times 4, not ten to the 4 | MODE33 FIX2 3.2 ENTER 4 * | X=12.8
 CP1C2 | slip: one place too many | MODE33 FIX2 3.2 ENTER 100000 * | X=320000
+# The checkpoint's working (abacus #6439): each computed answer made by the core.
+CP1AW | CP1A's working: 2 + 3 × 4² | MODE33 FIX2 4 SQ 3 * 2 + | X=50
+CP1BW | CP1B's working: 0.15 × 240 | MODE33 FIX2 0.15 ENTER 240 * | X=36
+CP1CW | CP1C's working: 3.2 × 10⁴ | MODE33 FIX2 3.2 ENTER 10 ENTER 4 POW * | X=32000
