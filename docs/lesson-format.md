@@ -177,6 +177,40 @@ slip: K01B | f(2), not f′(2) | That is the height at 2. Take the derivative fi
 - An item's ID is its own across every lesson and placement file: the browser's review queue keys on
   it, so an item whose question changes takes a new ID.
 
+### Voices: story and plain
+
+A lesson may offer two readings of the same skeleton (decision 71: story first for the young courses, the algebra
+course plain; docs/proposals/voices.md).
+- **Front matter:** `voices: story plain`, the default first. A lesson with no `voices:` line has one voice.
+- **Spans:** prose that belongs to one voice goes in `<voice v="story">…</voice>` or `<voice v="plain">…</voice>`.
+  Everything outside the spans is shared.
+- **A span holds prose only:** no keys block, no item, no `<disp>`, no `<mode>` or `<entry>` span, no other
+  `<voice>` span, and no `##` heading. So every voice has the same examples, quotes, items and sections.
+- **Exercises:** the problems are the same problems in every voice. A voice changes the words that set a problem
+  up, never its numbers.
+- **The cast** (`cast:` and `walk-ons:`, lore/) belongs to the story voice. The plain reading names no one.
+
+check.py refuses:
+- a span that breaks those rules;
+- a span in a lesson with no `voices:` line;
+- a span for a voice the lesson doesn't offer;
+- an offered voice with no span of its own;
+- a reading whose keys blocks, items, quotes or `##` headings differ from the default's, in order (a second proof
+  under the span rules);
+- a reading whose `## Exercises` numbers differ from the default's.
+
+Every other check then runs on the default reading. graph.py refuses a plain reading that names a cast member or a
+walk-on.
+
+The controls are in whole-01's set:
+- a plain exercise with another number;
+- a quote, a keys block and a heading, each inside a voice span;
+- a span with no `voices:` line;
+- a span in a voice the lesson doesn't offer;
+- and, as a green, the exercise told in both voices.
+
+graph.py's selftest plants a plain voice that names its cast.
+
 ### Review sections
 
 Two sections bring earlier lessons back (decision 76; docs/proposals/learning-science-plan.md):

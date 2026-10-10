@@ -1,7 +1,8 @@
 # Two voices: story and plain (PROPOSAL, for Michael)
 
-**Status:** a proposal (decision 67's question, relayed by abacus #5320). Nothing is built until he
-rules.
+**Status:** ruled by Michael (decision 71: "Build it: story first for young courses, algebra stays plain"). The
+format and its checks are built (docs/lesson-format.md, Voices). The young courses take their plain voice lesson by
+lesson in the learning-science sweep.
 
 **His words** (decision 67): "Should we support two ways to learn, straight no story just math and
 applications? And then story for those that learn better that way? Same content and problems, just no

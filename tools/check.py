@@ -170,6 +170,76 @@ def read_vectors(path, nfields):
     return out
 
 
+# Voices (decision 71; docs/proposals/voices.md): a lesson may offer a story reading and a plain one of the same
+# skeleton, `voices: story plain` in its front matter (the default first). Text inside <voice v="story">…</voice>
+# or <voice v="plain">…</voice> belongs to that voice; everything outside is shared. A span holds prose only, so
+# every voice has the same keys blocks, quotes, items and sections; check_voices proves it on the readings.
+VOICES = ("story", "plain")
+VOICE_SPAN = re.compile(r'<voice v="([^"]*)">(.*?)</voice>', re.S)
+VOICE_HOLDS_NOT = (("```keys", "a keys block"), ("```item", "an item"), ("<disp", "a <disp> quote"),
+                   ("<mode", "a <mode> span"), ("<entry", "an <entry> span"), ("<voice", "a <voice> span"))
+SKELETON = re.compile(r"^[ \t]*```(?:keys|item)\b.*?^[ \t]*```[ \t]*$|<disp\b[^>]*>.*?</disp>|^## [^\n]*$", re.M | re.S)
+
+
+def lesson_voices(meta):
+    """(the lesson's voices, the default first, or [None]; a problem or None)."""
+    if "voices" not in meta:
+        return [None], None
+    vs = meta["voices"].split()
+    if len(vs) < 2 or len(set(vs)) != len(vs) or any(v not in VOICES for v in vs):
+        return [None], f"`voices: {meta['voices']}` must name two or more of {' '.join(VOICES)}, each once"
+    return vs, None
+
+
+def voice_view(body, voice):
+    """The lesson as read in one voice: that voice's spans kept (their text), the others removed."""
+    return VOICE_SPAN.sub(lambda m: m.group(2) if m.group(1) == voice else "", body)
+
+
+def exercise_numbers(text):
+    """The numbers written in a reading's ## Exercises (or ## Exercise) section, in order."""
+    m = re.search(r"^## Exercises?[ \t]*$(.*?)(?=^## |\Z)", text, re.M | re.S)
+    return re.findall(r"\d+(?:[.,]\d+)*", m.group(1)) if m else []
+
+
+def check_voices(meta, body):
+    """Problems with a lesson's voices: the spans as written, and the proof that every reading has the default's
+    skeleton (keys blocks, items, quotes and ## headings, in order) and its exercises' numbers."""
+    voices, why = lesson_voices(meta)
+    if why:
+        return [why]
+    spans = list(VOICE_SPAN.finditer(body))
+    rest = VOICE_SPAN.sub("", body)
+    out = []
+    if "<voice" in rest or "</voice>" in rest:
+        out.append('a <voice> tag not in the form <voice v="...">...</voice>')
+    if voices == [None]:
+        if spans:
+            out.append("a <voice> span, but the front matter offers no `voices:`")
+        return out
+    for m in spans:
+        v, inner = m.group(1), m.group(2)
+        if v not in voices:
+            out.append(f'<voice v="{v}">: {v} is not one of the lesson\'s voices ({" ".join(voices)})')
+        for token, what in VOICE_HOLDS_NOT:
+            if token in inner:
+                out.append(f'<voice v="{v}"> holds {what}; a voice span holds prose only, so every voice has the same skeleton')
+        if re.search(r"^## ", inner, re.M):
+            out.append(f'<voice v="{v}"> holds a ## heading; sections are shared by every voice')
+    for v in voices:
+        if not any(m.group(1) == v for m in spans):
+            out.append(f"`voices:` offers {v}, but no <voice v=\"{v}\"> span says anything in it")
+    base = voice_view(body, voices[0])
+    for v in voices[1:]:
+        reading = voice_view(body, v)
+        if SKELETON.findall(reading) != SKELETON.findall(base):
+            out.append(f"the {v} reading's keys blocks, items, quotes or sections differ from the {voices[0]} reading's")
+        if exercise_numbers(reading) != exercise_numbers(base):
+            out.append(f"the {v} reading's exercises have other numbers than the {voices[0]} reading's: "
+                       f"{exercise_numbers(reading)} against {exercise_numbers(base)}")
+    return out
+
+
 def lesson_modes(meta):
     """The modes a lesson offers (all three unless its front matter lists fewer), and any problem."""
     modes = meta.get("modes", " ".join(ALL_MODES)).split()
@@ -431,6 +501,15 @@ class Lesson:
             return
         text = open(lesson_md, encoding="utf-8").read()
         meta, body = front_matter(text)
+        # Voices: the spans and the same-skeleton proof first; then every check below reads the default voice,
+        # which the proof shows has every other voice's examples, quotes and items.
+        for p in check_voices(meta, body):
+            self.bad(p)
+        body_all = body
+        voices = lesson_voices(meta)[0]
+        if voices != [None]:
+            body = voice_view(body, voices[0])
+            self.notes.append(f"voices: {' '.join(voices)}, one skeleton")
         vectors = read_vectors(vec_path, 4)
         fmts = read_vectors(fmt_path, 6) if os.path.exists(fmt_path) else []
 
@@ -521,7 +600,7 @@ class Lesson:
         # The page renders a lesson id in prose as its linked title (abacus #5459), so a possessive id
         # ("lim-02's ball") reads as "[Rates of change]'s ball" (primer #5463): name the thing, then the
         # lesson ("the ball from lim-02").
-        for pid in sorted(set(re.findall(r"\b([a-z]+-\d{2}[a-z]?)['’]s\b", body))):     # straight or curly
+        for pid in sorted(set(re.findall(r"\b([a-z]+-\d{2}[a-z]?)['’]s\b", body_all))):     # straight or curly, in every voice
             self.bad(f"lesson id {pid} written as a possessive ({pid}'s): the page renders it as a title; "
                      f"write 'the … from {pid}'")
 

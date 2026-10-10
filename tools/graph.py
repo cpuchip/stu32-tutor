@@ -618,6 +618,7 @@ def selftest_review(lessons, placement_texts, graph):
     return ok and bool(some_id) and red == len(plants)
 
 
+VOICE_SPAN = re.compile(r'<voice v="([^"]*)">(.*?)</voice>', re.S)        # check.py's, for the plain voice's cast
 LORE_KINDS = ("character", "place", "object", "age")
 LORE_VERBS = ("lives_in", "located_in", "works_with", "keeps", "made", "passes_to", "before")
 
@@ -682,12 +683,19 @@ def check_lore(entities, edges, lessons, graph):
         return out
     course_of = {l: cid for cid, c in graph.get("courses", {}).items() for u in c["units"] for l in u["lessons"]}
     appear, cameos = {}, []
-    for lid, (meta, _) in lessons.items():
+    for lid, (meta, text) in lessons.items():
         cast = [x.strip() for x in meta.get("cast", "").split(",") if x.strip()]
         walk = [x.strip() for x in meta.get("walk-ons", "").split(",") if x.strip()]
         if not cast and not walk:
             continue
         appear[lid] = {"cast": cast, "walk_ons": walk}
+        # With voices (docs/proposals/voices.md), the cast belongs to the story voice: the plain reading, the shared
+        # text with the plain spans, names no one.
+        if "plain" in meta.get("voices", "").split():
+            plain = VOICE_SPAN.sub(lambda m: m.group(2) if m.group(1) == "plain" else "", text.split("\n---", 1)[-1])
+            for who in cast + walk:
+                if re.search(rf"\b{re.escape(who)}\b", plain):
+                    bad.append(f"{lid}: the plain voice names '{who}'; the cast belongs to the story voice")
         for who in cast + walk:
             if who not in ents:
                 bad.append(f"{lid}: '{who}' appears, but is not in lore/ENTITIES")
@@ -723,6 +731,15 @@ def selftest_lore(entities, edges, lessons, graph):
         ("a cast entity no lesson introduces", entities, edges,
          {**lessons, first: ({**meta, "cast": "Thornwick"}, text)}, "'Thornwick' is cast:, but no lesson introduces them"),
     ]
+    # A lesson offering a plain voice whose shared text still names its cast (whole-01 names Tobin in its prose).
+    if "whole-01" in lessons and "Tobin" in lessons["whole-01"][1]:
+        wm, wt = lessons["whole-01"]
+        plants.append(("a plain voice that names the cast", entities, edges,
+                       {**lessons, "whole-01": ({**wm, "voices": "story plain"}, wt)},
+                       "whole-01: the plain voice names 'Tobin'"))
+    else:
+        print("FAIL no whole-01 naming Tobin to plant the plain-voice fault in")
+        return False
     red = 0
     for pname, en, ed, ls, why in plants:
         problems = check_lore(en, ed, ls, json.loads(json.dumps(graph)))

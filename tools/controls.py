@@ -603,6 +603,31 @@ CONTROLS_FOR["whole-01-adding-and-subtracting"] = [
     ("the algebraic line added where it should take away", "lesson.md", "```keys A02 entry=alg\n5000 − 2768 ENTER\n",
      "```keys A02 entry=alg\n5000 + 2768 ENTER\n", {}, "A02: printed keys and vector disagree in STU alg mode"),
 ]
+# Voices (docs/proposals/voices.md): whole-01's exercise 2 told in two voices, and one fault each in that.
+VOICED = ("lesson.md", "cast: Hesk, Tobin\n", "cast: Hesk, Tobin\nvoices: story plain\n")
+EX2 = "2. Tobin had 4003 loaves to deliver and has delivered 1756. How many are left?"
+EX2_TWO = ('2. <voice v="story">Tobin had 4003 loaves to deliver and has delivered 1756.</voice><voice v="plain">4003 '
+           'loaves are to be delivered, and 1756 of them have been.</voice> How many are left?')
+CONTROLS_FOR["whole-01-adding-and-subtracting"] += [
+    ("a plain exercise with another number", [VOICED, ("lesson.md", EX2, EX2_TWO.replace("1756 of them", "1765 of them"))],
+     None, None, {}, "the plain reading's exercises have other numbers"),
+    ("a quote inside a voice span", [VOICED, ("lesson.md", EX2, EX2_TWO),
+                                     ("lesson.md", '<disp v="A01">5,331.0000</disp>',
+                                      '<voice v="story"><disp v="A01">5,331.0000</disp></voice>')],
+     None, None, {}, '<voice v="story"> holds a <disp> quote'),
+    ("a keys block inside a voice span", [VOICED, ("lesson.md", EX2, EX2_TWO),
+                                          ("lesson.md", "```keys A02 entry=rpn\n5000 ENTER 2768 −\n```",
+                                           '<voice v="story">\n```keys A02 entry=rpn\n5000 ENTER 2768 −\n```\n</voice>')],
+     None, None, {}, '<voice v="story"> holds a keys block'),
+    ("a voice span in a lesson with no voices: line", [("lesson.md", EX2, EX2_TWO)], None, None, {},
+     "a <voice> span, but the front matter offers no `voices:`"),
+    ("a span in a voice the lesson does not offer",
+     [VOICED, ("lesson.md", EX2, EX2_TWO.replace('<voice v="plain">', '<voice v="tale">'))], None, None, {},
+     '<voice v="tale">: tale is not one of the lesson\'s voices'),
+    ("a heading inside a voice span", [VOICED, ("lesson.md", EX2, EX2_TWO),
+                                       ("lesson.md", "\n## Answers\n", '\n<voice v="story">\n## Answers\n</voice>\n')],
+     None, None, {}, '<voice v="story"> holds a ## heading'),
+]
 CONTROLS_FOR["whole-02-multiplying-and-dividing"] = [
     ("INT÷ pressed without its gold shift", "lesson.md", "```keys D02 entry=alg\nGOLD INT÷ 59", "```keys D02 entry=alg\nINT÷ 59", {},
      "D02: printed keys and vector disagree in STU alg mode"),
@@ -728,6 +753,9 @@ CONTROLS_FOR["rpn-03-the-display"].append(
      "```keys P01\nGOLD DISP FIX 4 2 ENTER 3 ÷\n", "```keys P01\n2 ENTER 3 ÷\n", {},
      "P01: working through in order"))
 GREENS_FOR = {
+    "whole-01-adding-and-subtracting": [
+        ("exercise 2 in two voices, with the same numbers", [VOICED, ("lesson.md", EX2, EX2_TWO)], None, None),
+    ],
     "frac-01-equivalent-fractions": [
         ("a block's RPN variant written before its algebraic one", "lesson.md",
          "```keys Q02 entry=alg\n1 ÷ 2 ENTER\n```\n\n```keys Q02 entry=rpn\n1 ENTER 2 ÷\n```\n",
@@ -812,13 +840,19 @@ def main():
             d = os.path.join(tmp, "g")
             shutil.rmtree(d, ignore_errors=True)
             shutil.copytree(lesson, d)
-            p = os.path.join(d, fn)
-            s = open(p, encoding="utf-8").read()
-            if s.count(old) != 1:
-                print(f"FAIL {name}: the change did not apply")
+            edits = fn if isinstance(fn, list) else [(fn, old, new)]
+            applied = True
+            for efn, eold, enew in edits:
+                p = os.path.join(d, efn)
+                s = open(p, encoding="utf-8").read()
+                if s.count(eold) != 1:
+                    print(f"FAIL {name}: the change did not apply to {efn} ({s.count(eold)} matches)")
+                    applied = False
+                    break
+                open(p, "w", encoding="utf-8").write(s.replace(eold, enew))
+            if not applied:
                 greens_bad += 1
                 continue
-            open(p, "w", encoding="utf-8").write(s.replace(old, new))
             rc, out = run_check(a.core, d, {})
             if rc != 0:
                 print(f"FAIL {name}: check.py failed a harmless change:\n{out}")
