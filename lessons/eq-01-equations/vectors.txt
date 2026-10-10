@@ -16,3 +16,22 @@ Q06@STU | continues Q06A: STU works it out at 4: left minus right, 0 | MODE33 FI
 E01 | exercise 1: does 3 solve 5x - 4 = 11? | MODE33 FIX4 EQN 5 * RCL:X - 4 = 11 ENTER XEQ 3 RS | X=0
 E02 | exercise 2: solve 3x + 7 = 1 | MODE33 FIX4 EQN 3 * RCL:X + 7 = 1 ENTER SOLVE:X | X=-2 @X=-2
 E02B | exercise 2's check, continuing E02: R/S keeps the -2 the variable X holds | MODE33 FIX4 EQN 3 * RCL:X + 7 = 1 ENTER SOLVE:X EQN XEQ RS | X=0
+# From before and Mixed review (decision 76): each answer typed, its working (W, abacus #6439), and the slips'.
+EQ1F1 | from before: 2 × (3 + 4), the answer typed | MODE33 FIX4 14 | X=14
+EQ1F1W | its working | MODE33 FIX4 2 ENTER 3 ENTER 4 + * | X=14
+EQ1F1A | slip: 2 × 3 + 4 | MODE33 FIX4 2 ENTER 3 * 4 + | X=10
+EQ1F2 | from before: 10³ ÷ 4, the answer typed | MODE33 FIX4 250 | X=250
+EQ1F2W | its working | MODE33 FIX4 10 ENTER 3 POW 4 / | X=250
+EQ1F2A | slip: 10 × 3 ÷ 4 | MODE33 FIX4 10 ENTER 3 * 4 / | X=7.5
+EQ1M1 | mixed review: left minus right for 3x − 5 = 13 at 6, typed | MODE33 FIX4 0 | X=0
+EQ1M1W | its working, with XEQ as the prompt says | MODE33 FIX4 EQN 3 * RCL:X - 5 = 13 ENTER XEQ 6 RS | X=0
+EQ1M1A | slip: the left side alone | MODE33 FIX4 3 ENTER 6 * 5 - | X=13
+EQ1M2 | mixed review: 4 + 6 × 2, typed | MODE33 FIX4 16 | X=16
+EQ1M2W | its working | MODE33 FIX4 4 ENTER 6 ENTER 2 * + | X=16
+EQ1M2A | slip: added first | MODE33 FIX4 4 ENTER 6 + 2 * | X=20
+EQ1M3 | mixed review: 5x + 8 = 3, typed | MODE33 FIX4 1 CHS | X=-1
+EQ1M3W | its working, with SOLVE as the prompt says | MODE33 FIX4 EQN 5 * RCL:X + 8 = 3 ENTER SOLVE:X | X=-1
+EQ1M3A | slip: (3 + 8) ÷ 5 | MODE33 FIX4 3 ENTER 8 + 5 / | X=2.2
+EQ1M4 | mixed review: √36 × 5, typed | MODE33 FIX4 30 | X=30
+EQ1M4W | its working | MODE33 FIX4 36 SQRT 5 * | X=30
+EQ1M4A | slip: 36 ÷ 2 × 5 | MODE33 FIX4 36 ENTER 2 / 5 * | X=90

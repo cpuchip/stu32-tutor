@@ -13,3 +13,21 @@ T02 | continues T01: SOLVE F for C = 100 | MODE33 FIX4 EQN RCL:F = 1.8 * RCL:C +
 # Exercises
 E01 | exercise 1: D = R x T, T for D = 150 and R = 60 (D asked first: R first would give 0.4) | MODE33 FIX4 EQN RCL:D = RCL:R * RCL:T ENTER SOLVE:T 150 RS 60 RS | X=2.5 @T=2.5
 E02 | exercise 2: the temperature where F and C agree, F = -40 | MODE33 FIX4 EQN RCL:F = 1.8 * RCL:C + 32 ENTER SOLVE:C 40 CHS RS | X=-40 @C=-40
+# From before and Mixed review (decision 76): each answer typed, its working (W, abacus #6439), and the slips'.
+EQ2F1 | from before: (8 + 4) ÷ (5 − 2), the answer typed | MODE33 FIX4 4 | X=4
+EQ2F1W | its working | MODE33 FIX4 8 ENTER 4 + 5 ENTER 2 - / | X=4
+EQ2F1A | slip: 8 + 4 ÷ 5 − 2 | MODE33 FIX4 8 ENTER 4 ENTER 5 / + 2 - | X=6.8
+EQ2F2 | from before: left minus right of 3x − 2 = 10 at 5, typed | MODE33 FIX4 3 | X=3
+EQ2F2W | its working | MODE33 FIX4 3 ENTER 5 * 2 - 10 - | X=3
+EQ2F2A | slip: the left side alone | MODE33 FIX4 3 ENTER 5 * 2 - | X=13
+EQ2M1 | mixed review: W from P = 2L + 2W, P = 30, L = 9, typed | MODE33 FIX4 6 | X=6
+EQ2M1W | its working, with SOLVE as the prompt says (P asked first, then L) | MODE33 FIX4 EQN RCL:P = 2 * RCL:L + 2 * RCL:W ENTER SOLVE:W 30 RS 9 RS | X=6 @W=6
+EQ2M1A | slip: (30 − 9) ÷ 2 | MODE33 FIX4 30 ENTER 9 - 2 / | X=10.5
+EQ2M2 | mixed review: 2⁵ − 2³, typed | MODE33 FIX4 24 | X=24
+EQ2M2W | its working | MODE33 FIX4 2 ENTER 5 POW 2 ENTER 3 POW - | X=24
+EQ2M2A | slip: 2 to the power 5 − 3 | MODE33 FIX4 2 ENTER 5 ENTER 3 - POW | X=4
+EQ2M3 | mixed review: SOLVE asks for V, L and W: a count, typed | MODE33 FIX4 3 | X=3
+EQ2M3A | slip: counted H too | MODE33 FIX4 4 | X=4
+EQ2M4 | mixed review: √(9 × 16), typed | MODE33 FIX4 12 | X=12
+EQ2M4W | its working | MODE33 FIX4 9 ENTER 16 * SQRT | X=12
+EQ2M4A | slip: √9 × 16 | MODE33 FIX4 9 SQRT 16 * | X=48

@@ -13,6 +13,27 @@ An equation says two things are equal: 2x + 3 = 11. Solving it means finding the
 true. Before the STU-32 finds x for you, this lesson shows how to check an answer, because a check
 is how you know any answer is right, yours or the calculator's.
 
+## From before
+
+Two from unit 1, by hand, before the calculator comes out. Solving an equation is undoing
+arithmetic like this, so it needs to be sure.
+
+```item EQ1F1
+prompt: Work out 2 × (3 + 4).
+topics: parentheses
+answer: type
+calculator: no
+slip: EQ1F1A | multiplied before the brackets | The brackets come first: 3 + 4 is 7, then 2 × 7.
+```
+
+```item EQ1F2
+prompt: Work out 10³ ÷ 4.
+topics: power
+answer: type
+calculator: no
+slip: EQ1F2A | 10 × 3, not 10³ | 10³ is 10 × 10 × 10, which is 1000. Then 1000 ÷ 4.
+```
+
 ## Before you start
 
 The setup from rpn-01: the mode you chose and FIX 4. Work the examples in order; most of them carry on from
@@ -181,3 +202,40 @@ always types the ×. Typing it in STU mode does no harm.
    ```
 
    X shows <disp v="E02B">0.0000</disp>, because 3 × (−2) + 7 is 1.
+
+## Mixed review
+
+Four from this lesson and the ones before it, in no order. Work each by hand unless it says to use
+the calculator.
+
+```item EQ1M1
+prompt: Does 6 solve 3x − 5 = 13? Type it, and give what XEQ shows at x = 6.
+topics: xeq-check
+answer: type
+calculator: yes
+slip: EQ1M1A | the left side alone | XEQ gives the left side minus the right side: 13 − 13.
+```
+
+```item EQ1M2
+prompt: Work out 4 + 6 × 2.
+topics: mult-before-add
+answer: type
+calculator: no
+slip: EQ1M2A | added first | Multiplication comes before addition: 6 × 2 is 12, then 4 + 12.
+```
+
+```item EQ1M3
+prompt: Solve 5x + 8 = 3 with SOLVE. What is x?
+topics: solve
+answer: type
+calculator: yes
+slip: EQ1M3A | added the 8 instead of taking it away | Undo the + 8 by taking 8 away: 3 − 8 is −5, then ÷ 5.
+```
+
+```item EQ1M4
+prompt: Work out √36 × 5.
+topics: square-root
+answer: type
+calculator: no
+slip: EQ1M4A | halved 36 instead of its root | √36 asks which number times itself is 36: 6, then 6 × 5.
+```

@@ -14,6 +14,26 @@ A = L × W. Usually a formula is written to give one of them, here A. But if you
 the length, the same formula tells you the width. With SOLVE you type a formula once and solve it
 for whichever letter you need.
 
+## From before
+
+Two from before, by hand: one from unit 1, and one check from eq-01.
+
+```item EQ2F1
+prompt: Work out (8 + 4) ÷ (5 − 2): the whole top over the whole bottom.
+topics: fraction-bar
+answer: type
+calculator: no
+slip: EQ2F1A | divided only the 4 by the 5 | A fraction bar divides all of the top by all of the bottom: 12 ÷ 3.
+```
+
+```item EQ2F2
+prompt: For 3x − 2 = 10, what is left minus right at x = 5?
+topics: xeq-check
+answer: type
+calculator: no
+slip: EQ2F2A | the left side alone | Left minus right: 3 × 5 − 2 is 13, and 13 − 10.
+```
+
 ## Before you start
 
 The setup from rpn-01: the mode you chose and FIX 4. Work the examples in order: each one either carries on
@@ -133,3 +153,41 @@ The X line shows <disp v="T02" kind="view">F=212.0000</disp>.
    ```
 
    The X line shows <disp v="E02" kind="view">C=-40.0000</disp>: −40 degrees is the same in both scales.
+
+## Mixed review
+
+Four from this lesson and the ones before it, in no order. Work each by hand unless it says to use
+the calculator.
+
+```item EQ2M1
+prompt: A rectangle's perimeter is P = 2 × L + 2 × W. With P = 30 and L = 9, solve for W with SOLVE.
+topics: solve-any-letter
+answer: type
+calculator: yes
+slip: EQ2M1A | counted L once | Both lengths are in the perimeter: 30 − 2 × 9 is 12, then ÷ 2.
+```
+
+```item EQ2M2
+prompt: Work out 2⁵ − 2³.
+topics: power
+answer: type
+calculator: no
+slip: EQ2M2A | took away the powers | Work out each power first: 2⁵ is 32 and 2³ is 8.
+```
+
+```item EQ2M3
+prompt: SOLVE on V = L × W × H, solved for H: how many letters does it ask for?
+topics: solve-prompts
+answer: type
+calculator: no
+working: none
+slip: EQ2M3A | counted H too | SOLVE asks for every letter except the one it solves for.
+```
+
+```item EQ2M4
+prompt: Work out √(9 × 16).
+topics: square-root
+answer: type
+calculator: no
+slip: EQ2M4A | took the root of 9 only | The root covers the whole product: 9 × 16 is 144, and √144 is 12.
+```

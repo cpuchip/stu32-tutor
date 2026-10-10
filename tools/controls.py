@@ -217,6 +217,18 @@ CONTROLS_FOR["eq-03-two-answers-and-inequalities"] = [
      "A03: the device's X line shows 'X=8.0000' (view)"),
     ("a guess keyed without its sign", "lesson.md", "```keys A04 after=A03\n0 STO X 10 +/− ",
      "```keys A04 after=A03\n0 STO X 10 ", {}, "A04: printed keys and vector disagree in 33s mode"),
+    # A computed answer's working (abacus #6439): a wrong typed answer is caught by the core, not only a reader.
+    ("a typed answer its working does not give", "vectors.txt", "CP2A | checkpoint, unit 2: the answer typed | MODE33 FIX4 5 | X=5",
+     "CP2A | checkpoint, unit 2: the answer typed | MODE33 FIX4 6 | X=6", {},
+     "item CP2A: its working CP2AW gives 5, not the typed answer 6"),
+    ("a computed answer with no working", "vectors.txt", "CP2BW | CP2B's working: 5 + 2 | MODE33 FIX4 5 ENTER 2 + | X=7\n", "", {},
+     "item CP2B: a computed answer needs its working, vector CP2BW"),
+    ("working: none on an item whose working is there", "lesson.md", "topics: solve-guesses\nanswer: type\ncalculator: yes\n",
+     "topics: solve-guesses\nanswer: type\ncalculator: yes\nworking: none\n", {},
+     "item EQ3M1: working: none, but vector EQ3M1W is there"),
+    ("a working: line that is not none", "lesson.md", "topics: solve-guesses\nanswer: type\ncalculator: yes\n",
+     "topics: solve-guesses\nanswer: type\ncalculator: yes\nworking: SOLVE\n", {},
+     "item EQ3M1: working: is none"),
 ]
 CONTROLS_FOR["lin-01-slope-and-intercept"] = [
     ("the slope keyed run over rise", "lesson.md", "```keys L01\n13 ENTER 9 − 5 ENTER 3 − ÷\n",

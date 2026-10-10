@@ -21,3 +21,26 @@ CP2B2 | slip: the smaller answer | MODE33 FIX4 5 CHS ENTER 2 + | X=-3
 CP2C | checkpoint, unit 2: the answer typed | MODE33 FIX4 3 | X=3
 CP2C1 | slip: the edge itself | MODE33 FIX4 8 ENTER 2 / | X=4
 CP2C2 | slip: added the 1 | MODE33 FIX4 9 ENTER 1 + 2 / | X=5
+# From before and Mixed review (decision 76): each answer typed, its working (W, abacus #6439), and the slips'.
+EQ3F1 | from before: 7² − 4², the answer typed | MODE33 FIX4 33 | X=33
+EQ3F1W | its working | MODE33 FIX4 7 SQ 4 SQ - | X=33
+EQ3F1A | slip: (7 − 4)² | MODE33 FIX4 7 ENTER 4 - SQ | X=9
+EQ3F2 | from before: 3/4 − 1/2, typed | MODE33 FIX4 0.25 | X=0.25
+EQ3F2W | its working | MODE33 FIX4 3 ENTER 4 / 1 ENTER 2 / - | X=0.25
+EQ3F2A | slip: (3 − 1) ÷ (4 − 2) | MODE33 FIX4 3 ENTER 1 - 4 ENTER 2 - / | X=1
+EQ3M1 | mixed review: x × x = 9 from guesses 1 and 5, typed | MODE33 FIX4 3 | X=3
+EQ3M1W | its working, with SOLVE as the prompt says (EQN first leaves Equation mode for the guesses) | MODE33 FIX4 EQN RCL:X * RCL:X = 9 ENTER EQN 1 STO:X 5 EQN SOLVE:X | X=3 @X=3
+EQ3M1A | slip: the other answer | MODE33 FIX4 3 CHS | X=-3
+EQ3M2 | mixed review: (15 − 3) ÷ 4 + 2, typed | MODE33 FIX4 5 | X=5
+EQ3M2W | its working | MODE33 FIX4 15 ENTER 3 - 4 / 2 + | X=5
+EQ3M2A | slip: (15 − 3) ÷ (4 + 2) | MODE33 FIX4 15 ENTER 3 - 4 ENTER 2 + / | X=2
+EQ3M3 | mixed review: the boundary of 2x − 4 > 10, typed | MODE33 FIX4 7 | X=7
+EQ3M3W | its working | MODE33 FIX4 10 ENTER 4 + 2 / | X=7
+EQ3M3A | slip: (10 − 4) ÷ 2 | MODE33 FIX4 10 ENTER 4 - 2 / | X=3
+EQ3M4 | mixed review: 10² × 10³, typed | MODE33 FIX4 100000 | X=100000
+EQ3M4W | its working | MODE33 FIX4 10 ENTER 2 POW 10 ENTER 3 POW * | X=100000
+EQ3M4A | slip: 10 to the power 2 × 3 | MODE33 FIX4 10 ENTER 6 POW | X=1000000
+# The checkpoint's working (abacus #6439): each computed answer made by the core.
+CP2AW | CP2A's working: (13 + 7) ÷ 4 | MODE33 FIX4 13 ENTER 7 + 4 / | X=5
+CP2BW | CP2B's working: 5 + 2 | MODE33 FIX4 5 ENTER 2 + | X=7
+CP2CW | CP2C's working: x < (9 − 1) ÷ 2, so the largest whole x is one less | MODE33 FIX4 9 ENTER 1 - 2 / 1 - | X=3

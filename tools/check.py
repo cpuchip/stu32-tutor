@@ -56,10 +56,16 @@ MODE_SPAN = re.compile(r'<mode m="([^"]*)">(.*?)</mode>', re.S)
 ENTRY_SPAN = re.compile(r'<entry e="([^"]*)">(.*?)</entry>', re.S)
 # ```item ID```: a quiz or checkpoint item (docs/lesson-format.md, Items). Its fields, one a line:
 # prompt, topics, answer (type or work), calculator (yes or no), keys (the working, needed for work),
-# places (in a placement file: the unit it shows a learner is ready for), and any number of slip lines,
-# "slip: VID | name | hint".
+# places (in a placement file: the unit it shows a learner is ready for), working (none: a typed answer
+# that is counted or recalled, not computed), and any number of slip lines, "slip: VID | name | hint".
 ITEM_BLOCK = re.compile(r"^[ \t]*```item[ \t]+(\S+)[ \t]*\n(.*?)^[ \t]*```[ \t]*$", re.M | re.S)
-ITEM_FIELDS = ("prompt", "topics", "answer", "calculator", "keys", "places", "slip")
+ITEM_FIELDS = ("prompt", "topics", "answer", "calculator", "keys", "places", "working", "slip")
+# A typed answer that is computed is made by the core too, as vector <ID>W beside the typed one (abacus #6439).
+# The lessons and placement files whose typed items predate that rule; the sweep (decision 76) takes each off
+# as its unit's batch gives every computed item its working. A listed file whose items all have it is refused,
+# so the list cannot outlive its need.
+WORKING_PENDING = {"der-03", "exp-04", "fn-03", "int-01", "lim-02", "lin-03", "num-04", "parallel-01",
+                   "poly-02", "poly-04", "prob-01b", "sys-02", "trig-04", "place-algebra-to-calculus"}
 
 
 def parse_items(view):
@@ -94,6 +100,10 @@ def parse_items(view):
             problems.append(f"item {m.group(1)}: calculator: is yes or no")
         if fields.get("answer") == "work" and not fields.get("keys"):
             problems.append(f"item {m.group(1)}: answer: work needs the working, as keys:")
+        if fields.get("working") not in (None, "none"):
+            problems.append(f"item {m.group(1)}: working: is none (a count or a concept), or left out")
+        elif fields.get("working") == "none" and fields.get("answer") != "type":
+            problems.append(f"item {m.group(1)}: working: none is for a typed answer; a worked item's keys are its working")
         out.append((m.group(1), m.start(), fields, slips, problems))
     return out
 
@@ -492,10 +502,16 @@ class Lesson:
             else:
                 self.notes.append("displays: " + out[-1].split(": ", 1)[-1])
         self.quoted = 0
+        self.working_pending = set()
         for mode in modes:
             for entry in entries:
                 self.check_mode(mode, entry, meta, body, vectors, fmts, settings, setup_t)
         self.notes.append(f"displays quoted: {self.quoted} (all modes)")
+        if meta.get("id") in WORKING_PENDING:
+            if self.working_pending:
+                self.notes.append(f"{len(self.working_pending)} typed answers still without their working (WORKING_PENDING)")
+            else:
+                self.bad(f"{meta['id']} is in WORKING_PENDING, but every computed answer has its working: take it off")
         self.notes.append("worked through in order in each mode" + (" and entry" if entries != [None] else ""))
 
         # 5. Voice, the front matter included.
@@ -624,7 +640,32 @@ class Lesson:
                 same = v == want[1] if want[0] == "exact" else abs(v - want[1]) <= want[2]
                 if same:
                     self.bad(f"item {iid}: slip {sid} ({name}) gives the answer itself, {v} ({mode})")
-            for name in [iid] + [s[0] for s in slips]:
+            # A computed typed answer has its working on the core, vector <ID>W, whose answer is the typed
+            # one: a wrong typed answer then fails here and not only in a reader's eye (abacus #6439).
+            wid = iid + "W"
+            working = []
+            if fields.get("answer") == "type" and fields.get("working") != "none":
+                if wid in byid:
+                    working = [wid]
+                    shown.add(wid)
+                    got = answer_of(byid[wid][1], result)
+                    if got is None:
+                        same = False
+                    elif want[0] == "exact":
+                        same = got[0] == "exact" and got[1] == want[1]
+                    else:
+                        same = abs(got[1] - want[1]) <= want[2]
+                    if not same:
+                        self.bad(f"item {iid}: its working {wid} gives {got[1] if got else 'no answer'}, not the "
+                                 f"typed answer {want[1]} ({mode})")
+                elif meta.get("id") in WORKING_PENDING:
+                    self.working_pending.add(iid)
+                else:
+                    self.bad(f"item {iid}: a computed answer needs its working, vector {wid}, made by the core "
+                             f"(or working: none, for a count or a concept) ({mode})")
+            elif fields.get("working") == "none" and wid in byid:
+                self.bad(f"item {iid}: working: none, but vector {wid} is there as its working ({mode})")
+            for name in [iid] + working + [s[0] for s in slips]:
                 if any(b[0] == name and b[2] < at for b in blocks) or any(v == name and p < at for v, p in quotes_at):
                     self.bad(f"item {iid}: {name} is shown before the item asks it ({mode})")
             if fields.get("keys"):

@@ -144,6 +144,8 @@ slip: K01B | f(2), not f′(2) | That is the height at 2. Take the derivative fi
   works it on the calculator; the keys are part of the skill).
 - `calculator:` `yes` or `no`: whether the page offers its calculator while the item is open.
 - `keys:` the working, as printed keys, shown after the attempt. Needed for `work`.
+- `working: none`, on a `type` item only: its answer is counted or recalled, not computed (how many
+  roots at most; how many prompts). Leave it out for a computed answer.
 - `slip: VID | name | hint`, any number: a wrong answer a learner is likely to give, the slip that
   gives it, and the hint the page shows when the learner's answer is that slip's value.
 - The answer is vector `ID` in vectors.txt, and each slip is vector `VID`, written and run like every
@@ -153,6 +155,18 @@ slip: K01B | f(2), not f′(2) | That is the height at 2. Take the derivative fi
 - The answer is the vector's last `X=` (`N=` on the algebraic line), or its `X#c,t` for a numeric
   answer. Each slip needs an exact value, and it must not be the answer (or, with a tolerance,
   within it).
+- **A computed typed answer has its working on the core** (abacus #6439). The vector `IDW` beside it
+  works the answer out, and its answer must be the typed one. Otherwise a wrong typed answer would pass
+  every check, with only a reader to catch it.
+  - A `calculator: yes` item's working uses the keys its prompt names (XEQ, SOLVE).
+  - A hand item's working is the arithmetic of the hand method.
+  - check.py refuses:
+    - a computed answer with no working;
+    - a working that gives another value;
+    - `working: none` beside a working vector;
+    - any other `working:` value.
+  - Files whose items predate the rule are listed in check.py's WORKING_PENDING. Each comes off when its unit's
+    batch gives every computed item its working, and a listed file with nothing left to give is refused.
 - Nothing before an item may show its answer or a slip: no keys block and no `<disp>` of their IDs.
   The item's own vectors need no keys block; the page reveals them after the attempt.
 - Items are not part of the student run (check 5): a learner's own answer leaves the device in a

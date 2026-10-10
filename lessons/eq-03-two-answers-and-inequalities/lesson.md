@@ -13,6 +13,26 @@ The equations in eq-01 and eq-02 each had one answer. Some have more than one, a
 one at a time. This lesson shows how to point SOLVE at each answer, and then how the check from
 eq-01 answers a second question: which side of an answer a value is on.
 
+## From before
+
+Two from unit 1, by hand.
+
+```item EQ3F1
+prompt: Work out 7² − 4².
+topics: x-squared
+answer: type
+calculator: no
+slip: EQ3F1A | squared the difference | Square each first: 49 − 16. (7 − 4)² is another number.
+```
+
+```item EQ3F2
+prompt: Work out 3/4 − 1/2, as a decimal.
+topics: fraction-arithmetic
+answer: type
+calculator: no
+slip: EQ3F2A | took tops from tops and bottoms from bottoms | Give them one bottom: 3/4 − 2/4 is 1/4.
+```
+
 ## Before you start
 
 The setup from rpn-01: the mode you chose and FIX 4. Work the examples in order: each one either carries on
@@ -134,6 +154,43 @@ would count only for ≤, "less than or equal to".
 
    X shows <disp v="E02B">6.0000</disp>: positive, so the left side, 3x − 6, is more than 0 at 4. The
    inequality is true for every x greater than 2: x > 2.
+
+## Mixed review
+
+Four from this lesson and the ones before it, in no order. Work each by hand unless it says to use
+the calculator.
+
+```item EQ3M1
+prompt: x × x = 9 has two answers. Which does SOLVE find from guesses 1 and 5?
+topics: solve-guesses
+answer: type
+calculator: yes
+slip: EQ3M1A | the other answer | SOLVE finds the answer near its guesses, and 1 and 5 are both positive.
+```
+
+```item EQ3M2
+prompt: Work out (15 − 3) ÷ 4 + 2.
+topics: mult-before-add
+answer: type
+calculator: no
+slip: EQ3M2A | added before dividing | Division comes before the addition: 12 ÷ 4 is 3, then + 2.
+```
+
+```item EQ3M3
+prompt: The boundary of 2x − 4 > 10 is where 2x − 4 = 10. What x is that?
+topics: inequalities
+answer: type
+calculator: no
+slip: EQ3M3A | took the 4 away instead of adding it | Undo the − 4 by adding 4: 10 + 4 is 14, then ÷ 2.
+```
+
+```item EQ3M4
+prompt: Work out 10² × 10³ as one number.
+topics: power
+answer: type
+calculator: no
+slip: EQ3M4A | multiplied the powers | 10² × 10³ is 100 × 1000: the powers add, to 10⁵.
+```
 
 ## Checkpoint
 
