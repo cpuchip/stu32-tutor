@@ -16,6 +16,26 @@ coefficient that is not 0, here 3. q(x) = x² − 4x + 3 from fn-02 has degree 2
 lin-01 to lin-03 are polynomials of degree 1 (or 0, for a flat line). This lesson works out a
 polynomial's value with very few keys, by a method that uses the stack the way rpn-01 taught it.
 
+## From before
+
+Two from before, by hand: one from unit 1, and one function from fn-01.
+
+```item PL1F1
+prompt: Work out 2 × 3³.
+topics: powers-first
+answer: type
+calculator: no
+slip: PL1F1A | cubed 2 × 3 | The power belongs to the 3 alone: 3³ is 27, then 2 × 27.
+```
+
+```item PL1F2
+prompt: h(x) = 3 − x². What is h(2)?
+topics: function
+answer: type
+calculator: no
+slip: PL1F2A | took 2 from 3, then squared | Square first: 2² is 4, then 3 − 4.
+```
+
 ## Before you start
 
 The setup from rpn-01: the mode you chose and FIX 4. The worked example in "On the stack" is one chain, each
@@ -168,3 +188,41 @@ coefficients in order are 1, 0, −2 and 1, and r(x) = ((1x + 0)x − 2)x + 1.
    ```
 
    X shows <disp v="E02">0.1250</disp>: 0.125 − 1 + 1.
+
+## Mixed review
+
+Four from this lesson and the ones before it, in no order. Work each by hand unless it says to use
+the calculator.
+
+```item PL1M1
+prompt: What is the constant term of 5x³ − x + 8?
+topics: polynomial
+answer: type
+calculator: no
+working: none
+slip: PL1M1A | the first coefficient | The constant term is the one with no x: the 8.
+```
+
+```item PL1M2
+prompt: Work out √(2 × 18).
+topics: square-root
+answer: type
+calculator: no
+slip: PL1M2A | halved instead of taking the root | 2 × 18 is 36, and √36 is 6, since 6 × 6 is 36.
+```
+
+```item PL1M3
+prompt: 2x² − x + 4 nested is (2x − 1)x + 4. Work it out at x = 3, from the inside.
+topics: horner
+answer: type
+calculator: no
+slip: PL1M3A | dropped the brackets | From the inside: 2 × 3 − 1 is 5, then 5 × 3 + 4.
+```
+
+```item PL1M4
+prompt: 5x − 15 < 0 has its boundary where 5x − 15 = 0. What x is that?
+topics: inequalities
+answer: type
+calculator: no
+slip: PL1M4A | kept the minus sign | Undo the − 15 by adding 15: 5x = 15, then ÷ 5.
+```

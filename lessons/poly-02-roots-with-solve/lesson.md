@@ -232,6 +232,7 @@ prompt: At most how many roots can a polynomial of degree 4 have?
 topics: root-count
 answer: type
 calculator: no
+working: none
 slip: P2M1A | one less than the degree | Each root r gives a factor x − r, and four factors use up degree 4: four at most.
 ```
 
@@ -248,6 +249,7 @@ prompt: A polynomial q has q(1) = −2 and q(2) = 3. At least how many roots doe
 topics: sign-change
 answer: type
 calculator: no
+working: none
 slip: P2M3A | none | The graph is one unbroken curve. To go from below the x axis to above it, it must cross.
 ```
 
@@ -256,5 +258,6 @@ prompt: What is the degree of 4x² − x⁵ + 7?
 topics: polynomial
 answer: type
 calculator: no
+working: none
 slip: P2M4A | the first power written | The degree is the highest power, wherever it sits: here x⁵.
 ```

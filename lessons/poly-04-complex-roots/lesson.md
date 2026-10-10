@@ -13,6 +13,26 @@ poly-03 left x² + 2x + 5 with a discriminant of −16 and no real root, because
 to a negative. This lesson brings in a new number that does, and with it finds the two roots the
 quadratic formula was pointing at.
 
+## From before
+
+Two from before, by hand: a discriminant from poly-03, and one from unit 1.
+
+```item PL4F1
+prompt: What is the discriminant b² − 4ac of x² + 2x + 2?
+topics: discriminant
+answer: type
+calculator: no
+slip: PL4F1A | added the 4ac | It is b² minus 4ac: 4 − 8.
+```
+
+```item PL4F2
+prompt: Work out √16 ÷ 2.
+topics: square-root
+answer: type
+calculator: no
+slip: PL4F2A | halved instead of taking the root | √16 is 4, since 4 × 4 is 16. Then 4 ÷ 2.
+```
+
 ## Before you start
 
 The setup from rpn-01: the mode you chose and FIX 4. Most examples start fresh; where one carries on from the
@@ -236,6 +256,44 @@ and Y holds −3</mode>: 2 − 3i. Check 2 + 3i<mode m="35s,STU">, with 1 ×, th
 
 X shows <disp v="E03" m="35s,STU">0.0000i0.0000</disp><disp v="E03" m="33s">0.0000</disp><mode m="33s">
 and Y holds 0</mode>.
+
+## Mixed review
+
+Four from this lesson and the ones before it, in no order. Work each by hand unless it says to use
+the calculator.
+
+```item PL4M1
+prompt: i × i is what real number?
+topics: complex
+answer: type
+calculator: no
+working: none
+slip: PL4M1A | lost the sign | i is defined by one rule: i × i = −1.
+```
+
+```item PL4M2
+prompt: Work out (−2 + 6) ÷ 2.
+topics: fraction-bar
+answer: type
+calculator: no
+slip: PL4M2A | divided only the 6 | The bracket comes first: −2 + 6 is 4, then ÷ 2.
+```
+
+```item PL4M3
+prompt: What is the real part of the roots of x² − 4x + 13?
+topics: complex-roots
+answer: type
+calculator: no
+slip: PL4M3A | the sign of −b | The real part is −b ÷ 2a, and −b is −(−4), which is 4.
+```
+
+```item PL4M4
+prompt: x² − 10x + 25 has one root. What is it?
+topics: double-root
+answer: type
+calculator: no
+slip: PL4M4A | the sign of −b | The root is −b ÷ 2a, and −b is −(−10), which is 10.
+```
 
 ## Checkpoint
 

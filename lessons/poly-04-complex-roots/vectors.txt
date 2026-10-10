@@ -37,3 +37,25 @@ CP5B2 | slip: the sign of −b | MODE33 FIX4 7 CHS ENTER 3 + 2 / | X=-2
 CP5C | checkpoint, unit 5: the answer typed | MODE33 FIX4 15 | X=15
 CP5C1 | slip: cubed the 2x | MODE33 FIX4 2 ENTER 2 * 3 POW 2 - 1 + | X=63
 CP5C2 | slip: took the 1 away | MODE33 FIX4 2 ENTER 3 POW 2 * 2 - 1 - | X=13
+# From before and Mixed review (decision 76): each answer typed, its working (W, abacus #6439), and the slips'.
+PL4F1 | from before: the discriminant of x² + 2x + 2, the answer typed | MODE33 FIX4 4 CHS | X=-4
+PL4F1W | its working: 2² − 4 × 1 × 2 | MODE33 FIX4 2 SQ 4 ENTER 2 * - | X=-4
+PL4F1A | slip: 4 + 8 | MODE33 FIX4 2 SQ 4 ENTER 2 * + | X=12
+PL4F2 | from before: √16 ÷ 2, the answer typed | MODE33 FIX4 2 | X=2
+PL4F2W | its working | MODE33 FIX4 16 SQRT 2 / | X=2
+PL4F2A | slip: 16 ÷ 2 ÷ 2 | MODE33 FIX4 16 ENTER 2 / 2 / | X=4
+PL4M1 | mixed review: i × i, recalled, typed | MODE33 FIX4 1 CHS | X=-1
+PL4M1A | slip: lost the sign | MODE33 FIX4 1 | X=1
+PL4M2 | mixed review: (−2 + 6) ÷ 2, typed | MODE33 FIX4 2 | X=2
+PL4M2W | its working | MODE33 FIX4 2 CHS ENTER 6 + 2 / | X=2
+PL4M2A | slip: −2 + 6 ÷ 2 | MODE33 FIX4 2 CHS ENTER 6 ENTER 2 / + | X=1
+PL4M3 | mixed review: the real part of x² − 4x + 13's roots, typed | MODE33 FIX4 2 | X=2
+PL4M3W | its working: −b ÷ 2a | MODE33 FIX4 4 ENTER 2 / | X=2
+PL4M3A | slip: −4 ÷ 2 | MODE33 FIX4 4 CHS ENTER 2 / | X=-2
+PL4M4 | mixed review: the one root of x² − 10x + 25, typed | MODE33 FIX4 5 | X=5
+PL4M4W | its working: −b ÷ 2a | MODE33 FIX4 10 ENTER 2 / | X=5
+PL4M4A | slip: −10 ÷ 2 | MODE33 FIX4 10 CHS ENTER 2 / | X=-5
+# The checkpoint's working (abacus #6439): each computed answer made by the core.
+CP5AW | CP5A's working: 4² − 4 × 1 × 13 | MODE33 FIX4 4 SQ 4 ENTER 13 * - | X=-36
+CP5BW | CP5B's working: (7 + √(49 − 40)) ÷ 2 | MODE33 FIX4 7 ENTER 7 SQ 4 ENTER 10 * - SQRT + 2 / | X=5
+CP5CW | CP5C's working: 2 × 2³ − 2 + 1 | MODE33 FIX4 2 ENTER 3 POW 2 * 2 - 1 + | X=15

@@ -23,7 +23,7 @@ E04 | continues: guesses 1 and 2: a root within 1E-30 of the true one | MODE33 F
 P2F1 | from before: 3 × 2² − 5, the answer typed | MODE33 FIX4 7 | X=7
 P2F1A | slip: (3 × 2)² − 5 | MODE33 FIX4 3 ENTER 2 * 2 POW 5 - | X=31
 P2F2 | from before: −2² + 5, the answer typed | MODE33 FIX4 1 | X=1
-P2F2A | slip: (−2)² + 5, squared with x² as num-01 does (yˣ refuses a negative base) | MODE33 FIX4 2 CHS SQ 5 + | X=9
+P2F2A | slip: (−2)² + 5, squared with x² as num-01 does | MODE33 FIX4 2 CHS SQ 5 + | X=9
 P2M1 | mixed review: the most roots of degree 4, typed | MODE33 FIX4 4 | X=4
 P2M1A | slip: one less than the degree | MODE33 FIX4 4 ENTER 1 - | X=3
 P2M2 | mixed review: p(2.5) for x³ − 2x, typed | MODE33 FIX4 10.625 | X=10.625
@@ -32,3 +32,7 @@ P2M3 | mixed review: at least one root in a sign change, typed | MODE33 FIX4 1 |
 P2M3A | slip: none | MODE33 FIX4 0 | X=0
 P2M4 | mixed review: the degree of 4x² − x⁵ + 7, typed | MODE33 FIX4 5 | X=5
 P2M4A | slip: the first power written | MODE33 FIX4 2 | X=2
+# The working of each computed answer (abacus #6439); P2M1, P2M3 and P2M4 are recalled (working: none).
+P2F1W | P2F1's working: 3 × 2² − 5 | MODE33 FIX4 2 SQ 3 * 5 - | X=7
+P2F2W | P2F2's working: −(2²) + 5 | MODE33 FIX4 2 SQ CHS 5 + | X=1
+P2M2W | P2M2's working, with XEQ as the prompt says | MODE33 FIX4 EQN RCL:X POW 3 - 2 * RCL:X ENTER XEQ 2.5 RS | X=10.625

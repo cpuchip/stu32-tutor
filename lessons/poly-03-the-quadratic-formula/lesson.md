@@ -18,6 +18,26 @@ where ± means the formula gives two answers, one with + and one with −, and 2
 under the square root, b² − 4ac, is called the discriminant. It decides how many real roots there
 are, before you work out any of them. This lesson uses the formula on the stack, with a, b and c kept in variables.
 
+## From before
+
+Two from before, by hand: one from unit 1, and one square root from fn-03.
+
+```item PL3F1
+prompt: Work out −5² + 30.
+topics: minus-and-power
+answer: type
+calculator: no
+slip: PL3F1A | squared −5 | −5² is the negative of 5², so −25. Only (−5)² is 25.
+```
+
+```item PL3F2
+prompt: For √(3 − 7), what is the number under the root?
+topics: sqrt-negative
+answer: type
+calculator: no
+slip: PL3F2A | took 3 from 7 | It is 3 − 7, which is −4: a negative number, with no real square root.
+```
+
 ## Before you start
 
 The setup from rpn-01: the mode you chose and FIX 4. Each section's examples are one chain; each section and
@@ -142,3 +162,42 @@ RCL B +/− RCL D √x − 2 RCL A × ÷
 ```
 
 X shows <disp v="E01C">-2.0000</disp>: (−3 − 5) ÷ 4.
+
+## Mixed review
+
+Four from this lesson and the ones before it, in no order. Work each by hand unless it says to use
+the calculator.
+
+```item PL3M1
+prompt: What is the discriminant b² − 4ac of x² − 6x + 9?
+topics: discriminant
+answer: type
+calculator: no
+slip: PL3M1A | added the 4ac | It is b² minus 4ac: 36 − 36.
+```
+
+```item PL3M2
+prompt: Work out 4 × 2³ − 10.
+topics: powers-first
+answer: type
+calculator: no
+slip: PL3M2A | cubed 4 × 2 | The power belongs to the 2 alone: 2³ is 8, then 4 × 8 − 10.
+```
+
+```item PL3M3
+prompt: A quadratic's discriminant is −20. How many real roots does it have?
+topics: negative-discriminant
+answer: type
+calculator: no
+working: none
+slip: PL3M3A | two, as the ± suggests | A negative number has no real square root, so neither sign gives a real root.
+```
+
+```item PL3M4
+prompt: At most how many roots can x⁵ − x have?
+topics: root-count
+answer: type
+calculator: no
+working: none
+slip: PL3M4A | the power of the last term | The degree is the highest power, 5: at most 5 roots.
+```

@@ -13,3 +13,20 @@ N03 | continues N02: C clears it; the -16 is still in X | MODE33 FIX4 1 STO:A 2 
 E01 | exercise: 2x^2 + 3x - 2: the discriminant | MODE33 FIX4 2 STO:A 3 STO:B 2 CHS STO:C RCL:B SQ 4 RCL:A * RCL:C * - STO:D | X=25 @D=25
 E01B | continues E01: the + root | MODE33 FIX4 2 STO:A 3 STO:B 2 CHS STO:C RCL:B SQ 4 RCL:A * RCL:C * - STO:D RCL:B CHS RCL:D SQRT + 2 RCL:A * / | X=0.5
 E01C | continues E01B: the - root | MODE33 FIX4 2 STO:A 3 STO:B 2 CHS STO:C RCL:B SQ 4 RCL:A * RCL:C * - STO:D RCL:B CHS RCL:D SQRT + 2 RCL:A * / RCL:B CHS RCL:D SQRT - 2 RCL:A * / | X=-2
+# From before and Mixed review (decision 76): each answer typed, its working (W, abacus #6439), and the slips'.
+PL3F1 | from before: −5² + 30, the answer typed | MODE33 FIX4 5 | X=5
+PL3F1W | its working | MODE33 FIX4 5 SQ CHS 30 + | X=5
+PL3F1A | slip: (−5)² + 30 | MODE33 FIX4 5 CHS SQ 30 + | X=55
+PL3F2 | from before: 3 − 7 under the root, typed | MODE33 FIX4 4 CHS | X=-4
+PL3F2W | its working | MODE33 FIX4 3 ENTER 7 - | X=-4
+PL3F2A | slip: 7 − 3 | MODE33 FIX4 7 ENTER 3 - | X=4
+PL3M1 | mixed review: the discriminant of x² − 6x + 9, typed | MODE33 FIX4 0 | X=0
+PL3M1W | its working: (−6)² − 4 × 1 × 9 | MODE33 FIX4 6 SQ 4 ENTER 9 * - | X=0
+PL3M1A | slip: 36 + 36 | MODE33 FIX4 6 SQ 4 ENTER 9 * + | X=72
+PL3M2 | mixed review: 4 × 2³ − 10, typed | MODE33 FIX4 22 | X=22
+PL3M2W | its working | MODE33 FIX4 2 ENTER 3 POW 4 * 10 - | X=22
+PL3M2A | slip: (4 × 2)³ − 10 | MODE33 FIX4 4 ENTER 2 * 3 POW 10 - | X=502
+PL3M3 | mixed review: real roots with a negative discriminant, recalled, typed | MODE33 FIX4 0 | X=0
+PL3M3A | slip: two | MODE33 FIX4 2 | X=2
+PL3M4 | mixed review: at most 5 roots for degree 5, recalled, typed | MODE33 FIX4 5 | X=5
+PL3M4A | slip: the power of the last term | MODE33 FIX4 1 | X=1

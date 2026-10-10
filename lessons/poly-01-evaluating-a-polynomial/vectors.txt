@@ -12,3 +12,21 @@ P03 | continues P02: p(-1) | MODE33 FIX4 PRGM LBL:P ENTER ENTER ENTER 2 * 3 - * 
 E01 | exercise 1: x^3 - 2x + 1 at x = 2, with 0 for the missing x^2 | MODE33 FIX4 2 ENTER ENTER ENTER 1 * 0 + * 2 - * 1 + | X=5
 E02A | exercise 2: r as program N (N015) | MODE33 FIX4 PRGM LBL:N ENTER ENTER ENTER 1 * 0 + * 2 - * 1 + RTN | %LINES=15 %PC=N015
 E02 | continues E02A: program entry off, r(0.5) | MODE33 FIX4 PRGM LBL:N ENTER ENTER ENTER 1 * 0 + * 2 - * 1 + RTN PRGM 0.5 XEQ:N | X=0.125
+# From before and Mixed review (decision 76): each answer typed, its working (W, abacus #6439), and the slips'.
+PL1F1 | from before: 2 × 3³, the answer typed | MODE33 FIX4 54 | X=54
+PL1F1W | its working | MODE33 FIX4 3 ENTER 3 POW 2 * | X=54
+PL1F1A | slip: (2 × 3)³ | MODE33 FIX4 2 ENTER 3 * 3 POW | X=216
+PL1F2 | from before: h(2) for 3 − x², the answer typed | MODE33 FIX4 1 CHS | X=-1
+PL1F2W | its working | MODE33 FIX4 3 ENTER 2 SQ - | X=-1
+PL1F2A | slip: (3 − 2)² | MODE33 FIX4 3 ENTER 2 - SQ | X=1
+PL1M1 | mixed review: the constant term of 5x³ − x + 8, recalled, typed | MODE33 FIX4 8 | X=8
+PL1M1A | slip: the first coefficient | MODE33 FIX4 5 | X=5
+PL1M2 | mixed review: √(2 × 18), typed | MODE33 FIX4 6 | X=6
+PL1M2W | its working | MODE33 FIX4 2 ENTER 18 * SQRT | X=6
+PL1M2A | slip: 2 × 18 ÷ 2 | MODE33 FIX4 2 ENTER 18 * 2 / | X=18
+PL1M3 | mixed review: (2x − 1)x + 4 at 3, typed | MODE33 FIX4 19 | X=19
+PL1M3W | its working, from the inside | MODE33 FIX4 2 ENTER 3 * 1 - 3 * 4 + | X=19
+PL1M3A | slip: 2 × 3 − 1 × 3 + 4 | MODE33 FIX4 2 ENTER 3 * 1 ENTER 3 * - 4 + | X=7
+PL1M4 | mixed review: the boundary of 5x − 15 < 0, typed | MODE33 FIX4 3 | X=3
+PL1M4W | its working | MODE33 FIX4 15 ENTER 5 / | X=3
+PL1M4A | slip: −15 ÷ 5 | MODE33 FIX4 15 CHS ENTER 5 / | X=-3
