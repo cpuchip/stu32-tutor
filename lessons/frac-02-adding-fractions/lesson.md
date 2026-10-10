@@ -9,14 +9,36 @@ status: draft prose (accuracy: lessons/ACCEPTED; not yet read by Michael; Thornw
 setup: BLUE MODE {mode} BLUE MODE {entry} GOLD DISP FIX 4 BLUE →FRAC
 display: FIX 4
 cast: Maren
+voices: story plain
 ---
 
 # Adding and subtracting fractions
 
-Maren's recipe for a small batch of buns needs 1/4 cup of sugar for the dough and 3/8 cup for the
-glaze. How much sugar is that in all? Adding fractions takes one idea first: fractions can only be
+<voice v="story">Maren's recipe for a small batch of buns needs 1/4 cup of sugar for the dough and 3/8 cup for the
+glaze.</voice><voice v="plain">A recipe for a small batch of buns needs 1/4 cup of sugar for the dough and 3/8 cup for the
+glaze.</voice> How much sugar is that in all? Adding fractions takes one idea first: fractions can only be
 added when their pieces are the same size. This lesson makes them the same size by hand, then
 checks with fraction display.
+
+## From before
+
+Two from before, by hand: a least common multiple from factor-02, and fractions from frac-01.
+
+```item FR2F1
+prompt: What is the least common multiple of 4 and 6?
+topics: lcm
+answer: type
+calculator: no
+slip: FR2F1A | multiplied them | 4 × 6 is a common multiple, but not the least: 4 = 2 × 2 and 6 = 2 × 3 need only 2 × 2 × 3.
+```
+
+```item FR2F2
+prompt: Write 3/4 with a bottom of 12. What is the top?
+topics: equivalent-fractions
+answer: type
+calculator: no
+slip: FR2F2A | added instead of multiplying | Top and bottom are multiplied alike: 4 × 3 is 12, so the top is 3 × 3.
+```
 
 ## Before you start
 
@@ -39,7 +61,7 @@ least common multiple of the bottoms (factor-02). LCM(4, 8) = 8.
 - Now both are eighths: 2/8 + 3/8 = 5/8. Add the tops; the bottom stays 8, because the pieces are
   still eighths.
 
-So Maren needs 5/8 cup. The method: a common bottom, add the tops, keep the bottom, and simplify at
+<voice v="story">So Maren needs 5/8 cup.</voice><voice v="plain">So the recipe needs 5/8 cup.</voice> The method: a common bottom, add the tops, keep the bottom, and simplify at
 the end if you can. On the calculator, each fraction is a division (frac-01):
 <entry e="alg">type the sum as written; the line divides before it adds (expr-01), so each fraction is
 worked out before the +:</entry><entry e="rpn">each fraction, then +:</entry>
@@ -154,3 +176,40 @@ By hand first, with a common bottom, then check.
    ```
 
    The screen shows <disp v="E03">1 1/8</disp>.
+
+## Mixed review
+
+Four from this lesson and the ones before it, in no order. Work each by hand unless it says to use
+the calculator.
+
+```item FR2M1
+prompt: Work out 1/4 + 1/8, as a decimal.
+topics: common-bottom
+answer: type
+calculator: no
+slip: FR2M1A | added the tops over the larger bottom | Give them one bottom first: 1/4 is 2/8, and 2/8 + 1/8 is 3/8.
+```
+
+```item FR2M2
+prompt: What is the greatest common factor of 12 and 20?
+topics: gcf
+answer: type
+calculator: no
+slip: FR2M2A | the LCM, not the GCF | 12 = 2 × 2 × 3 and 20 = 2 × 2 × 5 share 2 × 2. 60 is their least common multiple.
+```
+
+```item FR2M3
+prompt: Work out 7/8 − 1/4, as a decimal.
+topics: subtract-fractions
+answer: type
+calculator: no
+slip: FR2M3A | took tops from tops and bottoms from bottoms | Give them one bottom: 1/4 is 2/8, and 7/8 − 2/8 is 5/8.
+```
+
+```item FR2M4
+prompt: Put 15/25 in simplest form. What is its bottom?
+topics: simplest-form
+answer: type
+calculator: no
+slip: FR2M4A | the top, not the bottom | Divide top and bottom by 5: 3 over 5. The bottom is 5.
+```

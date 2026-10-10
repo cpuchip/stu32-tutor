@@ -9,14 +9,36 @@ status: draft prose (accuracy: lessons/ACCEPTED; not yet read by Michael; Thornw
 setup: BLUE MODE {mode} BLUE MODE {entry} GOLD DISP FIX 4 BLUE →FRAC
 display: FIX 4
 cast: Maren
+voices: story plain
 ---
 
 # Multiplying and dividing fractions
 
-On Monday, Maren has 3/4 of a pan of fudge left, and a customer buys half of it. What fraction of the
-pan is that? On Tuesday, with 3/4 of another pan, she cuts pieces of 3/8 pan each: how many pieces?
+<voice v="story">On Monday, Maren has 3/4 of a pan of fudge left, and a customer buys half of it. What fraction of the
+pan is that? On Tuesday, with 3/4 of another pan, she cuts pieces of 3/8 pan each: how many pieces?</voice><voice v="plain">3/4 of a pan of fudge is left, and a customer buys half of it. What fraction of the
+pan is that? From 3/4 of another pan, pieces of 3/8 pan each are cut: how many pieces?</voice>
 The first is multiplying fractions, the second dividing them. Neither needs a common bottom, though one
 can help to picture dividing.
+
+## From before
+
+Two from frac-01, by hand.
+
+```item FR3F1
+prompt: Write 3/8 as a decimal.
+topics: fraction-is-division
+answer: type
+calculator: no
+slip: FR3F1A | wrote the digits, not the division | 3/8 is 3 ÷ 8.
+```
+
+```item FR3F2
+prompt: Write 2/5 with a bottom of 15. What is the top?
+topics: equivalent-fractions
+answer: type
+calculator: no
+slip: FR3F2A | added instead of multiplying | Top and bottom are multiplied alike: 5 × 3 is 15, so the top is 2 × 3.
+```
 
 ## Before you start
 
@@ -145,3 +167,40 @@ By hand first, then check.
    ```
 
    The screen shows <disp v="E03">4</disp>.
+
+## Mixed review
+
+Four from this lesson and the ones before it, in no order. Work each by hand unless it says to use
+the calculator.
+
+```item FR3M1
+prompt: Work out 3/4 × 2/3, as a decimal.
+topics: multiply-fractions
+answer: type
+calculator: no
+slip: FR3M1A | multiplied across | Tops times tops and bottoms times bottoms: 6/12, which is 1/2.
+```
+
+```item FR3M2
+prompt: Put 12/16 in simplest form. What is its top?
+topics: simplest-form
+answer: type
+calculator: no
+slip: FR3M2A | stopped too soon | 6/8 still shares a 2: divide top and bottom by 4, to 3/4.
+```
+
+```item FR3M3
+prompt: How many pieces of 1/4 are in 3?
+topics: divide-fractions
+answer: type
+calculator: no
+slip: FR3M3A | multiplied by 1/4 | Dividing by 1/4 asks how many quarters fit: 4 in each whole, so 3 × 4.
+```
+
+```item FR3M4
+prompt: A bar is cut into 8 equal pieces and 3 are eaten. What fraction is left, as a decimal?
+topics: fraction-parts
+answer: type
+calculator: no
+slip: FR3M4A | the part eaten, not the part left | 8 − 3 is 5 pieces left: 5/8.
+```

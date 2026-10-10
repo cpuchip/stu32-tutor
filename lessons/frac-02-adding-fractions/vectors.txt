@@ -14,3 +14,40 @@ E02@alg | exercise 2: 3/5 - 1/10 | MODE33 FIX4 FDISP 3 / 5 - 1 / 10 ENTER | N=0.
 E02@rpn | exercise 2: 3/5 - 1/10 | MODE33 FIX4 FDISP 3 ENTER 5 / 1 ENTER 10 / - | X=0.5
 E03@alg | exercise 3: 3/8 + 3/4 | MODE33 FIX4 FDISP 3 / 8 + 3 / 4 ENTER | N=1.125 %LINE=3÷8+3÷4
 E03@rpn | exercise 3: 3/8 + 3/4 | MODE33 FIX4 FDISP 3 ENTER 8 / 3 ENTER 4 / + | X=1.125
+# From before and Mixed review (decision 76): each answer typed, its working (W, abacus #6439), and the slip's; @alg the line, @rpn the stack.
+FR2F1@alg | from before: the LCM of 4 and 6, typed | MODE33 FIX4 FDISP 12 ENTER | N=12 %LINE=12
+FR2F1@rpn | from before: the LCM of 4 and 6, typed | MODE33 FIX4 FDISP 12 ENTER | X=12
+FR2F1W@alg | its working: 2 × 2 × 3 | MODE33 FIX4 FDISP 2 * 2 * 3 ENTER | N=12 %LINE=2×2×3
+FR2F1W@rpn | its working: 2 × 2 × 3 | MODE33 FIX4 FDISP 2 ENTER 2 * 3 * | X=12
+FR2F1A@alg | slip: 4 × 6 | MODE33 FIX4 FDISP 4 * 6 ENTER | N=24 %LINE=4×6
+FR2F1A@rpn | slip: 4 × 6 | MODE33 FIX4 FDISP 4 ENTER 6 * | X=24
+FR2F2@alg | from before: 3/4 over 12, the top, typed | MODE33 FIX4 FDISP 9 ENTER | N=9 %LINE=9
+FR2F2@rpn | from before: 3/4 over 12, the top, typed | MODE33 FIX4 FDISP 9 ENTER | X=9
+FR2F2W@alg | its working: 3 × 3 | MODE33 FIX4 FDISP 3 * 3 ENTER | N=9 %LINE=3×3
+FR2F2W@rpn | its working: 3 × 3 | MODE33 FIX4 FDISP 3 ENTER 3 * | X=9
+FR2F2A@alg | slip: 3 + 8, as 4 + 8 makes 12 | MODE33 FIX4 FDISP 3 + 8 ENTER | N=11 %LINE=3+8
+FR2F2A@rpn | slip: 3 + 8, as 4 + 8 makes 12 | MODE33 FIX4 FDISP 3 ENTER 8 + | X=11
+FR2M1@alg | mixed review: 1/4 + 1/8, typed | MODE33 FIX4 FDISP 0.375 ENTER | N=0.375 %LINE=0.375
+FR2M1@rpn | mixed review: 1/4 + 1/8, typed | MODE33 FIX4 FDISP 0.375 ENTER | X=0.375
+FR2M1W@alg | its working | MODE33 FIX4 FDISP 1 / 4 + 1 / 8 ENTER | N=0.375 %LINE=1÷4+1÷8
+FR2M1W@rpn | its working | MODE33 FIX4 FDISP 1 ENTER 4 / 1 ENTER 8 / + | X=0.375
+FR2M1A@alg | slip: 2/8 | MODE33 FIX4 FDISP 2 / 8 ENTER | N=0.25 %LINE=2÷8
+FR2M1A@rpn | slip: 2/8 | MODE33 FIX4 FDISP 2 ENTER 8 / | X=0.25
+FR2M2@alg | mixed review: the GCF of 12 and 20, typed | MODE33 FIX4 FDISP 4 ENTER | N=4 %LINE=4
+FR2M2@rpn | mixed review: the GCF of 12 and 20, typed | MODE33 FIX4 FDISP 4 ENTER | X=4
+FR2M2W@alg | its working: the shared 2 × 2 | MODE33 FIX4 FDISP 2 * 2 ENTER | N=4 %LINE=2×2
+FR2M2W@rpn | its working: the shared 2 × 2 | MODE33 FIX4 FDISP 2 ENTER 2 * | X=4
+FR2M2A@alg | slip: the LCM, 2 × 2 × 3 × 5 | MODE33 FIX4 FDISP 2 * 2 * 3 * 5 ENTER | N=60 %LINE=2×2×3×5
+FR2M2A@rpn | slip: the LCM, 2 × 2 × 3 × 5 | MODE33 FIX4 FDISP 2 ENTER 2 * 3 * 5 * | X=60
+FR2M3@alg | mixed review: 7/8 − 1/4, typed | MODE33 FIX4 FDISP 0.625 ENTER | N=0.625 %LINE=0.625
+FR2M3@rpn | mixed review: 7/8 − 1/4, typed | MODE33 FIX4 FDISP 0.625 ENTER | X=0.625
+FR2M3W@alg | its working | MODE33 FIX4 FDISP 7 / 8 - 1 / 4 ENTER | N=0.625 %LINE=7÷8-1÷4
+FR2M3W@rpn | its working | MODE33 FIX4 FDISP 7 ENTER 8 / 1 ENTER 4 / - | X=0.625
+FR2M3A@alg | slip: tops from tops and bottoms from bottoms, 6 ÷ 4 | MODE33 FIX4 FDISP 7 - 1 ENTER / 4 ENTER | N=1.5 %LINE=ANS÷4
+FR2M3A@rpn | slip: tops from tops and bottoms from bottoms, 6 ÷ 4 | MODE33 FIX4 FDISP 7 ENTER 1 - 8 ENTER 4 - / | X=1.5
+FR2M4@alg | mixed review: the bottom of 15/25 in simplest form, typed | MODE33 FIX4 FDISP 5 ENTER | N=5 %LINE=5
+FR2M4@rpn | mixed review: the bottom of 15/25 in simplest form, typed | MODE33 FIX4 FDISP 5 ENTER | X=5
+FR2M4W@alg | its working: 25 ÷ 5 | MODE33 FIX4 FDISP 25 / 5 ENTER | N=5 %LINE=25÷5
+FR2M4W@rpn | its working: 25 ÷ 5 | MODE33 FIX4 FDISP 25 ENTER 5 / | X=5
+FR2M4A@alg | slip: the top, 15 ÷ 5 | MODE33 FIX4 FDISP 15 / 5 ENTER | N=3 %LINE=15÷5
+FR2M4A@rpn | slip: the top, 15 ÷ 5 | MODE33 FIX4 FDISP 15 ENTER 5 / | X=3

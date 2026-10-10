@@ -7,14 +7,16 @@ entries: alg rpn
 requires: calc-setup calc-shift-keys calc-soft-keys calc-first-calculation calc-frac-display calc-frac-arrows
 status: pilot, draft prose (accuracy: lessons/ACCEPTED; not yet read by Michael; Thornwick and its names are stand-ins, lore/WORLD.md)
 cast: Maren
+voices: story plain
 setup: BLUE MODE {mode} BLUE MODE {entry} GOLD DISP FIX 4 BLUE →FRAC
 display: FIX 4
 ---
 
 # Equivalent fractions
 
-In Thornwick's market, two pies come out of the oven at Maren's bakery, the same size. Maren cuts the
-first into 4 equal pieces and the second into 2 equal pieces. One customer buys 2 pieces of the first
+<voice v="story">In Thornwick's market, two pies come out of the oven at Maren's bakery, the same size. Maren cuts the
+first into 4 equal pieces and the second into 2 equal pieces.</voice><voice v="plain">Two pies of the same size come out of an oven. The first is cut
+into 4 equal pieces and the second into 2 equal pieces.</voice> One customer buys 2 pieces of the first
 pie. Another buys 1 piece of the second. Who got more pie?
 
 Work it out by hand first. Draw two circles the same size. Cut the first into 4 equal parts and
