@@ -15,6 +15,27 @@ child's y. Then 2x + 3y = 37 and x + y = 15. Two equations that must hold at the
 system of equations, and a solution of the system is a pair of numbers, one for x and one for y,
 that makes both true. This lesson finds such pairs, and shows when there is none, or endlessly many.
 
+## From before
+
+Two from before, by hand: a line from lin-01, and one from unit 1. Checking a pair is arithmetic like
+the second.
+
+```item SY1F1
+prompt: A line has intercept 2 and slope 3. What is y at x = 4?
+topics: linear-function
+answer: type
+calculator: no
+slip: SY1F1A | added before multiplying | y = 3x + 2: 3 × 4 is 12, then + 2.
+```
+
+```item SY1F2
+prompt: Work out 2 × 7 + 3 × 5.
+topics: mult-before-add
+answer: type
+calculator: no
+slip: SY1F2A | worked left to right | Both multiplications come first: 14 + 15.
+```
+
 ## Before you start
 
 The setup from rpn-01: the mode you chose and FIX 4. Work the examples in order; when one carries on
@@ -205,3 +226,41 @@ point of the line is a solution. If it is 0 = a number that is not 0, there is n
    X shows <disp v="E04">0.0000</disp>: 0 = 0, always true. The second equation is the first doubled,
    so they are one line, y = 3x − 2, and every point on it is a solution: (0, −2), (1, 1), (2, 4),
    and endlessly many more.
+
+## Mixed review
+
+Four from this lesson and the ones before it, in no order. Work each by hand unless it says to use
+the calculator.
+
+```item SY1M1
+prompt: For the pair (4, 1), what is the left side of 2x − y = 7?
+topics: check-pair
+answer: type
+calculator: no
+slip: SY1M1A | added y | It is 2x minus y: 2 × 4 − 1.
+```
+
+```item SY1M2
+prompt: Work out (18 − 6) ÷ (2 + 1).
+topics: fraction-bar
+answer: type
+calculator: no
+slip: SY1M2A | divided only the 6 | The brackets come first: 12 ÷ 3.
+```
+
+```item SY1M3
+prompt: Add x + y = 9 and x − y = 3 to eliminate y. What is x?
+topics: elimination
+answer: type
+calculator: no
+slip: SY1M3A | forgot to halve | Adding gives 2x = 12, so x is 12 ÷ 2.
+```
+
+```item SY1M4
+prompt: What is the slope of y = 4x − 3?
+topics: slope
+answer: type
+calculator: no
+working: none
+slip: SY1M4A | the intercept | In y = mx + b the slope is m, the number times x: 4.
+```

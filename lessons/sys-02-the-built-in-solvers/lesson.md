@@ -20,6 +20,26 @@ Ax + By = C and Dx + Ey = F, and the solver asks for the six numbers A to F. Thr
 Ax + By + Cz = D, Ex + Fy + Gz = H and Ix + Jy + Kz = L, twelve numbers, A to L. The letters are
 variables, so C in Ax + By = C is not the C key, and it means a different number in the 3×3 form.
 
+## From before
+
+Two from before, by hand: a formula from eq-02, and elimination from sys-01.
+
+```item SY2F1
+prompt: A = L × W, with A = 24 and W = 4. What is L?
+topics: solve-any-letter
+answer: type
+calculator: no
+slip: SY2F1A | multiplied | A is L times W, so L is A divided by W: 24 ÷ 4.
+```
+
+```item SY2F2
+prompt: x + y = 8 and x − y = 2. What is y?
+topics: elimination
+answer: type
+calculator: no
+slip: SY2F2A | found x | Taking the second from the first gives 2y = 6, so y is 3. 5 is x.
+```
+
 ## Before you start
 
 The setup from rpn-01: the mode you chose and FIX 4. This lesson is offered in 35s and STU mode: in
@@ -243,6 +263,45 @@ every point of one line, as in sys-01. Here the line is the first equation, x + 
    The X line shows <disp v="E04" kind="view">X=2.0000</disp>, and y and z are 3 and 4: 2 + 3 is 5,
    3 + 4 is 7, and 2 + 4 is 6.
 
+## Mixed review
+
+Four from this lesson and the ones before it, in no order. Work each by hand unless it says to use
+the calculator.
+
+```item SY2M1
+prompt: In the solver's form ax + by = c, 3x = 12 − 2y becomes 3x + by = 12. What is b?
+topics: solver-form
+answer: type
+calculator: no
+working: none
+slip: SY2M1A | kept the sign | Moving −2y across to the left makes it +2y.
+```
+
+```item SY2M2
+prompt: Work out 3 × 2² + 2 × 3².
+topics: powers-first
+answer: type
+calculator: no
+slip: SY2M2A | squared the products | The powers belong to the 2 and the 3 alone: 3 × 4 + 2 × 9.
+```
+
+```item SY2M3
+prompt: The solver shows NO SOLUTION. How many pairs (x, y) solve the system?
+topics: solver-none-many
+answer: type
+calculator: no
+working: none
+slip: SY2M3A | one | NO SOLUTION means no pair makes both true: the lines are parallel.
+```
+
+```item SY2M4
+prompt: For the pair (2, 5), what is 3x − y?
+topics: check-pair
+answer: type
+calculator: no
+slip: SY2M4A | added y | It is 3x minus y: 3 × 2 − 5.
+```
+
 ## Checkpoint
 
 Questions on the whole unit. Work each by hand first (a few offer the calculator), then give your answer; the page checks it. A wrong answer that comes from a common slip gets a hint that names the step.
@@ -270,5 +329,6 @@ prompt: x + y = 5 and x + y = 7. How many pairs (x, y) make both true?
 topics: no-or-every-solution
 answer: type
 calculator: no
+working: none
 slip: CP8C1 | one | The sum x + y cannot be 5 and 7 at once, so no pair works.
 ```

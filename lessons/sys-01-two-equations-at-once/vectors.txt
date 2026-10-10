@@ -17,3 +17,21 @@ E02 | exercise 2: second - 2 x first leaves 0 = 5 - 2 x 1 | MODE33 FIX4 5 ENTER 
 E04 | exercise 4: second - 2 x first leaves 0 = 4 - 2 x 2 | MODE33 FIX4 4 ENTER 2 ENTER 2 * - | X=0
 E03 | exercise 3: the coins, y = (2.75 - 0.05 x 40) / (0.10 - 0.05) | MODE33 FIX4 2.75 ENTER 0.05 ENTER 40 * - 0.10 ENTER 0.05 - / | X=15
 E03B | continues E03: x = 40 - y | MODE33 FIX4 2.75 ENTER 0.05 ENTER 40 * - 0.10 ENTER 0.05 - / STO:Y 40 RCL:Y - | X=25 @Y=15
+# From before and Mixed review (decision 76): each answer typed, its working (W, abacus #6439), and the slips'.
+SY1F1 | from before: y at 4 on y = 3x + 2, the answer typed | MODE33 FIX4 14 | X=14
+SY1F1W | its working | MODE33 FIX4 3 ENTER 4 * 2 + | X=14
+SY1F1A | slip: (2 + 3) × 4 | MODE33 FIX4 2 ENTER 3 + 4 * | X=20
+SY1F2 | from before: 2 × 7 + 3 × 5, the answer typed | MODE33 FIX4 29 | X=29
+SY1F2W | its working | MODE33 FIX4 2 ENTER 7 * 3 ENTER 5 * + | X=29
+SY1F2A | slip: (2 × 7 + 3) × 5 | MODE33 FIX4 2 ENTER 7 * 3 + 5 * | X=85
+SY1M1 | mixed review: 2x − y at (4, 1), typed | MODE33 FIX4 7 | X=7
+SY1M1W | its working | MODE33 FIX4 2 ENTER 4 * 1 - | X=7
+SY1M1A | slip: 2 × 4 + 1 | MODE33 FIX4 2 ENTER 4 * 1 + | X=9
+SY1M2 | mixed review: (18 − 6) ÷ (2 + 1), typed | MODE33 FIX4 4 | X=4
+SY1M2W | its working | MODE33 FIX4 18 ENTER 6 - 2 ENTER 1 + / | X=4
+SY1M2A | slip: 18 − 6 ÷ 2 + 1 | MODE33 FIX4 18 ENTER 6 ENTER 2 / - 1 + | X=16
+SY1M3 | mixed review: x from x + y = 9 and x − y = 3, typed | MODE33 FIX4 6 | X=6
+SY1M3W | its working | MODE33 FIX4 9 ENTER 3 + 2 / | X=6
+SY1M3A | slip: forgot to halve | MODE33 FIX4 9 ENTER 3 + | X=12
+SY1M4 | mixed review: the slope of y = 4x − 3, read, typed | MODE33 FIX4 4 | X=4
+SY1M4A | slip: the intercept | MODE33 FIX4 3 CHS | X=-3

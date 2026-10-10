@@ -32,3 +32,23 @@ CP8B1 | slip: divided by the wrong number | MODE33 FIX4 12 ENTER 2 ENTER 3 * - 2
 CP8B2 | slip: found 3y | MODE33 FIX4 12 ENTER 2 ENTER 3 * - | X=6
 CP8C | checkpoint, unit 8: the answer typed | MODE33 FIX4 0 | X=0
 CP8C1 | slip: one | MODE33 FIX4 1 | X=1
+# From before and Mixed review (decision 76): each answer typed, its working (W, abacus #6439), and the slips'.
+SY2F1 | from before: L from A = 24 and W = 4, the answer typed | MODE33 FIX4 6 | X=6
+SY2F1W | its working | MODE33 FIX4 24 ENTER 4 / | X=6
+SY2F1A | slip: 24 × 4 | MODE33 FIX4 24 ENTER 4 * | X=96
+SY2F2 | from before: y from x + y = 8 and x − y = 2, the answer typed | MODE33 FIX4 3 | X=3
+SY2F2W | its working | MODE33 FIX4 8 ENTER 2 - 2 / | X=3
+SY2F2A | slip: x instead | MODE33 FIX4 8 ENTER 2 + 2 / | X=5
+SY2M1 | mixed review: b in the solver's form, read, typed | MODE33 FIX4 2 | X=2
+SY2M1A | slip: kept the sign | MODE33 FIX4 2 CHS | X=-2
+SY2M2 | mixed review: 3 × 2² + 2 × 3², typed | MODE33 FIX4 30 | X=30
+SY2M2W | its working | MODE33 FIX4 2 SQ 3 * 3 SQ 2 * + | X=30
+SY2M2A | slip: (3 × 2)² + (2 × 3)² | MODE33 FIX4 3 ENTER 2 * SQ 2 ENTER 3 * SQ + | X=72
+SY2M3 | mixed review: NO SOLUTION's count, recalled, typed | MODE33 FIX4 0 | X=0
+SY2M3A | slip: one | MODE33 FIX4 1 | X=1
+SY2M4 | mixed review: 3x − y at (2, 5), typed | MODE33 FIX4 1 | X=1
+SY2M4W | its working | MODE33 FIX4 3 ENTER 2 * 5 - | X=1
+SY2M4A | slip: 3 × 2 + 5 | MODE33 FIX4 3 ENTER 2 * 5 + | X=11
+# The checkpoint's working (abacus #6439): each computed answer made by the core; CP8C is a count.
+CP8AW | CP8A's working: (10 + 2) ÷ 2 | MODE33 FIX4 10 ENTER 2 + 2 / | X=6
+CP8BW | CP8B's working: (12 − 2 × 3) ÷ 3 | MODE33 FIX4 12 ENTER 2 ENTER 3 * - 3 / | X=2
