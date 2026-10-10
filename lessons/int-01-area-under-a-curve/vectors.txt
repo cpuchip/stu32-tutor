@@ -18,3 +18,25 @@ CP12A2 | slip: the slope times the width | MODE33 FIX4 2 ENTER 3 * | X=6
 CP12B | checkpoint, unit 12: the answer typed | MODE33 FIX4 2 CHS | X=-2
 CP12B1 | slip: the area, not the integral | MODE33 FIX4 2 | X=2
 CP12B2 | slip: the rectangle | MODE33 FIX4 2 ENTER 2 * CHS | X=-4
+# From before and Mixed review (decision 76): each answer typed, its working (W, abacus #6439), and the slips'.
+IN1F1 | from before: 1 + 2 + … + 10, the answer typed | MODE33 FIX4 55 | X=55
+IN1F1W | its working: 10 × 11 ÷ 2 | MODE33 FIX4 10 ENTER 11 * 2 / | X=55
+IN1F1A | slip: forgot to halve | MODE33 FIX4 10 ENTER 11 * | X=110
+IN1F2 | from before: 1² + 2² + 3², the answer typed | MODE33 FIX4 14 | X=14
+IN1F2W | its working | MODE33 FIX4 1 SQ 2 SQ + 3 SQ + | X=14
+IN1F2A | slip: (1 + 2 + 3)² | MODE33 FIX4 1 ENTER 2 + 3 + SQ | X=36
+IN1M1 | mixed review: two strips of x², typed | MODE33 FIX4 5 | X=5
+IN1M1W | its working | MODE33 FIX4 1 SQ 2 SQ + | X=5
+IN1M1A | slip: (1 + 2)² | MODE33 FIX4 1 ENTER 2 + SQ | X=9
+IN1M2 | mixed review: (x² − 36) ÷ (x − 6) near 6, typed | MODE33 FIX4 12 | X=12
+IN1M2W | its working: x + 6 at 6 | MODE33 FIX4 6 ENTER 6 + | X=12
+IN1M2A | slip: 0 ÷ 0 read as 0 | MODE33 FIX4 0 | X=0
+IN1M3 | mixed review: −3 over a width of 2, typed | MODE33 FIX4 6 CHS | X=-6
+IN1M3W | its working | MODE33 FIX4 3 CHS ENTER 2 * | X=-6
+IN1M3A | slip: counted as positive | MODE33 FIX4 6 | X=6
+IN1M4 | mixed review: the 8th term of 5, 8, 11, typed | MODE33 FIX4 26 | X=26
+IN1M4W | its working | MODE33 FIX4 7 ENTER 3 * 5 + | X=26
+IN1M4A | slip: 5 + 8 × 3 | MODE33 FIX4 8 ENTER 3 * 5 + | X=29
+# The checkpoint's working (abacus #6439): each computed answer made by the core.
+CP12AW | CP12A's working: the triangle, 3 × 6 ÷ 2 | MODE33 FIX4 3 ENTER 6 * 2 / | X=9
+CP12BW | CP12B's working: the triangle below the axis, −(2 × 2 ÷ 2) | MODE33 FIX4 2 ENTER 2 * 2 / CHS | X=-2

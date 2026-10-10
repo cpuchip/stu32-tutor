@@ -18,6 +18,26 @@ than x approaching a number), and that limit is called the integral. When the cu
 axis, as this one does, the integral is the area. This lesson adds up rectangles with a program, then
 lets the calculator's built-in integral do the work.
 
+## From before
+
+Two from before, by hand: a sum from seq-01, and squares from unit 1. This lesson adds squares up.
+
+```item IN1F1
+prompt: Add 1 + 2 + 3 + … + 10.
+topics: arithmetic-sum
+answer: type
+calculator: no
+slip: IN1F1A | forgot to halve | Pair the first and last: 10 pairs of 11 counts each number twice, so halve 110.
+```
+
+```item IN1F2
+prompt: Work out 1² + 2² + 3².
+topics: x-squared
+answer: type
+calculator: no
+slip: IN1F2A | squared the sum | Square each first: 1 + 4 + 9. (1 + 2 + 3)² is another number.
+```
+
 ## Before you start
 
 The setup from rpn-01: the mode you chose and FIX 4. The program's examples are one chain, each
@@ -164,6 +184,43 @@ the area below it, 0.5 − 0.5, which is 0.
    ```
 
    The X line shows <disp v="E02" kind="view">∫=-1.5000</disp>, and the area is 2 + 0.5.
+
+## Mixed review
+
+Four from this lesson and the ones before it, in no order. Work each by hand unless it says to use
+the calculator.
+
+```item IN1M1
+prompt: Two strips of width 1 stand under y = x², with heights taken at x = 1 and x = 2. What is their total area?
+topics: riemann-sum
+answer: type
+calculator: no
+slip: IN1M1A | squared the sum | Each strip is its own height times its width, 1: 1² + 2².
+```
+
+```item IN1M2
+prompt: What does (x² − 36) ÷ (x − 6) close in on as x approaches 6?
+topics: limit
+answer: type
+calculator: no
+slip: IN1M2A | 0 ÷ 0 read as 0 | Near 6 the fraction is x + 6, which closes in on 12.
+```
+
+```item IN1M3
+prompt: y = −3 from x = 0 to x = 2: what does that stretch count for in the integral?
+topics: signed-area
+answer: type
+calculator: no
+slip: IN1M3A | counted it as positive | Area below the axis counts negative: −3 × 2.
+```
+
+```item IN1M4
+prompt: The sequence 5, 8, 11, … goes on the same way. What is its 8th term?
+topics: arithmetic-sequence
+answer: type
+calculator: no
+slip: IN1M4A | eight steps, not seven | The 8th term is 7 steps after the first: 5 + 7 × 3.
+```
 
 ## Checkpoint
 
