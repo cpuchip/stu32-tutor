@@ -21,3 +21,24 @@ U11A | places unit 11 (its prompt is in lesson.md) | MODE33 FIX4 4 | X=4
 U11B | places unit 11 (its prompt is in lesson.md) | MODE33 FIX4 2 | X=2
 U12A | places unit 12 (its prompt is in lesson.md) | MODE33 FIX4 12 | X=12
 U12B | places unit 12 (its prompt is in lesson.md) | MODE33 FIX4 6 | X=6
+# Each computed answer's working (abacus #6439); U4B and U8A are recalled (working: none).
+U2AW | U2A's working: 3 + 4 × 2² | MODE33 FIX4 2 SQ 4 * 3 + | X=19
+U2BW | U2B's working: 0.15 × 80 | MODE33 FIX4 0.15 ENTER 80 * | X=12
+U3AW | U3A's working: (11 − 3) ÷ 2 | MODE33 FIX4 11 ENTER 3 - 2 / | X=4
+U3BW | U3B's working: abs(−7) + 2 | MODE33 FIX4 7 CHS ABS 2 + | X=9
+U4AW | U4A's working: 4² − 3 | MODE33 FIX4 4 SQ 3 - | X=13
+U5AW | U5A's working: (8 − 2) ÷ (3 − 1) | MODE33 FIX4 8 ENTER 2 - 3 ENTER 1 - / | X=3
+U5BW | U5B's working: −2 × 3 + 4 | MODE33 FIX4 2 CHS ENTER 3 * 4 + | X=-2
+U6AW | U6A's working: (5 + √(25 − 24)) ÷ 2 | MODE33 FIX4 5 ENTER 5 SQ 4 ENTER 6 * - SQRT + 2 / | X=3
+U6BW | U6B's working: 2² − 4 × 1 × 5 | MODE33 FIX4 2 SQ 4 ENTER 5 * - | X=-16
+U7AW | U7A's working: log 1000 | MODE33 FIX4 1000 LOG | X=3
+U7BW | U7B's working: 200 × 1.1², with the calculator | MODE33 FIX4 200 ENTER 1.1 ENTER 2 POW * | X=242
+U8BW | U8B's working: √(6² + 8²) | MODE33 FIX4 6 SQ 8 SQ + SQRT | X=10
+U9AW | U9A's working: (10 + 4) ÷ 2 | MODE33 FIX4 10 ENTER 4 + 2 / | X=7
+U9BW | U9B's working: x = (7 + 2) ÷ 3, then y = x − 2 | MODE33 FIX4 7 ENTER 2 + 3 / 2 - | X=1
+U10AW | U10A's working: 5! | MODE33 FIX4 5 FACT | X=120
+U10BW | U10B's working: 0.5 × 0.5 | MODE33 FIX4 0.5 ENTER 0.5 * | X=0.25
+U11AW | U11A's working: (3² − 1²) ÷ (3 − 1) | MODE33 FIX4 3 SQ 1 SQ - 3 ENTER 1 - / | X=4
+U11BW | U11B's working: x + 1 at 1 | MODE33 FIX4 1 ENTER 1 + | X=2
+U12AW | U12A's working: 3 × 2² | MODE33 FIX4 2 SQ 3 * | X=12
+U12BW | U12B's working: 2x + 4 at 1 | MODE33 FIX4 2 ENTER 1 * 4 + | X=6

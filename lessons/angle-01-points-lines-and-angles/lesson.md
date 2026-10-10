@@ -9,17 +9,38 @@ status: draft prose (accuracy: lessons/ACCEPTED; not yet read by Michael; Gullha
 setup: BLUE MODE {mode} BLUE MODE {entry} GOLD DISP FIX 4
 display: FIX 4
 cast: Corwen
+voices: story plain
 tools: point straightedge ruler protractor
 ---
 
 # Points, lines and angles
 
-Long after Thornwick's market days, its people have reached the sea. Gullhaven is a harbour town on
-a wide bay, and Corwen is making the first true map of it. A map has to say where the lighthouse is,
+<voice v="story">Long after Thornwick's market days, its people have reached the sea. Gullhaven is a harbour town on
+a wide bay, and Corwen is making the first true map of it.</voice><voice v="plain">A harbour town on a wide bay is being mapped for the first time.</voice> A map has to say where the lighthouse is,
 and where the church tower is, from one place everyone can find: the end of the harbour wall. The
 distance is one half of the answer. The other half is the direction, and a direction is measured
 as an angle. This lesson is about angles: what they are, how to measure them, and what kinds there
 are.
+
+## From before
+
+Two from pre-algebra, by hand.
+
+```item AN1F1
+prompt: Work out 360 − 125.
+topics: column-subtraction
+answer: type
+calculator: no
+slip: AN1F1A | took the smaller digit from the larger | 0 − 5 needs a borrow: 10 − 5, with one ten fewer.
+```
+
+```item AN1F2
+prompt: Work out 360 ÷ 5 by long division.
+topics: long-division
+answer: type
+calculator: no
+slip: AN1F2A | stopped before the last digit | Bring down every digit: after 36 comes the 0.
+```
 
 ## Before you start
 
@@ -62,7 +83,7 @@ Angles are measured in degrees, written °. A full turn, all the way round to wh
 cut into 360 a very long time ago, and it is a handy number: 360 divides evenly by 2, 3, 4, 5, 6, 8,
 9, 10 and 12, though not by 7.
 
-Corwen's sighting board is a disc marked all the way round. If it is cut into 8 equal parts, each
+<voice v="story">Corwen's sighting board is a disc marked all the way round.</voice><voice v="plain">A sighting board is a disc marked all the way round.</voice> If it is cut into 8 equal parts, each
 part is 360 ÷ 8:
 
 ```keys K01 entry=alg
@@ -130,7 +151,7 @@ means the one not more than 180°.
 
 ## Back to the bay
 
-Corwen stands at the end of the harbour wall and sights along it. Turning from the wall, the
+<voice v="story">Corwen stands at the end of the harbour wall and sights along it.</voice><voice v="plain">Stand at the end of the harbour wall and sight along it.</voice> Turning from the wall, the
 lighthouse is at 35°, and the church tower is at 110°, both measured from the same arm, the wall,
 turning the same way.
 The angle between the lighthouse and the tower, as seen from there, is 110 − 35:

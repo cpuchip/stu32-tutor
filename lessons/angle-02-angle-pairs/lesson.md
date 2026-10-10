@@ -9,13 +9,34 @@ status: draft prose (accuracy: lessons/ACCEPTED; not yet read by Michael; Gullha
 setup: BLUE MODE {mode} BLUE MODE {entry} GOLD DISP FIX 4
 display: FIX 4
 cast: Corwen
+voices: story plain
 ---
 
 # Angle pairs
 
-In Gullhaven, Corwen is mapping the streets now, not just the bay. Where roads meet, the angles
+<voice v="story">In Gullhaven, Corwen is mapping the streets now, not just the bay.</voice><voice v="plain">A map of a town shows its streets, not just its bay.</voice> Where roads meet, the angles
 between them come in pairs and groups that follow fixed rules, so measuring one angle tells you
 others. That saves measuring, and it is a check on the ones you do measure.
+
+## From before
+
+Two from before, by hand: degrees from angle-01, and one from pre-algebra.
+
+```item AN2F1
+prompt: How many degrees is a quarter of a full turn?
+topics: degrees
+answer: type
+calculator: no
+slip: AN2F1A | a half, not a quarter | A full turn is 360°, and a quarter of it is 360 ÷ 4.
+```
+
+```item AN2F2
+prompt: Work out 47 + 133.
+topics: column-addition
+answer: type
+calculator: no
+slip: AN2F2A | a carry left out | 7 + 3 is 10: write 0 and carry 1 to the tens.
+```
 
 ## Before you start
 

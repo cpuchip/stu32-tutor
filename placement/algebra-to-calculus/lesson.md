@@ -58,6 +58,7 @@ prompt: For which x is 1 ÷ (x − 2) not defined?
 topics: domain divide-by-zero
 answer: type
 calculator: no
+working: none
 places: 4
 ```
 
@@ -114,6 +115,7 @@ prompt: What is sin 30° (degrees)?
 topics: trig-ratios
 answer: type
 calculator: no
+working: none
 places: 8
 ```
 

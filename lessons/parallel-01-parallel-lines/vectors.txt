@@ -50,3 +50,29 @@ CPG1I@alg | checkpoint: an acute angle read as 140 on one scale | MODE33 FIX4 40
 CPG1I@rpn | checkpoint: an acute angle read as 140 on one scale | MODE33 FIX4 40 ENTER | X=40
 CPG1I1@alg | slip: read on the wrong scale | MODE33 FIX4 140 ENTER | N=140 %LINE=140
 CPG1I1@rpn | slip: read on the wrong scale | MODE33 FIX4 140 ENTER | X=140
+# From before and Mixed review (decision 76): each answer typed, its working (W, abacus #6439), and the slip's; @alg the line, @rpn the stack.
+PA1F1@alg | from before: 180 − 115, typed | MODE33 FIX4 65 ENTER | N=65 %LINE=65
+PA1F1@rpn | from before: 180 − 115, typed | MODE33 FIX4 65 ENTER | X=65
+PA1F1W@alg | its working | MODE33 FIX4 180 - 115 ENTER | N=65 %LINE=180-115
+PA1F1W@rpn | its working | MODE33 FIX4 180 ENTER 115 - | X=65
+PA1F1A@alg | slip: 360 − 115 | MODE33 FIX4 360 - 115 ENTER | N=245 %LINE=360-115
+PA1F1A@rpn | slip: 360 − 115 | MODE33 FIX4 360 ENTER 115 - | X=245
+PA1F2@alg | from before: 180 − 72, typed | MODE33 FIX4 108 ENTER | N=108 %LINE=108
+PA1F2@rpn | from before: 180 − 72, typed | MODE33 FIX4 108 ENTER | X=108
+PA1F2W@alg | its working | MODE33 FIX4 180 - 72 ENTER | N=108 %LINE=180-72
+PA1F2W@rpn | its working | MODE33 FIX4 180 ENTER 72 - | X=108
+PA1F2A@alg | slip: the smaller digit from the larger in each column, 112 | MODE33 FIX4 180 - 72 + 4 ENTER | N=112 %LINE=180-72+4
+PA1F2A@rpn | slip: the smaller digit from the larger in each column, 112 | MODE33 FIX4 180 ENTER 72 - 4 + | X=112
+# The checkpoint's working (abacus #6439); B, G and H are an equal angle retyped (working: none, #6465).
+CPG1AW@alg | CPG1A's working: 180 − 47 | MODE33 FIX4 180 - 47 ENTER | N=133 %LINE=180-47
+CPG1AW@rpn | CPG1A's working: 180 − 47 | MODE33 FIX4 180 ENTER 47 - | X=133
+CPG1CW@alg | CPG1C's working: 360 − 100 − 145 | MODE33 FIX4 360 - 100 - 145 ENTER | N=115 %LINE=360-100-145
+CPG1CW@rpn | CPG1C's working: 360 − 100 − 145 | MODE33 FIX4 360 ENTER 100 - 145 - | X=115
+CPG1DW@alg | CPG1D's working: 180 − 70 | MODE33 FIX4 180 - 70 ENTER | N=110 %LINE=180-70
+CPG1DW@rpn | CPG1D's working: 180 − 70 | MODE33 FIX4 180 ENTER 70 - | X=110
+CPG1EW@alg | CPG1E's working: 90 − 23 | MODE33 FIX4 90 - 23 ENTER | N=67 %LINE=90-23
+CPG1EW@rpn | CPG1E's working: 90 − 23 | MODE33 FIX4 90 ENTER 23 - | X=67
+CPG1FW@alg | CPG1F's working: 360 − 130 | MODE33 FIX4 360 - 130 ENTER | N=230 %LINE=360-130
+CPG1FW@rpn | CPG1F's working: 360 − 130 | MODE33 FIX4 360 ENTER 130 - | X=230
+CPG1IW@alg | CPG1I's working: the other scale, 180 − 140 | MODE33 FIX4 180 - 140 ENTER | N=40 %LINE=180-140
+CPG1IW@rpn | CPG1I's working: the other scale, 180 − 140 | MODE33 FIX4 180 ENTER 140 - | X=40

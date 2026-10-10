@@ -18,3 +18,16 @@ E03@alg | exercise 3: round a point with 90 and 150 | MODE33 FIX4 360 - 90 - 150
 E03@rpn | exercise 3: round a point with 90 and 150 | MODE33 FIX4 360 ENTER 90 - 150 - | X=120
 E04@alg | exercise 4: beside 41 where two lines cross | MODE33 FIX4 180 - 41 ENTER | N=139 %LINE=180-41
 E04@rpn | exercise 4: beside 41 where two lines cross | MODE33 FIX4 180 ENTER 41 - | X=139
+# From before and Mixed review (decision 76): each answer typed, its working (W, abacus #6439), and the slip's; @alg the line, @rpn the stack.
+AN2F1@alg | from before: a quarter turn, typed | MODE33 FIX4 90 ENTER | N=90 %LINE=90
+AN2F1@rpn | from before: a quarter turn, typed | MODE33 FIX4 90 ENTER | X=90
+AN2F1W@alg | its working | MODE33 FIX4 360 / 4 ENTER | N=90 %LINE=360÷4
+AN2F1W@rpn | its working | MODE33 FIX4 360 ENTER 4 / | X=90
+AN2F1A@alg | slip: a half turn | MODE33 FIX4 360 / 2 ENTER | N=180 %LINE=360÷2
+AN2F1A@rpn | slip: a half turn | MODE33 FIX4 360 ENTER 2 / | X=180
+AN2F2@alg | from before: 47 + 133, typed | MODE33 FIX4 180 ENTER | N=180 %LINE=180
+AN2F2@rpn | from before: 47 + 133, typed | MODE33 FIX4 180 ENTER | X=180
+AN2F2W@alg | its working | MODE33 FIX4 47 + 133 ENTER | N=180 %LINE=47+133
+AN2F2W@rpn | its working | MODE33 FIX4 47 ENTER 133 + | X=180
+AN2F2A@alg | slip: the carry left out | MODE33 FIX4 47 + 133 - 10 ENTER | N=170 %LINE=47+133-10
+AN2F2A@rpn | slip: the carry left out | MODE33 FIX4 47 ENTER 133 + 10 - | X=170

@@ -9,13 +9,36 @@ status: draft prose (accuracy: lessons/ACCEPTED; not yet read by Michael; Gullha
 setup: BLUE MODE {mode} BLUE MODE {entry} GOLD DISP FIX 4
 display: FIX 4
 cast: Corwen
+voices: story plain
 ---
 
 # Parallel lines and a line across them
 
-Gullhaven's newest streets were laid out side by side down the hill to the harbour, and the coast
+<voice v="story">Gullhaven's newest streets were laid out side by side down the hill to the harbour, and the coast
 road cuts across all of them on a slant. Corwen measures the angle at one crossing, and wants to know
-whether that tells her the angles at all the others.
+whether that tells her the angles at all the others.</voice><voice v="plain">A town's newest streets were laid out side by side down a hill to its harbour, and the coast
+road cuts across all of them on a slant. Does the angle at one crossing tell you the angles at all the
+others?</voice>
+
+## From before
+
+Two from before, by hand: a straight line from angle-02, and one from pre-algebra.
+
+```item PA1F1
+prompt: Two angles lie on a straight line. One is 115°. What is the other?
+topics: straight-line-angles
+answer: type
+calculator: no
+slip: PA1F1A | a full turn, not a straight line | Angles on a straight line add to 180°, not 360°.
+```
+
+```item PA1F2
+prompt: Work out 180 − 72.
+topics: column-subtraction
+answer: type
+calculator: no
+slip: PA1F2A | took the smaller digit from the larger | 0 − 2 needs a borrow: 10 − 2, with one ten fewer.
+```
 
 ## Before you start
 
@@ -83,7 +106,7 @@ angle is now known: q, s, u and w are 65°, and p, r, t and v are 115°.
 
 It works the other way too: if corresponding angles are equal, the lines are parallel. Euclid did not
 need to take this one as given; he proved it from earlier steps (his Book I, propositions 27 and 28).
-That is how Corwen checks a new street. If the coast road meets it at 65°, in the same place as q,
+<voice v="story">That is how Corwen checks a new street.</voice><voice v="plain">That is how to check a new street.</voice> If the coast road meets it at 65°, in the same place as q,
 the new street is parallel to Harbour Street. If it meets it at 68° there, it cannot be parallel,
 since parallel streets would make the same angle, and the two streets will meet somewhere.
 
@@ -104,7 +127,7 @@ crosses at a right angle). The reason:
 - Then q and r lie together on the straight line of the road, so q + r = 180°.
 - So u + r = 180° as well.
 
-On Corwen's map, r = 115° and u = 65°:
+<voice v="story">On Corwen's map, r = 115° and u = 65°:</voice><voice v="plain">On a map, r = 115° and u = 65°:</voice>
 
 ```keys I01 entry=alg
 65 + 115 ENTER
@@ -173,6 +196,7 @@ prompt: Two straight lines cross. One of the four angles is 38°. What is the an
 topics: vertical-angles
 answer: type
 calculator: no
+working: none
 slip: CPG1B1 | the angle beside it | That is the angle beside it, on the same straight line. The opposite angle is equal to the given one.
 ```
 
@@ -215,6 +239,7 @@ prompt: A line crosses two parallel lines. One of the angles between the paralle
 topics: alternate-angles
 answer: type
 calculator: no
+working: none
 slip: CPG1G1 | taken as co-interior | Co-interior angles add to 180°, but alternate angles are equal.
 ```
 
@@ -223,6 +248,7 @@ prompt: A line crosses two parallel lines. At the first crossing, one of the fou
 topics: corresponding-angles
 answer: type
 calculator: no
+working: none
 slip: CPG1H1 | the angle beside it | That is the angle beside it on a straight line. Corresponding angles, in the same place at each crossing, are equal.
 ```
 

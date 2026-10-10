@@ -16,3 +16,16 @@ E03@alg | exercise 3: a third of a turn | MODE33 FIX4 360 / 3 ENTER | N=120 %LIN
 E03@rpn | exercise 3: a third of a turn | MODE33 FIX4 360 ENTER 3 / | X=120
 E04@alg | exercise 4: between the boat and the lighthouse | MODE33 FIX4 140 - 35 ENTER | N=105 %LINE=140-35
 E04@rpn | exercise 4: between the boat and the lighthouse | MODE33 FIX4 140 ENTER 35 - | X=105
+# From before and Mixed review (decision 76): each answer typed, its working (W, abacus #6439), and the slip's; @alg the line, @rpn the stack.
+AN1F1@alg | from before: 360 − 125, typed | MODE33 FIX4 235 ENTER | N=235 %LINE=235
+AN1F1@rpn | from before: 360 − 125, typed | MODE33 FIX4 235 ENTER | X=235
+AN1F1W@alg | its working | MODE33 FIX4 360 - 125 ENTER | N=235 %LINE=360-125
+AN1F1W@rpn | its working | MODE33 FIX4 360 ENTER 125 - | X=235
+AN1F1A@alg | slip: the smaller digit from the larger in each column, 245 | MODE33 FIX4 360 - 125 + 10 ENTER | N=245 %LINE=360-125+10
+AN1F1A@rpn | slip: the smaller digit from the larger in each column, 245 | MODE33 FIX4 360 ENTER 125 - 10 + | X=245
+AN1F2@alg | from before: 360 ÷ 5, typed | MODE33 FIX4 72 ENTER | N=72 %LINE=72
+AN1F2@rpn | from before: 360 ÷ 5, typed | MODE33 FIX4 72 ENTER | X=72
+AN1F2W@alg | its working | MODE33 FIX4 360 / 5 ENTER | N=72 %LINE=360÷5
+AN1F2W@rpn | its working | MODE33 FIX4 360 ENTER 5 / | X=72
+AN1F2A@alg | slip: 36 ÷ 5 only, the last digit not brought down | MODE33 FIX4 IDIV 36 , 5 > ENTER | N=7 %LINE=IDIV(36,5)
+AN1F2A@rpn | slip: 36 ÷ 5 only, the last digit not brought down | MODE33 FIX4 36 ENTER 5 IDIV | X=7
