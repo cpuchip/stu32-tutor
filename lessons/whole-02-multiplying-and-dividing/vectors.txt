@@ -22,3 +22,16 @@ E03@alg | exercise 3: INT÷ of 365 and 7 | MODE33 FIX4 IDIV 365 , 7 > ENTER | N=
 E03@rpn | exercise 3: INT÷ of 365 and 7 | MODE33 FIX4 365 ENTER 7 IDIV | X=52
 E03B@alg | exercise 3: Rmdr of 365 and 7 | MODE33 FIX4 RMDR 365 , 7 > ENTER | N=1 %LINE=RMDR(365,7)
 E03B@rpn | exercise 3: Rmdr of 365 and 7 | MODE33 FIX4 365 ENTER 7 RMDR | X=1
+# From before (decision 76): each answer typed, its working (W, abacus #6439), and the slip's; @alg the line, @rpn the stack.
+WH2F1@alg | from before: 2478 + 1365, typed | MODE33 FIX4 3843 ENTER | N=3843 %LINE=3843
+WH2F1@rpn | from before: 2478 + 1365, typed | MODE33 FIX4 3843 ENTER | X=3843
+WH2F1W@alg | its working | MODE33 FIX4 2478 + 1365 ENTER | N=3843 %LINE=2478+1365
+WH2F1W@rpn | its working | MODE33 FIX4 2478 ENTER 1365 + | X=3843
+WH2F1A@alg | slip: every carry left out, the 10 and the 100 | MODE33 FIX4 2478 + 1365 - 110 ENTER | N=3733 %LINE=2478+1365-110
+WH2F1A@rpn | slip: every carry left out, the 10 and the 100 | MODE33 FIX4 2478 ENTER 1365 + 110 - | X=3733
+WH2F2@alg | from before: 6004 − 2357, typed | MODE33 FIX4 3647 ENTER | N=3647 %LINE=3647
+WH2F2@rpn | from before: 6004 − 2357, typed | MODE33 FIX4 3647 ENTER | X=3647
+WH2F2W@alg | its working | MODE33 FIX4 6004 - 2357 ENTER | N=3647 %LINE=6004-2357
+WH2F2W@rpn | its working | MODE33 FIX4 6004 ENTER 2357 - | X=3647
+WH2F2A@alg | slip: the smaller digit from the larger in each column, 4353 | MODE33 FIX4 6004 - 2357 + 706 ENTER | N=4353 %LINE=6004-2357+706
+WH2F2A@rpn | slip: the smaller digit from the larger in each column, 4353 | MODE33 FIX4 6004 ENTER 2357 - 706 + | X=4353

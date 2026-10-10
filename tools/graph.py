@@ -731,14 +731,16 @@ def selftest_lore(entities, edges, lessons, graph):
         ("a cast entity no lesson introduces", entities, edges,
          {**lessons, first: ({**meta, "cast": "Thornwick"}, text)}, "'Thornwick' is cast:, but no lesson introduces them"),
     ]
-    # A lesson offering a plain voice whose shared text still names its cast (whole-01 names Tobin in its prose).
-    if "whole-01" in lessons and "Tobin" in lessons["whole-01"][1]:
+    # A plain voice that names its cast: whole-01 (story and plain since pre-algebra unit 1), with Tobin written
+    # into one of its plain spans.
+    anchor = '<voice v="plain">A store holds 742 loaves'
+    if "whole-01" in lessons and lessons["whole-01"][1].count(anchor) == 1:
         wm, wt = lessons["whole-01"]
         plants.append(("a plain voice that names the cast", entities, edges,
-                       {**lessons, "whole-01": ({**wm, "voices": "story plain"}, wt)},
+                       {**lessons, "whole-01": (wm, wt.replace(anchor, '<voice v="plain">Tobin\'s store holds 742 loaves'))},
                        "whole-01: the plain voice names 'Tobin'"))
     else:
-        print("FAIL no whole-01 naming Tobin to plant the plain-voice fault in")
+        print("FAIL no whole-01 plain span to plant the plain-voice fault in")
         return False
     red = 0
     for pname, en, ed, ls, why in plants:

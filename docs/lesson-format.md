@@ -210,7 +210,8 @@ The controls are in whole-01's set:
 - a quote, a keys block and a heading, each inside a voice span;
 - a span with no `voices:` line;
 - a span in a voice the lesson doesn't offer;
-- and, as greens, the exercise and the setup told in both voices with the same numbers.
+- and, as greens, a plain sentence and a story sentence reworded with the same numbers. whole-01 is told in both
+  voices, so its spans are the plants' anchors.
 
 graph.py's selftest plants a plain voice that names its cast.
 

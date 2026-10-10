@@ -603,38 +603,25 @@ CONTROLS_FOR["whole-01-adding-and-subtracting"] = [
     ("the algebraic line added where it should take away", "lesson.md", "```keys A02 entry=alg\n5000 − 2768 ENTER\n",
      "```keys A02 entry=alg\n5000 + 2768 ENTER\n", {}, "A02: printed keys and vector disagree in STU alg mode"),
 ]
-# Voices (docs/proposals/voices.md): whole-01's exercise 2 told in two voices, and one fault each in that.
-VOICED = ("lesson.md", "cast: Hesk, Tobin\n", "cast: Hesk, Tobin\nvoices: story plain\n")
-EX2 = "2. Tobin had 4003 loaves to deliver and has delivered 1756. How many are left?"
-EX2_TWO = ('2. <voice v="story">Tobin had 4003 loaves to deliver and has delivered 1756.</voice><voice v="plain">4003 '
-           'loaves are to be delivered, and 1756 of them have been.</voice> How many are left?')
-# A worked example's setup in two voices (line 39), for the numbers rule outside the exercises (abacus #6550).
-L39 = "Hesk's mill ground 3452 kilograms of grain in the summer and 1879 in the autumn. How much in all?"
-L39_TWO = ('<voice v="story">Hesk\'s mill ground 3452 kilograms of grain in the summer and 1879 in the autumn.</voice>'
-           '<voice v="plain">A mill grinds 3452 kilograms of grain in the summer and 1879 in the autumn.</voice> How much in all?')
+# Voices (docs/proposals/voices.md): whole-01 is told in a story voice and a plain one (pre-algebra unit 1), so the
+# faults are planted in its own spans.
 CONTROLS_FOR["whole-01-adding-and-subtracting"] += [
-    ("a plain exercise with another number", [VOICED, ("lesson.md", EX2, EX2_TWO.replace("1756 of them", "1765 of them"))],
-     None, None, {}, "the plain reading's prose has other numbers"),
-    ("a plain setup with another number outside the exercises",
-     [VOICED, ("lesson.md", EX2, EX2_TWO),
-      ("lesson.md", L39, L39_TWO.replace("and 1879 in the autumn.</voice> How", "and 1897 in the autumn.</voice> How"))],
-     None, None, {}, "the plain reading's prose has other numbers than the story reading's: at numeral"),
-    ("a quote inside a voice span", [VOICED, ("lesson.md", EX2, EX2_TWO),
-                                     ("lesson.md", '<disp v="A01">5,331.0000</disp>',
-                                      '<voice v="story"><disp v="A01">5,331.0000</disp></voice>')],
-     None, None, {}, '<voice v="story"> holds a <disp> quote'),
-    ("a keys block inside a voice span", [VOICED, ("lesson.md", EX2, EX2_TWO),
-                                          ("lesson.md", "```keys A02 entry=rpn\n5000 ENTER 2768 −\n```",
-                                           '<voice v="story">\n```keys A02 entry=rpn\n5000 ENTER 2768 −\n```\n</voice>')],
-     None, None, {}, '<voice v="story"> holds a keys block'),
-    ("a voice span in a lesson with no voices: line", [("lesson.md", EX2, EX2_TWO)], None, None, {},
+    ("a plain exercise with another number", "lesson.md", "and 1756 of them have been.</voice>",
+     "and 1765 of them have been.</voice>", {}, "the plain reading's prose has other numbers"),
+    ("a plain setup with another number outside the exercises", "lesson.md",
+     "the summer and 1879 in the autumn.</voice> How much", "the summer and 1897 in the autumn.</voice> How much", {},
+     "the plain reading's prose has other numbers than the story reading's: at numeral"),
+    ("a quote inside a voice span", "lesson.md", '<disp v="A01">5,331.0000</disp>',
+     '<voice v="story"><disp v="A01">5,331.0000</disp></voice>', {}, '<voice v="story"> holds a <disp> quote'),
+    ("a keys block inside a voice span", "lesson.md", "```keys A02 entry=rpn\n5000 ENTER 2768 −\n```",
+     '<voice v="story">\n```keys A02 entry=rpn\n5000 ENTER 2768 −\n```\n</voice>', {},
+     '<voice v="story"> holds a keys block'),
+    ("voice spans in a lesson with no voices: line", "lesson.md", "voices: story plain\n", "", {},
      "a <voice> span, but the front matter offers no `voices:`"),
-    ("a span in a voice the lesson does not offer",
-     [VOICED, ("lesson.md", EX2, EX2_TWO.replace('<voice v="plain">', '<voice v="tale">'))], None, None, {},
-     '<voice v="tale">: tale is not one of the lesson\'s voices'),
-    ("a heading inside a voice span", [VOICED, ("lesson.md", EX2, EX2_TWO),
-                                       ("lesson.md", "\n## Answers\n", '\n<voice v="story">\n## Answers\n</voice>\n')],
-     None, None, {}, '<voice v="story"> holds a ## heading'),
+    ("a span in a voice the lesson does not offer", "lesson.md", '<voice v="plain">4003 loaves',
+     '<voice v="tale">4003 loaves', {}, '<voice v="tale">: tale is not one of the lesson\'s voices'),
+    ("a heading inside a voice span", "lesson.md", "\n## Answers\n", '\n<voice v="story">\n## Answers\n</voice>\n', {},
+     '<voice v="story"> holds a ## heading'),
 ]
 CONTROLS_FOR["whole-02-multiplying-and-dividing"] = [
     ("INT÷ pressed without its gold shift", "lesson.md", "```keys D02 entry=alg\nGOLD INT÷ 59", "```keys D02 entry=alg\nINT÷ 59", {},
@@ -762,9 +749,11 @@ CONTROLS_FOR["rpn-03-the-display"].append(
      "P01: working through in order"))
 GREENS_FOR = {
     "whole-01-adding-and-subtracting": [
-        ("exercise 2 in two voices, with the same numbers", [VOICED, ("lesson.md", EX2, EX2_TWO)], None, None),
-        ("a worked example's setup reworded in the plain voice, the same numbers",
-         [VOICED, ("lesson.md", EX2, EX2_TWO), ("lesson.md", L39, L39_TWO)], None, None),
+        ("a plain sentence reworded, the same numbers in the same order", "lesson.md",
+         "A store holds 742 loaves, and 368 are sent out.", "A store has 742 loaves and sends out 368."),
+        ("a story sentence reworded, the same numbers", "lesson.md",
+         "Tobin had 5000 loaves to deliver this season and has delivered 2768.",
+         "This season Tobin had 5000 loaves to deliver, and 2768 are delivered."),
     ],
     "frac-01-equivalent-fractions": [
         ("a block's RPN variant written before its algebraic one", "lesson.md",

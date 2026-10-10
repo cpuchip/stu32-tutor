@@ -9,14 +9,35 @@ status: draft prose (accuracy: lessons/ACCEPTED; not yet read by Michael; Thornw
 setup: BLUE MODE {mode} BLUE MODE {entry} GOLD DISP FIX 4
 display: FIX 4
 cast: Maren, Tobin
+voices: story plain
 ---
 
 # Multiplying and dividing
 
-Thornwick's bakery works in batches and boxes. Maren bakes trays of rolls by the dozen, and Tobin
-packs them into boxes to carry. Finding how many rolls are in all the trays is multiplying; finding
+<voice v="story">Thornwick's bakery works in batches and boxes. Maren bakes trays of rolls by the dozen, and Tobin
+packs them into boxes to carry.</voice><voice v="plain">A bakery works in batches and boxes: trays of rolls baked by the dozen, packed into boxes to carry.</voice> Finding how many rolls are in all the trays is multiplying; finding
 how many boxes they fill, and how many are left over, is dividing. This lesson does both by hand, then checks them on the
 calculator, which has a key for each part of a division.
+
+## From before
+
+Two from whole-01, by hand.
+
+```item WH2F1
+prompt: Work out 2478 + 1365.
+topics: column-addition
+answer: type
+calculator: no
+slip: WH2F1A | every carry left out | Each column that makes ten or more carries one to the next: 8 + 5 is 13, so write 3 and carry 1.
+```
+
+```item WH2F2
+prompt: Work out 6004 − 2357.
+topics: column-subtraction
+answer: type
+calculator: no
+slip: WH2F2A | took the smaller digit from the larger | When the top digit is smaller, borrow from the next column; 4 − 7 is not 3.
+```
 
 ## Before you start
 
@@ -28,7 +49,7 @@ BLUE MODE {mode} BLUE MODE {entry} GOLD DISP FIX 4
 
 ## Multiplying in parts
 
-Maren bakes 23 trays of 46 rolls each. How many rolls? Split the 23 into 20 and 3, by place value
+<voice v="story">Maren bakes 23 trays of 46 rolls each.</voice><voice v="plain">A bakery makes 23 trays of 46 rolls each.</voice> How many rolls? Split the 23 into 20 and 3, by place value
 (whole-01), and multiply 46 by each part:
 
 - 46 × 3: the ones first, 6 × 3 = 18, write 8 and carry 1 ten; then the tens, 4 × 3 = 12, and 1
@@ -51,7 +72,7 @@ The screen shows <disp v="M01">1,058.0000</disp>.
 
 ## Dividing, and what is left over
 
-Tobin has 59 rolls to pack, 9 to a box. How many full boxes, and how many rolls over? The number you
+<voice v="story">Tobin has 59 rolls to pack, 9 to a box.</voice><voice v="plain">59 rolls are to be packed, 9 to a box.</voice> How many full boxes, and how many rolls over? The number you
 divide by, here 9, is the divisor. By hand: how many 9s are in 59? 6 × 9 = 54, and 7 × 9 = 63 is too
 many, so 6 boxes. 59 − 54 = 5 rolls are left over. The 6 is the quotient and the 5 is the remainder.
 Check it: 6 × 9 + 5 = 59.
@@ -68,7 +89,7 @@ The ÷ key does not give that answer:
 
 The screen shows <disp v="D01">6.5556</disp>: 6 boxes and a part of a box, as a decimal. The digits after
 the point are not the remainder: 0.5556 is a part of one box, rounded, and its 5s really go on for
-ever. Tobin cannot carry part of a box. Two keys give the whole number of boxes and the remainder,
+ever. <voice v="story">Tobin cannot carry part of a box.</voice><voice v="plain">Only full boxes count here.</voice> Two keys give the whole number of boxes and the remainder,
 both printed on the ÷ key. INT÷, in gold, gives the quotient:
 <entry e="alg">on the algebraic line it types IDIV(, short for whole-number divide, and waits for two
 numbers: the number to divide first, then a comma (gold, above the point key), then the divisor. ▶
@@ -99,7 +120,7 @@ The screen shows <disp v="D03">5.0000</disp>: 5 rolls over, as the hand work sai
 
 ## Long division
 
-A big division by hand goes one digit at a time from the left. Tobin has 1000 rolls in boxes of 7.
+A big division by hand goes one digit at a time from the left. <voice v="story">Tobin has 1000 rolls in boxes of 7.</voice><voice v="plain">1000 rolls go into boxes of 7.</voice>
 Write the 1000, and write each digit of the answer above the digit it finishes. "Holds" means how
 many whole 7s fit.
 

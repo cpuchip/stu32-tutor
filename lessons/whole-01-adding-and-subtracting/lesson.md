@@ -9,13 +9,15 @@ status: draft prose (accuracy: lessons/ACCEPTED; not yet read by Michael; Thornw
 setup: BLUE MODE {mode} BLUE MODE {entry} GOLD DISP FIX 4
 display: FIX 4
 cast: Hesk, Tobin
+voices: story plain
 ---
 
 # Adding and subtracting
 
-In Thornwick, Hesk runs the mill on the river, and Tobin carries the bakery's orders around town.
+<voice v="story">In Thornwick, Hesk runs the mill on the river, and Tobin carries the bakery's orders around town.
 Both of them add and take away large numbers every day: sacks of grain, loaves delivered, loaves
-still to go. This lesson does it by hand, the way they would, then checks it on the calculator.
+still to go. This lesson does it by hand, the way they would, then checks it on the calculator.</voice><voice v="plain">A mill and a bakery add and take away large numbers every day: sacks of grain, loaves delivered,
+loaves still to go. This lesson does it by hand, then checks it on the calculator.</voice>
 
 ## Before you start
 
@@ -36,7 +38,7 @@ traded for ten in the next column right. That trade is what carrying and borrowi
 
 ## Adding, column by column
 
-Hesk's mill ground 3452 kilograms of grain in the summer and 1879 in the autumn. How much in all?
+<voice v="story">Hesk's mill ground 3452 kilograms of grain in the summer and 1879 in the autumn.</voice><voice v="plain">A mill grinds 3452 kilograms of grain in the summer and 1879 in the autumn.</voice> How much in all?
 Write the numbers one above the other, ones under ones, and add each column from the right.
 
 - Ones: 2 + 9 = 11 ones. That is 1 ten and 1 one: write the 1 in the ones, and carry the ten to the
@@ -62,8 +64,8 @@ comma every three digits to the left of the point, to make a long number easier 
 
 ## Taking away, column by column
 
-Taking away also goes column by column from the right. Tobin had 742 loaves in the store and sent out
-368. How many are left?
+Taking away also goes column by column from the right. <voice v="story">Tobin had 742 loaves in the store and sent out
+368.</voice><voice v="plain">A store holds 742 loaves, and 368 are sent out.</voice> How many are left?
 
 - Ones: 2 is less than 8, so borrow. Trade 1 of the 4 tens for 10 ones: 12 ones, and 3 tens left.
   12 − 8 = 4.
@@ -83,7 +85,7 @@ By hand, 742 − 368 = 374. The check:
 
 The screen shows <disp v="B01">374.0000</disp>.
 
-Zeros make borrowing take longer. Tobin had 5000 loaves to deliver this season and has delivered 2768.
+Zeros make borrowing take longer. <voice v="story">Tobin had 5000 loaves to deliver this season and has delivered 2768.</voice><voice v="plain">5000 loaves are to be delivered this season, and 2768 have been.</voice>
 The ones column has 0 to take 8 from, and there are no tens or hundreds to borrow from either. So
 trade down a step at a time. 1 of the 5 thousands becomes 10 hundreds, leaving 4 thousands. Keep 9 of
 those hundreds, and trade the last one for 10 tens. Keep 9 tens, and trade the last one for 10 ones.
@@ -133,7 +135,7 @@ Something went wrong, and the estimate said so before anyone believed it.
 Do each by hand first, estimate, then check.
 
 1. The mill had 607 sacks in the store and 2598 more came in. How many now?
-2. Tobin had 4003 loaves to deliver and has delivered 1756. How many are left?
+2. <voice v="story">Tobin had 4003 loaves to deliver and has delivered 1756.</voice><voice v="plain">4003 loaves are to be delivered, and 1756 of them have been.</voice> How many are left?
 3. Estimate 6120 − 2890 to the nearest hundred, then work it out exactly.
 
 ## Answers
