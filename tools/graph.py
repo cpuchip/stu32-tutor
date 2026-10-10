@@ -509,6 +509,12 @@ def check_review(lessons, placement_texts, graph):
                 if shared:
                     bad.append(f"{lid}: Mixed-review items {a} and {b} both test '{shared[0]}'; no two in a row "
                                f"share a topic")
+            for iid, _, _, f in mr:
+                for slug in f.get("topics", "").split():
+                    src = taught_by(slug)
+                    if src is not None and src != lid and src not in earlier:
+                        bad.append(f"{lid}: Mixed-review item {iid} tests '{slug}', taught by {src}, which is neither "
+                                   f"this lesson nor among its prerequisites")
             old = sum(1 for _, _, _, f in mr if any(taught_by(s) in earlier for s in f.get("topics", "").split()))
             if old < 2:
                 bad.append(f"{lid}: '## {MIXED_REVIEW}' has {old} of the 2 items on earlier lessons' topics it needs")
@@ -591,6 +597,9 @@ def selftest_review(lessons, placement_texts, graph):
          "Mixed-review items ZM1 and ZM2 both test"),
         ("a Mixed review of three items", lesson(tail="\n" + mr(item("ZM1", o1), item("ZM2", own), item("ZM3", o2))),
          f"'## {MIXED_REVIEW}' holds 3 of the"),
+        ("a Mixed-review item on a topic no prerequisite teaches",
+         lesson(tail="\n" + mr(item("ZM1", o1), item("ZM2", own), item("ZM3", o2), item("ZM4", later))),
+         f"Mixed-review item ZM4 tests '{later}'"),
         ("a Mixed review with one earlier topic",
          lesson(tail="\n" + mr(item("ZM1", o1), item("ZM2", own), item("ZM3", later), item("ZM4", own))),
          f"'## {MIXED_REVIEW}' has 1 of the 2 items on earlier"),
