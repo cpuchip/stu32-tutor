@@ -19,6 +19,8 @@ Every call goes through calc/run.sh, the way a caller makes it. The tests:
              licences readable at /licenses
   nonet      the entry program and runners under strace on a slice of the probe set: no network syscall
   rebuild    with --rebuild, the probe digest of IMAGE2 (built from scratch at the same pins) equals IMAGE's
+  --diff     calc/acceptance.py --diff OLD.jsonl NEW.jsonl compares two probe files (build/calc/probe-TAG.jsonl)
+             call by call, the pins and the new step fields ans and shown set aside
 Prints one line per check and exits 1 if any fails.
 """
 import concurrent.futures
@@ -304,11 +306,46 @@ def t_nonet():
         + ("" if r.returncode == 0 else f"; {r.stderr[-300:]}"))
 
 
+def strip_answer(a, drop):
+    """An answer with the pins and the named step fields left out, for comparing two images' probes."""
+    a = dict(a)
+    a.pop("pins", None)
+    if "steps" in a:
+        a["steps"] = [{k: v for k, v in s.items() if k not in drop} for s in a["steps"]]
+    return a
+
+
+def diff_probes(old, new, drop=("ans", "shown")):
+    """calc/acceptance.py --diff OLD.jsonl NEW.jsonl: two probe files call by call, the pins and the step
+    fields in drop set aside. Prints every call that differs, and the calls only one file has."""
+    load = lambda p: {r["key"]: r for r in map(json.loads, open(p, encoding="utf-8"))}  # noqa: E731
+    a, b = load(old), load(new)
+    same, differ = 0, []
+    for k in sorted(set(a) & set(b)):
+        x, y = strip_answer(a[k]["answer"], drop), strip_answer(b[k]["answer"], drop)
+        if (a[k]["exit"], x) == (b[k]["exit"], y):
+            same += 1
+        else:
+            differ.append(k)
+    only_a, only_b = sorted(set(a) - set(b)), sorted(set(b) - set(a))
+    print(f"{same} calls the same (pins and {', '.join(drop)} aside), {len(differ)} differ; "
+          f"{len(only_a)} only in {os.path.basename(old)}, {len(only_b)} only in {os.path.basename(new)}")
+    for k in differ:
+        print(f"  differs: {k}")
+        print(f"    old: {json.dumps(strip_answer(a[k]['answer'], drop), ensure_ascii=False)[:300]}")
+        print(f"    new: {json.dumps(strip_answer(b[k]['answer'], drop), ensure_ascii=False)[:300]}")
+    for k in only_a + only_b:
+        print(f"  only in one: {k}")
+    return 0
+
+
 def main():
     args = sys.argv[1:]
     if not args:
         print(__doc__)
         return 2
+    if args[0] == "--diff":
+        return diff_probes(args[1], args[2])
     image = args.pop(0)
     rebuild = args[args.index("--rebuild") + 1] if "--rebuild" in args else None
     only = [args[i + 1] for i, a in enumerate(args) if a == "--only"]

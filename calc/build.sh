@@ -53,7 +53,7 @@ rm -rf "$stage"
 mkdir -p "$stage/opt/stu32/bin" "$stage/opt/stu32/doc" "$stage/licenses"
 
 # 1. The runners, by make check's own recipes (make tools), into the image's export.
-GCC_IMAGE="$GCC" bash scripts/check-docker.sh tools CORE_DIR="$core"
+GCC_IMAGE="$GCC" bash scripts/check-docker.sh tools CORE_DIR="$core" GAMES_LIST=
 [ "$(cat "$core/.exported")" = "$fw_full" ] || { echo "build.sh: $core is not $fw_full" >&2; exit 1; }
 
 # 2. Casimir's CLI at CASIM_PIN, the entry program, and every binary stripped into the stage. Casimir's
