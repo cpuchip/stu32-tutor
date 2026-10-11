@@ -146,6 +146,15 @@ ask: Why does a negative discriminant mean the graph never reaches the $x$ axis?
 because: Every root the formula gives needs $\sqrt{D}$, and no real number squares to a negative, so there is no real $x$ where the value is zero.
 ```
 
+Now $x^{2} + 6x + 10$, with $a = 1$, $b = 6$ and $c = 10$. Store them, and work out its discriminant the
+same way.
+
+```keys N01T twin=N01
+1 STO A 6 STO B 10 STO C RCL B GOLD x² 4 RCL A × RCL C × − STO D
+```
+
+X holds −4: negative again, so $x^{2} + 6x + 10$ has no real root.
+
 ## Exercise
 
 Find the roots of $2x^{2} + 3x − 2$. Work out the discriminant first: how many roots will there be?

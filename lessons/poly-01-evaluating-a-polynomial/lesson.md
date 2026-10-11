@@ -117,6 +117,15 @@ The same keys work for any $x$. $p(2)$, all at once:
 
 X shows <disp v="H02">7.0000</disp>: $16 − 12 + 8 − 5$.
 
+Now $r(x) = 3x^{3} + x^{2} − 2x + 6$ at $x = 3$, the same way. Its $x^{2}$ has the coefficient 1, and that 1
+still has to be added in its turn.
+
+```keys H02T twin=H02
+3 ENTER ENTER ENTER 3 × 1 + × 2 − × 6 +
+```
+
+X holds 90.
+
 ## As a program
 
 The keys after the number never change, so they make a program, as in fn-01. You start a program

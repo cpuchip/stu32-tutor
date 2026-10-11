@@ -102,6 +102,15 @@ same works for any negative number: for $d$ greater than 0, $(\sqrt{d} × i)^{2}
 two square roots $\sqrt{d} × i$ and $−\sqrt{d} × i$, and $\sqrt{−d}$ is taken to mean the first, $\sqrt{d} × i$, as √ of a positive
 number means the positive root. $\sqrt{−16} = 4i$, $\sqrt{−20} = \sqrt{20} × i$, and so on.
 
+```item CX1T1
+prompt: Work out $5i × 5i$ by hand.
+twin: C02
+topics: complex
+answer: type
+calculator: no
+slip: CX1T1A | i times i taken as 1 | $5 × 5$ is 25, and $i × i$ is −1, so the product is $25 × (−1)$.
+```
+
 <mode m="35s,STU">The calculator will not take that square root for you. √x on a complex number:
 
 ```keys V01

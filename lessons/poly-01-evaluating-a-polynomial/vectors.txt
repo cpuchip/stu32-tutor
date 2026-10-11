@@ -5,6 +5,8 @@ H01C | continues H01A: x gives 8; typing 3 lifts: a 4 falls off the top (Z, T ho
 H01B | continues H01C: - gives 5, and T copies its 4 down: 4 in Y, Z, T again | MODE33 FIX4 4 ENTER ENTER ENTER 2 * 3 - | X=5 Y=4 Z=4 T=4
 H01 | continues H01B: x 4 + x 5 - | MODE33 FIX4 4 ENTER ENTER ENTER 2 * 3 - * 4 + * 5 - | X=91
 H02 | p(2) the same way | MODE33 FIX4 2 ENTER ENTER ENTER 2 * 3 - * 4 + * 5 - | X=7
+# H02's twin (step 5).
+H02T | twin of H02: r(3) for 3x^3 + x^2 - 2x + 6, by Horner | MODE33 FIX4 3 ENTER ENTER ENTER 3 * 1 + * 2 - * 6 + | X=90
 P01A | program P: Horner for p, entered (P015) | MODE33 FIX4 PRGM LBL:P ENTER ENTER ENTER 2 * 3 - * 4 + * 5 - RTN | %LINES=15 %PC=P015
 P01 | continues P01A: program entry off | MODE33 FIX4 PRGM LBL:P ENTER ENTER ENTER 2 * 3 - * 4 + * 5 - RTN PRGM | %LINES=15
 P02 | continues P01: p(1.5) | MODE33 FIX4 PRGM LBL:P ENTER ENTER ENTER 2 * 3 - * 4 + * 5 - RTN PRGM 1.5 XEQ:P | X=1

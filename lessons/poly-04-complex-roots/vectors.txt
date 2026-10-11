@@ -19,6 +19,10 @@ E03@35s,STU | 2 + 3i in x^2 - 4x + 13 by Horner | MODE33 FIX4 2 CI 3 ENTER ENTER
 C01A@33s | i as a pair: 1 ENTER 0 (imaginary 1 in Y, real 0 being typed in X) | MODE33 FIX4 1 ENTER 0 | X=0 Y=1
 C01@33s | continues C01A: i again, then CMPLX x: -1 + 0i | MODE33 FIX4 1 ENTER 0 ENTER 1 ENTER 0 CMPLX:* | X=-1 Y=0
 C02@33s | 4i times 4i: -16 + 0i | MODE33 FIX4 4 ENTER 0 ENTER 4 ENTER 0 CMPLX:* | X=-16 Y=0
+# C02's twin (step 5): its answer typed, its working, and the slip's.
+CX1T1 | twin: 5i x 5i, typed | MODE33 FIX4 25 CHS | X=-25
+CX1T1W | its working: 5 x 5, times i x i, which is -1 | MODE33 FIX4 5 ENTER 5 * 1 CHS * | X=-25
+CX1T1A | slip: i x i taken as 1 | MODE33 FIX4 5 ENTER 5 * | X=25
 R01@33s | (-2 + 4i) / (2 + 0i): -1 + 2i | MODE33 FIX4 4 ENTER 2 CHS ENTER 0 ENTER 2 CMPLX:/ | X=-1 Y=2
 R02@33s | (-2 - 4i) / (2 + 0i): -1 - 2i | MODE33 FIX4 4 CHS ENTER 2 CHS ENTER 0 ENTER 2 CMPLX:/ | X=-1 Y=-2
 H01@33s | -1 + 2i: z x z, + 2z (-2 + 4i), + 5 (5 + 0i): 0 | MODE33 FIX4 2 ENTER 1 CHS ENTER 2 ENTER 1 CHS CMPLX:* 4 ENTER 2 CHS CMPLX:+ 0 ENTER 5 CMPLX:+ | X=0 Y=0

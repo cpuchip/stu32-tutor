@@ -140,6 +140,16 @@ enough. So a root it finds can be off in its last digit. The calculator keeps 34
 34th, which is 3 where the exact root has 0. FIX 4 shows only the first few digits, all of them
 right. It is a reminder that SOLVE's answers come from searching, not from a formula.
 
+```item RT1T1
+prompt: $(x − 1)(x − 4)(x − 6)$ is a polynomial of degree 3. By hand, what is its largest root?
+twin: S03
+topics: polynomial
+answer: type
+calculator: no
+slip: RT1T1A | the sign turned | $x − 6$ is zero when $x$ is 6, not −6.
+slip: RT1T1B | the smallest | 1 is a root, but 4 and 6 are larger.
+```
+
 ## A polynomial with no real root
 
 Not every polynomial crosses the $x$ axis. $x^{2} + 1$ is never less than 1, since x² is never negative,
