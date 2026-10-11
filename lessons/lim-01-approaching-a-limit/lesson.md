@@ -14,13 +14,10 @@ Some functions have no value at a point, yet settle on a number as x comes close
 and 0 ÷ 0 has no answer. fn-03 showed why 1 ÷ 0 has none: no number times 0 gives 1. 0 ÷ 0 fails the
 other way: every number times 0 gives 0, so no one number is the answer. But near x = 1, f has values.
 If they can be made as near to one number as you like by taking x near enough to 1, from either side,
-that number is the limit of f(x) as x approaches 1. This lesson finds limits by coming close, and
-shows two that do not exist.
+that number is the limit of f(x) as x approaches 1. Coming close finds limits, and shows two that do
+not exist.
 
 ## From before
-
-Two from before, by hand: a gap in a domain from fn-03, and a fraction bar from unit 1. Both come
-back in this lesson.
 
 ```item LM1F1
 prompt: For which x is 1 ÷ (3x − 6) not defined?
@@ -52,7 +49,7 @@ BLUE MODE {mode} GOLD DISP FIX 4
 
 ## Coming close
 
-f goes in as a program, as in fn-01, so it can be run at many values of x. First GOLD GTO . . (fn-03)
+f goes in as a program, as in fn-01, so it can be run at many values of x. First GOLD GTO . .
 moves to the top of program memory, so that L cannot land inside a program left stopped. Then, with x
 in X: ENTER puts a copy of x in Y; x² squares the x in X, and 1 − takes 1 from that; x↔y brings the x in
 Y back down, and 1 − makes x − 1; and ÷ divides x² − 1, now in Y, by x − 1. The label is L, on the TAN
@@ -63,7 +60,7 @@ GOLD GTO . . GOLD PRGM PRGM GOLD LBL L ENTER GOLD x² 1 − x↔y 1 − ÷ BLUE 
 ```
 
 The X line shows <disp v="P01A" kind="program">L010 RTN</disp>, L's tenth line; another number means a
-key was missed or doubled (fn-01 showed how to fix a line). Carrying on, turn program entry off:
+key was missed or doubled (← deletes a wrong line). Carrying on, turn program entry off:
 
 ```keys P01 after=P01A
 GOLD PRGM PRGM
@@ -124,8 +121,8 @@ X shows <disp v="L04">1.9000</disp>,
 ```
 
 <disp v="L06">1.9990</disp>. From both sides the values close in on 2. (At 1 itself, L would stop on its
-÷ with a division by 0; if you try it, C clears the message and GOLD GTO . . frees the program, as in
-fn-03.)
+÷ with a division by 0; if you try it, C clears the message and GOLD GTO . . frees the program, as
+before.)
 
 A few values only suggest a limit; they cannot show that the values come as near to 2 as you like.
 Here the algebra settles it. (x − 1) × (x + 1) is x² + x − x − 1, which is x² − 1. So wherever x is not
@@ -150,7 +147,7 @@ run out.
 
 ## A limit no algebra here can do
 
-sin(x) ÷ x, with x in radians, has no value at x = 0, and nothing this lesson's algebra can do
+sin(x) ÷ x, with x in radians, has no value at x = 0, and no algebra so far
 simplifies it; coming close is how to see its limit. Set the unit to radians (trig-01), and show nine
 places so the closing in can be seen. With x in X, ENTER puts a copy in Y, SIN takes the sine of the x in
 X, and x↔y and ÷ divide that sine by x:
@@ -268,7 +265,7 @@ two different numbers, so there is no limit. This is why a limit is checked from
    2 ENTER 0.0001 yˣ 1 − 0.0001 ÷
    ```
 
-   X shows <disp v="E02B">0.6932</disp>. And carrying on, ln 2 (exp-03):
+   X shows <disp v="E02B">0.6932</disp>. And carrying on, ln 2:
 
    ```keys E02C after=E02B
    2 LN
@@ -277,9 +274,6 @@ two different numbers, so there is no limit. This is why a limit is checked from
    X shows <disp v="E02C">0.6931</disp>: the values close in on it.
 
 ## Mixed review
-
-Four from this lesson and the ones before it, in no order. Work each by hand unless it says to use
-the calculator.
 
 ```item LM1M1
 prompt: f(1.9) = 2.9 and f(2.1) = 3.1, and nearer x give values ever nearer one number. What is the limit at 2?

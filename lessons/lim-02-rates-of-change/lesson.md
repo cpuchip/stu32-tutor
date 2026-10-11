@@ -12,12 +12,10 @@ display: FIX 4
 A ball rolls down a ramp, and after t seconds it has gone d(t) = 2t² metres. It speeds up as it goes:
 in the first second it covers 2 metres, and by the end of the third it has covered 18 metres. How fast
 is it going at one moment, at t = 1 exactly? A speed is distance over time, but at one moment no time
-passes. This lesson answers the question with a limit (lim-01), and finds where the calculator's 34
-digits stop helping.
+passes. A limit (lim-01) answers the question, and the calculator's 34 digits show where they stop
+helping.
 
 ## From before
-
-Two from before, by hand: a rise from lin-01, and one from unit 1.
 
 ```item LM2F1
 prompt: y = 3x + 1. How much does y rise from x = 2 to x = 5?
@@ -66,13 +64,13 @@ t = 1 and faster near t = 3.
 
 ```why
 ask: Why is the average rate the slope of the line through the two points?
-because: A line's slope is its rise over its run (lin-01). Here the rise is the change in d, 18 − 2, and the run is the change in t, 3 − 1.
+because: A line's slope is its rise over its run. Here the rise is the change in d, 18 − 2, and the run is the change in t, 3 − 1.
 ```
 
 ## The rate at an instant
 
 To find the speed at t = 1, take the average over a short time h around it, from t = 1 to t = 1 + h:
-(d(1 + h) − d(1)) ÷ h. Then make h smaller and smaller, from both sides, as a limit is checked (lim-01),
+(d(1 + h) − d(1)) ÷ h. Then make h smaller and smaller, from both sides, as a limit is checked,
 and see what number the averages close in on. That limit is the rate of change at an instant, or at a
 point when x is not a time: here, the ball's speed at that moment.
 
@@ -87,7 +85,7 @@ GOLD GTO . . GOLD PRGM PRGM GOLD LBL D STO H 1 + GOLD x² 2 × 2 − RCL H ÷ BL
 ```
 
 The X line shows <disp v="P01A" kind="program">D012 RTN</disp>: D's twelfth line. Another number means a
-key was missed or doubled (fn-01 showed how to fix a line). Carrying on, turn program entry off:
+key was missed or doubled (← deletes a wrong line). Carrying on, turn program entry off:
 
 ```keys P01 after=P01A
 GOLD PRGM PRGM
@@ -165,7 +163,7 @@ The digits have started to run out, too far down to see. Carrying on, h = 10⁻�
 
 X shows <disp v="D05">0.0000</disp>. Near 1, 34 digits step by 10⁻³³, and a sum that falls between two
 steps is rounded to the nearer one. 1 + 10⁻³⁴ is less than halfway to the next step, so it rounds to
-1 (lim-01); d(1 + h) is then exactly d(1), and their difference is 0. Carrying on, h = 6 × 10⁻³⁴:
+1, as in the last lesson; d(1 + h) is then exactly d(1), and their difference is 0. Carrying on, h = 6 × 10⁻³⁴:
 
 ```keys D06 after=D05
 6 E 34 +/− XEQ D
@@ -181,7 +179,7 @@ else matters: d(1 + 10⁻³³) − d(1) is 4 × 10⁻³³ (the square drops only
 subtraction lost nothing itself; what it did was leave only the one digit in which the two values
 differ, so the small rounding of 1 + h became the whole answer. A subtraction of two nearly equal
 numbers, which leaves only the digits where they differ so that any earlier rounding becomes all of the
-result, is called cancellation. The lesson for the calculator: make h small enough to see the limit, and
+result, is called cancellation. So on the calculator, make h small enough to see the limit, and
 no smaller. Here 0.001 already suggested 4.
 
 ## Exercises
@@ -230,9 +228,6 @@ no smaller. Here 0.001 already suggested 4.
 
 ## Mixed review
 
-Four from this lesson and the ones before it, in no order. Work each by hand unless it says to use
-the calculator.
-
 ```item LM2M1
 prompt: d(t) = 2t². What is the average speed from t = 1 to t = 3?
 topics: average-rate
@@ -268,7 +263,7 @@ slip: LM2M4A | 0 ÷ 0 read as 0 | Top and bottom are both 0 at 1, so look nearby
 
 ## Checkpoint
 
-Questions on the whole unit. Work each by hand first (a few offer the calculator), then give your answer; the page checks it. A wrong answer that comes from a common slip gets a hint that names the step.
+Questions on the whole unit.
 
 ```item CP10A
 prompt: What is the average rate of change of x² from x = 2 to x = 4?
