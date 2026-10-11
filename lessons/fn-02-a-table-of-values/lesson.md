@@ -11,12 +11,10 @@ display: FIX 4
 
 A table of values lists a function's outputs for a run of inputs, side by side. It is the first
 picture of a function: from it you can see where the function is zero, where it is smallest, and
-how it rises and falls. This lesson builds one with a short program that loops, and then draws the
-graph from it by hand.<mode m="STU"> At the end, STU mode's TABLE and GRAPH do both for you.</mode>
+how it rises and falls. A short program that loops builds one, and the graph is drawn from it by
+hand.<mode m="STU"> At the end, STU mode's TABLE and GRAPH do both for you.</mode>
 
 ## From before
-
-Two from before, by hand: one from unit 1, and one function from fn-01.
 
 ```item FN2F1
 prompt: Work out 3⁴.
@@ -36,10 +34,10 @@ slip: FN2F2A | lost the minus sign | f(−4) puts −4 in for x: 2 × (−4) is 
 
 ## Before you start
 
-The setup from rpn-01: the mode you chose and FIX 4. This lesson is one chain: each example carries on from
+The setup from rpn-01: the mode you chose and FIX 4. The examples are one chain: each carries on from
 the one before. It uses the program entry, labels, XEQ and RTN of fn-01. It enters two programs, Q
 and T, and T has a second label inside it, U, for its loop to jump back to. None of these letters
-is used in fn-01.
+is used there.
 
 <mode m="35s,STU">In this mode XEQ and GTO wait, after the label's letter, for ENTER; the keys
 below show the ENTER.</mode>
@@ -50,7 +48,7 @@ BLUE MODE {mode} GOLD DISP FIX 4
 
 ## The function
 
-The function for this lesson is q(x) = x² − 4x + 3. As a program it needs x more than once. It
+The function is q(x) = x² − 4x + 3. As a program it needs x more than once. It
 starts with two ENTERs, which leave copies of x in Y and Z. Then x² squares the one in X, x↔y brings
 a copy of x back to X, 4 × makes 4x, − leaves x² − 4x, and 3 + finishes. Q is on the ← key:
 
@@ -59,7 +57,7 @@ GOLD PRGM PRGM GOLD LBL Q ENTER ENTER GOLD x² x↔y 4 × − 3 + BLUE RTN
 ```
 
 The X line shows <disp v="Q01A" kind="program">Q011 RTN</disp>: eleven lines, from LBL Q to RTN. If
-the number differs, a key went in twice or not at all; step back with ← and fix it, as in fn-01.
+the number differs, a key went in twice or not at all; step back with ← and fix it.
 Turn program entry off:
 
 ```keys Q01 after=Q01A
@@ -77,7 +75,7 @@ Try it on 2:
 
 X shows <disp v="Q02">-1.0000</disp>: q(2) = 4 − 8 + 3. And Y holds 2, the input: one of the copies
 the two ENTERs made is left over. So when Q finishes, the input sits in Y beside the output in X,
-which is just what a table needs.
+which is what a table needs.
 
 ```why
 ask: Why does Q start with two ENTERs?
@@ -232,7 +230,7 @@ because: q(x) can also be written (x − 2)² − 1, so it depends only on how f
 
    X shows <disp v="E01">0.0000</disp>.
 
-2. The keys:
+2. Run Q:
 
    ```keys E02 after=E01
    5 XEQ Q
@@ -273,7 +271,7 @@ never had them; choose STU on this page to see how.
 
 ## TABLE and GRAPH
 
-STU mode can do both of this lesson's jobs itself: TABLE builds the table, and GRAPH draws the
+STU mode can do both jobs itself: TABLE builds the table, and GRAPH draws the
 curve. Neither needs a program. They work on the equation list of eq-01, and an entry there may be
 an expression with no = sign. Type x² − 4x + 3 that way, with yˣ for the power:
 
@@ -288,7 +286,7 @@ TABLE, blue above 8, opens a menu: VAR picks the variable, START and STEP each t
 as STO does, and GO shows the table. TABLE uses the equation last shown, even after Equation mode
 is off, and its first variable unless you pick another: here X, the only one. The step is 1 unless
 it has been set to something else, so only the start needs setting. Turn Equation mode off first,
-because a digit typed while the equation shows starts a new equation (eq-01). Then start at 0.
+because a digit typed while the equation shows starts a new equation. Then start at 0.
 START closes the menu:
 
 ```keys B03 after=B02 mode=STU
@@ -325,7 +323,7 @@ copying:
 ENTER
 ```
 
-X shows <disp v="B07">3.0000</disp>. The same table T printed, with no program.
+X shows <disp v="B07">3.0000</disp>: the same table T printed, with no program.
 
 GRAPH, blue above 7, draws the same expression against the same variable. Its menu sets the window:
 XMIN and XMAX, the ends of the x axis, each from X as START does (YMIN and YMAX too, though by
@@ -373,9 +371,6 @@ X shows <disp v="W05">-0.9996</disp>.
 </mode>
 
 ## Mixed review
-
-Four from this lesson and the ones before it, in no order. Work each by hand unless it says to use
-the calculator.
 
 ```item FN2M1
 prompt: The points (0, −2), (1, 1), (2, 2), (3, 1) and (4, −2) are drawn and joined by a smooth curve. How many times does it cross the x axis?

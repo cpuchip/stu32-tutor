@@ -12,12 +12,10 @@ display: FIX 4
 A function's domain is the set of inputs it can take. Many rules take any number: f(x) = 2x + 3 from
 fn-01 has a value for every x, and so does x/2. But a rule that divides by something that can be 0,
 or takes the square root of something that can be negative, has inputs it cannot take, and those
-inputs are left out of its domain. This lesson writes two such functions as programs, gives each an
-input it cannot take, and reads what the calculator says.
+inputs are left out of its domain. Written as programs, two such functions each meet an input they
+cannot take, and the calculator says so.
 
 ## From before
-
-Two from before, by hand: one from unit 1, and one boundary from eq-03.
 
 ```item FN3F1
 prompt: Work out 1 ÷ 0.25.
@@ -37,9 +35,9 @@ slip: FN3F2A | kept the minus sign | Undo the − 8 by adding 8: 2x = 8, then ÷
 
 ## Before you start
 
-The setup from rpn-01: the mode you chose and FIX 4. This lesson is one chain: each example carries on from
-the one before. It enters two programs, R and S, with the program entry, labels, XEQ and RTN of
-fn-01. R is on the XEQ key and S is on 7; neither letter is used in fn-01 or fn-02.
+The setup from rpn-01: the mode you chose and FIX 4. The examples are one chain: each carries on from
+the one before. Two programs go in, R and S, with the program entry, labels, XEQ and RTN you know.
+R is on the XEQ key and S is on 7; the programs of the last two lessons use neither letter.
 
 <mode m="35s,STU">In this mode XEQ and GTO wait, after the label's letter, for ENTER; the keys
 below show the ENTER.</mode>
@@ -195,12 +193,12 @@ calculator can refuse for other reasons too, so a message alone does not tell yo
 ## A stopped program
 
 While a program is stopped at a line, program entry opens at that line, as you saw twice. Anything
-you key in then goes in after the line showing, as in fn-01, so it lands inside that program. That
+you key in then goes in after the line showing, as before, so it lands inside that program. That
 is why both programs went in at the start: if S had been keyed in after R stopped, its lines would
 have gone into R, after the 1/x.
 
 GTO . . clears that: it moves the pointer to the top of program memory, without running anything.
-GTO is gold above 4, as in fn-02, and the two dots are the . key pressed twice:
+GTO is gold above 4, as in T's loop, and the two dots are the . key pressed twice:
 
 ```keys S07 after=S06
 GOLD GTO . .
@@ -219,7 +217,7 @@ GOLD PRGM PRGM
 ```
 
 So before you key in a new program after an error, press GOLD GTO . . first. (Running any program to
-its end does the same, as fn-01 showed: the pointer goes back to the top when a program finishes.)
+its end does the same: the pointer goes back to the top when a program finishes.)
 
 ## Exercises
 
@@ -229,7 +227,7 @@ its end does the same, as fn-01 showed: the pointer goes back to the top when a 
 
 ## Answers
 
-1. Yes: only 0 is left out of r's domain. The keys:
+1. Yes: only 0 is left out of r's domain.
 
    ```keys E01 after=S09
    2 +/− XEQ R
@@ -240,7 +238,7 @@ its end does the same, as fn-01 showed: the pointer goes back to the top when a 
 
    X shows <disp v="E01">-0.5000</disp>: r(−2) = 1/(−2).
 
-2. Yes: 2.25 ≥ 2. The keys:
+2. Yes, since 2.25 ≥ 2:
 
    ```keys E02 after=E01
    2.25 XEQ S
@@ -251,7 +249,7 @@ its end does the same, as fn-01 showed: the pointer goes back to the top when a 
 
    X shows <disp v="E02">0.5000</disp>: s(2.25) = √0.25, and 0.5 × 0.5 = 0.25.
 
-3. No: 1.99 is below 2, however little. The keys:
+3. No: 1.99 is below 2, however little.
 
    ```keys E03 after=E02
    1.99 XEQ S
@@ -270,9 +268,6 @@ its end does the same, as fn-01 showed: the pointer goes back to the top when a 
    is stopped at its √x again, so press GOLD GTO . . before you key in a new program.
 
 ## Mixed review
-
-Four from this lesson and the ones before it, in no order. Work each by hand unless it says to use
-the calculator.
 
 ```item FN3M1
 prompt: For √(x − 1) at x = 0.75, what is the number under the root?
@@ -308,7 +303,7 @@ slip: FN3M4A | the left side alone | Left minus right: 2 × 2 + 1 is 5, and 5 �
 
 ## Checkpoint
 
-Questions on the whole unit. Work each by hand first (a few offer the calculator), then give your answer; the page checks it. A wrong answer that comes from a common slip gets a hint that names the step.
+Questions on the whole unit.
 
 ```item CP3A
 prompt: f(x) = x² − 2x. What is f(3)?

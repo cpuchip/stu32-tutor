@@ -16,7 +16,7 @@ rule with XEQ and that letter. The program uses the stack like any other calcula
 
 ## From before
 
-Two from unit 1, by hand. A function's rule is arithmetic like this, done in the right order.
+A function's rule is arithmetic like this, done in the right order.
 
 ```item FN1F1
 prompt: Work out 3 + 4 × 5 − 2.
@@ -259,9 +259,6 @@ clear them, so for each new function, pick a letter no program uses yet.
    X shows <disp v="E02">2.0000</disp>: (−2)² + (−2) = 4 − 2.
 
 ## Mixed review
-
-Four from this lesson and the ones before it, in no order. Work each by hand unless it says to use
-the calculator.
 
 ```item FN1M1
 prompt: f(x) = 3x − 4. What is f(5)?
