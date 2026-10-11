@@ -67,6 +67,14 @@ ask: Why is the average rate the slope of the line through the two points?
 because: A line's slope is its rise over its run. Here the rise is the change in $d$, $18 − 2$, and the run is the change in $t$, $3 − 1$.
 ```
 
+Now the ball's average speed from $t = 2$ to $t = 5$.
+
+```keys A01T twin=A01
+2 ENTER 5 GOLD x² × 2 ENTER 2 GOLD x² × − 5 ENTER 2 − ÷
+```
+
+X holds 14: metres a second, on average.
+
 ## The rate at an instant
 
 To find the speed at $t = 1$, take the average over a short time $h$ around it, from $t = 1$ to $t = 1 + h$:

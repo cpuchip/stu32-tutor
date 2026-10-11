@@ -134,6 +134,16 @@ ask: Why is each value of L exactly as far from 2 as its $x$ is from 1?
 because: Away from 1, L works out $x + 1$, so moving $x$ a little from 1 moves the answer the same little from 2.
 ```
 
+```item LM1T1
+prompt: By hand, what does $(x^{2} − 25) ÷ (x − 5)$ close in on as $x$ approaches 5?
+twin: L06
+topics: limit
+answer: type
+calculator: no
+slip: LM1T1A | 0 ÷ 0 read as 0 | At 5 itself the top and the bottom are both 0, which has no value. Away from 5 the fraction is $x + 5$.
+slip: LM1T1B | the x it nears | Away from 5 the fraction is $x + 5$, and that closes in on $5 + 5$, not on 5.
+```
+
 Coming close also has a floor on any calculator. The STU-32 keeps 34 digits (rpn-03), so $1 + 10^{-34}$
 would need a 35th digit, and it is just 1. 1 plus $10^{-34}$, minus 1:
 

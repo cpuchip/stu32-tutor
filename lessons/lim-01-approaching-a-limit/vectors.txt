@@ -8,6 +8,11 @@ L03 | continues L02: at 1.001 | MODE33 FIX4 GTO.. PRGM LBL:L ENTER SQ 1 - XY 1 -
 L04 | continues L03: from below, at 0.9 | MODE33 FIX4 GTO.. PRGM LBL:L ENTER SQ 1 - XY 1 - / RTN PRGM 1.1 XEQ:L 1.01 XEQ:L 1.001 XEQ:L 0.9 XEQ:L | X=1.9
 L05 | continues L04: at 0.99 | MODE33 FIX4 GTO.. PRGM LBL:L ENTER SQ 1 - XY 1 - / RTN PRGM 1.1 XEQ:L 1.01 XEQ:L 1.001 XEQ:L 0.9 XEQ:L 0.99 XEQ:L | X=1.99
 L06 | continues L05: at 0.999 | MODE33 FIX4 GTO.. PRGM LBL:L ENTER SQ 1 - XY 1 - / RTN PRGM 1.1 XEQ:L 1.01 XEQ:L 1.001 XEQ:L 0.9 XEQ:L 0.99 XEQ:L 0.999 XEQ:L | X=1.999
+# L06's twin (step 5): its answer typed, its working, and the slips'.
+LM1T1 | twin: (x^2 - 25) / (x - 5) as x nears 5, typed | MODE33 FIX4 10 | X=10
+LM1T1W | its working: away from 5 it is x + 5, at 5 | MODE33 FIX4 5 ENTER 5 + | X=10
+LM1T1A | slip: 0 / 0 read as 0 | MODE33 FIX4 0 | X=0
+LM1T1B | slip: the x it nears | MODE33 FIX4 5 | X=5
 Z01 | too close: 1 + 1E-34 rounds to 1, and minus 1 leaves 0 | MODE33 FIX4 1 E 34 CHS ENTER 1 + 1 - | X=0
 S01 | RAD and FIX 9, then sin(0.1)/0.1 | MODE33 FIX4 RAD FIX9 0.1 ENTER SIN XY / | X=0.9983341664682815230681419841062203
 S02 | continues S01: sin(0.01)/0.01 | MODE33 FIX4 RAD FIX9 0.1 ENTER SIN XY / 0.01 ENTER SIN XY / | X=0.9999833334166664682542438269099729
