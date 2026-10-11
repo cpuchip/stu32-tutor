@@ -332,7 +332,9 @@ docs/proposals/worked-examples.md, approved by abacus (#7299) with primer's page
   unnumbered `## Exercise` is its exercise 1, answered by E01), or the twin
   would hand the learner that answer (abacus #7310). A prompt's operands are its problem's, its first maths span, so
   "Work out $37 × 24$ in parts: $37 × 4$, ..." is [24, 37] (its first span holding a number). A power's raised
-  number counts: $2^{5}$ is [2, 5] and $(−2)^{4}$ is [2, 4], where a reading without powers gives [2] for both. Nor
+  number counts: $2^{5}$ is [2, 5] and $(−2)^{4}$ is [2, 4], where a reading without powers gives [2] for both. A problem written wholly in words reads its number words, "two"
+  to "twelve", "twice" and "thrice" ("a coin tossed twice ... two heads" is [2, 2]); beside digits they are prose ("the
+  two lines" names no operand), and "one" and "once" never count. Nor
   are its numbers with its answer another problem's numbers with its answer, sorted: that catches a copy, a swap and an inverse
   alike, 57° giving 123 against 123° giving 57 (abacus #7350). Its answer is not its unit checkpoint's on a topic they
   share, or "it came out 7" passes the checkpoint by memory (abacus #7333). It is an item like any other, with its

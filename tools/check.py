@@ -511,13 +511,25 @@ FADE_WORDS = {"×": ("multiply", "times", "multiplied"), "÷": ("divide", "divid
               "−": ("subtract", "minus", "away", "subtracted"), "ENTER": ("enter",)}   # a key named in words
 
 
+NUMBER_WORDS = {w: str(n) for n, w in enumerate(
+    "_ _ two three four five six seven eight nine ten eleven twelve".split()) if w != "_"}
+NUMBER_WORDS.update({"twice": "2", "thrice": "3"})
+
+
 def operands(text):
     """The numbers of a text, sorted, as values: a twin and an item collide when these are equal (in any order)."""
     # (a full stop after a number ends its sentence: "crates of 12." names 12; only a point and a digit is a decimal;
     # a coefficient counts: "4n + 7" names 4 and 7; a power counts: "2⁵" names 2 and 5, as "2^{5}" does)
     text = re.sub(f"[{SUP_FORMS[:10]}]+", lambda m: " " + m.group().translate(str.maketrans(SUP_FORMS[:10], SUP_CHARS[:10])),
                   text)
-    return sorted(Decimal(n) for n in re.findall(r"(?<![\w.])\d+(?:\.\d+)?(?!\d|\.\d)", text))
+    number = r"(?<![\w.])\d+(?:\.\d+)?(?!\d|\.\d)"
+    # a problem written wholly in words reads its number words: "a coin tossed twice" names 2 (abacus #7418). Only
+    # then: beside digits, "the two lines" and "two angles" name no operand, and reading them would blur a copy of
+    # "47 and its supplement". "one" and "once" never count: they are as often "one of them" and "at once".
+    if not re.search(number, text):
+        text = re.sub(rf"\b({'|'.join(NUMBER_WORDS)})\b", lambda m: f" {NUMBER_WORDS[m.group(1).lower()]} ", text,
+                      flags=re.I)
+    return sorted(Decimal(n) for n in re.findall(number, text))
 
 
 def problem_operands(prompt):

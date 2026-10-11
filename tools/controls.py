@@ -544,6 +544,14 @@ CONTROLS_FOR["cnt-01-counting"] = [
      "D-F02: the prose shows '8.0658E68'"),
 ]
 CONTROLS_FOR["prob-01-probability"] = [
+    # A problem written wholly in words reads its number words (abacus #7418): CP9B, "a fair coin is tossed twice ...
+    # two heads", is [2, 2], so a twin working 2 and 2 works its numbers.
+    ("a twin with the operands of a checkpoint written in words",
+     [("lesson.md", "```keys H01T twin=H01\n13 ENTER 4 BLUE PROB Cn,r 52 ENTER 4 BLUE PROB Cn,r ÷\n```",
+       "```keys H01T twin=H01\n2 ENTER 2 ×\n```"),
+      ("vectors.txt", "MODE33 FIX4 13 ENTER 4 NCR 52 ENTER 4 NCR / | X=0.002641056422569027611044417767106843",
+       "MODE33 FIX4 2 ENTER 2 * | X=4")], None, None, {},
+     "keys block H01T works the same operands as CP9B in its unit"),
     ("the die game quoted as fair (expected value 0)", "lesson.md", 'v="X01">-0.1667<', 'v="X01">0.0000<', {},
      "D-X01: the prose shows '0.0000'"),
     ("not worked the wrong way round: 1/6 - 1", "lesson.md", "```keys N01\n1 ENTER 1 ENTER 6 ÷ −\n",
