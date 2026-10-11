@@ -797,6 +797,10 @@ CONTROLS_FOR["expr-01-letters-for-numbers"] = [
      "```keys V02 entry=rpn after=V01\n3 ENTER RCL N 5 + ×\n", {}, "V02: printed keys and vector disagree in STU rpn mode"),
 ]
 CONTROLS_FOR["expr-02-solving-by-undoing"] = [
+    # A twin's answer may not be its unit checkpoint's on a shared topic (abacus #7333): U1T1 at CPP2B's 7.
+    ("a twin with the checkpoint's answer on its topic", "vectors.txt",
+     "twin: 4n + 9 = 41, n typed | MODE33 FIX4 8 ENTER | N=8 %LINE=8", "twin: 4n + 9 = 41, n typed | MODE33 FIX4 7 ENTER | N=7 %LINE=7",
+     {}, "item U1T1: twin's answer 7 is checkpoint CPP2B's"),
     ("the ×3 undone before the +5", "lesson.md", "```keys U01 entry=alg\n20 − 5 ENTER\n", "```keys U01 entry=alg\n20 ÷ 3 ENTER\n", {},
      "U01: printed keys and vector disagree in STU alg mode"),
     ("the answer misquoted", "lesson.md", '<disp v="U02">5.0000<', '<disp v="U02">6.0000<', {},

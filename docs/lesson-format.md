@@ -329,8 +329,9 @@ docs/proposals/worked-examples.md, approved by abacus (#7299) with primer's page
   heading. Its operands are not the example's own, in any order: $24 × 37$ is not a twin of $37 × 24$. Nor are they
   any problem's in its unit, an item's (the checkpoint, From before, Mixed review) or an exercise's, or the twin
   would hand the learner that answer (abacus #7310). A prompt's operands are its problem's, its first maths span, so
-  "Work out $37 × 24$ in parts: $37 × 4$, ..." is [24, 37]. It is an item like any other, with its typed answer, its
-  working and its slips as vectors.
+  "Work out $37 × 24$ in parts: $37 × 4$, ..." is [24, 37]. Its answer is not its unit checkpoint's on a topic they
+  share, or "it came out 7" passes the checkpoint by memory (abacus #7333). It is an item like any other, with its
+  typed answer, its working and its slips as vectors.
 - **A keys twin**, in a calculator lesson: ```` ```keys ID twin=<block ID> ````. Its prompt is the paragraph above
   it, after the example's own lines, so a twin needs at least two paragraphs between it and its example. Its
   operands are new, and check.py presses and runs it like any block. The page holds its keys back until the

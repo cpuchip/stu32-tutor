@@ -5,14 +5,14 @@ U01@rpn | 20 - 5: undo the + 5 | MODE33 FIX4 20 ENTER 5 - | X=15
 U02@alg | continues U01: / 3, undo the x 3 | MODE33 FIX4 20 - 5 ENTER / 3 ENTER | N=5 %LINE=ANS÷3
 U02@rpn | continues U01: / 3, undo the x 3 | MODE33 FIX4 20 ENTER 5 - 3 / | X=5
 # U01's twin (step 5): its answer typed, its working, and the slips'.
-U1T1@alg | twin: 4n + 9 = 37, n typed | MODE33 FIX4 7 ENTER | N=7 %LINE=7
-U1T1@rpn | twin: 4n + 9 = 37, n typed | MODE33 FIX4 7 ENTER | X=7
-U1T1W@alg | its working: 37 - 9, then / 4 | MODE33 FIX4 37 - 9 ENTER / 4 ENTER | N=7 %LINE=ANS÷4
-U1T1W@rpn | its working: 37 - 9, then / 4 | MODE33 FIX4 37 ENTER 9 - 4 / | X=7
-U1T1A@alg | slip: divided first, 37 / 4 - 9 | MODE33 FIX4 37 / 4 - 9 ENTER | N=0.25 %LINE=37÷4-9
-U1T1A@rpn | slip: divided first, 37 / 4 - 9 | MODE33 FIX4 37 ENTER 4 / 9 - | X=0.25
-U1T1B@alg | slip: one undo only, 37 - 9 | MODE33 FIX4 37 - 9 ENTER | N=28 %LINE=37-9
-U1T1B@rpn | slip: one undo only, 37 - 9 | MODE33 FIX4 37 ENTER 9 - | X=28
+U1T1@alg | twin: 4n + 9 = 41, n typed | MODE33 FIX4 8 ENTER | N=8 %LINE=8
+U1T1@rpn | twin: 4n + 9 = 41, n typed | MODE33 FIX4 8 ENTER | X=8
+U1T1W@alg | its working: 41 - 9, then / 4 | MODE33 FIX4 41 - 9 ENTER / 4 ENTER | N=8 %LINE=ANS÷4
+U1T1W@rpn | its working: 41 - 9, then / 4 | MODE33 FIX4 41 ENTER 9 - 4 / | X=8
+U1T1A@alg | slip: divided first, 41 / 4 - 9 | MODE33 FIX4 41 / 4 - 9 ENTER | N=1.25 %LINE=41÷4-9
+U1T1A@rpn | slip: divided first, 41 / 4 - 9 | MODE33 FIX4 41 ENTER 4 / 9 - | X=1.25
+U1T1B@alg | slip: one undo only, 41 - 9 | MODE33 FIX4 41 - 9 ENTER | N=32 %LINE=41-9
+U1T1B@rpn | slip: one undo only, 41 - 9 | MODE33 FIX4 41 ENTER 9 - | X=32
 W01@alg | the wrong order: 20 / 3 - 5 | MODE33 FIX4 20 / 3 - 5 ENTER | N=1.666666666666666666666666666666667 %LINE=20÷3-5
 W01@rpn | the wrong order: 20 / 3 - 5 | MODE33 FIX4 20 ENTER 3 / 5 - | X=1.666666666666666666666666666666667
 C01@alg | the check: 3 x 5 + 5 | MODE33 FIX4 3 * 5 + 5 ENTER | N=20 %LINE=3×5+5

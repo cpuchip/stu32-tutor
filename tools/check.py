@@ -525,6 +525,62 @@ def problem_operands(prompt):
     return operands(m.group(1) if m else prompt)
 
 
+def unit_files(lesson_dir, lesson_id):
+    """The lessons of the lesson's unit, as (lesson.md path, vectors.txt path): the unit found by the lesson's id in
+    this repository's courses; the lesson itself read from lesson_dir (a control's planted copy is what is checked),
+    its siblings from lessons/."""
+    root = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+    folders = [d for d in os.listdir(os.path.join(root, "lessons")) if os.path.isdir(os.path.join(root, "lessons", d))]
+    me = next((f for f in folders if f == lesson_id or f.startswith(f"{lesson_id}-")), None)
+    unit = None
+    for path in sorted(os.listdir(os.path.join(root, "courses"))):
+        here, members = None, {}
+        for line in open(os.path.join(root, "courses", path), encoding="utf-8"):
+            p = [x.strip() for x in line.split("|")]
+            if p[0] == "unit":
+                here = p[1]
+            elif p[0] == "lesson":
+                members.setdefault(here, []).append(next((f for f in folders if f == p[1] or f.startswith(p[1] + "-")), None))
+        for ds in members.values():
+            if me in ds:
+                unit = ds
+    out = []
+    for d in unit or [me]:
+        base = lesson_dir if d == me or d is None else os.path.join(root, "lessons", d)
+        out.append((os.path.join(base, "lesson.md"), os.path.join(base, "vectors.txt")))
+    return out
+
+
+def item_answer(vectors_text, iid):
+    """An item's typed answer, from its vector (ID@alg's N=, else ID@rpn's or ID's X=), as a value, or None."""
+    for line in vectors_text.splitlines():
+        p = [x.strip() for x in line.split("|")]
+        if len(p) == 4 and p[0].split("@")[0] == iid:
+            m = re.search(r"(?:^|\s)[NX]=(\S+)", p[3])
+            if m:
+                try:
+                    return Decimal(m.group(1))
+                except InvalidOperation:
+                    return None
+    return None
+
+
+def unit_checkpoint(lesson_dir, lesson_id):
+    """The unit checkpoint's items (abacus #7333), as (ID, topics, typed answer): those under ## Checkpoint in any
+    lesson of the unit."""
+    out = []
+    for md, vec in unit_files(lesson_dir, lesson_id):
+        meta, body = front_matter(open(md, encoding="utf-8").read())
+        cp = re.search(r"^## Checkpoint\n(.*?)(?=^## |\Z)", body, re.M | re.S)
+        if not cp:
+            continue
+        vt = open(vec, encoding="utf-8").read() if os.path.exists(vec) else ""
+        for m in ITEM_BLOCK.finditer(cp.group(1)):
+            f = dict(re.findall(r"^[ \t]*(\w+):[ \t]*(.*)$", m.group(2), re.M))
+            out.append((m.group(1), set(f.get("topics", "").split()), item_answer(vt, m.group(1))))
+    return out
+
+
 def unit_problems(lesson_dir, lesson_id):
     """Every problem a learner meets in the lesson's unit (abacus #7310): each item's prompt, as (ID, operands), and
     each Exercises line, as ("lesson exercise N", operands), over the lessons the course files put in its unit. The
@@ -558,11 +614,11 @@ def unit_problems(lesson_dir, lesson_id):
                 out.append((m.group(1), problem_operands(prompt)))
         ex = re.search(r"^## Exercises\n(.*?)(?=^## |\Z)", body, re.M | re.S)
         for n, item in re.findall(r"^(\d+)\. (.*?)(?=^\d+\. |\Z)", ex.group(1) if ex else "", re.M | re.S):
-            out.append((f"{d[:8]} exercise {n}", operands(maths_plain(item))))
+            out.append((f"{meta.get('id', d)} exercise {n}", operands(maths_plain(item))))
     return out
 
 
-def check_worked(body, unit=()):
+def check_worked(body, unit=(), checkpoint=(), vectors_text=""):
     """Problems with a lesson's twins and faded blocks (docs/proposals/worked-examples.md, abacus #7299, primer
     #7300). A twin names an earlier keys block: an item with `twin:` (answer: type, calculator: no) after it and
     before the next block, or a keys block with `twin=` that has prose of its own (its prompt) after it; neither
@@ -651,6 +707,12 @@ def check_worked(body, unit=()):
         if ops == operands(last[ex].group(4)):
             out.append(f"item {iid}: twin of {ex} works the example's own operands; a twin has new numbers")
         collides(f"item {iid}", ops)
+        # an answer the unit checkpoint shares, on a topic it shares, passes the checkpoint by memory (abacus #7333)
+        ans = item_answer(vectors_text, iid)
+        for cid, ctopics, cans in checkpoint:
+            if ans is not None and ans == cans and ctopics & set(f.get("topics", "").split()):
+                out.append(f"item {iid}: twin's answer {ans} is checkpoint {cid}'s, on a topic they share; give the "
+                           f"twin another answer")
     return out
 
 
@@ -989,7 +1051,8 @@ class Lesson:
         if voices != [None]:
             body = voice_view(body, voices[0])
             self.notes.append(f"voices: {' '.join(voices)}, one skeleton")
-        for p in check_worked(body, unit_problems(self.d, meta.get("id", ""))):
+        for p in check_worked(body, unit_problems(self.d, meta.get("id", "")), unit_checkpoint(self.d, meta.get("id", "")),
+                              open(vec_path, encoding="utf-8").read() if os.path.exists(vec_path) else ""):
             self.bad(p)
         for p in check_why(body):
             self.bad(p)
