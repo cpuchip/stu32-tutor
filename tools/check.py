@@ -192,8 +192,9 @@ WHY_BLOCK = re.compile(r"^[ \t]*```why[ \t]*\n(.*?)^[ \t]*```[ \t]*$", re.M | re
 MATHS_FENCE = re.compile(r"^[ \t]*```math[ \t]*\n(.*?)^[ \t]*```[ \t]*$", re.M | re.S)
 MATHS_TAG = re.compile(r"</?(?:voice|mode|entry|disp)\b[^>]*>")
 MATHS_KEEP, MATHS_END = "", ""      # around a span's reading, so seen() strips no tag or id inside it
-SUP_CHARS = "0123456789-+()n"
-SUP = str.maketrans(SUP_CHARS, "⁰¹²³⁴⁵⁶⁷⁸⁹⁻⁺⁽⁾ⁿ")
+SUP_CHARS = "0123456789-+()nxytrkabcdeimhT"        # the letters the lessons write raised: eˣ, (eʳ)ᵗ, 1.04ᵀ (abacus #7274)
+SUP_FORMS = "⁰¹²³⁴⁵⁶⁷⁸⁹⁻⁺⁽⁾ⁿˣʸᵗʳᵏᵃᵇᶜᵈᵉⁱᵐʰᵀ"
+SUP = str.maketrans(SUP_CHARS, SUP_FORMS)
 MATHS_COMMANDS = {r"\times": "×", r"\div": "÷", r"\le": "≤", r"\ge": "≥", r"\pm": "±", r"\neq": "≠", r"\cdot": "·",
                   r"\pi": "π", r"\theta": "θ", r"\infty": "∞", r"\,": "", r"\left": "", r"\right": "",
                   r"\%": "%", r"\angle": "∠"}         # \% and \angle: abacus #7218
@@ -254,6 +255,11 @@ def maths_text(tex):
                     raise MathsRefused(r"\sqrt[n] is not on the list")
                 a, i = maths_group(tex, i)
                 out.append("√" + maths_wrap(maths_text(a)))
+            elif name == r"\text":
+                a, i = maths_group(tex, i)          # words in a formula, sin A = \text{opposite} (abacus #7274)
+                if not re.fullmatch(r"[A-Za-z]+(?: [A-Za-z]+)*", a):
+                    raise MathsRefused(f"\\text{{{a}}} holds words only: letters and single spaces, no digit")
+                out.append(a)
             elif name == r"\operatorname":
                 a, i = maths_group(tex, i)
                 if a not in MATHS_OPERATORS:
@@ -352,6 +358,9 @@ def check_maths(body):
             continue
         if re.match(r"\s*key", body[b:b + 6]):
             out.append(f"a maths span names a key: '${tex}$ key'; write a key's name plain, as in 'the x² key'")
+        if r"\text" in tex and not re.search(rf"[=+−×÷<>≤≥≠±]|\\(?:{'|'.join(MATHS_FUNCTIONS)})\b",
+                                             re.sub(r"\\text\{[^}]*\}", "", tex)):
+            out.append(f"a \\text with no function, operator or relation beside it: '${tex}$'; words alone are prose")
         named = re.findall(rf"(?<![A-Za-z\\])({'|'.join(MATHS_KEY_NAMES)})(?![A-Za-z])", tex)
         if named:
             maths = {"ABS": "|x|", "ASIN": "\\sin^{-1}", "ACOS": "\\cos^{-1}", "ATAN": "\\tan^{-1}"}.get(
@@ -362,6 +371,19 @@ def check_maths(body):
             maths_text(tex)
         except MathsRefused as e:
             out.append(f"the maths span '${tex}$': {e}")
+    # A half-span (abacus #7274, its maths_halfspan detector): an operator in the prose touching a span, as in
+    # "eˣ = $3x$" or "$500 × 1.04$ᵀ = 1000", means part of one expression was left out of it. Tags are masked first
+    # (a voice tag's < is not an operator); keys blocks, quotes and math fences are not prose.
+    hidden = body
+    for rx in (KEYS_ANY, DISP_ANY, MATHS_FENCE, MATHS_TAG):
+        hidden = rx.sub(lambda m: "\x00" * len(m.group(0)), hidden)
+    for a, b, tex in spans:
+        left, right = hidden[max(0, a - 2):a], hidden[b:b + 2]
+        if re.search(r"[=+−×÷<>≤≥≠±] ?\Z", left) or re.match(r" ?[=+−×÷<>≤≥≠±]", right) \
+                or re.search(rf"[\w{SUP_FORMS}′)]\Z", left) or re.match(rf"[{SUP_FORMS}(]|(?!s\b)\w", right):
+            # (a plural s is English: "how many $\frac{2}{10}$s make")
+            out.append(f"a maths span touching more maths outside it: '{hidden[max(0, a - 12):a]}${tex}${hidden[b:b + 12]}'"
+                       f"; put the whole expression in the span")
     for m in MATHS_FENCE.finditer(body):
         lines = [l for l in m.group(1).splitlines() if l.strip()]
         if len(lines) != 1 or "$" in m.group(1):

@@ -33,8 +33,8 @@ ROOT = os.path.dirname(HERE)
 sys.path.insert(0, HERE)
 import check  # noqa: E402
 
-SUPS = "⁰¹²³⁴⁵⁶⁷⁸⁹⁻⁺⁽⁾ⁿ"
-SUP_BACK = dict(zip(SUPS, "0123456789-+()n"))
+SUPS = check.SUP_FORMS                              # check.py's map, one source: ⁰…⁹ ⁻ ⁺ ⁽ ⁾ and raised letters
+SUP_BACK = dict(zip(SUPS, check.SUP_CHARS))
 OPS = "+−×÷=<>≤≥≠±/·"
 UNIT_WORDS = ("cm", "m", "km", "kg", "g", "mm", "ml", "l")
 FENCE = re.compile(r"^([ \t]*)```(\w*)[^\n]*\n(.*?)^\1```[ \t]*$", re.M | re.S)
@@ -206,7 +206,7 @@ def operand(s, i, inner=False):
             mixed = re.compile(r" \d+/\d+(?![\w/]|\.\d)").match(s, k)
             if mixed:                                 # a mixed number, 1 1/8, is one operand
                 return _post(s, mixed.end())
-            m = re.compile(r"(?:[a-z](?![a-z]*['’]))+(?![A-Za-z])").match(s, k)
+            m = re.compile(r"(?:[a-zπθ](?![a-z]*['’]))+(?![A-Za-z])").match(s, k)   # 2t, 4ac, 2π (abacus #7274)
             if m and not re.fullmatch(r"st|nd|rd|th|s|am|pm", m.group(0)):
                 k = m.end()
         else:
@@ -224,6 +224,10 @@ def operand(s, i, inner=False):
         if c is None:
             break
         k = _post(s, c)
+    if s[k - 1:k] == ")":                             # a group times a letter: (2/3)x
+        m = re.compile(r"[a-z](?![A-Za-z'’])").match(s, k)
+        if m:
+            k = _post(s, m.end())
     return k
 
 
@@ -233,6 +237,9 @@ WORDS2 = {"is", "an", "of", "to", "in", "it", "be", "by", "or", "on", "at", "as"
           "who", "own", "per", "via", "yet", "off", "out", "too", "use", "see", "say", "way", "end", "top", "row",
           "key", "box", "pie", "bun", "day", "car", "map", "cm", "km", "kg", "mm", "ml", "add", "sum", "few", "low",
           "big", "old", "far", "ago", "act", "lot", "had", "did", "may", "our", "his", "her", "him", "she", "each"}
+
+
+WORD = rf"(?<![A-Za-z\\])(?:(?:the|that|its) )?(?!(?:{'|'.join(check.MATHS_FUNCTIONS)})\b)[A-Za-z]{{2,}}"   # a word
 
 
 def _product(s, j):
@@ -345,7 +352,7 @@ def hand_decisions(lesson):
             if line.strip() and not line.startswith("#"):
                 l, decision, ctx = line.rstrip("\n").split("\t", 2)
                 if l == lesson:
-                    assert decision in ("span", "plain"), line
+                    assert decision in ("span", "plain", "text"), line
                     out[ctx] = decision
     return out
 
@@ -362,16 +369,35 @@ def plan(text, geometry, keys, hand=None):
     left, unsettled, spans, deferred = collections.Counter(), [], [], []
 
     def ask(s, e, t, ctx):
-        """A place the rules leave to a person: the recorded decision, or listed as undecided (and plain)."""
+        """A place the rules leave to a person: the recorded decision, or listed as undecided (and plain). A word
+        formula decided "text" becomes one span over its words too, each word group in \\text (abacus #7274)."""
         d = hand.get(ctx)
         if d == "span":
             left["span by hand"] += 1
             spans.append((s, e, t))
+        elif d == "text":
+            left["word formula as text by hand"] += 1
+            s, e = word_extend(s, e)
+            spans.append((s, e, "\x01" + text[s:e]))
         elif d == "plain":
             left["plain by hand"] += 1
         else:
             left["UNDECIDED"] += 1
             unsettled.append((text.count("\n", 0, s) + 1, ctx))
+
+    def word_extend(s, e):
+        """A word formula's whole extent: the run, then (operator, word or number)* after it, and one (word,
+        operator) before it: "across = cos θ", "sin A = opposite ÷ hypotenuse", "tan 35° = that height ÷ 12"."""
+        op = rf" ?[{re.escape(OPS)}] ?"
+        while True:
+            m = re.compile(rf"{op}(?:{WORD}|\d+(?:\.\d+)?[°%]?)").match(masked, e)   # never a sentence's full stop
+            if not m:
+                break
+            e = m.end()
+        m = re.search(rf"{WORD}{op}\Z", masked[max(0, s - 40):s])
+        if m:
+            s -= len(masked[max(0, s - 40):s]) - m.start()
+        return s, e
 
     def key_name(s, e, t):
         """A key's name: a legend, the whole word around the run a legend (x↔y), or beside "key" or "press"."""
@@ -405,6 +431,10 @@ def plan(text, geometry, keys, hand=None):
         if key:
             left["key name"] += 1
             continue
+        if k == "expr" and re.match(r"(?!s\b)\w", text[e:e + 2]):   # (a plural s is English: "2/10s")
+            # glued to what follows ("0i1 means"): the calculator's notation or a word, not a whole expression
+            ask(s, e, t, f"glued: {text[max(0, s - 12):s]}[{t}]{text[e:e + 12]}".replace("\n", " "))
+            continue
         if k == "expr":
             if re.search(r"(?<![A-Za-z])[XYZT](?![A-Za-z(])", t) and not re.search(r"[a-z]", t):
                 ask(s, e, t, f"register: {t}")          # X Y Z T in an expression: registers, or a formula's T
@@ -413,6 +443,10 @@ def plan(text, geometry, keys, hand=None):
                 # an expression an operator joins to a word, "sin A = opposite ÷ hypotenuse": spanning it would
                 # leave the rest of the formula plain, so it is a decision by hand
                 ask(s, e, t, f"word formula: {t}{after}".replace("\n", " "))
+                continue
+            if re.search(rf"{WORD} ?[{re.escape(OPS)}] ?\Z", masked[max(0, s - 30):s]):
+                # a word an operator joins on the left, "across = cos θ"
+                ask(s, e, t, f"word formula: {before[-12:]}{t}".replace("\n", " "))
                 continue
             if re.match(rf"\s?(?:{'|'.join(UNIT_WORDS)})\b", after) or re.match(r"\s?[a-z]{3,}", after):
                 left["word after, kept outside"] += 1
@@ -454,7 +488,13 @@ def plan(text, geometry, keys, hand=None):
             left["letter not in the lesson's maths"] += 1
         else:
             left["the word a, A or I"] += 1             # an article before its noun: "a number", "a customer"
-    return [(s, e, to_tex(t)) for s, e, t in spans], left, unsettled
+    return [(s, e, to_tex_words(t[1:]) if t.startswith("\x01") else to_tex(t)) for s, e, t in spans], left, unsettled
+
+
+def to_tex_words(u):
+    """A word formula's TeX: each group of words in \\text{...}, the rest as to_tex writes it."""
+    parts = re.split(rf"({WORD}(?: [A-Za-z]{{2,}})*)", u)
+    return "".join(r"\text{" + p + "}" if i % 2 else to_tex(p) for i, p in enumerate(parts))
 
 
 def sentence(text, i):
@@ -553,7 +593,14 @@ def main():
                  ("n! is gold, above ×", ["n"]),                          # a letter's ! is the key's legend: no factorial
                  ("so 2⁻³ is 1/2³, which is 1/8.", ["2⁻³", "1/2³", "1/8"]),
                  ("LCM(5, 2) = 10 and (90 = 2 × 45, 45 = 3 × 15)", ["LCM(5, 2) = 10", "90 = 2 × 45", "45 = 3 × 15"]),
-                 ("which is 1 1/8. Then a −4 is", ["1 1/8", "a", "−4"])]  # a sign spaced one side is not a minus
+                 ("which is 1 1/8. Then a −4 is", ["1 1/8", "a", "−4"]),  # a sign spaced one side is not a minus
+                 # abacus #7274's causes: raised letters, π after a digit, nested brackets, a product of letters
+                 ("In eˣ = 3x the unknown", ["eˣ = 3x"]),
+                 ("Type 500 × 1.04ᵀ = 1000, with", ["500 × 1.04ᵀ = 1000"]),
+                 ("is 2π ÷ 12 = π ÷ 6. π has", ["2π ÷ 12 = π ÷ 6", "π"]),
+                 ("again: p(x) = ((2x − 3)x + 4)x − 5.", ["p(x) = ((2x − 3)x + 4)x − 5"]),
+                 ("form y = mx + b. Its graph", ["y = mx + b"]),
+                 ("by 3: y = −(2/3)x + 37/3, slope", ["3", "y = −(2/3)x + 37/3"])]
         bad = 0
         for line, want in cases:
             got = [line[a:b] for a, b in runs(line)]
