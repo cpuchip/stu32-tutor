@@ -120,6 +120,15 @@ display: FIX 4
   `w=21`, the device's X-line width (firmware/screen.c FMT_WIDTH); the runner's default of 22
   agrees with the device only for short values.
 - No em-dashes (the house voice, external-voice skill). No child is ever named.
+- Each other lesson is linked once (decision 82). The page shows a lesson id as that lesson's title, linked, in the
+  prose, an item's prompt and a why block's ask and because (a slip's hint shows the title unlinked, primer #6738).
+  So a lesson names each other lesson's id once, at its first mention, and then refers to it without the id ("the
+  ball from before"); a different lesson gets its own first link. graph.py (in `make check`) refuses a second
+  mention of one id in any reading a learner can have (voice × mode × entry, check.py's views), except in a lesson
+  on its LINKS_PENDING list, which the voice pass (docs/proposals/voice-pass.md) has not reached: there the repeats
+  are counted, and a listed lesson that links each lesson once is refused until it comes off. `graph.py
+  --selftest` plants a repeat, a repeat inside one voice, mode or entry, and one between the prose and a prompt or a
+  why block, and accepts one id once in each voice, mode and entry, and an id in a slip's hint.
 
 ## Items: quizzes and checkpoints
 

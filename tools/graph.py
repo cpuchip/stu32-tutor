@@ -5,8 +5,10 @@ Refuses: a malformed or repeated topic; a topic whose lesson or ## heading is no
 with no `requires:` line; a required slug that is not a topic; a lesson requiring a topic it teaches;
 a lesson requiring a topic taught only in a mode section (lesson@modes) unless it offers only those
 modes; and a cycle between lessons (A needs B when A requires a topic B teaches). Also the courses,
-placement, lore, drawing tools, and the review sections and item IDs (check_review). --json prints the
-graph for the learning page; --selftest plants each fault and checks it is refused."""
+placement, lore, drawing tools, the review sections and item IDs (check_review), and each other lesson
+linked once (check_links). --json prints the graph for the learning page; --selftest plants each fault and
+checks it is refused."""
+import collections
 import glob
 import json
 import os
@@ -14,6 +16,7 @@ import re
 import sys
 
 ROOT = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..")
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))      # check.py's readings, for check_links
 ALL_MODES = ("33s", "35s", "STU")
 SLUG = re.compile(r"[a-z0-9]+(?:-[a-z0-9]+)*$")
 
@@ -658,6 +661,132 @@ def selftest_review(lessons, placement_texts, graph):
     return ok and bool(some_id) and red == len(plants)
 
 
+# Each other lesson linked once (decision 82). The page shows a lesson id in prose as that lesson's title, linked
+# (abacus #5459), so a second mention of one id is a second link to it. Michael: "names it once then stops
+# relinking. Unless we're building from a new previous work then that warrants a fresh link since it's different."
+# A lesson on LINKS_PENDING has not had the voice pass yet (docs/proposals/voice-pass.md): its repeats are counted,
+# not refused, and it comes off the list when it links each lesson once.
+LINKS_PENDING = {
+    'angle-02', 'cnt-01', 'der-01', 'der-02', 'der-03', 'eq-01', 'eq-02', 'eq-03', 'exp-01', 'exp-02', 'exp-03',
+    'exp-04', 'expr-02', 'factor-01', 'factor-02', 'fn-02', 'fn-03', 'frac-01', 'frac-02', 'frac-03', 'int-01',
+    'lim-01', 'lim-02', 'lin-01', 'lin-02', 'lin-03', 'neg-02', 'num-03', 'num-04', 'parallel-01', 'poly-01',
+    'poly-02', 'poly-03', 'poly-04', 'prob-01', 'prob-01b', 'seq-01', 'sys-01', 'sys-02', 'trig-02', 'trig-03',
+    'trig-04', 'whole-02',
+}
+CODE_FENCE = re.compile(r"^([ \t]*)```(\w*)[^\n]*\n(.*?)^\1```[ \t]*$", re.M | re.S)
+# The page renders an item's prompt and a why block's ask and because through the same markdown as the prose, so an
+# id there is a link too; a slip's hint is plain text, its id shown as the title unlinked (primer #6738).
+LINKED_FIELDS = {"item": ("prompt",), "why": ("ask", "because")}
+
+
+def linked_fields(m):
+    keep = LINKED_FIELDS.get(m.group(2), ())
+    return "\n" + "\n".join(line.split(":", 1)[1] for line in m.group(3).splitlines()
+                             if line.strip().split(":", 1)[0] in keep) + "\n"
+
+
+def link_readings(meta, text):
+    """(name, text) for each reading a learner can have: voice x mode x entry, through check.py's own views, with
+    fences, inline code, markdown links and tags taken out, but an item's prompt and a why block's fields kept (the
+    page links an id in those)."""
+    import check
+    _, body = check.front_matter(text)
+    voices = check.lesson_voices(meta)[0]
+    modes = check.lesson_modes(meta)[0]
+    entries = check.lesson_entries(meta, modes)[0]
+    for v in voices:
+        vb = check.voice_view(body, v) if v else body
+        for md in modes:
+            for e in entries:
+                view = check.mode_view(vb, md, None, e)
+                view = CODE_FENCE.sub(linked_fields, view)
+                view = re.sub(r"`[^`\n]*`|\[[^\]\n]*\]\([^)\n]*\)|<[^>]*>", " ", view)
+                yield " ".join(x for x in (v, md, e) if x), view
+
+
+def check_links(lessons, pending=None):
+    """(problems, {lesson: repeats} for the pending lessons). A lesson id twice in one reading is refused."""
+    pending = LINKS_PENDING if pending is None else pending
+    ids = sorted(lessons, key=len, reverse=True)
+    rx = re.compile(r"(?<![\w/.-])(" + "|".join(map(re.escape, ids)) + r")(?![\w-])")
+    bad, counted = [], {}
+    for lid in sorted(pending - set(lessons)):
+        bad.append(f"LINKS_PENDING names {lid}, which is not a lesson")
+    for lid, (meta, text) in sorted(lessons.items()):
+        worst = {}
+        for name, prose in link_readings(meta, text):
+            for pid, n in collections.Counter(rx.findall(prose)).items():
+                if n > 1 and n > worst.get(pid, (0, ""))[0]:
+                    worst[pid] = (n, name)
+        if lid in pending:
+            if worst:
+                counted[lid] = sum(n - 1 for n, _ in worst.values())
+            else:
+                bad.append(f"{lid} is in LINKS_PENDING, but links each lesson once: take it off")
+            continue
+        for pid, (n, name) in sorted(worst.items()):
+            bad.append(f"{lid}: links {pid} {n} times in the {name} reading; link each other lesson once, at its "
+                       f"first mention, then refer to it without its id (decision 82)")
+    return bad, counted
+
+
+def selftest_links(lessons):
+    """Planted in copies of whole-01 (story and plain voices; STU, with alg and rpn entries) and rpn-01 (one voice,
+    all three modes), each after the lesson's opening: each must pass or be refused as named."""
+    if "whole-01" not in lessons or "rpn-01" not in lessons:
+        print("FAIL no whole-01 or rpn-01 to plant links in")
+        return False
+    a, b = sorted(x for x in lessons if x not in ("whole-01", "rpn-01") and not any(
+        x in lessons[y][1] for y in ("whole-01", "rpn-01")))[:2]
+
+    def plant(lid, para, pending=frozenset()):
+        meta, text = lessons[lid]
+        at = text.index("\n## ") + 1
+        return [x for x in check_links({**lessons, lid: (meta, text[:at] + para + "\n\n" + text[at:])},
+                                       set(pending))[0] if x.startswith(lid)]
+    item = "```item ZL1\nprompt: {p}\ntopics: x\nanswer: type\ncalculator: no\n{slip}```"
+    w, r = "whole-01", "rpn-01"
+    greens = [
+        ("two different lessons, each named once", plant(w, f"The sum from {a}, and the stack from {b}.")),
+        ("one lesson named once in each voice",
+         plant(w, f'<voice v="story">The mill from {a}.</voice><voice v="plain">The sum from {a}.</voice>')),
+        ("one lesson named once in each entry's text",
+         plant(w, f'<entry e="alg">The keys from {a}.</entry><entry e="rpn">The stack from {a}.</entry>')),
+        ("one lesson named once in each mode's text",
+         plant(r, f'<mode m="33s,35s">The keys from {a}.</mode><mode m="STU">The menu from {a}.</mode>')),
+        ("a lesson named in the prose and in a slip's hint, which is not a link",
+         plant(w, f"The sum from {a}.\n\n" + item.format(p="p", slip=f"slip: ZL1A | d | As in {a}.\n"))),
+    ]
+    plants = [
+        ("a planted repeat", plant(w, f"The sum from {a}, and again as {a} did."), f"whole-01: links {a} 2 times"),
+        ("a repeat inside one voice span",
+         plant(w, f'<voice v="story">From {a}, as {a} showed.</voice><voice v="plain">The sum.</voice>'),
+         f"whole-01: links {a} 2 times in the story"),
+        ("a repeat inside one entry's text", plant(w, f'<entry e="rpn">From {a}, as {a} showed.</entry>'),
+         f"whole-01: links {a} 2 times in the story STU rpn"),
+        ("a repeat inside one mode's text", plant(r, f'<mode m="35s">From {a}, as {a} showed.</mode>'),
+         f"rpn-01: links {a} 2 times in the 35s"),
+        ("a repeat between the prose and an item's prompt",
+         plant(w, f"The sum from {a}.\n\n" + item.format(p=f"As in {a}, add.", slip="")), f"whole-01: links {a} 2 times"),
+        ("a repeat between the prose and a why block",
+         plant(w, f"The sum from {a}.\n\n```why\nask: Why?\nbecause: As {a} showed.\n```"),
+         f"whole-01: links {a} 2 times"),
+        ("a pending lesson that links each lesson once", plant(w, f"The sum from {a}.", {w}),
+         "whole-01 is in LINKS_PENDING, but links each lesson once"),
+    ]
+    ok = True
+    for name, problems in greens:
+        print(f"{'ok  ' if not problems else 'FAIL'} {name} is accepted" + (f": {problems[:2]}" if problems else ""))
+        ok = ok and not problems
+    red = 0
+    for name, problems, why in plants:
+        hit = [x for x in problems if why in x]
+        print(f"{'ok  ' if hit else 'FAIL'} {name}" + (f"\n       -> {hit[0]}" if hit else f": {problems[:2]}"))
+        red += bool(hit)
+    print(f"{red}/{len(plants)} link controls red as planted")
+    return ok and red == len(plants)
+
+
 VOICE_SPAN = re.compile(r'<voice v="([^"]*)">(.*?)</voice>', re.S)        # check.py's, for the plain voice's cast
 LORE_KINDS = ("character", "place", "object", "age")
 LORE_VERBS = ("lives_in", "located_in", "works_with", "keeps", "made", "passes_to", "before")
@@ -828,6 +957,7 @@ def main():
         ok = selftest_lore(*load_lore(ROOT), lessons, g) and ok
         ok = selftest_tools(lessons, g) and ok
         ok = selftest_review(lessons, load_placement(ROOT), g) and ok
+        ok = selftest_links(lessons) and ok
         return 0 if ok else 1
     bad, graph = check(topics_text, lessons)
     cbad, graph["courses"] = check_courses(load_courses(ROOT), graph)
@@ -836,6 +966,8 @@ def main():
     bad += check_lore(*load_lore(ROOT), lessons, graph)
     bad += check_tools(lessons, graph)
     bad += check_review(lessons, load_placement(ROOT), graph)
+    lbad, pending = check_links(lessons)
+    bad += lbad
     if "--json" in sys.argv:
         print(json.dumps(graph, ensure_ascii=False, indent=1))
     for b in bad:
@@ -843,7 +975,8 @@ def main():
     edges = sum(len(v["needs"]) for v in graph["lessons"].values())
     listed = sum(len(u["lessons"]) for c in graph["courses"].values() for u in c["units"])
     print(f"graph: {len(graph['topics'])} topics, {len(graph['lessons'])}/{len(lessons)} lessons, "
-          f"{edges} lesson links, {len(graph['courses'])} courses ({listed} lessons listed), {len(bad)} problems",
+          f"{edges} lesson links, {len(graph['courses'])} courses ({listed} lessons listed), {len(bad)} problems; "
+          f"{sum(pending.values())} repeated links in {len(pending)} lessons on LINKS_PENDING",
           file=sys.stderr)
     return 1 if bad else 0
 
