@@ -104,7 +104,7 @@ first.
 By that rule, an answer in X is kept when you start typing the next number: it moves up to Y.
 For $(3 + 4) × 5$, add first, then type 5 and multiply, with no ENTER before the 5:
 
-```keys S06
+```keys S06 fade=2
 3 ENTER 4 + 5 ×
 ```
 
@@ -149,6 +149,14 @@ by 5. The x↔y key swaps X and Y, so the 20 goes up to Y and the 5 comes down t
 ```
 
 X holds 4.
+
+This time 4 went in first and 36 after it, and what you want is $36 ÷ 4$. Fix the order the same way:
+
+```keys S09T twin=S09
+4 ENTER 36 x↔y ÷
+```
+
+X holds 9.
 
 The stack has four levels, and R↓ (roll down) turns all four. Type 1, 2, 3 and 4 with ENTER
 between them, so T holds 1, Z holds 2, Y holds 3 and X holds 4. Then press R↓:

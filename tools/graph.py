@@ -563,7 +563,8 @@ def check_review(lessons, placement_texts, graph):
         earlier = before.get(lid, set())
         for iid, pos, under, f in items:
             owner.setdefault(iid, []).append(lid)
-            if under not in (FROM_BEFORE, TRY_FIRST) and any(k > pos for k in keys):
+            # (a twin item may sit between examples: check.py holds it to answer: type, calculator: no, step 5)
+            if under not in (FROM_BEFORE, TRY_FIRST) and any(k > pos for k in keys) and "twin" not in f:
                 bad.append(f"{lid}: item {iid} comes before a keys block but is not in '## {FROM_BEFORE}' or "
                            f"'## {TRY_FIRST}': the student run would meet the device as the learner left it")
         fb = [i for i in items if i[2] == FROM_BEFORE]

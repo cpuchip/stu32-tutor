@@ -59,7 +59,7 @@ ENTRY_SPAN = re.compile(r'<entry e="([^"]*)">(.*?)</entry>', re.S)
 # places (in a placement file: the unit it shows a learner is ready for), working (none: a typed answer
 # that is counted or recalled, not computed), and any number of slip lines, "slip: VID | name | hint".
 ITEM_BLOCK = re.compile(r"^[ \t]*```item[ \t]+(\S+)[ \t]*\n(.*?)^[ \t]*```[ \t]*$", re.M | re.S)
-ITEM_FIELDS = ("prompt", "topics", "answer", "calculator", "keys", "places", "working", "slip")
+ITEM_FIELDS = ("prompt", "topics", "answer", "calculator", "keys", "places", "working", "slip", "twin")
 # A typed answer that is computed is made by the core too, as vector <ID>W beside the typed one (abacus #6439).
 # The lessons and placement files whose typed items predate that rule; the sweep (decision 76) takes each off
 # as its unit's batch gives every computed item its working. A listed file whose items all have it is refused,
@@ -132,7 +132,7 @@ FRAC_SETTINGS = {"/C", "SF:7", "CF:7", "SF:8", "CF:8", "SF:9", "CF:9"}  # change
 # mode= variants.
 KEYS_BLOCK = re.compile(r"^[ \t]*```keys[ \t]+([^\s=]+)(?:[ \t]+after=(\S+))?[ \t]*\n(.*?)^[ \t]*```[ \t]*$", re.M | re.S)
 KEYS_ANY = re.compile(r"^([ \t]*)```keys[ \t]+([^\s=]+)((?:[ \t]+[a-z]+=\S+)*)[ \t]*\n(.*?)^[ \t]*```[ \t]*$", re.M | re.S)
-KEYS_FENCE = re.compile(r"^```keys[ \t]+[^\s=]+(?:[ \t]+(?:after|mode|entry)=\S+)*[ \t]*$")
+KEYS_FENCE = re.compile(r"^```keys[ \t]+[^\s=]+(?:[ \t]+(?:after|mode|entry|twin|fade)=\S+)*[ \t]*$")
 SHOWS = re.compile(r"\b(shows?|showed|showing|shown|displays?|displayed|screen|reads|appears?)\b", re.I)
 FENCE = re.compile(r"^[ \t]*(```|~~~)(.*)$", re.M)
 # A used calculator: every variable A-Z holds 7, RAD, the stack full, lift enabled, LAST x 6.
@@ -505,6 +505,81 @@ def check_why(body):
     return out
 
 
+SHIFTS = ("GOLD", "BLUE")                             # a shift and its key are one keystroke for fading
+
+
+def check_worked(body):
+    """Problems with a lesson's twins and faded blocks (docs/proposals/worked-examples.md, abacus #7299, primer
+    #7300). A twin names an earlier keys block: an item with `twin:` (answer: type, calculator: no) after it and
+    before the next block, or a keys block with `twin=` that has prose of its own (its prompt) after it; neither
+    leaves its section, and neither works the example's own operands. `fade=N` hides a block's last N keystrokes:
+    at least one and not all, not on the setup, never splitting a shift from its key, and never on a twin."""
+    out = []
+    blocks = list(KEYS_ANY.finditer(body))
+    first, last = {}, {}
+    for m in blocks:
+        first.setdefault(m.group(2), m)
+        last[m.group(2)] = m
+
+    def operands(text):
+        return sorted(Decimal(n) for n in re.findall(r"(?<![\w.])\d+(?:\.\d+)?(?![\w.])", text))
+
+    def section_between(a, b):
+        return bool(re.search(r"^## ", body[a:b], re.M))
+    for m in blocks:
+        bid, attrs, keys = m.group(2), dict(re.findall(r"([a-z]+)=(\S+)", m.group(3))), m.group(4)
+        if "fade" in attrs:
+            toks = keys.split()
+            n = int(attrs["fade"]) if attrs["fade"].isdigit() else 0
+            if "twin" in attrs:
+                out.append(f"keys block {bid} is both twin= and fade=; a twin hides all its keys already")
+            elif bid == "setup":
+                out.append("the setup block may not be faded")
+            elif not 1 <= n < len(toks):
+                out.append(f"keys block {bid}: fade={attrs['fade']} must hide at least one keystroke and leave one shown "
+                           f"(the block has {len(toks)})")
+            elif toks[len(toks) - n - 1] in SHIFTS:
+                out.append(f"keys block {bid}: fade={n} splits {toks[len(toks) - n - 1]} from its key; a shift and its "
+                           f"key are one keystroke")
+        if "twin" in attrs:
+            ex = attrs["twin"]
+            if ex not in first or first[ex].start() >= m.start():
+                out.append(f"keys block {bid}: twin={ex} names no keys block before it")
+                continue
+            gap = body[last[ex].end():m.start()]
+            if section_between(last[ex].end(), m.start()):
+                out.append(f"keys block {bid}: twin of {ex} in another section; a twin follows its example")
+            paras = [p for p in re.split(r"\n[ \t]*\n", KEYS_ANY.sub("", gap)) if re.sub(r"<[^>]*>|\s", "", p)]
+            if len(paras) < 2:
+                # the first paragraph after the example is the example's own ("X holds 4."); the twin's prompt is
+                # a paragraph after it (primer #7300)
+                out.append(f"keys block {bid}: twin of {ex} with no prose of its own before it; its prompt is a "
+                           f"paragraph after the example's own lines")
+            if operands(keys) == operands(last[ex].group(4)):
+                out.append(f"keys block {bid}: twin of {ex} works the example's own operands; a twin has new numbers")
+    for m in ITEM_BLOCK.finditer(body):
+        iid, f = m.group(1), {}
+        for line in m.group(2).splitlines():
+            k, sep, v = line.strip().partition(":")
+            if sep and k.strip() not in f:
+                f[k.strip()] = v.strip()
+        ex = f.get("twin")
+        if ex is None:
+            continue
+        if ex not in first or first[ex].start() >= m.start():
+            out.append(f"item {iid}: twin: {ex} names no keys block before it")
+            continue
+        later = [b for b in blocks if last[ex].end() <= b.start() < m.start() and b.group(2) != ex
+                 and dict(re.findall(r"([a-z]+)=(\S+)", b.group(3))).get("after") != ex]   # (a continuation is the example's)
+        if later or section_between(last[ex].end(), m.start()):
+            out.append(f"item {iid}: twin of {ex} is not right after it (a keys block or a ## heading comes between)")
+        if f.get("answer") != "type" or f.get("calculator") != "no":
+            out.append(f"item {iid}: a twin item is answer: type and calculator: no (it leaves the device alone)")
+        if operands(seen(f.get("prompt", ""))) == operands(last[ex].group(4)):
+            out.append(f"item {iid}: twin of {ex} works the example's own operands; a twin has new numbers")
+    return out
+
+
 def lesson_voices(meta):
     """(the lesson's voices, the default first, or [None]; a problem or None)."""
     if "voices" not in meta:
@@ -632,7 +707,7 @@ def mode_view(body, mode, problems, entry=None):
         indent, bid, attrs, keys = m.group(1), m.group(2), m.group(3), m.group(4)
         a = dict(re.findall(r"([a-z]+)=(\S+)", attrs))
         for k in a:
-            if k not in ("after", "mode", "entry") and report:
+            if k not in ("after", "mode", "entry", "twin", "fade") and report:
                 problems.append(f"keys block {bid}: unknown attribute {k}=")
         ms = mode_list(a["mode"]) if "mode" in a else None
         es = mode_list(a["entry"]) if "entry" in a else None
@@ -840,6 +915,8 @@ class Lesson:
         if voices != [None]:
             body = voice_view(body, voices[0])
             self.notes.append(f"voices: {' '.join(voices)}, one skeleton")
+        for p in check_worked(body):
+            self.bad(p)
         for p in check_why(body):
             self.bad(p)
         vectors = read_vectors(vec_path, 4)

@@ -12,6 +12,7 @@ S07 | halfway through (2 + 3) x (4 + 6): the first sum waits in Y | MODE33 FIX4 
 S07A | inside S07, before the second +: 4 ENTER pushed the 5 up to Z, and 6 replaced the copy in X | MODE33 FIX4 2 ENTER 3 + 4 ENTER 6 | X=6 Y=4 Z=5
 S08 | and finishes: (2 + 3) x (4 + 6) | MODE33 FIX4 2 ENTER 3 + 4 ENTER 6 + * | X=50
 S09 | x<>y repairs the wrong order: 5 and 20 typed, 20 divided by 5 wanted | MODE33 FIX4 5 ENTER 20 XY / | X=4
+S09T | twin of S09: 4 and 36 typed, 36 divided by 4 wanted | MODE33 FIX4 4 ENTER 36 XY / | X=9
 S10 | R-down turns the four levels: the 4 in X goes to T and the rest move down one | MODE33 FIX4 1 ENTER 2 ENTER 3 ENTER 4 RDN | X=3 Y=2 Z=1 T=4
 S11 | LAST x brings back the number the last operation used | MODE33 FIX4 12 ENTER 4 / LASTX | X=4 Y=3
 S12 | so LAST x then times undoes the division | MODE33 FIX4 12 ENTER 4 / LASTX * | X=12

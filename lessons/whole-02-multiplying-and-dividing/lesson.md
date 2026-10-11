@@ -66,6 +66,16 @@ The parts add up to the whole because 23 trays are 20 trays and 3 trays. The che
 
 The screen shows <disp v="M01">1,058.0000</disp>.
 
+```item M1T1
+prompt: Work out $37 × 24$ in parts, as above: $37 × 4$, then $37 × 20$, then add them.
+twin: M01
+topics: partial-products
+answer: type
+calculator: no
+slip: M1T1A | the tens taken as ones | The 2 in 24 is 2 tens, so the second part is $37 × 20 = 740$, not $37 × 2$.
+slip: M1T1B | stopped after the ones | That is only the first part. Add the tens part, $37 × 20 = 740$, as well.
+```
+
 ## Dividing, and what is left over
 
 <voice v="story">Tobin has 59 rolls to pack, 9 to a box.</voice><voice v="plain">59 rolls are to be packed, 9 to a box.</voice> How many full boxes, and how many rolls over? The number you

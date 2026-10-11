@@ -321,6 +321,27 @@ and before "key"; a why number the example's maths does not show; and, as greens
 maths, and maths with `<` and `x-10` read whole. whole-01's set adds a span across a voice tag and voices whose
 maths differ in a number, with the same maths in both voices as a green.
 
+### Twins and faded blocks (step 5)
+
+docs/proposals/worked-examples.md, approved by abacus (#7299) with primer's page answers (#7300).
+- **An item twin**, after a worked example: an item with `twin: <block ID>`, `answer: type` and `calculator: no`,
+  right after the example's blocks (a continuation of the example may come between) and under the same `##`
+  heading. Its operands are not the example's own, in any order: $24 × 37$ is not a twin of $37 × 24$. It is an
+  item like any other, with its typed answer, its working and its slips as vectors.
+- **A keys twin**, in a calculator lesson: ```` ```keys ID twin=<block ID> ````. Its prompt is the paragraph above
+  it, after the example's own lines, so a twin needs at least two paragraphs between it and its example. Its
+  operands are new, and check.py presses and runs it like any block. The page holds its keys back until the
+  learner has tried.
+- **A faded block**: ```` ```keys ID fade=N ```` hides the block's last N keystrokes until the learner has pressed
+  them. A keystroke is a key with its shift: "GOLD INT÷" is one, and a fade may not split them. A fade hides at least
+  one keystroke and leaves at least one shown, never on the setup and never on a twin. check.py runs the block
+  unchanged.
+- After an attempt the page replays the student run to the end of the block, so every later block starts from the
+  full keys (primer #7300).
+
+check.py refuses each break of these rules, with red controls in rpn-01's set (keys twins and fades) and
+whole-02's (item twins).
+
 ### Review sections
 
 Two sections bring earlier lessons back (decision 76; docs/proposals/learning-science-plan.md):
