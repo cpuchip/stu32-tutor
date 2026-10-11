@@ -282,3 +282,34 @@ answer: type
 calculator: no
 slip: NG2M4A | stopped before the last digit | Bring down every digit: after 50 comes the 4.
 ```
+
+## Checkpoint
+
+Questions on the whole unit.
+
+```item CPP4A
+prompt: Work out −9 − (−4).
+topics: subtract-negatives
+answer: type
+calculator: no
+slip: CPP4A1 | took away 4 instead of adding it | Taking away a negative is adding: −9 − (−4) is −9 + 4.
+slip: CPP4A2 | lost the minus sign | −9 + 4 starts 9 below zero and moves 4 up: it is still below zero.
+```
+
+```item CPP4B
+prompt: Work out −48 ÷ (−6) × (−2), from left to right.
+topics: sign-rules divide-negatives
+answer: type
+calculator: no
+slip: CPP4B1 | the last minus sign lost | −48 ÷ (−6) is 8, and 8 × (−2) has one negative: the answer is negative.
+slip: CPP4B2 | multiplied first | ÷ and × share a rank and go from left to right: −48 ÷ (−6) first, then × (−2).
+```
+
+```item CPP4C
+prompt: −17 ÷ 5 is −3.4. What whole number does INT÷ give for −17 and 5?
+topics: floor-division
+answer: type
+calculator: no
+slip: CPP4C1 | cut the decimal off | INT÷ gives the whole number at or below: below −3.4 is −4, not −3.
+slip: CPP4C2 | lost the sign | −17 ÷ 5 is negative, so the whole number below it is negative too.
+```

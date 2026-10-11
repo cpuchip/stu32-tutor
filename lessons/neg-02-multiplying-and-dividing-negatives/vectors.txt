@@ -63,3 +63,28 @@ NG2M4W@alg | its working | MODE33 FIX4 504 / 7 ENTER | N=72 %LINE=504÷7
 NG2M4W@rpn | its working | MODE33 FIX4 504 ENTER 7 / | X=72
 NG2M4A@alg | slip: 50 ÷ 7 only, the last digit not brought down | MODE33 FIX4 IDIV 50 , 7 > ENTER | N=7 %LINE=IDIV(50,7)
 NG2M4A@rpn | slip: 50 ÷ 7 only, the last digit not brought down | MODE33 FIX4 50 ENTER 7 IDIV | X=7
+# Checkpoint, unit 4 (abacus #7157): each answer typed, its working, and the slips'; @alg the line, @rpn the stack.
+CPP4A@alg | checkpoint: −9 − (−4), typed | MODE33 FIX4 5 CHS ENTER | N=-5 %LINE=-5
+CPP4A@rpn | checkpoint: −9 − (−4), typed | MODE33 FIX4 5 CHS ENTER | X=-5
+CPP4AW@alg | its working | MODE33 FIX4 9 CHS - 4 CHS ENTER | N=-5 %LINE=-9--4
+CPP4AW@rpn | its working | MODE33 FIX4 9 CHS ENTER 4 CHS - | X=-5
+CPP4A1@alg | slip: 4 taken away, −9 − 4 | MODE33 FIX4 9 CHS - 4 ENTER | N=-13 %LINE=-9-4
+CPP4A1@rpn | slip: 4 taken away, −9 − 4 | MODE33 FIX4 9 CHS ENTER 4 - | X=-13
+CPP4A2@alg | slip: the sign lost, 9 − 4 | MODE33 FIX4 9 - 4 ENTER | N=5 %LINE=9-4
+CPP4A2@rpn | slip: the sign lost, 9 − 4 | MODE33 FIX4 9 ENTER 4 - | X=5
+CPP4B@alg | checkpoint: −48 ÷ (−6) × (−2), typed | MODE33 FIX4 16 CHS ENTER | N=-16 %LINE=-16
+CPP4B@rpn | checkpoint: −48 ÷ (−6) × (−2), typed | MODE33 FIX4 16 CHS ENTER | X=-16
+CPP4BW@alg | its working, left to right | MODE33 FIX4 48 CHS / 6 CHS * 2 CHS ENTER | N=-16 %LINE=-48÷-6×-2
+CPP4BW@rpn | its working, left to right | MODE33 FIX4 48 CHS ENTER 6 CHS / 2 CHS * | X=-16
+CPP4B1@alg | slip: the last minus lost, −48 ÷ (−6) × 2 | MODE33 FIX4 48 CHS / 6 CHS * 2 ENTER | N=16 %LINE=-48÷-6×2
+CPP4B1@rpn | slip: the last minus lost, −48 ÷ (−6) × 2 | MODE33 FIX4 48 CHS ENTER 6 CHS / 2 * | X=16
+CPP4B2@alg | slip: multiplied first, −48 ÷ 12 | MODE33 FIX4 6 CHS * 2 CHS ENTER 48 CHS / LASTX ENTER | N=-4 %LINE=-48÷ANS
+CPP4B2@rpn | slip: multiplied first, −48 ÷ 12 | MODE33 FIX4 48 CHS ENTER 6 CHS ENTER 2 CHS * / | X=-4
+CPP4C@alg | checkpoint: INT÷ of −17 and 5, typed | MODE33 FIX4 4 CHS ENTER | N=-4 %LINE=-4
+CPP4C@rpn | checkpoint: INT÷ of −17 and 5, typed | MODE33 FIX4 4 CHS ENTER | X=-4
+CPP4CW@alg | its working: INT÷ | MODE33 FIX4 IDIV 17 CHS , 5 > ENTER | N=-4 %LINE=IDIV(-17,5)
+CPP4CW@rpn | its working: INT÷ | MODE33 FIX4 17 CHS ENTER 5 IDIV | X=-4
+CPP4C1@alg | slip: the decimal cut off, −3 | MODE33 FIX4 3 CHS ENTER | N=-3 %LINE=-3
+CPP4C1@rpn | slip: the decimal cut off, −3 | MODE33 FIX4 3 CHS ENTER | X=-3
+CPP4C2@alg | slip: the sign lost, INT÷ of 17 and 5 | MODE33 FIX4 IDIV 17 , 5 > ENTER | N=3 %LINE=IDIV(17,5)
+CPP4C2@rpn | slip: the sign lost, INT÷ of 17 and 5 | MODE33 FIX4 17 ENTER 5 IDIV | X=3

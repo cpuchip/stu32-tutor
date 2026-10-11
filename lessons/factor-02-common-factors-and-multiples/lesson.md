@@ -286,7 +286,7 @@ slip: CPP3B2 | the least common multiple | That is the smallest number both divi
 ```
 
 ```item CPP3C
-prompt: Buns come in packs of 4 and rolls in packs of 6. What is the smallest number of buns you can buy that matches a number of rolls you can buy?
+prompt: Buns come in packs of 4 and rolls in packs of 6. You want exactly as many buns as rolls. What is the smallest number of each you can buy?
 topics: lcm
 answer: type
 calculator: no
