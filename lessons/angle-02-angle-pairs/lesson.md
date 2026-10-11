@@ -25,15 +25,15 @@ prompt: How many degrees is a quarter of a full turn?
 topics: degrees
 answer: type
 calculator: no
-slip: AN2F1A | a half, not a quarter | A full turn is 360°, and a quarter of it is 360 ÷ 4.
+slip: AN2F1A | a half, not a quarter | A full turn is 360°, and a quarter of it is $360 ÷ 4$.
 ```
 
 ```item AN2F2
-prompt: Work out 47 + 133.
+prompt: Work out $47 + 133$.
 topics: column-addition
 answer: type
 calculator: no
-slip: AN2F2A | a carry left out | 7 + 3 is 10: write 0 and carry 1 to the tens.
+slip: AN2F2A | a carry left out | $7 + 3$ is 10: write 0 and carry 1 to the tens.
 ```
 
 ## Before you start
@@ -48,7 +48,7 @@ BLUE MODE {mode} BLUE MODE {entry} GOLD DISP FIX 4
 
 The coast road is straight, and a lane leaves it at 70°. The two angles the lane makes with the road,
 one on each side of it, together make the straight angle of the road: 180°. So the other one is
-180 − 70:
+$180 − 70$:
 
 ```keys S01 entry=alg
 180 − 70 ENTER
@@ -84,7 +84,7 @@ yard, between the two walls, at 35° to one wall:
    +-------------- wall
 ```
 
-Its angle to the other wall is what is left of the right angle, 90 − 35:
+Its angle to the other wall is what is left of the right angle, $90 − 35$:
 
 ```keys C01 entry=alg
 90 − 35 ENTER
@@ -104,7 +104,7 @@ because: The path runs inside the square corner, between the two walls, so its t
 ## Round a point
 
 Three streets leave the market cross, each in its own direction. Going round the cross, the angles
-between them are 120°, 95° and a third. Together they make a full turn, 360°, so the third is 360 − 120 − 95:
+between them are 120°, 95° and a third. Together they make a full turn, 360°, so the third is $360 − 120 − 95$:
 
 ```keys P01 entry=alg
 360 − 120 − 95 ENTER
@@ -125,7 +125,7 @@ because: Going round from one street back to the same street is one full turn, a
 ## Where two lines cross
 
 The coast road and the hill road are both straight, and they cross. That makes four angles. Here
-they are named a, b, c and d, going round:
+they are named $a$, $b$, $c$ and $d$, going round:
 
 ```
       \     /
@@ -138,17 +138,17 @@ they are named a, b, c and d, going round:
 ```
 
 **Draw it.** Draw two straight lines that cross, not at a right angle, and measure all four angles.
-Two pairs of them face each other across the crossing, a with c and b with d. Each pair is called
+Two pairs of them face each other across the crossing, a with $c$ and $b$ with $d$. Each pair is called
 vertically opposite. The name comes from the vertex, not from up and down: the two angles are
 opposite each other at the vertex they share. What do you find?
 
-They come out equal: a = c and b = d. A measurement shows it for one drawing, though. Why it
+They come out equal: $a = c$ and $b = d$. A measurement shows it for one drawing, though. Why it
 must be so for every crossing:
-- Angles a and b lie together on one straight line, so a + b = 180°.
-- Angles b and c lie together on the other straight line, so b + c = 180°.
-- Both a and c are what is left when b is taken from 180°, so a and c are the same.
+- Angles $a$ and $b$ lie together on one straight line, so $a + b = 180°$.
+- Angles $b$ and $c$ lie together on the other straight line, so $b + c = 180°$.
+- Both $a$ and $c$ are what is left when $b$ is taken from 180°, so $a$ and $c$ are the same.
 
-Say b is 70°. Then a, beside it on a straight line, is 180 − 70:
+Say $b$ is 70°. Then $a$, beside it on a straight line, is $180 − 70$:
 
 ```keys V01 entry=alg
 180 − 70 ENTER
@@ -158,8 +158,8 @@ Say b is 70°. Then a, beside it on a straight line, is 180 − 70:
 180 ENTER 70 −
 ```
 
-The screen shows <disp v="V01">110.0000</disp>. And d, beside a on the other straight line, is
-180 − 110:
+The screen shows <disp v="V01">110.0000</disp>. And $d$, beside a on the other straight line, is
+$180 − 110$:
 
 ```keys V02 entry=alg
 180 − 110 ENTER
@@ -169,7 +169,7 @@ The screen shows <disp v="V01">110.0000</disp>. And d, beside a on the other str
 180 ENTER 110 −
 ```
 
-The screen shows <disp v="V02">70.0000</disp>, the same as b, the angle opposite it, as the reason
+The screen shows <disp v="V02">70.0000</disp>, the same as $b$, the angle opposite it, as the reason
 said it must be. This is
 the first thing in the course shown to be true for every drawing, not just measured on one.
 
@@ -184,7 +184,7 @@ Draw first, then check.
 
 ## Answers
 
-1. 180 − 128 = 52°.
+1. $180 − 128 = 52°$.
 
    ```keys E01 entry=alg
    180 − 128 ENTER
@@ -196,7 +196,7 @@ Draw first, then check.
 
    The screen shows <disp v="E01">52.0000</disp>.
 
-2. 90 − 62 = 28°.
+2. $90 − 62 = 28°$.
 
    ```keys E02 entry=alg
    90 − 62 ENTER
@@ -208,7 +208,7 @@ Draw first, then check.
 
    The screen shows <disp v="E02">28.0000</disp>.
 
-3. 360 − 90 − 150 = 120°.
+3. $360 − 90 − 150 = 120°$.
 
    ```keys E03 entry=alg
    360 − 90 − 150 ENTER
@@ -220,7 +220,7 @@ Draw first, then check.
 
    The screen shows <disp v="E03">120.0000</disp>.
 
-4. The angle opposite 41° is also 41°. The two beside it are each 180 − 41:
+4. The angle opposite 41° is also 41°. The two beside it are each $180 − 41$:
 
    ```keys E04 entry=alg
    180 − 41 ENTER

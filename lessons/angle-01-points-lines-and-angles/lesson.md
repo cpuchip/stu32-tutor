@@ -24,15 +24,15 @@ as an angle.
 ## From before
 
 ```item AN1F1
-prompt: Work out 360 − 125.
+prompt: Work out $360 − 125$.
 topics: column-subtraction
 answer: type
 calculator: no
-slip: AN1F1A | took the smaller digit from the larger | 0 − 5 needs a borrow: 10 − 5, with one ten fewer.
+slip: AN1F1A | took the smaller digit from the larger | $0 − 5$ needs a borrow: $10 − 5$, with one ten fewer.
 ```
 
 ```item AN1F2
-prompt: Work out 360 ÷ 5 by long division.
+prompt: Work out $360 ÷ 5$ by long division.
 topics: long-division
 answer: type
 calculator: no
@@ -81,7 +81,7 @@ cut into 360 a very long time ago, and it is a handy number: 360 divides evenly 
 9, 10 and 12, though not by 7.
 
 <voice v="story">Corwen's sighting board is a disc marked all the way round.</voice><voice v="plain">A sighting board is a disc marked all the way round.</voice> If it is cut into 8 equal parts, each
-part is 360 ÷ 8:
+part is $360 ÷ 8$:
 
 ```keys K01 entry=alg
 360 ÷ 8 ENTER
@@ -106,7 +106,7 @@ right to 180 at the left, and the other from 0 at the left to 180 at the right. 
 If an arm is too short to reach the scale, make it longer with your ruler first.
 
 Step 3 is where the usual mistake happens: reading the other scale. The two scales always add to
-180, so an angle of 50° read on the wrong scale shows 180 − 50:
+180, so an angle of 50° read on the wrong scale shows $180 − 50$:
 
 ```keys P01 entry=alg
 180 − 50 ENTER
@@ -138,7 +138,7 @@ the scale that starts at 0 there. It should still be 50°.
 - A **reflex** angle is more than 180° and less than 360°.
 
 Two rays from one point make two angles, one each way round. If the turn one way is 50°, the turn
-the other way round is the rest of the full turn, 360 − 50:
+the other way round is the rest of the full turn, $360 − 50$:
 
 ```keys R01 entry=alg
 360 − 50 ENTER
@@ -156,7 +156,7 @@ means the one not more than 180°.
 <voice v="story">Corwen stands at the end of the harbour wall and sights along it.</voice><voice v="plain">Stand at the end of the harbour wall and sight along it.</voice> Turning from the wall, the
 lighthouse is at 35°, and the church tower is at 110°, both measured from the same arm, the wall,
 turning the same way.
-The angle between the lighthouse and the tower, as seen from there, is 110 − 35:
+The angle between the lighthouse and the tower, as seen from there, is $110 − 35$:
 
 ```keys B01 entry=alg
 110 − 35 ENTER
@@ -170,8 +170,8 @@ The screen shows <disp v="B01">75.0000</disp>. Taking one from the other works o
 angles were measured from the same arm, turning the same way.
 
 ```why
-ask: Why does 110 − 35 give the angle between the lighthouse and the tower?
-because: Both turns start at the wall and go the same way, so the turn to the tower is the turn to the lighthouse and then some more. 110 − 35 is that more.
+ask: Why does $110 − 35$ give the angle between the lighthouse and the tower?
+because: Both turns start at the wall and go the same way, so the turn to the tower is the turn to the lighthouse and then some more. $110 − 35$ is that more.
 ```
 
 ## Exercises
@@ -187,7 +187,7 @@ Draw first, then check.
 
 ## Answers
 
-1. A full turn is 360°, so the other way round is 360 − 60 = 300°.
+1. A full turn is 360°, so the other way round is $360 − 60 = 300°$.
 
    ```keys E01 entry=alg
    360 − 60 ENTER
@@ -199,7 +199,7 @@ Draw first, then check.
 
    The screen shows <disp v="E01">300.0000</disp>.
 
-2. More than 90° and less than 180°: obtuse. The other scale shows 180 − 135 = 45.
+2. More than 90° and less than 180°: obtuse. The other scale shows $180 − 135 = 45$.
 
    ```keys E02 entry=alg
    180 − 135 ENTER
@@ -212,7 +212,7 @@ Draw first, then check.
    The screen shows <disp v="E02">45.0000</disp>. 45° would be acute, but an angle of 135° is
    plainly wider than the corner of a page, so looking before reading catches the slip.
 
-3. 360 ÷ 3 = 120°.
+3. $360 ÷ 3 = 120°$.
 
    ```keys E03 entry=alg
    360 ÷ 3 ENTER
@@ -224,7 +224,7 @@ Draw first, then check.
 
    The screen shows <disp v="E03">120.0000</disp>.
 
-4. Both are measured from the wall, turning the same way, so 140 − 35 = 105°.
+4. Both are measured from the wall, turning the same way, so $140 − 35 = 105°$.
 
    ```keys E04 entry=alg
    140 − 35 ENTER

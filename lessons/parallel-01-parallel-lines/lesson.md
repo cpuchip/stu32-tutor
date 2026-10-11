@@ -31,11 +31,11 @@ slip: PA1F1A | a full turn, not a straight line | Angles on a straight line add 
 ```
 
 ```item PA1F2
-prompt: Work out 180 − 72.
+prompt: Work out $180 − 72$.
 topics: column-subtraction
 answer: type
 calculator: no
-slip: PA1F2A | took the smaller digit from the larger | 0 − 2 needs a borrow: 10 − 2, with one ten fewer.
+slip: PA1F2A | took the smaller digit from the larger | $0 − 2$ needs a borrow: $10 − 2$, with one ten fewer.
 ```
 
 ## Before you start
@@ -71,16 +71,16 @@ in all:
                 /
 ```
 
-At the Harbour Street crossing the angles are p, q, r and s, going round; at the Market Street
-crossing, t, u, v and w, in the same places.
+At the Harbour Street crossing the angles are $p$, $q$, $r$ and $s$, going round; at the Market Street
+crossing, $t$, $u$, $v$ and $w$, in the same places.
 
 **Draw it.** Draw two parallel lines with your ruler, then a line across them on a slant. Measure the
 four angles at each crossing. What do you find?
 
 ## Corresponding angles
 
-The angles in the same place at the two crossings are called corresponding: p and t, q and u, r and
-v, s and w. Measured, they come out equal. For parallel lines this is the starting fact that everything
+The angles in the same place at the two crossings are called corresponding: $p$ and $t$, $q$ and $u$, $r$ and
+$v$, $s$ and $w$. Measured, they come out equal. For parallel lines this is the starting fact that everything
 after it builds on, and it is taken as given, not shown. Euclid, too, took a statement about
 parallel lines as given without proof, usually called his fifth postulate (some editions call it his
 twelfth axiom), and this is one form of it. His own form says: if a line crosses two lines and the
@@ -89,7 +89,7 @@ it he proved that corresponding angles are equal (his Book I, proposition 29).
 Corresponding angles are equal when the lines are parallel.
 
 So at every crossing on the coast road the angles are the same. The road meets Harbour Street at
-q = 65°, so u = 65° too. The angle beside q on the straight street, p, is 180 − 65:
+$q = 65°$, so $u = 65°$ too. The angle beside $q$ on the straight street, $p$, is $180 − 65$:
 
 ```keys A01 entry=alg
 180 − 65 ENTER
@@ -100,37 +100,37 @@ q = 65°, so u = 65° too. The angle beside q on the straight street, p, is 180 
 ```
 
 The screen shows <disp v="A01">115.0000</disp>. With vertically opposite angles (angle-02), every
-angle is now known: q, s, u and w are 65°, and p, r, t and v are 115°.
+angle is now known: $q$, $s$, $u$ and $w$ are 65°, and $p$, $r$, $t$ and $v$ are 115°.
 
 ```why
-ask: Why does one measured angle, q = 65°, give all eight?
+ask: Why does one measured angle, $q = 65°$, give all eight?
 because: At each crossing the angles are that one and the angle beside it on a straight line, each twice over, and corresponding angles carry the same two sizes to the other crossing.
 ```
 
 It works the other way too: if corresponding angles are equal, the lines are parallel. Euclid did not
 need to take this one as given; he proved it from earlier steps (his Book I, propositions 27 and 28).
-<voice v="story">That is how Corwen checks a new street.</voice><voice v="plain">That is how to check a new street.</voice> If the coast road meets it at 65°, in the same place as q,
+<voice v="story">That is how Corwen checks a new street.</voice><voice v="plain">That is how to check a new street.</voice> If the coast road meets it at 65°, in the same place as $q$,
 the new street is parallel to Harbour Street. If it meets it at 68° there, it cannot be parallel,
 since parallel streets would make the same angle, and the two streets will meet somewhere.
 
 ## Alternate angles
 
-The angles between the two streets, on opposite sides of the road, are called alternate: s and u,
-and r and t. They are equal too, and now there is a reason, made of two steps already known:
-- First, s = q, because they are vertically opposite.
-- Then q = u, because they are corresponding.
-- So s = u. In the same way, r = t.
+The angles between the two streets, on opposite sides of the road, are called alternate: $s$ and $u$,
+and $r$ and $t$. They are equal too, and now there is a reason, made of two steps already known:
+- First, $s = q$, because they are vertically opposite.
+- Then $q = u$, because they are corresponding.
+- So $s = u$. In the same way, $r = t$.
 
 ## Co-interior angles
 
-The angles between the two streets on the same side of the road are called co-interior: r and u,
-and s and t. They add to 180°, and so are usually not equal (both are 90° only when the road
+The angles between the two streets on the same side of the road are called co-interior: $r$ and $u$,
+and $s$ and $t$. They add to 180°, and so are usually not equal (both are 90° only when the road
 crosses at a right angle). The reason:
-- First, u = q, because they are corresponding.
-- Then q and r lie together on the straight line of the road, so q + r = 180°.
-- So u + r = 180° as well.
+- First, $u = q$, because they are corresponding.
+- Then $q$ and $r$ lie together on the straight line of the road, so $q + r = 180°$.
+- So $u + r = 180°$ as well.
 
-<voice v="story">On Corwen's map, r = 115° and u = 65°:</voice><voice v="plain">On a map, r = 115° and u = 65°:</voice>
+<voice v="story">On Corwen's map, $r = 115°$ and $u = 65°$:</voice><voice v="plain">On a map, $r = 115°$ and $u = 65°$:</voice>
 
 ```keys I01 entry=alg
 65 + 115 ENTER
@@ -158,7 +158,7 @@ Draw first, then check.
 
 ## Answers
 
-1. Co-interior angles add to 180°: 180 − 58 = 122°.
+1. Co-interior angles add to 180°: $180 − 58 = 122°$.
 
    ```keys E01 entry=alg
    180 − 58 ENTER
@@ -172,7 +172,7 @@ Draw first, then check.
 
 2. Alternate angles are equal: 58°.
 
-3. At the first crossing, the angle opposite 104° is 104°, and the two beside it are 180 − 104:
+3. At the first crossing, the angle opposite 104° is 104°, and the two beside it are $180 − 104$:
 
    ```keys E03 entry=alg
    180 − 104 ENTER
