@@ -13,9 +13,9 @@ display: FIX 4
 
 # Getting started with the calculator
 
-In this course you work each idea out by hand first, and then the STU-32 checks your answer. This
-lesson shows how to set the calculator up, how to type a calculation, how to use the last answer,
-and how to make the calculator show fractions. The examples come from Thornwick, a market town where
+In this course you work each idea out by hand first, and then the STU-32 checks your answer. You
+will set the calculator up, type a calculation, use the last answer, and make the
+calculator show fractions. The examples come from Thornwick, a market town where
 two roads cross a river, and its bakery, which Maren runs. Maren keeps the bakery's accounts in a
 ledger by hand, then checks them on the calculator, which is how this course works too.
 

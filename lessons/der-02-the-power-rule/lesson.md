@@ -10,9 +10,9 @@ display: FIX 4
 # The power rule
 
 der-01 found two derivatives by algebra: d(t) = 2t² has d′(t) = 4t, and f(x) = x² has f′(x) = 2x. Each
-took an expansion, a division by h and a limit. Doing that for every function would be slow. This
-lesson finds the pattern for powers of x, and two rules that build every polynomial's derivative from
-it, so that any polynomial's derivative can be written down at once.
+took an expansion, a division by h and a limit. Doing that for every function would be slow. Powers
+of x follow one pattern, and two rules build every polynomial's derivative from it, so any
+polynomial's derivative can be written down at once.
 
 ## From before
 
