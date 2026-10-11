@@ -366,6 +366,8 @@ either). A door opens when what the lesson leans on is done:
 - a unit with no checkpoint (`closes_on: lessons`) is done when each of its lessons is: the standing rule for a
   course's unit 0, the calculator, and the interim rule for any other unit until its checkpoint is written. graph.py's
   summary line names every unit on the interim rule, so the gap stays in view;
+- a unit with no lessons yet (`closes_on: unwritten`) is shown as coming: never done, never stamped, and it
+  opens nothing beyond it;
 - placement opens the units before the one it places.
 
 The passport says only what was checked: a unit is stamped "passed" for its checkpoint, "lessons done" when it

@@ -289,7 +289,8 @@ def route_data(lessons, graph):
             if len(cps) > 1:
                 bad.append(f"{cid} unit {u['n']}: checkpoint items in {len(cps)} lessons; a unit has one checkpoint")
             u["checkpoint"] = cps[0] if cps else None
-            u["closes_on"] = "checkpoint" if cps else "lessons"
+            # A unit with no lessons yet is unwritten: shown as coming, never done or stamped (abacus #7160).
+            u["closes_on"] = "checkpoint" if cps else "lessons" if u["lessons"] else "unwritten"
     return bad
 
 
@@ -319,9 +320,11 @@ def selftest_routes(lessons, graph):
     expect = (units[("algebra-to-calculus", "4")]["closes_on"] == "checkpoint"
               and units[("algebra-to-calculus", "0")]["closes_on"] == "lessons"
               and units[("pre-algebra", "1")]["closes_on"] == "lessons"
+              and units[("pre-algebra", "6")]["closes_on"] == "unwritten"
+              and units[("geometry", "2")]["closes_on"] == "unwritten"
               and "pre-algebra 1" in interim_units(g) and not any(x.endswith(" 0") for x in interim_units(g)))
     print(f"{'ok  ' if expect and not clean else 'FAIL'} the real units close on their checkpoint or their lessons, "
-          f"unit 0 by rule and the rest listed: {interim_units(g)}" + (f": {clean[:2]}" if clean else ""))
+          f"unit 0 by rule and the rest listed: {interim_units(g)}; empty units unwritten" + (f": {clean[:2]}" if clean else ""))
     return bool(hit) and expect and not clean
 
 
