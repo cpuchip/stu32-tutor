@@ -80,12 +80,13 @@ and the render proves the TeX is valid.
 You add `maths` as a question in tools/tutor_lesson.py: each span's start, end and text, per lesson. check.py's
 reader answers the same question, gated byte for byte, as with keys, voices and whys.
 
-## 5. What counts as maths: Michael's call
+## 5. What counts as maths: everything (Michael, 2026-10-11, abacus #6967)
 
 "All of the equations" leaves one boundary open, the arithmetic in running prose: "360 − 60 = 300°", "3 × 4
 pairs", "By hand, 7 + 5 = 12".
 1. **Everything:** every equation, and every expression with a letter, power, root, fraction or operator, goes in
-   `$…$`. A page then never mixes typeset and plain maths. This is my recommendation.
+   `$…$`. A page then never mixes typeset and plain maths. This is my recommendation, and his answer:
+   arithmetic too.
 2. **Algebra only:** letters, powers, roots, fractions and function notation. Plain arithmetic stays as text. That
    means fewer spans, but a page would show x = 6 typeset beside 7 × 12 = 84 plain.
 
