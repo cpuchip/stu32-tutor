@@ -56,7 +56,7 @@ The same work for the smaller powers:
 | $f(x)$ | the average from $a$ to $a + h$ | $f'(x)$ |
 |---|---|---|
 | $x$ | $((a + h) − a) ÷ h = 1$ | 1 |
-| x² | $2a + h$ | $2x$ |
+| $x^{2}$ | $2a + h$ | $2x$ |
 | $x^{3}$ | $3a^{2} + 3ah + h^{2}$ | $3x^{2}$ |
 
 The pattern: the power comes down in front, and the new power is one less. For $n = 1$, 2, 3 and on,
@@ -140,7 +140,7 @@ typed is a number again.</mode>
 
 ## Beyond whole powers
 
-The power rule reaches further than $n = 1$, 2, 3. 1/x is $x^{-1}$, and if the rule holds for $n = −1$, its
+The power rule reaches further than $n = 1$, 2, 3. $\frac{1}{x}$ is $x^{-1}$, and if the rule holds for $n = −1$, its
 derivative is $−1 × x^{-2}$, which is $−1 ÷ x^{2}$. At $x = 2$ that is $−\frac{1}{4}$, or −0.25. One average over 0.001, with
 1/x, takes $\frac{1}{2} = 0.5$ away from $\frac{1}{2.001}$ and divides by 0.001:
 
@@ -151,7 +151,7 @@ derivative is $−1 × x^{-2}$, which is $−1 ÷ x^{2}$. At $x = 2$ that is $�
 X shows <disp v="R01">-0.2499</disp>, near −0.25. The algebra proves it. $\frac{1}{a + h} − \frac{1}{a}$, over the common
 bottom $a(a + h)$, is $(a − (a + h)) ÷ (a(a + h))$, which is $−h ÷ (a(a + h))$. Divided by $h$, the average is
 $−1 ÷ (a(a + h))$, and as $h$ shrinks it closes in on $−1 ÷ a^{2}$. So the rule holds for $n = −1$, at every a
-but 0, where 1/x has no value. A later course proves the rule for other powers, such as fractions.
+but 0, where $\frac{1}{x}$ has no value. A later course proves the rule for other powers, such as fractions.
 
 ```why
 ask: Why is the average −0.2499, a little above −0.25?

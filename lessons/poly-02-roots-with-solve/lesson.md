@@ -152,7 +152,7 @@ slip: RT1T1B | the smallest | 1 is a root, but 4 and 6 are larger.
 
 ## A polynomial with no real root
 
-Not every polynomial crosses the $x$ axis. $x^{2} + 1$ is never less than 1, since x² is never negative,
+Not every polynomial crosses the $x$ axis. $x^{2} + 1$ is never less than 1, since $x^{2}$ is never negative,
 so it is never 0. Ask SOLVE anyway:
 
 ```keys N01
@@ -177,7 +177,7 @@ because: SOLVE hunts for a value of $x$ that makes the expression zero, and $x^{
 ## Exercise
 
 Find all the roots of $d(x) = x^{3} − 3x + 1$. Start by working out $d$ at the whole numbers from −2 to 2,
-find where the sign changes, and use SOLVE in each gap. $d$ has no x² term: type only the terms it
+find where the sign changes, and use SOLVE in each gap. $d$ has no $x^{2}$ term: type only the terms it
 has.
 
 ## Answer

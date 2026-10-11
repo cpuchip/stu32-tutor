@@ -86,7 +86,7 @@ Carrying on, 3 strips, each 1 wide:
 3 XEQ A ENTER
 ```
 
-X shows <disp v="A01">14.0000</disp>: $1 + 4 + 9$, the three rectangles of heights $1^{2}$, $2^{2}$ and $3^{2}$. x² rises
+X shows <disp v="A01">14.0000</disp>: $1 + 4 + 9$, the three rectangles of heights $1^{2}$, $2^{2}$ and $3^{2}$. $x^{2}$ rises
 from 0 to 3, so each rectangle, as tall as the curve at its right end, sticks out above the curve, and
 14 is too much. Carrying on, 30 strips:
 
@@ -111,14 +111,14 @@ integral confirms it: the area under $y = x^{2}$ from 0 to 3 is 9.
 
 ```why
 ask: Why do the sums come down toward 9 from above, and never below it?
-because: Each rectangle is as tall as the curve at its right end, and x² rises along every strip, so every rectangle sticks out above the curve; thinner strips stick out less.
+because: Each rectangle is as tall as the curve at its right end, and $x^{2}$ rises along every strip, so every rectangle sticks out above the curve; thinner strips stick out less.
 ```
 
 ## The built-in integral
 
 The calculator can estimate the integral itself. ∫, gold above 8, finds the integral of the expression
 showing in Equation mode between two ends on the stack: the lower end in Y and the upper in X. (These
-ends are also called the integral's limits, a second meaning of the word.) Type x² as an expression,
+ends are also called the integral's limits, a second meaning of the word.) Type $x^{2}$ as an expression,
 with no = sign (poly-02):
 
 ```keys I01

@@ -197,7 +197,7 @@ So the domain of $s$ is the inputs $x$ for which $x − 2$ is not negative: $x �
 every number below it is out, however close.
 
 ```why
-ask: Why is 2 the edge of s's domain, and not 0, the edge of √x's own?
+ask: Why is 2 the edge of s's domain, and not 0, the edge of $\sqrt{x}$'s own?
 because: S takes 2 away before the root, so the root sees $x − 2$. That is 0 when $x$ is 2, and negative for any $x$ below it.
 ```
 

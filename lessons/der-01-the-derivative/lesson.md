@@ -196,7 +196,7 @@ XEQ 3 R/S
    3.001 GOLD x² 9 − 0.001 ÷
    ```
 
-   X shows <disp v="E02">6.0010</disp>.<mode m="STU"> And D/DX, on x² typed with X:</mode>
+   X shows <disp v="E02">6.0010</disp>.<mode m="STU"> And D/DX, on $x^{2}$ typed with X:</mode>
 
    ```keys E02B mode=STU
    GOLD EQN RCL X yˣ 2 ENTER CAS D/DX X

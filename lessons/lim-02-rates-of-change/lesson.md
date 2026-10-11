@@ -255,7 +255,7 @@ slip: LM2M2A | divided by the new speed | The change is a share of where it star
 ```
 
 ```item LM2M3
-prompt: The averages of x² from 3 to 3.1, 3.01 and 3.001 are 6.1, 6.01 and 6.001. What do they close in on?
+prompt: The averages of $x^{2}$ from 3 to 3.1, 3.01 and 3.001 are 6.1, 6.01 and 6.001. What do they close in on?
 topics: instant-rate
 answer: type
 calculator: no
@@ -276,12 +276,12 @@ slip: LM2M4A | 0 ÷ 0 read as 0 | Top and bottom are both 0 at 1, so look nearby
 Questions on the whole unit.
 
 ```item CP10A
-prompt: What is the average rate of change of x² from $x = 2$ to $x = 4$?
+prompt: What is the average rate of change of $x^{2}$ from $x = 2$ to $x = 4$?
 operands: 2, 2, 4
 topics: average-rate
 answer: type
 calculator: no
-slip: CP10A1 | forgot to divide | Divide the change in x² by the change in $x$, $4 − 2$.
+slip: CP10A1 | forgot to divide | Divide the change in $x^{2}$ by the change in $x$, $4 − 2$.
 slip: CP10A2 | divided by 4 | The change in $x$ is $4 − 2 = 2$, not 4.
 ```
 

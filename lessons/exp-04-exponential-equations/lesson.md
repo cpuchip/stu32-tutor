@@ -74,9 +74,9 @@ GOLD EQN XEQ 2 R/S
 ```
 
 X shows <disp v="Q04">1.3891</disp>: $e^{2} − 6$. The sign changes from 0 to 1 and again from 1 to 2, so
-eˣ and $3x$ cross at least once in each gap. A sign change says nothing more than "at least once",
+$e^{x}$ and $3x$ cross at least once in each gap. A sign change says nothing more than "at least once",
 and unlike a polynomial there is no degree to cap the count. What caps it here is the shape of the two
-sides: $3x$ is a straight line, and the graph of eˣ bends upward everywhere, getting steeper as it
+sides: $3x$ is a straight line, and the graph of $e^{x}$ bends upward everywhere, getting steeper as it
 goes. A straight line can cross a curve that bends one way like that at most twice: once going in
 and once coming out. So two crossings is all there are, one in each gap.
 
@@ -164,7 +164,7 @@ GOLD EQN XEQ 3 R/S
 ```
 
 X shows <disp v="E01C">2.0000</disp>. Two sign changes, so at least one solution in each gap.
-And no more: $x + 3$ is a straight line, and $2^{x}$ bends upward everywhere as eˣ does, so they cross at
+And no more: $x + 3$ is a straight line, and $2^{x}$ bends upward everywhere as $e^{x}$ does, so they cross at
 most twice. The two gaps hold one each:
 
 ```keys E02 after=E01C

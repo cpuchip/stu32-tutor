@@ -373,6 +373,10 @@ def to_tex(u):
 
 
 HAND_FILE = os.path.join(HERE, "maths_hand.txt")
+# Legends that also read as maths (abacus #7445, #7452): a key beside "key" or "press", elsewhere a decision by hand.
+# The other raised legends (yˣ, ˣ√y, 10ˣ) are only ever keys in these lessons.
+MATHS_LEGENDS = {"x²", "eˣ", "1/x", "√x"}
+POWER_TOKEN = re.compile(rf"[\w.√]*[{SUPS}][\w.√{SUPS}]*")
 
 
 def hand_decisions(lesson):
@@ -431,8 +435,14 @@ def plan(text, geometry, keys, hand=None):
             s -= len(masked[max(0, s - 40):s]) - m.start()
         return s, e
 
+    def beside_key(s, e):
+        return (re.match(r"\s*keys?\b", text[e:e + 12])
+                or re.search(r"\bpress(?:es|ed|ing)?\s+(?:the\s+)?$", text[max(0, s - 24):s]))
+
     def key_name(s, e, t):
-        """A key's name: a legend, the whole word around the run a legend (x↔y), or beside "key" or "press"."""
+        """A key's name: a legend, the whole word around the run a legend (x↔y), or beside "key" or "press". A legend
+        that also reads as maths (x², eˣ, 1/x, √x) is a key only beside "key" or "press"; elsewhere it is a decision
+        by hand (abacus #7445: "x² rises" and "the graph of eˣ" had been left plain as keys)."""
         a = s
         while a > 0 and not text[a - 1].isspace():
             a -= 1
@@ -440,12 +450,20 @@ def plan(text, geometry, keys, hand=None):
         while b < len(text) and not text[b].isspace():
             b += 1
         word = text[a:b].strip(".,;:!?()")
+        if t in MATHS_LEGENDS or word in MATHS_LEGENDS:
+            return bool(beside_key(s, e))
         # a one-character legend (the memory letters A-Z, b, i, m, r) is a key's name only beside "key" or "press"
-        return ((len(t) > 1 and t in keys) or (len(word) > 1 and word in keys) or re.match(r"\s*keys?\b", text[e:e + 12])
-                or re.search(r"\bpress(?:es|ed|ing)?\s+(?:the\s+)?$", text[max(0, s - 24):s]))
+        return ((len(t) > 1 and t in keys) or (len(word) > 1 and word in keys) or beside_key(s, e))
     found = [(s, e, t, bool(key_name(s, e, t))) for s, e, t in found]
+
+    def legend_ctx(s, e, t):
+        return f"legend: …{text[max(0, s - 24):s][-20:]}[{t}]{text[e:e + 12]}…".replace("\n", " ")
     letters = set()
     for s, e, t, key in found:
+        # a legend read as maths names the lesson's letters only where it is decided a span (trig-03's x² is the key,
+        # and must not make its "x axis" a span)
+        if t in MATHS_LEGENDS and hand.get(legend_ctx(s, e, t)) != "span":
+            continue
         if kind_of(t) == "expr" and not key:
             letters |= set(re.findall(r"(?<![\\A-Za-z])[A-Za-z](?![A-Za-z(])", re.sub(r"[A-Za-z][′″]?\(", "(", t)))
             # a letter used as a function counts too, so "the domain of $r$" matches its $r(x)$ (abacus #7268); not
@@ -463,6 +481,9 @@ def plan(text, geometry, keys, hand=None):
         before, after = text[max(0, s - 24):s], text[e:e + 12]
         if key:
             left["key name"] += 1
+            continue
+        if t in MATHS_LEGENDS:
+            ask(s, e, t, legend_ctx(s, e, t))
             continue
         if k == "expr" and re.match(r"(?!s\b)\w", text[e:e + 2]):   # (a plural s is English: "2/10s")
             # glued to what follows ("0i1 means"): the calculator's notation or a word, not a whole expression
@@ -508,6 +529,19 @@ def plan(text, geometry, keys, hand=None):
     # A lone a, A or I in a sentence that also holds a one-letter span, or a span using that letter as a variable,
     # is always listed for a decision by hand, never decided (abacus #7248: angle-02's "a with c"). Elsewhere it is
     # the word, or listed when the lesson uses it as a variable and no noun follows.
+    # A raised power that no run took ("sin⁻¹", "cos²θ") is a decision by hand too, except a key-only legend (yˣ);
+    # so is a maths-reading legend no run took ("√x's own", a possessive the scanner does not read). check.py's
+    # plain_powers() reads the same tokens.
+    for za, zb in zones(text):
+        tokens = [(m.start(), m.group(0).rstrip("."), "power") for m in POWER_TOKEN.finditer(masked[za:zb])]
+        tokens += [(m.start(), m.group(0), "legend") for m in check.PLAIN_LEGEND.finditer(masked[za:zb])]
+        for at, t, kind in tokens:
+            s = za + at
+            e = s + len(t)
+            if (kind == "power" and t in keys) or any(a < e and s < b for a, b, _, _ in found) or beside_key(s, e):
+                continue
+            ask(s, e, t, legend_ctx(s, e, t) if kind == "legend"
+                else f"power: …{text[max(0, s - 20):s]}[{t}]{text[e:e + 12]}…".replace("\n", " "))
     lspans = [x for x in spans if re.fullmatch(r"[A-Za-z]", x[2]) or re.search(r"(?<![\\A-Za-z])[aAI](?![A-Za-z])", x[2])]
     # a deferred letter decided a span by hand counts too ("here $A$" lists the "a formula" in its sentence)
     lspans += [(s, e, t) for s, e, t, before, after in deferred

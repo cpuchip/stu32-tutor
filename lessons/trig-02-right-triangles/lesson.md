@@ -112,7 +112,7 @@ whole tree.
 
 The other way round: given two sides, find the angle. That needs the inverse functions, which take a
 ratio and give back the angle: ASIN, ACOS and ATAN, gold above SIN, COS and TAN (books write them
-sin⁻¹, cos⁻¹ and tan⁻¹). For a right triangle's angles, all between 0 and 90 degrees, they give the
+$\sin^{-1}$, $\cos^{-1}$ and $\tan^{-1}$). For a right triangle's angles, all between 0 and 90 degrees, they give the
 angle meant; trig-03 shows that a sine belongs to more than one angle in general. A triangle with
 sides 3, 4 and 5 is a right triangle: Pythagoras' rule says a triangle whose sides fit
 $a^{2} + b^{2} = c^{2}$, with $c$ the longest, has a right angle, and $3^{2} + 4^{2} = 9 + 16 = 25 = 5^{2}$. The angle $A$

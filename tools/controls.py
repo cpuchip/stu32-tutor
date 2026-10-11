@@ -490,6 +490,8 @@ CONTROLS_FOR["trig-01-degrees-and-radians"] = [
      "E03: printed keys and vector disagree in 33s mode"),
 ]
 CONTROLS_FOR["trig-02-right-triangles"] = [
+    ("an inverse function's power left plain", "lesson.md", "$\\sin^{-1}$, $\\cos^{-1}$", "sin⁻¹, $\\cos^{-1}$", {},
+     "a plain sin⁻¹ that is not a recorded key"),
     ("the ladder's height taken with cos (the adjacent side)", "lesson.md", "```keys L01\n5 ENTER 70 SIN ×\n",
      "```keys L01\n5 ENTER 70 COS ×\n", {}, "L01: printed keys and vector disagree in 33s mode"),
     ("an angle from SIN instead of ASIN", "lesson.md", "```keys A01\n3 ENTER 5 ÷ GOLD ASIN\n", "```keys A01\n3 ENTER 5 ÷ SIN\n", {},
@@ -571,6 +573,8 @@ CONTROLS_FOR["prob-01-probability"] = [
      "R02"),
 ]
 CONTROLS_FOR["lim-01-approaching-a-limit"] = [
+    ("the function 1/x left plain", "lesson.md", "$\\frac{1}{x}$ near 0 settles on nothing.",
+     "1/x near 0 settles on nothing.", {}, "a plain 1/x that is not a recorded key"),
     ("program L without x<>y: (x^2 - 1) divided the wrong way", "lesson.md",
      "GOLD LBL L ENTER GOLD x² 1 − x↔y 1 − ÷ BLUE RTN", "GOLD LBL L ENTER GOLD x² 1 − 1 − ÷ BLUE RTN", {},
      "P01A: printed keys and vector disagree in 33s mode"),
@@ -582,6 +586,9 @@ CONTROLS_FOR["lim-01-approaching-a-limit"] = [
      "D-L04: the prose shows '2.1000'"),
 ]
 CONTROLS_FOR["lim-02-rates-of-change"] = [
+    # A legend read as maths, left plain (abacus #7445): CP10A's own first form.
+    ("a maths x² left plain", "lesson.md", "rate of change of $x^{2}$ from", "rate of change of x² from", {},
+     "a plain x² that is not a recorded key"),
     ("program D without taking away d(1)", "lesson.md", "GOLD LBL D STO H 1 + GOLD x² 2 × 2 − RCL H ÷ BLUE RTN",
      "GOLD LBL D STO H 1 + GOLD x² 2 × RCL H ÷ BLUE RTN", {}, "P01A: printed keys and vector disagree in 33s mode"),
     ("the cancelled h = 1E-34 quoted as if it still gave 4", "lesson.md", 'v="D05">0.0000<', 'v="D05">4.0000<', {},
@@ -956,6 +963,11 @@ CONTROLS_FOR["rpn-03-the-display"].append(
      "```keys P01\nGOLD DISP FIX 4 2 ENTER 3 ÷\n", "```keys P01\n2 ENTER 3 ÷\n", {},
      "P01: working through in order"))
 GREENS_FOR = {
+    "fn-01-functions-as-programs": [
+        # a legend that reads as maths is a key beside "key" (abacus #7445): no hand line needed there
+        ("the x² key, named as a key", "lesson.md", "in Y, x² squares the one in X, and + adds the two.",
+         "in Y, the x² key squares the one in X, and + adds the two."),
+    ],
     "der-01-the-derivative": [
         # the same planted pair, with its hand line: a judged cousin passes
         ("a twin with a problem's numbers, listed in the hand file", DR1T1_AT_3, None, None,

@@ -14,7 +14,7 @@ is the work, not the idea). Each one shows you are ready for a later unit; the p
 an order that finds your unit in a few steps. Leave one blank if you have not met it yet.
 
 ```item U2A
-prompt: Work out 3 + 4 × 2².
+prompt: Work out $3 + 4 × 2^{2}$.
 topics: mult-before-add powers-first
 answer: type
 calculator: no
@@ -30,7 +30,7 @@ places: 2
 ```
 
 ```item U3A
-prompt: Solve 2x + 3 = 11. What is x?
+prompt: Solve $2x + 3 = 11$. What is $x$?
 topics: solve
 answer: type
 calculator: no
@@ -38,7 +38,7 @@ places: 3
 ```
 
 ```item U3B
-prompt: Work out |−7| + 2.
+prompt: Work out $|−7| + 2$.
 topics: abs
 answer: type
 calculator: no
@@ -46,7 +46,8 @@ places: 3
 ```
 
 ```item U4A
-prompt: f(x) = x² − 3. What is f(4)?
+prompt: $f(x) = x^{2} − 3$. What is $f(4)$?
+operands: 2, 3, 4
 topics: function
 answer: type
 calculator: no
@@ -54,7 +55,7 @@ places: 4
 ```
 
 ```item U4B
-prompt: For which x is 1 ÷ (x − 2) not defined?
+prompt: For which $x$ is $1 ÷ (x − 2)$ not defined?
 topics: domain divide-by-zero
 answer: type
 calculator: no
@@ -71,7 +72,7 @@ places: 5
 ```
 
 ```item U5B
-prompt: A line has slope −2 and meets the y axis at 4. What is y when x = 3?
+prompt: A line has slope −2 and meets the $y$ axis at 4. What is $y$ when $x = 3$?
 topics: linear-function intercept
 answer: type
 calculator: no
@@ -79,7 +80,7 @@ places: 5
 ```
 
 ```item U6A
-prompt: x² − 5x + 6 = 0 has two roots. What is the larger one?
+prompt: $x^{2} − 5x + 6 = 0$ has two roots. What is the larger one?
 topics: root quadratic
 answer: type
 calculator: no
@@ -87,7 +88,8 @@ places: 6
 ```
 
 ```item U6B
-prompt: What is the discriminant b² − 4ac of x² + 2x + 5?
+prompt: What is the discriminant $b^{2} − 4ac$ of $x^{2} + 2x + 5$?
+operands: 2, 2, 5
 topics: discriminant
 answer: type
 calculator: no
@@ -95,7 +97,7 @@ places: 6
 ```
 
 ```item U7A
-prompt: What is log 1000 (base 10)?
+prompt: What is $\log 1000$ (base 10)?
 topics: log
 answer: type
 calculator: no
@@ -103,7 +105,7 @@ places: 7
 ```
 
 ```item U7B
-prompt: $200 grows by 10% each year. How much is there after 2 years?
+prompt: \$200 grows by 10% each year. How much is there after 2 years?
 topics: growth
 answer: type
 calculator: yes
@@ -111,7 +113,7 @@ places: 7
 ```
 
 ```item U8A
-prompt: What is sin 30° (degrees)?
+prompt: What is $\sin 30°$ (degrees)?
 topics: trig-ratios
 answer: type
 calculator: no
@@ -128,7 +130,8 @@ places: 8
 ```
 
 ```item U9A
-prompt: x + y = 10 and x − y = 4. What is x?
+prompt: $x + y = 10$ and $x − y = 4$. What is $x$?
+operands: 10, 4
 topics: system elimination
 answer: type
 calculator: no
@@ -136,7 +139,8 @@ places: 9
 ```
 
 ```item U9B
-prompt: 2x + y = 7 and x − y = 2. What is y?
+prompt: $2x + y = 7$ and $x − y = 2$. What is $y$?
+operands: 2, 7, 2
 topics: system elimination
 answer: type
 calculator: no
@@ -144,7 +148,7 @@ places: 9
 ```
 
 ```item U10A
-prompt: What is 5! (5 factorial)?
+prompt: What is $5!$ (5 factorial)?
 topics: factorial
 answer: type
 calculator: no
@@ -160,7 +164,8 @@ places: 10
 ```
 
 ```item U11A
-prompt: What is the average rate of change of x² from x = 1 to x = 3?
+prompt: What is the average rate of change of $x^{2}$ from $x = 1$ to $x = 3$?
+operands: 2, 1, 3
 topics: average-rate
 answer: type
 calculator: no
@@ -168,7 +173,7 @@ places: 11
 ```
 
 ```item U11B
-prompt: What does (x² − 1) ÷ (x − 1) close in on as x approaches 1?
+prompt: What does $(x^{2} − 1) ÷ (x − 1)$ close in on as $x$ approaches 1?
 topics: limit cancellation
 answer: type
 calculator: no
@@ -176,7 +181,8 @@ places: 11
 ```
 
 ```item U12A
-prompt: What is the derivative of x³ at x = 2?
+prompt: What is the derivative of $x^{3}$ at $x = 2$?
+operands: 3, 2
 topics: power-rule
 answer: type
 calculator: no
@@ -184,7 +190,8 @@ places: 12
 ```
 
 ```item U12B
-prompt: What is the slope of x² + 4x at x = 1?
+prompt: What is the slope of $x^{2} + 4x$ at $x = 1$?
+operands: 2, 4, 1
 topics: derivative-function sum-multiple-rules
 answer: type
 calculator: no

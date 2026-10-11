@@ -299,6 +299,11 @@ arithmetic too, Michael via abacus #6967). The lesson says where the maths is:
   cell's span ("| $x$ |") and passes. A plural s is English ("how many $\frac{2}{10}$s"). A raised letter (ˣ ʳ ᵗ ᵀ …) is
   `^{x}`, and a formula in words writes its words as `\text{…}` (letters and spaces only, and only in a span with a
   function, operator or relation): `$\sin A = \text{opposite} ÷ \text{hypotenuse}$`.
+- **No plain powers** (abacus #7445): where a span may go, a power written with Unicode superscripts (x², eˣ, 10³,
+  sin⁻¹) and the legends that read as maths (x², eˣ, 1/x, √x) are spans, `$x^{2}$`, `$\frac{1}{x}$`. Plain is
+  only for a key: yˣ, ˣ√y and 10ˣ always; x², eˣ, 1/x and √x beside "key" or "press", or where tools/maths_hand.txt
+  records the place plain ("x² squares the one in X"). check.py refuses any other. Headings and slip names hold no
+  spans, so a power there stays plain (the page shows a slip's hint, never its name: primer #7457).
 - **An absolute value** is `$|x − 3|$`, the bars with no space inside (a table row is never read as bars), and a
   **factorial** is `$5!$`, the `!` after a digit or a bracket only. A `|` may not sit in a span on a slip line,
   where `|` separates the fields: check.py refuses it. tools/maths_convert.py applies them a course at a time.

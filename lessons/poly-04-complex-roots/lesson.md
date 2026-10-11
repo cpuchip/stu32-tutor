@@ -187,7 +187,7 @@ A root makes the polynomial 0. <mode m="35s,STU">Put $−1 + 2i$ into $x^{2} + 2
 keys of poly-01: fill the stack with it, then 1 ×, 2 +, ×, 5 +. The stack holds a complex number in each level
 just as it holds a real one, so the same keys work. Here +/− comes before the $i$, so it makes the real
 part negative:</mode><mode m="33s">Put $−1 + 2i$ into $x^{2} + 2x + 5$. Horner's keys need a complex number in
-every stack level, and here a pair takes two levels, so work it out term by term instead. x² is $z × z$:
+every stack level, and here a pair takes two levels, so work it out term by term instead. $x^{2}$ is $z × z$:
 the pair 2 ENTER 1 +/−, ENTER, the pair again, and CMPLX ×. Then add $2z$: twice each part, worked out in
 your head, is $−2 + 4i$, typed as 4 ENTER 2 +/−. A result moves up when you type the next number,
 and a pair is two numbers, so typing it pushes the square up two levels, into Z and T, with

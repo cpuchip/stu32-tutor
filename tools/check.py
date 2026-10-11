@@ -340,6 +340,54 @@ def maths_spans(text):
     return maths_scan(text)[0]
 
 
+KEY_ONLY_POWERS = {"yˣ", "ˣ√y", "10ˣ"}     # raised legends that are only ever keys in these lessons (abacus #7452)
+PLAIN_LEGEND = re.compile(r"(?<![\w/√])(?:1/x|√x)(?!\w)")
+
+
+def plain_powers(body, hand_key):
+    """A Unicode power or a maths-reading legend left plain where a span may go (abacus #7445): refused unless it is
+    a key-only legend (yˣ, ˣ√y, 10ˣ), beside "key" or "press", or recorded plain in tools/maths_hand.txt under
+    hand_key. The places are the converter's own (zones, masks, tokens), and each is named by the converter's
+    context, taken from check.py's reading of the text (spans read back), which is the text the decision was made
+    on."""
+    import maths_convert as mc        # (here, not at the top: maths_convert imports this module)
+    read = maths_read(body)
+    hand = mc.hand_decisions(hand_key)
+    spans = [(m.start(), m.end()) for m in re.finditer(f"{MATHS_KEEP}.*?{MATHS_END}", read, re.S)]
+    demark = lambda s: re.sub(f"[{MATHS_KEEP}{MATHS_END}]", "", s)
+    masked = mc.mask(read)
+    out = []
+    for za, zb in mc.zones(read):
+        found = [(m.start(), m.group(0).rstrip(".")) for m in mc.POWER_TOKEN.finditer(masked[za:zb])]
+        found += [(m.start(), m.group(0)) for m in PLAIN_LEGEND.finditer(masked[za:zb])]
+        for at, t in found:
+            s, e = za + at, za + at + len(t)
+            if any(a <= s < b for a, b in spans) or t in KEY_ONLY_POWERS:
+                continue
+            before, after = demark(read[:s]), demark(read[e:])
+            if t in mc.MATHS_LEGENDS and (re.match(r"\s*keys?\b", after[:12])
+                                          or re.search(r"\bpress(?:es|ed|ing)?\s+(?:the\s+)?$", before[-24:])):
+                continue
+            kind = "legend" if t in mc.MATHS_LEGENDS else "power"
+            ctx = f"{kind}: …{before[-20:]}[{t}]{after[:12]}…".replace("\n", " ")
+            if hand.get(ctx) == "plain":
+                continue
+            out.append(f"a plain {t} that is not a recorded key: '{ctx}'; write the maths as a span, or record the "
+                       f"key plain in tools/maths_hand.txt")
+    return out
+
+
+def hand_key(meta, lesson_dir):
+    """The name tools/maths_hand.txt files a lesson's decisions under: its folder in lessons/ (found by its id, so a
+    control's copy reads the lesson's own decisions), or "placement-COURSE" for a placement file."""
+    if meta.get("kind") == "placement":
+        return f"placement-{meta.get('course', '')}"
+    root = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "lessons")
+    lid = meta.get("id", "")
+    return next((f for f in sorted(os.listdir(root)) if f == lid or f.startswith(f"{lid}-")),
+                os.path.basename(os.path.normpath(lesson_dir)))
+
+
 def check_maths(body):
     """Problems with a lesson's maths: the $ marks; a span where maths may not go (a heading, a keys block, a <disp>
     quote, a tag, a ```math fence, an item's field other than prompt: and slip:); a span across a tag (a voice span's
@@ -1144,6 +1192,8 @@ class Lesson:
         meta, body = front_matter(text)
         # Maths: the spans as written; then every check below reads each one as its plain text (maths_read).
         for p in check_maths(body):
+            self.bad(p)
+        for p in plain_powers(body, hand_key(meta, self.d)):
             self.bad(p)
         body = maths_read(body)
         # Voices: the spans and the same-skeleton proof first; then every check below reads the default voice,

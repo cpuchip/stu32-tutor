@@ -9,7 +9,7 @@ display: FIX 4
 
 # Evaluating a polynomial
 
-A polynomial adds up terms, each a number times a power of $x$: $x$, x², $x^{3}$ and so on, plus a term with
+A polynomial adds up terms, each a number times a power of $x$: $x$, $x^{2}$, $x^{3}$ and so on, plus a term with
 no $x$ at all, the constant term. The numbers are its coefficients. $p(x) = 2x^{3} − 3x^{2} + 4x − 5$ has the
 coefficients 2, −3 and 4, and the constant term −5. Its degree is the highest power with a
 coefficient that is not 0, here 3. $q(x) = x^{2} − 4x + 3$ from fn-02 has degree 2, and the lines of
@@ -171,7 +171,7 @@ because: XEQ P runs with $x$ already in X, so the ENTERs fill the stack with cop
 
 ## Exercises
 
-$r(x) = x^{3} − 2x + 1$ has no x² term. In the nested form a missing power has the coefficient 0, so the
+$r(x) = x^{3} − 2x + 1$ has no $x^{2}$ term. In the nested form a missing power has the coefficient 0, so the
 coefficients in order are 1, 0, −2 and 1, and $r(x) = ((1x + 0)x − 2)x + 1$.
 
 1. Work out $r(2)$ on the stack, keying every coefficient in order, the 1 and the 0 too.

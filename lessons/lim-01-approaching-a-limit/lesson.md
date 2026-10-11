@@ -196,7 +196,7 @@ GOLD DISP FIX 4
 
 ## Limits that do not exist
 
-1/x near 0 settles on nothing. Close to 0 from above it is large:
+$\frac{1}{x}$ near 0 settles on nothing. Close to 0 from above it is large:
 
 ```keys N01
 0.01 1/x
@@ -208,7 +208,7 @@ X shows <disp v="N01">100.0000</disp>. Carrying on, nearer:
 0.001 1/x
 ```
 
-X shows <disp v="N01B">1,000.0000</disp>: the nearer $x$ is to 0, the larger 1/x grows, without end. And
+X shows <disp v="N01B">1,000.0000</disp>: the nearer $x$ is to 0, the larger $\frac{1}{x}$ grows, without end. And
 carrying on, from below:
 
 ```keys N02 after=N01B
@@ -218,7 +218,7 @@ carrying on, from below:
 X shows <disp v="N02">-1,000.0000</disp>. The values close in on no number, from either side.
 
 ```why
-ask: Why does 1/x grow without end as $x$ nears 0?
+ask: Why does $\frac{1}{x}$ grow without end as $x$ nears 0?
 because: $1 ÷ x$ asks how many x's make 1, and the smaller $x$ is, the more of them it takes: a thousandth takes a thousand.
 ```
 
