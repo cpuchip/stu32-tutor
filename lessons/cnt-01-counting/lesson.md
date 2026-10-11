@@ -10,13 +10,11 @@ display: FIX 4
 # Counting
 
 How many ways can something happen? Listing the ways works for a few, and fails for many: there are
-far too many orders of a deck of cards to list. This lesson counts them without listing: multiply
+far too many orders of a deck of cards to list. They can be counted without listing: multiply
 the choices, count orders with a factorial, and choose some of a group with or without caring about
 their order.
 
 ## From before
-
-Two from unit 1, by hand.
 
 ```item CN1F1
 prompt: Work out 4 × 3 × 2 + 1.
@@ -79,8 +77,8 @@ X shows <disp v="F01">120.0000</disp>. Factorials grow fast. The orders of a dec
 ```
 
 X shows <disp v="F02">8.0658E67</disp>: just over 8 times ten to the 67th, a number 68 digits long, too
-long for the screen at FIX 4, so it is shown in scientific form (rpn-01, rpn-03). The calculator keeps
-the first 34 of those 68 digits, rounded (rpn-03).
+long for the screen at FIX 4, so it is shown in scientific form (rpn-03). The calculator keeps
+the first 34 of those 68 digits, rounded.
 
 0! is 1. That can be read as one way to arrange nothing, and the next section shows why it has to be
 so:
@@ -203,9 +201,6 @@ combination.
    X shows <disp v="E04">1,320.0000</disp>.
 
 ## Mixed review
-
-Four from this lesson and the ones before it, in no order. Work each by hand unless it says to use
-the calculator.
 
 ```item CN1M1
 prompt: What is 4!?

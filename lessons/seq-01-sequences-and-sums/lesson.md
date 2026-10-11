@@ -11,13 +11,10 @@ display: FIX 4
 
 A sequence is a list of numbers in order: a first term, a second, a third, and so on. Many follow a
 rule. In 20, 22, 24, 26, … each term is the one before plus 2; in 3, 6, 12, 24, … each term is the one
-before times 2. This lesson finds any term of such a sequence without writing out all the terms
-before it, and adds up many terms at once.
+before times 2. A rule like that gives any term without writing out all the terms before it, and
+adds up many terms at once.
 
 ## From before
-
-Two from before, by hand: growth from exp-01 and a line from lin-01. They are the two kinds of
-sequence this lesson names.
 
 ```item SQ1F1
 prompt: 5 grows by a factor of 2 at each step. What is it after 3 steps?
@@ -85,7 +82,7 @@ because: Along the top line each term is 2 more than the one before, and along t
 A sequence that multiplies by the same number at every step is geometric, and the number is its
 common ratio, r: growth by a factor (exp-01) is a geometric sequence. A colony of cells starts with 3
 and doubles every hour: 3, 6, 12, 24, …. The nth term is n − 1 steps after the first, so it is the
-first term multiplied by r once for each of those steps: 3 × 2ⁿ⁻¹. (exp-01 counted its steps from the
+first term multiplied by r once for each of those steps: 3 × 2ⁿ⁻¹. (Growth counted its steps from the
 start, a × bⁿ after n steps; here the first term is the start, so the nth is n − 1 steps on.) The 10th:
 
 ```keys G01
@@ -112,7 +109,7 @@ X shows <disp v="G02">3,069.0000</disp>.
 
 A formula is quicker, but adding the terms one by one is a check that needs no sum formula. Program Z
 adds the theatre's 15 rows. It keeps the total in the variable T (on 8), and a counter in I (on R↓)
-as the loop in fn-02 kept its counter: 1.015 counts from 1 up to and including 15. Z is on the 2 key and
+as T's loop kept its counter: 1.015 counts from 1 up to and including 15. Z is on the 2 key and
 its loop label, W, on 5:
 
 ```keys P01A
@@ -122,7 +119,7 @@ GOLD PRGM PRGM GOLD LBL Z 0 STO T 1.015 STO I
 Each time round, the loop takes the row number k from the counter's whole part and works out row k's
 seats. The rule from above, 20 + (k − 1) × 2, is 20 + 2k − 2, which is 18 + 2k, fewer keys. It adds
 them to T with STO + (rpn-02). Then ISG counts on and GTO goes back to W; once the count passes 15,
-ISG skips the GTO, as in fn-02, and RCL T brings the total to X:
+ISG skips the GTO, and RCL T brings the total to X:
 
 ```keys P01B after=P01A
 GOLD LBL W RCL I BLUE POW IP 2 × 18 + STO + T BLUE ISG I GOLD GTO W RCL T BLUE RTN
@@ -132,7 +129,7 @@ GOLD LBL W RCL I BLUE POW IP 2 × 18 + STO + T BLUE ISG I GOLD GTO W ENTER RCL T
 ```
 
 The X line shows <disp v="P01B" kind="program">W012 RTN</disp>: W's twelfth line. If it shows another
-number, a key was missed or doubled; fn-01 showed how to step back and fix a line. Turn program entry
+number, a key was missed or doubled; step back with ← and fix the line. Turn program entry
 off and run it:
 
 ```keys P01 after=P01B
@@ -199,9 +196,6 @@ because: The loop uses nothing of the sum formula, only each row's own seats, so
    X shows <disp v="E03">1,023.0000</disp>.
 
 ## Mixed review
-
-Four from this lesson and the ones before it, in no order. Work each by hand unless it says to use
-the calculator.
 
 ```item SQ1M1
 prompt: The sequence 7, 10, 13, … goes on the same way. What is its 10th term?

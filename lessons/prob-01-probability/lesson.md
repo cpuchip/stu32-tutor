@@ -10,15 +10,13 @@ display: FIX 4
 # Probability, and why the odds are against you
 
 A probability says how likely something is, as a number from 0 to 1: 0 for what cannot happen, 1 for
-what must, and in between for everything else. This lesson works probabilities out by counting, as
-cnt-01 counted, and then uses them to answer a question every game of chance hides: over many plays,
+what must, and in between for everything else. Probabilities can be worked out by counting, as
+cnt-01 counted, and then they answer a question every game of chance hides: over many plays,
 how much does a bet win or lose on average? For a game of chance run to make money, the answer is that
-it loses, and the calculator can show by how much. Last, it lets the calculator make random numbers to
+it loses, and the calculator can show by how much. Last, the calculator makes random numbers to
 imitate chance.
 
 ## From before
-
-Two from before, by hand: a combination from cnt-01, and fractions from unit 1.
 
 ```item PB1F1
 prompt: In how many ways can 2 of 5 people be chosen, if the order does not matter?
@@ -80,7 +78,7 @@ X shows <disp v="N01">0.8333</disp>.
 
 Two events are independent when one happening does not change the chances of the other, as with two
 dice. The probability that both happen is then the two probabilities multiplied. For two fair dice
-you can see why by counting: the rule from cnt-01, multiplying the choices, gives 6 × 6 = 36 outcomes, all
+you can see why by counting: the rule of multiplying the choices, gives 6 × 6 = 36 outcomes, all
 equally likely, and only one of them is a 6 and a 6, so 1 in 36, which is 1/6 × 1/6. Both dice
 showing 6, as 1/6 times 1/6:
 
@@ -111,7 +109,7 @@ because: 4 × 1/6 counts a run with two or more 6s more than once, and with seve
 
 ## Counting with combinations
 
-A hand of 5 cards from 52 can be dealt in C(52, 5) ways (cnt-01), and when the deck is well shuffled
+A hand of 5 cards from 52 can be dealt in C(52, 5) ways, and when the deck is well shuffled
 every hand is equally likely. The hands that are all hearts are the ways to choose 5 of the 13 hearts:
 C(13, 5). So the chance of a hand of five hearts is C(13, 5) ÷ C(52, 5). C(13, 5) waits in Y while
 C(52, 5) is worked out:
@@ -272,9 +270,6 @@ X shows <disp v="S01">0.0000</disp>: the two numbers were the same, and so are t
    X shows <disp v="E05">-0.3000</disp>: 30 cents lost per card, on average.
 
 ## Mixed review
-
-Four from this lesson and the ones before it, in no order. Work each by hand unless it says to use
-the calculator.
 
 ```item PB1M1
 prompt: A bag holds 8 balls, 2 of them red. One is drawn at random. What is the probability it is red?

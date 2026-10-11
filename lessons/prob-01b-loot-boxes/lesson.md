@@ -12,14 +12,12 @@ display: FIX 4
 Many games sell chances instead of things. A loot box costs money, or a currency bought with money, and
 gives an item chosen at random. Gacha games (the name comes from capsule-toy machines) work the same
 way: each "pull" gives a random character or item. The prize everyone wants is rare: say the game
-publishes that its rare item comes in 1% of pulls. This lesson works out what that 1% means: how likely
+publishes that its rare item comes in 1% of pulls. That 1% decides how likely
 a player is to get the item in 10 or 100 pulls, how many pulls it takes on average, what a "pity timer"
-changes, and what it all costs. It covers the same ideas as prob-01, from another angle. The rates and
+changes, and what it all costs. The ideas are the ones from prob-01, seen from another angle. The rates and
 prices here are examples, not any real game's.
 
 ## From before
-
-Two from before, by hand: independent tosses from prob-01, and a percent from num-04.
 
 ```item PB2F1
 prompt: A fair coin is tossed three times. What is the probability of three tails?
@@ -60,7 +58,7 @@ X shows <disp v="P01">0.9900</disp>: 99 pulls in 100 give something else.
 
 ## At least one in many pulls
 
-This lesson assumes each pull is drawn afresh, with the same 1% whatever happened before; a pity timer,
+Assume each pull is drawn afresh, with the same 1% whatever happened before; a pity timer,
 below, is the exception. Pulls like that are independent, and the chance that several independent
 things all happen is their probabilities multiplied, as cnt-01 multiplied choices. So no rare item in 10
 pulls is 0.99 × 0.99 × … ten times, 0.99¹⁰, and at least one rare item is 1 minus that. x↔y puts the 1
@@ -144,7 +142,7 @@ two? None is 0.99¹⁰⁰:
 ```
 
 X shows <disp v="K00">0.3660</disp>. For exactly one, one particular pull must be the item and the other 99
-must not: 0.01 × 0.99⁹⁹. The one could be any of the 100 pulls, C(100, 1) ways to choose which (cnt-01),
+must not: 0.01 × 0.99⁹⁹. The one could be any of the 100 pulls, C(100, 1) ways to choose which,
 and only one of those ways can happen at a time, so their chances add: C(100, 1) × 0.01 × 0.99⁹⁹. The first
 product waits in Y while 0.99⁹⁹ is worked out:
 
@@ -163,7 +161,7 @@ items in 100 pulls happen about 8 times in 100, roughly 1 in 13.
 
 ## A pull on the calculator
 
-RAND (gold, above −) gives a random number more than 0 and less than 1, spread evenly (prob-01). Read it
+RAND (gold, above −) gives a random number more than 0 and less than 1, spread evenly. Read it
 as a pull for an item of 10%: below 0.1 is the item, which happens 1 time in 10:
 
 ```keys R01
@@ -222,9 +220,6 @@ before paying, what an item is really worth to you.
 
 ## Mixed review
 
-Four from this lesson and the ones before it, in no order. Work each by hand unless it says to use
-the calculator.
-
 ```item PB2M1
 prompt: A rare item comes in 5% of pulls. How many pulls does it take on average?
 topics: mean-tries
@@ -259,7 +254,7 @@ slip: PB2M4A | the payout as sure | It pays 10 only one time in five, on average
 
 ## Checkpoint
 
-Questions on the whole unit. Work each by hand first (a few offer the calculator), then give your answer; the page checks it. A wrong answer that comes from a common slip gets a hint that names the step.
+Questions on the whole unit.
 
 ```item CP9A
 prompt: In how many ways can 2 of 6 people be chosen, if the order does not matter?
