@@ -237,7 +237,7 @@ prompt: A shop had 4206 nails and sold 1859 of them. How many are left?
 topics: column-subtraction
 answer: type
 calculator: no
-slip: CPP1A1 | the smaller digit from the larger | In the ones, 6 take away 9 cannot be done as it stands: trade a ten down first. Taking the smaller digit from the larger in each column gives the wrong number.
+slip: CPP1A1 | the smaller digit from the larger | In the ones, 6 take away 9 cannot be done as it stands, and there are no tens to trade. Trade a hundred into 10 tens first, then one ten into the ones. Taking the smaller digit from the larger in each column gives the wrong number.
 slip: CPP1A2 | one trade not counted | After trading down, the column you traded from has one less. Check the hundreds: 2 hundreds lent one to the tens.
 ```
 

@@ -301,3 +301,34 @@ answer: type
 calculator: no
 slip: EP2M4A | the rolls left over, not the boxes | 12 boxes of 8 hold 96, with 4 left over: 12 full boxes.
 ```
+
+## Checkpoint
+
+Questions on the whole unit.
+
+```item CPP2A
+prompt: Work out 5n + 3 when n is 8.
+topics: evaluating
+answer: type
+calculator: no
+slip: CPP2A1 | read 5n as 5 + n | 5n means 5 times n: 5 × 8 first, then add 3.
+slip: CPP2A2 | added before multiplying | Multiply before you add: 5 × 8 is 40, then 40 + 3. Brackets would be needed to add first.
+```
+
+```item CPP2B
+prompt: Solve 6x − 9 = 33 by undoing.
+topics: undoing
+answer: type
+calculator: no
+slip: CPP2B1 | took the 9 away instead of adding it | The rule took 9 away, so undo it by adding 9: 33 + 9, then ÷ 6.
+slip: CPP2B2 | undid the × 6 first | Undo in the opposite order: the − 9 was done last, so undo it first.
+```
+
+```item CPP2C
+prompt: Solve n ÷ 3 + 5 = 12 by undoing.
+topics: undoing
+answer: type
+calculator: no
+slip: CPP2C1 | undid in the wrong order | The + 5 was done last, so undo it first: 12 − 5, then × 3.
+slip: CPP2C2 | added the 5 instead of taking it away | The rule added 5, so undo it by taking 5 away: 12 − 5 is 7.
+```

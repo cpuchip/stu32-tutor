@@ -71,3 +71,28 @@ EP2M4W@alg | its working: INT÷ | MODE33 FIX4 IDIV 100 , 8 > ENTER | N=12 %LINE=
 EP2M4W@rpn | its working: INT÷ | MODE33 FIX4 100 ENTER 8 IDIV | X=12
 EP2M4A@alg | slip: the rolls left over | MODE33 FIX4 RMDR 100 , 8 > ENTER | N=4 %LINE=RMDR(100,8)
 EP2M4A@rpn | slip: the rolls left over | MODE33 FIX4 100 ENTER 8 RMDR | X=4
+# Checkpoint, unit 2 (abacus #7157): each answer typed, its working, and the slips'; @alg the line, @rpn the stack.
+CPP2A@alg | checkpoint: 5n + 3 at n = 8, typed | MODE33 FIX4 43 ENTER | N=43 %LINE=43
+CPP2A@rpn | checkpoint: 5n + 3 at n = 8, typed | MODE33 FIX4 43 ENTER | X=43
+CPP2AW@alg | its working: 5 x 8 + 3 | MODE33 FIX4 5 * 8 + 3 ENTER | N=43 %LINE=5×8+3
+CPP2AW@rpn | its working: 5 x 8 + 3 | MODE33 FIX4 5 ENTER 8 * 3 + | X=43
+CPP2A1@alg | slip: 5n read as 5 + n | MODE33 FIX4 5 + 8 + 3 ENTER | N=16 %LINE=5+8+3
+CPP2A1@rpn | slip: 5n read as 5 + n | MODE33 FIX4 5 ENTER 8 + 3 + | X=16
+CPP2A2@alg | slip: added first, 5 x (8 + 3) | MODE33 FIX4 8 + 3 ENTER * 5 ENTER | N=55 %LINE=ANS×5
+CPP2A2@rpn | slip: added first, 5 x (8 + 3) | MODE33 FIX4 8 ENTER 3 + 5 * | X=55
+CPP2B@alg | checkpoint: 6x − 9 = 33, typed | MODE33 FIX4 7 ENTER | N=7 %LINE=7
+CPP2B@rpn | checkpoint: 6x − 9 = 33, typed | MODE33 FIX4 7 ENTER | X=7
+CPP2BW@alg | its working: undo the − 9, then the x 6 | MODE33 FIX4 33 + 9 ENTER / 6 ENTER | N=7 %LINE=ANS÷6
+CPP2BW@rpn | its working: undo the − 9, then the x 6 | MODE33 FIX4 33 ENTER 9 + 6 / | X=7
+CPP2B1@alg | slip: the 9 taken away, (33 − 9) / 6 | MODE33 FIX4 33 - 9 ENTER / 6 ENTER | N=4 %LINE=ANS÷6
+CPP2B1@rpn | slip: the 9 taken away, (33 − 9) / 6 | MODE33 FIX4 33 ENTER 9 - 6 / | X=4
+CPP2B2@alg | slip: the x 6 undone first, 33 / 6 + 9 | MODE33 FIX4 33 / 6 + 9 ENTER | N=14.5 %LINE=33÷6+9
+CPP2B2@rpn | slip: the x 6 undone first, 33 / 6 + 9 | MODE33 FIX4 33 ENTER 6 / 9 + | X=14.5
+CPP2C@alg | checkpoint: n / 3 + 5 = 12, typed | MODE33 FIX4 21 ENTER | N=21 %LINE=21
+CPP2C@rpn | checkpoint: n / 3 + 5 = 12, typed | MODE33 FIX4 21 ENTER | X=21
+CPP2CW@alg | its working: undo the + 5, then the / 3 | MODE33 FIX4 12 - 5 ENTER * 3 ENTER | N=21 %LINE=ANS×3
+CPP2CW@rpn | its working: undo the + 5, then the / 3 | MODE33 FIX4 12 ENTER 5 - 3 * | X=21
+CPP2C1@alg | slip: the wrong order, 12 x 3 − 5 | MODE33 FIX4 12 * 3 - 5 ENTER | N=31 %LINE=12×3-5
+CPP2C1@rpn | slip: the wrong order, 12 x 3 − 5 | MODE33 FIX4 12 ENTER 3 * 5 - | X=31
+CPP2C2@alg | slip: the 5 added, (12 + 5) x 3 | MODE33 FIX4 12 + 5 ENTER * 3 ENTER | N=51 %LINE=ANS×3
+CPP2C2@rpn | slip: the 5 added, (12 + 5) x 3 | MODE33 FIX4 12 ENTER 5 + 3 * | X=51
