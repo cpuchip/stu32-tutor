@@ -21,11 +21,11 @@ is colder than that, so the pond will freeze over, and the answer needs a number
 ## From before
 
 ```item NG1F1
-prompt: Work out 803 − 467.
+prompt: Work out $803 − 467$.
 topics: column-subtraction
 answer: type
 calculator: no
-slip: NG1F1A | took the smaller digit from the larger | 3 − 7 needs a borrow, and the tens are 0, so borrow from the hundreds.
+slip: NG1F1A | took the smaller digit from the larger | $3 − 7$ needs a borrow, and the tens are 0, so borrow from the hundreds.
 ```
 
 ```item NG1F2
@@ -56,15 +56,15 @@ middle, the positive numbers to the right and the negatives to the left:
 Further right is bigger. So 5 is bigger than −3, and −3 is bigger than −8, even though 8 is bigger
 than 3: −8 is further below zero. <voice v="story">On Hesk's thermometer, −3 degrees is warmer than −8.</voice><voice v="plain">On a thermometer, −3 degrees is warmer than −8.</voice>
 
-The sign − now has two jobs. Between two numbers it means take away, as in 5 − 8. In front of one
+The sign − now has two jobs. Between two numbers it means take away, as in $5 − 8$. In front of one
 number it means below zero, as in −8. When a negative number follows an operation, brackets keep the
-two jobs apart: 5 + (−8) is "5 plus negative 8".
+two jobs apart: $5 + (−8)$ is "5 plus negative 8".
 
 ## Adding a negative
 
 Adding a positive number moves right along the line; adding a negative moves left. The air at 5
-degrees, 8 degrees colder: 5 + (−8). Start at 5 and move 8 to the left: 5 steps reach 0, and 3 more
-reach −3. So 5 + (−8) = −3, the same as 5 − 8. Tonight the air is 3 degrees below zero, and the pond's top
+degrees, 8 degrees colder: $5 + (−8)$. Start at 5 and move 8 to the left: 5 steps reach 0, and 3 more
+reach −3. So $5 + (−8) = −3$, the same as $5 − 8$. Tonight the air is 3 degrees below zero, and the pond's top
 freezes.
 
 On the calculator, the − key takes away, and +/− flips the sign of the number being typed: 8 becomes
@@ -99,7 +99,7 @@ ask: Why did the screen show −85, not −8 and 5?
 because: +/− changed the sign of the number still being typed, and the 5 joined it: one number, 85, made negative.
 ```
 
-A negative plus a negative goes further left: −3 + (−5). Start at −3 and move 5 to the left: −8.
+A negative plus a negative goes further left: $−3 + (−5)$. Start at −3 and move 5 to the left: −8.
 
 ```keys A04 entry=alg
 3 +/− + 5 +/− ENTER
@@ -115,8 +115,8 @@ The screen shows <disp v="A04">-8.0000</disp>.
 
 Taking away is the opposite of adding, so taking away a negative moves the other way: right. One way to
 picture it: in the morning the air is −4 degrees, and the sun takes away 6 degrees of cold:
-−4 − (−6). Start at −4 and move 6 to the right: 4 steps reach 0, and 2 more reach 2. So
-−4 − (−6) = 2, the same as −4 + 6. Taking away a negative is adding the positive: − (−6) is + 6.
+$−4 − (−6)$. Start at −4 and move 6 to the right: 4 steps reach 0, and 2 more reach 2. So
+$−4 − (−6) = 2$, the same as $−4 + 6$. Taking away a negative is adding the positive: − (−6) is + 6.
 
 ```keys A02 entry=alg
 4 +/− − 6 +/− ENTER
@@ -130,10 +130,10 @@ The screen shows <disp v="A02">2.0000</disp>.
 
 ```why
 ask: Why does taking away −6 move to the right?
-because: Taking away a debt of 6 leaves you 6 better off, so −4 − (−6) is −4 + 6.
+because: Taking away a debt of 6 leaves you 6 better off, so $−4 − (−6)$ is $−4 + 6$.
 ```
 
-Taking away a positive from a negative goes further left: −3 − 5. Start at −3 and move 5 to the left:
+Taking away a positive from a negative goes further left: $−3 − 5$. Start at −3 and move 5 to the left:
 −8.
 
 ```keys A03 entry=alg
@@ -150,9 +150,9 @@ The screen shows <disp v="A03">-8.0000</disp>.
 
 Use the number line by hand first, then check.
 
-1. −7 + 10.
-2. 2 − 9.
-3. −5 − (−2).
+1. $−7 + 10$.
+2. $2 − 9$.
+3. $−5 − (−2)$.
 4. Put −2, 5, −7 and 0 in order, smallest first.
 
 ## Answers
@@ -181,7 +181,7 @@ Use the number line by hand first, then check.
 
    The screen shows <disp v="E02">-7.0000</disp>.
 
-3. Taking away −2 is adding 2: −5 + 2. Start at −5 and move 2 right: −3.
+3. Taking away −2 is adding 2: $−5 + 2$. Start at −5 and move 2 right: −3.
 
    ```keys E03 entry=alg
    5 +/− − 2 +/− ENTER
@@ -198,7 +198,7 @@ Use the number line by hand first, then check.
 ## Mixed review
 
 ```item NG1M1
-prompt: Work out −6 + 9.
+prompt: Work out $−6 + 9$.
 topics: add-negatives
 answer: type
 calculator: no
@@ -206,19 +206,19 @@ slip: NG1M1A | added the sizes and kept the minus | Start at −6 and go 9 to th
 ```
 
 ```item NG1M2
-prompt: Work out 1468 + 2579.
+prompt: Work out $1468 + 2579$.
 topics: column-addition
 answer: type
 calculator: no
-slip: NG1M2A | every carry left out | 8 + 9 is 17: write 7 and carry 1 to the tens, and so on.
+slip: NG1M2A | every carry left out | $8 + 9$ is 17: write 7 and carry 1 to the tens, and so on.
 ```
 
 ```item NG1M3
-prompt: Work out 4 − (−5).
+prompt: Work out $4 − (−5)$.
 topics: subtract-negatives
 answer: type
 calculator: no
-slip: NG1M3A | took away 5, not −5 | Taking away a negative adds it: 4 − (−5) is 4 + 5.
+slip: NG1M3A | took away 5, not −5 | Taking away a negative adds it: $4 − (−5)$ is $4 + 5$.
 ```
 
 ```item NG1M4

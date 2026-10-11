@@ -14,27 +14,27 @@ voices: story plain
 
 # Solving by undoing
 
-<voice v="story">Tobin's bill for an order of n of the bakery's small pies is 3n + 5 coins: 3 for each pie, and 5 for
-carrying (expr-01). A customer paid 20 coins. How many pies did she order?</voice><voice v="plain">The bill for an order of n small pies is 3n + 5 coins: 3 for each pie, and 5 for
+<voice v="story">Tobin's bill for an order of $n$ of the bakery's small pies is $3n + 5$ coins: 3 for each pie, and 5 for
+carrying (expr-01). A customer paid 20 coins. How many pies did she order?</voice><voice v="plain">The bill for an order of $n$ small pies is $3n + 5$ coins: 3 for each pie, and 5 for
 carrying (expr-01). A bill came to 20 coins. How many pies were ordered?</voice> Now the total is known and
 the number of pies is not. To find it, undo what the rule did, step by step.
 
 ## From before
 
 ```item EP2F1
-prompt: Evaluate 3n + 5 when n = 6.
+prompt: Evaluate $3n + 5$ when $n = 6$.
 topics: evaluating
 answer: type
 calculator: no
-slip: EP2F1A | added before multiplying | 3n means 3 times n: 3 × 6 is 18, then + 5.
+slip: EP2F1A | added before multiplying | $3n$ means 3 times $n$: $3 × 6$ is 18, then + 5.
 ```
 
 ```item EP2F2
-prompt: Work out 25 × 14 by parts: 25 × 10, then 25 × 4.
+prompt: Work out $25 × 14$ by parts: $25 × 10$, then $25 × 4$.
 topics: partial-products
 answer: type
 calculator: no
-slip: EP2F2A | added the 4 | The second part is 25 × 4, which is 100, not 4.
+slip: EP2F2A | added the 4 | The second part is $25 × 4$, which is 100, not 4.
 ```
 
 ## Before you start
@@ -45,17 +45,17 @@ BLUE MODE {mode} BLUE MODE {entry} GOLD DISP FIX 4
 
 ## An equation
 
-3n + 5 = 20 says that the rule's answer is 20. A statement that two things are equal, with an = sign
-between them, is an equation. Here n is not a number that can be anything: it is one number we do not
+$3n + 5 = 20$ says that the rule's answer is 20. A statement that two things are equal, with an = sign
+between them, is an equation. Here $n$ is not a number that can be anything: it is one number we do not
 know yet, an unknown. Solving the equation means finding it.
 
-Look at what the rule does to n, in order: first it multiplies by 3, then it adds 5. To get back to n
+Look at what the rule does to $n$, in order: first it multiplies by 3, then it adds 5. To get back to $n$
 from 20, undo those steps in the opposite order, the way you take off shoes before socks: socks went
 on first and shoes last, so shoes come off first. The last thing done was "add 5", so undo it first:
 take 5 away. Then undo "multiply by 3": divide by 3. Each undo is the opposite operation, the one that
 takes you back: taking away undoes adding, and dividing undoes multiplying.
 
-By hand: 20 − 5 = 15, then 15 ÷ 3 = 5. So n = 5. On the calculator, take 5 away from 20:
+By hand: $20 − 5 = 15$, then $15 ÷ 3 = 5$. So $n = 5$. On the calculator, take 5 away from 20:
 
 ```keys U01 entry=alg
 20 − 5 ENTER
@@ -99,7 +99,7 @@ because: The rule multiplied by 3 and then added 5, so the 5 came last. Undoing 
 ## Check by putting it back
 
 An answer to an equation can always be checked: put it back into the rule and see whether it gives the
-known total. 3 × 5 + 5 should be 20:
+known total. $3 × 5 + 5$ should be 20:
 
 ```keys C01 entry=alg
 3 × 5 + 5 ENTER
@@ -109,14 +109,14 @@ known total. 3 × 5 + 5 should be 20:
 3 ENTER 5 × 5 +
 ```
 
-The screen shows <disp v="C01">20.0000</disp>. It does, so n = 5 is right.
+The screen shows <disp v="C01">20.0000</disp>. It does, so $n = 5$ is right.
 
 ## Another order of steps
 
-<voice v="story">Maren shares a batch of n rolls equally among 4 shelves, and then takes 2 rolls off one shelf for a
-customer.</voice><voice v="plain">A batch of n rolls is shared equally among 4 shelves, and then 2 rolls are taken off one shelf for a
-customer.</voice> That shelf has 3 left: n ÷ 4 − 2 = 3. The rule divided by 4, then took 2 away. Undo in the
-opposite order: first add the 2 back, then multiply by 4. By hand: 3 + 2 = 5, then 5 × 4 = 20.
+<voice v="story">Maren shares a batch of $n$ rolls equally among 4 shelves, and then takes 2 rolls off one shelf for a
+customer.</voice><voice v="plain">A batch of $n$ rolls is shared equally among 4 shelves, and then 2 rolls are taken off one shelf for a
+customer.</voice> That shelf has 3 left: $n ÷ 4 − 2 = 3$. The rule divided by 4, then took 2 away. Undo in the
+opposite order: first add the 2 back, then multiply by 4. By hand: $3 + 2 = 5$, then $5 × 4 = 20$.
 
 ```keys U03 entry=alg
 3 + 2 ENTER
@@ -136,7 +136,7 @@ The screen shows <disp v="U03">5.0000</disp>. Carrying on, multiply by 4:
 4 ×
 ```
 
-The screen shows <disp v="U04">20.0000</disp>: the batch was 20 rolls. The check, 20 ÷ 4 − 2:
+The screen shows <disp v="U04">20.0000</disp>: the batch was 20 rolls. The check, $20 ÷ 4 − 2$:
 
 ```keys C02 entry=alg
 20 ÷ 4 − 2 ENTER
@@ -157,14 +157,14 @@ because: If 20 rolls shared among 4 shelves, less 2, leave 3, then 20 is right: 
 
 Solve each by undoing, by hand first, then check by putting the answer back.
 
-1. 2a + 7 = 31.
-2. 5b − 3 = 32.
-3. c ÷ 3 + 4 = 10.
-4. <voice v="story">Tobin's bill for an order of the small pies was 41 coins</voice><voice v="plain">An order of the small pies cost 41 coins</voice> (3n + 5, as above). How many pies?
+1. $2a + 7 = 31$.
+2. $5b − 3 = 32$.
+3. $c ÷ 3 + 4 = 10$.
+4. <voice v="story">Tobin's bill for an order of the small pies was 41 coins</voice><voice v="plain">An order of the small pies cost 41 coins</voice> ($3n + 5$, as above). How many pies?
 
 ## Answers
 
-1. The rule multiplied by 2, then added 7. Undo: 31 − 7 = 24, then 24 ÷ 2 = 12. Check: 2 × 12 + 7 = 31.
+1. The rule multiplied by 2, then added 7. Undo: $31 − 7 = 24$, then $24 ÷ 2 = 12$. Check: $2 × 12 + 7 = 31$.
 
    ```keys E01 entry=alg
    31 − 7 ENTER
@@ -185,7 +185,7 @@ Solve each by undoing, by hand first, then check by putting the answer back.
    ```
 
    shows <disp v="E01B">12.0000</disp>. To check it with the calculator holding the answer,
-   store 12 under A and work out 2a + 7:
+   store 12 under A and work out $2a + 7$:
 
    ```keys E01C
    12 STO A
@@ -201,8 +201,8 @@ Solve each by undoing, by hand first, then check by putting the answer back.
 
    The screen shows <disp v="E01D">31.0000</disp>, the equation's right side.
 
-2. The rule multiplied by 5, then took 3 away. Undo: add the 3 back, 32 + 3 = 35, then 35 ÷ 5 = 7.
-   Check: 5 × 7 − 3 = 32.
+2. The rule multiplied by 5, then took 3 away. Undo: add the 3 back, $32 + 3 = 35$, then $35 ÷ 5 = 7$.
+   Check: $5 × 7 − 3 = 32$.
 
    ```keys E02 entry=alg
    32 + 3 ENTER
@@ -224,7 +224,7 @@ Solve each by undoing, by hand first, then check by putting the answer back.
 
    shows <disp v="E02B">7.0000</disp>.
 
-3. The rule divided by 3, then added 4. Undo: 10 − 4 = 6, then 6 × 3 = 18. Check: 18 ÷ 3 + 4 = 10.
+3. The rule divided by 3, then added 4. Undo: $10 − 4 = 6$, then $6 × 3 = 18$. Check: $18 ÷ 3 + 4 = 10$.
 
    ```keys E03 entry=alg
    10 − 4 ENTER
@@ -246,7 +246,7 @@ Solve each by undoing, by hand first, then check by putting the answer back.
 
    shows <disp v="E03B">18.0000</disp>.
 
-4. 3n + 5 = 41. Undo the + 5, then the × 3: 41 − 5 = 36, and 36 ÷ 3 = 12 pies. Check: 3 × 12 + 5 = 41.
+4. $3n + 5 = 41$. Undo the + 5, then the × 3: $41 − 5 = 36$, and $36 ÷ 3 = 12$ pies. Check: $3 × 12 + 5 = 41$.
 
    ```keys E04 entry=alg
    41 − 5 ENTER
@@ -271,7 +271,7 @@ Solve each by undoing, by hand first, then check by putting the answer back.
 ## Mixed review
 
 ```item EP2M1
-prompt: Solve 4x + 6 = 30 by undoing.
+prompt: Solve $4x + 6 = 30$ by undoing.
 topics: undoing
 answer: type
 calculator: no
@@ -279,19 +279,19 @@ slip: EP2M1A | undid in the wrong order | The rule multiplied by 4, then added 6
 ```
 
 ```item EP2M2
-prompt: Work out 20 − 3 × 4.
+prompt: Work out $20 − 3 × 4$.
 topics: multiply-first
 answer: type
 calculator: no
-slip: EP2M2A | took away first | Multiplying comes before taking away: 3 × 4 is 12, then 20 − 12.
+slip: EP2M2A | took away first | Multiplying comes before taking away: $3 × 4$ is 12, then $20 − 12$.
 ```
 
 ```item EP2M3
-prompt: Is n = 7 a solution of 3n − 2 = 19? Put it back: what is 3 × 7 − 2?
+prompt: Is $n = 7$ a solution of $3n − 2 = 19$? Put it back: what is $3 × 7 − 2$?
 topics: check-by-putting-back
 answer: type
 calculator: no
-slip: EP2M3A | added the 2 | It is 3 × 7 minus 2: 21 − 2.
+slip: EP2M3A | added the 2 | It is $3 × 7$ minus 2: $21 − 2$.
 ```
 
 ```item EP2M4
@@ -307,28 +307,28 @@ slip: EP2M4A | the rolls left over, not the boxes | 12 boxes of 8 hold 96, with 
 Questions on the whole unit.
 
 ```item CPP2A
-prompt: Work out 5n + 3 when n is 8.
+prompt: Work out $5n + 3$ when $n$ is 8.
 topics: evaluating
 answer: type
 calculator: no
-slip: CPP2A1 | read 5n as 5 + n | 5n means 5 times n: 5 × 8 first, then add 3.
-slip: CPP2A2 | added before multiplying | Multiply before you add: 5 × 8 is 40, then 40 + 3. Brackets would be needed to add first.
+slip: CPP2A1 | read 5n as 5 + n | $5n$ means 5 times $n$: $5 × 8$ first, then add 3.
+slip: CPP2A2 | added before multiplying | Multiply before you add: $5 × 8$ is 40, then $40 + 3$. Brackets would be needed to add first.
 ```
 
 ```item CPP2B
-prompt: Solve 6x − 9 = 33 by undoing.
+prompt: Solve $6x − 9 = 33$ by undoing.
 topics: undoing
 answer: type
 calculator: no
-slip: CPP2B1 | took the 9 away instead of adding it | The rule took 9 away, so undo it by adding 9: 33 + 9, then ÷ 6.
+slip: CPP2B1 | took the 9 away instead of adding it | The rule took 9 away, so undo it by adding 9: $33 + 9$, then ÷ 6.
 slip: CPP2B2 | undid the × 6 first | Undo in the opposite order: the − 9 was done last, so undo it first.
 ```
 
 ```item CPP2C
-prompt: Solve n ÷ 3 + 5 = 12 by undoing.
+prompt: Solve $n ÷ 3 + 5 = 12$ by undoing.
 topics: undoing
 answer: type
 calculator: no
-slip: CPP2C1 | undid in the wrong order | The + 5 was done last, so undo it first: 12 − 5, then × 3.
-slip: CPP2C2 | added the 5 instead of taking it away | The rule added 5, so undo it by taking 5 away: 12 − 5 is 7.
+slip: CPP2C1 | undid in the wrong order | The + 5 was done last, so undo it first: $12 − 5$, then × 3.
+slip: CPP2C2 | added the 5 instead of taking it away | The rule added 5, so undo it by taking 5 away: $12 − 5$ is 7.
 ```

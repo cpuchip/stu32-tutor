@@ -26,11 +26,11 @@ prompt: What is the remainder when 50 is divided by 7?
 topics: quotient-remainder
 answer: type
 calculator: no
-slip: FC1F1A | the quotient, not the remainder | 7 sevens are 49, and 50 − 49 is left over.
+slip: FC1F1A | the quotient, not the remainder | 7 sevens are 49, and $50 − 49$ is left over.
 ```
 
 ```item FC1F2
-prompt: Work out 744 ÷ 6 by long division.
+prompt: Work out $744 ÷ 6$ by long division.
 topics: long-division
 answer: type
 calculator: no
@@ -54,7 +54,7 @@ passes, the number divides, and if it fails, it does not.
 - **5** divides it exactly when its last digit is 0 or 5.
 - **3** divides it exactly when its digits add up to a number 3 divides.
 
-84 ends in 4, which is even, so 2 divides 84. Its digits add to 8 + 4 = 12, which 3 divides, so 3
+84 ends in 4, which is even, so 2 divides 84. Its digits add to $8 + 4 = 12$, which 3 divides, so 3
 divides 84. It ends in 4, not 0 or 5, so 5 does not. Rmdr checks each one:
 
 ```keys R01 entry=alg
@@ -92,8 +92,8 @@ ask: Why does a remainder of 4 mean 5 is not a factor?
 because: A factor makes equal rows with none over, and 84 in rows of 5 leaves 4 over.
 ```
 
-Factors come in pairs that multiply to the number. Testing 1, 2, 3 and so on, 84's pairs are 1 × 84,
-2 × 42, 3 × 28, 4 × 21, 6 × 14 and 7 × 12. <voice v="story">So Maren can set out 84 pastries in rows of 1, 2, 3, 4, 6,
+Factors come in pairs that multiply to the number. Testing 1, 2, 3 and so on, 84's pairs are $1 × 84$,
+$2 × 42$, $3 × 28$, $4 × 21$, $6 × 14$ and $7 × 12$. <voice v="story">So Maren can set out 84 pastries in rows of 1, 2, 3, 4, 6,
 7, 12, 14, 21, 28, 42 or 84.</voice><voice v="plain">So 84 pastries can be set out in rows of 1, 2, 3, 4, 6,
 7, 12, 14, 21, 28, 42 or 84.</voice>
 
@@ -112,11 +112,11 @@ BLUE Rmdr 91 GOLD , 7 ▶ ENTER
 91 ENTER 7 BLUE Rmdr
 ```
 
-The screen shows <disp v="R04">0.0000</disp>: 91 = 7 × 13, not a prime.
+The screen shows <disp v="R04">0.0000</disp>: $91 = 7 × 13$, not a prime.
 
 How far must you try? Take a number from 10 to 99, and any of its factor pairs other than 1 and the
 number itself, like 7 and 13 for 91. If both of the pair were 10 or more, they would multiply to at
-least 10 × 10 = 100, which is too big. So one of them is below 10, and it is enough to try 2, 3, 5 and
+least $10 × 10 = 100$, which is too big. So one of them is below 10, and it is enough to try 2, 3, 5 and
 7, the primes below 10. 4, 6, 8 and 9 need not be tried: 4 and 8 are made of 2s, 9 of 3s, and 6 of a 2
 and a 3, so if 2 and 3 do not divide the number, none of them can. (This is for numbers from 10 up. A
 prime below 10, like 7, divides itself: Rmdr of 7 and 7 is 0, and that does not make 7 not prime.)
@@ -156,12 +156,12 @@ prime. Drawn as a tree, each number splits into two branches:
             3    7
 ```
 
-- 84 = 2 × 42.
-- 42 = 2 × 21, so 84 = 2 × 2 × 21.
-- 21 = 3 × 7, so 84 = 2 × 2 × 3 × 7, and 2, 3 and 7 are all prime.
+- $84 = 2 × 42$.
+- $42 = 2 × 21$, so $84 = 2 × 2 × 21$.
+- $21 = 3 × 7$, so $84 = 2 × 2 × 3 × 7$, and 2, 3 and 7 are all prime.
 
-Any first split ends at the same primes: 84 = 4 × 21, and 4 = 2 × 2 and 21 = 3 × 7, so again
-2 × 2 × 3 × 7.
+Any first split ends at the same primes: $84 = 4 × 21$, and $4 = 2 × 2$ and $21 = 3 × 7$, so again
+$2 × 2 × 3 × 7$.
 
 Multiply the pieces back together to check:
 
@@ -183,7 +183,7 @@ The screen shows <disp v="F01">84.0000</disp>.
 
 ## Answers
 
-1. 1 + 1 + 7 = 9, which 3 divides, so yes:
+1. $1 + 1 + 7 = 9$, which 3 divides, so yes:
 
    ```keys E01 entry=alg
    BLUE Rmdr 117 GOLD , 3 ▶ ENTER
@@ -195,7 +195,7 @@ The screen shows <disp v="F01">84.0000</disp>.
 
    The screen shows <disp v="E01">0.0000</disp>.
 
-2. 60 = 2 × 30, 30 = 2 × 15, 15 = 3 × 5: 60 = 2 × 2 × 3 × 5. The check:
+2. $60 = 2 × 30$, $30 = 2 × 15$, $15 = 3 × 5$: $60 = 2 × 2 × 3 × 5$. The check:
 
    ```keys E02 entry=alg
    2 × 2 × 3 × 5 ENTER
@@ -223,19 +223,19 @@ The screen shows <disp v="F01">84.0000</disp>.
 ## Mixed review
 
 ```item FC1M1
-prompt: Does 9 divide 126? Give the remainder of 126 ÷ 9.
+prompt: Does 9 divide 126? Give the remainder of $126 ÷ 9$.
 topics: divides
 answer: type
 calculator: no
-slip: FC1M1A | the quotient, not the remainder | 9 divides 126 when nothing is left over: 9 × 14 is 126.
+slip: FC1M1A | the quotient, not the remainder | 9 divides 126 when nothing is left over: $9 × 14$ is 126.
 ```
 
 ```item FC1M2
-prompt: Work out 478 + 356.
+prompt: Work out $478 + 356$.
 topics: column-addition
 answer: type
 calculator: no
-slip: FC1M2A | every carry left out | 8 + 6 is 14: write 4 and carry 1 to the tens, and so on.
+slip: FC1M2A | every carry left out | $8 + 6$ is 14: write 4 and carry 1 to the tens, and so on.
 ```
 
 ```item FC1M3
@@ -244,13 +244,13 @@ topics: prime
 answer: type
 calculator: no
 working: none
-slip: FC1M3A | 21 | 21 is 3 × 7, and 22 is 2 × 11. 23 has no factors but 1 and itself.
+slip: FC1M3A | 21 | 21 is $3 × 7$, and 22 is $2 × 11$. 23 has no factors but 1 and itself.
 ```
 
 ```item FC1M4
-prompt: Work out 23 × 15 by parts: 23 × 10, then 23 × 5.
+prompt: Work out $23 × 15$ by parts: $23 × 10$, then $23 × 5$.
 topics: partial-products
 answer: type
 calculator: no
-slip: FC1M4A | added the 5 | The second part is 23 × 5, which is 115, not 5.
+slip: FC1M4A | added the 5 | The second part is $23 × 5$, which is 115, not 5.
 ```

@@ -30,7 +30,7 @@ topics: prime-factorization
 answer: type
 calculator: no
 working: none
-slip: FC2F1A | stopped too soon | 72 is 2 × 36, 36 is 2 × 18, and 18 is 2 × 9: three 2s, then 3 × 3.
+slip: FC2F1A | stopped too soon | 72 is $2 × 36$, 36 is $2 × 18$, and 18 is $2 × 9$: three 2s, then $3 × 3$.
 ```
 
 ```item FC2F2
@@ -52,13 +52,13 @@ BLUE MODE {mode} BLUE MODE {entry} GOLD DISP FIX 4
 A box size works when it divides both 84 and 90. The biggest such number is their greatest common
 factor (GCF). Find it from the prime factorizations:
 
-- 84 = 2 × 2 × 3 × 7.
-- 90 = 2 × 3 × 3 × 5 (90 = 2 × 45, 45 = 3 × 15, 15 = 3 × 5).
+- $84 = 2 × 2 × 3 × 7$.
+- $90 = 2 × 3 × 3 × 5$ $(90 = 2 × 45, 45 = 3 × 15, 15 = 3 × 5)$.
 
 The primes both have are one 2 and one 3. For each prime, take it the smaller number of times it
 appears: 84 has two 2s and 90 has one, so one 2; each has a 3 (90 has two), so one 3; 5 and 7 are not
-in both. So the GCF is 2 × 3 = 6, and 6 sits inside both: 84 = (2 × 3) × (2 × 7) and
-90 = (2 × 3) × (3 × 5). Boxes of 6. Check that 6 divides each:
+in both. So the GCF is $2 × 3 = 6$, and 6 sits inside both: $84 = (2 × 3) × (2 × 7)$ and
+$90 = (2 × 3) × (3 × 5)$. Boxes of 6. Check that 6 divides each:
 
 ```keys G01 entry=alg
 BLUE Rmdr 84 GOLD , 6 ▶ ENTER
@@ -110,13 +110,13 @@ because: 3 divides both, but so does 6, and nothing bigger divides both 84 and 9
 
 ## The least common multiple
 
-The multiples of 12 are 12 × 1, 12 × 2, 12 × 3 and so on: 12, 24, 36, 48. Call today day 0. <voice v="story">Tobin
+The multiples of 12 are $12 × 1$, $12 × 2$, $12 × 3$ and so on: 12, 24, 36, 48. Call today day 0. <voice v="story">Tobin
 goes to the mill on day 12, 24, 36, and to the inn on day 18, 36, 54.</voice><voice v="plain">The round
 goes to the mill on day 12, 24, 36, and to the inn on day 18, 36, 54.</voice> The first day on both lists is
 36: the least common multiple (LCM) of 12 and 18. From the prime factorizations:
 
-- 12 = 2 × 2 × 3.
-- 18 = 2 × 3 × 3.
+- $12 = 2 × 2 × 3$.
+- $18 = 2 × 3 × 3$.
 
 A multiple of 12 needs two 2s and a 3; a multiple of 18 needs a 2 and two 3s. For the LCM, take each
 prime the larger number of times it appears (the GCF took the smaller): two 2s and two 3s:
@@ -166,7 +166,7 @@ because: Multiplying them gives a common multiple too, but 36 is the first day o
 
 ## Answers
 
-1. 24 = 2 × 2 × 2 × 3 and 36 = 2 × 2 × 3 × 3. Both have two 2s and one 3: GCF = 2 × 2 × 3 = 12. The
+1. $24 = 2 × 2 × 2 × 3$ and $36 = 2 × 2 × 3 × 3$. Both have two 2s and one 3: GCF = $2 × 2 × 3 = 12$. The
    check:
 
    ```keys E01 entry=alg
@@ -189,7 +189,7 @@ because: Multiplying them gives a common multiple too, but 36 is the first day o
 
    shows <disp v="E01B">0.0000</disp>.
 
-2. 4 = 2 × 2 and 10 = 2 × 5. The LCM takes two 2s and a 5. Listing: 4, 8, 12, 16, 20 and 10, 20 meet
+2. $4 = 2 × 2$ and $10 = 2 × 5$. The LCM takes two 2s and a 5. Listing: 4, 8, 12, 16, 20 and 10, 20 meet
    first at 20:
 
    ```keys E02 entry=alg
@@ -202,7 +202,7 @@ because: Multiplying them gives a common multiple too, but 36 is the first day o
 
    The screen shows <disp v="E02">20.0000</disp>.
 
-3. 6 = 2 × 3 and 8 = 2 × 2 × 2. The LCM takes three 2s and a 3. Listing: 6, 12, 18, 24 and 8, 16, 24
+3. $6 = 2 × 3$ and $8 = 2 × 2 × 2$. The LCM takes three 2s and a 3. Listing: 6, 12, 18, 24 and 8, 16, 24
    meet first at 24:
 
    ```keys E03 entry=alg
@@ -215,8 +215,8 @@ because: Multiplying them gives a common multiple too, but 36 is the first day o
 
    The screen shows <disp v="E03">24.0000</disp>.
 
-4. 8 = 2 × 2 × 2 and 15 = 3 × 5 have no prime in common, so their GCF is 1: they share no factor but 1.
-   The LCM takes every prime of both: 2 × 2 × 2 × 3 × 5, which is 8 × 15:
+4. $8 = 2 × 2 × 2$ and $15 = 3 × 5$ have no prime in common, so their GCF is 1: they share no factor but 1.
+   The LCM takes every prime of both: $2 × 2 × 2 × 3 × 5$, which is $8 × 15$:
 
    ```keys E04 entry=alg
    8 × 15 ENTER
@@ -235,15 +235,15 @@ prompt: What is the greatest common factor of 18 and 30?
 topics: gcf
 answer: type
 calculator: no
-slip: FC2M1A | the LCM, not the GCF | 18 = 2 × 3 × 3 and 30 = 2 × 3 × 5 share 2 × 3. 90 is their least common multiple.
+slip: FC2M1A | the LCM, not the GCF | $18 = 2 × 3 × 3$ and $30 = 2 × 3 × 5$ share $2 × 3$. 90 is their least common multiple.
 ```
 
 ```item FC2M2
-prompt: Does 5 divide 135? Give the remainder of 135 ÷ 5.
+prompt: Does 5 divide 135? Give the remainder of $135 ÷ 5$.
 topics: divides
 answer: type
 calculator: no
-slip: FC2M2A | the quotient, not the remainder | 5 divides 135 when nothing is left over: 5 × 27 is 135.
+slip: FC2M2A | the quotient, not the remainder | 5 divides 135 when nothing is left over: $5 × 27$ is 135.
 ```
 
 ```item FC2M3
@@ -251,11 +251,11 @@ prompt: What is the least common multiple of 6 and 9?
 topics: lcm
 answer: type
 calculator: no
-slip: FC2M3A | multiplied them | 6 × 9 is a common multiple, but not the least: 6 = 2 × 3 and 9 = 3 × 3 need only 2 × 3 × 3.
+slip: FC2M3A | multiplied them | $6 × 9$ is a common multiple, but not the least: $6 = 2 × 3$ and $9 = 3 × 3$ need only $2 × 3 × 3$.
 ```
 
 ```item FC2M4
-prompt: Work out 912 ÷ 8 by long division.
+prompt: Work out $912 ÷ 8$ by long division.
 topics: long-division
 answer: type
 calculator: no
@@ -272,8 +272,8 @@ topics: prime
 answer: type
 calculator: no
 working: none
-slip: CPP3A1 | stopped testing at 5 | 91 is odd, its digits add to 10 and it does not end in 0 or 5, but 7 is still below 10: 7 × 13 is 91.
-slip: CPP3A2 | the other factor | 91 is 7 × 13, and 7 is the smaller of the two primes.
+slip: CPP3A1 | stopped testing at 5 | 91 is odd, its digits add to 10 and it does not end in 0 or 5, but 7 is still below 10: $7 × 13$ is 91.
+slip: CPP3A2 | the other factor | 91 is $7 × 13$, and 7 is the smaller of the two primes.
 ```
 
 ```item CPP3B
@@ -281,7 +281,7 @@ prompt: What is the greatest common factor of 24 and 36?
 topics: gcf
 answer: type
 calculator: no
-slip: CPP3B1 | a common factor, not the greatest | 6 divides both, but so does 12. Take every prime both share: 24 is 2 × 2 × 2 × 3 and 36 is 2 × 2 × 3 × 3.
+slip: CPP3B1 | a common factor, not the greatest | 6 divides both, but so does 12. Take every prime both share: 24 is $2 × 2 × 2 × 3$ and 36 is $2 × 2 × 3 × 3$.
 slip: CPP3B2 | the least common multiple | That is the smallest number both divide. The greatest common factor is the largest number dividing both.
 ```
 

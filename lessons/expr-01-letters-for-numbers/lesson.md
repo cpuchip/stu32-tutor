@@ -14,26 +14,26 @@ voices: story plain
 
 # Letters for numbers
 
-<voice v="story">In the bakery on Thornwick's square, Maren sells pies at 7 coins each.</voice><voice v="plain">Pies sell at 7 coins each.</voice> Two pies cost 7 × 2 = 14 coins, and ten cost 7 × 10 = 70. Each
+<voice v="story">In the bakery on Thornwick's square, Maren sells pies at 7 coins each.</voice><voice v="plain">Pies sell at 7 coins each.</voice> Two pies cost $7 × 2 = 14$ coins, and ten cost $7 × 10 = 70$. Each
 time the rule is the same: 7 times the number of pies. Algebra writes a rule like that once, with a
-letter standing for the number that changes: if n is the number of pies, they cost 7 × n coins.
+letter standing for the number that changes: if $n$ is the number of pies, they cost $7 × n$ coins.
 
 ## From before
 
 ```item EP1F1
-prompt: Work out 34 × 12 by parts: 34 × 10, then 34 × 2.
+prompt: Work out $34 × 12$ by parts: $34 × 10$, then $34 × 2$.
 topics: partial-products
 answer: type
 calculator: no
-slip: EP1F1A | added the 2 | The second part is 34 × 2, which is 68, not 2.
+slip: EP1F1A | added the 2 | The second part is $34 × 2$, which is 68, not 2.
 ```
 
 ```item EP1F2
-prompt: Work out 1000 − 364.
+prompt: Work out $1000 − 364$.
 topics: column-subtraction
 answer: type
 calculator: no
-slip: EP1F2A | took the smaller digit from the larger | 0 − 4 needs a borrow, all the way from the thousands.
+slip: EP1F2A | took the smaller digit from the larger | $0 − 4$ needs a borrow, all the way from the thousands.
 ```
 
 ## Before you start
@@ -45,13 +45,13 @@ BLUE MODE {mode} BLUE MODE {entry} GOLD DISP FIX 4
 ## A letter stands for a number
 
 A letter that stands for a number is called a variable, because the number it stands for can vary:
-one customer buys 2 pies, the next 12. A rule made of numbers, letters and operations, like 7 × n, is
+one customer buys 2 pies, the next 12. A rule made of numbers, letters and operations, like $7 × n$, is
 an expression. An expression has no = sign; it is something to work out. Algebra usually leaves out
-the × between a number and a letter: 7n means 7 × n.
+the × between a number and a letter: $7n$ means $7 × n$.
 
-To find what 12 pies cost, put 12 in for n: 7 × 12 = 84. Putting in a number for the letter and
-working out the result is called evaluating the expression. By hand, 7 × 12 is
-7 × 10 + 7 × 2 = 70 + 14 = 84 (whole-02). The check:
+To find what 12 pies cost, put 12 in for $n$: $7 × 12 = 84$. Putting in a number for the letter and
+working out the result is called evaluating the expression. By hand, $7 × 12$ is
+$7 × 10 + 7 × 2 = 70 + 14 = 84$ (whole-02). The check:
 
 ```keys P01 entry=alg
 7 × 12 ENTER
@@ -65,13 +65,13 @@ The screen shows <disp v="P01">84.0000</disp>: 84 coins.
 
 ## Multiply before you add
 
-<voice v="story">Tobin carries orders for 5 coins. For the bakery's small pies, at 3 coins each, an order of n pies
-costs 3n + 5: 3 for each pie, and 5 for carrying.</voice><voice v="plain">Carrying an order costs 5 coins. For small pies at 3 coins each, an order of n pies
-costs 3n + 5: 3 for each pie, and 5 for carrying.</voice> For 4 pies, is that 3 × 4 + 5 = 12 + 5 = 17, or
-3 × (4 + 5) = 27? Everyone who writes mathematics agrees to read it the first way, so that a line of
+<voice v="story">Tobin carries orders for 5 coins. For the bakery's small pies, at 3 coins each, an order of $n$ pies
+costs $3n + 5$: 3 for each pie, and 5 for carrying.</voice><voice v="plain">Carrying an order costs 5 coins. For small pies at 3 coins each, an order of $n$ pies
+costs $3n + 5$: 3 for each pie, and 5 for carrying.</voice> For 4 pies, is that $3 × 4 + 5 = 12 + 5 = 17$, or
+$3 × (4 + 5) = 27$? Everyone who writes mathematics agrees to read it the first way, so that a line of
 mathematics means the same thing to everyone: multiplying and dividing come before adding and taking
-away, unless brackets say otherwise. So 3n + 5 means 3 times n first, then 5 more. By hand,
-3 × 4 + 5 = 17.
+away, unless brackets say otherwise. So $3n + 5$ means 3 times $n$ first, then 5 more. By hand,
+$3 × 4 + 5 = 17$.
 
 ## Letting the calculator hold the number
 
@@ -126,25 +126,25 @@ The screen shows <disp v="V03">10.0000</disp>. Carrying on, the same expression 
 3 ENTER RCL N × 5 +
 ```
 
-The screen shows <disp v="V04">35.0000</disp>: 3 × 10 + 5.
+The screen shows <disp v="V04">35.0000</disp>: $3 × 10 + 5$.
 
 ```why
 ask: Why did the same keys now give 35?
-because: N was changed to 10, and the rule is the same: 3 × 10 + 5.
+because: N was changed to 10, and the rule is the same: $3 × 10 + 5$.
 ```
 
 ## Exercises
 
 Work each out by hand first, then check it with the number stored under its letter.
 
-1. Evaluate 2a + 9 when a = 6. (A is on the √x key.)
-2. Loaves cost 3 coins each and the box costs 2. Write the cost of n loaves in a box, then find it
-   for n = 15.
-3. Evaluate a times a, take away a, when a = 5.
+1. Evaluate $2a + 9$ when $a = 6$. (A is on the √x key.)
+2. Loaves cost 3 coins each and the box costs 2. Write the cost of $n$ loaves in a box, then find it
+   for $n = 15$.
+3. Evaluate $a$ times $a$, take away $a$, when $a = 5$.
 
 ## Answers
 
-1. 2 × 6 + 9 = 12 + 9 = 21. Store 6 under A, then the expression:
+1. $2 × 6 + 9 = 12 + 9 = 21$. Store 6 under A, then the expression:
 
    ```keys E01
    6 STO A
@@ -160,7 +160,7 @@ Work each out by hand first, then check it with the number stored under its lett
 
    The screen shows <disp v="E01B">21.0000</disp>.
 
-2. 3n + 2. For n = 15, 3 × 15 + 2 = 45 + 2 = 47:
+2. $3n + 2$. For $n = 15$, $3 × 15 + 2 = 45 + 2 = 47$:
 
    ```keys E02
    15 STO N
@@ -176,7 +176,7 @@ Work each out by hand first, then check it with the number stored under its lett
 
    The screen shows <disp v="E02B">47.0000</disp>.
 
-3. 5 × 5 − 5 = 25 − 5 = 20:
+3. $5 × 5 − 5 = 25 − 5 = 20$:
 
    ```keys E03
    5 STO A
@@ -195,11 +195,11 @@ Work each out by hand first, then check it with the number stored under its lett
 ## Mixed review
 
 ```item EP1M1
-prompt: Evaluate 4n + 3 when n = 5.
+prompt: Evaluate $4n + 3$ when $n = 5$.
 topics: evaluating
 answer: type
 calculator: no
-slip: EP1M1A | added before multiplying | 4n means 4 times n: 4 × 5 is 20, then + 3.
+slip: EP1M1A | added before multiplying | $4n$ means 4 times $n$: $4 × 5$ is 20, then + 3.
 ```
 
 ```item EP1M2
@@ -207,21 +207,21 @@ prompt: 57 eggs go into boxes of 6. How many eggs are left over?
 topics: quotient-remainder
 answer: type
 calculator: no
-slip: EP1M2A | the full boxes, not what is left | 9 full boxes hold 54, and 57 − 54 are left over.
+slip: EP1M2A | the full boxes, not what is left | 9 full boxes hold 54, and $57 − 54$ are left over.
 ```
 
 ```item EP1M3
-prompt: Work out 2 + 5 × 6.
+prompt: Work out $2 + 5 × 6$.
 topics: multiply-first
 answer: type
 calculator: no
-slip: EP1M3A | added first | Multiplying comes before adding: 5 × 6 is 30, then 2 + 30.
+slip: EP1M3A | added first | Multiplying comes before adding: $5 × 6$ is 30, then $2 + 30$.
 ```
 
 ```item EP1M4
-prompt: Work out 589 + 237.
+prompt: Work out $589 + 237$.
 topics: column-addition
 answer: type
 calculator: no
-slip: EP1M4A | every carry left out | 9 + 7 is 16: write 6 and carry 1 to the tens, and so on.
+slip: EP1M4A | every carry left out | $9 + 7$ is 16: write 6 and carry 1 to the tens, and so on.
 ```

@@ -14,8 +14,8 @@ voices: story plain
 
 # Adding and subtracting fractions
 
-<voice v="story">Maren's recipe for a small batch of buns needs 1/4 cup of sugar for the dough and 3/8 cup for the
-glaze.</voice><voice v="plain">A recipe for a small batch of buns needs 1/4 cup of sugar for the dough and 3/8 cup for the
+<voice v="story">Maren's recipe for a small batch of buns needs $\frac{1}{4}$ cup of sugar for the dough and $\frac{3}{8}$ cup for the
+glaze.</voice><voice v="plain">A recipe for a small batch of buns needs $\frac{1}{4}$ cup of sugar for the dough and $\frac{3}{8}$ cup for the
 glaze.</voice> How much sugar is that in all? Adding fractions takes one idea first: fractions can only be
 added when their pieces are the same size. You make them the same size by hand, then check
 with fraction display.
@@ -27,15 +27,15 @@ prompt: What is the least common multiple of 4 and 6?
 topics: lcm
 answer: type
 calculator: no
-slip: FR2F1A | multiplied them | 4 × 6 is a common multiple, but not the least: 4 = 2 × 2 and 6 = 2 × 3 need only 2 × 2 × 3.
+slip: FR2F1A | multiplied them | $4 × 6$ is a common multiple, but not the least: $4 = 2 × 2$ and $6 = 2 × 3$ need only $2 × 2 × 3$.
 ```
 
 ```item FR2F2
-prompt: Write 3/4 with a bottom of 12. What is the top?
+prompt: Write $\frac{3}{4}$ with a bottom of 12. What is the top?
 topics: equivalent-fractions
 answer: type
 calculator: no
-slip: FR2F2A | added instead of multiplying | Top and bottom are multiplied alike: 4 × 3 is 12, so the top is 3 × 3.
+slip: FR2F2A | added instead of multiplying | Top and bottom are multiplied alike: $4 × 3$ is 12, so the top is $3 × 3$.
 ```
 
 ## Before you start
@@ -46,18 +46,18 @@ BLUE MODE {mode} BLUE MODE {entry} GOLD DISP FIX 4 BLUE →FRAC
 
 ## A common bottom
 
-1/4 is one piece of a cup cut into 4; 3/8 is three pieces of a cup cut into 8. Quarters and eighths
-are different sizes, so 1 + 3 would be 4 pieces, but 4 pieces of what size? Cut the pieces smaller
+$\frac{1}{4}$ is one piece of a cup cut into 4; $\frac{3}{8}$ is three pieces of a cup cut into 8. Quarters and eighths
+are different sizes, so $1 + 3$ would be 4 pieces, but 4 pieces of what size? Cut the pieces smaller
 until they match. Cutting every piece into the same number of smaller pieces multiplies the bottom
 (frac-01), so a common bottom has to be a multiple of both bottoms: a common multiple. Any common
 multiple works (32 would), but the smallest keeps the numbers small and leaves less to simplify: the
 least common multiple of the bottoms (factor-02). LCM(4, 8) = 8.
 
-- 1/4 = 2/8, multiplying top and bottom by 2.
-- Now both are eighths: 2/8 + 3/8 = 5/8. Add the tops; the bottom stays 8, because the pieces are
+- $\frac{1}{4} = \frac{2}{8}$, multiplying top and bottom by 2.
+- Now both are eighths: $\frac{2}{8} + \frac{3}{8} = \frac{5}{8}$. Add the tops; the bottom stays 8, because the pieces are
   still eighths.
 
-<voice v="story">So Maren needs 5/8 cup.</voice><voice v="plain">So the recipe needs 5/8 cup.</voice> The method: a common bottom, add the tops, keep the bottom, and simplify at
+<voice v="story">So Maren needs $\frac{5}{8}$ cup.</voice><voice v="plain">So the recipe needs $\frac{5}{8}$ cup.</voice> The method: a common bottom, add the tops, keep the bottom, and simplify at
 the end if you can. On the calculator, each fraction is a division:
 <entry e="alg">type the sum as written; the line divides before it adds (expr-01), so each fraction is
 worked out before the +:</entry><entry e="rpn">each fraction, then +:</entry>
@@ -72,8 +72,8 @@ worked out before the +:</entry><entry e="rpn">each fraction, then +:</entry>
 
 The screen shows <disp v="A01">0 5/8</disp>, the hand work's answer.
 
-A common slip is to add the tops and add the bottoms: (1 + 3)/(4 + 8) = 4/12 = 1/3. That cannot be
-right: 1/3 is less than the 3/8 cup of glaze alone, and adding more sugar cannot give less.
+A common slip is to add the tops and add the bottoms: $(1 + 3)/(4 + 8) = \frac{4}{12} = \frac{1}{3}$. That cannot be
+right: $\frac{1}{3}$ is less than the $\frac{3}{8}$ cup of glaze alone, and adding more sugar cannot give less.
 
 
 ```why
@@ -83,8 +83,8 @@ because: Adding counts pieces, so they must be pieces of one size: quarters beco
 
 ## Another pair
 
-2/5 + 1/2: LCM(5, 2) = 10. 2/5 = 4/10 (top and bottom times 2) and 1/2 = 5/10 (times 5), so the sum is
-9/10.
+$\frac{2}{5} + \frac{1}{2}$: LCM(5, 2) = 10. $\frac{2}{5} = \frac{4}{10}$ (top and bottom times 2) and $\frac{1}{2} = \frac{5}{10}$ (times 5), so the sum is
+$\frac{9}{10}$.
 
 ```keys A02 entry=alg
 2 ÷ 5 + 1 ÷ 2 ENTER
@@ -96,16 +96,16 @@ because: Adding counts pieces, so they must be pieces of one size: quarters beco
 
 The screen shows <disp v="A02">0 9/10</disp>.
 
-The LCM earns its keep when neither bottom divides the other. 1/4 + 1/6: multiplying the bottoms gives
-24, but the LCM is 12 (4 = 2 × 2 and 6 = 2 × 3, so two 2s and a 3). 1/4 = 3/12 and 1/6 = 2/12, so the
-sum is 5/12. (Over 24 it would be 6/24 + 4/24 = 10/24, which then simplifies to 5/12: the same answer,
-with more work.) 5/12 does not come out as an ending decimal (it is 0.41666…), so this one stays a hand
+The LCM earns its keep when neither bottom divides the other. $\frac{1}{4} + \frac{1}{6}$: multiplying the bottoms gives
+24, but the LCM is 12 ($4 = 2 × 2$ and $6 = 2 × 3$, so two 2s and a 3). $\frac{1}{4} = \frac{3}{12}$ and $\frac{1}{6} = \frac{2}{12}$, so the
+sum is $\frac{5}{12}$. (Over 24 it would be $\frac{6}{24} + \frac{4}{24} = \frac{10}{24}$, which then simplifies to $\frac{5}{12}$: the same answer,
+with more work.) $\frac{5}{12}$ does not come out as an ending decimal (it is 0.41666…), so this one stays a hand
 example.
 
 ## Taking away
 
-Taking away works the same way: a common bottom, then take away the tops. 7/8 − 1/4: 1/4 = 2/8, so
-7/8 − 2/8 = 5/8.
+Taking away works the same way: a common bottom, then take away the tops. $\frac{7}{8} − \frac{1}{4}$: $\frac{1}{4} = \frac{2}{8}$, so
+$\frac{7}{8} − \frac{2}{8} = \frac{5}{8}$.
 
 ```keys S01 entry=alg
 7 ÷ 8 − 1 ÷ 4 ENTER
@@ -119,8 +119,8 @@ The screen shows <disp v="S01">0 5/8</disp>.
 
 ## Over a whole
 
-3/4 + 1/2 = 3/4 + 2/4 = 5/4: five quarters. Four of the quarters make one whole, and one quarter is
-left: 1 1/4. A fraction whose top is bigger than its bottom is more than 1, and fraction display
+$\frac{3}{4} + \frac{1}{2} = \frac{3}{4} + \frac{2}{4} = \frac{5}{4}$: five quarters. Four of the quarters make one whole, and one quarter is
+left: 1 $\frac{1}{4}$. A fraction whose top is bigger than its bottom is more than 1, and fraction display
 shows the whole number first:
 
 ```keys A03 entry=alg
@@ -137,13 +137,13 @@ The screen shows <disp v="A03">1 1/4</disp>.
 
 By hand first, with a common bottom, then check.
 
-1. 1/2 + 1/8.
-2. 3/5 − 1/10.
-3. 3/8 + 3/4.
+1. $\frac{1}{2} + \frac{1}{8}$.
+2. $\frac{3}{5} − \frac{1}{10}$.
+3. $\frac{3}{8} + \frac{3}{4}$.
 
 ## Answers
 
-1. LCM(2, 8) = 8: 1/2 = 4/8, and 4/8 + 1/8 = 5/8.
+1. LCM(2, 8) = 8: $\frac{1}{2} = \frac{4}{8}$, and $\frac{4}{8} + \frac{1}{8} = \frac{5}{8}$.
 
    ```keys E01 entry=alg
    1 ÷ 2 + 1 ÷ 8 ENTER
@@ -155,7 +155,7 @@ By hand first, with a common bottom, then check.
 
    The screen shows <disp v="E01">0 5/8</disp>.
 
-2. LCM(5, 10) = 10: 3/5 = 6/10, and 6/10 − 1/10 = 5/10, which in simplest form is 1/2.
+2. LCM(5, 10) = 10: $\frac{3}{5} = \frac{6}{10}$, and $\frac{6}{10} − \frac{1}{10} = \frac{5}{10}$, which in simplest form is $\frac{1}{2}$.
 
    ```keys E02 entry=alg
    3 ÷ 5 − 1 ÷ 10 ENTER
@@ -167,7 +167,7 @@ By hand first, with a common bottom, then check.
 
    The screen shows <disp v="E02">0 1/2</disp>.
 
-3. LCM(8, 4) = 8: 3/4 = 6/8, and 3/8 + 6/8 = 9/8, which is 1 1/8.
+3. LCM(8, 4) = 8: $\frac{3}{4} = \frac{6}{8}$, and $\frac{3}{8} + \frac{6}{8} = \frac{9}{8}$, which is 1 $\frac{1}{8}$.
 
    ```keys E03 entry=alg
    3 ÷ 8 + 3 ÷ 4 ENTER
@@ -182,11 +182,11 @@ By hand first, with a common bottom, then check.
 ## Mixed review
 
 ```item FR2M1
-prompt: Work out 1/4 + 1/8, as a decimal.
+prompt: Work out $\frac{1}{4} + \frac{1}{8}$, as a decimal.
 topics: common-bottom
 answer: type
 calculator: no
-slip: FR2M1A | added the tops over the larger bottom | Give them one bottom first: 1/4 is 2/8, and 2/8 + 1/8 is 3/8.
+slip: FR2M1A | added the tops over the larger bottom | Give them one bottom first: $\frac{1}{4}$ is $\frac{2}{8}$, and $\frac{2}{8} + \frac{1}{8}$ is $\frac{3}{8}$.
 ```
 
 ```item FR2M2
@@ -194,19 +194,19 @@ prompt: What is the greatest common factor of 12 and 20?
 topics: gcf
 answer: type
 calculator: no
-slip: FR2M2A | the LCM, not the GCF | 12 = 2 × 2 × 3 and 20 = 2 × 2 × 5 share 2 × 2. 60 is their least common multiple.
+slip: FR2M2A | the LCM, not the GCF | $12 = 2 × 2 × 3$ and $20 = 2 × 2 × 5$ share $2 × 2$. 60 is their least common multiple.
 ```
 
 ```item FR2M3
-prompt: Work out 7/8 − 1/4, as a decimal.
+prompt: Work out $\frac{7}{8} − \frac{1}{4}$, as a decimal.
 topics: subtract-fractions
 answer: type
 calculator: no
-slip: FR2M3A | took tops from tops and bottoms from bottoms | Give them one bottom: 1/4 is 2/8, and 7/8 − 2/8 is 5/8.
+slip: FR2M3A | took tops from tops and bottoms from bottoms | Give them one bottom: $\frac{1}{4}$ is $\frac{2}{8}$, and $\frac{7}{8} − \frac{2}{8}$ is $\frac{5}{8}$.
 ```
 
 ```item FR2M4
-prompt: Put 15/25 in simplest form. What is its bottom?
+prompt: Put $\frac{15}{25}$ in simplest form. What is its bottom?
 topics: simplest-form
 answer: type
 calculator: no

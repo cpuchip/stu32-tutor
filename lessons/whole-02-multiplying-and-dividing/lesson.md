@@ -22,19 +22,19 @@ calculator, which has a key for each part of a division.
 ## From before
 
 ```item WH2F1
-prompt: Work out 2478 + 1365.
+prompt: Work out $2478 + 1365$.
 topics: column-addition
 answer: type
 calculator: no
-slip: WH2F1A | every carry left out | Each column that makes ten or more carries one to the next: 8 + 5 is 13, so write 3 and carry 1.
+slip: WH2F1A | every carry left out | Each column that makes ten or more carries one to the next: $8 + 5$ is 13, so write 3 and carry 1.
 ```
 
 ```item WH2F2
-prompt: Work out 6004 − 2357.
+prompt: Work out $6004 − 2357$.
 topics: column-subtraction
 answer: type
 calculator: no
-slip: WH2F2A | took the smaller digit from the larger | When the top digit is smaller, borrow from the next column; 4 − 7 is not 3.
+slip: WH2F2A | took the smaller digit from the larger | When the top digit is smaller, borrow from the next column; $4 − 7$ is not 3.
 ```
 
 ## Before you start
@@ -48,10 +48,10 @@ BLUE MODE {mode} BLUE MODE {entry} GOLD DISP FIX 4
 <voice v="story">Maren bakes 23 trays of 46 rolls each.</voice><voice v="plain">A bakery makes 23 trays of 46 rolls each.</voice> How many rolls? Split the 23 into 20 and 3, by place value
 (whole-01), and multiply 46 by each part:
 
-- 46 × 3: the ones first, 6 × 3 = 18, write 8 and carry 1 ten; then the tens, 4 × 3 = 12, and 1
+- $46 × 3$: the ones first, $6 × 3 = 18$, write 8 and carry 1 ten; then the tens, $4 × 3 = 12$, and 1
   carried makes 13. So 138.
-- 46 × 20: 20 is 2 tens, and 46 × 2 = 92, so 46 × 2 tens = 92 tens = 920.
-- Add the parts: 138 + 920 = 1058.
+- $46 × 20$: 20 is 2 tens, and $46 × 2 = 92$, so $46 × 2$ tens = 92 tens = 920.
+- Add the parts: $138 + 920 = 1058$.
 
 The parts add up to the whole because 23 trays are 20 trays and 3 trays. The check:
 <entry e="alg">× is the multiplication key:</entry><entry e="rpn">the first number, ENTER, the second, then ×:</entry>
@@ -69,9 +69,9 @@ The screen shows <disp v="M01">1,058.0000</disp>.
 ## Dividing, and what is left over
 
 <voice v="story">Tobin has 59 rolls to pack, 9 to a box.</voice><voice v="plain">59 rolls are to be packed, 9 to a box.</voice> How many full boxes, and how many rolls over? The number you
-divide by, here 9, is the divisor. How many 9s are in 59? 6 × 9 = 54, and 7 × 9 = 63 is too
-many, so 6 boxes. 59 − 54 = 5 rolls are left over. The 6 is the quotient and the 5 is the remainder.
-Check it: 6 × 9 + 5 = 59.
+divide by, here 9, is the divisor. How many 9s are in 59? $6 × 9 = 54$, and $7 × 9 = 63$ is too
+many, so 6 boxes. $59 − 54 = 5$ rolls are left over. The 6 is the quotient and the 5 is the remainder.
+Check it: $6 × 9 + 5 = 59$.
 
 The ÷ key does not give that answer:
 
@@ -115,7 +115,7 @@ BLUE Rmdr 59 GOLD , 9 ▶ ENTER
 The screen shows <disp v="D03">5.0000</disp>: 5 rolls over, as the hand work said.
 
 ```why
-ask: Why is the decimal part of 59 ÷ 9 not the remainder?
+ask: Why is the decimal part of $59 ÷ 9$ not the remainder?
 because: The decimal is the part of one more box that the 5 rolls left over would fill. Rmdr counts the rolls themselves.
 ```
 
@@ -132,7 +132,7 @@ many whole 7s fit.
 - The 2 left over is 2 tens, or 20 ones. Bring down the last 0 beside it: 20. 20 holds two 7s (14),
   with 6 over. Write 2.
 
-So 1000 ÷ 7 is 142, with 6 over. Check: 7 × 142 + 6 = 994 + 6 = 1000. On the calculator:
+So $1000 ÷ 7$ is 142, with 6 over. Check: $7 × 142 + 6 = 994 + 6 = 1000$. On the calculator:
 
 ```keys D04 entry=alg
 GOLD INT÷ 1000 GOLD , 7 ▶ ENTER
@@ -169,8 +169,8 @@ Do each by hand first, then check.
 
 ## Answers
 
-1. 37 × 15 is 37 × 5 + 37 × 10. 37 × 5: 7 × 5 = 35, write 5 and carry 3; 3 × 5 = 15, and 3 carried
-   makes 18: 185. 37 × 10 = 370. Then 185 + 370 = 555. The check:
+1. $37 × 15$ is $37 × 5 + 37 × 10$. $37 × 5$: $7 × 5 = 35$, write 5 and carry 3; $3 × 5 = 15$, and 3 carried
+   makes 18: 185. $37 × 10 = 370$. Then $185 + 370 = 555$. The check:
 
    ```keys E01 entry=alg
    37 × 15 ENTER
@@ -182,7 +182,7 @@ Do each by hand first, then check.
 
    The screen shows <disp v="E01">555.0000</disp>.
 
-2. 8 × 12 = 96, and 9 × 12 = 108 is too many: 8 crates, and 100 − 96 = 4 loaves over. The checks:
+2. $8 × 12 = 96$, and $9 × 12 = 108$ is too many: 8 crates, and $100 − 96 = 4$ loaves over. The checks:
 
    ```keys E02 entry=alg
    GOLD INT÷ 100 GOLD , 12 ▶ ENTER
@@ -205,7 +205,7 @@ Do each by hand first, then check.
    shows <disp v="E02B">4.0000</disp>.
 
 3. Long division by 7: 3 is less than 7, so start with 36. 36 holds five 7s (35), 1 over; bring down
-   the 5: 15 holds two 7s (14), 1 over. So 52 weeks and 1 day. Check: 7 × 52 + 1 = 364 + 1 = 365. On the
+   the 5: 15 holds two 7s (14), 1 over. So 52 weeks and 1 day. Check: $7 × 52 + 1 = 364 + 1 = 365$. On the
    calculator:
 
    ```keys E03 entry=alg
@@ -242,12 +242,12 @@ slip: CPP1A2 | one trade not counted | After trading down, the column you traded
 ```
 
 ```item CPP1B
-prompt: Work out 37 × 24.
+prompt: Work out $37 × 24$.
 topics: partial-products
 answer: type
 calculator: no
-slip: CPP1B1 | tens by tens and ones by ones only | 37 × 24 has four parts: 30 × 20, 30 × 4, 7 × 20 and 7 × 4. Two of them were left out.
-slip: CPP1B2 | the tens row without its zero | The 2 in 24 is 2 tens, so 37 × 2 tens is 740, not 74.
+slip: CPP1B1 | tens by tens and ones by ones only | $37 × 24$ has four parts: $30 × 20$, $30 × 4$, $7 × 20$ and $7 × 4$. Two of them were left out.
+slip: CPP1B2 | the tens row without its zero | The 2 in 24 is 2 tens, so $37 × 2$ tens is 740, not 74.
 ```
 
 ```item CPP1C
@@ -255,6 +255,6 @@ prompt: 86 rolls are packed into boxes of 6. How many boxes are filled?
 topics: quotient-remainder
 answer: type
 calculator: no
-slip: CPP1C1 | counted the part box | 6 × 15 is 90, more than 86: the last box is not full. Count only the full ones.
+slip: CPP1C1 | counted the part box | $6 × 15$ is 90, more than 86: the last box is not full. Count only the full ones.
 slip: CPP1C2 | the rolls left over | That is how many rolls are left over. The question asks for the full boxes.
 ```

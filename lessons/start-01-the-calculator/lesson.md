@@ -46,7 +46,7 @@ under it.</entry>
 
 ## A first calculation
 
-The bakery bakes 7 apple pies and 5 cherry pies. By hand, 7 + 5 = 12. Now check it.
+The bakery bakes 7 apple pies and 5 cherry pies. By hand, $7 + 5 = 12$. Now check it.
 <entry e="alg">Type it the way it is written. ENTER works as the = key:</entry>
 <entry e="rpn">Type 7, then ENTER, then 5, then +. ENTER finishes the 7, so the 5 you type next is a
 new number and not 75. The operation always comes last:</entry>
@@ -66,7 +66,7 @@ because of FIX 4.
 
 ## Using the answer
 
-Tomorrow the bakery bakes twice as many: 12 × 2 = 24. The answer is still there, so carry
+Tomorrow the bakery bakes twice as many: $12 × 2 = 24$. The answer is still there, so carry
 on from it.
 <entry e="alg">When you press an operation key straight after an answer, the calculator starts the
 new line with ANS, short for the last answer:</entry>
@@ -85,11 +85,11 @@ The screen shows <disp v="C02">24.0000</disp>.
 <entry e="alg">The line reads <disp v="C02" kind="line">ANS×2</disp>.</entry>
 
 The bakery has 100 boxes, and each of the 24 pies takes one. How many boxes are left?
-100 − 24 = 76. This time the last answer comes second.
-<entry e="alg">Pressing − first would start the line with ANS and work out 24 − 100. Instead type 100,
+$100 − 24 = 76$. This time the last answer comes second.
+<entry e="alg">Pressing − first would start the line with ANS and work out $24 − 100$. Instead type 100,
 then −, then ANS. In ALG, the key with LASTx printed in gold above ENTER types ANS:</entry>
 <entry e="rpn">Type 100. Now 100 is in X and 24 is in Y. − takes X away from Y, which would work out
-24 − 100, so first the x↔y key swaps X and Y:</entry>
+$24 − 100$, so first the x↔y key swaps X and Y:</entry>
 
 ```keys C03 entry=alg after=C02
 100 − GOLD LASTx ENTER
@@ -125,7 +125,7 @@ BLUE →FRAC
 ```
 
 The screen shows <disp v="F02">2 1/2</disp>: a whole number, a space, and then the fraction. The
-fraction is always in its simplest form, the smallest numbers that name it: 4/8 shows as 1/2.
+fraction is always in its simplest form, the smallest numbers that name it: $\frac{4}{8}$ shows as $\frac{1}{2}$.
 Fraction display stays on until you press BLUE →FRAC again.
 
 Now share 1 pie equally among 3 people:
@@ -138,10 +138,10 @@ Now share 1 pie equally among 3 people:
 1 ENTER 3 ÷
 ```
 
-The screen shows <disp v="F03">0 1/3</disp>: no whole pies, and 1/3 of a pie each. Look at the top
-line of the screen, the status band. It has a small <disp v="F03" kind="status">▼</disp>. 1 ÷ 3 is
+The screen shows <disp v="F03">0 1/3</disp>: no whole pies, and $\frac{1}{3}$ of a pie each. Look at the top
+line of the screen, the status band. It has a small <disp v="F03" kind="status">▼</disp>. $1 ÷ 3$ is
 0.333... and the 3s never end, but the calculator keeps only 34 digits. So its number is a tiny bit
-less than 1/3, and the ▼ says so. When there is no arrow, the fraction shown is exactly the
+less than $\frac{1}{3}$, and the ▼ says so. When there is no arrow, the fraction shown is exactly the
 calculator's number.
 
 Press BLUE →FRAC again to turn fraction display off:
@@ -164,7 +164,7 @@ for the slip in each: either one can be the wrong one.
 
 ## Answers
 
-1. The tens, 40 + 30 = 70, and the ones, 5 + 8 = 13, so 70 + 13 = 83. The check:
+1. The tens, $40 + 30 = 70$, and the ones, $5 + 8 = 13$, so $70 + 13 = 83$. The check:
 
    ```keys E01 entry=alg
    45 + 38 ENTER
@@ -177,7 +177,7 @@ for the slip in each: either one can be the wrong one.
    The screen shows <disp v="E01">83.0000</disp>.
 
 2. Working it: 4 goes into 9 twice, which uses 8 cups, and 1 cup is left. That 1 cup shared among 4
-   cakes is 1/4 cup each, so each cake gets 2 1/4 cups. The check, with fraction display turned on
+   cakes is $\frac{1}{4}$ cup each, so each cake gets 2 $\frac{1}{4}$ cups. The check, with fraction display turned on
    first:
 
    ```keys E02 entry=alg
