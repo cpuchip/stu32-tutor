@@ -85,6 +85,14 @@ ask: Why is $r$ exactly 5 for the point (3, 4)?
 because: $r$ is the distance from O, the longest side of a right triangle whose other sides are 3 and 4, and $3^{2} + 4^{2}$ is $5^{2}$.
 ```
 
+Now the point (8, 15): its distance from O, the same way.
+
+```keys P01T twin=P01
+15 ENTER 8 BLUE ANGLE →POL
+```
+
+X holds 17.
+
 The angle follows the point all the way round, which ATAN alone cannot. For (−3, 4), up and to the
 left:
 

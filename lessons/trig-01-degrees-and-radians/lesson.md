@@ -129,6 +129,14 @@ ask: Why must the 60 be turned into radians before multiplying by the radius?
 because: $r × θ$ counts radii along the arc, and only a radian cuts exactly one radius. Multiplied straight, $60 × 10$ would be far longer than the whole way round the circle.
 ```
 
+Now the arc cut by 135 degrees on a circle of radius 4.
+
+```keys S01T twin=S01
+135 BLUE →RAD 4 ×
+```
+
+X holds 9.4248: three times π, since 135 degrees is three quarters of half a turn.
+
 ## Exercises
 
 1. What is 45 degrees in radians?

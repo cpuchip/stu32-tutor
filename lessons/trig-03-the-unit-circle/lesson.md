@@ -164,6 +164,16 @@ ask: Why does turning 30 short of 180 give the same height as turning 30 past 0?
 because: The two arms are mirror images across the y axis. The mirror swaps left for right but keeps every height, and the height is the sine.
 ```
 
+```item AS1T1
+prompt: ASIN gives 40 degrees for a certain sine. By hand, what other angle between 0 and 360 has the same sine?
+twin: U07
+topics: trig-ratios
+answer: type
+calculator: no
+slip: AS1T1A | cosine's mirror | 360 minus the angle is the mirror across the x axis, which keeps the cosine; for the sine it is 180 minus.
+slip: AS1T1B | 180 added | 180 plus the angle is across the middle, below the x axis, where the sine has the other sign.
+```
+
 Cosine has its own mirror: across the x axis. The point at $−θ$, or $360 − θ$, is straight below the
 point at θ, the same distance across. So the other angle with the same cosine is 360 minus the one
 ACOS gives, and ACOS always answers between 0 and 180. (At $\cos θ = 1$ or −1, at 0 and 180 degrees,

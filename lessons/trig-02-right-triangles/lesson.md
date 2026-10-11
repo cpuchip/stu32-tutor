@@ -88,6 +88,14 @@ ask: Why do the height and the distance along the ground not add up to the ladde
 because: They are the two shorter sides of a right triangle, and the ladder is the longest. It is their squares that add up to $5^{2}$, not the sides themselves.
 ```
 
+Now a 6 m ladder at 65 degrees to the ground: how high up the wall does it reach?
+
+```keys L01T twin=L01
+6 ENTER 65 SIN ×
+```
+
+X holds 5.4378 m.
+
 Tangent uses the two shorter sides. Standing 12 m from a tree, you look up 35 degrees to its top.
 The triangle has its corner at your eye: the 12 m level with your eye is adjacent to the angle, and
 the side opposite runs up from eye level to the top of the tree. So $\tan 35° = \text{that height} ÷ 12$,
