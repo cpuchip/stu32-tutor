@@ -79,6 +79,11 @@ X shows <disp v="P02">0.0956</disp>: under a 1 in 10 chance after 10 pulls. And 
 X shows <disp v="P03">0.6340</disp>. A hundred pulls of a 1-in-100 item can sound like a sure thing, but
 about 37 players in 100 still have not got the item.
 
+```why
+ask: Why do 100 pulls of a 1-in-100 item fall short of a sure thing?
+because: Each pull misses with 0.99, and the misses multiply. 0.99 to the power 100 is still about a third: the chance of missing every time.
+```
+
 ## How many pulls, on average
 
 If every pull has the same chance p, independently, then in many pulls about p of them give the item:
@@ -123,6 +128,11 @@ X shows <disp v="T01">59.5268</disp> pulls on average. Carrying on, at 1.50 a pu
 X shows <disp v="T02">89.2902</disp> dollars on average, and never more than 90 × 1.50, 135 dollars. The
 timer is no small thing: since 0.99⁸⁹ is about 0.41, about 4 players in 10 reach the guaranteed pull. And
 the average is still close to 90 dollars for one item.
+
+```why
+ask: Why does the timer bring the average down from a hundred pulls to under sixty?
+because: Without it, the players who would need 90 pulls or more, some of them hundreds, pull the average up. The timer ends every one of those runs at 90, and about 4 players in 10 are in them.
+```
 
 ## Exactly how many
 

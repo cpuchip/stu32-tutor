@@ -47,4 +47,4 @@ PB2M4A | slip: the payout as sure | MODE33 FIX4 10 | X=10
 # The checkpoint's working (abacus #6439): each computed answer made by the core.
 CP9AW | CP9A's working: 6 × 5 ÷ 2 | MODE33 FIX4 6 ENTER 5 * 2 / | X=15
 CP9BW | CP9B's working: 0.5 × 0.5 | MODE33 FIX4 0.5 ENTER 0.5 * | X=0.25
-CP9CW | CP9C's working: 3 × 0.5 − 1 | MODE33 FIX4 3 ENTER 2 / 1 - | X=0.5
+CP9CW | CP9C's working: 3 ÷ 2 − 1 | MODE33 FIX4 3 ENTER 2 / 1 - | X=0.5

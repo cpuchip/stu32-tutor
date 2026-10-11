@@ -90,6 +90,11 @@ showing 6, as 1/6 times 1/6:
 
 X shows <disp v="A01">0.0278</disp>: exactly 1 in 36, which FIX 4 rounds to four places.
 
+```why
+ask: Why are the chances multiplied for both dice, and not added?
+because: Of the 36 equally likely outcomes, a sixth have the first die on 6, and of those only a sixth have the second die on 6 too: a sixth of a sixth.
+```
+
 "At least one" is easier through "not". The chance of at least one 6 in four rolls of a die is 1 minus
 the chance of no 6 at all. No 6 in one roll is 5/6, and in four independent rolls it is (5/6)⁴:
 
@@ -98,6 +103,11 @@ the chance of no 6 at all. No 6 in one roll is 5/6, and in four independent roll
 ```
 
 X shows <disp v="A02">0.5177</disp>: a little better than an even chance.
+
+```why
+ask: Why is the chance of at least one 6 in four rolls not 4 × 1/6?
+because: 4 × 1/6 counts a run with two or more 6s more than once, and with seven rolls it would pass 1. 1 − (5/6)⁴ takes away just the runs with no 6 at all.
+```
 
 ## Counting with combinations
 

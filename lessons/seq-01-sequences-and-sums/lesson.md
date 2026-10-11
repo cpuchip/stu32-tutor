@@ -75,6 +75,11 @@ first n terms of an arithmetic sequence is n times (the first term plus the last
 
 X shows <disp v="A02">510.0000</disp> seats.
 
+```why
+ask: Why does every column of the two lines add to the same 68?
+because: Along the top line each term is 2 more than the one before, and along the bottom line 2 less, so each column's sum stays what the first column's was: 20 + 48.
+```
+
 ## Geometric sequences
 
 A sequence that multiplies by the same number at every step is geometric, and the number is its
@@ -142,6 +147,11 @@ XEQ Z ENTER
 ```
 
 X shows <disp v="P02">510.0000</disp>, the sum the formula gave.
+
+```why
+ask: Why is a loop that adds the rows one by one a real check on the formula?
+because: The loop uses nothing of the sum formula, only each row's own seats, so the two answers agreeing means neither is carrying the other's mistake.
+```
 
 ## Exercises
 

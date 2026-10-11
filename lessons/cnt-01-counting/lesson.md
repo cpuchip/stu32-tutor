@@ -56,6 +56,11 @@ whatever was picked before it, the number of ways is the numbers of choices mult
 
 X shows <disp v="M01">24.0000</disp> outfits.
 
+```why
+ask: Why are the choices multiplied, and not added?
+because: Each of the 3 shirts starts its own set of 4 × 2 outfits, so there are 3 equal sets of them. Adding 3 + 4 + 2 would count the pieces of clothing, not the outfits.
+```
+
 ## Orders: the factorial
 
 Five books go on a shelf in a row. Any of the 5 can go first; then any of the 4 left can go second,
@@ -103,6 +108,11 @@ mean C(n, r) and P(n, r). Type n, the size of the group, then ENTER, then r, how
 ```
 
 X shows <disp v="P01">720.0000</disp>.
+
+```why
+ask: Why is P(10, 3) less than 10 × 10 × 10?
+because: No runner can take two medals, so each medal after the first has one runner fewer to choose from than the medal before it.
+```
 
 ## Choosing without order: combinations
 
