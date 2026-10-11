@@ -16,12 +16,10 @@ voices: story plain
 
 <voice v="story">On a winter night the air by Hesk's mill pond cools by 4 degrees every hour.</voice><voice v="plain">On a winter night the air by a pond cools by 4 degrees every hour.</voice> Write a change of 4 degrees colder as −4.
 After 3 hours the change is −4 three times over: 3 × (−4). What does a negative times a number give,
-and what about a negative times a negative? This lesson finds the rules, says why they hold, and
-checks them on the calculator.
+and what about a negative times a negative? You find the rules, see why they hold, and check them
+on the calculator.
 
 ## From before
-
-Two from before, by hand: a negative from neg-01, and one from whole-02.
 
 ```item NG2F1
 prompt: Work out −8 + 3.
@@ -74,7 +72,7 @@ Watch a pattern, multiplying −4 by 3, then 2, then 1, then 0:
 - 0 × (−4) = 0
 
 Each time the first number goes down by 1, there is one −4 fewer, so the answer is the last one with a
-−4 taken away. Taking away −4 adds 4 (neg-01). So going on below zero, each step still adds 4:
+−4 taken away. Taking away −4 adds 4. So going on below zero, each step still adds 4:
 (−1) × (−4) = 0 + 4 = 4, (−2) × (−4) = 8, (−3) × (−4) = 12. A negative times a negative is positive.
 On the thermometer: if the air cools 4 degrees an hour, then 3 hours ago, which is −3 hours, it was 12 degrees
 warmer.
@@ -254,9 +252,6 @@ Work out the sign first, then the size (the number without its sign), then check
    The screen shows <disp v="E05">-5.0000</disp>.
 
 ## Mixed review
-
-Four from this lesson and the ones before it, in no order. Work each by hand unless it says to use
-the calculator.
 
 ```item NG2M1
 prompt: Work out (−7) × (−6).

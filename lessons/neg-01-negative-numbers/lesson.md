@@ -16,12 +16,9 @@ voices: story plain
 
 <voice v="story">In winter, Hesk keeps a thermometer by the mill pond.</voice><voice v="plain">In winter, a thermometer hangs by a pond.</voice> At dawn the air is 5 degrees Celsius; by night
 it is 8 degrees colder. How cold is it tonight? Water freezes at 0 degrees Celsius, and tonight the air
-is colder than that, so the pond will freeze over, and the answer needs a number below zero. This lesson is about those numbers: what
-they mean, how they line up, and how to add and take them away.
+is colder than that, so the pond will freeze over, and the answer needs a number below zero.
 
 ## From before
-
-Two from whole-01, by hand.
 
 ```item NG1F1
 prompt: Work out 803 − 467.
@@ -90,7 +87,7 @@ The screen shows <disp v="A01">-3.0000</disp>. The calculator writes the minus s
 <entry e="alg">The line reads <disp v="A01" kind="line">5+-8</disp>: 5 plus negative 8.</entry>
 
 A mistake to watch for: +/− works on the number being typed, and digits typed after it keep going
-into that same number. Here is the mistake, typing 8, +/−, then 5:
+into that same number. The mistake is typing 8, +/−, then 5:
 
 ```keys S01
 8 +/− 5 ENTER
@@ -201,9 +198,6 @@ Use the number line by hand first, then check.
 4. Left to right on the number line: −7, −2, 0, 5.
 
 ## Mixed review
-
-Four from this lesson and the ones before it, in no order. Work each by hand unless it says to use
-the calculator.
 
 ```item NG1M1
 prompt: Work out −6 + 9.
