@@ -98,6 +98,16 @@ ask: Why is the flat line's height 1, the average of the five values?
 because: A flat line has one height for every $x$, and of all heights, the average is the one that makes the squared distances to the points add up to the least.
 ```
 
+```item AV1T1
+prompt: Five points, (0, 8), (1, 5), (2, 4), (3, 5) and (4, 8), mirror each other about the middle one. By hand, what is $b$ for their best line?
+twin: Q04
+topics: intercept
+answer: type
+calculator: no
+slip: AV1T1A | the lowest point | The flat line fits neither half: its height is the average of all five, not the lowest.
+slip: AV1T1B | the sum | Add the five heights, then divide by 5: there are five points.
+```
+
 ## A perfect fit
 
 At the other end of the scale, $f(x) = 2x + 3$ from fn-01 gives 3, 5, 7, 9 and 11 at $x = 0$ to 4, all on

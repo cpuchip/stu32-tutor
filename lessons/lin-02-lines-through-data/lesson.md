@@ -141,6 +141,16 @@ would give 95.9 centimetres, and no seedling promised that. This one grew 2, 1, 
 centimetres from week to week, faster at the end, so its real height at week 6 may well be above
 the line's.
 
+```item D6T1
+prompt: By hand, what height does the seedling's line, $y = 1.9x + 0.9$, give at week 8?
+twin: D06
+topics: estimate
+answer: type
+calculator: no
+slip: D6T1A | the intercept left off | $1.9 × 8$ is 15.2, and the line adds its intercept, 0.9, to that.
+slip: D6T1B | slope and intercept swapped | The 1.9 is the slope, so it is the one multiplied by the week: $1.9 × 8 + 0.9$.
+```
+
 ## Fixing a mistake
 
 Say the last point went in twice:

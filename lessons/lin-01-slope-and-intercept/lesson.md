@@ -136,6 +136,16 @@ ask: Why must the rise and the run both be taken from the same point?
 because: Taking only one of them the other way round flips its sign, and the slope comes out −2 for a line that rises 2 at each step.
 ```
 
+```item L1T1
+prompt: By hand, what is the slope of the line through (1, 3) and (4, 15)?
+twin: L01
+topics: slope
+answer: type
+calculator: no
+slip: L1T1A | run over rise | The rise goes on top: $15 − 3$ over $4 − 1$, not the other way up.
+slip: L1T1B | one difference turned round | Take both from the same point: $15 − 3$ goes with $4 − 1$, and $1 − 4$ makes the slope −4.
+```
+
 ## The intercept
 
 Any point on the line makes $y = mx + b$ true. Take $mx$ from both sides of that, and it gives
