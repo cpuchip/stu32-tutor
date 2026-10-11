@@ -272,8 +272,13 @@ arithmetic too, Michael via abacus #6967). The lesson says where the maths is:
 - **It may not cross a tag.** A span lies wholly inside one `<voice>` span or outside them all.
 - **A key's name stays plain:** "the x² key", never a span before the word "key".
 - **Inside a span, TeX** over a closed list: `^2` or `^{…}`, `\frac{a}{b}`, `\sqrt{…}`, `'` and `''`, and `\times
-  \div \le \ge \pm \neq \cdot \pi \theta \infty \, \left \right`. Any other character is taken as written, so
-  − × ÷ ≤ ≥ ° π may be written as they are.
+  \div \le \ge \pm \neq \cdot \pi \theta \infty \, \left \right \% \angle` (the last two by abacus #7218). Any
+  other character is taken as written, so − × ÷ ≤ ≥ ° π may be written as they are. A bare `%` is refused: TeX
+  takes it as a comment and drops the rest of the span.
+- **What is a span** (the conversion's rules, docs/proposals/maths-markup.md §6): an expression or relation,
+  arithmetic too, and a power, root, prime or function on its own; a variable named in words. A lone number, a
+  register (X Y Z T), a memory letter, a key's name, a point and a lone ∠ name stay plain, and a word unit stays
+  outside the span. tools/maths_convert.py applies them a course at a time.
 
 check.py reads every span back to the plain text the lessons wrote before the markup (`maths_text`: `^2` as ²,
 `^{r × t}` as ^(r × t), `^{2.5}` as ^2.5, `\frac{1}{4}` as 1/4, `\sqrt{x + 1}` as √(x + 1), `'` as ′), and every

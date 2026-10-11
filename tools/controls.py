@@ -135,6 +135,8 @@ CONTROLS = [
     ("a maths span in a keys block", "lesson.md", "```keys S02\n", "```keys S02\n$7$\n", {}, "a maths span in a keys block"),
     ("a maths span with a command off the list", "lesson.md", "To add 7 and 5, type 7,", "To add $\\log 7$ and 5, type 7,", {},
      "\\log is not on the list"),
+    ("a bare % in a maths span", "lesson.md", "To add 7 and 5, type 7,", "To add $7\\% + 5\\%$ or $7% + 5%$, type 7,", {},
+     "the maths span '$7% + 5%$': a bare %"),
     ("a maths span written as a key's name", "lesson.md", "To add 7 and 5, type 7,", "To add $7 + 5$ key and 5, type 7,", {},
      "a maths span names a key"),
     ("a why number its example's maths does not show", "lesson.md", 'X shows <disp v="S01">12.0000</disp>.\n',
@@ -162,6 +164,8 @@ GREENS = [
     ("a why number its example shows only inside maths", "lesson.md", 'X shows <disp v="S01">12.0000</disp>.\n',
      'X shows <disp v="S01">12.0000</disp>, and $12 = 3 \\times 4$.\n\n```why\nask: Why is 12 also 3 × 4?\n'
      'because: 3 fours make 12.\n```\n'),
+    ("\\% and \\angle on the list", "lesson.md", "To add 7 and 5, type 7,",
+     "To add 7 and 5 ($7\\% + 5\\% = 12\\%$, and $\\angle B = 40°$), type 7,"),
     # seen() strips tags and lesson ids; a span's reading is lifted out first, so neither eats the maths.
     ("maths with < and x-10 read whole", "lesson.md", 'X shows <disp v="S01">12.0000</disp>.\n',
      'X shows <disp v="S01">12.0000</disp>, so $x < 13$ and $x-10 = 2$ when x is 12 > 11.\n\n```why\n'

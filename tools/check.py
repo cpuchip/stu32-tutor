@@ -195,7 +195,8 @@ MATHS_KEEP, MATHS_END = "", ""      # around a span's reading, so seen() s
 SUP_CHARS = "0123456789-+()n"
 SUP = str.maketrans(SUP_CHARS, "⁰¹²³⁴⁵⁶⁷⁸⁹⁻⁺⁽⁾ⁿ")
 MATHS_COMMANDS = {r"\times": "×", r"\div": "÷", r"\le": "≤", r"\ge": "≥", r"\pm": "±", r"\neq": "≠", r"\cdot": "·",
-                  r"\pi": "π", r"\theta": "θ", r"\infty": "∞", r"\,": "", r"\left": "", r"\right": ""}
+                  r"\pi": "π", r"\theta": "θ", r"\infty": "∞", r"\,": "", r"\left": "", r"\right": "",
+                  r"\%": "%", r"\angle": "∠"}         # \% and \angle: abacus #7218
 
 
 class MathsRefused(ValueError):
@@ -267,6 +268,8 @@ def maths_text(tex):
             i += 1
         elif c in "{}":
             raise MathsRefused("a bare brace")
+        elif c == "%":
+            raise MathsRefused(r"a bare % (TeX takes it as a comment and drops the rest of the span): write \%")
         else:
             out.append(c)
             i += 1
