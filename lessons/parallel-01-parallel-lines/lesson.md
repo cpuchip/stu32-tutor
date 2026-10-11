@@ -22,8 +22,6 @@ others?</voice>
 
 ## From before
 
-Two from before, by hand: a straight line from angle-02, and one from pre-algebra.
-
 ```item PA1F1
 prompt: Two angles lie on a straight line. One is 115°. What is the other?
 topics: straight-line-angles
@@ -57,7 +55,7 @@ same distance apart all the way along the ruler.
 ## A line across
 
 A line that crosses two other lines is called a transversal. The coast road is one: it crosses
-Harbour Street and Market Street, which are parallel. So in this lesson the road is the transversal,
+Harbour Street and Market Street, which are parallel. So here the road is the transversal,
 and the streets are the parallel lines. At each crossing it makes four angles, so eight
 in all:
 
@@ -82,8 +80,8 @@ four angles at each crossing. What do you find?
 ## Corresponding angles
 
 The angles in the same place at the two crossings are called corresponding: p and t, q and u, r and
-v, s and w. Measured, they come out equal. For parallel lines this is the starting fact that the rest
-of this lesson builds on, and it is taken as given, not shown. Euclid, too, took a statement about
+v, s and w. Measured, they come out equal. For parallel lines this is the starting fact that everything
+after it builds on, and it is taken as given, not shown. Euclid, too, took a statement about
 parallel lines as given without proof, usually called his fifth postulate (some editions call it his
 twelfth axiom), and this is one form of it. His own form says: if a line crosses two lines and the
 two angles between them on one side add to less than 180°, those two lines meet on that side. From
@@ -189,8 +187,7 @@ Draw first, then check.
 
 ## Checkpoint
 
-Questions on the whole unit. Work each by hand first, then give your answer; the page checks it. A
-wrong answer that comes from a common slip gets a hint that names the step.
+Questions on the whole unit.
 
 ```item CPG1A
 prompt: Two angles lie together on a straight line. One is 47°. What is the other, in degrees?

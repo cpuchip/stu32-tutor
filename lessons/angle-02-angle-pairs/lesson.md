@@ -20,8 +20,6 @@ others. That saves measuring, and it is a check on the ones you do measure.
 
 ## From before
 
-Two from before, by hand: degrees from angle-01, and one from pre-algebra.
-
 ```item AN2F1
 prompt: How many degrees is a quarter of a full turn?
 topics: degrees
@@ -144,7 +142,7 @@ Two pairs of them face each other across the crossing, a with c and b with d. Ea
 vertically opposite. The name comes from the vertex, not from up and down: the two angles are
 opposite each other at the vertex they share. What do you find?
 
-They come out equal: a = c and b = d. A measurement shows it for one drawing, though. Here is why it
+They come out equal: a = c and b = d. A measurement shows it for one drawing, though. Why it
 must be so for every crossing:
 - Angles a and b lie together on one straight line, so a + b = 180°.
 - Angles b and c lie together on the other straight line, so b + c = 180°.

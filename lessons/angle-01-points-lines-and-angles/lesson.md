@@ -19,12 +19,9 @@ tools: point straightedge ruler protractor
 a wide bay, and Corwen is making the first true map of it.</voice><voice v="plain">A harbour town on a wide bay is being mapped for the first time.</voice> A map has to say where the lighthouse is,
 and where the church tower is, from one place everyone can find: the end of the harbour wall. The
 distance is one half of the answer. The other half is the direction, and a direction is measured
-as an angle. This lesson is about angles: what they are, how to measure them, and what kinds there
-are.
+as an angle.
 
 ## From before
-
-Two from pre-algebra, by hand.
 
 ```item AN1F1
 prompt: Work out 360 − 125.
