@@ -95,3 +95,86 @@ pairs", "By hand, 7 + 5 = 12".
 
 The conversion touches the same prose as the voice pass (docs/proposals/voice-pass.md). Since it is done by a
 script with its own exact check, it can run before or after a course's voice pass, but not in the middle of one.
+
+## 6. The conversion: where a span starts and ends (blueprint, abacus #7216)
+
+The check is built (bd7033d, accepted #7216). This section settles where the converter puts the `$` marks, because
+that is where it would otherwise guess. The figures come from a regex census of every place a span may go, in
+every voice. It was written for scale, so it over-counts at its edges; the converter's own per-lesson report gives
+the exact numbers.
+- about 2,300 expressions;
+- about 2,500 lone numbers;
+- about 950 register names (X, Y);
+- 12 expressions followed by a word unit;
+- 4 with %;
+- 9 key names beside "key" or "press";
+- 3 headings;
+- about 5 expressions wrapped across a line;
+- no money sign.
+
+**1. An expression or relation is one span, arithmetic too (Michael: "everything").** Operands joined by + − × ÷ =
+< > ≤ ≥ ≠ ± / · or ^, with their products (2t², 3x), powers, roots, primes and function notation, go in one span.
+A chain is one span.
+- "So 3452 + 1879 = 5331." → "So $3452 + 1879 = 5331$."
+- "7 × 10 + 7 × 2 = 70 + 14 = 84" → one span.
+- "x − 2 ≥ 0" → "$x − 2 ≥ 0$": one span, not three.
+- "√x" and "f′(a)" alone → "$\sqrt{x}$", "$f'(a)$": a root, power, prime or function is maths without an operator.
+
+**2. A lone number stays plain.** "3 pies", "84 pastries", "6% a year", "90°", "4 columns", "when F is −40". A
+count or a measurement is not an operation, and Michael's "arithmetic too" was about operations ("7 + 5 = 12").
+KaTeX's digits look like the page's, so a span would change nothing a reader sees. It would cost about 2,500 spans,
+each with a boundary to get wrong. In a sentence with both, only the expression is a span: "Each of the
+$12 ÷ 4 = 3$ boxes holds 6".
+
+**3. At a span's edges:**
+- **A sign** belongs to its number: "$−4 + 6 = 2$", "$3 × (−4) = −12$".
+- **A degree sign** on an operand goes inside: "$360 ÷ 3 = 120°$" (KaTeX strict renders °).
+- **A percent sign** in an expression goes inside, written `\%`, because % starts a TeX comment and would swallow the
+  rest of the span: "$100\% − 20\%$". `maths_text` gains `\%` → %, and check_maths refuses a bare % in a span,
+  with a red control. There are 4 such expressions today.
+- **A word unit** stays outside, with the punctuation: "$d′(5) = 4 × 5 = 20$ metres", "$36 ÷ 3 = 12$ pies". Inside a
+  span its letters would be set as variables. There are 12 today, all after the expression. An expression whose
+  operands each carry a unit ("2 cm + 3 cm") is never spanned, and the report lists it; the census found none.
+- **Money:** none today. When one comes, it is `\$5` in prose.
+
+**4. Letters:**
+- **A variable named in words is a span,** so the same letter looks the same in the sentence and in its equations:
+  "if $n$ is the number of pies", "solve it for $C$ when $F$ is −40", "Angles $b$ and $c$ lie together". The
+  converter takes a lone letter as a variable only when the same letter appears in that lesson's expressions.
+  (angle-02's angle a is therefore an unsettled letter, below.)
+- **These stay plain:**
+  - the stack registers X Y Z T ("X shows"): calculator vocabulary, like a key's name;
+  - a memory letter after STO or RCL ("RCL M");
+  - a key's legend;
+  - the words a, A and I.
+- **A lone letter the script can't settle** (an English word that is also a variable in that lesson) is never
+  converted by it; the report lists each one with its line, for a decision by hand.
+- **Points in geometry** (A, B, "the segment AB", "∠B"): a question for you, and for Michael through you. My lean is
+  plain in v1. A point is a name on a figure, not a quantity, and "∠B" would need `\angle`, which is not on the
+  list.
+
+**5. Hard wraps.** A span may not cross a line, and about 5 expressions break across one today: whole-01
+"3500 + 1900 =⏎5400", and others in expr-01, lim-01 and sys-01 (twice). For each course, a rewrap commit comes
+first. It moves each such break to just before its expression, and its oracle is every paragraph's text, with
+whitespace collapsed, unchanged. The conversion's own round trip is then byte for byte. A "- " at the start of a
+line is a list mark, not a minus.
+
+**6. Left untouched:**
+- `<disp>` quotes;
+- keys blocks;
+- an item's answer, topics, keys and working fields;
+- front matter and inline code;
+- headings: three hold maths (poly-04, sys-02's "2×2", trig-03), and they stay plain as topic anchors;
+- a key's name beside "key" or "press": "the √x key", "the 1/x key", "R/S", 9 today.
+
+**The oracle, per course:**
+- the rewrap's whitespace check;
+- the round trip byte for byte for each lesson: `maths_plain(maths_read(new))` is the old body;
+- check_maths clean;
+- check.py's output on the core and graph.py's `--json` unchanged;
+- a count per lesson of spans and fences beside what was left plain, by kind: lone numbers, register names, memory
+  letters, key names, units left outside, and the unsettled letters with their lines, so you can sample both sides;
+- primer's render of every span with throwOnError, through the `maths` question.
+
+**Order:** pre-algebra (both voices converted alike; the voices rule checks their numbers), then geometry unit 1,
+then algebra a unit at a time, each sent on its own.
