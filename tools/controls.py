@@ -407,6 +407,11 @@ CONTROLS_FOR["poly-01-evaluating-a-polynomial"] = [
      "   2 ENTER ENTER ENTER 1 × 2 − × 1 +\n", {}, "E01: printed keys and vector disagree in 33s mode"),
 ]
 CONTROLS_FOR["poly-02-roots-with-solve"] = [
+    # A typed answer judged within a tolerance (X#c,t) is still an answer to the twin rules: here CP5B's 5 on root.
+    ("a twin's within-tolerance answer equal to the checkpoint's",
+     [("lesson.md", "twin: S03\ntopics: polynomial\n", "twin: S03\ntopics: root\n"),
+      ("vectors.txt", "MODE33 FIX4 6 | X#6,1E-30", "MODE33 FIX4 5 | X#5,1E-30")], None, None, {},
+     "item RT1T1: twin's answer 5 is checkpoint CP5B's"),
     ("a <mode> span naming a mode that does not exist", "lesson.md", '<mode m="35s,STU">: in this mode', '<mode m="35s,STV">: in this mode', {},
      "STV is not one of 33s 35s STU"),
     ("the message left showing before the next example (the 35s and STU key only clears it)", "lesson.md",

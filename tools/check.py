@@ -556,11 +556,12 @@ def unit_files(lesson_dir, lesson_id):
 
 
 def item_answer(vectors_text, iid):
-    """An item's typed answer, from its vector (ID@alg's N=, else ID@rpn's or ID's X=), as a value, or None."""
+    """An item's typed answer, from its vector (ID@alg's N=, else ID@rpn's or ID's X=), as a value, or None. A typed
+    answer judged within a tolerance, X#c,t, is its centre c: SOLVE's 6 is 6 to the twin rules (RT1T1)."""
     for line in vectors_text.splitlines():
         p = [x.strip() for x in line.split("|")]
         if len(p) == 4 and p[0].split("@")[0] == iid:
-            m = re.search(r"(?:^|\s)[NX]=(\S+)", p[3])
+            m = re.search(r"(?:^|\s)[NX]=(\S+)", p[3]) or re.search(r"(?:^|\s)[NX]#([^,\s]+),\S+", p[3])
             if m:
                 try:
                     return Decimal(m.group(1))
