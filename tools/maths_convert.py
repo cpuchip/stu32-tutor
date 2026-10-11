@@ -309,7 +309,8 @@ def plan(text, geometry, keys):
         while b < len(text) and not text[b].isspace():
             b += 1
         word = text[a:b].strip(".,;:!?()")
-        return (t in keys or word in keys or re.match(r"\s*keys?\b", text[e:e + 12])
+        # a one-character legend (the memory letters A-Z, b, i, m, r) is a key's name only beside "key" or "press"
+        return ((len(t) > 1 and t in keys) or (len(word) > 1 and word in keys) or re.match(r"\s*keys?\b", text[e:e + 12])
                 or re.search(r"\bpress(?:es|ed|ing)?\s+(?:the\s+)?$", text[max(0, s - 24):s]))
     found = [(s, e, t, bool(key_name(s, e, t))) for s, e, t in found]
     letters = set()
@@ -339,8 +340,8 @@ def plan(text, geometry, keys):
                 left["memory letter"] += 1
             elif geometry and t.isupper():
                 left["point"] += 1
-            elif t not in letters:
-                left["letter not in the lesson's maths"] += 1
+            elif t not in letters and not (geometry and t.islower() and t != "a"):
+                left["letter not in the lesson's maths"] += 1  # (in geometry a small letter is an angle: p, v, w)
             elif t in ("a", "A", "I") and re.match(r"\s+(?!(?:times|plus|minus|is|squared|cubed|and|or)\b)[a-z]{2,}", after):
                 left["the word a, A or I"] += 1         # an article before its noun: "a number", "a customer"
             elif t in ("a", "A", "I"):
