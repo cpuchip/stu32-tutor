@@ -122,6 +122,11 @@ Step 3 is where the usual mistake happens: reading the other scale. The two scal
 The screen shows <disp v="P01">130.0000</disp>. The check is to look before you read: an angle
 narrower than the corner of a page is less than 90°, so it cannot be 130°.
 
+```why
+ask: Why do the protractor's two scales always add to 180?
+because: Each scale counts the same half turn from a different end, so a mark some way from one end is the rest of the half turn from the other.
+```
+
 **Draw it.** Draw a ray from a point B. Put the protractor's centre on B with its 0 line along the
 ray, find 50 on the scale that starts at 0 on your ray, and mark a dot there. Join B to the dot.
 Then check it: put the protractor's 0 line along your new arm instead, and read the angle again from
@@ -166,6 +171,11 @@ The angle between the lighthouse and the tower, as seen from there, is 110 − 3
 
 The screen shows <disp v="B01">75.0000</disp>. Taking one from the other works only because both
 angles were measured from the same arm, turning the same way.
+
+```why
+ask: Why does 110 − 35 give the angle between the lighthouse and the tower?
+because: Both turns start at the wall and go the same way, so the turn to the tower is the turn to the lighthouse and then some more. 110 − 35 is that more.
+```
 
 ## Exercises
 

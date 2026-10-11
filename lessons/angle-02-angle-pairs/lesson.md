@@ -98,6 +98,11 @@ Its angle to the other wall is what is left of the right angle, 90 − 35:
 
 The screen shows <disp v="C01">55.0000</disp>. Two angles that add to 90° are called complementary.
 
+```why
+ask: Why is the path's other angle taken from 90, and not from half a turn?
+because: The path runs inside the square corner, between the two walls, so its two angles share the corner's 90°. The two walls do not make a straight line.
+```
+
 ## Round a point
 
 Three streets leave the market cross, each in its own direction. Going round the cross, the angles
@@ -113,6 +118,11 @@ between them are 120°, 95° and a third. Together they make a full turn, 360°,
 
 The screen shows <disp v="P01">145.0000</disp>. This is a good check on a survey: measure all three,
 and if they do not add to 360°, at least one of them is wrong.
+
+```why
+ask: Why must the three angles round the cross add to 360°?
+because: Going round from one street back to the same street is one full turn, and the three angles are that turn, cut at the other two streets.
+```
 
 ## Where two lines cross
 

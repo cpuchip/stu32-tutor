@@ -104,6 +104,11 @@ q = 65°, so u = 65° too. The angle beside q on the straight street, p, is 180 
 The screen shows <disp v="A01">115.0000</disp>. With vertically opposite angles (angle-02), every
 angle is now known: q, s, u and w are 65°, and p, r, t and v are 115°.
 
+```why
+ask: Why does one measured angle, q = 65°, give all eight?
+because: At each crossing the angles are that one and the angle beside it on a straight line, each twice over, and corresponding angles carry the same two sizes to the other crossing.
+```
+
 It works the other way too: if corresponding angles are equal, the lines are parallel. Euclid did not
 need to take this one as given; he proved it from earlier steps (his Book I, propositions 27 and 28).
 <voice v="story">That is how Corwen checks a new street.</voice><voice v="plain">That is how to check a new street.</voice> If the coast road meets it at 65°, in the same place as q,
@@ -138,6 +143,11 @@ crosses at a right angle). The reason:
 ```
 
 The screen shows <disp v="I01">180.0000</disp>.
+
+```why
+ask: Why can co-interior angles be equal only when the road crosses square?
+because: They add to 180°, so they are equal only when each is half of that: a right angle.
+```
 
 ## Exercises
 
