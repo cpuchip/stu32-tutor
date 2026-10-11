@@ -15,12 +15,10 @@ region into thin strips, treat each strip as a rectangle, and add up their areas
 For a curve like this one, the thinner the strips, the closer the sum comes to the area. As the strips
 get thinner without end, the sums have a limit (lim-01, here with the number of strips growing rather
 than x approaching a number), and that limit is called the integral. When the curve stays above the
-axis, as this one does, the integral is the area. This lesson adds up rectangles with a program, then
-lets the calculator's built-in integral do the work.
+axis, as this one does, the integral is the area. A program adds up the rectangles, and then the
+calculator's built-in integral does the work.
 
 ## From before
-
-Two from before, by hand: a sum from seq-01, and squares from unit 1. This lesson adds squares up.
 
 ```item IN1F1
 prompt: Add 1 + 2 + 3 + … + 10.
@@ -108,8 +106,8 @@ X shows <disp v="A02">9.4550</disp>, and carrying on, 300:
 300 XEQ A ENTER
 ```
 
-<disp v="A03">9.0451</disp>. The sums seem to close in on 9 as the strips thin out, and the next section
-confirms it: the area under y = x² from 0 to 3 is 9.
+<disp v="A03">9.0451</disp>. The sums seem to close in on 9 as the strips thin out, and the built-in
+integral confirms it: the area under y = x² from 0 to 3 is 9.
 
 ```why
 ask: Why do the sums come down toward 9 from above, and never below it?
@@ -171,8 +169,8 @@ the area below it, 0.5 − 0.5, which is 0.
 
 ## Answers
 
-1. 8. 3x² stays above the axis, so its integral is the area. Type it (with the ×, as eq-01
-   said), put 0 and 2 on the stack, and integrate:
+1. 8. 3x² stays above the axis, so its integral is the area. Type it (with the ×), put 0 and 2 on
+   the stack, and integrate:
 
    ```keys E01
    GOLD EQN 3 × RCL X yˣ 2 ENTER GOLD EQN 0 ENTER 2 GOLD EQN GOLD ∫ X
@@ -191,9 +189,6 @@ the area below it, 0.5 − 0.5, which is 0.
    The X line shows <disp v="E02" kind="view">∫=-1.5000</disp>, and the area is 2 + 0.5.
 
 ## Mixed review
-
-Four from this lesson and the ones before it, in no order. Work each by hand unless it says to use
-the calculator.
 
 ```item IN1M1
 prompt: Two strips of width 1 stand under y = x², with heights taken at x = 1 and x = 2. What is their total area?
@@ -229,7 +224,7 @@ slip: IN1M4A | eight steps, not seven | The 8th term is 7 steps after the first:
 
 ## Checkpoint
 
-Questions on the whole unit. Work each by hand first (a few offer the calculator), then give your answer; the page checks it. A wrong answer that comes from a common slip gets a hint that names the step.
+Questions on the whole unit.
 
 ```item CP12A
 prompt: What is the area under y = 2x from x = 0 to x = 3?
