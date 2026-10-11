@@ -382,6 +382,13 @@ CONTROLS_FOR["lin-02-lines-through-data"] = [
      "```keys W02A after=W01\nGOLD Σ−\n", {}, "W02A: printed keys and vector disagree in 33s mode"),
 ]
 CONTROLS_FOR["lin-03-when-a-line-does-not-fit"] = [
+    # One exercise, headed "## Exercise" and unnumbered, is exercise 1 of the unit's problems: a twin may not work it.
+    ("a twin with the operands of the lesson's single exercise", "lesson.md",
+     "Something that doubles each step: 2, 4, 8, 16 and 32 at $x = 1$ to 5. Look at the points first: how\n"
+     "much does each step add? Then find $r$, and use the line at $x = 1$, at $x = 3$ and at $x = 6$. Is a line a\n"
+     "good model?\n",
+     "Five points, (0, 8), (1, 5), (2, 4), (3, 5) and (4, 8), mirror each other about the middle one. What is $b$?\n", {},
+     "item AV1T1 works the same operands as lin-03 exercise 1 in its unit"),
     ("q(2) keyed as 1, its sign lost", "lesson.md", "0 ENTER 1 Σ+ 1 +/− ENTER 2 Σ+", "0 ENTER 1 Σ+ 1 ENTER 2 Σ+", {},
      "Q01: printed keys and vector disagree in 33s mode"),
     ("the curve's r quoted as a weak rising fit", "lesson.md", 'v="Q02">0.0000<', 'v="Q02">0.3000<', {},

@@ -328,7 +328,8 @@ docs/proposals/worked-examples.md, approved by abacus (#7299) with primer's page
 - **An item twin**, after a worked example: an item with `twin: <block ID>`, `answer: type` and `calculator: no`,
   right after the example's blocks (a continuation of the example may come between) and under the same `##`
   heading. Its operands are not the example's own, in any order: $24 × 37$ is not a twin of $37 × 24$. Nor are they
-  any problem's in its unit, an item's (the checkpoint, From before, Mixed review) or an exercise's, or the twin
+  any problem's in its unit, an item's (the checkpoint, From before, Mixed review) or an exercise's (a lesson's one
+  unnumbered `## Exercise` is its exercise 1, answered by E01), or the twin
   would hand the learner that answer (abacus #7310). A prompt's operands are its problem's, its first maths span, so
   "Work out $37 × 24$ in parts: $37 × 4$, ..." is [24, 37] (its first span holding a number). A power's raised
   number counts: $2^{5}$ is [2, 5] and $(−2)^{4}$ is [2, 4], where a reading without powers gives [2] for both. Nor

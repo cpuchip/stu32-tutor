@@ -618,10 +618,16 @@ def unit_problems(lesson_dir, lesson_id):
             prompt = next((l.split(":", 1)[1] for l in m.group(2).splitlines() if l.strip().startswith("prompt:")), "")
             if not re.search(r"^[ \t]*twin:", m.group(2), re.M):
                 out.append((m.group(1), problem_operands(prompt), item_answer(vt, m.group(1))))
-        ex = re.search(r"^## Exercises\n(.*?)(?=^## |\Z)", body, re.M | re.S)
-        for n, item in re.findall(r"^(\d+)\. (.*?)(?=^\d+\. |\Z)", ex.group(1) if ex else "", re.M | re.S):
+        # (a lesson with one exercise heads it "## Exercise" and leaves it unnumbered: it is exercise 1)
+        ex = re.search(r"^## Exercises?\n(.*?)(?=^## |\Z)", body, re.M | re.S)
+        items = re.findall(r"^(\d+)\. (.*?)(?=^\d+\. |\Z)", ex.group(1) if ex else "", re.M | re.S)
+        if ex and not items and ex.group(1).strip():
+            items = [("1", ex.group(1))]
+        for n, item in items:
             # exercise N's answer is its Answers block's vector, E0N (the convention every lesson keeps)
-            out.append((f"{meta.get('id', d)} exercise {n}", operands(maths_plain(item)), item_answer(vt, f"E{int(n):02d}")))
+            # (a tag's attributes are not the problem's numbers: <mode m="35s,STU"> names no 35)
+            out.append((f"{meta.get('id', d)} exercise {n}", operands(re.sub(r"<[^>]*>", " ", maths_plain(item))),
+                        item_answer(vt, f"E{int(n):02d}")))
     return out
 
 
