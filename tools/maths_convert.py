@@ -298,7 +298,7 @@ def plan(text, geometry, keys):
     for a, b in zones(text):
         for s, e in runs(masked[a:b]):
             found.append((a + s, a + e, text[a + s:a + e]))
-    left, unsettled, spans = collections.Counter(), [], []
+    left, unsettled, spans, deferred = collections.Counter(), [], [], []
 
     def key_name(s, e, t):
         """A key's name: a legend, the whole word around the run a legend (x↔y), or beside "key" or "press"."""
@@ -340,18 +340,64 @@ def plan(text, geometry, keys):
                 left["memory letter"] += 1
             elif geometry and t.isupper():
                 left["point"] += 1
-            elif t not in letters and not (geometry and t.islower() and t != "a"):
-                left["letter not in the lesson's maths"] += 1  # (in geometry a small letter is an angle: p, v, w)
-            elif t in ("a", "A", "I") and re.match(r"\s+(?!(?:times|plus|minus|is|squared|cubed|and|or)\b)[a-z]{2,}", after):
-                left["the word a, A or I"] += 1         # an article before its noun: "a number", "a customer"
             elif t in ("a", "A", "I"):
-                left["unsettled letter"] += 1
-                unsettled.append((text.count("\n", 0, s) + 1, f"{t}: …{before[-20:]}[{t}]{after}…".replace("\n", " ")))
+                deferred.append((s, e, t, before, after))   # decided once the other spans are known
+            elif t not in letters and not (geometry and t.islower()):
+                left["letter not in the lesson's maths"] += 1  # (in geometry a small letter is an angle: p, v, w)
             else:
                 spans.append((s, e, t))
         else:
             left[{"number": "lone number", "angle": "lone ∠ name"}.get(k, "lone name (LCM, GCF)")] += 1
+    # A lone a, A or I in a sentence that also holds a one-letter span, or a span using that letter as a variable,
+    # is always listed for a decision by hand, never decided (abacus #7248: angle-02's "a with c"). Elsewhere it is
+    # the word, or listed when the lesson uses it as a variable and no noun follows.
+    lspans = [x for x in spans if re.fullmatch(r"[A-Za-z]", x[2]) or re.search(r"(?<![\\A-Za-z])[aAI](?![A-Za-z])", x[2])]
+    for s, e, t, before, after in deferred:
+        a, b = sentence(text, s)
+        if any(a <= x[0] < b for x in lspans) or (t in letters and not re.match(
+                r"\s+(?!(?:times|plus|minus|is|squared|cubed|and|or)\b)[a-z]{2,}", after)):
+            left["unsettled letter"] += 1
+            unsettled.append((text.count("\n", 0, s) + 1, f"{t}: …{before[-20:]}[{t}]{after}…".replace("\n", " ")))
+        elif t not in letters:
+            left["letter not in the lesson's maths"] += 1
+        else:
+            left["the word a, A or I"] += 1             # an article before its noun: "a number", "a customer"
     return [(s, e, to_tex(t)) for s, e, t in spans], left, unsettled
+
+
+def sentence(text, i):
+    """(start, end) of the sentence around offset i: from after the last . ! ? (then a space) or blank line before
+    it to the next one after it."""
+    a = max([m.end() for m in re.finditer(r"[.!?](?=\s)|\n[ \t]*\n", text[:i])] or [0])
+    m = re.compile(r"[.!?](?=\s|$)|\n[ \t]*\n").search(text, i)
+    return a, m.end() if m else len(text)
+
+
+def letter_spans(text):
+    """The spans of a text whose TeX is one letter ($c$), or which use the letter a, A or I as a variable ($a = 5$),
+    as (start, end, tex)."""
+    return [(a, b, t) for a, b, t in check.maths_spans(text)
+            if re.fullmatch(r"[A-Za-z]", t) or re.search(r"(?<![\\A-Za-z])[aAI](?![A-Za-z])", t)]
+
+
+def ambiguous_articles(text, extra=()):
+    """Each lone a, A or I (outside spans, in a place maths may go) in a sentence that also holds a one-letter span or a
+    span using a, A or I as a variable (abacus #7248): never decided silently, always listed. `extra` adds spans
+    planned but not yet written, as (start, end, tex). As (offset, the letter)."""
+    spans = check.maths_spans(text)
+    lspans = letter_spans(text) + [x for x in extra if re.fullmatch(r"[A-Za-z]", x[2])
+                                   or re.search(r"(?<![\\A-Za-z])[aAI](?![A-Za-z])", x[2])]
+    masked = mask(text)
+    out = []
+    for za, zb in zones(text):
+        for m in re.finditer(r"(?<![\w'’$\\])[aAI](?![\w'’$])", masked[za:zb]):
+            i = za + m.start()
+            if any(a <= i < b for a, b, _ in spans):
+                continue
+            s, e = sentence(text, i)
+            if any(s <= a < e for a, b, _ in lspans):
+                out.append((i, m.group(0)))
+    return out
 
 
 def apply(text, spans):
@@ -403,6 +449,18 @@ def collapse(text):
 
 
 def main():
+    if len(sys.argv) >= 3 and sys.argv[1] == "scan":
+        # On converted lessons: every lone a, A or I in a sentence with a one-letter span (abacus #7248).
+        n = 0
+        for p in course_lessons(sys.argv[2]):
+            t = open(p, encoding="utf-8").read()
+            for i, w in ambiguous_articles(t):
+                n += 1
+                s, e = sentence(t, i)
+                print(f"{os.path.basename(os.path.dirname(p))}:{t.count(chr(10), 0, i) + 1}: [{w}] in "
+                      f"'{re.sub(r'\s+', ' ', t[s:e]).strip()[:160]}'")
+        print(f"{sys.argv[2]}: {n} lone a/A/I in a sentence with a one-letter span")
+        return 0
     if len(sys.argv) < 3 or sys.argv[1] not in ("rewrap", "convert", "report"):
         print(__doc__)
         return 2

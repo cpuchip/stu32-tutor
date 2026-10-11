@@ -138,7 +138,7 @@ they are named $a$, $b$, $c$ and $d$, going round:
 ```
 
 **Draw it.** Draw two straight lines that cross, not at a right angle, and measure all four angles.
-Two pairs of them face each other across the crossing, a with $c$ and $b$ with $d$. Each pair is called
+Two pairs of them face each other across the crossing, $a$ with $c$ and $b$ with $d$. Each pair is called
 vertically opposite. The name comes from the vertex, not from up and down: the two angles are
 opposite each other at the vertex they share. What do you find?
 
@@ -158,7 +158,7 @@ Say $b$ is 70°. Then $a$, beside it on a straight line, is $180 − 70$:
 180 ENTER 70 −
 ```
 
-The screen shows <disp v="V01">110.0000</disp>. And $d$, beside a on the other straight line, is
+The screen shows <disp v="V01">110.0000</disp>. And $d$, beside $a$ on the other straight line, is
 $180 − 110$:
 
 ```keys V02 entry=alg
