@@ -17,11 +17,9 @@ voices: story plain
 <voice v="story">Tobin's bill for an order of n of the bakery's small pies is 3n + 5 coins: 3 for each pie, and 5 for
 carrying (expr-01). A customer paid 20 coins. How many pies did she order?</voice><voice v="plain">The bill for an order of n small pies is 3n + 5 coins: 3 for each pie, and 5 for
 carrying (expr-01). A bill came to 20 coins. How many pies were ordered?</voice> Now the total is known and
-the number of pies is not. This lesson finds it by undoing, step by step, what the rule did.
+the number of pies is not. To find it, undo what the rule did, step by step.
 
 ## From before
-
-Two from before, by hand: a rule from expr-01, and one from unit 1.
 
 ```item EP2F1
 prompt: Evaluate 3n + 5 when n = 6.
@@ -70,7 +68,7 @@ By hand: 20 − 5 = 15, then 15 ÷ 3 = 5. So n = 5. On the calculator, take 5 aw
 ```
 
 The screen shows <disp v="U01">15.0000</disp>. Carrying on, divide what is there by 3:
-<entry e="alg">an operation key straight after an answer starts the line with ANS (start-01):</entry><entry e="rpn">the 15 is on the stack, so type the 3 and ÷:</entry>
+<entry e="alg">an operation key straight after an answer starts the line with ANS:</entry><entry e="rpn">the 15 is on the stack, so type the 3 and ÷:</entry>
 
 ```keys U02 entry=alg after=U01
 ÷ 3 ENTER
@@ -80,9 +78,9 @@ The screen shows <disp v="U01">15.0000</disp>. Carrying on, divide what is there
 3 ÷
 ```
 
-The screen shows <disp v="U02">5.0000</disp>: she ordered 5 pies. Found.
+The screen shows <disp v="U02">5.0000</disp>: she ordered 5 pies.
 
-The order matters. Undo the × 3 first, and then the + 5, and see what happens:
+Undo them in the other order, the × 3 first and then the + 5, and see what happens:
 
 ```keys W01 entry=alg
 20 ÷ 3 − 5 ENTER
@@ -188,7 +186,7 @@ Solve each by undoing, by hand first, then check by putting the answer back.
    2 ÷
    ```
 
-   shows <disp v="E01B">12.0000</disp>. To check it with the calculator holding the answer (expr-01),
+   shows <disp v="E01B">12.0000</disp>. To check it with the calculator holding the answer,
    store 12 under A and work out 2a + 7:
 
    ```keys E01C
@@ -273,9 +271,6 @@ Solve each by undoing, by hand first, then check by putting the answer back.
    shows <disp v="E04B">12.0000</disp>: 12 pies.
 
 ## Mixed review
-
-Four from this lesson and the ones before it, in no order. Work each by hand unless it says to use
-the calculator.
 
 ```item EP2M1
 prompt: Solve 4x + 6 = 30 by undoing.

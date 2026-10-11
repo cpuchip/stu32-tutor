@@ -21,8 +21,6 @@ lesson is about letters like n: what they mean, and how to work out what a rule 
 
 ## From before
 
-Two from unit 1, by hand.
-
 ```item EP1F1
 prompt: Work out 34 × 12 by parts: 34 × 10, then 34 × 2.
 topics: partial-products
@@ -198,9 +196,6 @@ Work each out by hand first, then check it with the number stored under its lett
    The screen shows <disp v="E03B">20.0000</disp>.
 
 ## Mixed review
-
-Four from this lesson and the ones before it, in no order. Work each by hand unless it says to use
-the calculator.
 
 ```item EP1M1
 prompt: Evaluate 4n + 3 when n = 5.
