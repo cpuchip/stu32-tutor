@@ -11,7 +11,7 @@
 # The 24 lessons of units 0 to 6 were accepted one by one (rpn-01 #4228 ... exp-01 #4546), then all
 # together in all three modes with the decision-56 migration (#4646 at 7f1d58f); that is the line
 # recorded for them. The per-lesson reads are in docs/evidence/.
-rpn-01 | #4646 | 7f1d58f | #6638 @ a5487ef, #6753 @ 6207051, #7261 @ 4ee80e1, #7317 @ 4be10dd, #7328 @ 7d69fed
+rpn-01 | #4646 | 7f1d58f | #6638 @ a5487ef, #6753 @ 6207051, #7261 @ 4ee80e1, #7317 @ 4be10dd, #7328 @ 7d69fed, #7499 @ 079e4aa
 rpn-02 | #4646 | 7f1d58f | #4764 @ 9a26e28, #6638 @ a5487ef, #6753 @ 6207051, #7261 @ 4ee80e1, #7366 @ 8330273
 rpn-03 | #4646 | 7f1d58f | #4764 @ 9a26e28, #5042 @ 0624e7f, #6638 @ a5487ef, #6753 @ 6207051, #7103 @ b0b9d8d, #7366 @ 8330273
 num-01 | #4646 | 7f1d58f | #6638 @ a5487ef, #6753 @ 6207051, #7103 @ b0b9d8d, #7261 @ 4ee80e1, #7366 @ 8330273
