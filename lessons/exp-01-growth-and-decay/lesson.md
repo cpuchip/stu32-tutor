@@ -68,6 +68,14 @@ X shows <disp v="G02">700.0000</disp>. The exponential is ahead, because each ye
 from a bigger amount than the year before, so each year's increase is bigger than the last. The
 fixed 20 never grows. That is why exponential growth is fast in the end, however slow it starts.
 
+Now 800 growing 3% a year for 6 years, the same way.
+
+```keys G01T twin=G01
+800 ENTER 1.03 ENTER 6 yˣ ×
+```
+
+X holds 955.2418.
+
 ## Decay
 
 Decay works the same way with a factor below 1. Losing r% each step leaves $100 − r$ of every 100, so

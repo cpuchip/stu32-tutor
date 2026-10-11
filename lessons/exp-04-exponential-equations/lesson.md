@@ -125,6 +125,15 @@ ask: Why does SOLVE land on the same 17.6730 the logarithms gave?
 because: Dividing by 500 makes it the same equation, $1.04^{T} = 2$, and since $1.04^{T}$ only ever grows, that equation has one answer: a search and a formula must find the same one.
 ```
 
+Now 300 growing at 6% a year: when does it reach 900? Type $300 × 1.06^{T} = 900$ and solve it for
+T the same way, from guesses 10 and 30.
+
+```keys T01T twin=T01
+GOLD EQN 300 × 1.06 yˣ RCL T = 900 ENTER GOLD EQN 10 STO T 30 GOLD EQN GOLD SOLVE T
+```
+
+T is 18.8542: tripling takes a little under 19 years.
+
 ## Exercise
 
 $2^{x} = x + 3$. Type it (yˣ for the power), work out left minus right at −3, 0 and 3, and find every

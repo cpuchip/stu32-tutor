@@ -69,6 +69,14 @@ interest in the months after it. Daily, 365 times:
 X shows <disp v="C03">1,061.8313</disp>. About thirty times as many payments added only 0.15.
 Paying ever more often keeps adding, but less each time, towards a limit.
 
+Now 2000 at 4% a year, paid quarterly: four times a year, each time a quarter of the 4%.
+
+```keys C02T twin=C02
+2000 ENTER 0.04 ENTER 4 ÷ 1 + 4 yˣ ×
+```
+
+X holds 2,081.2080.
+
 ## The number e
 
 Take the simplest case: an amount of 1, and growth of 100% shared out $n$ times, so each share adds

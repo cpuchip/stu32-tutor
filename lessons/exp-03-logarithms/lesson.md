@@ -144,6 +144,14 @@ ask: Why do LOG and LN give the same $n$, when their logarithms differ?
 because: Each natural logarithm is the base-10 one times the same number, $\ln 10$. In $\ln 2 ÷ \ln 1.04$ that number is on the top and the bottom, so it cancels.
 ```
 
+Now the doubling time at 5% a year, with LN.
+
+```keys S03T twin=S03
+2 LN 1.05 LN ÷
+```
+
+X holds 14.2067: paid once a year, it doubles at the 15th payment.
+
 ## Halving, and numbers with no logarithm
 
 Something that keeps 90% of itself each hour, decaying smoothly, has a factor of 0.9 an hour, and
