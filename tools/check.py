@@ -320,16 +320,23 @@ def check_maths(body):
               ((re.compile(r"^#+ [^\n]*$", re.M), "a heading"), (KEYS_ANY, "a keys block"), (DISP_ANY, "a <disp> quote"),
                (MATHS_TAG, "a tag"), (MATHS_FENCE, "a ```math fence (it holds TeX without $)"))
               for m in pattern.finditer(body)]
+    slips = []
     for m in ITEM_BLOCK.finditer(body):
         at = m.start(2)
         for line in m.group(2).splitlines(keepends=True):
             if line.split(":", 1)[0].strip() not in ("prompt", "slip"):
                 places.append((at, at + len(line), "an item's field other than prompt and slip"))
+            elif line.split(":", 1)[0].strip() == "slip":
+                slips.append((at, at + len(line)))
             at += len(line)
     for a, b, tex in spans:
         where = next((what for s, e, what in places if s <= a < e), None)
         if where:
             out.append(f"a maths span in {where}: '${tex}$'")
+            continue
+        if "|" in tex and any(s <= a < e for s, e in slips):
+            out.append(f"a | inside a maths span on a slip line: '${tex}$'; | separates a slip's fields, so write the "
+                       f"absolute value in words there")
             continue
         if MATHS_TAG.search(tex):
             out.append(f"a maths span across a tag: '${tex}$'; a span lies wholly inside one <voice> span or outside them all")

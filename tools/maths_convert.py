@@ -164,6 +164,9 @@ def _post(s, j):
             j = k
         elif s[j] in "°%":
             j += 1
+        elif s[j] == "!" and s[j + 1:j + 2] != "=" and (s[j - 1].isdigit() or s[j - 1] == ")"):
+            # a factorial: 5!, (n + 1)!; only after a digit or a bracket, so "Found!" never spans (abacus #7263)
+            j += 1
         else:
             return j
     return j
@@ -183,6 +186,11 @@ def operand(s, i, inner=False):
     if s[j:j + 1] == "∠":
         m = re.compile(r"∠[A-Za-z]{1,3}(?![A-Za-z])").match(s, j)
         return _post(s, m.end()) if m else None
+    if s[j:j + 1] == "|" and s[j + 1:j + 2] not in (" ", "|", "-", "") and not s.lstrip(" \t").startswith("|"):
+        k = expression(s, j + 1, inner=True)         # an absolute value, |x| or |x − 3|: no space inside the bars,
+        if k is not None and s[k:k + 1] == "|" and s[k - 1] != " ":   # and never on a table row
+            return _post(s, k + 1)
+        return None
     m = re.compile(rf"(?<![A-Za-z])(?:{'|'.join(check.MATHS_OPERATORS)})(?![A-Za-z])").match(s, j)
     if m:                                             # LCM(4, 8), GCF: an upright name (abacus #7227)
         return _post(s, _paren(s, m.end(), commas=True) or m.end())
@@ -248,7 +256,7 @@ def runs(s):
     out, i = [], 0
     while i < len(s):
         ch = s[i]
-        if (ch.isalnum() or ch in "−-√∠(") and (i == 0 or not (s[i - 1].isalnum() or s[i - 1] in "_'’.")):
+        if (ch.isalnum() or ch in "−-√∠(|") and (i == 0 or not (s[i - 1].isalnum() or s[i - 1] in "_'’.")):
             e = expression(s, i)
             if e is not None and e > i:
                 while e > i and s[e - 1] in " ":
@@ -265,7 +273,7 @@ def kind_of(t):
     the kind of what it holds: "(28)" is a lone number."""
     if re.fullmatch(r"\((?:[^()]|\([^()]*\))*\)", t):
         return kind_of(t[1:-1].strip())
-    if re.search(rf"[{re.escape(OPS)}]|\^", t.lstrip("−-")) or re.search(rf"[{SUPS}√′″]", t) or re.search(r"[A-Za-z]\(", t):
+    if re.search(rf"[{re.escape(OPS)}]|\^", t.lstrip("−-")) or re.search(rf"[{SUPS}√′″|!]", t) or re.search(r"[A-Za-z]\(", t):
         return "expr"
     if re.fullmatch(r"[−-]?\d+(?:[.,]\d+)*[%°]?", t):
         return "number"
@@ -294,15 +302,45 @@ def to_tex(u):
     return re.sub(r"∠", r"\\angle ", t)
 
 
-def plan(text, geometry, keys):
-    """(the spans to write as (start, end, tex), a Counter of what was left plain, the unsettled letters as
-    (line number, context))."""
+HAND_FILE = os.path.join(HERE, "maths_hand.txt")
+
+
+def hand_decisions(lesson):
+    """The recorded hand decisions for a lesson (tools/maths_hand.txt: lesson TAB span|plain TAB context), as
+    {context: decision}. The context is the report's own, so a decision applies to exactly the place it names."""
+    out = {}
+    if os.path.exists(HAND_FILE):
+        for line in open(HAND_FILE, encoding="utf-8"):
+            if line.strip() and not line.startswith("#"):
+                l, decision, ctx = line.rstrip("\n").split("\t", 2)
+                if l == lesson:
+                    assert decision in ("span", "plain"), line
+                    out[ctx] = decision
+    return out
+
+
+def plan(text, geometry, keys, hand=None):
+    """(the spans to write as (start, end, tex), a Counter of what was left plain, the undecided places as (line
+    number, context)). `hand` is the lesson's recorded decisions; a place it does not name stays plain and is listed."""
+    hand = hand or {}
     masked = mask(text)
     found = []
     for a, b in zones(text):
         for s, e in runs(masked[a:b]):
             found.append((a + s, a + e, text[a + s:a + e]))
     left, unsettled, spans, deferred = collections.Counter(), [], [], []
+
+    def ask(s, e, t, ctx):
+        """A place the rules leave to a person: the recorded decision, or listed as undecided (and plain)."""
+        d = hand.get(ctx)
+        if d == "span":
+            left["span by hand"] += 1
+            spans.append((s, e, t))
+        elif d == "plain":
+            left["plain by hand"] += 1
+        else:
+            left["UNDECIDED"] += 1
+            unsettled.append((text.count("\n", 0, s) + 1, ctx))
 
     def key_name(s, e, t):
         """A key's name: a legend, the whole word around the run a legend (x↔y), or beside "key" or "press"."""
@@ -329,8 +367,7 @@ def plan(text, geometry, keys):
             continue
         if k == "expr":
             if re.search(r"(?<![A-Za-z])[XYZT](?![A-Za-z(])", t) and not re.search(r"[a-z]", t):
-                left["register in an expression"] += 1
-                unsettled.append((text.count("\n", 0, s) + 1, f"register: {t}"))
+                ask(s, e, t, f"register: {t}")          # X Y Z T in an expression: registers, or a formula's T
                 continue
             if re.match(rf"\s?(?:{'|'.join(UNIT_WORDS)})\b", after) or re.match(r"\s?[a-z]{3,}", after):
                 left["word after, kept outside"] += 1
@@ -351,8 +388,7 @@ def plan(text, geometry, keys):
             elif t.isupper() and t in keys:
                 # a capital the lesson's maths uses that is also a memory letter: a variable ("3.5 in W") or the
                 # calculator's letter ("W is on the 5 key"); never decided silently
-                left["unsettled letter"] += 1
-                unsettled.append((text.count("\n", 0, s) + 1, f"{t}: …{before[-20:]}[{t}]{after}…".replace("\n", " ")))
+                ask(s, e, t, f"{t}: …{before[-20:]}[{t}]{after}…".replace("\n", " "))
             else:
                 spans.append((s, e, t))
         else:
@@ -365,8 +401,7 @@ def plan(text, geometry, keys):
         a, b = sentence(text, s)
         if any(a <= x[0] < b for x in lspans) or (t in letters and not re.match(
                 r"\s+(?!(?:times|plus|minus|is|squared|cubed|and|or)\b)[a-z]{2,}", after)):
-            left["unsettled letter"] += 1
-            unsettled.append((text.count("\n", 0, s) + 1, f"{t}: …{before[-20:]}[{t}]{after}…".replace("\n", " ")))
+            ask(s, e, t, f"{t}: …{before[-20:]}[{t}]{after}…".replace("\n", " "))
         elif t not in letters:
             left["letter not in the lesson's maths"] += 1
         else:
@@ -458,6 +493,27 @@ def collapse(text):
 
 
 def main():
+    if len(sys.argv) >= 2 and sys.argv[1] == "selftest":
+        # The scanner's rules on lines whose right runs are known (abacus #7263's controls among them): each case
+        # is the line and the runs the scanner must find, so a rule that slips shows as a FAIL.
+        cases = [("written |x|, is its distance: |5| and |−5| are both 5.", ["|x|", "|5|", "|−5|", "5"]),
+                 ("So |x − 3| = 5 says", ["|x − 3| = 5"]),
+                 ("| x | 0 | 1 | 2 |", ["x", "0", "1", "2"]),             # a table row is never read as bars
+                 ("| q(x) | 3 | −1 |", ["q(x)", "3", "−1"]),
+                 ("that is 5! = 120, and 0! is 1.", ["5! = 120", "0!", "1"]),
+                 ("Found! It works!", []),                                # a prose exclamation never spans
+                 ("n! is gold, above ×", ["n"]),                          # a letter's ! is the key's legend: no factorial
+                 ("so 2⁻³ is 1/2³, which is 1/8.", ["2⁻³", "1/2³", "1/8"]),
+                 ("LCM(5, 2) = 10 and (90 = 2 × 45, 45 = 3 × 15)", ["LCM(5, 2) = 10", "90 = 2 × 45", "45 = 3 × 15"]),
+                 ("which is 1 1/8. Then a −4 is", ["1 1/8", "a", "−4"])]  # a sign spaced one side is not a minus
+        bad = 0
+        for line, want in cases:
+            got = [line[a:b] for a, b in runs(line)]
+            ok = got == want and all(check.maths_text(to_tex(g)) == g for g in got)
+            bad += not ok
+            print(f"{'ok  ' if ok else 'FAIL'} {line!r}: {got}" + ("" if ok else f" (want {want})"))
+        print(f"{len(cases) - bad}/{len(cases)} scanner cases")
+        return 1 if bad else 0
     if len(sys.argv) >= 3 and sys.argv[1] == "scan":
         # On converted lessons: every lone a, A or I in a sentence with a one-letter span (abacus #7248).
         n = 0
@@ -494,7 +550,7 @@ def main():
                 print(f"FAIL {name}: {len(wrapped(body))} expression(s) still wrapped; rewrap first")
                 bad += 1
                 continue
-            spans, left, unsettled = plan(body, geometry, keys)
+            spans, left, unsettled = plan(body, geometry, keys, hand_decisions(name))
             nb = apply(body, spans)
             new = head + nb
             back = check.maths_plain(check.maths_read(nb))

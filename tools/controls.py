@@ -284,6 +284,9 @@ CONTROLS_FOR["eq-02-formulas"] = [
      "T02: printed keys and vector disagree in 33s mode"),
 ]
 CONTROLS_FOR["eq-03-two-answers-and-inequalities"] = [
+    # | separates a slip's fields (check.py splits on it), so an absolute value may not sit in a slip's maths.
+    ("an absolute value in a slip's maths", "lesson.md", "Square each first: $49 − 16$.", "Square each first: $|49 − 16|$.", {},
+     "a | inside a maths span on a slip line"),
     # On E01, not A03: A04's why block names A03's 8, so a wrong A03 quote stops at the why check first.
     ("the other root quoted", "lesson.md", 'kind="view">X=3.0000<', 'kind="view">X=-5.0000<', {},
      "E01: the device's X line shows 'X=3.0000' (view)"),
