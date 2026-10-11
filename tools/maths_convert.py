@@ -368,7 +368,7 @@ def to_tex(u):
     t = re.sub(r"\^([\d.]+)", lambda m: "^{" + m.group(1) + "}", t)
     t = t.replace("″", "''").replace("′", "'").replace("%", r"\%").replace("…", r"\dots")
     for (a, b), v in check.MATHS_VULGAR.items():
-        t = t.replace(v, r"\tfrac{" + a + "}{" + b + "}")
+        t = t.replace(v, r"\dfrac{" + a + "}{" + b + "}")
     return re.sub(r"∠", r"\\angle ", t)
 
 

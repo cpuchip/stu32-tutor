@@ -199,7 +199,8 @@ MATHS_COMMANDS = {r"\times": "×", r"\div": "÷", r"\le": "≤", r"\ge": "≥", 
                   r"\pi": "π", r"\theta": "θ", r"\infty": "∞", r"\,": "", r"\left": "", r"\right": "",
                   r"\%": "%", r"\angle": "∠",         # \% and \angle: abacus #7218
                   r"\dots": "…"}                      # a sum's ellipsis, 1 + 2 + … + 10
-MATHS_VULGAR = {("1", "2"): "½", ("1", "4"): "¼", ("3", "4"): "¾"}   # \tfrac{1}{2} reads as ½ (KaTeX refuses ½ itself)
+MATHS_VULGAR = {("1", "2"): "½", ("1", "4"): "¼", ("3", "4"): "¾"}   # \dfrac{1}{2} reads as ½ (KaTeX refuses ½ itself;
+#   \dfrac as the page sets every fraction, primer #7286: \tfrac would be text-size, which abacus ruled too small)
 MATHS_OPERATORS = ("LCM", "GCF")                      # \operatorname{...}: upright names (abacus #7227)
 MATHS_FUNCTIONS = ("sin", "cos", "tan", "log", "ln")  # \sin ...: KaTeX's own names (abacus #7263); unlike other
 #                                                       letter commands the space after one is kept: "sin x"
@@ -260,11 +261,11 @@ def maths_text(tex):
                     raise MathsRefused(r"\sqrt[n] is not on the list")
                 a, i = maths_group(tex, i)
                 out.append("√" + maths_wrap(maths_text(a)))
-            elif name == r"\tfrac":
+            elif name == r"\dfrac":
                 a, i = maths_group(tex, i)
                 b, i = maths_group(tex, i)
                 if (a, b) not in MATHS_VULGAR:
-                    raise MathsRefused(f"\\tfrac{{{a}}}{{{b}}} is not on the list: \\tfrac writes ½ ¼ ¾ only")
+                    raise MathsRefused(f"\\dfrac{{{a}}}{{{b}}} is not on the list: \\dfrac writes ½ ¼ ¾ only; a fraction is \\frac")
                 out.append(MATHS_VULGAR[(a, b)])
             elif name == r"\text":
                 a, i = maths_group(tex, i)          # words in a formula, sin A = \text{opposite} (abacus #7274)
