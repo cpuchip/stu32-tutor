@@ -2,6 +2,8 @@
 # starts MODE33 FIX4 (the lesson's setup). Values from build/proto/seq01.py.
 A01 | the 15th row: 20 + 14 x 2 | MODE33 FIX4 20 ENTER 14 ENTER 2 * + | X=48
 A02 | all 15 rows: 15 x (20 + 48) / 2 | MODE33 FIX4 15 ENTER 20 ENTER 48 + * 2 / | X=510
+# A02's twin (step 5).
+A02T | twin of A02: 12 rows from 25 to 47: 12 x (25 + 47) / 2 | MODE33 FIX4 12 ENTER 25 ENTER 47 + * 2 / | X=432
 G01 | the 10th term of 3, 6, 12, ...: 3 x 2^9 | MODE33 FIX4 3 ENTER 2 ENTER 9 POW * | X=1536
 G02 | the sum of 10 terms: 3 x (2^10 - 1) / (2 - 1) | MODE33 FIX4 3 ENTER 2 ENTER 10 POW 1 - * 2 ENTER 1 - / | X=3069
 P01A | program Z: the total T to 0, the counter 1.015 in I | MODE33 FIX4 PRGM LBL:Z 0 STO:T 1.015 STO:I | %LINES=5

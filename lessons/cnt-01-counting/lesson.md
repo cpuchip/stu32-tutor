@@ -154,6 +154,14 @@ order? A factorial. Are some chosen from more, none twice? Then does their order
 different order is a different result, as with prizes, it is a permutation; if not, as with a team, a
 combination.
 
+Now 4 of the 9 members of a club are chosen for a committee.
+
+```keys C01T twin=C01
+9 ENTER 4 BLUE PROB Cn,r
+```
+
+X holds 126.
+
 ## Exercises
 
 1. A lock opens with a code of 4 digits, each 0 to 9, and a digit may be used more than once. How many

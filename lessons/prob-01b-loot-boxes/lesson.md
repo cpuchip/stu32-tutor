@@ -159,6 +159,14 @@ X shows <disp v="K01">0.3697</disp>. Exactly two is $C(100, 2) × 0.01^{2} × 0.
 X shows <disp v="K02">0.1849</disp>. None, one and two together are about 0.92, so three or more rare
 items in 100 pulls happen about 8 times in 100, roughly 1 in 13.
 
+Now an item that comes in 2% of pulls: how likely is exactly one in 50 pulls?
+
+```keys K01T twin=K01
+50 ENTER 1 BLUE PROB Cn,r 0.02 × 0.98 ENTER 49 yˣ ×
+```
+
+X holds 0.3716.
+
 ## A pull on the calculator
 
 RAND (gold, above −) gives a random number more than 0 and less than 1, spread evenly. Read it

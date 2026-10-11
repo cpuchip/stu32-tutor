@@ -9,6 +9,8 @@ C01 | 3 of 10 for a team, order not counted: C(10, 3) | MODE33 FIX4 10 ENTER 3 N
 C02 | 5-card hands from 52: C(52, 5) | MODE33 FIX4 52 ENTER 5 NCR | X=2598960
 C03 | 5 from 2: none: INVALID DATA | MODE33 FIX4 2 ENTER 5 NCR | ERR
 C03B | continues C03: C clears the message; 5 still in X, 2 in Y | MODE33 FIX4 2 ENTER 5 NCR C | ERR X=5 Y=2
+# C01's twin (step 5).
+C01T | twin of C01: 4 of 9 for a committee, order not counted: C(9, 4) | MODE33 FIX4 9 ENTER 4 NCR | X=126
 E01 | exercise 1: 4-digit codes: 10^4 | MODE33 FIX4 10 ENTER 4 POW | X=10000
 E02 | exercise 2: 6 people in a row: 6! | MODE33 FIX4 6 FACT | X=720
 E03 | exercise 3: 3 toppings of 8: C(8, 3) | MODE33 FIX4 8 ENTER 3 NCR | X=56

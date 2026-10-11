@@ -121,6 +121,14 @@ $C(52, 5)$ is worked out:
 X shows <disp v="H01">0.0005</disp>: about 1 hand in 2,000. The number is 0.000495…, and FIX 4 rounds it
 to 0.0005; it has a digit other than 0 within four places, so FIX 4 does not switch to scientific form.
 
+Now the chance that a hand of 4 cards is all hearts.
+
+```keys H01T twin=H01
+13 ENTER 4 BLUE PROB Cn,r 52 ENTER 4 BLUE PROB Cn,r ÷
+```
+
+X holds 0.0026: 715 hands of four hearts among 270,725.
+
 ## Expected value: what a bet is worth
 
 A game costs 1 dollar to play. Roll a die: a six pays you 5 dollars, and anything else pays nothing;

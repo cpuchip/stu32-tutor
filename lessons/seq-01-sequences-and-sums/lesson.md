@@ -77,6 +77,15 @@ ask: Why does every column of the two lines add to the same 68?
 because: Along the top line each term is 2 more than the one before, and along the bottom line 2 less, so each column's sum stays what the first column's was: $20 + 48$.
 ```
 
+Now a hall whose first row has 25 seats and whose 12th and last row has 47, each row 2 more than the
+one in front. How many seats in all?
+
+```keys A02T twin=A02
+12 ENTER 25 ENTER 47 + × 2 ÷
+```
+
+X holds 432.
+
 ## Geometric sequences
 
 A sequence that multiplies by the same number at every step is geometric, and the number is its
