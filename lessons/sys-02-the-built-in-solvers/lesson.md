@@ -22,8 +22,6 @@ variables, so C in Ax + By = C is not the C key, and it means a different number
 
 ## From before
 
-Two from before, by hand: a formula from eq-02, and elimination from sys-01.
-
 ```item SY2F1
 prompt: A = L × W, with A = 24 and W = 4. What is L?
 topics: solve-any-letter
@@ -42,11 +40,11 @@ slip: SY2F2A | found x | Taking the second from the first gives 2y = 6, so y is 
 
 ## Before you start
 
-The setup from rpn-01: the mode you chose and FIX 4. This lesson is offered in 35s and STU mode: in
-33s mode, as on an HP 33s, the solvers are not there, so if you chose 33s, choose 35s or STU in the
-setup for this lesson. The whole lesson is one chain: each example carries on from the one before,
+The setup from rpn-01: the mode you chose and FIX 4. The solvers are in 35s and STU mode: in
+33s mode, as on an HP 33s, they are not there, so if you chose 33s, choose 35s or STU in the
+setup. The examples are one chain: each carries on from the one before,
 because the equation list remembers where you left it. "X shows" means the bottom line of the screen,
-and "the variable X" means the letter, as in sys-01. The solvers keep the numbers you give them in the
+and "the variable X" means the letter, as before. The solvers keep the numbers you give them in the
 variables A to L, and the answers in X, Y and Z, so they replace whatever those variables held.
 
 In the equation list, the first two soft keys are ▲ and ▼, which step up and down the list. The list
@@ -81,7 +79,7 @@ GOLD SOLVE
 ```
 
 The line above X asks <disp v="T01B" kind="prompt">A?</disp>, and X shows the number the variable A
-holds now. Type each number and press R/S. The tickets of sys-01, 2x + 3y = 37 and x + y = 15, give
+holds now. Type each number and press R/S. The tickets from before, 2x + 3y = 37 and x + y = 15, give
 A = 2, B = 3, C = 37, D = 1, E = 1 and F = 15:
 
 ```keys T01 after=T01B
@@ -95,15 +93,15 @@ time, and ▼ steps to the next:
 ▼
 ```
 
-The X line shows <disp v="T02" kind="view">Y=7.0000</disp>, the answer sys-01 found by elimination.
+The X line shows <disp v="T02" kind="view">Y=7.0000</disp>, the answer elimination found.
 C leaves the view, as it leaves VIEW's (rpn-02):
 
 ```keys T03 after=T02
 C
 ```
 
-X shows <disp v="T03">8.0000</disp>. The answers are on the stack, x in X and y in Y (the levels of rpn-01),
-and in the variables X and Y. So the check from sys-01 works straight away, 2x + 3y:
+X shows <disp v="T03">8.0000</disp>. The answers are on the stack, x in X and y in Y,
+and in the variables X and Y. So the earlier check works straight away, 2x + 3y:
 
 ```keys T04 after=T03
 2 RCL X × 3 RCL Y × +
@@ -113,13 +111,13 @@ X shows <disp v="T04">37.0000</disp>, the first equation's right side.
 
 ```why
 ask: Why is getting 37 back a real check on the solver?
-because: It puts the solver's x and y into 2x + 3y by hand, as sys-01 checked a guess. A wrong pair would not make the first equation come to its right side.
+because: It puts the solver's x and y into 2x + 3y by hand, as the last lesson checked a guess. A wrong pair would not make the first equation come to its right side.
 ```
 
 ## Keeping a number
 
-The fruit stall from sys-01: 0.75x + 1.25y = 6.5 and x + y = 6. EQN opens at the last entry you viewed
-(eq-02), which is the 2×2 solver:
+The fruit stall from before: 0.75x + 1.25y = 6.5 and x + y = 6. EQN opens at the last entry you viewed,
+which is the 2×2 solver:
 
 ```keys F01A after=T04
 GOLD EQN
@@ -132,7 +130,7 @@ GOLD SOLVE
 ```
 
 It asks <disp v="F01B" kind="prompt">A?</disp>, and X shows <disp v="F01B">2.0000</disp>, the A of
-the tickets. R/S on its own keeps the number shown, as SOLVE's prompts did in eq-02. Here D and E are
+the tickets. R/S on its own keeps the number shown, as SOLVE's prompts did. Here D and E are
 1 and 1, as the tickets' were, so R/S alone keeps them:
 
 ```keys F01 after=F01B
@@ -144,7 +142,7 @@ Y hold 4, four pears.
 
 ## Into the solver's form
 
-An equation that is not in the solver's form is rearranged first, as sys-01 rearranged equations into
+An equation that is not in the solver's form is rearranged first, as the last lesson rearranged equations into
 y = mx + b, only the other way. Take y = 2x + 1 and x + y = 7. Take 2x from both sides of the first:
 −2x + y = 1. Now A = −2, B = 1 and C = 1, and the second is already D = 1, E = 1, F = 7. A negative
 number is typed with +/−, and D and E are 1 and 1 still, so R/S keeps them:
@@ -198,7 +196,7 @@ shows <disp v="M02" kind="view">Y=2.0000</disp>, and
 
 ## No solution, or every solution
 
-The two awkward cases from sys-01 go to the 2×2 solver too. EQN now opens at the 3×3 solver, and ▲ goes up
+The two awkward cases from before go to the 2×2 solver too. EQN now opens at the 3×3 solver, and ▲ goes up
 to the 2×2:
 
 ```keys N01A after=M03
@@ -224,14 +222,14 @@ GOLD SOLVE R/S R/S R/S 2 R/S 2 R/S 6 R/S
 ```
 
 The screen shows <disp v="N02" kind="message">MULT SOLUTION</disp>: many solutions, endlessly many,
-every point of one line, as in sys-01. Here the line is the first equation, x + y = 3.
+every point of one line, as before. Here the line is the first equation, x + y = 3.
 
 ## Exercises
 
-1. Solve 3x + 2y = 16 and x + y = 6 with the 2×2 solver (the first exercise of sys-01, by hand there).
+1. Solve 3x + 2y = 16 and x + y = 6 with the 2×2 solver (the last lesson's first exercise, by hand there).
    Watch what the prompts show before you keep a number.
 2. Solve x + y + z = 6, 2x − y + z = 3 and x + 2y − z = 2 with the 3×3 solver.
-3. What does the 2×2 solver say about 2x − y = 1 and 4x − 2y = 5 (the second exercise of sys-01)?
+3. What does the 2×2 solver say about 2x − y = 1 and 4x − 2y = 5 (the last lesson's second exercise)?
 4. Solve x + y = 5, y + z = 7 and x + z = 6 with the 3×3 solver.
 
 ## Answers
@@ -243,7 +241,7 @@ every point of one line, as in sys-01. Here the line is the first equation, x + 
    C GOLD EQN GOLD SOLVE 3 R/S 2 R/S 16 R/S 1 R/S 1 R/S R/S
    ```
 
-   The X line shows <disp v="E01" kind="view">X=4.0000</disp>, and y is 2, as sys-01 found.
+   The X line shows <disp v="E01" kind="view">X=4.0000</disp>, and y is 2, as found by hand.
 
 2. x = 1, y = 2 and z = 3. The 3×3 solver is one ▼ from the 2×2, and a −1 is typed 1 +/−:
 
@@ -260,8 +258,8 @@ every point of one line, as in sys-01. Here the line is the first equation, x + 
    C GOLD EQN ▲ GOLD SOLVE 2 R/S 1 +/− R/S 1 R/S 4 R/S 2 +/− R/S 5 R/S
    ```
 
-   The screen shows <disp v="E03" kind="message">NO SOLUTION</disp>: the lines are parallel, as sys-01
-   showed by elimination.
+   The screen shows <disp v="E03" kind="message">NO SOLUTION</disp>: the lines are parallel, as
+   elimination showed.
 
 4. x = 2, y = 3 and z = 4. Each equation lacks one unknown, which is there times 0: x + y + 0z = 5,
    0x + y + z = 7 and x + 0y + z = 6.
@@ -274,9 +272,6 @@ every point of one line, as in sys-01. Here the line is the first equation, x + 
    3 + 4 is 7, and 2 + 4 is 6.
 
 ## Mixed review
-
-Four from this lesson and the ones before it, in no order. Work each by hand unless it says to use
-the calculator.
 
 ```item SY2M1
 prompt: In the solver's form ax + by = c, 3x = 12 − 2y becomes 3x + by = 12. What is b?
@@ -314,7 +309,7 @@ slip: SY2M4A | added y | It is 3x minus y: 3 × 2 − 5.
 
 ## Checkpoint
 
-Questions on the whole unit. Work each by hand first (a few offer the calculator), then give your answer; the page checks it. A wrong answer that comes from a common slip gets a hint that names the step.
+Questions on the whole unit.
 
 ```item CP8A
 prompt: x + y = 10 and x − y = 2. What is x?

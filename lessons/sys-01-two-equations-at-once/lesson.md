@@ -13,11 +13,11 @@ At a school play, two adult tickets and three child tickets cost 37 dollars, and
 with one child ticket costs 15. What does each kind of ticket cost? Call an adult's ticket x and a
 child's y. Then 2x + 3y = 37 and x + y = 15. Two equations that must hold at the same time are a
 system of equations, and a solution of the system is a pair of numbers, one for x and one for y,
-that makes both true. This lesson finds such pairs, and shows when there is none, or endlessly many.
+that makes both true. Elimination finds such pairs, and shows when there is none, or endlessly many.
 
 ## From before
 
-Two from before, by hand: a line from lin-01, and one from unit 1. Checking a pair is arithmetic like
+Checking a pair is arithmetic like
 the second.
 
 ```item SY1F1
@@ -41,7 +41,7 @@ slip: SY1F2A | worked left to right | Both multiplications come first: 14 + 15.
 The setup from rpn-01: the mode you chose and FIX 4. Work the examples in order; when one carries on
 from the one before, the text says so. The pair goes in two variables, X for x and Y for y. X is on
 the 6 key and Y on the 1 key; after STO or RCL, the next key means only its letter (rpn-02). The
-bottom line of the screen is also called X. In this lesson, "X shows" always means that bottom line,
+bottom line of the screen is also called X. "X shows" always means that bottom line,
 and "the variable X" means the letter.
 
 ```keys setup
@@ -115,7 +115,7 @@ The calculator earns its keep when the numbers are less tidy. At a fruit stall, 
 dollars and pears 1.25. Six pieces of fruit cost 6.50. How many of each? With x apples and y pears,
 0.75x + 1.25y = 6.5 and x + y = 6. Multiply the second by 0.75 and take it from the first: the x's
 cancel, leaving (1.25 − 0.75)y = 6.5 − 0.75 × 6. Divide both sides by 1.25 − 0.75, and
-y = (6.5 − 0.75 × 6) ÷ (1.25 − 0.75). Work out the top, then the bottom, then divide, as in num-01:
+y = (6.5 − 0.75 × 6) ÷ (1.25 − 0.75). Work out the top, then the bottom, then divide:
 
 ```keys F01
 6.5 ENTER 0.75 ENTER 6 × − 1.25 ENTER 0.75 − ÷
@@ -238,9 +238,6 @@ point of the line is a solution. If it is 0 = a number that is not 0, there is n
    and endlessly many more.
 
 ## Mixed review
-
-Four from this lesson and the ones before it, in no order. Work each by hand unless it says to use
-the calculator.
 
 ```item SY1M1
 prompt: For the pair (4, 1), what is the left side of 2x − y = 7?
