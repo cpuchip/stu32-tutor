@@ -111,6 +111,11 @@ and in the variables X and Y. So the check from sys-01 works straight away, 2x +
 
 X shows <disp v="T04">37.0000</disp>, the first equation's right side.
 
+```why
+ask: Why is getting 37 back a real check on the solver?
+because: It puts the solver's x and y into 2x + 3y by hand, as sys-01 checked a guess. A wrong pair would not make the first equation come to its right side.
+```
+
 ## Keeping a number
 
 The fruit stall from sys-01: 0.75x + 1.25y = 6.5 and x + y = 6. EQN opens at the last entry you viewed
@@ -150,6 +155,11 @@ C GOLD EQN GOLD SOLVE 2 +/− R/S 1 R/S 1 R/S R/S R/S 7 R/S
 
 The X line shows <disp v="R01" kind="view">X=2.0000</disp>, and y is 5: 2 × 2 + 1 is 5, and 2 + 5 is 7.
 An unknown that an equation does not have is there times 0, so its number is typed as 0.
+
+```why
+ask: Why must y = 2x + 1 be rearranged before it goes in?
+because: The solver reads each equation as A times x plus B times y equals C: both unknowns on the left and only a number on the right. −2x + y = 1 is the same equation in that form.
+```
 
 ## Three equations
 

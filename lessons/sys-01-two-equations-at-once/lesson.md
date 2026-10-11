@@ -106,6 +106,11 @@ STO Y 15 RCL Y −
 
 X shows <disp v="L02">8.0000</disp>: x = 8, the pair that the checks found.
 
+```why
+ask: Why does doubling the second equation make the x's cancel?
+because: Doubled, it has as many x's as the first, so taking one from the other takes away every x and leaves only y.
+```
+
 The calculator earns its keep when the numbers are less tidy. At a fruit stall, apples are 0.75
 dollars and pears 1.25. Six pieces of fruit cost 6.50. How many of each? With x apples and y pears,
 0.75x + 1.25y = 6.5 and x + y = 6. Multiply the second by 0.75 and take it from the first: the x's
@@ -124,6 +129,11 @@ STO Y 6 RCL Y −
 
 X shows <disp v="F02">2.0000</disp>: two apples. Check it in your head: 2 × 0.75 + 4 × 1.25 is 1.50 +
 5.00, which is 6.50.
+
+```why
+ask: Why does (6.5 − 0.75 × 6) ÷ (1.25 − 0.75) count the pears?
+because: Six apples would cost 0.75 × 6. Each pear in place of an apple costs 1.25 − 0.75 more, so the money above that, divided by the extra for each pear, is the number of pears.
+```
 
 ## No solution, or every solution
 
