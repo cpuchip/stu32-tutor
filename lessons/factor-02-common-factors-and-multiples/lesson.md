@@ -53,7 +53,7 @@ A box size works when it divides both 84 and 90. The biggest such number is thei
 factor (GCF). Find it from the prime factorizations:
 
 - $84 = 2 × 2 × 3 × 7$.
-- $90 = 2 × 3 × 3 × 5$ $(90 = 2 × 45, 45 = 3 × 15, 15 = 3 × 5)$.
+- $90 = 2 × 3 × 3 × 5$ ($90 = 2 × 45$, $45 = 3 × 15$, $15 = 3 × 5$).
 
 The primes both have are one 2 and one 3. For each prime, take it the smaller number of times it
 appears: 84 has two 2s and 90 has one, so one 2; each has a 3 (90 has two), so one 3; 5 and 7 are not
@@ -166,7 +166,7 @@ because: Multiplying them gives a common multiple too, but 36 is the first day o
 
 ## Answers
 
-1. $24 = 2 × 2 × 2 × 3$ and $36 = 2 × 2 × 3 × 3$. Both have two 2s and one 3: GCF = $2 × 2 × 3 = 12$. The
+1. $24 = 2 × 2 × 2 × 3$ and $36 = 2 × 2 × 3 × 3$. Both have two 2s and one 3: $\operatorname{GCF} = 2 × 2 × 3 = 12$. The
    check:
 
    ```keys E01 entry=alg

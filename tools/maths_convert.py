@@ -122,8 +122,9 @@ def _num(s, i):
     return j
 
 
-def _paren(s, i):
-    """The end of a ( ... ) group starting at i whose content is maths (expressions, commas between), or None."""
+def _paren(s, i, commas=False):
+    """The end of a ( ... ) group starting at i whose content is maths, or None. Commas between expressions only
+    for a call's arguments (LCM(4, 8), P(10, 3)): a bare group with commas is a list, each item its own span."""
     if s[i:i + 1] != "(":
         return None
     j = i + 1
@@ -136,7 +137,7 @@ def _paren(s, i):
         j = k
         while s[j:j + 1] == " ":
             j += 1
-        if s[j:j + 1] == ",":
+        if s[j:j + 1] == "," and commas:
             j += 1
             continue
         if s[j:j + 1] == ")":
@@ -178,10 +179,16 @@ def operand(s, i, inner=False):
     if s[j:j + 1] == "∠":
         m = re.compile(r"∠[A-Za-z]{1,3}(?![A-Za-z])").match(s, j)
         return _post(s, m.end()) if m else None
+    m = re.compile(rf"(?<![A-Za-z])(?:{'|'.join(check.MATHS_OPERATORS)})(?![A-Za-z])").match(s, j)
+    if m:                                             # LCM(4, 8), GCF: an upright name (abacus #7227)
+        return _post(s, _paren(s, m.end(), commas=True) or m.end())
     k = _paren(s, j)
     if k is None:
         k = _num(s, j)
         if k is not None:
+            mixed = re.compile(r" \d+/\d+(?![\w/]|\.\d)").match(s, k)
+            if mixed:                                 # a mixed number, 1 1/8, is one operand
+                return _post(s, mixed.end())
             m = re.compile(r"(?:[a-z](?![a-z]*['’]))+(?![A-Za-z])").match(s, k)
             if m and not re.fullmatch(r"st|nd|rd|th|s|am|pm", m.group(0)):
                 k = m.end()
@@ -191,7 +198,7 @@ def operand(s, i, inner=False):
                 return None
             k = m.end()
             if s[k:k + 1] == "(":
-                c = _paren(s, k)
+                c = _paren(s, k, commas=True)          # a call: f(x), P(10, 3)
                 if c is not None:
                     k = c
     k = _post(s, k)
@@ -271,7 +278,11 @@ def to_tex(u):
     """A run's Unicode as TeX that check.maths_text reads back to it (the round trip is the proof)."""
     t = re.sub(r"√\(([^()]*(?:\([^()]*\)[^()]*)*)\)", lambda m: r"\sqrt{" + m.group(1) + "}", u)
     t = re.sub(r"√([\w.]+)", lambda m: r"\sqrt{" + m.group(1) + "}", t)
-    t = re.sub(r"(?<![\w.])(\d+)/(\d+)(?![\w.])", lambda m: r"\frac{" + m.group(1) + "}{" + m.group(2) + "}", t)
+    # every operand over an operand is stacked, a bracket group included (abacus #7227): 1/4, x/2, (1 + 3)/(4 + 8)
+    o = r"\d+(?:\.\d+)?|(?<![A-Za-z])[A-Za-z](?![A-Za-z])|\([^()]*\)"
+    t = re.sub(rf"(?<![\w.)])({o})/({o})(?![\w.(])",
+               lambda m: r"\frac{" + re.sub(r"^\((.*)\)$", r"\1", m.group(1)) + "}{" + re.sub(r"^\((.*)\)$", r"\1", m.group(2)) + "}", t)
+    t = re.sub(rf"(?<![A-Za-z\\])({'|'.join(check.MATHS_OPERATORS)})(?![A-Za-z])", r"\\operatorname{\1}", t)
     t = re.sub(f"[{SUPS}]+", lambda m: "^{" + "".join(SUP_BACK[c] for c in m.group(0)) + "}", t)
     t = re.sub(r"\^\(([^()]*)\)", lambda m: "^{" + m.group(1) + "}", t)
     t = re.sub(r"\^([\d.]+)", lambda m: "^{" + m.group(1) + "}", t)
@@ -318,6 +329,8 @@ def plan(text, geometry, keys):
                 continue
             if re.match(rf"\s?(?:{'|'.join(UNIT_WORDS)})\b", after) or re.match(r"\s?[a-z]{3,}", after):
                 left["word after, kept outside"] += 1
+            if re.fullmatch(r"\((?:[^()]|\([^()]*\))*\)", t):   # an aside's brackets are prose: "(2 2/3)"
+                s, e, t = s + 1, e - 1, t[1:-1]
             spans.append((s, e, t))
         elif k == "letter":
             if t in "XYZT":
@@ -336,7 +349,7 @@ def plan(text, geometry, keys):
             else:
                 spans.append((s, e, t))
         else:
-            left[{"number": "lone number", "angle": "lone ∠ name"}.get(k, "other")] += 1
+            left[{"number": "lone number", "angle": "lone ∠ name"}.get(k, "lone name (LCM, GCF)")] += 1
     return [(s, e, to_tex(t)) for s, e, t in spans], left, unsettled
 
 

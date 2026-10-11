@@ -51,7 +51,7 @@ are different sizes, so $1 + 3$ would be 4 pieces, but 4 pieces of what size? Cu
 until they match. Cutting every piece into the same number of smaller pieces multiplies the bottom
 (frac-01), so a common bottom has to be a multiple of both bottoms: a common multiple. Any common
 multiple works (32 would), but the smallest keeps the numbers small and leaves less to simplify: the
-least common multiple of the bottoms (factor-02). LCM(4, 8) = 8.
+least common multiple of the bottoms (factor-02). $\operatorname{LCM}(4, 8) = 8$.
 
 - $\frac{1}{4} = \frac{2}{8}$, multiplying top and bottom by 2.
 - Now both are eighths: $\frac{2}{8} + \frac{3}{8} = \frac{5}{8}$. Add the tops; the bottom stays 8, because the pieces are
@@ -72,7 +72,7 @@ worked out before the +:</entry><entry e="rpn">each fraction, then +:</entry>
 
 The screen shows <disp v="A01">0 5/8</disp>, the hand work's answer.
 
-A common slip is to add the tops and add the bottoms: $(1 + 3)/(4 + 8) = \frac{4}{12} = \frac{1}{3}$. That cannot be
+A common slip is to add the tops and add the bottoms: $\frac{1 + 3}{4 + 8} = \frac{4}{12} = \frac{1}{3}$. That cannot be
 right: $\frac{1}{3}$ is less than the $\frac{3}{8}$ cup of glaze alone, and adding more sugar cannot give less.
 
 
@@ -83,7 +83,7 @@ because: Adding counts pieces, so they must be pieces of one size: quarters beco
 
 ## Another pair
 
-$\frac{2}{5} + \frac{1}{2}$: LCM(5, 2) = 10. $\frac{2}{5} = \frac{4}{10}$ (top and bottom times 2) and $\frac{1}{2} = \frac{5}{10}$ (times 5), so the sum is
+$\frac{2}{5} + \frac{1}{2}$: $\operatorname{LCM}(5, 2) = 10$. $\frac{2}{5} = \frac{4}{10}$ (top and bottom times 2) and $\frac{1}{2} = \frac{5}{10}$ (times 5), so the sum is
 $\frac{9}{10}$.
 
 ```keys A02 entry=alg
@@ -120,7 +120,7 @@ The screen shows <disp v="S01">0 5/8</disp>.
 ## Over a whole
 
 $\frac{3}{4} + \frac{1}{2} = \frac{3}{4} + \frac{2}{4} = \frac{5}{4}$: five quarters. Four of the quarters make one whole, and one quarter is
-left: 1 $\frac{1}{4}$. A fraction whose top is bigger than its bottom is more than 1, and fraction display
+left: $1 \frac{1}{4}$. A fraction whose top is bigger than its bottom is more than 1, and fraction display
 shows the whole number first:
 
 ```keys A03 entry=alg
@@ -143,7 +143,7 @@ By hand first, with a common bottom, then check.
 
 ## Answers
 
-1. LCM(2, 8) = 8: $\frac{1}{2} = \frac{4}{8}$, and $\frac{4}{8} + \frac{1}{8} = \frac{5}{8}$.
+1. $\operatorname{LCM}(2, 8) = 8$: $\frac{1}{2} = \frac{4}{8}$, and $\frac{4}{8} + \frac{1}{8} = \frac{5}{8}$.
 
    ```keys E01 entry=alg
    1 ÷ 2 + 1 ÷ 8 ENTER
@@ -155,7 +155,7 @@ By hand first, with a common bottom, then check.
 
    The screen shows <disp v="E01">0 5/8</disp>.
 
-2. LCM(5, 10) = 10: $\frac{3}{5} = \frac{6}{10}$, and $\frac{6}{10} − \frac{1}{10} = \frac{5}{10}$, which in simplest form is $\frac{1}{2}$.
+2. $\operatorname{LCM}(5, 10) = 10$: $\frac{3}{5} = \frac{6}{10}$, and $\frac{6}{10} − \frac{1}{10} = \frac{5}{10}$, which in simplest form is $\frac{1}{2}$.
 
    ```keys E02 entry=alg
    3 ÷ 5 − 1 ÷ 10 ENTER
@@ -167,7 +167,7 @@ By hand first, with a common bottom, then check.
 
    The screen shows <disp v="E02">0 1/2</disp>.
 
-3. LCM(8, 4) = 8: $\frac{3}{4} = \frac{6}{8}$, and $\frac{3}{8} + \frac{6}{8} = \frac{9}{8}$, which is 1 $\frac{1}{8}$.
+3. $\operatorname{LCM}(8, 4) = 8$: $\frac{3}{4} = \frac{6}{8}$, and $\frac{3}{8} + \frac{6}{8} = \frac{9}{8}$, which is $1 \frac{1}{8}$.
 
    ```keys E03 entry=alg
    3 ÷ 8 + 3 ÷ 4 ENTER

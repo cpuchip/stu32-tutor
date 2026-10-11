@@ -137,6 +137,8 @@ CONTROLS = [
      "\\log is not on the list"),
     ("a bare % in a maths span", "lesson.md", "To add 7 and 5, type 7,", "To add $7\\% + 5\\%$ or $7% + 5%$, type 7,", {},
      "the maths span '$7% + 5%$': a bare %"),
+    ("an operator name off the list", "lesson.md", "To add 7 and 5, type 7,", "To add $\\operatorname{SUM}(7, 5)$, type 7,", {},
+     "\\operatorname{SUM} is not on the list"),
     ("a maths span written as a key's name", "lesson.md", "To add 7 and 5, type 7,", "To add $7 + 5$ key and 5, type 7,", {},
      "a maths span names a key"),
     ("a why number its example's maths does not show", "lesson.md", 'X shows <disp v="S01">12.0000</disp>.\n',
@@ -166,6 +168,8 @@ GREENS = [
      'because: 3 fours make 12.\n```\n'),
     ("\\% and \\angle on the list", "lesson.md", "To add 7 and 5, type 7,",
      "To add 7 and 5 ($7\\% + 5\\% = 12\\%$, and $\\angle B = 40°$), type 7,"),
+    ("LCM and GCF upright, a bracket fraction and a mixed number", "lesson.md", "To add 7 and 5, type 7,",
+     "To add 7 and 5 ($\\operatorname{LCM}(4, 8) = 8$, $\\operatorname{GCF} = 4$, $\\frac{1 + 3}{4 + 8}$, $1 \\frac{1}{8}$), type 7,"),
     # seen() strips tags and lesson ids; a span's reading is lifted out first, so neither eats the maths.
     ("maths with < and x-10 read whole", "lesson.md", 'X shows <disp v="S01">12.0000</disp>.\n',
      'X shows <disp v="S01">12.0000</disp>, so $x < 13$ and $x-10 = 2$ when x is 12 > 11.\n\n```why\n'

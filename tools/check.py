@@ -197,6 +197,7 @@ SUP = str.maketrans(SUP_CHARS, "⁰¹²³⁴⁵⁶⁷⁸⁹⁻⁺⁽⁾ⁿ")
 MATHS_COMMANDS = {r"\times": "×", r"\div": "÷", r"\le": "≤", r"\ge": "≥", r"\pm": "±", r"\neq": "≠", r"\cdot": "·",
                   r"\pi": "π", r"\theta": "θ", r"\infty": "∞", r"\,": "", r"\left": "", r"\right": "",
                   r"\%": "%", r"\angle": "∠"}         # \% and \angle: abacus #7218
+MATHS_OPERATORS = ("LCM", "GCF")                      # \operatorname{...}: upright names (abacus #7227)
 
 
 class MathsRefused(ValueError):
@@ -226,7 +227,8 @@ def maths_wrap(s):
 
 def maths_text(tex):
     """A maths span's TeX read as the plain text the lessons write: ^2 as ², ^{r × t} as ^(r × t), ^{2.5} as ^2.5,
-    \\frac{1}{4} as 1/4, \\sqrt{x} as √x, ' as ′, and MATHS_COMMANDS as their symbols. Anything else is taken as
+    \\frac{1}{4} as 1/4, \\frac{1 + 3}{4 + 8} as (1 + 3)/(4 + 8), \\sqrt{x} as √x, ' as ′, \\operatorname{LCM} as LCM
+    (MATHS_OPERATORS only), and MATHS_COMMANDS as their symbols. Anything else is taken as
     written. A command off the list, a bare brace or a missing argument is refused (MathsRefused)."""
     out, i = [], 0
     while i < len(tex):
@@ -246,6 +248,11 @@ def maths_text(tex):
                     raise MathsRefused(r"\sqrt[n] is not on the list")
                 a, i = maths_group(tex, i)
                 out.append("√" + maths_wrap(maths_text(a)))
+            elif name == r"\operatorname":
+                a, i = maths_group(tex, i)
+                if a not in MATHS_OPERATORS:
+                    raise MathsRefused(f"\\operatorname{{{a}}} is not on the list ({', '.join(MATHS_OPERATORS)})")
+                out.append(a)
             elif name in MATHS_COMMANDS:
                 out.append(MATHS_COMMANDS[name])
             else:

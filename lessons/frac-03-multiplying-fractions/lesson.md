@@ -50,7 +50,7 @@ With whole numbers, half of 6 is 3, and $\frac{1}{2} × 6 = 3$: taking a fractio
 by it. So half of $\frac{3}{4}$ is $\frac{1}{2} × \frac{3}{4}$. Picture the pan cut into quarters, with 3 quarters left. Halve each
 quarter: the 4 quarters, each cut in 2, make $2 × 4 = 8$ pieces in the pan, eighths. Half of the fudge
 is one piece from each of the 3 quarters: $1 × 3 = 3$ of those eighths. So $\frac{1}{2} × \frac{3}{4} = \frac{3}{8}$. That is the
-rule: multiply the tops, and multiply the bottoms. $\frac{1}{2} × \frac{3}{4} = (1 × 3)/(2 × 4) = \frac{3}{8}$. The answer is
+rule: multiply the tops, and multiply the bottoms. $\frac{1}{2} × \frac{3}{4} = \frac{1 × 3}{2 × 4} = \frac{3}{8}$. The answer is
 smaller than $\frac{3}{4}$, as half of any amount is: multiplying a positive number by a fraction less than 1
 makes it smaller.
 
@@ -67,7 +67,7 @@ The screen shows <disp v="M01">0 3/8</disp>.
 $(1 ÷ 2) × 3$, then ÷ 4. Times 3 and then divided by 4 is the same as times $\frac{3}{4}$, so no brackets are
 needed here.</entry>
 
-Another: $\frac{5}{8} × \frac{4}{5} = (5 × 4)/(8 × 5) = \frac{20}{40}$, which in simplest form is $\frac{1}{2}$.
+Another: $\frac{5}{8} × \frac{4}{5} = \frac{5 × 4}{8 × 5} = \frac{20}{40}$, which in simplest form is $\frac{1}{2}$.
 
 ```keys M02 entry=alg
 5 ÷ 8 × 4 ÷ 5 ENTER
@@ -84,7 +84,7 @@ The screen shows <disp v="M02">0 1/2</disp>.
 $\frac{3}{4} ÷ \frac{3}{8}$ asks how many pieces of $\frac{3}{8}$ fit in $\frac{3}{4}$. In eighths, $\frac{3}{4}$ is $\frac{6}{8}$, and 6 eighths hold two
 pieces of 3 eighths: 2. There is a shortcut that works for dividing by any fraction but 0 (you can't divide by 0): dividing by
 a fraction is multiplying by it flipped, its top and bottom swapped. $\frac{3}{4} ÷ \frac{3}{8} = \frac{3}{4} × \frac{8}{3} = \frac{24}{12} = 2$. Why: a whole pan is 8
-eighths, and each piece is 3 eighths, so a whole pan holds $8 ÷ 3 = \frac{8}{3}$ pieces (2 $\frac{2}{3}$). $\frac{3}{4}$ of a pan
+eighths, and each piece is 3 eighths, so a whole pan holds $8 ÷ 3 = \frac{8}{3}$ pieces ($2 \frac{2}{3}$). $\frac{3}{4}$ of a pan
 holds $\frac{3}{4}$ of that many, and "of" is times: $\frac{3}{4} × \frac{8}{3}$.
 
 On the calculator the second fraction must be kept together:
@@ -133,7 +133,7 @@ By hand first, then check.
 
 ## Answers
 
-1. $(2 × 1)/(5 × 4) = \frac{2}{20}$, which in simplest form is $\frac{1}{10}$.
+1. $\frac{2 × 1}{5 × 4} = \frac{2}{20}$, which in simplest form is $\frac{1}{10}$.
 
    ```keys E01 entry=alg
    2 ÷ 5 × 1 ÷ 4 ENTER
@@ -146,7 +146,7 @@ By hand first, then check.
    The screen shows <disp v="E01">0 1/10</disp>.
 
 2. Flip $\frac{1}{4}$ to $\frac{4}{1}$, which is 4: $\frac{7}{8} × 4 = \frac{28}{8}$. 8 goes into 28 three times with 4 left over, so
-   $\frac{28}{8} = 3$ $\frac{4}{8} = 3$ $\frac{1}{2}$.
+   $\frac{28}{8} = 3 \frac{4}{8} = 3 \frac{1}{2}$.
 
    ```keys E02 entry=alg
    7 ÷ 8 ÷ () 1 ÷ 4 ▶ ENTER

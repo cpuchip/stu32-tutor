@@ -177,7 +177,7 @@ for the slip in each: either one can be the wrong one.
    The screen shows <disp v="E01">83.0000</disp>.
 
 2. Working it: 4 goes into 9 twice, which uses 8 cups, and 1 cup is left. That 1 cup shared among 4
-   cakes is $\frac{1}{4}$ cup each, so each cake gets 2 $\frac{1}{4}$ cups. The check, with fraction display turned on
+   cakes is $\frac{1}{4}$ cup each, so each cake gets $2 \frac{1}{4}$ cups. The check, with fraction display turned on
    first:
 
    ```keys E02 entry=alg

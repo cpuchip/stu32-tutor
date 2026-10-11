@@ -114,7 +114,7 @@ the hand work's job; the calculator checks the answer.
 
 Last month the bakery sold 296 pies, and 111 of them were apple. What fraction were apple, in
 simplest form? By hand, that means finding a number that divides both 111 and 296. 2 does not divide
-111. 3 divides 111 $(111 = 3 × 37)$, but not 296. It could take a long time to find one. So here, for
+111. 3 divides 111 ($111 = 3 × 37$), but not 296. It could take a long time to find one. So here, for
 once, the calculator goes first:
 
 ```keys Q04 entry=alg
