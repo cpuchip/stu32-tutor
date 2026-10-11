@@ -93,6 +93,16 @@ part is $360 ÷ 8$:
 
 The screen shows <disp v="K01">45.0000</disp>: each eighth of a turn is 45°.
 
+```item K1T1
+prompt: A disc is cut into 6 equal parts. How many degrees is each part? Work out $360 ÷ 6$.
+twin: K01
+topics: degrees
+answer: type
+calculator: no
+slip: K1T1A | a half turn used | The disc is marked all the way round, a full turn: 360°, not 180°.
+slip: K1T1B | multiplied | Cutting into equal parts divides: $360 ÷ 6$, not $360 × 6$.
+```
+
 ## A protractor
 
 A protractor is a half circle marked from 0 to 180, usually twice: one scale runs from 0 at the

@@ -521,8 +521,9 @@ def problem_operands(prompt):
     """A prompt's problem, as operands: its first maths span (a read prompt keeps it between MATHS_KEEP and MATHS_END),
     so "Work out $37 × 24$ in parts: $37 × 4$, then ..." is [24, 37], not its helper parts too; a prompt with no
     span gives all its numbers."""
-    m = re.search(f"{MATHS_KEEP}(.*?){MATHS_END}", prompt)
-    return operands(m.group(1) if m else prompt)
+    # (the first span that holds a number: "in the same place as $q$" names no problem, the 48 before it does)
+    spans = [s for s in re.findall(f"{MATHS_KEEP}(.*?){MATHS_END}", prompt) if re.search(r"\d", s)]
+    return operands(spans[0]) if spans else operands(maths_plain(prompt))
 
 
 def unit_files(lesson_dir, lesson_id):

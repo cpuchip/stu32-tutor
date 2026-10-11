@@ -69,6 +69,16 @@ supplementary.
    ----------+----------  coast road
 ```
 
+```item S1T1
+prompt: A path leaves the straight road at 57°. What angle does it make with the road on its other side?
+twin: S01
+topics: straight-line-angles
+answer: type
+calculator: no
+slip: S1T1A | took it from 90 | The road is a straight line, a half turn: the two angles add to 180°, not 90°.
+slip: S1T1B | took it from 360 | The two angles lie on one side of the road, a straight line: they add to 180°.
+```
+
 ## In a right angle
 
 The harbour master's yard has a square corner, 90°. A path runs out from the corner across the

@@ -107,6 +107,16 @@ ask: Why does one measured angle, $q = 65°$, give all eight?
 because: At each crossing the angles are that one and the angle beside it on a straight line, each twice over, and corresponding angles carry the same two sizes to the other crossing.
 ```
 
+```item PA1T1
+prompt: A street parallel to Harbour Street meets the coast road at 48°, in the same place as $q$. What is the angle in the place of $p$, beside it?
+twin: A01
+topics: corresponding-angles
+answer: type
+calculator: no
+slip: PA1T1A | took it as equal | The angle in $q$'s place is 48°; $p$'s place is beside it on a straight line, so the two add to 180°.
+slip: PA1T1B | took it from 90 | $p$ and $q$ lie together on a straight street, a half turn: they add to 180°, not 90°.
+```
+
 It works the other way too: if corresponding angles are equal, the lines are parallel. Euclid did not
 need to take this one as given; he proved it from earlier steps (his Book I, propositions 27 and 28).
 <voice v="story">That is how Corwen checks a new street.</voice><voice v="plain">That is how to check a new street.</voice> If the coast road meets it at 65°, in the same place as $q$,
