@@ -45,10 +45,14 @@ LIST_MARK = re.compile(r"[ \t]*(?:[-*] |\d+\. )")
 
 
 def course_lessons(course):
-    out = []
+    """The lesson.md paths of a course in order, or of one unit with COURSE:UNIT (algebra:0)."""
+    course, _, unit = course.partition(":")
+    out, here = [], None
     for line in open(os.path.join(ROOT, "courses", f"{course}.course"), encoding="utf-8"):
         p = [x.strip() for x in line.split("|")]
-        if p[0] == "lesson":
+        if p[0] == "unit":
+            here = p[1]
+        if p[0] == "lesson" and (not unit or here == unit):
             d = next(x for x in os.listdir(os.path.join(ROOT, "lessons")) if x == p[1] or x.startswith(p[1] + "-"))
             out.append(os.path.join(ROOT, "lessons", d, "lesson.md"))
     return out
@@ -279,7 +283,7 @@ def to_tex(u):
     t = re.sub(r"√\(([^()]*(?:\([^()]*\)[^()]*)*)\)", lambda m: r"\sqrt{" + m.group(1) + "}", u)
     t = re.sub(r"√([\w.]+)", lambda m: r"\sqrt{" + m.group(1) + "}", t)
     # every operand over an operand is stacked, a bracket group included (abacus #7227): 1/4, x/2, (1 + 3)/(4 + 8)
-    o = r"\d+(?:\.\d+)?|(?<![A-Za-z])[A-Za-z](?![A-Za-z])|\([^()]*\)"
+    o = rf"(?:\d+(?:\.\d+)?|(?<![A-Za-z])[A-Za-z](?![A-Za-z])|\([^()]*\))[{SUPS}]*"     # 1/2³ too
     t = re.sub(rf"(?<![\w.)])({o})/({o})(?![\w.(])",
                lambda m: r"\frac{" + re.sub(r"^\((.*)\)$", r"\1", m.group(1)) + "}{" + re.sub(r"^\((.*)\)$", r"\1", m.group(2)) + "}", t)
     t = re.sub(rf"(?<![A-Za-z\\])({'|'.join(check.MATHS_OPERATORS)})(?![A-Za-z])", r"\\operatorname{\1}", t)
@@ -344,6 +348,11 @@ def plan(text, geometry, keys):
                 deferred.append((s, e, t, before, after))   # decided once the other spans are known
             elif t not in letters and not (geometry and t.islower()):
                 left["letter not in the lesson's maths"] += 1  # (in geometry a small letter is an angle: p, v, w)
+            elif t.isupper() and t in keys:
+                # a capital the lesson's maths uses that is also a memory letter: a variable ("3.5 in W") or the
+                # calculator's letter ("W is on the 5 key"); never decided silently
+                left["unsettled letter"] += 1
+                unsettled.append((text.count("\n", 0, s) + 1, f"{t}: …{before[-20:]}[{t}]{after}…".replace("\n", " ")))
             else:
                 spans.append((s, e, t))
         else:
@@ -465,7 +474,7 @@ def main():
         print(__doc__)
         return 2
     step, course, dry = sys.argv[1], sys.argv[2], "--dry" in sys.argv
-    geometry = course == "geometry"
+    geometry = course.partition(":")[0] == "geometry"
     keys = legends()
     bad = 0
     total = collections.Counter()

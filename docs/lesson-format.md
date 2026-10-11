@@ -281,7 +281,9 @@ arithmetic too, Michael via abacus #6967). The lesson says where the maths is:
   words. Every fraction is stacked, a bracket over a bracket too (`\frac{1 + 3}{4 + 8}`), and a mixed number is one
   span (`1 \frac{1}{8}`). A lone number, a register (X Y Z T), a memory letter, a key's name (INT÷, Rmdr), a point,
   a lone ∠ name and a lone LCM or GCF stay plain; a word unit and an aside's brackets stay outside the span. In
-  geometry a capital is a point (plain) and a small letter is an angle (a span: "the angles $p$, $q$, $r$ and $s$"). tools/maths_convert.py applies them a course at a time.
+  geometry a capital is a point (plain) and a small letter is an angle (a span: "the angles $p$, $q$, $r$ and $s$").
+  Decided by hand, never by the converter: a lone a, A or I in a sentence with a one-letter span, and a lone
+  capital that is also a memory letter ("3.5 in $W$", a variable; "W is on the 5 key", the calculator's letter). tools/maths_convert.py applies them a course at a time.
 
 check.py reads every span back to the plain text the lessons wrote before the markup (`maths_text`: `^2` as ²,
 `^{r × t}` as ^(r × t), `^{2.5}` as ^2.5, `\frac{1}{4}` as 1/4, `\sqrt{x + 1}` as √(x + 1), `'` as ′), and every
