@@ -5,6 +5,15 @@ Q01@alg | 2/4 of a pie, as a division | MODE33 FIX4 FDISP 2 / 4 ENTER | N=0.5 %L
 Q01@rpn | 2/4 of a pie, as a division | MODE33 FIX4 FDISP 2 ENTER 4 / | X=0.5
 Q02@alg | 1/2 of a pie | MODE33 FIX4 FDISP 1 / 2 ENTER | N=0.5 %LINE=1÷2
 Q02@rpn | 1/2 of a pie | MODE33 FIX4 FDISP 1 ENTER 2 / | X=0.5
+# Q02's twin (step 5): its answer typed, its working, and the slips'.
+Q2T1@alg | twin: 4/5 as a decimal, typed | MODE33 FIX4 0.8 ENTER | N=0.8 %LINE=0.8
+Q2T1@rpn | twin: 4/5 as a decimal, typed | MODE33 FIX4 0.8 ENTER | X=0.8
+Q2T1W@alg | its working: 4 / 5 | MODE33 FIX4 4 / 5 ENTER | N=0.8 %LINE=4÷5
+Q2T1W@rpn | its working: 4 / 5 | MODE33 FIX4 4 ENTER 5 / | X=0.8
+Q2T1A@alg | slip: 5 / 4 | MODE33 FIX4 5 / 4 ENTER | N=1.25 %LINE=5÷4
+Q2T1A@rpn | slip: 5 / 4 | MODE33 FIX4 5 ENTER 4 / | X=1.25
+Q2T1B@alg | slip: 4 tenths, 0.4 | MODE33 FIX4 0.4 ENTER | N=0.4 %LINE=0.4
+Q2T1B@rpn | slip: 4 tenths, 0.4 | MODE33 FIX4 0.4 ENTER | X=0.4
 Q03@alg | 6/8 in simplest form | MODE33 FIX4 FDISP 6 / 8 ENTER | N=0.75 %LINE=6÷8
 Q03@rpn | 6/8 in simplest form | MODE33 FIX4 FDISP 6 ENTER 8 / | X=0.75
 Q04@alg | 111/296: the calculator finds 3/8 | MODE33 FIX4 FDISP 111 / 296 ENTER | N=0.375 %LINE=111÷296

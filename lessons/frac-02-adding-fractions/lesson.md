@@ -81,6 +81,16 @@ ask: Why must the pieces be the same size before adding?
 because: Adding counts pieces, so they must be pieces of one size: quarters become eighths, and then the eighths add.
 ```
 
+```item F2T1
+prompt: Work out $\frac{1}{6} + \frac{1}{4}$. Written with a bottom number of 12, what is its top?
+twin: A01
+topics: common-bottom
+answer: type
+calculator: no
+slip: F2T1A | one top changed | Both fractions become twelfths: $\frac{1}{6} = \frac{2}{12}$ and $\frac{1}{4} = \frac{3}{12}$, each top multiplied with its bottom.
+slip: F2T1B | the tops added as they are | Sixths and quarters are different sizes; make both twelfths first, then add the tops.
+```
+
 ## Another pair
 
 $\frac{2}{5} + \frac{1}{2}$: $\operatorname{LCM}(5, 2) = 10$. $\frac{2}{5} = \frac{4}{10}$ (top and bottom times 2) and $\frac{1}{2} = \frac{5}{10}$ (times 5), so the sum is

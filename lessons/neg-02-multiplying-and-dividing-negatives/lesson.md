@@ -91,6 +91,16 @@ ask: Why is a negative times a negative positive?
 because: Each hour back in time is 4 degrees warmer, so 3 hours back is 12 degrees warmer: $(−3) × (−4)$ is 12.
 ```
 
+```item M2T1
+prompt: Work out $(−8) × (−9)$: the signs first, then the numbers.
+twin: M02
+topics: sign-rules
+answer: type
+calculator: no
+slip: M2T1A | the sign rule missed | Two negatives multiply to a positive: the same signs give a positive answer.
+slip: M2T1B | added instead | $(−8) + (−9)$ is −17; the × multiplies: 8 nines are 72.
+```
+
 ## Dividing
 
 Dividing undoes multiplying (expr-02), so each division is a multiplication question, and that is why

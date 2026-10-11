@@ -67,6 +67,16 @@ The screen shows <disp v="M01">0 3/8</disp>.
 $(1 ÷ 2) × 3$, then ÷ 4. Times 3 and then divided by 4 is the same as times $\frac{3}{4}$, so no brackets are
 needed here.</entry>
 
+```item F3T1
+prompt: Work out $\frac{2}{3} × \frac{4}{5}$: multiply the tops, then the bottoms. What is the top of the answer?
+twin: M01
+topics: multiply-fractions
+answer: type
+calculator: no
+slip: F3T1A | the tops added | The rule multiplies: the top is $2 × 4$, not $2 + 4$.
+slip: F3T1B | multiplied crosswise | Tops times tops: $2 × 4$. The 5 is a bottom, so it goes with the 3.
+```
+
 Another: $\frac{5}{8} × \frac{4}{5} = \frac{5 × 4}{8 × 5} = \frac{20}{40}$, which in simplest form is $\frac{1}{2}$.
 
 ```keys M02 entry=alg

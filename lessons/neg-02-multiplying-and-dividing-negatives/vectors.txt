@@ -4,6 +4,15 @@ M01@alg | 3 x (-4) | MODE33 FIX4 3 * 4 CHS ENTER | N=-12 %LINE=3×-4
 M01@rpn | 3 x (-4) | MODE33 FIX4 3 ENTER 4 CHS * | X=-12
 M02@alg | (-3) x (-4) | MODE33 FIX4 3 CHS * 4 CHS ENTER | N=12 %LINE=-3×-4
 M02@rpn | (-3) x (-4) | MODE33 FIX4 3 CHS ENTER 4 CHS * | X=12
+# M02's twin (step 5): its answer typed, its working, and the slips'.
+M2T1@alg | twin: (-8) x (-9), typed | MODE33 FIX4 72 ENTER | N=72 %LINE=72
+M2T1@rpn | twin: (-8) x (-9), typed | MODE33 FIX4 72 ENTER | X=72
+M2T1W@alg | its working: (-8) x (-9) | MODE33 FIX4 8 CHS * 9 CHS ENTER | N=72 %LINE=-8×-9
+M2T1W@rpn | its working: (-8) x (-9) | MODE33 FIX4 8 CHS ENTER 9 CHS * | X=72
+M2T1A@alg | slip: the sign rule missed, -72 | MODE33 FIX4 72 CHS ENTER | N=-72 %LINE=-72
+M2T1A@rpn | slip: the sign rule missed, -72 | MODE33 FIX4 72 CHS ENTER | X=-72
+M2T1B@alg | slip: added, (-8) + (-9) | MODE33 FIX4 8 CHS + 9 CHS ENTER | N=-17 %LINE=-8+-9
+M2T1B@rpn | slip: added, (-8) + (-9) | MODE33 FIX4 8 CHS ENTER 9 CHS + | X=-17
 D01@alg | (-12) / 4 | MODE33 FIX4 12 CHS / 4 ENTER | N=-3 %LINE=-12÷4
 D01@rpn | (-12) / 4 | MODE33 FIX4 12 CHS ENTER 4 / | X=-3
 D02@alg | (-12) / (-4) | MODE33 FIX4 12 CHS / 4 CHS ENTER | N=3 %LINE=-12÷-4

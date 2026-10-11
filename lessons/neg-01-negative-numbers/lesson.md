@@ -84,6 +84,16 @@ ENTER or an operation key to finish it:</entry>
 The screen shows <disp v="A01">-3.0000</disp>. The calculator writes the minus sign as a short dash.
 <entry e="alg">The line reads <disp v="A01" kind="line">5+-8</disp>: 5 plus negative 8.</entry>
 
+```item N1T1
+prompt: Work out $3 + (−11)$ by moving along the number line.
+twin: A01
+topics: add-negatives
+answer: type
+calculator: no
+slip: N1T1A | moved right | Adding a negative moves left: start at 3 and move 11 to the left.
+slip: N1T1B | the sign lost | 3 steps left reach 0, and 8 more go below it, so the answer is negative.
+```
+
 A mistake to watch for: +/− works on the number being typed, and digits typed after it keep going
 into that same number. The mistake is typing 8, +/−, then 5:
 

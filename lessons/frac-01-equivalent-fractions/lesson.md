@@ -95,6 +95,16 @@ ask: Why are the two pies' shares the same number?
 because: Each half of the first pie holds two of its quarters, so two quarters cover exactly one half.
 ```
 
+```item Q2T1
+prompt: Work out $4 ÷ 5$, the fraction $\frac{4}{5}$ as a division, by hand, as a decimal.
+twin: Q02
+topics: fraction-is-division
+answer: type
+calculator: no
+slip: Q2T1A | the bottom divided by the top | A fraction is its top divided by its bottom: $4 ÷ 5$, not $5 ÷ 4$.
+slip: Q2T1B | the top read as tenths | $\frac{4}{5}$ is 4 fifths, not 4 tenths: each fifth is 0.2, so 4 of them are 0.8.
+```
+
 ## Checking your hand work
 
 $\frac{6}{8}$ came out as $\frac{3}{4}$. The calculator can check it:
