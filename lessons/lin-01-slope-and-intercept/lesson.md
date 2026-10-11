@@ -66,6 +66,11 @@ line rises 2. Keep it in M:
 STO M
 ```
 
+```why
+ask: Why must the rise and the run both be taken from the same point?
+because: Taking only one of them the other way round flips its sign, and the slope comes out −2 for a line that rises 2 at each step.
+```
+
 ## The intercept
 
 Any point on the line makes y = mx + b true. Take mx from both sides of that, and it gives
@@ -85,6 +90,11 @@ result in B:
 ```
 
 X shows <disp v="L03">3.0000</disp>: b = 9 − 6. The line is y = 2x + 3, the f of fn-01.
+
+```why
+ask: Why does b = y − mx give the intercept?
+because: The intercept is the value of y where x is zero. From the point (3, 9), going back 3 steps to that crossing drops the line by 2 at each step, so 9 − 2 × 3 is where it crosses.
+```
 
 Check it with the other point. At x = 5 the line should give 13:
 

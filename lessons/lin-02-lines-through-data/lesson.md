@@ -101,6 +101,11 @@ add the squares. Squaring makes every distance count as positive, so points abov
 cancel out. The line the calculator finds makes that total as small as any line can, which is why
 it is also called the least-squares line.
 
+```why
+ask: Why is the line's 6.6 at week 3 also the average of the five heights?
+because: Week 3 is the average of the measured weeks, and the least-squares line always passes through the point made of the two averages.
+```
+
 ## How well a line fits
 
 r says how well a sloping line fits the points:
@@ -168,6 +173,11 @@ BLUE L.R. m
 X shows <disp v="W02">1.9000</disp>. Σ− cannot check that the point was ever entered: given a y and
 x that never went in, it takes them out of the sums all the same, and the line is quietly wrong.
 Watch the count, and type the point exactly.
+
+```why
+ask: Why does Σ− with the same point put the slope back exactly?
+because: The line is worked out from the running sums alone. Σ− takes out exactly what Σ+ put in, so the sums, and the line with them, are what they were.
+```
 
 ## Exercises
 

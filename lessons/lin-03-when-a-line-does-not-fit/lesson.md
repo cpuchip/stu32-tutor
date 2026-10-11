@@ -96,6 +96,11 @@ So r near 0 does not mean x and y are unrelated. It means no sloping line descri
 the points first, in a table or on a graph as in fn-02, and use a line only when they lie roughly
 along one.
 
+```why
+ask: Why is the flat line's height 1, the average of the five values?
+because: A flat line has one height for every x, and of all heights, the average is the one that makes the squared distances to the points add up to the least.
+```
+
 ## A perfect fit
 
 The other end of the scale. f(x) = 2x + 3 from fn-01 gives 3, 5, 7, 9 and 11 at x = 0 to 4, all on
@@ -119,6 +124,11 @@ BLUE L.R. b
 ```
 
 X shows <disp v="P03">3.0000</disp>.
+
+```why
+ask: Why does the calculator give back f's own slope and intercept, 2 and 3?
+because: The points lie exactly on y = 2x + 3, so that line is at distance zero from every one of them, and no line can do better than zero.
+```
 
 ## A flat line
 
