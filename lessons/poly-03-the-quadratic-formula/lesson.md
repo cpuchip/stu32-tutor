@@ -16,11 +16,10 @@ x = (−b ± √(b² − 4ac)) ÷ (2a),
 
 where ± means the formula gives two answers, one with + and one with −, and 2a is 2 × a. The part
 under the square root, b² − 4ac, is called the discriminant. It decides how many real roots there
-are, before you work out any of them. This lesson uses the formula on the stack, with a, b and c kept in variables.
+are, before you work out any of them. The calculator works the formula on the stack, with a, b and c kept
+in variables.
 
 ## From before
-
-Two from before, by hand: one from unit 1, and one square root from fn-03.
 
 ```item PL3F1
 prompt: Work out −5² + 30.
@@ -74,7 +73,7 @@ result in D:
 
 X shows <disp v="Q02">4.0000</disp>: 16 − 12. Now the root with +: −b, plus the square root of D,
 all divided by 2a. After RCL D, the √x key means the square root again, not the letter A: only the
-key right after STO or RCL means a letter (rpn-02). −b + √D waits in Y while 2 RCL A × builds 2a in
+key right after STO or RCL means a letter. −b + √D waits in Y while 2 RCL A × builds 2a in
 X, then ÷ divides Y by X.
 
 ```keys Q03 after=Q02
@@ -88,8 +87,8 @@ other root:
 RCL B +/− RCL D √x − 2 RCL A × ÷
 ```
 
-X shows <disp v="Q04">1.0000</disp>: (4 − 2) ÷ 2. The roots are 1 and 3, the two zeros in the table
-of fn-02.
+X shows <disp v="Q04">1.0000</disp>: (4 − 2) ÷ 2. The roots are 1 and 3, the two zeros in q's
+table.
 
 ```why
 ask: Why are the two roots, 1 and 3, the same distance either side of 2?
@@ -130,7 +129,7 @@ fn-03:
 RCL B +/− RCL D √x
 ```
 
-The screen shows <disp v="N02" kind="message">SQRT(NEG)</disp>. Clear it with C, as in fn-03:
+The screen shows <disp v="N02" kind="message">SQRT(NEG)</disp>. Clear it with C:
 
 ```keys N03 after=N02
 C
@@ -174,9 +173,6 @@ RCL B +/− RCL D √x − 2 RCL A × ÷
 X shows <disp v="E01C">-2.0000</disp>: (−3 − 5) ÷ 4.
 
 ## Mixed review
-
-Four from this lesson and the ones before it, in no order. Work each by hand unless it says to use
-the calculator.
 
 ```item PL3M1
 prompt: What is the discriminant b² − 4ac of x² − 6x + 9?

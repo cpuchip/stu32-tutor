@@ -10,17 +10,16 @@ display: FIX 4
 # Roots with SOLVE
 
 A root of a polynomial, also called a zero, is a value of x where the polynomial is 0. On its graph,
-it is where the curve meets the x axis. This lesson finds the roots of
+it is where the curve meets the x axis. SOLVE, from eq-01, finds the roots of
 
 c(x) = x³ − 6x² + 11x − 6
 
-with SOLVE from eq-01. SOLVE finds one root at a time, usually the one near the two guesses you give
+one at a time, usually the one near the two guesses you give
 it (eq-03). So the work is in deciding where to look, and in knowing when you have found them all.
 
 ## From before
 
-Two from num-01, by hand, before the calculator comes out. Working out a polynomial at a number is
-this kind of arithmetic.
+Working out a polynomial at a number is this kind of arithmetic.
 
 ```item P2F1
 prompt: Work out 3 × 2² − 5.
@@ -49,7 +48,7 @@ BLUE MODE {mode} GOLD DISP FIX 4
 
 ## Typing c
 
-Equation mode, as in eq-01, with yˣ for the powers. c has no = sign<mode m="STU">, as the expression
+Equation mode, with yˣ for the powers. c has no = sign<mode m="STU">, as the expression
 in the TABLE section of fn-02 had none</mode>: SOLVE treats an expression on its own as equal to 0, and XEQ gives its
 value.
 
@@ -61,7 +60,7 @@ The screen shows <disp v="R01" kind="eqn">X^3-6×X^2+11×X-6</disp>.
 
 ## Where to look
 
-Work out c at a few values of x with XEQ, as in eq-01, and watch the sign. At 0:
+Work out c at a few values of x with XEQ and watch the sign. At 0:
 
 ```keys R02 after=R01
 XEQ 0 R/S
@@ -109,7 +108,7 @@ more values when the count does not add up.
 ## One root in each gap
 
 Give SOLVE the two ends of a gap as its guesses: the first stored in X, the second on the X line,
-as eq-03 does. XEQ has left Equation mode, so STO works straight away. The first gap:
+as before. XEQ has left Equation mode, so STO works straight away. The first gap:
 
 ```keys S01 after=R05
 0 STO X 1.5 GOLD EQN GOLD SOLVE X
@@ -233,9 +232,6 @@ The X line shows <disp v="E04" kind="view">X=1.5321</disp>. None of d's roots is
 simple fraction, which is why trying whole numbers found only the gaps, and SOLVE found the roots.
 
 ## Mixed review
-
-Four from this lesson and the ones before it, in no order. Work each by hand unless it says to use
-the calculator.
 
 ```item P2M1
 prompt: At most how many roots can a polynomial of degree 4 have?

@@ -13,12 +13,10 @@ A polynomial adds up terms, each a number times a power of x: x, x², x³ and so
 no x at all, the constant term. The numbers are its coefficients. p(x) = 2x³ − 3x² + 4x − 5 has the
 coefficients 2, −3 and 4, and the constant term −5. Its degree is the highest power with a
 coefficient that is not 0, here 3. q(x) = x² − 4x + 3 from fn-02 has degree 2, and the lines of
-lin-01 to lin-03 are polynomials of degree 1 (or 0, for a flat line). This lesson works out a
-polynomial's value with very few keys, by a method that uses the stack the way rpn-01 taught it.
+lin-01 to lin-03 are polynomials of degree 1 (or 0, for a flat line). A polynomial's value takes very
+few keys, by a method built on the stack.
 
 ## From before
-
-Two from before, by hand: one from unit 1, and one function from fn-01.
 
 ```item PL1F1
 prompt: Work out 2 × 3³.
@@ -41,7 +39,7 @@ slip: PL1F2A | took 2 from 3, then squared | Square first: 2² is 4, then 3 − 
 The setup from rpn-01: the mode you chose and FIX 4. The worked example in "On the stack" is one chain, each
 step carrying on from the one before, and so is the program and its runs. Everything else starts
 fresh. If a program is still stopped from fn-03, press GOLD GTO . . before you key in P, as the last answer
-in fn-03 says.
+there says.
 
 <mode m="35s,STU">In this mode XEQ and GTO wait, after the label's letter, for ENTER; the keys
 below show the ENTER.</mode>
@@ -71,7 +69,7 @@ supply it.
 
 ## On the stack
 
-rpn-01 showed that when the stack drops, T keeps its number and copies it down. So fill the stack
+When the stack drops, T keeps its number and copies it down. So fill the stack
 with x, and every × finds a copy of x waiting in Y. Work out p(4). Fill the stack with 4, then type
 the first coefficient:
 
@@ -200,9 +198,6 @@ coefficients in order are 1, 0, −2 and 1, and r(x) = ((1x + 0)x − 2)x + 1.
    X shows <disp v="E02">0.1250</disp>: 0.125 − 1 + 1.
 
 ## Mixed review
-
-Four from this lesson and the ones before it, in no order. Work each by hand unless it says to use
-the calculator.
 
 ```item PL1M1
 prompt: What is the constant term of 5x³ − x + 8?

@@ -10,12 +10,10 @@ display: FIX 4
 # Complex roots
 
 poly-03 left x² + 2x + 5 with a discriminant of −16 and no real root, because no real number squares
-to a negative. This lesson brings in a new number that does, and with it finds the two roots the
+to a negative. A new kind of number does, and with it come the two roots the
 quadratic formula was pointing at.
 
 ## From before
-
-Two from before, by hand: a discriminant from poly-03, and one from unit 1.
 
 ```item PL4F1
 prompt: What is the discriminant b² − 4ac of x² + 2x + 2?
@@ -50,7 +48,7 @@ number plus a real number times i, written a + bi. a is its real part and b its 
 whose imaginary part is 0.
 
 <mode m="35s,STU">The calculator keeps both parts of a complex number in one stack level. To type one,
-type the real part, then press CMPLX (blue above +/−), which opens a menu like MODE in rpn-01, and
+type the real part, then press CMPLX (blue above +/−), which opens a menu like MODE's, and
 press the soft key under i; then type the imaginary part. (This is the HP 35s's way, and STU mode's.
 An HP 33s keeps the two parts as a pair of numbers on the stack instead, and so does 33s mode.) i
 itself is 0 + 1i:</mode><mode m="33s">In this mode, as on an HP 33s, a complex number is a pair of
@@ -135,7 +133,7 @@ square root key, so the calculator will not take that square root for you.</mode
 
 ## The roots of x² + 2x + 5
 
-The formula gives (−b ± √D) ÷ (2a), with a = 1, b = 2 and D = −16 from poly-03. With 4i for √D, the
+The formula gives (−b ± √D) ÷ (2a), with a = 1, b = 2 and D = −16 from before. With 4i for √D, the
 roots are (−2 + 4i) ÷ 2 and (−2 − 4i) ÷ 2. <mode m="35s,STU">On the stack: −2, ENTER, then 4i typed as
 0 i 4, then add (a real plus a complex number is complex), then divide by 2:</mode><mode m="33s">Type
 −2 + 4i as its pair, 4 ENTER 2 +/−; then ENTER, and 2 as the pair 0 ENTER 2 (2 + 0i); then CMPLX ÷
@@ -181,8 +179,8 @@ just as it holds a real one, so the same keys work. Here +/− comes before the 
 part negative:</mode><mode m="33s">Put −1 + 2i into x² + 2x + 5. Horner's keys need a complex number in
 every stack level, and here a pair takes two levels, so work it out term by term instead. x² is z × z:
 the pair 2 ENTER 1 +/−, ENTER, the pair again, and CMPLX ×. Then add 2z: twice each part, worked out in
-your head, is −2 + 4i, typed as 4 ENTER 2 +/−. A result moves up when you type the next number
-(rpn-01), and a pair is two numbers, so typing it pushes the square up two levels, into Z and T, with
+your head, is −2 + 4i, typed as 4 ENTER 2 +/−. A result moves up when you type the next number,
+and a pair is two numbers, so typing it pushes the square up two levels, into Z and T, with
 no ENTER needed first; CMPLX + then adds the two. Then add 5, typed as the pair 0 ENTER 5:</mode>
 
 ```keys H01
@@ -269,9 +267,6 @@ and Y holds 0</mode>.
 
 ## Mixed review
 
-Four from this lesson and the ones before it, in no order. Work each by hand unless it says to use
-the calculator.
-
 ```item PL4M1
 prompt: i × i is what real number?
 topics: complex
@@ -307,7 +302,7 @@ slip: PL4M4A | the sign of −b | The root is −b ÷ 2a, and −b is −(−10)
 
 ## Checkpoint
 
-Questions on the whole unit. Work each by hand first (a few offer the calculator), then give your answer; the page checks it. A wrong answer that comes from a common slip gets a hint that names the step.
+Questions on the whole unit.
 
 ```item CP5A
 prompt: What is the discriminant b² − 4ac of x² + 4x + 13?

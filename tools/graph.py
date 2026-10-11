@@ -667,11 +667,9 @@ def selftest_review(lessons, placement_texts, graph):
 # A lesson on LINKS_PENDING has not had the voice pass yet (docs/proposals/voice-pass.md): its repeats are counted,
 # not refused, and it comes off the list when it links each lesson once.
 LINKS_PENDING = {
-    'angle-02', 'cnt-01', 'der-01', 'der-02', 'der-03', 'exp-01', 'exp-02', 'exp-03',
-    'exp-04', 'expr-02', 'factor-01', 'factor-02', 'frac-01', 'frac-02', 'frac-03', 'int-01',
-    'lim-01', 'lim-02', 'neg-02', 'parallel-01', 'poly-01',
-    'poly-02', 'poly-03', 'poly-04', 'prob-01', 'prob-01b', 'seq-01', 'sys-01', 'sys-02', 'trig-02', 'trig-03',
-    'trig-04', 'whole-02',
+    'angle-02', 'cnt-01', 'der-01', 'der-02', 'der-03', 'exp-01', 'exp-02', 'exp-03', 'exp-04', 'expr-02',
+    'factor-01', 'factor-02', 'frac-01', 'frac-02', 'frac-03', 'int-01', 'lim-01', 'lim-02', 'neg-02',
+    'parallel-01', 'prob-01', 'prob-01b', 'seq-01', 'sys-01', 'sys-02', 'trig-02', 'trig-03', 'trig-04', 'whole-02',
 }
 CODE_FENCE = re.compile(r"^([ \t]*)```(\w*)[^\n]*\n(.*?)^\1```[ \t]*$", re.M | re.S)
 # The page renders an item's prompt and a why block's ask and because through the same markdown as the prose, so an
