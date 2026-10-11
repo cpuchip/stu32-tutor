@@ -130,6 +130,11 @@ The X line shows <disp v="S02" kind="view">X=2.0000</disp>. The third:
 The X line shows <disp v="S03" kind="view">X=3.0000</disp>. The roots are 1, 2 and 3, and indeed
 c(x) = (x − 1)(x − 2)(x − 3): multiply it out to check.
 
+```why
+ask: Why are the roots exactly the numbers taken away in (x − 1)(x − 2)(x − 3)?
+because: A product is zero only when one of its factors is zero, and x − 1 is zero at 1, x − 2 at 2, and x − 3 at 3.
+```
+
 SOLVE works by trying values of x and narrowing in on the root, and it stops when it is close
 enough. So a root it finds can be off in its last digit. The calculator keeps 34 significant digits
 (rpn-03), and the third root here is 3.000…0003: every one of those digits is right except the
@@ -153,6 +158,11 @@ next example's first key would be lost</mode>.
 
 ```keys N02 after=N01
 C
+```
+
+```why
+ask: Why does SOLVE give up on x² + 1, when it found every root of c?
+because: SOLVE hunts for a value of x that makes the expression zero, and x² + 1 is never below 1, so among the real numbers there is none to find.
 ```
 
 ## Exercise

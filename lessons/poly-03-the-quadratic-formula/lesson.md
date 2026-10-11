@@ -91,6 +91,11 @@ RCL B +/− RCL D √x − 2 RCL A × ÷
 X shows <disp v="Q04">1.0000</disp>: (4 − 2) ÷ 2. The roots are 1 and 3, the two zeros in the table
 of fn-02.
 
+```why
+ask: Why are the two roots, 1 and 3, the same distance either side of 2?
+because: The formula gives −b ÷ 2a plus or minus √D ÷ 2a, so both roots sit the same distance from the middle, −b ÷ 2a, which here is 4 ÷ 2.
+```
+
 ## One root
 
 x² − 6x + 9 has a = 1, b = −6 and c = 9. Its discriminant:
@@ -136,6 +141,11 @@ discriminant means no real root: the graph never reaches the x axis. So the disc
 every quadratic before any root is worked out: positive, two real roots; zero, one double root;
 negative, none among the real numbers. The roots of x² + 2x + 5 are complex numbers, which poly-04
 works out with the same formula.
+
+```why
+ask: Why does a negative discriminant mean the graph never reaches the x axis?
+because: Every root the formula gives needs √D, and no real number squares to a negative, so there is no real x where the value is zero.
+```
 
 ## Exercise
 

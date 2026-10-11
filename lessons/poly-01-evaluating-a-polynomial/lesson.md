@@ -106,6 +106,11 @@ the top, and the drop that follows has T copy one back, so the supply of 4s neve
 X shows <disp v="H01">91.0000</disp>: 5 × 4 + 4 is 24, and 24 × 4 − 5 is 91. Check it the long way if
 you like: 2 × 64 − 3 × 16 + 4 × 4 − 5 = 128 − 48 + 16 − 5 = 91.
 
+```why
+ask: Why does Horner's way need only three multiplications?
+because: Each power is built from the one before inside the nesting, so x³ is never worked out on its own: every step multiplies once by x and adds the next coefficient.
+```
+
 The same keys work for any x. p(2), all at once:
 
 ```keys H02
@@ -150,6 +155,11 @@ p(−1):
 ```
 
 X shows <disp v="P03">-14.0000</disp>: −2 − 3 − 4 − 5.
+
+```why
+ask: Why does program P start with three ENTERs and no number?
+because: XEQ P runs with x already in X, so the ENTERs fill the stack with copies of it, and the first coefficient then replaces the copy left in X.
+```
 
 ## Exercises
 

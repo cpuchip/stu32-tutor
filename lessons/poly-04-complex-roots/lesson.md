@@ -168,6 +168,11 @@ happens: −b ÷ (2a) is real, √D is a real number times i, and the ± adds an
 a pair of the form p + qi and p − qi. (The complex roots of any polynomial with real coefficients come in conjugate
 pairs; that needs more than the formula to show.)
 
+```why
+ask: Why do the two roots add up to a real number?
+because: The ± adds 2i to one root and takes it from the other, so the i parts cancel and leave −1 + (−1), which is −2.
+```
+
 ## Checking a root
 
 A root makes the polynomial 0. <mode m="35s,STU">Put −1 + 2i into x² + 2x + 5 with the Horner
@@ -215,6 +220,11 @@ and Y holds 0</mode>. Both roots check. Counted with complex numbers, a polynomi
 1 or more, always has exactly n roots, when a root that repeats is counted as many times as it
 repeats: a double root twice, a triple root three times. Among the real numbers it can have fewer, as
 x² + 2x + 5 has none.
+
+```why
+ask: Why does every quadratic have two roots once complex numbers count?
+because: √D exists for every D once complex numbers count, so the formula always works, and its ± gives two roots: the same one twice when D is 0.
+```
 
 ## Exercise
 
