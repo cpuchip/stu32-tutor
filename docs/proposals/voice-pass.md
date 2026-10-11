@@ -1,7 +1,13 @@
-# A voice pass over the lessons, and back-references linked once (PROPOSAL, for Michael)
+# A voice pass over the lessons, and back-references linked once (DONE)
 
-**Status:** proposal (decision 82). Nothing in the lessons is edited until abacus and Michael have read it. The
-maths markup is agreed with primer separately, in docs/proposals/maths-markup.md.
+**Status:** DONE 2026-10-11 (decision 82; approved abacus #6736). Every lesson of the three courses went through
+the pass a unit at a time, each accepted by abacus. The link rule is graph.py's check_links (a2b82bc), and its
+pending list is empty since the setup sweep (b0b9d8d, accepted #7103): every lesson links each other lesson once,
+and a lesson that leans on another keeps one link to it or has it in its "Before this lesson" box. The setup
+sentence went to primer's setup card (abacus ruled setup-line yes, #6900). Kept on purpose, as 3b says:
+pre-algebra's "The check:", and "By hand" where the line is the hand working itself. Not done, by design: the
+bare "X shows N." sentences were joined to their meaning only where that read better, and rpn-01's "X shows
+12.0000." waits until its controls are re-anchored. The maths markup is separate, in docs/proposals/maths-markup.md.
 
 Michael read the live lessons on his phone: "The learn site is a little repetitive I think, a lot of by hand over
 and over again." Asked what he meant, he said: "I meant there are a lot of repeated phrases like, by hand first.
