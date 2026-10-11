@@ -1,6 +1,6 @@
 # Maths markup in lesson.md, for KaTeX (PROPOSAL, with primer)
 
-**Status:** proposal, to agree with primer (#6727) before either of us builds. Michael asked for it on his phone:
+**Status:** proposal, being agreed with primer (#6727, #6738) before either of us builds. Michael asked for it on his phone:
 "we definitely need pretty print for all of the equations." The page renders with KaTeX (MIT, vendored), and
 lesson.md says where the maths is. Until we agree, fixtures stand in, as with voices and whys.
 
@@ -25,28 +25,23 @@ function notation, operator, fraction or inequality, and so do **565** item and 
   as in "the x² key", therefore the markup itself keeps them apart. check.py also refuses a span followed directly
   by "key", as a cheap guard: 12 places today write a key name that looks like maths before the word "key".
 
-## 2. What goes inside a span: one question to settle first
+## 2. What goes inside a span: TeX (settled with primer, #6738)
 
-Two ways are open, and which is better depends on what KaTeX does with the Unicode the lessons already use. That
-is the riskiest unknown here, and a few minutes with the vendored copy answers it.
+primer tried the Unicode in KaTeX 0.16.47, strict and with throwOnError. ² ³ ⁻¹ ₁ × ÷ − ≤ ≥ ± ≠ · ° ∞ θ π render
+as maths, but √x and √(x + 1) fail ("Unrecognized Unicode character √"), and so do ′, ″ and ½. With strict loosened,
+√ is a lone glyph with no bar. Roots, fractions and primes are most of what pretty print means, so spans hold TeX:
+`$d(t) = 2t^2$`, `\sqrt{x}`, `\frac{1}{4}`, `f'(x)`.
 
-1. **Keep the Unicode:** `$d(t) = 2t²$`. The conversion only adds the `$` marks, and the numbers read exactly as
-   now. It works only if KaTeX, with `throwOnError` on and in strict mode, renders ², ⁻¹, √, ×, ÷, − and ≤ as maths.
-2. **Write TeX:** `$d(t) = 2t^2$`, `\sqrt{x}`, `\frac{1}{4}`. KaTeX's own input, rendered at its best, but both
-   readers then need one function, `maths_text(tex)`, that gives back the plain text: `^2` → ², `\frac{1}{4}` →
-   1/4, `\sqrt{x}` → √x, `\times` → ×, `-` → −, over a closed list of commands. A command not on the list is
-   refused. That is the TeX check you said check.py might do: a whitelist, not KaTeX's own check.
-
-**My recommendation is 2, if 1 renders badly anywhere,** and 1 otherwise, since it changes nothing a check reads.
-Could you try ², ⁻¹, √x, √(x + 1), ×, ÷, −, ≤, ≥ and ′ in your copy, strict and with throwOnError, and send what
-renders?
+Both readers then use one function, `maths_text(tex)`, which gives back the plain text the lessons write today:
+`^2` → ², `\frac{1}{4}` → 1/4, `\sqrt{x}` → √x, `\times` → ×, `-` → −, over a closed list of commands. A
+command not on the list is refused. That is check.py's TeX check: a whitelist, not KaTeX's own, which primer's
+render is.
 
 ## 3. Numbers inside maths (your question 3)
 
 They count, and they count as they do today, for the why rule (check_why's `seen()`) and the voices rule
-(`prose_numbers`) alike: both read a span through the same reading (as written in option 1, `maths_text` in
-option 2). 1/4 names 1 and 4. A superscript is not a numeral, as now: `\d` does not match ², so `2t²` names only
-2, checked in Python.
+(`prose_numbers`) alike: both read a span through `maths_text`. 1/4 names 1 and 4. A superscript is not a
+numeral, as now: `\d` does not match ², so `2t²` names only 2, checked in Python.
 
 **Two hazards in `seen()` to fix before maths arrives:**
 - it strips `<…>` as a tag, so in "$x < 2$ … >" it would eat the text between;
@@ -60,7 +55,7 @@ stripped.
 - a why number not in the maths: refused;
 - voices whose maths differ in a number: refused;
 - the same maths in both voices: green;
-- a span across a voice tag, across a line, in a heading, in a keys block, or (option 2) with an unknown command:
+- a span across a voice tag, across a line, in a heading, in a keys block, or with an unknown command:
   refused, one control each;
 - "$x < 2$" and "$x-10$" read whole: green.
 
