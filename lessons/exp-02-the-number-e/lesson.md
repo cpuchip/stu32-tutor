@@ -12,12 +12,10 @@ display: FIX 4
 exp-01 grew an amount by a factor once a year. Growth can also be added more often: interest of 6%
 a year paid as 0.5% every month, or as a tiny share every day. The more often, the more the amount
 grows, but by less and less: the total gets closer and closer to a value it never passes, called
-its limit. That limit brings in a number as important as π: e, about 2.7183. The eˣ key raises e to
+its limit. That limit is a new number, e, about 2.7183. The eˣ key raises e to
 a power.
 
 ## From before
-
-Two from before, by hand: growth from exp-01, and a percent from num-04.
 
 ```item EX2F1
 prompt: 1000 grows by a factor of 1.06 each year. How much after 2 years?
@@ -55,7 +53,7 @@ the end of the year:
 X shows <disp v="C01">1,060.0000</disp>. Paid monthly instead, each month adds 6% ÷ 12 = 0.5% of
 what is there, twelve times: the year's factor is (1 + 0.06 ÷ 12)¹². On the stack: 1000, then 0.06
 divided by 12, plus 1, to the power 12. The 1000 waits in Z most of the way; yˣ drops it to Y, and
-the last × multiplies by it, as in exp-01:
+the last × multiplies by it:
 
 ```keys C02
 1000 ENTER 0.06 ENTER 12 ÷ 1 + 12 yˣ ×
@@ -145,7 +143,7 @@ because: Paying more often always adds a little more, from yearly to monthly to 
 ## Exercises
 
 1. 2500 grows at 4% a year, continuously, for 10 years. How much is there?
-2. The same 2500 at 4% paid once a year for 10 years, as in exp-01. How much less is it?
+2. The same 2500 at 4% paid once a year for 10 years, as in the last lesson. How much less is it?
 3. The same 2500 at 4% a year paid monthly for 10 years: 120 payments of 4% ÷ 12 each.
 
 ## Answers
@@ -177,9 +175,6 @@ because: Paying more often always adds a little more, from yearly to monthly to 
    nearer the continuous one.
 
 ## Mixed review
-
-Four from this lesson and the ones before it, in no order. Work each by hand unless it says to use
-the calculator.
 
 ```item EX2M1
 prompt: (2³)² is one power of 2. What is the power?

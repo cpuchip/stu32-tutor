@@ -13,11 +13,9 @@ exp-03 solved 1.04ⁿ = 2 with logarithms, because the unknown sat alone in the 
 are not so tidy. In eˣ = 3x the unknown is both in a power and outside it: taking logarithms gives
 x = ln(3x), with x still on both sides, and no rearranging with the functions on the calculator
 gets it out. SOLVE, from eq-01 and poly-02, does not need it out: it searches for the x that makes the two
-sides equal. This lesson uses it on exponential equations.
+sides equal.
 
 ## From before
-
-Two from before, by hand: a logarithm from exp-03, and one from unit 1.
 
 ```item EX4F1
 prompt: Solve 10ˣ = 100,000.
@@ -57,7 +55,7 @@ The screen shows <disp v="Q01" kind="eqn">EXP(X)=3×X</disp>.
 
 ## Where to look
 
-XEQ gives left minus right (eq-01): where it changes sign, the two sides cross. At 0:
+XEQ gives left minus right: where it changes sign, the two sides cross. At 0:
 
 ```keys Q02 after=Q01
 XEQ 0 R/S
@@ -77,14 +75,14 @@ GOLD EQN XEQ 2 R/S
 
 X shows <disp v="Q04">1.3891</disp>: e² − 6. The sign changes from 0 to 1 and again from 1 to 2, so
 eˣ and 3x cross at least once in each gap. A sign change says nothing more than "at least once",
-and unlike poly-02 there is no degree to cap the count. What caps it here is the shape of the two
+and unlike a polynomial there is no degree to cap the count. What caps it here is the shape of the two
 sides: 3x is a straight line, and the graph of eˣ bends upward everywhere, getting steeper as it
 goes. A straight line can cross a curve that bends one way like that at most twice: once going in
 and once coming out. So two crossings is all there are, one in each gap.
 
 ## One root in each gap
 
-As in poly-02, give SOLVE the ends of a gap: the first stored in X, the second on the X line.
+As before, give SOLVE the ends of a gap: the first stored in X, the second on the X line.
 
 ```keys S01 after=Q04
 0 STO X 1 GOLD EQN GOLD SOLVE X
@@ -110,15 +108,15 @@ because: Here x is in the power and outside it. LN of both sides gives x = ln 3 
 
 SOLVE works on the tidy equations too. 500 grows at 4% a year; when does it reach 1000? Type
 500 × 1.04ᵀ = 1000, with yˣ for the power and T (on the 8 key) for the time. Then turn Equation mode
-off with EQN (eq-01), store a guess of 10 years in T, and put 30 on the X line:
+off with EQN, store a guess of 10 years in T, and put 30 on the X line:
 
 ```keys T01
 GOLD EQN 500 × 1.04 yˣ RCL T = 1000 ENTER GOLD EQN 10 STO T 30 GOLD EQN GOLD SOLVE T
 ```
 
 The X line shows <disp v="T01" kind="view">T=17.6730</disp>. Dividing both sides by 500 gives
-1.04ᵀ = 2, the equation exp-03 solved with logarithms, and this is its answer, found by searching
-instead. (As exp-03 showed, growth paid once a year first reaches double at the 18th payment;
+1.04ᵀ = 2, the equation solved with logarithms before, and this is its answer, found by searching
+instead. (Growth paid once a year first reaches double at the 18th payment;
 SOLVE answers the equation as written.) Where logarithms can untangle an equation they
 give the answer at once; where they cannot, SOLVE still can.
 
@@ -174,9 +172,6 @@ The X line shows <disp v="E03" kind="view">X=2.4449</disp>.
 
 ## Mixed review
 
-Four from this lesson and the ones before it, in no order. Work each by hand unless it says to use
-the calculator.
-
 ```item EX4M1
 prompt: At most how many times can a straight line meet the curve y = eˣ?
 topics: line-meets-curve
@@ -212,7 +207,7 @@ slip: EX4M4A | forgot the hundredth | 4% means 4 hundredths: 0.04 × 2500.
 
 ## Checkpoint
 
-Questions on the whole unit. Work each by hand first (a few offer the calculator), then give your answer; the page checks it. A wrong answer that comes from a common slip gets a hint that names the step.
+Questions on the whole unit.
 
 ```item CP6A
 prompt: Solve 2ˣ = 32.

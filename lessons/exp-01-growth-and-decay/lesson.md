@@ -16,13 +16,10 @@ step, the amount is
 a × bⁿ.
 
 A factor above 1 makes growth, and a factor between 0 and 1 makes decay. The doubling data in lin-03 was
-exponential, with a factor of 2, which is why a line described it so badly. This lesson works with
-exponential growth and decay, using yˣ from num-03.
+exponential, with a factor of 2, which is why a line described it so badly. yˣ from num-03 works out
+both growth and decay.
 
 ## From before
-
-Two from before, by hand: a percent from num-04, and a line from lin-01, which adds where this
-lesson multiplies.
 
 ```item EX1F1
 prompt: What is 15% of 80?
@@ -81,7 +78,7 @@ time it takes to halve is called its half-life. Start with 80 mg. The amount doe
 at each halving; it falls smoothly all the time, so a × bⁿ holds for part of a step too, with n a
 fraction. After 15 hours, 15 ÷ 6 = 2.5 half-lives have passed, so 80 × 0.5^2.5 remain. A power of
 2.5 is a power of 2 and a power of one half together: 0.5^2.5 = 0.5² × √0.5, since multiplying
-powers of one number adds the powers (num-04 did it with powers of ten) and, as in num-03, the power of one
+powers of one number adds the powers (num-04 did it with powers of ten), and the power of one
 half is a square root. yˣ takes any power. First the 2.5:
 
 ```keys D01A
@@ -89,7 +86,7 @@ half is a square root. yˣ takes any power. First the 2.5:
 ```
 
 X shows <disp v="D01A">2.5000</disp>. Before ÷ the stack was full: 80 in T, 0.5 in Z, 15 in Y and 6
-in X. ÷ dropped it, leaving 0.5 in Y and 80 in Z, with T copying its 80 down (rpn-01). One more
+in X. ÷ dropped it, leaving 0.5 in Y and 80 in Z, with T copying its 80 down. One more
 number typed before ÷ would have pushed the 80 off the top, so this is as many as the stack can
 hold. Now yˣ, then ×:
 
@@ -111,14 +108,14 @@ because: The factor 0.5 belongs to one half-life, 6 hours, so the power counts h
 
 If an amount went from 1200 to 1452 in two years, growing by the same factor b each year, then
 1200 × b × b = 1452, so b × b = 1452 ÷ 1200 and b is its square root. Over n years it would be the
-n-th root, ˣ√y from num-03 (gold above yˣ):
+n-th root, ˣ√y (gold above yˣ):
 
 ```keys R01
 1452 ENTER 1200 ÷ 2 GOLD ˣ√y
 ```
 
 X shows <disp v="R01">1.1000</disp>: a factor of 1.1, growth of 10% a year. The whole rise is 21%
-(%CHG from num-04 would say so), and it would be wrong to halve it to 10.5% a year: the second year
+(%CHG would say so), and it would be wrong to halve it to 10.5% a year: the second year
 grows from a bigger amount than the first, so 10% a year is enough, 1200 to 1320 to 1452.
 
 ```why
@@ -160,9 +157,6 @@ because: The two years multiply, b × b; they do not add. Undoing a multiplicati
    X shows <disp v="E03">1.0500</disp>: 5% a year.
 
 ## Mixed review
-
-Four from this lesson and the ones before it, in no order. Work each by hand unless it says to use
-the calculator.
 
 ```item EX1M1
 prompt: 200 grows by a factor of 3 at each step. How much after 2 steps?

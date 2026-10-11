@@ -15,8 +15,6 @@ question is "what power?", and the answer is a logarithm.
 
 ## From before
 
-Two from before, by hand: a negative power from unit 1, and growth from exp-01.
-
 ```item EX3F1
 prompt: Work out 10⁻².
 topics: neg-frac-powers
@@ -96,13 +94,13 @@ logarithm of both sides. 1.04 is 10 to the power log 1.04, so
 
 1.04ⁿ = (10^(log 1.04))ⁿ = 10^(n × log 1.04),
 
-since a power of a power multiplies the powers (exp-02). So the logarithm of 1.04ⁿ is n × log 1.04.
+since a power of a power multiplies the powers. So the logarithm of 1.04ⁿ is n × log 1.04.
 A logarithm turns a power into a multiplication, and then
 
 n × log 1.04 = log 2, and n = log 2 ÷ log 1.04.
 
 On the stack: 2, LOG, then 1.04 and LOG. Typing a number after a function like LOG pushes its
-result up to Y, as after + or × (rpn-01), so log 2 waits in Y while log 1.04 is worked out in X,
+result up to Y, as after + or ×, so log 2 waits in Y while log 1.04 is worked out in X,
 and ÷ divides them:
 
 ```keys S01
@@ -130,7 +128,7 @@ X shows <disp v="Y17">1.9479</disp>, not yet double. After 18:
 ```
 
 X shows <disp v="Y18">2.0258</disp>. So: 18 years. A fraction of a year counts only for growth that
-goes on smoothly, as continuous growth does (below) and decay did in exp-01.
+goes on smoothly, as continuous growth does (below) and decay did before.
 
 The same argument with e in place of 10 gives n × ln 1.04 = ln 2, so natural logarithms give the
 same n:
@@ -157,7 +155,7 @@ it is half gone when 0.9ⁿ = 0.5:
 
 X shows <disp v="H01">6.5788</disp> hours: its half-life. Both logarithms are negative here. A number
 between 0 and 1 is e (or 10) to a negative power, since a negative power is one over the positive
-power (num-03); the quotient of two negatives is positive.
+power; the quotient of two negatives is positive.
 
 0 and the negative numbers have no logarithm: no power of 10 or of e is 0 or below. The calculator
 refuses them:
@@ -175,7 +173,7 @@ C
 
 ## Continuous growth
 
-For continuous growth (exp-02), e^(r × t) = 2 means r × t = ln 2, because LN undoes eˣ. So the time
+For continuous growth, e^(r × t) = 2 means r × t = ln 2, because LN undoes eˣ. So the time
 to double at a rate r is ln 2 ÷ r. At 6%:
 
 ```keys C01
@@ -214,7 +212,7 @@ partway through the twelfth year.
 
    X shows <disp v="E01C">3.1187</disp>. So 29 years.
 
-2. Losing 20% leaves a factor of 0.8 (exp-01), so 0.8ⁿ = 0.5:
+2. Losing 20% leaves a factor of 0.8, so 0.8ⁿ = 0.5:
 
    ```keys E02
    0.5 LN 0.8 LN ÷
@@ -231,9 +229,6 @@ partway through the twelfth year.
    X shows <disp v="E03">23.1049</disp> years.
 
 ## Mixed review
-
-Four from this lesson and the ones before it, in no order. Work each by hand unless it says to use
-the calculator.
 
 ```item EX3M1
 prompt: What is log 1000 (base 10)?
