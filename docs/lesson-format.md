@@ -197,7 +197,8 @@ check.py refuses:
 - a why block with a `##` heading between it and that example;
 - a why block naming a number its example doesn't show. Numbers are compared by value, so 12 and 12.0000 are one
   number, and an example's numbers are those in its keys, its prose and its quoted displays. The digits of an ID
-  (the 1 of `keys S01` or of `<disp v="S01">`) are not among them.
+  (the 1 of `keys S01` or of `<disp v="S01">`, or of a lesson id such as rpn-01, which the page shows as its
+  title) are not among them, and a lesson id in a why block is not a number it names.
 
 The example's region also takes in its lead-in, the prose paragraph directly above its first keys block (abacus
 #6632). An example given in several entry variants (`mode=` or `entry=` blocks one after another) is one example, so
@@ -208,7 +209,7 @@ blocks were accepted before it and are left as they are.
 A why block is part of the skeleton every voice shares, so it never sits inside a voice span. The controls are in
 rpn-01's set (a number the example doesn't show, no `because:`, no example above, a heading between, a number from
 two paragraphs above, a number from above a heading when the example has no lead-in, a number found only in the
-example's ID, and as greens a good one and a
+example's ID, a number found only in a lesson id, and as greens a good one, a why block naming a lesson id, and a
 number from the lead-in) and whole-01's (a why block inside a voice span, and as a green a number from the lead-in
 above the first of an example's entry variants).
 

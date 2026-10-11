@@ -208,9 +208,11 @@ def lead_in(body, blocks, i):
 
 
 def seen(text):
-    """What a learner reads of a stretch of lesson: no keys fence's info line, no tag's attributes. An ID such as
-    L02 or <disp v="S01"> is not a number the example shows."""
-    return re.sub(r"<[^>]*>", " ", re.sub(r"^[ \t]*```keys[^\n]*\n", "", text, flags=re.M))
+    """What a learner reads of a stretch of lesson: no keys fence's info line, no tag's attributes, and no lesson id
+    (the page shows sys-01 as its title, abacus #5459). An ID such as L02, <disp v="S01"> or rpn-01 is not a number
+    the example shows, nor one a why block names."""
+    text = re.sub(r"<[^>]*>", " ", re.sub(r"^[ \t]*```keys[^\n]*\n", "", text, flags=re.M))
+    return re.sub(r"\b[a-z]+-\d{2}[a-z]?\b", " ", text)
 
 
 def check_why(body):
@@ -242,7 +244,7 @@ def check_why(body):
         if re.search(r"^## ", example, re.M):
             out.append(f"a why block with a ## heading between it and its example ({last.group(2)}): '{fields['ask']}'")
             continue
-        missing = sorted(numbers_in(fields["ask"] + " " + fields["because"])
+        missing = sorted(numbers_in(seen(fields["ask"] + " " + fields["because"]))
                          - numbers_in(seen(example)) - numbers_in(seen(lead_in(body, blocks, above[-1]))))
         if missing:
             out.append(f"a why block under {last.group(2)} names {', '.join(str(x) for x in missing)}, which its "

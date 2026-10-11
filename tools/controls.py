@@ -66,6 +66,10 @@ CONTROLS = [
      'X shows <disp v="S01">12.0000</disp>.\n\n```why\nask: Why does + need the ENTER?\n'
      'because: ENTER keeps 1 number apart from the next.\n```\n', {},
      "a why block under S01 names 1, which its example does not show"),
+    # A lesson id is shown as its title (abacus #5459), so its digits are no number on either side.
+    ("a why number found only in a lesson id", [("lesson.md", "To add 7 and 5, type 7, press ENTER, type 5, and press +.", "To add 7 and 5, type 7, press ENTER, type 5, and press + (as in num-03)."),
+      ("lesson.md", 'X shows <disp v=\"S01\">12.0000</disp>.\n', 'X shows <disp v=\"S01\">12.0000</disp>.\n\n```why\nask: Why does + come 3rd?\nbecause: It needs both numbers first.\n```\n')], None, None, {},
+     "a why block under S01 names 3, which its example does not show"),
     ("a | inside a display vector's line", "fmt-vectors.txt", "| 12 | FIX 4 |  | 12.0000", "| 12 | FIX 4 |  | 12.0000 | x", {},
      "7 fields, expected 6"),
     ("a vector that does not set its mode", "vectors.txt", "MODE33 FIX4 7 ENTER 5 + |", "FIX4 7 ENTER 5 + |", {},
@@ -128,6 +132,7 @@ CONTROLS = [
 # Negative controls: harmless changes that must still pass, so a red above is not a check that
 # fails on everything near it. (The first em-dash check counted the text "2014".)
 GREENS = [
+    ("a why block naming a lesson id", "lesson.md", 'X shows <disp v=\"S01\">12.0000</disp>.\n', 'X shows <disp v=\"S01\">12.0000</disp>.\n\n```why\nask: Why does Y hold 7 when + is pressed?\nbecause: ENTER copied it up, as num-04 relies on.\n```\n'),
     ("a why number from its example's lead-in", [("lesson.md", "To add 7 and 5, type 7, press ENTER, type 5, and press +.",
       "To add 7 and 5, 2 numbers, type 7, press ENTER, type 5, and press +."), ("lesson.md", 'X shows <disp v="S01">12.0000</disp>.\n', 'X shows <disp v="S01">12.0000</disp>.\n\n```why\nask: Why do 2 numbers go in before +?\nbecause: + needs both, so each is typed and kept first.\n```\n')], None, None),
     ("a why block under S01 whose numbers its example shows", "lesson.md", 'X shows <disp v="S01">12.0000</disp>.\n',
