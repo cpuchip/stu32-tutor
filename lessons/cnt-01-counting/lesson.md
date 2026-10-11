@@ -17,7 +17,7 @@ their order.
 ## From before
 
 ```item CN1F1
-prompt: Work out 4 × 3 × 2 + 1.
+prompt: Work out $4 × 3 × 2 + 1$.
 topics: mult-before-add
 answer: type
 calculator: no
@@ -25,11 +25,11 @@ slip: CN1F1A | added before multiplying | The multiplications come first: 24, th
 ```
 
 ```item CN1F2
-prompt: Work out (10 × 9) ÷ 2.
+prompt: Work out $(10 × 9) ÷ 2$.
 topics: fraction-bar
 answer: type
 calculator: no
-slip: CN1F2A | multiplied by the 2 | ÷ 2 divides: 90 ÷ 2.
+slip: CN1F2A | multiplied by the 2 | ÷ 2 divides: $90 ÷ 2$.
 ```
 
 ## Before you start
@@ -44,7 +44,7 @@ BLUE MODE {mode} GOLD DISP FIX 4
 ## Multiplying the choices
 
 A wardrobe has 3 shirts, 4 pairs of trousers and 2 pairs of shoes. An outfit is one of each. Each of
-the 3 shirts goes with each of the 4 trousers, which makes 3 × 4 pairs, and each pair goes with each
+the 3 shirts goes with each of the 4 trousers, which makes $3 × 4$ pairs, and each pair goes with each
 of the 2 shoes. When one choice is made after another, and each step has the same number of choices
 whatever was picked before it, the number of ways is the numbers of choices multiplied together:
 
@@ -56,15 +56,15 @@ X shows <disp v="M01">24.0000</disp> outfits.
 
 ```why
 ask: Why are the choices multiplied, and not added?
-because: Each of the 3 shirts starts its own set of 4 × 2 outfits, so there are 3 equal sets of them. Adding 3 + 4 + 2 would count the pieces of clothing, not the outfits.
+because: Each of the 3 shirts starts its own set of $4 × 2$ outfits, so there are 3 equal sets of them. Adding $3 + 4 + 2$ would count the pieces of clothing, not the outfits.
 ```
 
 ## Orders: the factorial
 
 Five books go on a shelf in a row. Any of the 5 can go first; then any of the 4 left can go second,
-then 3, then 2, and the last one has 1 place. So there are 5 × 4 × 3 × 2 × 1 orders. A whole number
-times every whole number below it, down to 1, is its factorial, written with an exclamation mark: 5!,
-said "five factorial". n! is gold, above ×:
+then 3, then 2, and the last one has 1 place. So there are $5 × 4 × 3 × 2 × 1$ orders. A whole number
+times every whole number below it, down to 1, is its factorial, written with an exclamation mark: $5!$,
+said "five factorial". $n$! is gold, above ×:
 
 ```keys F01
 5 GOLD n!
@@ -80,7 +80,7 @@ X shows <disp v="F02">8.0658E67</disp>: just over 8 times ten to the 67th, a num
 long for the screen at FIX 4, so it is shown in scientific form (rpn-03). The calculator keeps
 the first 34 of those 68 digits, rounded.
 
-0! is 1. That can be read as one way to arrange nothing, and the next section shows why it has to be
+$0!$ is 1. That can be read as one way to arrange nothing, and the next section shows why it has to be
 so:
 
 ```keys F03
@@ -92,14 +92,14 @@ X shows <disp v="F03">1.0000</disp>.
 ## Choosing in order: permutations
 
 Ten runners race, and the first three get gold, silver and bronze. Any of the 10 can win gold, then
-any of the 9 left silver, then any of the 8 left bronze: 10 × 9 × 8. No runner is picked twice. Three
-chosen from 10, in order, is a permutation, and the number of them is written P(10, 3). It is the start
-of 10!, stopped after 3 factors. Since 10! is 10 × 9 × 8 × 7!, dividing 10! by 7! leaves 10 × 9 × 8, and
-7 is 10 − 3. So P(n, r) is n! ÷ (n − r)!. When every item is chosen, r is n, and P(n, n) is n! ÷ 0!;
-it has to be n!, all of them in order, so 0! has to be 1.
+any of the 9 left silver, then any of the 8 left bronze: $10 × 9 × 8$. No runner is picked twice. Three
+chosen from 10, in order, is a permutation, and the number of them is written $P(10, 3)$. It is the start
+of $10!$, stopped after 3 factors. Since $10!$ is $10 × 9 × 8 × 7!$, dividing $10!$ by $7!$ leaves $10 × 9 × 8$, and
+7 is $10 − 3$. So $P(n, r)$ is $n! ÷ (n − r)!$. When every item is chosen, $r$ is $n$, and $P(n, n)$ is $n! ÷ 0!$;
+it has to be $n$!, all of them in order, so $0!$ has to be 1.
 
 The PROB menu (for probability, blue above ×) has it: its first two soft keys are Cn,r and Pn,r, which
-mean C(n, r) and P(n, r). Type n, the size of the group, then ENTER, then r, how many are chosen:
+mean $C(n, r)$ and $P(n, r)$. Type $n$, the size of the group, then ENTER, then $r$, how many are chosen:
 
 ```keys P01
 10 ENTER 3 BLUE PROB Pn,r
@@ -108,17 +108,17 @@ mean C(n, r) and P(n, r). Type n, the size of the group, then ENTER, then r, how
 X shows <disp v="P01">720.0000</disp>.
 
 ```why
-ask: Why is P(10, 3) less than 10 × 10 × 10?
+ask: Why is $P(10, 3)$ less than $10 × 10 × 10$?
 because: No runner can take two medals, so each medal after the first has one runner fewer to choose from than the medal before it.
 ```
 
 ## Choosing without order: combinations
 
 Now pick 3 of the 10 runners for a relay team, where it does not matter who was picked first. The 720
-orders count each team many times: the same three runners can be put in order in 3! = 6 ways, and
-each of those 6 is a different permutation but the same team. So the number of teams is 720 ÷ 6. A
-group chosen without order is a combination, and their number is written C(10, 3); it is P(10, 3)
-divided by 3!:
+orders count each team many times: the same three runners can be put in order in $3! = 6$ ways, and
+each of those 6 is a different permutation but the same team. So the number of teams is $720 ÷ 6$. A
+group chosen without order is a combination, and their number is written $C(10, 3)$; it is $P(10, 3)$
+divided by $3!$:
 
 ```keys C01
 10 ENTER 3 BLUE PROB Cn,r
@@ -134,7 +134,7 @@ combinations too, since a hand is the same whatever order its cards arrive in:
 X shows <disp v="C02">2,598,960.0000</disp> hands.
 
 Choosing 5 different items from a group of 2 cannot be done: there are no ways. The calculator does not
-answer 0, though; whenever r is bigger than n, it refuses:
+answer 0, though; whenever $r$ is bigger than $n$, it refuses:
 
 ```keys C03
 2 ENTER 5 BLUE PROB Cn,r
@@ -167,7 +167,7 @@ combination.
 ## Answers
 
 1. 10,000. Each of the 4 digits has 10 choices, and a digit can repeat, so the choices multiply:
-   10 × 10 × 10 × 10, which is 10⁴:
+   $10 × 10 × 10 × 10$, which is $10^{4}$:
 
    ```keys E01
    10 ENTER 4 yˣ
@@ -175,7 +175,7 @@ combination.
 
    X shows <disp v="E01">10,000.0000</disp>.
 
-2. 720. Every person is seated, in some order: 6!.
+2. 720. Every person is seated, in some order: $6!$.
 
    ```keys E02
    6 GOLD n!
@@ -183,7 +183,7 @@ combination.
 
    X shows <disp v="E02">720.0000</disp>.
 
-3. 56. Three toppings are chosen from 8, and their order on the pizza does not matter: C(8, 3).
+3. 56. Three toppings are chosen from 8, and their order on the pizza does not matter: $C(8, 3)$.
 
    ```keys E03
    8 ENTER 3 BLUE PROB Cn,r
@@ -192,7 +192,7 @@ combination.
    X shows <disp v="E03">56.0000</disp>.
 
 4. 1,320. Three are chosen from 12, and the order matters, since president and treasurer are different
-   jobs: P(12, 3).
+   jobs: $P(12, 3)$.
 
    ```keys E04
    12 ENTER 3 BLUE PROB Pn,r
@@ -203,19 +203,19 @@ combination.
 ## Mixed review
 
 ```item CN1M1
-prompt: What is 4!?
+prompt: What is $4!$?
 topics: factorial
 answer: type
 calculator: no
-slip: CN1M1A | added instead | 4! multiplies: 4 × 3 × 2 × 1.
+slip: CN1M1A | added instead | $4!$ multiplies: $4 × 3 × 2 × 1$.
 ```
 
 ```item CN1M2
-prompt: Work out 5 × 2³ − 1.
+prompt: Work out $5 × 2^{3} − 1$.
 topics: powers-first
 answer: type
 calculator: no
-slip: CN1M2A | cubed 5 × 2 | The power belongs to the 2 alone: 2³ is 8, then 5 × 8 − 1.
+slip: CN1M2A | cubed 5 × 2 | The power belongs to the 2 alone: $2^{3}$ is 8, then $5 × 8 − 1$.
 ```
 
 ```item CN1M3
@@ -223,13 +223,13 @@ prompt: A menu has 3 starters and 4 mains. How many different meals of one start
 topics: multiplication-principle
 answer: type
 calculator: no
-slip: CN1M3A | added the choices | Each starter goes with each main: 3 × 4.
+slip: CN1M3A | added the choices | Each starter goes with each main: $3 × 4$.
 ```
 
 ```item CN1M4
-prompt: Work out √(4 × 25).
+prompt: Work out $\sqrt{4 × 25}$.
 topics: square-root
 answer: type
 calculator: no
-slip: CN1M4A | halved instead of taking the root | 4 × 25 is 100, and √100 is 10.
+slip: CN1M4A | halved instead of taking the root | $4 × 25$ is 100, and $\sqrt{100}$ is 10.
 ```

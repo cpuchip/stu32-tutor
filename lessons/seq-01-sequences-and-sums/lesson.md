@@ -21,7 +21,7 @@ prompt: 5 grows by a factor of 2 at each step. What is it after 3 steps?
 topics: growth
 answer: type
 calculator: no
-slip: SQ1F1A | multiplied by the number of steps | Each step multiplies by 2 again: 5 × 2 × 2 × 2.
+slip: SQ1F1A | multiplied by the number of steps | Each step multiplies by 2 again: $5 × 2 × 2 × 2$.
 ```
 
 ```item SQ1F2
@@ -29,7 +29,7 @@ prompt: A line starts at 20 and adds 2 at every step. What is it after 5 steps?
 topics: linear-function
 answer: type
 calculator: no
-slip: SQ1F2A | added before multiplying | Five steps of 2 is 2 × 5, which is 10. Then 20 + 10.
+slip: SQ1F2A | added before multiplying | Five steps of 2 is $2 × 5$, which is 10. Then $20 + 10$.
 ```
 
 ## Before you start
@@ -48,8 +48,8 @@ BLUE MODE {mode} GOLD DISP FIX 4
 
 A sequence that adds the same number at every step, like a line from lin-01, is arithmetic, and the number it adds is its
 common difference, d. A theatre has 20 seats in its first row and 2 more in each row behind. Row 2
-has 20 + 2, row 3 has 20 + 2 + 2, and row n has 20 plus n − 1 steps of 2: the first term plus
-(n − 1) times d. Row 15 has 20 + 14 × 2:
+has $20 + 2$, row 3 has $20 + 2 + 2$, and row $n$ has 20 plus $n − 1$ steps of 2: the first term plus
+($n − 1$) times d. Row 15 has $20 + 14 × 2$:
 
 ```keys A01
 20 ENTER 14 ENTER 2 × +
@@ -59,12 +59,12 @@ X shows <disp v="A01">48.0000</disp> seats.
 
 How many seats in all 15 rows? Write the sum forwards and backwards, one under the other:
 
-    20 + 22 + 24 + … + 44 + 46 + 48
-    48 + 46 + 44 + … + 24 + 22 + 20
+    $20 + 22 + 24 + \dots + 44 + 46 + 48$
+    $48 + 46 + 44 + \dots + 24 + 22 + 20$
 
 Each column adds to 68, the first term plus the last, and there are 15 columns. So the two lines
-together are 15 × 68, and the sum is half of that: 15 × (20 + 48) ÷ 2. In general, the sum of the
-first n terms of an arithmetic sequence is n times (the first term plus the last), divided by 2:
+together are $15 × 68$, and the sum is half of that: $15 × (20 + 48) ÷ 2$. In general, the sum of the
+first $n$ terms of an arithmetic sequence is $n$ times (the first term plus the last), divided by 2:
 
 ```keys A02
 15 ENTER 20 ENTER 48 + × 2 ÷
@@ -74,16 +74,16 @@ X shows <disp v="A02">510.0000</disp> seats.
 
 ```why
 ask: Why does every column of the two lines add to the same 68?
-because: Along the top line each term is 2 more than the one before, and along the bottom line 2 less, so each column's sum stays what the first column's was: 20 + 48.
+because: Along the top line each term is 2 more than the one before, and along the bottom line 2 less, so each column's sum stays what the first column's was: $20 + 48$.
 ```
 
 ## Geometric sequences
 
 A sequence that multiplies by the same number at every step is geometric, and the number is its
-common ratio, r: growth by a factor (exp-01) is a geometric sequence. A colony of cells starts with 3
-and doubles every hour: 3, 6, 12, 24, …. The nth term is n − 1 steps after the first, so it is the
-first term multiplied by r once for each of those steps: 3 × 2ⁿ⁻¹. (Growth counted its steps from the
-start, a × bⁿ after n steps; here the first term is the start, so the nth is n − 1 steps on.) The 10th:
+common ratio, $r$: growth by a factor (exp-01) is a geometric sequence. A colony of cells starts with 3
+and doubles every hour: 3, 6, 12, 24, …. The nth term is $n − 1$ steps after the first, so it is the
+first term multiplied by $r$ once for each of those steps: $3 × 2^{n-1}$. (Growth counted its steps from the
+start, $a × b^{n}$ after $n$ steps; here the first term is the start, so the nth is $n − 1$ steps on.) The 10th:
 
 ```keys G01
 3 ENTER 2 ENTER 9 yˣ ×
@@ -91,13 +91,13 @@ start, a × bⁿ after n steps; here the first term is the start, so the nth is 
 
 X shows <disp v="G01">1,536.0000</disp>.
 
-The sum of the first n terms of a geometric sequence has a trick of its own. Call the sum of the
-first 10 terms S: S = 3 + 6 + 12 + … + 1536. Twice S is 6 + 12 + … + 1536 + 3072: each term of S
+The sum of the first $n$ terms of a geometric sequence has a trick of its own. Call the sum of the
+first 10 terms $S$: $S = 3 + 6 + 12 + \dots + 1536$. Twice $S$ is $6 + 12 + \dots + 1536 + 3072$: each term of $S$
 doubled is the term after it, so it is the same list without the first term and with one more at the
-end. So 2S − S takes away every term the two share, leaving 3072 − 3, and 3072 is 3 × 2¹⁰, so
-S = 3 × (2¹⁰ − 1). With any ratio r, the same steps take rS − S, which is (r − 1)S, so dividing by
-r − 1: the sum of the first n terms is the first term times (rⁿ − 1), divided by r − 1. That needs r
-not to be 1; with r = 1 every term is the same, and the sum is n times the first. Here r − 1 is 1:
+end. So $2S − S$ takes away every term the two share, leaving $3072 − 3$, and 3072 is $3 × 2^{10}$, so
+$S = 3 × (2^{10} − 1)$. With any ratio $r$, the same steps take $rS − S$, which is $(r − 1)S$, so dividing by
+$r − 1$: the sum of the first $n$ terms is the first term times ($r^{n} − 1$), divided by $r − 1$. That needs $r$
+not to be 1; with $r = 1$ every term is the same, and the sum is $n$ times the first. Here $r − 1$ is 1:
 
 ```keys G02
 3 ENTER 2 ENTER 10 yˣ 1 − × 2 ENTER 1 − ÷
@@ -116,8 +116,8 @@ its loop label, W, on 5:
 GOLD PRGM PRGM GOLD LBL Z 0 STO T 1.015 STO I
 ```
 
-Each time round, the loop takes the row number k from the counter's whole part and works out row k's
-seats. The rule from above, 20 + (k − 1) × 2, is 20 + 2k − 2, which is 18 + 2k, fewer keys. It adds
+Each time round, the loop takes the row number $k$ from the counter's whole part and works out row k's
+seats. The rule from above, $20 + (k − 1) × 2$, is $20 + 2k − 2$, which is $18 + 2k$, fewer keys. It adds
 them to T with STO + (rpn-02). Then ISG counts on and GTO goes back to W; once the count passes 15,
 ISG skips the GTO, and RCL T brings the total to X:
 
@@ -161,14 +161,14 @@ because: The loop uses nothing of the sum formula, only each row's own seats, so
 
 ## Answers
 
-1. 123, and 1950. The 30th term is 7 + 29 × 4:
+1. 123, and 1950. The 30th term is $7 + 29 × 4$:
 
    ```keys E01
    7 ENTER 29 ENTER 4 × +
    ```
 
    X shows <disp v="E01">123.0000</disp>. Carrying on, with the last term in X, the sum is
-   (123 + 7) × 30 ÷ 2:
+   $(123 + 7) × 30 ÷ 2$:
 
    ```keys E01B after=E01
    7 + 30 × 2 ÷
@@ -177,8 +177,8 @@ because: The loop uses nothing of the sum formula, only each row's own seats, so
    X shows <disp v="E01B">1,950.0000</disp>.
 
 2. About 0.47 metres. The heights the ball rises to are geometric: the first term is the first
-   bounce's, 2 × 0.75 = 1.5, and r = 0.75. The 5th term is 1.5 × 0.75⁴, which is 2 × 0.75 × 0.75⁴,
-   that is 2 × 0.75⁵. (Start from the 2 metres, and the 5th bounce is 5 steps on, not 4.)
+   bounce's, $2 × 0.75 = 1.5$, and $r = 0.75$. The 5th term is $1.5 × 0.75^{4}$, which is $2 × 0.75 × 0.75^{4}$,
+   that is $2 × 0.75^{5}$. (Start from the 2 metres, and the 5th bounce is 5 steps on, not 4.)
 
    ```keys E02
    2 ENTER 0.75 ENTER 5 yˣ ×
@@ -186,8 +186,8 @@ because: The loop uses nothing of the sum formula, only each row's own seats, so
 
    X shows <disp v="E02">0.4746</disp>.
 
-3. 1023 grains. The first term is 1 and r = 2, so the sum is 1 × (2¹⁰ − 1) ÷ (2 − 1), which is
-   2¹⁰ − 1:
+3. 1023 grains. The first term is 1 and $r = 2$, so the sum is $1 × (2^{10} − 1) ÷ (2 − 1)$, which is
+   $2^{10} − 1$:
 
    ```keys E03
    2 ENTER 10 yˣ 1 −
@@ -202,7 +202,7 @@ prompt: The sequence 7, 10, 13, … goes on the same way. What is its 10th term?
 topics: arithmetic-sequence
 answer: type
 calculator: no
-slip: SQ1M1A | ten steps, not nine | The 10th term is 9 steps after the first: 7 + 9 × 3.
+slip: SQ1M1A | ten steps, not nine | The 10th term is 9 steps after the first: $7 + 9 × 3$.
 ```
 
 ```item SQ1M2
@@ -210,7 +210,7 @@ prompt: What is 30% of 70?
 topics: percent
 answer: type
 calculator: no
-slip: SQ1M2A | forgot the hundredth | 30% means 30 hundredths: 0.3 × 70.
+slip: SQ1M2A | forgot the hundredth | 30% means 30 hundredths: $0.3 × 70$.
 ```
 
 ```item SQ1M3
@@ -218,13 +218,13 @@ prompt: The sequence 3, 6, 12, … goes on the same way. What is its 6th term?
 topics: geometric-sequence
 answer: type
 calculator: no
-slip: SQ1M3A | six doublings, not five | The 6th term is 5 steps after the first: 3 × 2⁵.
+slip: SQ1M3A | six doublings, not five | The 6th term is 5 steps after the first: $3 × 2^{5}$.
 ```
 
 ```item SQ1M4
-prompt: Work out 2¹⁰.
+prompt: Work out $2^{10}$.
 topics: power
 answer: type
 calculator: no
-slip: SQ1M4A | 2 × 10, not 2¹⁰ | 2¹⁰ is ten 2s multiplied: 1024.
+slip: SQ1M4A | 2 × 10, not 2¹⁰ | $2^{10}$ is ten 2s multiplied: 1024.
 ```

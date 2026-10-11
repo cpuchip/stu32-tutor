@@ -23,15 +23,15 @@ prompt: In how many ways can 2 of 5 people be chosen, if the order does not matt
 topics: combination
 answer: type
 calculator: no
-slip: PB1F1A | counted each pair twice | In order there are 5 × 4 = 20, and each pair is counted twice: 20 ÷ 2.
+slip: PB1F1A | counted each pair twice | In order there are $5 × 4 = 20$, and each pair is counted twice: $20 ÷ 2$.
 ```
 
 ```item PB1F2
-prompt: Work out 1 − 3/8, as a decimal.
+prompt: Work out $1 − \frac{3}{8}$, as a decimal.
 topics: fraction-arithmetic
 answer: type
 calculator: no
-slip: PB1F2A | left out the 1 − | It is what is left of 1 after 3/8: 8/8 − 3/8 is 5/8.
+slip: PB1F2A | left out the 1 − | It is what is left of 1 after $\frac{3}{8}$: $\frac{8}{8} − \frac{3}{8}$ is $\frac{5}{8}$.
 ```
 
 ## Before you start
@@ -65,8 +65,8 @@ X shows <disp v="D02">0.5000</disp>: as likely as not, which is called an even c
 ## Not
 
 An event either happens or it does not, so the two probabilities add to 1. The probability that
-something does not happen is 1 minus the probability that it does. Not rolling a 6 is 1 − 1/6. The
-first 1 waits on the stack while 1/6 is worked out, and − then takes 1/6 from it:
+something does not happen is 1 minus the probability that it does. Not rolling a 6 is $1 − \frac{1}{6}$. The
+first 1 waits on the stack while $\frac{1}{6}$ is worked out, and − then takes $\frac{1}{6}$ from it:
 
 ```keys N01
 1 ENTER 1 ENTER 6 ÷ −
@@ -78,9 +78,9 @@ X shows <disp v="N01">0.8333</disp>.
 
 Two events are independent when one happening does not change the chances of the other, as with two
 dice. The probability that both happen is then the two probabilities multiplied. For two fair dice
-you can see why by counting: the rule of multiplying the choices, gives 6 × 6 = 36 outcomes, all
-equally likely, and only one of them is a 6 and a 6, so 1 in 36, which is 1/6 × 1/6. Both dice
-showing 6, as 1/6 times 1/6:
+you can see why by counting: the rule of multiplying the choices, gives $6 × 6 = 36$ outcomes, all
+equally likely, and only one of them is a 6 and a 6, so 1 in 36, which is $\frac{1}{6} × \frac{1}{6}$. Both dice
+showing 6, as $\frac{1}{6}$ times $\frac{1}{6}$:
 
 ```keys A01
 1 ENTER 6 ÷ 1 ENTER 6 ÷ ×
@@ -94,7 +94,7 @@ because: Of the 36 equally likely outcomes, a sixth have the first die on 6, and
 ```
 
 "At least one" is easier through "not". The chance of at least one 6 in four rolls of a die is 1 minus
-the chance of no 6 at all. No 6 in one roll is 5/6, and in four independent rolls it is (5/6)⁴:
+the chance of no 6 at all. No 6 in one roll is $\frac{5}{6}$, and in four independent rolls it is $(\frac{5}{6})^{4}$:
 
 ```keys A02
 1 ENTER 5 ENTER 6 ÷ 4 yˣ −
@@ -103,16 +103,16 @@ the chance of no 6 at all. No 6 in one roll is 5/6, and in four independent roll
 X shows <disp v="A02">0.5177</disp>: a little better than an even chance.
 
 ```why
-ask: Why is the chance of at least one 6 in four rolls not 4 × 1/6?
-because: 4 × 1/6 counts a run with two or more 6s more than once, and with seven rolls it would pass 1. 1 − (5/6)⁴ takes away just the runs with no 6 at all.
+ask: Why is the chance of at least one 6 in four rolls not $4 × \frac{1}{6}$?
+because: $4 × \frac{1}{6}$ counts a run with two or more 6s more than once, and with seven rolls it would pass 1. $1 − (\frac{5}{6})^{4}$ takes away just the runs with no 6 at all.
 ```
 
 ## Counting with combinations
 
-A hand of 5 cards from 52 can be dealt in C(52, 5) ways, and when the deck is well shuffled
+A hand of 5 cards from 52 can be dealt in $C(52, 5)$ ways, and when the deck is well shuffled
 every hand is equally likely. The hands that are all hearts are the ways to choose 5 of the 13 hearts:
-C(13, 5). So the chance of a hand of five hearts is C(13, 5) ÷ C(52, 5). C(13, 5) waits in Y while
-C(52, 5) is worked out:
+$C(13, 5)$. So the chance of a hand of five hearts is $C(13, 5) ÷ C(52, 5)$. $C(13, 5)$ waits in Y while
+$C(52, 5)$ is worked out:
 
 ```keys H01
 13 ENTER 5 BLUE PROB Cn,r 52 ENTER 5 BLUE PROB Cn,r ÷
@@ -125,8 +125,8 @@ to 0.0005; it has a digit other than 0 within four places, so FIX 4 does not swi
 
 A game costs 1 dollar to play. Roll a die: a six pays you 5 dollars, and anything else pays nothing;
 either way the dollar you paid is gone. In many plays, a six comes up about one play in six, so on
-average a play pays 5 × 1/6 + 0 × 5/6, each payout times its probability, added up. 5 × 1/6 is 5 ÷ 6.
-Take away the 1 dollar each play costs, and the average result per play is 5/6 − 1. That average,
+average a play pays $5 × \frac{1}{6} + 0 × \frac{5}{6}$, each payout times its probability, added up. $5 × \frac{1}{6}$ is $5 ÷ 6$.
+Take away the 1 dollar each play costs, and the average result per play is $\frac{5}{6} − 1$. That average,
 over the outcomes, of what you end up gaining or losing, is the expected value of the bet:
 
 ```keys X01
@@ -200,8 +200,8 @@ X shows <disp v="S01">0.0000</disp>: the two numbers were the same, and so are t
    matter. What is the chance that one ticket of 6 numbers matches them all? If a ticket costs 2 dollars
    and the only prize is 10 million dollars, what is a ticket's expected value?
 4. Seed with 1 and roll a die with RAND. Seed with 1 again and roll again. What do you notice?
-5. A scratch card costs 1 dollar. It pays 10 dollars with probability 1/20, 2 dollars with probability
-   1/10, and nothing otherwise. What is its expected value?
+5. A scratch card costs 1 dollar. It pays 10 dollars with probability $\frac{1}{20}$, 2 dollars with probability
+   $\frac{1}{10}$, and nothing otherwise. What is its expected value?
 
 ## Answers
 
@@ -213,14 +213,14 @@ X shows <disp v="S01">0.0000</disp>: the two numbers were the same, and so are t
 
    X shows <disp v="E01">0.0769</disp>, 1 in 13.
 
-2. Each flip is heads with probability 0.5, and the flips are independent, so three heads is 0.5³:
+2. Each flip is heads with probability 0.5, and the flips are independent, so three heads is $0.5^{3}$:
 
    ```keys E02
    0.5 ENTER 3 yˣ
    ```
 
    X shows <disp v="E02">0.1250</disp>, 1 in 8. At least one tail is "not three heads". Carrying on, with
-   0.125 in X, 1 − 0.125 needs the 1 first, so x↔y puts them in order:
+   0.125 in X, $1 − 0.125$ needs the 1 first, so x↔y puts them in order:
 
    ```keys E02B after=E02
    1 x↔y −
@@ -229,7 +229,7 @@ X shows <disp v="S01">0.0000</disp>: the two numbers were the same, and so are t
    X shows <disp v="E02B">0.8750</disp>.
 
 3. The draws are combinations of 6 from 49, all equally likely, and a ticket is one of them:
-   1 ÷ C(49, 6):
+   $1 ÷ C(49, 6)$:
 
    ```keys E03
    1 ENTER 49 ENTER 6 BLUE PROB Cn,r ÷
@@ -261,7 +261,7 @@ X shows <disp v="S01">0.0000</disp>: the two numbers were the same, and so are t
 
    X shows <disp v="E04">0.0000</disp>.
 
-5. Each payout times its probability, added up, less the 1 dollar: 10 × 1/20 + 2 × 1/10 − 1.
+5. Each payout times its probability, added up, less the 1 dollar: $10 × \frac{1}{20} + 2 × \frac{1}{10} − 1$.
 
    ```keys E05
    10 ENTER 20 ÷ 2 ENTER 10 ÷ + 1 −
@@ -276,7 +276,7 @@ prompt: A bag holds 8 balls, 2 of them red. One is drawn at random. What is the 
 topics: probability
 answer: type
 calculator: no
-slip: PB1M1A | the other colour | The ways that count are the 2 red ones, out of all 8: 2 ÷ 8.
+slip: PB1M1A | the other colour | The ways that count are the 2 red ones, out of all 8: $2 ÷ 8$.
 ```
 
 ```item PB1M2
@@ -284,7 +284,7 @@ prompt: In how many orders can 6 people stand in a line?
 topics: factorial
 answer: type
 calculator: no
-slip: PB1M2A | added the choices | 6 choices for the first place, 5 for the next, and so on: they multiply, 6!.
+slip: PB1M2A | added the choices | 6 choices for the first place, 5 for the next, and so on: they multiply, $6!$.
 ```
 
 ```item PB1M3
@@ -292,13 +292,13 @@ prompt: The chance of rain is 0.3. What is the chance of no rain?
 topics: complement
 answer: type
 calculator: no
-slip: PB1M3A | the same chance | Rain or no rain must happen, so the two add to 1: 1 − 0.3.
+slip: PB1M3A | the same chance | Rain or no rain must happen, so the two add to 1: $1 − 0.3$.
 ```
 
 ```item PB1M4
-prompt: Work out 0.5³.
+prompt: Work out $0.5^{3}$.
 topics: power
 answer: type
 calculator: no
-slip: PB1M4A | 0.5 × 3, not 0.5³ | 0.5³ is three 0.5s multiplied: 0.5 × 0.5 × 0.5.
+slip: PB1M4A | 0.5 × 3, not 0.5³ | $0.5^{3}$ is three 0.5s multiplied: $0.5 × 0.5 × 0.5$.
 ```

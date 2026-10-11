@@ -9,19 +9,19 @@ display: FIX 4
 
 # Area under a curve
 
-How much area lies under the curve y = x², above the x axis, from x = 0 to x = 3? The region has a
+How much area lies under the curve $y = x^{2}$, above the $x$ axis, from $x = 0$ to $x = 3$? The region has a
 curved top, so no formula for a rectangle or a triangle fits it. But rectangles can come close: cut the
 region into thin strips, treat each strip as a rectangle, and add up their areas, height times width.
 For a curve like this one, the thinner the strips, the closer the sum comes to the area. As the strips
 get thinner without end, the sums have a limit (lim-01, here with the number of strips growing rather
-than x approaching a number), and that limit is called the integral. When the curve stays above the
+than $x$ approaching a number), and that limit is called the integral. When the curve stays above the
 axis, as this one does, the integral is the area. A program adds up the rectangles, and then the
 calculator's built-in integral does the work.
 
 ## From before
 
 ```item IN1F1
-prompt: Add 1 + 2 + 3 + … + 10.
+prompt: Add $1 + 2 + 3 + \dots + 10$.
 topics: arithmetic-sum
 answer: type
 calculator: no
@@ -29,11 +29,11 @@ slip: IN1F1A | forgot to halve | Pair the first and last: 10 pairs of 11 counts 
 ```
 
 ```item IN1F2
-prompt: Work out 1² + 2² + 3².
+prompt: Work out $1^{2} + 2^{2} + 3^{2}$.
 topics: x-squared
 answer: type
 calculator: no
-slip: IN1F2A | squared the sum | Square each first: 1 + 4 + 9. (1 + 2 + 3)² is another number.
+slip: IN1F2A | squared the sum | Square each first: $1 + 4 + 9$. $(1 + 2 + 3)^{2}$ is another number.
 ```
 
 ## Before you start
@@ -50,15 +50,15 @@ BLUE MODE {mode} GOLD DISP FIX 4
 
 ## Adding up rectangles
 
-Cut the stretch from 0 to 3 into n strips of equal width, 3 ÷ n. Strip number k ends at x = 3k ÷ n, and
-a rectangle as tall as the curve there is (3k ÷ n)² tall, so its area is (3k ÷ n)² × (3 ÷ n). Add those
-for k = 1 to n.
+Cut the stretch from 0 to 3 into $n$ strips of equal width, $3 ÷ n$. Strip number $k$ ends at $x = 3k ÷ n$, and
+a rectangle as tall as the curve there is $(3k ÷ n)^{2}$ tall, so its area is $(3k ÷ n)^{2} × (3 ÷ n)$. Add those
+for $k = 1$ to $n$.
 
-Program A does the adding, with a loop as in fn-02 and a total as in seq-01. Give it n, a whole number
-from 1 to 999, in X. It keeps n in N, and builds the counter in I: 1 + n ÷ 1000, which is 1 followed by n
-written in three digits, so n = 30 gives 1.030, counting from 1 up to 30. It sets the total T to 0. Its
-loop, B, takes k from the counter's whole part, works out strip k's area, and adds it to T with STO +;
-ISG counts on and GTO goes back to B until the count passes n. Then RCL T brings the total to X. First
+Program A does the adding, with a loop as in fn-02 and a total as in seq-01. Give it $n$, a whole number
+from 1 to 999, in X. It keeps $n$ in N, and builds the counter in I: $1 + n ÷ 1000$, which is 1 followed by $n$
+written in three digits, so $n = 30$ gives 1.030, counting from 1 up to 30. It sets the total T to 0. Its
+loop, B, takes $k$ from the counter's whole part, works out strip k's area, and adds it to T with STO +;
+ISG counts on and GTO goes back to B until the count passes $n$. Then RCL T brings the total to X. First
 GOLD GTO . . (fn-03) goes to the top of program memory, so that A cannot land inside a program left
 stopped. A is on √x, B on eˣ, N on x↔y, I on R↓ and T on 8:
 
@@ -86,7 +86,7 @@ Carrying on, 3 strips, each 1 wide:
 3 XEQ A ENTER
 ```
 
-X shows <disp v="A01">14.0000</disp>: 1 + 4 + 9, the three rectangles of heights 1², 2² and 3². x² rises
+X shows <disp v="A01">14.0000</disp>: $1 + 4 + 9$, the three rectangles of heights $1^{2}$, $2^{2}$ and $3^{2}$. x² rises
 from 0 to 3, so each rectangle, as tall as the curve at its right end, sticks out above the curve, and
 14 is too much. Carrying on, 30 strips:
 
@@ -107,7 +107,7 @@ X shows <disp v="A02">9.4550</disp>, and carrying on, 300:
 ```
 
 <disp v="A03">9.0451</disp>. The sums seem to close in on 9 as the strips thin out, and the built-in
-integral confirms it: the area under y = x² from 0 to 3 is 9.
+integral confirms it: the area under $y = x^{2}$ from 0 to 3 is 9.
 
 ```why
 ask: Why do the sums come down toward 9 from above, and never below it?
@@ -148,9 +148,9 @@ at FIX 8 it is three hundred-millionths.
 
 ## Area below the axis
 
-Where the curve is below the x axis, its rectangles have negative heights, so height × width is
-negative, and the integral counts that area as negative. y = x from −1 to 1 has a triangle below the
-axis from −1 to 0 and a mirror image of it, of the same size, above the axis from 0 to 1. Type x as an
+Where the curve is below the $x$ axis, its rectangles have negative heights, so height × width is
+negative, and the integral counts that area as negative. $y = x$ from −1 to 1 has a triangle below the
+axis from −1 to 0 and a mirror image of it, of the same size, above the axis from 0 to 1. Type $x$ as an
 expression, put −1 and 1 on the stack, and integrate:
 
 ```keys S01
@@ -159,17 +159,17 @@ GOLD EQN RCL X ENTER GOLD EQN 1 +/− ENTER 1 GOLD EQN GOLD ∫ X
 
 The X line shows <disp v="S01" kind="view">∫=0.0000</disp>. The two triangles are each 0.5 in area, so
 the region between the line and the axis has area 1; but the integral is the area above the axis minus
-the area below it, 0.5 − 0.5, which is 0.
+the area below it, $0.5 − 0.5$, which is 0.
 
 ## Exercises
 
-1. What is the area under y = 3x² from x = 0 to x = 2?
-2. Work out the integral of y = x from x = −2 to x = 1. What is the area between the line and the axis
+1. What is the area under $y = 3x^{2}$ from $x = 0$ to $x = 2$?
+2. Work out the integral of $y = x$ from $x = −2$ to $x = 1$. What is the area between the line and the axis
    over that stretch?
 
 ## Answers
 
-1. 8. 3x² stays above the axis, so its integral is the area. Type it (with the ×), put 0 and 2 on
+1. 8. $3x^{2}$ stays above the axis, so its integral is the area. Type it (with the ×), put 0 and 2 on
    the stack, and integrate:
 
    ```keys E01
@@ -179,39 +179,39 @@ the area below it, 0.5 − 0.5, which is 0.
    The X line shows <disp v="E01" kind="view">∫=8.0000</disp>.
 
 2. The integral is −1.5 and the area is 2.5. From −2 to 0 the line is below the axis, a triangle of
-   area 2 × 2 ÷ 2 = 2; from 0 to 1 it is above, a triangle of area 1 × 1 ÷ 2 = 0.5. The integral is
-   0.5 − 2:
+   area $2 × 2 ÷ 2 = 2$; from 0 to 1 it is above, a triangle of area $1 × 1 ÷ 2 = 0.5$. The integral is
+   $0.5 − 2$:
 
    ```keys E02
    GOLD EQN RCL X ENTER GOLD EQN 2 +/− ENTER 1 GOLD EQN GOLD ∫ X
    ```
 
-   The X line shows <disp v="E02" kind="view">∫=-1.5000</disp>, and the area is 2 + 0.5.
+   The X line shows <disp v="E02" kind="view">∫=-1.5000</disp>, and the area is $2 + 0.5$.
 
 ## Mixed review
 
 ```item IN1M1
-prompt: Two strips of width 1 stand under y = x², with heights taken at x = 1 and x = 2. What is their total area?
+prompt: Two strips of width 1 stand under $y = x^{2}$, with heights taken at $x = 1$ and $x = 2$. What is their total area?
 topics: riemann-sum
 answer: type
 calculator: no
-slip: IN1M1A | squared the sum | Each strip is its own height times its width, 1: 1² + 2².
+slip: IN1M1A | squared the sum | Each strip is its own height times its width, 1: $1^{2} + 2^{2}$.
 ```
 
 ```item IN1M2
-prompt: What does (x² − 36) ÷ (x − 6) close in on as x approaches 6?
+prompt: What does $(x^{2} − 36) ÷ (x − 6)$ close in on as $x$ approaches 6?
 topics: limit
 answer: type
 calculator: no
-slip: IN1M2A | 0 ÷ 0 read as 0 | Near 6 the fraction is x + 6, which closes in on 12.
+slip: IN1M2A | 0 ÷ 0 read as 0 | Near 6 the fraction is $x + 6$, which closes in on 12.
 ```
 
 ```item IN1M3
-prompt: y = −3 from x = 0 to x = 2: what does that stretch count for in the integral?
+prompt: $y = −3$ from $x = 0$ to $x = 2$: what does that stretch count for in the integral?
 topics: signed-area
 answer: type
 calculator: no
-slip: IN1M3A | counted it as positive | Area below the axis counts negative: −3 × 2.
+slip: IN1M3A | counted it as positive | Area below the axis counts negative: $−3 × 2$.
 ```
 
 ```item IN1M4
@@ -219,7 +219,7 @@ prompt: The sequence 5, 8, 11, … goes on the same way. What is its 8th term?
 topics: arithmetic-sequence
 answer: type
 calculator: no
-slip: IN1M4A | eight steps, not seven | The 8th term is 7 steps after the first: 5 + 7 × 3.
+slip: IN1M4A | eight steps, not seven | The 8th term is 7 steps after the first: $5 + 7 × 3$.
 ```
 
 ## Checkpoint
@@ -227,19 +227,19 @@ slip: IN1M4A | eight steps, not seven | The 8th term is 7 steps after the first:
 Questions on the whole unit.
 
 ```item CP12A
-prompt: What is the area under y = 2x from x = 0 to x = 3?
+prompt: What is the area under $y = 2x$ from $x = 0$ to $x = 3$?
 topics: integral riemann-sum
 answer: type
 calculator: no
 slip: CP12A1 | the whole rectangle | The area is a triangle, half the 3 by 6 rectangle.
-slip: CP12A2 | the slope times the width | The height at x = 3 is 6: the triangle is ½ × 3 × 6.
+slip: CP12A2 | the slope times the width | The height at $x = 3$ is 6: the triangle is $\dfrac{1}{2} × 3 × 6$.
 ```
 
 ```item CP12B
-prompt: What is the integral of y = x − 2 from x = 0 to x = 2?
+prompt: What is the integral of $y = x − 2$ from $x = 0$ to $x = 2$?
 topics: integral signed-area
 answer: type
 calculator: no
-slip: CP12B1 | the area, not the integral | The line is below the x axis there, so the integral counts that area as negative.
-slip: CP12B2 | the rectangle | It is a triangle, ½ × 2 × 2, below the axis.
+slip: CP12B1 | the area, not the integral | The line is below the $x$ axis there, so the integral counts that area as negative.
+slip: CP12B2 | the rectangle | It is a triangle, $\dfrac{1}{2} × 2 × 2$, below the axis.
 ```

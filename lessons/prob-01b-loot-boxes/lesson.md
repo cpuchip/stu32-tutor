@@ -24,7 +24,7 @@ prompt: A fair coin is tossed three times. What is the probability of three tail
 topics: independent
 answer: type
 calculator: no
-slip: PB2F1A | added the chances | Independent events multiply: 0.5 × 0.5 × 0.5.
+slip: PB2F1A | added the chances | Independent events multiply: $0.5 × 0.5 × 0.5$.
 ```
 
 ```item PB2F2
@@ -32,7 +32,7 @@ prompt: What is 1% of 300?
 topics: percent
 answer: type
 calculator: no
-slip: PB2F2A | took 10% | 1% is one hundredth: 300 ÷ 100.
+slip: PB2F2A | took 10% | 1% is one hundredth: $300 ÷ 100$.
 ```
 
 ## Before you start
@@ -48,7 +48,7 @@ BLUE MODE {mode} GOLD DISP FIX 4
 
 A probability is a number from 0 to 1 saying how likely something is; 1% is 0.01 (num-04). Each pull is
 the rare item with probability 0.01, and anything else with the rest: either a pull gives the item or it
-does not, so the two probabilities add to 1, and not getting it is 1 − 0.01:
+does not, so the two probabilities add to 1, and not getting it is $1 − 0.01$:
 
 ```keys P01
 1 ENTER 0.01 −
@@ -61,7 +61,7 @@ X shows <disp v="P01">0.9900</disp>: 99 pulls in 100 give something else.
 Assume each pull is drawn afresh, with the same 1% whatever happened before; a pity timer,
 below, is the exception. Pulls like that are independent, and the chance that several independent
 things all happen is their probabilities multiplied, as cnt-01 multiplied choices. So no rare item in 10
-pulls is 0.99 × 0.99 × … ten times, 0.99¹⁰, and at least one rare item is 1 minus that. x↔y puts the 1
+pulls is $0.99 × 0.99 × \dots$ ten times, $0.99^{10}$, and at least one rare item is 1 minus that. x↔y puts the 1
 first for the subtraction:
 
 ```keys P02
@@ -84,9 +84,9 @@ because: Each pull misses with 0.99, and the misses multiply. 0.99 to the power 
 
 ## How many pulls, on average
 
-If every pull has the same chance p, independently, then in many pulls about p of them give the item:
+If every pull has the same chance $p$, independently, then in many pulls about $p$ of them give the item:
 in 100 pulls at 1%, about 1. So, over many players, the pulls it takes to get one, counting the pull that
-gives it, average 1 ÷ p. For 1%, 1 ÷ 0.01:
+gives it, average $1 ÷ p$. For 1%, $1 ÷ 0.01$:
 
 ```keys M01
 0.01 1/x
@@ -100,18 +100,18 @@ X shows <disp v="M01">100.0000</disp> pulls. At 1.50 dollars a pull, carrying on
 
 X shows <disp v="M02">150.0000</disp> dollars, on average, for one rare item. Some players pay far less;
 some pay far more. About 1 player in 20 still has no rare item after 300 pulls, which is 450 dollars, since
-0.99³⁰⁰ is about 0.049.
+$0.99^{300}$ is about 0.049.
 
 ## A pity timer
 
 Some games add a "pity timer": if 89 pulls in a row miss, the 90th is guaranteed to be the rare item.
 That puts a limit on the cost, and it changes the average. A player makes pull number k only if the pulls
-before it all missed: pull 1 always, pull 2 with probability 0.99, pull 3 with 0.99², and so on, up to
-pull 90 with 0.99⁸⁹. Picture 100 players: about 100 make pull 1, about 100 × 0.99 make pull 2, and so on.
-All their pulls together are 100 times the sum 1 + 0.99 + 0.99² + … + 0.99⁸⁹, so the average for one
+before it all missed: pull 1 always, pull 2 with probability 0.99, pull 3 with $0.99^{2}$, and so on, up to
+pull 90 with $0.99^{89}$. Picture 100 players: about 100 make pull 1, about $100 × 0.99$ make pull 2, and so on.
+All their pulls together are 100 times the sum $1 + 0.99 + 0.99^{2} + \dots + 0.99^{89}$, so the average for one
 player is that sum. It is a geometric sum (seq-01) of 90 terms with first term 1 and ratio 0.99:
-1 × (0.99⁹⁰ − 1) ÷ (0.99 − 1), which, with both signs turned over, is (1 − 0.99⁹⁰) ÷ 0.01. With the 1 waiting
-on the stack while 0.99⁹⁰ is worked out:
+$1 × (0.99^{90} − 1) ÷ (0.99 − 1)$, which, with both signs turned over, is $(1 − 0.99^{90}) ÷ 0.01$. With the 1 waiting
+on the stack while $0.99^{90}$ is worked out:
 
 ```keys T01
 1 ENTER 0.99 ENTER 90 yˣ − 0.01 ÷
@@ -123,8 +123,8 @@ X shows <disp v="T01">59.5268</disp> pulls on average. Carrying on, at 1.50 a pu
 1.5 ×
 ```
 
-X shows <disp v="T02">89.2902</disp> dollars on average, and never more than 90 × 1.50, 135 dollars. The
-timer is no small thing: since 0.99⁸⁹ is about 0.41, about 4 players in 10 reach the guaranteed pull. And
+X shows <disp v="T02">89.2902</disp> dollars on average, and never more than $90 × 1.50$, 135 dollars. The
+timer is no small thing: since $0.99^{89}$ is about 0.41, about 4 players in 10 reach the guaranteed pull. And
 the average is still close to 90 dollars for one item.
 
 ```why
@@ -135,22 +135,22 @@ because: Without it, the players who would need 90 pulls or more, some of them h
 ## Exactly how many
 
 Without a pity timer, how likely is it that 100 pulls give no rare item at all, exactly one, or exactly
-two? None is 0.99¹⁰⁰:
+two? None is $0.99^{100}$:
 
 ```keys K00
 0.99 ENTER 100 yˣ
 ```
 
 X shows <disp v="K00">0.3660</disp>. For exactly one, one particular pull must be the item and the other 99
-must not: 0.01 × 0.99⁹⁹. The one could be any of the 100 pulls, C(100, 1) ways to choose which,
-and only one of those ways can happen at a time, so their chances add: C(100, 1) × 0.01 × 0.99⁹⁹. The first
-product waits in Y while 0.99⁹⁹ is worked out:
+must not: $0.01 × 0.99^{99}$. The one could be any of the 100 pulls, $C(100, 1)$ ways to choose which,
+and only one of those ways can happen at a time, so their chances add: $C(100, 1) × 0.01 × 0.99^{99}$. The first
+product waits in Y while $0.99^{99}$ is worked out:
 
 ```keys K01
 100 ENTER 1 BLUE PROB Cn,r 0.01 × 0.99 ENTER 99 yˣ ×
 ```
 
-X shows <disp v="K01">0.3697</disp>. Exactly two is C(100, 2) × 0.01² × 0.99⁹⁸, two pulls chosen from 100:
+X shows <disp v="K01">0.3697</disp>. Exactly two is $C(100, 2) × 0.01^{2} × 0.99^{98}$, two pulls chosen from 100:
 
 ```keys K02
 100 ENTER 2 BLUE PROB Cn,r 0.01 GOLD x² × 0.99 ENTER 98 yˣ ×
@@ -188,7 +188,7 @@ before paying, what an item is really worth to you.
 
 ## Answers
 
-1. 1 minus the chance of none: 1 − 0.95²⁰, with x↔y for the order, as for many pulls above:
+1. 1 minus the chance of none: $1 − 0.95^{20}$, with x↔y for the order, as for many pulls above:
 
    ```keys E01
    0.95 ENTER 20 yˣ 1 x↔y −
@@ -196,7 +196,7 @@ before paying, what an item is really worth to you.
 
    X shows <disp v="E01">0.6415</disp>: about 64 in 100, not a sure thing.
 
-2. 1 ÷ 0.05 pulls:
+2. $1 ÷ 0.05$ pulls:
 
    ```keys E02
    0.05 1/x
@@ -210,7 +210,7 @@ before paying, what an item is really worth to you.
 
    X shows <disp v="E02B">40.0000</disp> dollars on average.
 
-3. The sum 1 + 0.95 + … + 0.95¹⁹, 20 terms, which is (1 − 0.95²⁰) ÷ 0.05:
+3. The sum $1 + 0.95 + \dots + 0.95^{19}$, 20 terms, which is $(1 − 0.95^{20}) ÷ 0.05$:
 
    ```keys E03
    1 ENTER 0.95 ENTER 20 yˣ − 0.05 ÷
@@ -225,11 +225,11 @@ prompt: A rare item comes in 5% of pulls. How many pulls does it take on average
 topics: mean-tries
 answer: type
 calculator: no
-slip: PB2M1A | gave the percent | On average it takes 1 ÷ p pulls: 1 ÷ 0.05.
+slip: PB2M1A | gave the percent | On average it takes $1 ÷ p$ pulls: $1 ÷ 0.05$.
 ```
 
 ```item PB2M2
-prompt: Add 1 + 2 + 4 + 8 + 16.
+prompt: Add $1 + 2 + 4 + 8 + 16$.
 topics: geometric-sum
 answer: type
 calculator: no
@@ -241,7 +241,7 @@ prompt: A rare item comes in 2% of pulls. What is the chance one pull does not g
 topics: pull-chance
 answer: type
 calculator: no
-slip: PB2M3A | the chance of getting it | Not getting it is everything else: 1 − 0.02.
+slip: PB2M3A | the chance of getting it | Not getting it is everything else: $1 − 0.02$.
 ```
 
 ```item PB2M4
@@ -249,7 +249,7 @@ prompt: A bet pays 10 coins with probability 0.2, and nothing otherwise. What do
 topics: expected-value
 answer: type
 calculator: no
-slip: PB2M4A | the payout as sure | It pays 10 only one time in five, on average: 10 × 0.2.
+slip: PB2M4A | the payout as sure | It pays 10 only one time in five, on average: $10 × 0.2$.
 ```
 
 ## Checkpoint
@@ -261,8 +261,8 @@ prompt: In how many ways can 2 of 6 people be chosen, if the order does not matt
 topics: combination
 answer: type
 calculator: no
-slip: CP9A1 | counted each pair twice | 6 × 5 counts each pair twice, once in each order: divide by 2.
-slip: CP9A2 | 6 times 2 | Count the pairs: 6 × 5 ÷ 2.
+slip: CP9A1 | counted each pair twice | $6 × 5$ counts each pair twice, once in each order: divide by 2.
+slip: CP9A2 | 6 times 2 | Count the pairs: $6 × 5 ÷ 2$.
 ```
 
 ```item CP9B
@@ -270,8 +270,8 @@ prompt: A fair coin is tossed twice. What is the probability of two heads?
 topics: independent
 answer: type
 calculator: no
-slip: CP9B1 | one head | Both tosses must be heads: 1/2 times 1/2.
-slip: CP9B2 | added | A head and then a head again: multiply, 1/2 × 1/2, not add.
+slip: CP9B1 | one head | Both tosses must be heads: $\frac{1}{2}$ times $\frac{1}{2}$.
+slip: CP9B2 | added | A head and then a head again: multiply, $\frac{1}{2} × \frac{1}{2}$, not add.
 ```
 
 ```item CP9C
@@ -279,6 +279,6 @@ prompt: A game costs 1 coin to play. A fair coin is tossed: heads pays 3 coins, 
 topics: expected-value
 answer: type
 calculator: no
-slip: CP9C1 | left out the cost | Take away the coin each play costs: 3 × 1/2 − 1.
-slip: CP9C2 | the payout as sure | The 3 coins come only half the time: 3 × 1/2, then − 1.
+slip: CP9C1 | left out the cost | Take away the coin each play costs: $3 × \frac{1}{2} − 1$.
+slip: CP9C2 | the payout as sure | The 3 coins come only half the time: $3 × \frac{1}{2}$, then − 1.
 ```

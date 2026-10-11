@@ -9,27 +9,27 @@ display: FIX 4
 
 # The derivative
 
-The ball from lim-02 rolls down a ramp, and after t seconds it has gone d(t) = 2t² metres. At t = 1 it is going
+The ball from lim-02 rolls down a ramp, and after $t$ seconds it has gone $d(t) = 2t^{2}$ metres. At $t = 1$ it is going
 4 metres a second: the averages over shorter and shorter times close in on 4. But the ball has a speed
-at every moment, not only at t = 1. Those speeds can all be found at once, as a new function, and
+at every moment, not only at $t = 1$. Those speeds can all be found at once, as a new function, and
 tried on the calculator.
 
 ## From before
 
 ```item DR1F1
-prompt: d(t) = 2t². What is the average speed from t = 2 to t = 4?
+prompt: $d(t) = 2t^{2}$. What is the average speed from $t = 2$ to $t = 4$?
 topics: average-rate
 answer: type
 calculator: no
-slip: DR1F1A | forgot to divide | The average rate is the change in d over the change in t: 24 ÷ 2.
+slip: DR1F1A | forgot to divide | The average rate is the change in $d$ over the change in $t$: $24 ÷ 2$.
 ```
 
 ```item DR1F2
-prompt: Work out 2 × 5².
+prompt: Work out $2 × 5^{2}$.
 topics: powers-first
 answer: type
 calculator: no
-slip: DR1F2A | squared 2 × 5 | The power belongs to the 5 alone: 25, then 2 × 25.
+slip: DR1F2A | squared 2 × 5 | The power belongs to the 5 alone: 25, then $2 × 25$.
 ```
 
 ## Before you start
@@ -46,24 +46,24 @@ BLUE MODE {mode} GOLD DISP FIX 4
 
 ## The speed at every moment
 
-The last lesson worked at t = 1. Do the same algebra at any time a. Over the short time from a to a + h, the
-ball goes d(a + h) − d(a) = 2(a + h)² − 2a². Since (a + h)² = a² + 2ah + h², the first part is
-2(a² + 2ah + h²) = 2a² + 4ah + 2h², and taking away 2a² leaves 4ah + 2h². Divided by the time h, the
-average speed is 4a + 2h, for any h that is not 0. As h shrinks from either side, 4a + 2h closes in on
-4a, because 2h shrinks to 0. h = 0 could not go into the first fraction (it would be 0 ÷ 0), but
-4a + 2h has no division left in it.
+The last lesson worked at $t = 1$. Do the same algebra at any time $a$. Over the short time from $a$ to $a + h$, the
+ball goes $d(a + h) − d(a) = 2(a + h)^{2} − 2a^{2}$. Since $(a + h)^{2} = a^{2} + 2ah + h^{2}$, the first part is
+$2(a^{2} + 2ah + h^{2}) = 2a^{2} + 4ah + 2h^{2}$, and taking away $2a^{2}$ leaves $4ah + 2h^{2}$. Divided by the time $h$, the
+average speed is $4a + 2h$, for any $h$ that is not 0. As $h$ shrinks from either side, $4a + 2h$ closes in on
+$4a$, because $2h$ shrinks to 0. $h = 0$ could not go into the first fraction (it would be $0 ÷ 0$), but
+$4a + 2h$ has no division left in it.
 
-So at time a the ball is going 4a metres a second: 4 at t = 1, as found before, and 12 at t = 3. a was
-any time, so call it t again: one rule gives the speed at every moment, and the speed is itself a
-function of t. It is called the derivative of d, and written d′, read "d prime". Its value at t is
-d′(t), and here d′(t) = 4t.
+So at time $a$ the ball is going $4a$ metres a second: 4 at $t = 1$, as found before, and 12 at $t = 3$. $a$ was
+any time, so call it $t$ again: one rule gives the speed at every moment, and the speed is itself a
+function of $t$. It is called the derivative of $d$, and written $d'$, read "$d$ prime". Its value at $t$ is
+$d'(t)$, and here $d'(t) = 4t$.
 
 ## Checking it
 
-Program V works out the same average for any time, not only t = 1. (Program D from the last lesson may still be in
-memory, so this one is V, for velocity.) The time a waits in A; with h in X,
-V keeps h in H, adds a, squares, doubles to get d(a + h), then takes away d(a) = 2a², worked out the
-same way, and divides by h. First GOLD GTO . . (fn-03) moves to the top of program memory. (If you
+Program V works out the same average for any time, not only $t = 1$. (Program D from the last lesson may still be in
+memory, so this one is V, for velocity.) The time $a$ waits in A; with $h$ in X,
+V keeps $h$ in H, adds $a$, squares, doubles to get $d(a + h)$, then takes away $d(a) = 2a^{2}$, worked out the
+same way, and divides by $h$. First GOLD GTO . . (fn-03) moves to the top of program memory. (If you
 have entered V before, the calculator refuses a second LBL V, as fn-01 showed; it is already there.)
 
 ```keys V01A
@@ -78,7 +78,7 @@ off:
 GOLD PRGM PRGM
 ```
 
-Carrying on, the speed at t = 3: store 3 in A, then run V with h = 0.001.
+Carrying on, the speed at $t = 3$: store 3 in A, then run V with $h = 0.001$.
 
 ```keys D01 after=V01
 3 STO A 0.001 XEQ V
@@ -87,7 +87,7 @@ Carrying on, the speed at t = 3: store 3 in A, then run V with h = 0.001.
 3 STO A 0.001 XEQ V ENTER
 ```
 
-X shows <disp v="D01">12.0020</disp>, which is 4a + 2h for a = 3 and h = 0.001, just as the algebra
+X shows <disp v="D01">12.0020</disp>, which is $4a + 2h$ for $a = 3$ and $h = 0.001$, just as the algebra
 said. Carrying on, from below:
 
 ```keys D02 after=D01
@@ -97,7 +97,7 @@ said. Carrying on, from below:
 0.001 +/− XEQ V ENTER
 ```
 
-X shows <disp v="D02">11.9980</disp>, 2h below 12 this time. Carrying on, a ten times smaller h:
+X shows <disp v="D02">11.9980</disp>, $2h$ below 12 this time. Carrying on, a ten times smaller $h$:
 
 ```keys D02B after=D02
 0.0001 XEQ V
@@ -106,8 +106,8 @@ X shows <disp v="D02">11.9980</disp>, 2h below 12 this time. Carrying on, a ten 
 0.0001 XEQ V ENTER
 ```
 
-X shows <disp v="D02B">12.0002</disp>: nearer still. The averages close in on 12, which is d′(3) = 4 × 3,
-as the rule said. Carrying on, at half a second, where d′ says 2:
+X shows <disp v="D02B">12.0002</disp>: nearer still. The averages close in on 12, which is $d'(3) = 4 × 3$,
+as the rule said. Carrying on, at half a second, where $d'$ says 2:
 
 ```keys D03 after=D02B
 0.5 STO A 0.001 XEQ V
@@ -116,22 +116,22 @@ as the rule said. Carrying on, at half a second, where d′ says 2:
 0.5 STO A 0.001 XEQ V ENTER
 ```
 
-X shows <disp v="D03">2.0020</disp>: close to 2, off by 2h, as at t = 3. Program V only ever gives
-averages. At each time you try, they land within 2h of the rule, which agrees with it but does not
-prove it; the algebra is what proves the rule for every t.
+X shows <disp v="D03">2.0020</disp>: close to 2, off by $2h$, as at $t = 3$. Program V only ever gives
+averages. At each time you try, they land within $2h$ of the rule, which agrees with it but does not
+prove it; the algebra is what proves the rule for every $t$.
 
 ```why
-ask: Why did a ten times smaller h land ten times nearer to 12?
-because: Each average is off from the rule by exactly 2h, so a tenth of the h leaves a tenth of the gap.
+ask: Why did a ten times smaller $h$ land ten times nearer to 12?
+because: Each average is off from the rule by exactly $2h$, so a tenth of the $h$ leaves a tenth of the gap.
 ```
 
 ## A picture: the tangent line
 
-On a graph of d, the average speed from a to a + h is the slope (lin-01) of the straight line through
-the two points (a, d(a)) and (a + h, d(a + h)). As h shrinks, the second point slides along the curve
-toward the first, and the lines through them close in on one line through (a, d(a)), as the averages
-close in on a number. That line is the tangent line at a, and its slope is the number the averages
-close in on, d′(a). No line through two points ever is the tangent, since h is never 0; the tangent is
+On a graph of $d$, the average speed from $a$ to $a + h$ is the slope (lin-01) of the straight line through
+the two points ($a$, $d(a)$) and ($a + h$, $d(a + h)$). As $h$ shrinks, the second point slides along the curve
+toward the first, and the lines through them close in on one line through ($a$, $d(a)$), as the averages
+close in on a number. That line is the tangent line at $a$, and its slope is the number the averages
+close in on, $d'(a)$. No line through two points ever is the tangent, since $h$ is never 0; the tangent is
 their limit. So the derivative is two things at once: the rate of change at a moment, and the slope of
 the curve at a point.
 
@@ -139,16 +139,16 @@ the curve at a point.
 
 <mode m="33s,35s">The 33s and 35s modes have no key that finds a derivative as a rule. In these
 modes the algebra above is how a derivative is found, and a program like V tries it.</mode><mode m="STU">STU mode's algebra system, Casimir, finds the
-derivative as a rule. Type the expression 2t² in the equation list (eq-01, fn-02), with T for t and yˣ
+derivative as a rule. Type the expression $2t^{2}$ in the equation list (eq-01, fn-02), with T for $t$ and yˣ
 for the power. With the equation showing, the list's fifth soft key, CAS, opens Casimir's menu; D/DX
-asks which variable, as SOLVE does, and T answers. (The d's in D/DX, short for d/dx, mean "a small
-change in", as in a small change in d over a small change in t; they are not the ball's d.)</mode>
+asks which variable, as SOLVE does, and T answers. (The d's in D/DX, short for $\frac{d}{dx}$, mean "a small
+change in", as in a small change in $d$ over a small change in $t$; they are not the ball's $d$.)</mode>
 
 ```keys B01 mode=STU
 GOLD EQN 2 × RCL T yˣ 2 ENTER CAS D/DX T
 ```
 
-<mode m="STU">The screen shows <disp v="B01" kind="eqn">4×T</disp>: d′(t) = 4t, the rule the algebra
+<mode m="STU">The screen shows <disp v="B01" kind="eqn">4×T</disp>: $d'(t) = 4t$, the rule the algebra
 found. Casimir puts the derivative in the list as a new equation, after the one it came from, which is
 kept. A derivative found this way is an equation like any other, so XEQ works it out at a time:
 it asks for T, and 3 then R/S answers:</mode>
@@ -157,28 +157,28 @@ it asks for T, and 3 then R/S answers:</mode>
 XEQ 3 R/S
 ```
 
-<mode m="STU">X shows <disp v="B02">12.0000</disp>: d′(3), the speed the program closed in on.</mode>
+<mode m="STU">X shows <disp v="B02">12.0000</disp>: $d'(3)$, the speed the program closed in on.</mode>
 
 ## Exercises
 
-1. How fast is the ball going at t = 5? Use d′, then check with one average over h = 0.001, typed
-   directly: (d(5.001) − d(5)) ÷ 0.001.
-2. f(x) = x². Find f′(x) by the algebra above, with (a + h)² − a² in place of the ball's. Check it at
-   x = 3 with one average over h = 0.001.<mode m="STU"> Then check the rule with D/DX.</mode>
+1. How fast is the ball going at $t = 5$? Use $d'$, then check with one average over $h = 0.001$, typed
+   directly: $(d(5.001) − d(5)) ÷ 0.001$.
+2. $f(x) = x^{2}$. Find $f'(x)$ by the algebra above, with $(a + h)^{2} − a^{2}$ in place of the ball's. Check it at
+   $x = 3$ with one average over $h = 0.001$.<mode m="STU"> Then check the rule with D/DX.</mode>
 3. How fast is the ball going when it has rolled 18 metres?
 
 ## Answers
 
-1. d′(5) = 4 × 5 = 20 metres a second. The average from 5 to 5.001 is (2 × 5.001² − 50) ÷ 0.001:
+1. $d'(5) = 4 × 5 = 20$ metres a second. The average from 5 to 5.001 is $(2 × 5.001^{2} − 50) ÷ 0.001$:
 
    ```keys E01
    5.001 GOLD x² 2 × 50 − 0.001 ÷
    ```
 
-   X shows <disp v="E01">20.0020</disp>: 20 + 2h, close to 20.
+   X shows <disp v="E01">20.0020</disp>: $20 + 2h$, close to 20.
 
-2. (a + h)² − a² = 2ah + h², and divided by h that is 2a + h, which closes in on 2a. So f′(x) = 2x, and
-   f′(3) = 6. The average from 3 to 3.001:
+2. $(a + h)^{2} − a^{2} = 2ah + h^{2}$, and divided by $h$ that is $2a + h$, which closes in on $2a$. So $f'(x) = 2x$, and
+   $f'(3) = 6$. The average from 3 to 3.001:
 
    ```keys E02
    3.001 GOLD x² 9 − 0.001 ÷
@@ -197,9 +197,9 @@ XEQ 3 R/S
    GOLD EQN
    ```
 
-3. First when: 2t² = 18, so t² = 9, and t = 3 (a time after the start, so not −3). Then
-   d′(3) = 4 × 3 = 12 metres a second. Not d′(18), which is 72: d′ takes a time, not a distance, and
-   d′(18) is the speed 18 seconds in. The check, from 3 to 3.001:
+3. First when: $2t^{2} = 18$, so $t^{2} = 9$, and $t = 3$ (a time after the start, so not −3). Then
+   $d'(3) = 4 × 3 = 12$ metres a second. Not $d'(18)$, which is 72: $d'$ takes a time, not a distance, and
+   $d'(18)$ is the speed 18 seconds in. The check, from 3 to 3.001:
 
    ```keys E03
    3.001 GOLD x² 2 × 18 − 0.001 ÷
@@ -210,27 +210,27 @@ XEQ 3 R/S
 ## Mixed review
 
 ```item DR1M1
-prompt: d(t) = 2t² has d′(t) = 4t. How fast is the ball going at t = 3?
+prompt: $d(t) = 2t^{2}$ has $d'(t) = 4t$. How fast is the ball going at $t = 3$?
 topics: derivative-function
 answer: type
 calculator: no
-slip: DR1M1A | the distance, not the speed | d(3) is how far it has gone. Its speed is d′(3), which is 4 × 3.
+slip: DR1M1A | the distance, not the speed | $d(3)$ is how far it has gone. Its speed is $d'(3)$, which is $4 × 3$.
 ```
 
 ```item DR1M2
-prompt: What does (x² − 16) ÷ (x − 4) close in on as x approaches 4?
+prompt: What does $(x^{2} − 16) ÷ (x − 4)$ close in on as $x$ approaches 4?
 topics: limit
 answer: type
 calculator: no
-slip: DR1M2A | 0 ÷ 0 read as 0 | Near 4 the fraction is x + 4, which closes in on 8.
+slip: DR1M2A | 0 ÷ 0 read as 0 | Near 4 the fraction is $x + 4$, which closes in on 8.
 ```
 
 ```item DR1M3
-prompt: f(x) = x² has f′(x) = 2x. What is the slope of its tangent line at x = 5?
+prompt: $f(x) = x^{2}$ has $f'(x) = 2x$. What is the slope of its tangent line at $x = 5$?
 topics: tangent-line
 answer: type
 calculator: no
-slip: DR1M3A | the height, not the slope | f(5) is the curve's height there. The slope is f′(5), which is 2 × 5.
+slip: DR1M3A | the height, not the slope | $f(5)$ is the curve's height there. The slope is $f'(5)$, which is $2 × 5$.
 ```
 
 ```item DR1M4
@@ -238,5 +238,5 @@ prompt: A price falls from 50 to 35. What is the percent change?
 topics: percent-change
 answer: type
 calculator: no
-slip: DR1M4A | lost the sign | It fell, so the change is negative: −15 ÷ 50, as a percent.
+slip: DR1M4A | lost the sign | It fell, so the change is negative: $−15 ÷ 50$, as a percent.
 ```

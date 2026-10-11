@@ -9,30 +9,30 @@ display: FIX 4
 
 # Approaching a limit
 
-Some functions have no value at a point, yet settle on a number as x comes close to it.
-f(x) = (x² − 1) ÷ (x − 1) has no value at x = 1: the top and the bottom of the fraction are both 0 there,
-and 0 ÷ 0 has no answer. fn-03 showed why 1 ÷ 0 has none: no number times 0 gives 1. 0 ÷ 0 fails the
-other way: every number times 0 gives 0, so no one number is the answer. But near x = 1, f has values.
-If they can be made as near to one number as you like by taking x near enough to 1, from either side,
-that number is the limit of f(x) as x approaches 1. Coming close finds limits, and shows two that do
+Some functions have no value at a point, yet settle on a number as $x$ comes close to it.
+$f(x) = (x^{2} − 1) ÷ (x − 1)$ has no value at $x = 1$: the top and the bottom of the fraction are both 0 there,
+and $0 ÷ 0$ has no answer. fn-03 showed why $1 ÷ 0$ has none: no number times 0 gives 1. $0 ÷ 0$ fails the
+other way: every number times 0 gives 0, so no one number is the answer. But near $x = 1$, $f$ has values.
+If they can be made as near to one number as you like by taking $x$ near enough to 1, from either side,
+that number is the limit of $f(x)$ as $x$ approaches 1. Coming close finds limits, and shows two that do
 not exist.
 
 ## From before
 
 ```item LM1F1
-prompt: For which x is 1 ÷ (3x − 6) not defined?
+prompt: For which $x$ is $1 ÷ (3x − 6)$ not defined?
 topics: divide-by-zero
 answer: type
 calculator: no
-slip: LM1F1A | the sign turned | The bottom is 0 when 3x − 6 = 0: 3x = 6.
+slip: LM1F1A | the sign turned | The bottom is 0 when $3x − 6 = 0$: $3x = 6$.
 ```
 
 ```item LM1F2
-prompt: Work out (2² − 1) ÷ (2 − 1).
+prompt: Work out $(2^{2} − 1) ÷ (2 − 1)$.
 topics: fraction-bar
 answer: type
 calculator: no
-slip: LM1F2A | divided only the 1 | The whole top over the whole bottom: 3 ÷ 1.
+slip: LM1F2A | divided only the 1 | The whole top over the whole bottom: $3 ÷ 1$.
 ```
 
 ## Before you start
@@ -49,10 +49,10 @@ BLUE MODE {mode} GOLD DISP FIX 4
 
 ## Coming close
 
-f goes in as a program, as in fn-01, so it can be run at many values of x. First GOLD GTO . .
-moves to the top of program memory, so that L cannot land inside a program left stopped. Then, with x
-in X: ENTER puts a copy of x in Y; x² squares the x in X, and 1 − takes 1 from that; x↔y brings the x in
-Y back down, and 1 − makes x − 1; and ÷ divides x² − 1, now in Y, by x − 1. The label is L, on the TAN
+$f$ goes in as a program, as in fn-01, so it can be run at many values of $x$. First GOLD GTO . .
+moves to the top of program memory, so that L cannot land inside a program left stopped. Then, with $x$
+in X: ENTER puts a copy of $x$ in Y; x² squares the $x$ in X, and 1 − takes 1 from that; x↔y brings the $x$ in
+Y back down, and 1 − makes $x − 1$; and ÷ divides $x^{2} − 1$, now in Y, by $x − 1$. The label is L, on the TAN
 key:
 
 ```keys P01A
@@ -66,7 +66,7 @@ key was missed or doubled (← deletes a wrong line). Carrying on, turn program 
 GOLD PRGM PRGM
 ```
 
-Now run L at values of x closer and closer to 1, from above. Carrying on:
+Now run L at values of $x$ closer and closer to 1, from above. Carrying on:
 
 ```keys L01 after=P01
 1.1 XEQ L
@@ -125,32 +125,32 @@ X shows <disp v="L04">1.9000</disp>,
 before.)
 
 A few values only suggest a limit; they cannot show that the values come as near to 2 as you like.
-Here the algebra settles it. (x − 1) × (x + 1) is x² + x − x − 1, which is x² − 1. So wherever x is not
-1, f(x) is (x − 1) × (x + 1) divided by x − 1, which is x + 1. Near 1, x + 1 is as near to 2 as you like.
-f is x + 1 with one point missing, and the limit fills the gap.
+Here the algebra settles it. $(x − 1) × (x + 1)$ is $x^{2} + x − x − 1$, which is $x^{2} − 1$. So wherever $x$ is not
+1, $f(x)$ is $(x − 1) × (x + 1)$ divided by $x − 1$, which is $x + 1$. Near 1, $x + 1$ is as near to 2 as you like.
+$f$ is $x + 1$ with one point missing, and the limit fills the gap.
 
 ```why
-ask: Why is each value of L exactly as far from 2 as its x is from 1?
-because: Away from 1, L works out x + 1, so moving x a little from 1 moves the answer the same little from 2.
+ask: Why is each value of L exactly as far from 2 as its $x$ is from 1?
+because: Away from 1, L works out $x + 1$, so moving $x$ a little from 1 moves the answer the same little from 2.
 ```
 
-Coming close also has a floor on any calculator. The STU-32 keeps 34 digits (rpn-03), so 1 + 10⁻³⁴
-would need a 35th digit, and it is just 1. 1 plus 10⁻³⁴, minus 1:
+Coming close also has a floor on any calculator. The STU-32 keeps 34 digits (rpn-03), so $1 + 10^{-34}$
+would need a 35th digit, and it is just 1. 1 plus $10^{-34}$, minus 1:
 
 ```keys Z01
 1 E 34 +/− ENTER 1 + 1 −
 ```
 
-X shows <disp v="Z01">0.0000</disp>, not 10⁻³⁴: the sum rounded to 1. At an x that close, L's x − 1
+X shows <disp v="Z01">0.0000</disp>, not $10^{-34}$: the sum rounded to 1. At an $x$ that close, L's $x − 1$
 would be 0 too, and it would divide by 0. Close enough to see the limit, not so close that the digits
 run out.
 
 ## A limit no algebra here can do
 
-sin(x) ÷ x, with x in radians, has no value at x = 0, and no algebra so far
+$\sin(x) ÷ x$, with $x$ in radians, has no value at $x = 0$, and no algebra so far
 simplifies it; coming close is how to see its limit. Set the unit to radians (trig-01), and show nine
-places so the closing in can be seen. With x in X, ENTER puts a copy in Y, SIN takes the sine of the x in
-X, and x↔y and ÷ divide that sine by x:
+places so the closing in can be seen. With $x$ in X, ENTER puts a copy in Y, SIN takes the sine of the $x$ in
+X, and x↔y and ÷ divide that sine by $x$:
 
 ```keys S01
 BLUE ∡MODE RAD GOLD DISP FIX 9 0.1 ENTER SIN x↔y ÷
@@ -174,8 +174,8 @@ X shows <disp v="S02">0.999983333</disp>, and carrying on,
 0.001 +/− ENTER SIN x↔y ÷
 ```
 
-X shows <disp v="S03B">0.999999833</disp>, the same: the sine of −x is minus the sine of x, so the
-fraction is the same on both sides. The values close in on 1, and the limit of sin(x) ÷ x as x
+X shows <disp v="S03B">0.999999833</disp>, the same: the sine of $−x$ is minus the sine of $x$, so the
+fraction is the same on both sides. The values close in on 1, and the limit of $\sin(x) ÷ x$ as $x$
 approaches 0 is 1, which a geometry proof in calculus confirms. At FIX 4 the last values would all have
 rounded to 1 at four places, which hides how they close in; that is why the section showed nine.
 Carrying on, set FIX 4 again:
@@ -198,7 +198,7 @@ X shows <disp v="N01">100.0000</disp>. Carrying on, nearer:
 0.001 1/x
 ```
 
-X shows <disp v="N01B">1,000.0000</disp>: the nearer x is to 0, the larger 1/x grows, without end. And
+X shows <disp v="N01B">1,000.0000</disp>: the nearer $x$ is to 0, the larger 1/x grows, without end. And
 carrying on, from below:
 
 ```keys N02 after=N01B
@@ -208,13 +208,13 @@ carrying on, from below:
 X shows <disp v="N02">-1,000.0000</disp>. The values close in on no number, from either side.
 
 ```why
-ask: Why does 1/x grow without end as x nears 0?
-because: 1 ÷ x asks how many x's make 1, and the smaller x is, the more of them it takes: a thousandth takes a thousand.
+ask: Why does 1/x grow without end as $x$ nears 0?
+because: $1 ÷ x$ asks how many x's make 1, and the smaller $x$ is, the more of them it takes: a thousandth takes a thousand.
 ```
 
-The two sides can also disagree. x ÷ |x|, x divided by its absolute value (eq-03), is 1 for every
-positive x and −1 for every negative one. With x in X, ENTER copies it, ABS (gold, above +/−) makes the
-x in X positive, and ÷ divides:
+The two sides can also disagree. $x ÷ |x|$, $x$ divided by its absolute value (eq-03), is 1 for every
+positive $x$ and −1 for every negative one. With $x$ in X, ENTER copies it, ABS (gold, above +/−) makes the
+$x$ in X positive, and ÷ divides:
 
 ```keys N03
 0.01 ENTER GOLD ABS ÷
@@ -231,9 +231,9 @@ two different numbers, so there is no limit. This is why a limit is checked from
 
 ## Exercises
 
-1. Work out (x² − 4) ÷ (x − 2) at x = 2.01 and at x = 1.99. What is its limit as x approaches 2, and
+1. Work out $(x^{2} − 4) ÷ (x − 2)$ at $x = 2.01$ and at $x = 1.99$. What is its limit as $x$ approaches 2, and
    why?
-2. Work out (2ˣ − 1) ÷ x at x = 0.001 and at x = 0.0001. Its limit as x approaches 0 is a number you have
+2. Work out $(2^{x} − 1) ÷ x$ at $x = 0.001$ and at $x = 0.0001$. Its limit as $x$ approaches 0 is a number you have
    met in exp-03: which?
 
 ## Answers
@@ -250,10 +250,10 @@ two different numbers, so there is no limit. This is why a limit is checked from
    1.99 GOLD x² 4 − 1.99 ENTER 2 − ÷
    ```
 
-   X shows <disp v="E01B">3.9900</disp>. (x − 2) × (x + 2) is x² + 2x − 2x − 4, which is x² − 4, so away
-   from 2 the function is x + 2, and near 2 that is near 4.
+   X shows <disp v="E01B">3.9900</disp>. $(x − 2) × (x + 2)$ is $x^{2} + 2x − 2x − 4$, which is $x^{2} − 4$, so away
+   from 2 the function is $x + 2$, and near 2 that is near 4.
 
-2. ln 2. At 0.001:
+2. $\ln 2$. At 0.001:
 
    ```keys E02
    2 ENTER 0.001 yˣ 1 − 0.001 ÷
@@ -265,7 +265,7 @@ two different numbers, so there is no limit. This is why a limit is checked from
    2 ENTER 0.0001 yˣ 1 − 0.0001 ÷
    ```
 
-   X shows <disp v="E02B">0.6932</disp>. And carrying on, ln 2:
+   X shows <disp v="E02B">0.6932</disp>. And carrying on, $\ln 2$:
 
    ```keys E02C after=E02B
    2 LN
@@ -276,7 +276,7 @@ two different numbers, so there is no limit. This is why a limit is checked from
 ## Mixed review
 
 ```item LM1M1
-prompt: f(1.9) = 2.9 and f(2.1) = 3.1, and nearer x give values ever nearer one number. What is the limit at 2?
+prompt: $f(1.9) = 2.9$ and $f(2.1) = 3.1$, and nearer $x$ give values ever nearer one number. What is the limit at 2?
 topics: limit-by-approach
 answer: type
 calculator: no
@@ -285,26 +285,26 @@ slip: LM1M1A | x itself | The limit is the number the values close in on, from b
 ```
 
 ```item LM1M2
-prompt: Work out 9^(1/2) × 2⁻¹.
+prompt: Work out $9^{\frac{1}{2}} × 2^{-1}$.
 topics: neg-frac-powers
 answer: type
 calculator: no
-slip: LM1M2A | read 2⁻¹ as −2 | A negative power means one over: 2⁻¹ is 1 ÷ 2.
+slip: LM1M2A | read 2⁻¹ as −2 | A negative power means one over: $2^{-1}$ is $1 ÷ 2$.
 ```
 
 ```item LM1M3
-prompt: sin(x) ÷ x, with x in radians, closes in on what as x approaches 0?
+prompt: $\sin(x) ÷ x$, with $x$ in radians, closes in on what as $x$ approaches 0?
 topics: limit-numeric
 answer: type
 calculator: no
 working: none
-slip: LM1M3A | 0 | sin x and x both go to 0, but their ratio closes in on 1, as the table showed.
+slip: LM1M3A | 0 | $\sin x$ and $x$ both go to 0, but their ratio closes in on 1, as the table showed.
 ```
 
 ```item LM1M4
-prompt: What is log 0.01 (base 10)?
+prompt: What is $\log 0.01$ (base 10)?
 topics: log
 answer: type
 calculator: no
-slip: LM1M4A | lost the sign | 0.01 is 10⁻², so its logarithm is −2.
+slip: LM1M4A | lost the sign | 0.01 is $10^{-2}$, so its logarithm is −2.
 ```
