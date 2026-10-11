@@ -28,7 +28,7 @@ In this picture the right angle is the square corner at the bottom left:
 
 The sine, cosine and tangent of A are ratios of these sides:
 
-sin A = opposite ÷ hypotenuse,  cos A = adjacent ÷ hypotenuse,  tan A = opposite ÷ adjacent.
+$\sin A = \text{opposite} ÷ \text{hypotenuse}$,  $\cos A = \text{adjacent} ÷ \text{hypotenuse}$,  $\tan A = \text{opposite} ÷ \text{adjacent}$.
 
 They depend only on the angle, not on the size of the triangle. A triangle's three angles add up to
 180 degrees, so two right triangles that share the angle A share all three angles, and one is a
@@ -66,7 +66,7 @@ BLUE MODE {mode} GOLD DISP FIX 4 BLUE ∡MODE DEG
 ## A side from an angle
 
 A 5 m ladder leans against a wall, at 70 degrees to the ground. The ladder is the hypotenuse; the
-height it reaches up the wall is the side opposite the 70 degrees. sin 70° = height ÷ 5, and
+height it reaches up the wall is the side opposite the 70 degrees. $\sin 70° = \text{height} ÷ 5$, and
 multiplying both sides by 5 gives the height: $5 × \sin 70°$. On the stack, SIN works on X alone, so
 the 5 waits in Y while 70 becomes $\sin 70°$, and × multiplies them:
 
@@ -90,7 +90,7 @@ because: They are the two shorter sides of a right triangle, and the ladder is t
 
 Tangent uses the two shorter sides. Standing 12 m from a tree, you look up 35 degrees to its top.
 The triangle has its corner at your eye: the 12 m level with your eye is adjacent to the angle, and
-the side opposite runs up from eye level to the top of the tree. So tan 35° = that height ÷ 12,
+the side opposite runs up from eye level to the top of the tree. So $\tan 35° = \text{that height} ÷ 12$,
 and it is $12 × \tan 35°$:
 
 ```keys T01

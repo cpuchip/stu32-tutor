@@ -73,7 +73,7 @@ is $0 + 1i$, so its pair is 1 ENTER 0:</mode>
 
 <mode m="35s,STU">X shows <disp v="C01A" kind="entry">0i1_</disp>. Read it carefully: the calculator
 puts its $i$ between the two parts, so the number before the $i$ is the real part and the number after it
-is the imaginary part. $0i$1 means $0 + 1i$, and −1.0000i2.0000 would mean $−1 + 2i$, not "−1i, then 2". Now
+is the imaginary part. 0i1 means $0 + 1i$, and −1.0000i2.0000 would mean $−1 + 2i$, not "−1i, then 2". Now
 square $i$. x² and √x do not take a complex number (more on that below), so multiply it by itself with
 ENTER ×:</mode><mode m="33s">X shows <disp v="C01A" kind="entry">0_</disp>, the real part being typed,
 with the imaginary part, 1, in Y. Now square $i$: ENTER and i's pair again, which puts the two pairs in

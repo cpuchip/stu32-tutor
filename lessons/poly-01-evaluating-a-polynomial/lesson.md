@@ -54,11 +54,11 @@ Working out $2x^{3}$, $3x^{2}$ and $4x$ one at a time takes many keys and a plac
 shorter way. Each of the first three terms has at least one $x$ in it, so $x$ can be taken out of them
 as a common factor:
 
-$p(x) = (2x^{2} − 3x + 4)$$x − 5$.
+$p(x) = (2x^{2} − 3x + 4)x − 5$.
 
 The first two terms inside the parentheses still have an $x$ each, so take it out again:
 
-$p(x)$ = (($2x − 3$)$x + 4$)$x − 5$.
+$p(x) = ((2x − 3)x + 4)x − 5$.
 
 Multiply the parentheses out again ($2x − 3$ times $x$ is $2x^{2} − 3x$, and so on) and the first form comes
 back. Now read the nested form from the inside: start with the first coefficient, 2; times $x$, then
@@ -162,7 +162,7 @@ because: XEQ P runs with $x$ already in X, so the ENTERs fill the stack with cop
 ## Exercises
 
 $r(x) = x^{3} − 2x + 1$ has no x² term. In the nested form a missing power has the coefficient 0, so the
-coefficients in order are 1, 0, −2 and 1, and $r(x)$ = (($1x + 0$)$x − 2$)$x + 1$.
+coefficients in order are 1, 0, −2 and 1, and $r(x) = ((1x + 0)x − 2)x + 1$.
 
 1. Work out $r(2)$ on the stack, keying every coefficient in order, the 1 and the 0 too.
 2. Write $r$ as a program N (N is on the x↔y key; your calculator may still hold other lessons'
@@ -217,7 +217,7 @@ slip: PL1M2A | halved instead of taking the root | $2 × 18$ is 36, and $\sqrt{3
 ```
 
 ```item PL1M3
-prompt: $2x^{2} − x + 4$ nested is ($2x − 1$)$x + 4$. Work it out at $x = 3$, from the inside.
+prompt: $2x^{2} − x + 4$ nested is $(2x − 1)x + 4$. Work it out at $x = 3$, from the inside.
 topics: horner
 answer: type
 calculator: no

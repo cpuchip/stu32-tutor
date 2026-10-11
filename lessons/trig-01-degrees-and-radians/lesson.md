@@ -102,7 +102,7 @@ because: Half a turn is π radians, so one radian is half a turn divided by 3.14
 ## π in radians
 
 In radians, the angles that come up most are fractions of π. 30 degrees is a twelfth of a turn
-($360 ÷ 30 = 12$), and a turn is 2π radians, so 30 degrees is 2π ÷ $12 = π ÷ 6$. π has a key of its
+($360 ÷ 30 = 12$), and a turn is 2π radians, so 30 degrees is $2π ÷ 12 = π ÷ 6$. π has a key of its
 own, gold above E (the E key of rpn-03):
 
 ```keys R01

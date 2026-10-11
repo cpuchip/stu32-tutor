@@ -112,7 +112,7 @@ because: Each share keeps the whole amount, the 1, and adds one $n$-th of it, so
 
 Growth shared out without end, every instant, is called continuous. For a rate $r$, written as a
 decimal (0.06 for 6%, not 6), the factor for a year is the limit of $(1 + \frac{r}{n})^{n}$, and that limit is
-$e$ʳ. A million shares of 6% come close:
+$e^{r}$. A million shares of 6% come close:
 
 ```keys L05
 1 ENTER 0.06 ENTER 1000000 ÷ + 1000000 yˣ
@@ -131,8 +131,8 @@ X shows <disp v="L06">1.0618</disp>. So 1000 at 6% a year, continuously:
 ```
 
 X shows <disp v="G01">1,061.8365</disp>: just above the daily 1061.8313, and above every way of
-paying 6% a fixed number of times. Over $t$ years the factor is $e$ʳ multiplied by itself $t$ times,
-($e$ʳ)ᵗ, and a power of a power multiplies the powers, as $(2^{3})^{2} = 2^{6} = 64$: so the factor is $e^{r × t}$,
+paying 6% a fixed number of times. Over $t$ years the factor is $e^{r}$ multiplied by itself $t$ times,
+$(e^{r})^{t}$, and a power of a power multiplies the powers, as $(2^{3})^{2} = 2^{6} = 64$: so the factor is $e^{r × t}$,
 and continuous growth from an amount $a$ is $a × e^{r × t}$.
 
 ```why

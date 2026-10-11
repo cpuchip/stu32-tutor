@@ -43,7 +43,7 @@ BLUE MODE {mode} GOLD DISP FIX 4 BLUE ∡MODE DEG
 Draw axes, as in fn-02, and a circle of radius 1 centred where they cross, at O: the unit circle.
 An angle, written θ (the Greek letter theta, often used for angles), starts along the positive x axis
 and its moving side, its arm, turns anticlockwise (counterclockwise). The arm meets the circle at a
-point P, and P's coordinates are the cosine and the sine of the angle: across = $\cos θ$, up = $\sin θ$.
+point P, and P's coordinates are the cosine and the sine of the angle: $\text{across} = \cos θ$, $\text{up} = \sin θ$.
 "Across" and "up" are coordinates, so they carry a sign: negative to the left of the y axis, and
 negative below the x axis.
 
@@ -67,8 +67,8 @@ negative below the x axis.
 ```
 
 For an angle between 0 and 90 degrees this is the right triangle from before: O, P, and the point below P on the x
-axis make a right triangle whose hypotenuse is the arm, of length 1, so sin θ = up ÷ 1 and
-cos θ = across ÷ 1. Beyond 90 degrees there is no right triangle with that angle, but P still has
+axis make a right triangle whose hypotenuse is the arm, of length 1, so $\sin θ = \text{up} ÷ 1$ and
+$\cos θ = \text{across} ÷ 1$. Beyond 90 degrees there is no right triangle with that angle, but P still has
 coordinates, and those are the sine and cosine.
 
 At 120 degrees the arm has turned past the y axis, to the left:
