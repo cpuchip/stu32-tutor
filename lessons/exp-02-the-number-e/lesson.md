@@ -105,6 +105,11 @@ X shows <disp v="L04">2.7183</disp>. A million shares agree with e in every plac
 calculator keeps 34 digits (ALL, from rpn-03, shows more of them), and the two first differ in the
 sixth decimal place. Like π, e never ends and never repeats.
 
+```why
+ask: Why is the factor for n shares (1 + 1/n)ⁿ?
+because: Each share keeps the whole amount, the 1, and adds one n-th of it, so it multiplies by 1 + 1/n; n shares multiply by that n times.
+```
+
 ## Continuous growth
 
 Growth shared out without end, every instant, is called continuous. For a rate r, written as a
@@ -131,6 +136,11 @@ X shows <disp v="G01">1,061.8365</disp>: just above the daily 1061.8313, and abo
 paying 6% a fixed number of times. Over t years the factor is eʳ multiplied by itself t times,
 (eʳ)ᵗ, and a power of a power multiplies the powers, as (2³)² = 2⁶ = 64: so the factor is e^(r × t),
 and continuous growth from an amount a is a × e^(r × t).
+
+```why
+ask: Why is continuous growth above every way of paying 6% a fixed number of times?
+because: Paying more often always adds a little more, from yearly to monthly to daily, and continuous growth is the limit those payments rise toward, so no fixed number of them reaches it.
+```
 
 ## Exercises
 

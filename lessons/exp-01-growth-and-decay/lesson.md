@@ -102,6 +102,11 @@ X shows <disp v="D01">14.1421</disp> mg. After 12 hours, two half-lives, there w
 halfway amount: the drop is faster early in those six hours, 20 to 14.1421 in the first three and
 14.1421 to 10 in the next three, because there is more to lose at the start.
 
+```why
+ask: Why is the power 15 ÷ 6, and not 15?
+because: The factor 0.5 belongs to one half-life, 6 hours, so the power counts half-lives, and 15 hours is 15 ÷ 6 of them.
+```
+
 ## Finding the factor
 
 If an amount went from 1200 to 1452 in two years, growing by the same factor b each year, then
@@ -115,6 +120,11 @@ n-th root, ˣ√y from num-03 (gold above yˣ):
 X shows <disp v="R01">1.1000</disp>: a factor of 1.1, growth of 10% a year. The whole rise is 21%
 (%CHG from num-04 would say so), and it would be wrong to halve it to 10.5% a year: the second year
 grows from a bigger amount than the first, so 10% a year is enough, 1200 to 1320 to 1452.
+
+```why
+ask: Why is the yearly factor the square root of 1452 ÷ 1200, and not half of it?
+because: The two years multiply, b × b; they do not add. Undoing a multiplication done twice takes a square root, where halving would undo b + b.
+```
 
 ## Exercises
 

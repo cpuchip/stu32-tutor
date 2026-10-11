@@ -69,6 +69,11 @@ GOLD 10ˣ
 X shows <disp v="L03">2.0000</disp>, the 2 back again. Typing the rounded 0.3010 instead would give
 a little less than 2: the four places shown are not the whole number.
 
+```why
+ask: Why would the rounded 0.3010 give a little less than 2, and not a little more?
+because: The rounding dropped digits from the end of 0.30102999…, so 0.3010 is below the true power, and a smaller power of 10 gives a smaller number.
+```
+
 LN is the logarithm to the base e: the natural logarithm, the power of e that gives a number. eˣ
 undoes it:
 
@@ -135,6 +140,11 @@ same n:
 ```
 
 X shows <disp v="S03">17.6730</disp>. Use whichever is nearer to hand; LN saves the gold key.
+
+```why
+ask: Why do LOG and LN give the same n, when their logarithms differ?
+because: Each natural logarithm is the base-10 one times the same number, ln 10. In ln 2 ÷ ln 1.04 that number is on the top and the bottom, so it cancels.
+```
 
 ## Halving, and numbers with no logarithm
 

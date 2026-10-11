@@ -101,6 +101,11 @@ x = 1.5121, to four places. Each root comes to 34 digits, but only the latest is
 for S02's guesses replaced the first root in X. Store a root in a variable (STO) if you need it
 later.
 
+```why
+ask: Why can logarithms not solve eˣ = 3x the way they solved a doubling time?
+because: Here x is in the power and outside it. LN of both sides gives x = ln 3 + ln x, which still has x on both sides, so no step frees it.
+```
+
 ## SOLVE agrees with the logarithms
 
 SOLVE works on the tidy equations too. 500 grows at 4% a year; when does it reach 1000? Type
@@ -116,6 +121,11 @@ The X line shows <disp v="T01" kind="view">T=17.6730</disp>. Dividing both sides
 instead. (As exp-03 showed, growth paid once a year first reaches double at the 18th payment;
 SOLVE answers the equation as written.) Where logarithms can untangle an equation they
 give the answer at once; where they cannot, SOLVE still can.
+
+```why
+ask: Why does SOLVE land on the same 17.6730 the logarithms gave?
+because: Dividing by 500 makes it the same equation, 1.04ᵀ = 2, and since 1.04ᵀ only ever grows, that equation has one answer: a search and a formula must find the same one.
+```
 
 ## Exercise
 
