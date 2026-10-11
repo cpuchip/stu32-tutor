@@ -135,6 +135,11 @@ X holds 10 and Y holds 5. Press × to finish:
 X holds 50. You never had to tell the calculator where the parentheses were, because you did the
 inside of each one first.
 
+```why
+ask: Why did the first sum's 5 wait in Z, and not in Y?
+because: The second sum needed X and Y for its own two numbers, so the 5 was pushed up out of their way. The + dropped it back to Y, ready for the ×.
+```
+
 ## Moving the stack
 
 Sometimes the numbers are in the wrong order. Say you typed 5 and then 20, but you want 20 divided
@@ -204,6 +209,11 @@ times, so all four levels hold 1.05, then press × five times:
 X shows <disp v="S14">1.3401</disp>. That is 1.05 to the sixth power: over six years the price grows
 by about 34%. The first three presses of × use the four 1.05s you filled in. From the fourth press
 on, each × uses a copy that T dropped down.
+
+```why
+ask: Why is the answer 1.05 to the sixth power when × is pressed only five times?
+because: The first × joins two of the 1.05s, and each × after it brings in one more, so five presses join six of them.
+```
 
 ## Exercises
 

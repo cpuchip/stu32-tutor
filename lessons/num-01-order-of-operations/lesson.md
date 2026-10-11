@@ -116,6 +116,11 @@ X shows <disp v="N06">-9.0000</disp>. If the minus belongs to the 3, the express
 X shows <disp v="N07">9.0000</disp>. The same two operations, in the other order, give the other
 reading.
 
+```why
+ask: Why does changing the sign first give 9, and changing it last give −9?
+because: Squaring a negative number makes it positive, so a sign changed before x² is lost in the square. A sign changed after it stays.
+```
+
 ## Two ways through a longer one
 
 Take 2 + 3 × (4 + 1)². You can type the numbers from left to right and let them wait, as long as
@@ -158,6 +163,11 @@ nothing had happened:
 X shows <disp v="N08C">19.0000</disp>. The last + found a leftover 3 where the 2 should have been,
 and gave a wrong answer with no error to warn you.
 
+```why
+ask: Where does the wrong 19 come from?
+because: The extra ENTER left a copy of the 1 in Y, so the first + added 1 and 1, the × found the 4, and the last + found the 3: (1 + 1)² × 4 + 3 is 19.
+```
+
 The other way is to start from the inside, the (4 + 1), and work outward. It never needs more than
 two levels:
 
@@ -167,6 +177,11 @@ two levels:
 
 X holds 77 again. Working from the inside out does not depend on how many numbers the stack can
 hold, so it is the habit to build.
+
+```why
+ask: Why does working from the inside out never need more than two levels?
+because: Each step finishes a result before the next number is typed, so the stack holds only that result and the one new number it waits for.
+```
 
 It has one catch. With + and × the order of the two numbers does not matter, but with − and ÷ it
 does. Take 20 − 3 × 4 from the inside out: work out 3 × 4, then type the 20.

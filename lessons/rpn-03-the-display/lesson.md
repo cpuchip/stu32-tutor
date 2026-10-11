@@ -96,6 +96,11 @@ four significant digits, wherever the point lands. 23456 at ENG 3:
 X shows <disp v="P05">23.46E3</disp>: 23.46 thousand, four significant digits with two of them
 after the point.
 
+```why
+ask: Why does ENG 3 show 23.46E3, with two digits before the point, where SCI would put one?
+because: ENG allows only powers of ten that are multiples of three. SCI would write this number with a power of four, so ENG takes the multiple of three below it and moves the point one place right to make up the difference.
+```
+
 ## When FIX runs out of room
 
 At FIX 4, a number like 0.0000125 has no digit but zero in its first four places. So for a number
@@ -136,6 +141,11 @@ never ends, like two thirds, fills the line with as many digits as fit:
 
 X shows <disp v="P08B">0.6666666666666666667</disp>, which is 19 of the 34 digits the
 calculator keeps, the last one rounded.
+
+```why
+ask: Why does the last digit shown come out a seven, when every digit of two thirds is a six?
+because: The screen has to stop somewhere, and the digit just past where it stops is another six, so the last digit shown is rounded up.
+```
 
 ## Exercises
 

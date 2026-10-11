@@ -81,6 +81,11 @@ and another that is 2 7/16, with fraction display turned on for the answer:
 X shows <disp v="G05">7 13/16</disp>. You never needed a common denominator: the calculator added
 the two numbers and found the fraction afterwards.
 
+```why
+ask: Why is the answer in sixteenths, when one board was measured in eighths?
+because: An eighth is two sixteenths, so the exact sum is a number of sixteenths. Its top, 13, is odd, so it cannot be halved back into eighths.
+```
+
 Fraction display is still on. A recipe calls for 2/3 of a cup, and you are making 3/4 of the
 recipe:
 
@@ -91,6 +96,11 @@ recipe:
 X shows <disp v="G06">0 1/2</disp>: half a cup. The 2/3 you typed was stored to 34 digits, a hair
 above two thirds, but three quarters of that hair is too small to survive the rounding, so the
 answer is exactly 1/2.
+
+```why
+ask: Why is 3/4 of 2/3 exactly a half?
+because: Multiply the tops and the bottoms: the three on top of one fraction cancels the three below in the other. That leaves two quarters, and two quarters is a half.
+```
 
 ## When the answer is not exact
 

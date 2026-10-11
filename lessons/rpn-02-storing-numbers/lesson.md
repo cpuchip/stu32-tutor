@@ -50,6 +50,11 @@ tax on a 40 dollar purchase is 40 times the rate:
 
 X shows <disp v="V02">3.30</disp>. A still holds 0.0825: recalling a number does not use it up.
 
+```why
+ask: Why is the tax 3.3, and not the tax on the rounded rate the screen showed after STO?
+because: Only the screen rounds. A keeps all of 0.0825, and RCL brings back every digit, so the tax is 40 × 0.0825.
+```
+
 RCL can also do the arithmetic. Press RCL, then ×, then A, and X is multiplied by A in one step:
 
 ```keys V03
@@ -134,6 +139,11 @@ X shows <disp v="V07">42.00</disp>. The same two variables give its perimeter, 2
 ```
 
 X holds 31.
+
+```why
+ask: Why is no ENTER needed between RCL L and RCL W?
+because: RCL pushes the stack up, as a typed number does after an operation, so the 12 is already safe in Y when the 3.5 arrives.
+```
 
 ## Exercises
 

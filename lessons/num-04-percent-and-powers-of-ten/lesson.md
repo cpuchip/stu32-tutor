@@ -54,6 +54,11 @@ X shows <disp v="C02">92.00</disp>, and the stack has dropped, bringing the 2 do
 
 X holds 45.
 
+```why
+ask: Why do % and then − take 25% off 60, with no second 60 typed?
+because: % leaves the 60 in Y and puts the discount in X, so − takes the discount away from the 60.
+```
+
 ## Percent change
 
 The %CHG key works how much Y changed to become X, as a percent of Y: (X − Y) ÷ Y × 100. A price
@@ -121,6 +126,11 @@ form the same way. Two large numbers, 3.2 × 10¹² and 2.5 × 10⁹; 3.2 × 2.5
 
 X shows <disp v="C08">8.00E21</disp>, which is 8 × 10²¹. Written out at FIX 2 it would need more
 than 30 characters, too long to fit the line, so the calculator shows it in scientific form.
+
+```why
+ask: Why do the powers add, 12 + 9, when the numbers multiply?
+because: 10¹² is twelve tens multiplied together and 10⁹ is nine tens, so the product multiplies twenty-one tens together: 10²¹.
+```
 
 ## Exercises
 

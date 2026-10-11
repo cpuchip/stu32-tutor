@@ -98,6 +98,11 @@ negative with +/− before you press yˣ:
 
 X shows <disp v="R06">0.1250</disp>, which is 1/8.
 
+```why
+ask: Why is 2⁻³ one over 2³?
+because: Each step down in the power divides by 2 once more. One step down from 2¹, which is 2, gives 2⁰, which is 1, and three more steps give 1/8.
+```
+
 A power of one half is a square root: 16 to the 1/2 is the square root of 16. You can type the half
 as .5:
 
@@ -173,6 +178,11 @@ yˣ
 X shows <disp v="R09">512.0000</disp>. You still need the top-down rule to read a tower, but you
 need no parentheses to work it: in RPN the order you press the keys in is the order the powers are
 worked.
+
+```why
+ask: Why does the tower give so much more than (2³)²?
+because: (2³)² squares a cube, which is 2 to the power 3 × 2. The tower raises 2 to the power 3 × 3, which is 9.
+```
 
 ## Two shortcuts
 
