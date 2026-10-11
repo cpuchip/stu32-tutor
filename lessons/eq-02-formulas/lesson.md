@@ -10,26 +10,26 @@ display: FIX 4
 # Solving a formula for any letter
 
 A formula ties several quantities together. The area of a rectangle is its length times its width:
-A = L × W. Usually a formula is written to give one of them, here A. But if you know the area and
+$A = L × W$. Usually a formula is written to give one of them, here $A$. But if you know the area and
 the length, the same formula tells you the width. With SOLVE you type a formula once and solve it
 for whichever letter you need.
 
 ## From before
 
 ```item EQ2F1
-prompt: Work out (8 + 4) ÷ (5 − 2): the whole top over the whole bottom.
+prompt: Work out $(8 + 4) ÷ (5 − 2)$: the whole top over the whole bottom.
 topics: fraction-bar
 answer: type
 calculator: no
-slip: EQ2F1A | divided only the 4 by the 5 | A fraction bar divides all of the top by all of the bottom: 12 ÷ 3.
+slip: EQ2F1A | divided only the 4 by the 5 | A fraction bar divides all of the top by all of the bottom: $12 ÷ 3$.
 ```
 
 ```item EQ2F2
-prompt: For 3x − 2 = 10, what is left minus right at x = 5?
+prompt: For $3x − 2 = 10$, what is left minus right at $x = 5$?
 topics: xeq-check
 answer: type
 calculator: no
-slip: EQ2F2A | the left side alone | Left minus right: 3 × 5 − 2 is 13, and 13 − 10.
+slip: EQ2F2A | the left side alone | Left minus right: $3 × 5 − 2$ is 13, and $13 − 10$.
 ```
 
 ## Before you start
@@ -45,7 +45,7 @@ BLUE MODE {mode} GOLD DISP FIX 4
 ## One unknown, the others asked for
 
 Type the area formula. Each letter is RCL and its letter key: A is on the √x key, L on TAN, W on 5.
-Then ask SOLVE for W:
+Then ask SOLVE for $W$:
 
 ```keys S01A
 GOLD EQN RCL A = RCL L × RCL W ENTER GOLD SOLVE W
@@ -65,8 +65,8 @@ Now it shows <disp v="S01B" kind="prompt">L?</disp>. Its length is 12:
 12 R/S
 ```
 
-The X line shows <disp v="S01" kind="view">W=3.5000</disp>: the width is 3.5, which is 42 ÷ 12. SOLVE stored it in the
-variable W. Each value you typed at a prompt was stored too; VIEW (from rpn-02) shows that A holds
+The X line shows <disp v="S01" kind="view">W=3.5000</disp>: the width is 3.5, which is $42 ÷ 12$. SOLVE stored it in the
+variable $W$. Each value you typed at a prompt was stored too; VIEW (from rpn-02) shows that A holds
 the 42:
 
 ```keys S01V after=S01
@@ -76,14 +76,14 @@ GOLD VIEW A
 The screen shows <disp v="S01V" kind="view">A=42.0000</disp>.
 
 ```why
-ask: Why is the width 42 ÷ 12, when the formula multiplies?
+ask: Why is the width $42 ÷ 12$, when the formula multiplies?
 because: The formula says 12 times the width is 42. Dividing by 12 undoes the times 12, and leaves the width on its own.
 ```
 
 ## The same formula, another letter
 
-The formula is still in the calculator, and A, L and W still hold 42, 12 and 3.5. Show it again with
-EQN, and this time ask SOLVE for L:
+The formula is still in the calculator, and $A$, $L$ and $W$ still hold 42, 12 and 3.5. Show it again with
+EQN, and this time ask SOLVE for $L$:
 
 ```keys S02A after=S01V
 GOLD EQN GOLD SOLVE L
@@ -106,16 +106,16 @@ The X line shows <disp v="S02" kind="view">L=12.0000</disp>, the length you star
 has answered for two different letters.
 
 ```why
-ask: Why does solving for L give back 12, the length you started from?
-because: A and W still held the area and the width from before, and only one length gives that area with that width: the one that made them.
+ask: Why does solving for $L$ give back 12, the length you started from?
+because: $A$ and $W$ still held the area and the width from before, and only one length gives that area with that width: the one that made them.
 ```
 
 ## A formula with more in it
 
-To turn a temperature in degrees Celsius, C, into degrees Fahrenheit, F, multiply by 1.8 and add
-32: F = 1.8 × C + 32. This example starts fresh. F is on the Σ+ key and C on LN. Typing while an
+To turn a temperature in degrees Celsius, $C$, into degrees Fahrenheit, $F$, multiply by 1.8 and add
+32: $F = 1.8 × C + 32$. This example starts fresh. F is on the Σ+ key and C on LN. Typing while an
 equation is showing starts a new one, and the area formula stays in the calculator's list. Type the
-temperature formula and ask SOLVE for C:
+temperature formula and ask SOLVE for $C$:
 
 ```keys T01A
 GOLD EQN RCL F = 1.8 × RCL C + 32 ENTER GOLD SOLVE C
@@ -129,7 +129,7 @@ temperature is about 98.6 degrees Fahrenheit:
 ```
 
 The X line shows <disp v="T01" kind="view">C=37.0000</disp>. Now the other way: how many degrees Fahrenheit is 100 degrees
-Celsius? EQN shows the last equation you viewed, here the temperature formula, so solve it for F:
+Celsius? EQN shows the last equation you viewed, here the temperature formula, so solve it for $F$:
 
 ```keys T02 after=T01
 GOLD EQN GOLD SOLVE F 100 R/S
@@ -139,10 +139,10 @@ The X line shows <disp v="T02" kind="view">F=212.0000</disp>, the boiling point 
 
 ## Exercises
 
-1. Distance is rate times time, D = R × T. A car covers 150 kilometres at 60 kilometres an hour.
+1. Distance is rate times time, $D = R × T$. A car covers 150 kilometres at 60 kilometres an hour.
    Type the formula and solve it for T. Answer each prompt with the value of the letter it names.
-2. At one temperature the Celsius and Fahrenheit numbers are the same. Type F = 1.8 × C + 32 again,
-   solve it for C when F is −40, and see.
+2. At one temperature the Celsius and Fahrenheit numbers are the same. Type $F = 1.8 × C + 32$ again,
+   solve it for $C$ when $F$ is −40, and see.
 
 ## Answers
 
@@ -154,7 +154,7 @@ The X line shows <disp v="T02" kind="view">F=212.0000</disp>, the boiling point 
 
    The X line shows <disp v="E01" kind="view">T=2.5000</disp>: two and a half hours.
 
-2. The same formula, solved for C:
+2. The same formula, solved for $C$:
 
    ```keys E02
    GOLD EQN RCL F = 1.8 × RCL C + 32 ENTER GOLD SOLVE C 40 +/− R/S
@@ -165,23 +165,23 @@ The X line shows <disp v="T02" kind="view">F=212.0000</disp>, the boiling point 
 ## Mixed review
 
 ```item EQ2M1
-prompt: A rectangle's perimeter is P = 2 × L + 2 × W. With P = 30 and L = 9, solve for W with SOLVE.
+prompt: A rectangle's perimeter is $P = 2 × L + 2 × W$. With $P = 30$ and $L = 9$, solve for $W$ with SOLVE.
 topics: solve-any-letter
 answer: type
 calculator: yes
-slip: EQ2M1A | counted L once | Both lengths are in the perimeter: 30 − 2 × 9 is 12, then ÷ 2.
+slip: EQ2M1A | counted L once | Both lengths are in the perimeter: $30 − 2 × 9$ is 12, then ÷ 2.
 ```
 
 ```item EQ2M2
-prompt: Work out 2⁵ − 2³.
+prompt: Work out $2^{5} − 2^{3}$.
 topics: power
 answer: type
 calculator: no
-slip: EQ2M2A | took away the powers | Work out each power first: 2⁵ is 32 and 2³ is 8.
+slip: EQ2M2A | took away the powers | Work out each power first: $2^{5}$ is 32 and $2^{3}$ is 8.
 ```
 
 ```item EQ2M3
-prompt: SOLVE on V = L × W × H, solved for H: how many letters does it ask for?
+prompt: SOLVE on $V = L × W × H$, solved for $H$: how many letters does it ask for?
 topics: solve-prompts
 answer: type
 calculator: no
@@ -190,9 +190,9 @@ slip: EQ2M3A | counted H too | SOLVE asks for every letter except the one it sol
 ```
 
 ```item EQ2M4
-prompt: Work out √(9 × 16).
+prompt: Work out $\sqrt{9 × 16}$.
 topics: square-root
 answer: type
 calculator: no
-slip: EQ2M4A | took the root of 9 only | The root covers the whole product: 9 × 16 is 144, and √144 is 12.
+slip: EQ2M4A | took the root of 9 only | The root covers the whole product: $9 × 16$ is 144, and $\sqrt{144}$ is 12.
 ```

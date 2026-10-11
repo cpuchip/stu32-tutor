@@ -10,26 +10,26 @@ trial: productive failure (decision 81), judged by reading, since nothing about 
 
 # Slope and intercept
 
-A linear function has the form y = mx + b. Its graph, drawn on axes as in fn-02, is a straight
-line, and the two numbers m and b say everything about it. A question about steepness comes first,
-before any of it is taught; what m and b mean, and how to find them from two points, follow from it.
+A linear function has the form $y$ = mx + $b$. Its graph, drawn on axes as in fn-02, is a straight
+line, and the two numbers $m$ and $b$ say everything about it. A question about steepness comes first,
+before any of it is taught; what $m$ and $b$ mean, and how to find them from two points, follow from it.
 
 ## From before
 
 ```item LN1F1
-prompt: Work out (13 − 7) ÷ (5 − 2).
+prompt: Work out $(13 − 7) ÷ (5 − 2)$.
 topics: fraction-bar
 answer: type
 calculator: no
-slip: LN1F1A | divided only the 7 | The brackets come first: 6 ÷ 3.
+slip: LN1F1A | divided only the 7 | The brackets come first: $6 ÷ 3$.
 ```
 
 ```item LN1F2
-prompt: f(x) = 4x − 1. What is f(0)?
+prompt: $f(x) = 4x − 1$. What is $f(0)$?
 topics: function
 answer: type
 calculator: no
-slip: LN1F2A | read 4x at 0 as 4 | 4x at x = 0 is 4 × 0, which is 0. Then take away 1.
+slip: LN1F2A | read 4x at 0 as 4 | $4x$ at $x = 0$ is $4 × 0$, which is 0. Then take away 1.
 ```
 
 ## Try it first
@@ -38,13 +38,13 @@ Nothing so far has shown how. Try any way you can think of, a drawing, a table, 
 and give a number. Not finding it yet is expected: the lesson starts from what you tried.
 
 ```item LN1T1
-prompt: Ramp A rises 3 m over a run of 12 m along the ground. Ramp B rises 2 m over a run of 6 m. A third ramp must rise 5 m and be exactly as steep as ramp B. How far along the ground must it run?
+prompt: Ramp A rises 3 $m$ over a run of 12 $m$ along the ground. Ramp B rises 2 $m$ over a run of 6 $m$. A third ramp must rise 5 $m$ and be exactly as steep as ramp B. How far along the ground must it run?
 topics: slope
 answer: type
 calculator: no
-slip: LN1T1A | the same difference | You kept the difference between run and rise the same as B's, 6 − 2. The next section tests whether that keeps the steepness the same.
-slip: LN1T1B | ramp A's steepness | That keeps ramp A's steepness, 3 m up for 12 m along. The question asks for B's.
-slip: LN1T1C | B's run over the new rise | That works 6 ÷ 5 × 2, which gives the taller ramp a shorter run than B's 6 m. The next section scales B three ways.
+slip: LN1T1A | the same difference | You kept the difference between run and rise the same as B's, $6 − 2$. The next section tests whether that keeps the steepness the same.
+slip: LN1T1B | ramp A's steepness | That keeps ramp A's steepness, 3 $m$ up for 12 $m$ along. The question asks for B's.
+slip: LN1T1C | B's run over the new rise | That works $6 ÷ 5 × 2$, which gives the taller ramp a shorter run than B's 6 $m$. The next section scales B three ways.
 ```
 
 ## Before you start
@@ -64,8 +64,8 @@ BLUE MODE {mode} GOLD DISP FIX 4
 People often answer the ramps question in four ways. Each keeps something about ramp B the same. The
 question is which of those things is its steepness.
 
-**The same difference.** Ramp B's run is 4 m more than its rise, so a ramp 5 m high with the same difference
-runs 5 + 4 = 9 m. Test the idea on a tall ramp: one rising 100 m over a run of 104 m has the same difference
+**The same difference.** Ramp B's run is 4 $m$ more than its rise, so a ramp 5 $m$ high with the same difference
+runs $5 + 4 = 9$ $m$. Test the idea on a tall ramp: one rising 100 $m$ over a run of 104 $m$ has the same difference
 of 4, but it is almost a wall. For each metre along, it rises:
 
 ```keys W01
@@ -81,8 +81,8 @@ X shows <disp v="W01">0.9615</disp>: nearly a metre up for every metre along. Ra
 X shows <disp v="W02">0.3333</disp>: a third of a metre up for every metre along. Keeping the difference did not
 keep the steepness.
 
-**Scaling.** The new ramp rises 5 m, which is 2.5 times B's 2 m. A ramp of the same shape as B, only bigger, has
-every length 2.5 times B's, so its run is 2.5 × 6. On the stack, 5 ÷ 2 makes the 2.5:
+**Scaling.** The new ramp rises 5 $m$, which is 2.5 times B's 2 $m$. A ramp of the same shape as B, only bigger, has
+every length 2.5 times B's, so its run is $2.5 × 6$. On the stack, $5 ÷ 2$ makes the 2.5:
 
 ```keys W03
 5 ENTER 2 ÷ 6 ×
@@ -90,8 +90,8 @@ every length 2.5 times B's, so its run is 2.5 × 6. On the stack, 5 ÷ 2 makes t
 
 X shows <disp v="W03">15.0000</disp>.
 
-**Along for each metre up.** B goes 6 m along for its 2 m up: 3 m along for each metre up. The new ramp goes up
-5 m, so it goes 5 × 3 along:
+**Along for each metre up.** B goes 6 $m$ along for its 2 $m$ up: 3 $m$ along for each metre up. The new ramp goes up
+5 $m$, so it goes $5 × 3$ along:
 
 ```keys W04
 6 ENTER 2 ÷ 5 ×
@@ -104,20 +104,20 @@ up: every side grows 2.5 times, and the bottom is 15 squares long. Enlarging kee
 the steepness.
 
 The last three are one idea: two ramps are equally steep when they rise the same amount for each 1 along. That
-amount is the rise divided by the run, and it is called the slope. B's is 2 ÷ 6, a third, and so is the new
-ramp's, 5 ÷ 15. Ramp A's is 3 ÷ 12, a quarter, which is why a ramp as steep as A, 5 m up, runs 20 m.
+amount is the rise divided by the run, and it is called the slope. B's is $2 ÷ 6$, a third, and so is the new
+ramp's, $5 ÷ 15$. Ramp A's is $3 ÷ 12$, a quarter, which is why a ramp as steep as A, 5 $m$ up, runs 20 $m$.
 
-A line has a slope too. For y = mx + b, m is the slope: how far the line rises for each step of 1 to the right.
-b, the intercept, is the value of y at x = 0, where the line crosses the vertical axis. f(x) = 2x + 3 from fn-01
+A line has a slope too. For $y$ = mx + $b$, $m$ is the slope: how far the line rises for each step of 1 to the right.
+$b$, the intercept, is the value of $y$ at $x = 0$, where the line crosses the vertical axis. $f(x) = 2x + 3$ from fn-01
 is one, with slope 2 and intercept 3.
 
 ## The slope from two points
 
-Between two points on a line, the rise is how much y changes and the run is how much x changes.
-Work both out from the same point, in the same order: the second point's y minus the first's, and
-the second point's x minus the first's. The slope is the rise divided by the run, and on a straight
+Between two points on a line, the rise is how much $y$ changes and the run is how much $x$ changes.
+Work both out from the same point, in the same order: the second point's $y$ minus the first's, and
+the second point's $x$ minus the first's. The slope is the rise divided by the run, and on a straight
 line it is the same whichever two points you pick. Take the points (3, 9) and (5, 13). The rise is
-13 − 9 and the run is 5 − 3, so the slope is (13 − 9) ÷ (5 − 3). On the stack, work out the rise,
+$13 − 9$ and the run is $5 − 3$, so the slope is $(13 − 9) ÷ (5 − 3)$. On the stack, work out the rise,
 then the run, then divide:
 
 ```keys L01
@@ -138,30 +138,30 @@ because: Taking only one of them the other way round flips its sign, and the slo
 
 ## The intercept
 
-Any point on the line makes y = mx + b true. Take mx from both sides of that, and it gives
-the intercept: b = y − mx. With the point (3, 9) and the slope in M, that is b = 9 − m × 3. Start it:
+Any point on the line makes $y$ = mx + $b$ true. Take mx from both sides of that, and it gives
+the intercept: $b = y$ − mx. With the point (3, 9) and the slope in M, that is $b = 9 − m × 3$. Start it:
 
 ```keys L03A after=L02
 9 RCL M 3
 ```
 
-The stack now holds three numbers. The 9 lifted when RCL M brought m into X, and lifted again when
-you started typing 3: 9 is in Z, m in Y, and X shows <disp v="L03A" kind="entry">3_</disp>. Now ×
-multiplies m by 3, and the stack drops, so 9 comes down to Y. − then takes m × 3 from 9. Keep the
+The stack now holds three numbers. The 9 lifted when RCL M brought $m$ into X, and lifted again when
+you started typing 3: 9 is in Z, $m$ in Y, and X shows <disp v="L03A" kind="entry">3_</disp>. Now ×
+multiplies $m$ by 3, and the stack drops, so 9 comes down to Y. − then takes $m × 3$ from 9. Keep the
 result in B:
 
 ```keys L03 after=L03A
 × − STO B
 ```
 
-X shows <disp v="L03">3.0000</disp>: b = 9 − 6. The line is y = 2x + 3, the same f.
+X shows <disp v="L03">3.0000</disp>: $b = 9 − 6$. The line is $y = 2x + 3$, the same f.
 
 ```why
-ask: Why does b = y − mx give the intercept?
-because: The intercept is the value of y where x is zero. From the point (3, 9), going back 3 steps to that crossing drops the line by 2 at each step, so 9 − 2 × 3 is where it crosses.
+ask: Why does $b = y$ − mx give the intercept?
+because: The intercept is the value of $y$ where $x$ is zero. From the point (3, 9), going back 3 steps to that crossing drops the line by 2 at each step, so $9 − 2 × 3$ is where it crosses.
 ```
 
-Check it with the other point. At x = 5 the line should give 13:
+Check it with the other point. At $x = 5$ the line should give 13:
 
 ```keys L04 after=L03
 5 RCL M × RCL B +
@@ -171,23 +171,23 @@ X shows <disp v="L04">13.0000</disp>. Both points are on the line.
 
 ## Lines that fall, lines that are flat
 
-A line that falls to the right has a negative slope. Through (0, 10) and (5, 0), the rise is 0 − 10
-and the run is 5 − 0:
+A line that falls to the right has a negative slope. Through (0, 10) and (5, 0), the rise is $0 − 10$
+and the run is $5 − 0$:
 
 ```keys L05
 0 ENTER 10 − 5 ENTER 0 − ÷
 ```
 
 X shows <disp v="L05">-2.0000</disp>: each step to the right, the line drops 2. Through (1, 4) and
-(3, 4), both points have the same y, so there is no rise:
+(3, 4), both points have the same $y$, so there is no rise:
 
 ```keys L06
 4 ENTER 4 − 3 ENTER 1 − ÷
 ```
 
-X shows <disp v="L06">0.0000</disp>. A slope of 0 is a flat line, y = 4 for every x.
+X shows <disp v="L06">0.0000</disp>. A slope of 0 is a flat line, $y = 4$ for every $x$.
 
-A line straight up and down has no slope at all. Through (3, 1) and (3, 5), the run is 3 − 3:
+A line straight up and down has no slope at all. Through (3, 1) and (3, 5), the run is $3 − 3$:
 
 ```keys L07
 5 ENTER 1 − 3 ENTER 3 − ÷
@@ -206,9 +206,9 @@ X shows <disp v="L07B">0.0000</disp>, the run. The rise is still in Y; x↔y bri
 x↔y
 ```
 
-X shows <disp v="L07C">4.0000</disp>. Such a line is not y = mx + b for any m. It is the line x = 3,
-and it is not a function of x: a function gives one output for each input, and here the input 3
-would need every y as its output.
+X shows <disp v="L07C">4.0000</disp>. Such a line is not $y$ = mx + $b$ for any $m$. It is the line $x = 3$,
+and it is not a function of $x$: a function gives one output for each input, and here the input 3
+would need every $y$ as its output.
 
 ## Exercises
 
@@ -217,19 +217,19 @@ would need every y as its output.
 
 ## Answers
 
-1. The rise is 13 − 5 and the run is 3 − (−1):
+1. The rise is $13 − 5$ and the run is $3 − (−1)$:
 
    ```keys E01
    13 ENTER 5 − 3 ENTER 1 +/− − ÷
    ```
 
-   X shows <disp v="E01">2.0000</disp>. Then b = 5 − m × (−1), with the slope kept in M:
+   X shows <disp v="E01">2.0000</disp>. Then $b = 5 − m × (−1)$, with the slope kept in M:
 
    ```keys E01B after=E01
    STO M 5 RCL M 1 +/− × −
    ```
 
-   X shows <disp v="E01B">7.0000</disp>. The line is y = 2x + 7.
+   X shows <disp v="E01B">7.0000</disp>. The line is $y = 2x + 7$.
 
 2. The slope from the two points:
 
@@ -237,8 +237,8 @@ would need every y as its output.
    4 ENTER 1 − 4 ENTER 0 − ÷
    ```
 
-   X shows <disp v="E02">0.7500</disp>: three quarters. The point (0, 1) has x = 0, so it is where the
-   line crosses the vertical axis: the intercept is 1, and the line is y = 0.75x + 1.
+   X shows <disp v="E02">0.7500</disp>: three quarters. The point (0, 1) has $x = 0$, so it is where the
+   line crosses the vertical axis: the intercept is 1, and the line is $y = 0.75x + 1$.
 
 ## Mixed review
 
@@ -247,15 +247,15 @@ prompt: What is the slope of the line through (1, 2) and (4, 11)?
 topics: slope
 answer: type
 calculator: no
-slip: LN1M1A | the points in different orders | Take the points in the same order, top and bottom: (11 − 2) ÷ (4 − 1).
+slip: LN1M1A | the points in different orders | Take the points in the same order, top and bottom: $(11 − 2) ÷ (4 − 1)$.
 ```
 
 ```item LN1M2
-prompt: Work out −4² + 20.
+prompt: Work out $−4^{2} + 20$.
 topics: minus-and-power
 answer: type
 calculator: no
-slip: LN1M2A | squared −4 | −4² is the negative of 4², so −16. Only (−4)² is 16.
+slip: LN1M2A | squared −4 | $−4^{2}$ is the negative of $4^{2}$, so −16. Only $(−4)^{2}$ is 16.
 ```
 
 ```item LN1M3
@@ -263,13 +263,13 @@ prompt: What is the slope of the line through (2, 7) and (6, 7)?
 topics: falling-flat
 answer: type
 calculator: no
-slip: LN1M3A | gave the run | Rise over run: the rise is 7 − 7, which is 0, so the slope is 0.
+slip: LN1M3A | gave the run | Rise over run: the rise is $7 − 7$, which is 0, so the slope is 0.
 ```
 
 ```item LN1M4
-prompt: g(x) = 5 − 2x. What is g(3)?
+prompt: $g(x) = 5 − 2x$. What is $g(3)$?
 topics: function
 answer: type
 calculator: no
-slip: LN1M4A | took 2 from 5 first | Multiplication comes first: 2 × 3 is 6, then 5 − 6.
+slip: LN1M4A | took 2 from 5 first | Multiplication comes first: $2 × 3$ is 6, then $5 − 6$.
 ```

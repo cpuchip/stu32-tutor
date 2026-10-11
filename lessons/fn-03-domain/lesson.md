@@ -9,8 +9,8 @@ display: FIX 4
 
 # Domain
 
-A function's domain is the set of inputs it can take. Many rules take any number: f(x) = 2x + 3 from
-fn-01 has a value for every x, and so does x/2. But a rule that divides by something that can be 0,
+A function's domain is the set of inputs it can take. Many rules take any number: $f(x) = 2x + 3$ from
+fn-01 has a value for every $x$, and so does $\frac{x}{2}$. But a rule that divides by something that can be 0,
 or takes the square root of something that can be negative, has inputs it cannot take, and those
 inputs are left out of its domain. Written as programs, two such functions each meet an input they
 cannot take, and the calculator says so.
@@ -18,7 +18,7 @@ cannot take, and the calculator says so.
 ## From before
 
 ```item FN3F1
-prompt: Work out 1 ÷ 0.25.
+prompt: Work out $1 ÷ 0.25$.
 topics: reciprocal
 answer: type
 calculator: no
@@ -26,11 +26,11 @@ slip: FN3F1A | multiplied instead | Dividing by a quarter asks how many quarters
 ```
 
 ```item FN3F2
-prompt: 2x − 8 ≥ 0 has its boundary where 2x − 8 = 0. What x is that?
+prompt: $2x − 8 ≥ 0$ has its boundary where $2x − 8 = 0$. What $x$ is that?
 topics: inequalities
 answer: type
 calculator: no
-slip: FN3F2A | kept the minus sign | Undo the − 8 by adding 8: 2x = 8, then ÷ 2.
+slip: FN3F2A | kept the minus sign | Undo the − 8 by adding 8: $2x = 8$, then ÷ 2.
 ```
 
 ## Before you start
@@ -48,7 +48,7 @@ BLUE MODE {mode} GOLD DISP FIX 4
 
 ## Two functions
 
-The first is r(x) = 1/x, one over x. The second is s(x) = √(x − 2), the square root of x − 2. Both
+The first is $r(x) = \frac{1}{x}$, one over $x$. The second is $s(x) = \sqrt{x − 2}$, the square root of $x − 2$. Both
 programs go in now, one after the other. R's whole rule is one key, 1/x, the fifth key of the top
 row:
 
@@ -82,7 +82,7 @@ Try R on 4:
 4 XEQ R ENTER
 ```
 
-X shows <disp v="D01">0.2500</disp>: r(4) = 1/4. Now try it on 0:
+X shows <disp v="D01">0.2500</disp>: $r(4) = \frac{1}{4}$. Now try it on 0:
 
 ```keys D02 after=D01
 0 XEQ R
@@ -92,12 +92,12 @@ X shows <disp v="D01">0.2500</disp>: r(4) = 1/4. Now try it on 0:
 ```
 
 The screen shows <disp v="D02" kind="message">DIVIDE BY 0</disp>. One over zero has no value: a
-quotient a/b is the number that gives a when it is multiplied by b, and no number gives 1 when it
+quotient $\frac{a}{b}$ is the number that gives $a$ when it is multiplied by $b$, and no number gives 1 when it
 is multiplied by 0. So 0 is not in the domain of r. Every other number is, so the domain of r is
 all numbers except 0.
 
 ```why
-ask: Why can no number stand for 1 ÷ 0, not even a very large one?
+ask: Why can no number stand for $1 ÷ 0$, not even a very large one?
 because: A very large number times 0 is still 0, never 1. And 1 divided by numbers closer and closer to 0 grows without end, so there is no number for it to settle on.
 ```
 
@@ -134,7 +134,7 @@ Try S on 6:
 6 XEQ S ENTER
 ```
 
-X shows <disp v="S01">2.0000</disp>: s(6) = √4. Now 2:
+X shows <disp v="S01">2.0000</disp>: $s(6) = \sqrt{4}$. Now 2:
 
 ```keys S02 after=S01
 2 XEQ S
@@ -143,7 +143,7 @@ X shows <disp v="S01">2.0000</disp>: s(6) = √4. Now 2:
 2 XEQ S ENTER
 ```
 
-X shows <disp v="S02">0.0000</disp>: s(2) = √0 = 0. Now 1:
+X shows <disp v="S02">0.0000</disp>: $s(2) = \sqrt{0} = 0$. Now 1:
 
 ```keys S03 after=S02
 1 XEQ S
@@ -154,7 +154,7 @@ X shows <disp v="S02">0.0000</disp>: s(2) = √0 = 0. Now 1:
 
 The screen shows <disp v="S03" kind="message">SQRT(NEG)</disp>: the square root of a negative
 number. A square is never negative: a positive number times itself is positive, a negative number
-times itself is positive too, and 0 × 0 is 0. So no number squares to a negative, and a negative
+times itself is positive too, and $0 × 0$ is 0. So no number squares to a negative, and a negative
 number has no square root among the numbers these lessons use (the real numbers).
 
 Press C to clear the message:
@@ -164,7 +164,7 @@ C
 ```
 
 X shows <disp v="S04">-1.0000</disp>. That is not the input, 1. R refused its input at its first
-step, but S had already done its 2 and its − when the √x refused, so X holds 1 − 2. Open program
+step, but S had already done its 2 and its − when the √x refused, so X holds $1 − 2$. Open program
 entry to see where S stopped:
 
 ```keys S05 after=S04
@@ -178,13 +178,13 @@ off:
 GOLD PRGM PRGM
 ```
 
-So the domain of s is the inputs x for which x − 2 is not negative: x − 2 ≥ 0, which is x ≥ 2.
-2 itself is in it, as s(2) = 0 showed. It is the edge of the domain: every number above it is in,
+So the domain of s is the inputs $x$ for which $x − 2$ is not negative: $x − 2 ≥ 0$, which is $x ≥ 2$.
+2 itself is in it, as $s(2) = 0$ showed. It is the edge of the domain: every number above it is in,
 every number below it is out, however close.
 
 ```why
 ask: Why is 2 the edge of s's domain, and not 0, the edge of √x's own?
-because: S takes 2 away before the root, so the root sees x − 2. That is 0 when x is 2, and negative for any x below it.
+because: S takes 2 away before the root, so the root sees $x − 2$. That is 0 when $x$ is 2, and negative for any $x$ below it.
 ```
 
 The domain comes from the rule, worked out as above; the calculator's message confirms it. A
@@ -221,8 +221,8 @@ its end does the same: the pointer goes back to the top when a program finishes.
 
 ## Exercises
 
-1. Is −2 in the domain of r? Work out r(−2) with R.
-2. Is 2.25 in the domain of s? Work out s(2.25) with S.
+1. Is −2 in the domain of r? Work out $r(−2)$ with R.
+2. Is 2.25 in the domain of s? Work out $s(2.25)$ with S.
 3. Is 1.99 in the domain of s? Try it with S, and read X after you clear the message.
 
 ## Answers
@@ -236,9 +236,9 @@ its end does the same: the pointer goes back to the top when a program finishes.
    2 +/− XEQ R ENTER
    ```
 
-   X shows <disp v="E01">-0.5000</disp>: r(−2) = 1/(−2).
+   X shows <disp v="E01">-0.5000</disp>: $r(−2) = \frac{1}{−2}$.
 
-2. Yes, since 2.25 ≥ 2:
+2. Yes, since $2.25 ≥ 2$:
 
    ```keys E02 after=E01
    2.25 XEQ S
@@ -247,7 +247,7 @@ its end does the same: the pointer goes back to the top when a program finishes.
    2.25 XEQ S ENTER
    ```
 
-   X shows <disp v="E02">0.5000</disp>: s(2.25) = √0.25, and 0.5 × 0.5 = 0.25.
+   X shows <disp v="E02">0.5000</disp>: $s(2.25) = \sqrt{0.25}$, and $0.5 × 0.5 = 0.25$.
 
 3. No: 1.99 is below 2, however little.
 
@@ -264,41 +264,41 @@ its end does the same: the pointer goes back to the top when a program finishes.
    C
    ```
 
-   X shows <disp v="E03B">-0.0100</disp>: 1.99 − 2, the negative number the square root refused. S
+   X shows <disp v="E03B">-0.0100</disp>: $1.99 − 2$, the negative number the square root refused. S
    is stopped at its √x again, so press GOLD GTO . . before you key in a new program.
 
 ## Mixed review
 
 ```item FN3M1
-prompt: For √(x − 1) at x = 0.75, what is the number under the root?
+prompt: For $\sqrt{x − 1}$ at $x = 0.75$, what is the number under the root?
 topics: sqrt-negative
 answer: type
 calculator: no
-slip: FN3M1A | took x from 1 | It is x − 1: 0.75 − 1, below zero. That is why the root is refused.
+slip: FN3M1A | took x from 1 | It is $x − 1$: $0.75 − 1$, below zero. That is why the root is refused.
 ```
 
 ```item FN3M2
-prompt: Work out 2⁻¹ + 2⁰.
+prompt: Work out $2^{-1} + 2^{0}$.
 topics: neg-frac-powers
 answer: type
 calculator: no
-slip: FN3M2A | read the powers as numbers to add | 2⁻¹ is 1 ÷ 2, and any number to the power 0 is 1.
+slip: FN3M2A | read the powers as numbers to add | $2^{-1}$ is $1 ÷ 2$, and any number to the power 0 is 1.
 ```
 
 ```item FN3M3
-prompt: For which x is 6 ÷ (2x − 4) not defined?
+prompt: For which $x$ is $6 ÷ (2x − 4)$ not defined?
 topics: divide-by-zero
 answer: type
 calculator: no
-slip: FN3M3A | the sign turned | The bottom is 0 when 2x − 4 = 0: 2x = 4.
+slip: FN3M3A | the sign turned | The bottom is 0 when $2x − 4 = 0$: $2x = 4$.
 ```
 
 ```item FN3M4
-prompt: For 2x + 1 = 7, what is left minus right at x = 2?
+prompt: For $2x + 1 = 7$, what is left minus right at $x = 2$?
 topics: xeq-check
 answer: type
 calculator: no
-slip: FN3M4A | the left side alone | Left minus right: 2 × 2 + 1 is 5, and 5 − 7.
+slip: FN3M4A | the left side alone | Left minus right: $2 × 2 + 1$ is 5, and $5 − 7$.
 ```
 
 ## Checkpoint
@@ -306,28 +306,28 @@ slip: FN3M4A | the left side alone | Left minus right: 2 × 2 + 1 is 5, and 5 �
 Questions on the whole unit.
 
 ```item CP3A
-prompt: f(x) = x² − 2x. What is f(3)?
+prompt: $f(x) = x^{2} − 2x$. What is $f(3)$?
 topics: function
 answer: type
 calculator: no
-slip: CP3A1 | 2x read as 2 | The 2x means 2 times x: take away 2 × 3.
-slip: CP3A2 | added the 2x | It is minus 2x: 9 − 6.
+slip: CP3A1 | 2x read as 2 | The $2x$ means 2 times $x$: take away $2 × 3$.
+slip: CP3A2 | added the 2x | It is minus $2x$: $9 − 6$.
 ```
 
 ```item CP3B
-prompt: For which x is 1 ÷ (x − 5) not defined?
+prompt: For which $x$ is $1 ÷ (x − 5)$ not defined?
 topics: domain divide-by-zero
 answer: type
 calculator: no
-slip: CP3B1 | the sign turned | The bottom is 0 when x − 5 = 0, so x = 5.
-slip: CP3B2 | x = 0 | At x = 0 the bottom is −5, which is fine; find where it is 0.
+slip: CP3B1 | the sign turned | The bottom is 0 when $x − 5 = 0$, so $x = 5$.
+slip: CP3B2 | x = 0 | At $x = 0$ the bottom is −5, which is fine; find where it is 0.
 ```
 
 ```item CP3C
-prompt: What is the smallest x for which √(x − 4) is defined?
+prompt: What is the smallest $x$ for which $\sqrt{x − 4}$ is defined?
 topics: domain sqrt-negative
 answer: type
 calculator: no
-slip: CP3C1 | x = 0 | The number under the root, x − 4, must not be negative, so x is at least 4.
-slip: CP3C2 | more than 0, not 0 or more | The square root of 0 is 0, which is defined, so x − 4 can be 0: x = 4.
+slip: CP3C1 | x = 0 | The number under the root, $x − 4$, must not be negative, so $x$ is at least 4.
+slip: CP3C2 | more than 0, not 0 or more | The square root of 0 is 0, which is defined, so $x − 4$ can be 0: $x = 4$.
 ```

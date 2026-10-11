@@ -16,19 +16,19 @@ question: which side of an answer a value is on.
 ## From before
 
 ```item EQ3F1
-prompt: Work out 7² − 4².
+prompt: Work out $7^{2} − 4^{2}$.
 topics: x-squared
 answer: type
 calculator: no
-slip: EQ3F1A | squared the difference | Square each first: 49 − 16. (7 − 4)² is another number.
+slip: EQ3F1A | squared the difference | Square each first: $49 − 16$. $(7 − 4)^{2}$ is another number.
 ```
 
 ```item EQ3F2
-prompt: Work out 3/4 − 1/2, as a decimal.
+prompt: Work out $\frac{3}{4} − \frac{1}{2}$, as a decimal.
 topics: fraction-arithmetic
 answer: type
 calculator: no
-slip: EQ3F2A | took tops from tops and bottoms from bottoms | Give them one bottom: 3/4 − 2/4 is 1/4.
+slip: EQ3F2A | took tops from tops and bottoms from bottoms | Give them one bottom: $\frac{3}{4} − \frac{2}{4}$ is $\frac{1}{4}$.
 ```
 
 ## Before you start
@@ -42,11 +42,11 @@ BLUE MODE {mode} GOLD DISP FIX 4
 
 ## An equation with two answers
 
-The absolute value of a number, written |x|, is its distance from zero: |5| and |−5| are both 5.
-So |x − 3| = 5 says that x − 3 is 5 or −5, which makes x either 8 or −2.
+The absolute value of a number, written $|x|$, is its distance from zero: $|5|$ and $|−5|$ are both 5.
+So $|x − 3| = 5$ says that $x − 3$ is 5 or −5, which makes $x$ either 8 or −2.
 
 Absolute value is ABS (gold, above +/−). In an equation it types ABS with its opening bracket; ▶, the second key on the equation bar, steps out of the bracket
-when you are done inside it. Type |x − 3| = 5:
+when you are done inside it. Type $|x − 3| = 5$:
 
 ```keys A01
 GOLD EQN GOLD ABS RCL X − 3 ▶ = 5 ENTER
@@ -96,10 +96,10 @@ SOLVE and XEQ need the equation showing; STO and the guesses need Equation mode 
 
 ## Inequalities
 
-An inequality says one side is less than or greater than the other: 2x + 3 < 11. The x where the
-two sides are equal is the boundary: 2x + 3 = 11 at x = 4, as you found before. This equation has one
-answer, so the x that make the inequality true lie all on one side of 4. (An inequality whose
-equation has two answers, like |x − 3| < 5, is true between them, from −2 to 8.)
+An inequality says one side is less than or greater than the other: $2x + 3 < 11$. The $x$ where the
+two sides are equal is the boundary: $2x + 3 = 11$ at $x = 4$, as you found before. This equation has one
+answer, so the $x$ that make the inequality true lie all on one side of 4. (An inequality whose
+equation has two answers, like $|x − 3| < 5$, is true between them, from −2 to 8.)
 
 The XEQ check tells you which side a value is on. XEQ works out left minus right, and if that
 is negative, the left side is smaller. This example starts fresh. Type the boundary equation and
@@ -109,26 +109,26 @@ test 0:
 GOLD EQN 2 × RCL X + 3 = 11 ENTER XEQ 0 R/S
 ```
 
-X shows <disp v="B01">-8.0000</disp>: negative, so at x = 0 the left side is less than the right, and
-0 makes 2x + 3 < 11 true. Test 5, on the other side of 4:
+X shows <disp v="B01">-8.0000</disp>: negative, so at $x = 0$ the left side is less than the right, and
+0 makes $2x + 3 < 11$ true. Test 5, on the other side of 4:
 
 ```keys B02 after=B01
 GOLD EQN XEQ 5 R/S
 ```
 
-X shows <disp v="B02">2.0000</disp>: positive, so 5 does not. The inequality is true for every x less
-than 4: x < 4. At 4 itself the two sides are equal (XEQ showed 0 there), so 4 is not less: it
+X shows <disp v="B02">2.0000</disp>: positive, so 5 does not. The inequality is true for every $x$ less
+than 4: $x < 4$. At 4 itself the two sides are equal (XEQ showed 0 there), so 4 is not less: it
 would count only for ≤, "less than or equal to".
 
 ```why
-ask: Why does one test at 0 settle every x less than 4?
-because: Left minus right, 2x + 3 − 11, is a straight line that crosses zero only at 4, so it cannot change sign anywhere else. Negative at 0, it stays negative all the way to 4.
+ask: Why does one test at 0 settle every $x$ less than 4?
+because: Left minus right, $2x + 3 − 11$, is a straight line that crosses zero only at 4, so it cannot change sign anywhere else. Negative at 0, it stays negative all the way to 4.
 ```
 
 ## Exercises
 
-1. Find both answers to |x + 1| = 4.
-2. For which x is 3x − 6 > 0? Find the boundary with SOLVE, then test a value.
+1. Find both answers to $|x + 1| = 4$.
+2. For which $x$ is $3x − 6 > 0$? Find the boundary with SOLVE, then test a value.
 
 ## Answers
 
@@ -147,7 +147,7 @@ because: Left minus right, 2x + 3 − 11, is a straight line that crosses zero o
 
    The X line shows <disp v="E01B" kind="view">X=-5.0000</disp>.
 
-2. The boundary is where 3x − 6 = 0. Right after ENTER the equation is still showing, so SOLVE can
+2. The boundary is where $3x − 6 = 0$. Right after ENTER the equation is still showing, so SOLVE can
    follow at once:
 
    ```keys E02
@@ -160,13 +160,13 @@ because: Left minus right, 2x + 3 − 11, is a straight line that crosses zero o
    GOLD EQN XEQ 4 R/S
    ```
 
-   X shows <disp v="E02B">6.0000</disp>: positive, so the left side, 3x − 6, is more than 0 at 4. The
-   inequality is true for every x greater than 2: x > 2.
+   X shows <disp v="E02B">6.0000</disp>: positive, so the left side, $3x − 6$, is more than 0 at 4. The
+   inequality is true for every $x$ greater than 2: $x > 2$.
 
 ## Mixed review
 
 ```item EQ3M1
-prompt: x × x = 9 has two answers. Which does SOLVE find from guesses 1 and 5?
+prompt: $x × x = 9$ has two answers. Which does SOLVE find from guesses 1 and 5?
 topics: solve-guesses
 answer: type
 calculator: yes
@@ -174,27 +174,27 @@ slip: EQ3M1A | the other answer | SOLVE finds the answer near its guesses, and 1
 ```
 
 ```item EQ3M2
-prompt: Work out (15 − 3) ÷ 4 + 2.
+prompt: Work out $(15 − 3) ÷ 4 + 2$.
 topics: mult-before-add
 answer: type
 calculator: no
-slip: EQ3M2A | added before dividing | Division comes before the addition: 12 ÷ 4 is 3, then + 2.
+slip: EQ3M2A | added before dividing | Division comes before the addition: $12 ÷ 4$ is 3, then + 2.
 ```
 
 ```item EQ3M3
-prompt: The boundary of 2x − 4 > 10 is where 2x − 4 = 10. What x is that?
+prompt: The boundary of $2x − 4 > 10$ is where $2x − 4 = 10$. What $x$ is that?
 topics: inequalities
 answer: type
 calculator: no
-slip: EQ3M3A | took the 4 away instead of adding it | Undo the − 4 by adding 4: 10 + 4 is 14, then ÷ 2.
+slip: EQ3M3A | took the 4 away instead of adding it | Undo the − 4 by adding 4: $10 + 4$ is 14, then ÷ 2.
 ```
 
 ```item EQ3M4
-prompt: Work out 10² × 10³ as one number.
+prompt: Work out $10^{2} × 10^{3}$ as one number.
 topics: power
 answer: type
 calculator: no
-slip: EQ3M4A | multiplied the powers | 10² × 10³ is 100 × 1000: the powers add, to 10⁵.
+slip: EQ3M4A | multiplied the powers | $10^{2} × 10^{3}$ is $100 × 1000$: the powers add, to $10^{5}$.
 ```
 
 ## Checkpoint
@@ -202,28 +202,28 @@ slip: EQ3M4A | multiplied the powers | 10² × 10³ is 100 × 1000: the powers a
 Questions on the whole unit.
 
 ```item CP2A
-prompt: Solve 4x − 7 = 13. What is x?
+prompt: Solve $4x − 7 = 13$. What is $x$?
 topics: xeq-check
 answer: type
 calculator: no
-slip: CP2A1 | took the 7 away instead of adding it | Undo the − 7 by adding 7: 13 + 7 = 20, then ÷ 4.
+slip: CP2A1 | took the 7 away instead of adding it | Undo the − 7 by adding 7: $13 + 7 = 20$, then ÷ 4.
 slip: CP2A2 | undid the × 4 first | Undo in the opposite order: the − 7 first, then the × 4.
 ```
 
 ```item CP2B
-prompt: |x − 2| = 5 has two answers. What is the larger one?
+prompt: |$x − 2$| = 5 has two answers. What is the larger one?
 topics: abs
 answer: type
 calculator: no
-slip: CP2B1 | took the 2 away instead of adding it | If x − 2 = 5, then x is 2 more than 5.
-slip: CP2B2 | the smaller answer | That is the other answer, from x − 2 = −5. The larger comes from x − 2 = 5.
+slip: CP2B1 | took the 2 away instead of adding it | If $x − 2 = 5$, then $x$ is 2 more than 5.
+slip: CP2B2 | the smaller answer | That is the other answer, from $x − 2 = −5$. The larger comes from $x − 2 = 5$.
 ```
 
 ```item CP2C
-prompt: What is the largest whole number x with 2x + 1 < 9?
+prompt: What is the largest whole number $x$ with $2x + 1 < 9$?
 topics: inequalities
 answer: type
 calculator: no
-slip: CP2C1 | the edge itself | The inequality 2x + 1 < 9 means x < 4, and 4 itself is not less than 4.
-slip: CP2C2 | added the 1 | Undo the + 1 by taking it away: 9 − 1 = 8.
+slip: CP2C1 | the edge itself | The inequality $2x + 1 < 9$ means $x < 4$, and 4 itself is not less than 4.
+slip: CP2C2 | added the 1 | Undo the + 1 by taking it away: $9 − 1 = 8$.
 ```

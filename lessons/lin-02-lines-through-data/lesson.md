@@ -22,15 +22,15 @@ prompt: A line has slope 2 and goes through (3, 10). What is its intercept?
 topics: intercept
 answer: type
 calculator: no
-slip: LN2F1A | took away the slope, not the slope times x | b = y − mx: 10 − 2 × 3.
+slip: LN2F1A | took away the slope, not the slope times x | $b = y$ − mx: $10 − 2 × 3$.
 ```
 
 ```item LN2F2
-prompt: Work out 0.5 × 8 + 1.5.
+prompt: Work out $0.5 × 8 + 1.5$.
 topics: mult-before-add
 answer: type
 calculator: no
-slip: LN2F2A | added first | Multiplication comes before addition: 0.5 × 8 is 4, then + 1.5.
+slip: LN2F2A | added first | Multiplication comes before addition: $0.5 × 8$ is 4, then + 1.5.
 ```
 
 ## Before you start
@@ -44,14 +44,14 @@ BLUE MODE {mode} GOLD DISP FIX 4
 
 ## Entering the data
 
-The calculator keeps running sums of the points you give it: of the x values, of the y values, and
+The calculator keeps running sums of the points you give it: of the $x$ values, of the $y$ values, and
 a few more the line needs. Σ, the Greek capital S, stands for sum. Σ+ adds a point to the sums and
 Σ− takes one out; the sums stay until you clear them. Clear them first, so no earlier data mixes in:
 CLEAR is gold above ←, and its Σ soft key clears the sums.
 
-Σ+, the last key of the top row, reads x from X and y from Y. So give each point y first, then
-ENTER, which pushes the y up to Y, then x, then Σ+. That is the opposite of the (x, y) order points
-are written in, so say it to yourself as you go: y, ENTER, x, Σ+. The first point is
+Σ+, the last key of the top row, reads $x$ from X and $y$ from Y. So give each point $y$ first, then
+ENTER, which pushes the $y$ up to Y, then $x$, then Σ+. That is the opposite of the ($x$, $y$) order points
+are written in, so say it to yourself as you go: $y$, ENTER, $x$, Σ+. The first point is
 week 1, 3 centimetres:
 
 ```keys D01
@@ -75,18 +75,18 @@ this way of fitting a line to data. m gives its slope:
 BLUE L.R. m
 ```
 
-X shows <disp v="D03">1.9000</disp>: the seedling grows about 1.9 centimetres a week. b gives the
+X shows <disp v="D03">1.9000</disp>: the seedling grows about 1.9 centimetres a week. $b$ gives the
 intercept:
 
 ```keys D04 after=D03
 BLUE L.R. b
 ```
 
-X shows <disp v="D04">0.9000</disp>. The line is y = 1.9x + 0.9. Its intercept is the line's value
+X shows <disp v="D04">0.9000</disp>. The line is $y = 1.9x + 0.9$. Its intercept is the line's value
 at week 0, a week before the first measurement. No height was measured there; it is where the line
 crosses the vertical axis, not a fact about the seedling.
 
-ŷ gives the line's y for the x in X. The hat marks a value read from the line, not from the data.
+ŷ gives the line's $y$ for the $x$ in X. The hat marks a value read from the line, not from the data.
 At week 3:
 
 ```keys D04B after=D04
@@ -127,8 +127,8 @@ The line can estimate what was not measured. The height at week 6:
 6 BLUE L.R. ŷ
 ```
 
-X shows <disp v="D06">12.3000</disp>, which is 1.9 × 6 + 0.9. x̂ goes the other way: the x for the
-y in X. When does the line reach 15 centimetres?
+X shows <disp v="D06">12.3000</disp>, which is $1.9 × 6 + 0.9$. x̂ goes the other way: the $x$ for the
+$y$ in X. When does the line reach 15 centimetres?
 
 ```keys D07 after=D06
 15 BLUE L.R. x̂
@@ -156,7 +156,7 @@ BLUE L.R. m
 ```
 
 X shows <disp v="W01">1.9750</disp>. Σ−, gold above Σ+, takes a point out of the sums. Give it
-exactly the y and x that went in:
+exactly the $y$ and $x$ that went in:
 
 ```keys W02A after=W01
 11 ENTER 5 GOLD Σ−
@@ -168,8 +168,8 @@ X shows <disp v="W02A">5.0000</disp>, five points again, and the slope is back:
 BLUE L.R. m
 ```
 
-X shows <disp v="W02">1.9000</disp>. Σ− cannot check that the point was ever entered: given a y and
-x that never went in, it takes them out of the sums all the same, and the line is quietly wrong.
+X shows <disp v="W02">1.9000</disp>. Σ− cannot check that the point was ever entered: given a $y$ and
+$x$ that never went in, it takes them out of the sums all the same, and the line is quietly wrong.
 Watch the count, and type the point exactly.
 
 ```why
@@ -192,7 +192,7 @@ because: The line is worked out from the running sums alone. Σ− takes out exa
    GOLD CLEAR Σ 4 ENTER 1 Σ+ 6 ENTER 2 Σ+ 7 ENTER 3 Σ+ 10 ENTER 4 Σ+ 13 ENTER 5 Σ+ BLUE L.R. m
    ```
 
-   X shows <disp v="E01">2.2000</disp>. Then b:
+   X shows <disp v="E01">2.2000</disp>. Then $b$:
 
    ```keys E01B after=E01
    BLUE L.R. b
@@ -204,7 +204,7 @@ because: The line is worked out from the running sums alone. Σ− takes out exa
    6 BLUE L.R. ŷ
    ```
 
-   X shows <disp v="E01C">14.6000</disp>: 2.2 × 6 + 1.4.
+   X shows <disp v="E01C">14.6000</disp>: $2.2 × 6 + 1.4$.
 
 2. Clear the sums, enter the four points, then ask for r:
 
@@ -237,21 +237,21 @@ prompt: What is the slope of the line through (−2, 1) and (2, 9)?
 topics: slope
 answer: type
 calculator: no
-slip: LN2M2A | took the run as 2 | The run is 2 − (−2), which is 4.
+slip: LN2M2A | took the run as 2 | The run is $2 − (−2)$, which is 4.
 ```
 
 ```item LN2M3
-prompt: A line through some data is y = 1.5x + 2. What does it estimate y to be at x = 6?
+prompt: A line through some data is $y = 1.5x + 2$. What does it estimate $y$ to be at $x = 6$?
 topics: estimate
 answer: type
 calculator: no
-slip: LN2M3A | added first | Multiply first: 1.5 × 6 is 9, then + 2.
+slip: LN2M3A | added first | Multiply first: $1.5 × 6$ is 9, then + 2.
 ```
 
 ```item LN2M4
-prompt: Work out √0.25 × 4.
+prompt: Work out $\sqrt{0.25} × 4$.
 topics: square-root
 answer: type
 calculator: no
-slip: LN2M4A | halved 0.25 instead of its root | √0.25 is 0.5, since 0.5 × 0.5 is 0.25.
+slip: LN2M4A | halved 0.25 instead of its root | $\sqrt{0.25}$ is 0.5, since $0.5 × 0.5$ is 0.25.
 ```

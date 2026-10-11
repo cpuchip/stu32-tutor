@@ -17,19 +17,19 @@ hand.<mode m="STU"> At the end, STU mode's TABLE and GRAPH do both for you.</mod
 ## From before
 
 ```item FN2F1
-prompt: Work out 3⁴.
+prompt: Work out $3^{4}$.
 topics: power
 answer: type
 calculator: no
-slip: FN2F1A | 3 × 4, not 3⁴ | 3⁴ is four 3s multiplied: 3 × 3 × 3 × 3.
+slip: FN2F1A | 3 × 4, not 3⁴ | $3^{4}$ is four 3s multiplied: $3 × 3 × 3 × 3$.
 ```
 
 ```item FN2F2
-prompt: f(x) = 2x + 3. What is f(−4)?
+prompt: $f(x) = 2x + 3$. What is $f(−4)$?
 topics: function
 answer: type
 calculator: no
-slip: FN2F2A | lost the minus sign | f(−4) puts −4 in for x: 2 × (−4) is −8, then + 3.
+slip: FN2F2A | lost the minus sign | $f(−4)$ puts −4 in for $x$: $2 × (−4)$ is −8, then + 3.
 ```
 
 ## Before you start
@@ -48,9 +48,9 @@ BLUE MODE {mode} GOLD DISP FIX 4
 
 ## The function
 
-The function is q(x) = x² − 4x + 3. As a program it needs x more than once. It
-starts with two ENTERs, which leave copies of x in Y and Z. Then x² squares the one in X, x↔y brings
-a copy of x back to X, 4 × makes 4x, − leaves x² − 4x, and 3 + finishes. Q is on the ← key:
+The function is $q(x) = x^{2} − 4x + 3$. As a program it needs $x$ more than once. It
+starts with two ENTERs, which leave copies of $x$ in Y and Z. Then x² squares the one in X, x↔y brings
+a copy of $x$ back to X, 4 × makes $4x$, − leaves $x^{2} − 4x$, and 3 + finishes. Q is on the ← key:
 
 ```keys Q01A
 GOLD PRGM PRGM GOLD LBL Q ENTER ENTER GOLD x² x↔y 4 × − 3 + BLUE RTN
@@ -73,19 +73,19 @@ Try it on 2:
 2 XEQ Q ENTER
 ```
 
-X shows <disp v="Q02">-1.0000</disp>: q(2) = 4 − 8 + 3. And Y holds 2, the input: one of the copies
+X shows <disp v="Q02">-1.0000</disp>: $q(2) = 4 − 8 + 3$. And Y holds 2, the input: one of the copies
 the two ENTERs made is left over. So when Q finishes, the input sits in Y beside the output in X,
 which is what a table needs.
 
 ```why
 ask: Why does Q start with two ENTERs?
-because: The rule needs one copy of x for the 4x, after x² has squared the one in X. The second ENTER makes a spare, and the spare is what is left in Y beside q(x) when Q ends.
+because: The rule needs one copy of $x$ for the $4x$, after x² has squared the one in X. The second ENTER makes a spare, and the spare is what is left in Y beside $q(x)$ when Q ends.
 ```
 
 ## A loop
 
-A table needs Q run for x = 0, 1, 2, 3 and 4. A second program, T, does that with a loop: a run of
-lines that repeats, here once for each x.
+A table needs Q run for $x = 0$, 1, 2, 3 and 4. A second program, T, does that with a loop: a run of
+lines that repeats, here once for each $x$.
 
 The loop needs a counter, and a counter on the STU-32 packs its numbers into one value. In 0.004,
 the whole part, 0, is the count. The three digits after the point, 004, are where to stop, and the
@@ -101,10 +101,10 @@ GOLD PRGM PRGM GOLD LBL T 0.004 STO I
 The loop itself gets its own label, U (on the 9 key), so the program can jump back to it. Each time
 round it:
 
-- recalls I and keeps its whole part with IP (in the POW menu, blue above yˣ): that is x;
+- recalls I and keeps its whole part with IP (in the POW menu, blue above yˣ): that is $x$;
 - runs Q. Inside a program, XEQ Q runs Q, and Q's RTN comes back to the line after XEQ Q, so T
   carries on;
-- stops with R/S, so you can read the row: x in Y, q(x) in X. Recorded in a program, R/S makes it
+- stops with R/S, so you can read the row: $x$ in Y, $q(x)$ in X. Recorded in a program, R/S makes it
   stop; pressed by you, it carries on from the stop;
 - adds 1 to the count with ISG (blue, above 4; its name means "increment, skip if greater"). Like
   STO, it waits for a variable, here I. Once the count passes the stop value, ISG skips the next
@@ -138,7 +138,7 @@ XEQ T
 XEQ T ENTER
 ```
 
-X shows <disp v="T02">3.0000</disp> and Y holds 0: q(0) = 3. Press R/S for each next row:
+X shows <disp v="T02">3.0000</disp> and Y holds 0: $q(0) = 3$. Press R/S for each next row:
 
 ```keys T03 after=T02
 R/S
@@ -171,15 +171,15 @@ R/S
 
 The last row stays showing: X shows <disp v="T07">3.0000</disp>. The whole table:
 
-| x | 0 | 1 | 2 | 3 | 4 |
+| $x$ | 0 | 1 | 2 | 3 | 4 |
 |---|---|---|---|---|---|
-| q(x) | 3 | 0 | −1 | 0 | 3 |
+| $q(x)$ | 3 | 0 | −1 | 0 | 3 |
 
 ## Drawing the graph
 
-On squared paper, draw an x axis across and a q axis up, and mark each row as a point: (0, 3),
-(1, 0), (2, −1), (3, 0) and (4, 3). The curve comes down from 3, crosses the x axis at x = 1, is
-lowest in the table at x = 2, crosses the x axis again at x = 3, and rises back to 3.
+On squared paper, draw an $x$ axis across and a q axis up, and mark each row as a point: (0, 3),
+(1, 0), (2, −1), (3, 0) and (4, 3). The curve comes down from 3, crosses the $x$ axis at $x = 1$, is
+lowest in the table at $x = 2$, crosses the $x$ axis again at $x = 3$, and rises back to 3.
 
 A table shows only its rows, so check what happens between two of them before joining the points.
 Halfway on each side of 2:
@@ -201,25 +201,25 @@ X shows <disp v="G01">-0.7500</disp>.
 ```
 
 X shows <disp v="G02">-0.7500</disp> too. Both are above −1 and below 0, and equal, so the curve is
-rounded at the bottom, and its two sides mirror each other about the vertical line x = 2. Join the
+rounded at the bottom, and its two sides mirror each other about the vertical line $x = 2$. Join the
 points with a smooth curve, not straight lines. The graph of any function of the form ax² + bx + c,
 with a not zero, has this shape, which is called a parabola.
 
 ```why
 ask: Why do the inputs a half either side of 2 give the same value?
-because: q(x) can also be written (x − 2)² − 1, so it depends only on how far x is from 2, not on which side.
+because: $q(x)$ can also be written $(x − 2)^{2} − 1$, so it depends only on how far $x$ is from 2, not on which side.
 ```
 
 ## Exercises
 
-1. Where is q(x) zero? Read it from the table, then check one of the answers with Q.
-2. Is q(5) above q(4)? Work it out with Q.
-3. Make the table run from x = 2 to x = 6 without changing program T: store a new counter in I and
+1. Where is $q(x)$ zero? Read it from the table, then check one of the answers with Q.
+2. Is $q(5)$ above $q(4)$? Work it out with Q.
+3. Make the table run from $x = 2$ to $x = 6$ without changing program T: store a new counter in I and
    start the program at U instead of T.
 
 ## Answers
 
-1. At x = 1 and x = 3. Check 1:
+1. At $x = 1$ and $x = 3$. Check 1:
 
    ```keys E01 after=G02
    1 XEQ Q
@@ -239,7 +239,7 @@ because: q(x) can also be written (x − 2)² − 1, so it depends only on how f
    5 XEQ Q ENTER
    ```
 
-   X shows <disp v="E02">8.0000</disp>: q(5) = 25 − 20 + 3, above q(4) = 3, so the curve is still
+   X shows <disp v="E02">8.0000</disp>: $q(5) = 25 − 20 + 3$, above $q(4) = 3$, so the curve is still
    rising at 5.
 
 3. The counter is 2.006: count from 2, stop at 6. XEQ U starts at the loop, skipping T's own STO:
@@ -251,13 +251,13 @@ because: q(x) can also be written (x − 2)² − 1, so it depends only on how f
    2.006 STO I XEQ U ENTER
    ```
 
-   X shows <disp v="E03">-1.0000</disp> with 2 in Y, the row for x = 2. Four more R/S:
+   X shows <disp v="E03">-1.0000</disp> with 2 in Y, the row for $x = 2$. Four more R/S:
 
    ```keys E03B after=E03
    R/S R/S R/S R/S
    ```
 
-   X shows <disp v="E03B">15.0000</disp> with 6 in Y: q(6) = 36 − 24 + 3. One more R/S ends it.
+   X shows <disp v="E03B">15.0000</disp> with 6 in Y: $q(6) = 36 − 24 + 3$. One more R/S ends it.
 
 <mode m="33s,35s">
 
@@ -273,7 +273,7 @@ never had them; choose STU on this page to see how.
 
 STU mode can do both jobs itself: TABLE builds the table, and GRAPH draws the
 curve. Neither needs a program. They work on the equation list of eq-01, and an entry there may be
-an expression with no = sign. Type x² − 4x + 3 that way, with yˣ for the power:
+an expression with no = sign. Type $x^{2} − 4x + 3$ that way, with yˣ for the power:
 
 ```keys B02 mode=STU
 GOLD EQN RCL X yˣ 2 − 4 × RCL X + 3 ENTER
@@ -299,10 +299,10 @@ Open it again for GO:
 BLUE TABLE GO
 ```
 
-The X line shows the row for x = 0: <disp v="B04" kind="row">0.0000 3.0000</disp>, x on the left
-and q(x) on the right. The row on the X line is the selected one, and the status band shows
+The X line shows the row for $x = 0$: <disp v="B04" kind="row">0.0000 3.0000</disp>, $x$ on the left
+and $q(x)$ on the right. The row on the X line is the selected one, and the status band shows
 <disp v="B04" kind="status">TABLE</disp>. The table does not stop at the start: the three lines
-above hold the rows before it, x = −3, −2 and −1, so four rows show at once, and the one just above
+above hold the rows before it, $x = −3$, −2 and −1, so four rows show at once, and the one just above
 reads −1 and 8. ▼ moves down a row:
 
 ```keys B05 after=B04 mode=STU
@@ -316,7 +316,7 @@ The X line shows <disp v="B05" kind="row">1.0000 0.0000</disp>. Three more:
 ```
 
 The X line shows <disp v="B06" kind="row">4.0000 3.0000</disp>, the last row of T's table; ▲ moves
-back up. ENTER copies the selected row's q(x) to X and leaves the table; C leaves it without
+back up. ENTER copies the selected row's $q(x)$ to X and leaves the table; C leaves it without
 copying:
 
 ```keys B07 after=B06 mode=STU
@@ -326,10 +326,10 @@ ENTER
 X shows <disp v="B07">3.0000</disp>: the same table T printed, with no program.
 
 GRAPH, blue above 7, draws the same expression against the same variable. Its menu sets the window:
-XMIN and XMAX, the ends of the x axis, each from X as START does (YMIN and YMAX too, though by
+XMIN and XMAX, the ends of the $x$ axis, each from X as START does (YMIN and YMAX too, though by
 default GRAPH fits the y axis to the curve). The screen is 400 columns wide, and each column is one
-value of x. With XMIN −2 and XMAX 5.98 the columns are 0.02 apart, and column 200, where the trace
-starts, falls exactly on x = 2:
+value of $x$. With XMIN −2 and XMAX 5.98 the columns are 0.02 apart, and column 200, where the trace
+starts, falls exactly on $x = 2$:
 
 ```keys W01 after=B07 mode=STU
 2 +/− BLUE GRAPH XMIN 5.98 BLUE GRAPH XMAX
@@ -373,7 +373,7 @@ X shows <disp v="W05">-0.9996</disp>.
 ## Mixed review
 
 ```item FN2M1
-prompt: The points (0, −2), (1, 1), (2, 2), (3, 1) and (4, −2) are drawn and joined by a smooth curve. How many times does it cross the x axis?
+prompt: The points (0, −2), (1, 1), (2, 2), (3, 1) and (4, −2) are drawn and joined by a smooth curve. How many times does it cross the $x$ axis?
 topics: graph-by-hand
 answer: type
 calculator: no
@@ -382,25 +382,25 @@ slip: FN2M1A | no point is on the axis | No point has 0 as its second number, bu
 ```
 
 ```item FN2M2
-prompt: Work out 2 × 3² + 1.
+prompt: Work out $2 × 3^{2} + 1$.
 topics: powers-first
 answer: type
 calculator: no
-slip: FN2M2A | squared 2 × 3 | The power belongs to the 3 alone: 3² is 9, then 2 × 9 + 1.
+slip: FN2M2A | squared 2 × 3 | The power belongs to the 3 alone: $3^{2}$ is 9, then $2 × 9 + 1$.
 ```
 
 ```item FN2M3
-prompt: q(x) = x² − 4x + 3. What is q(−1)?
+prompt: $q(x) = x^{2} − 4x + 3$. What is $q(−1)$?
 topics: function
 answer: type
 calculator: no
-slip: FN2M3A | squared 1, then made it negative | (−1)² is 1, and −4 × (−1) is +4: 1 + 4 + 3.
+slip: FN2M3A | squared 1, then made it negative | $(−1)^{2}$ is 1, and $−4 × (−1)$ is +4: $1 + 4 + 3$.
 ```
 
 ```item FN2M4
-prompt: Work out (2 + 3)² − 10.
+prompt: Work out $(2 + 3)^{2} − 10$.
 topics: parentheses
 answer: type
 calculator: no
-slip: FN2M4A | squared only the 3 | The brackets come first: 2 + 3 is 5, and 5² is 25.
+slip: FN2M4A | squared only the 3 | The brackets come first: $2 + 3$ is 5, and $5^{2}$ is 25.
 ```

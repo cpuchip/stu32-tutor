@@ -9,7 +9,7 @@ display: FIX 4
 
 # Functions as programs
 
-A function is a rule that turns an input into an output. The rule f(x) = 2x + 3 turns 5 into 13 and
+A function is a rule that turns an input into an output. The rule $f(x) = 2x + 3$ turns 5 into 13 and
 1.5 into 6. Written down, a function is a formula; on the STU-32 it can be a short program: you
 record the keys of the rule once and give them a letter, and then a number in X goes through the
 rule with XEQ and that letter. The program uses the stack like any other calculation.
@@ -19,19 +19,19 @@ rule with XEQ and that letter. The program uses the stack like any other calcula
 A function's rule is arithmetic like this, done in the right order.
 
 ```item FN1F1
-prompt: Work out 3 + 4 × 5 − 2.
+prompt: Work out $3 + 4 × 5 − 2$.
 topics: mult-before-add
 answer: type
 calculator: no
-slip: FN1F1A | worked left to right | Multiplication comes first: 4 × 5 is 20, then 3 + 20 − 2.
+slip: FN1F1A | worked left to right | Multiplication comes first: $4 × 5$ is 20, then $3 + 20 − 2$.
 ```
 
 ```item FN1F2
-prompt: Work out 6² − 2 × 6.
+prompt: Work out $6^{2} − 2 × 6$.
 topics: x-squared
 answer: type
 calculator: no
-slip: FN1F2A | doubled 6 instead of squaring it | 6² is 6 × 6, which is 36, not 6 × 2.
+slip: FN1F2A | doubled 6 instead of squaring it | $6^{2}$ is $6 × 6$, which is 36, not $6 × 2$.
 ```
 
 ## Before you start
@@ -76,8 +76,8 @@ The X line shows <disp v="F01B" kind="program" m="33s">F001 LBL F ·33</disp><di
 label is the mode it was written in<mode m="33s">, 33s</mode><mode m="35s">, 35s</mode><mode m="STU">, STU</mode>;
 the program will run in that mode even if you change the mode later.
 
-Now the rule itself. The program will find x in X when it starts, so the rule is the keys you would
-press with x already there: multiply by 2, add 3.
+Now the rule itself. The program will find $x$ in X when it starts, so the rule is the keys you would
+press with $x$ already there: multiply by 2, add 3.
 
 ```keys F01C after=F01B
 2 × 3 +
@@ -99,7 +99,7 @@ GOLD PRGM PRGM
 PRGM leaves the status band and the X line shows a number again: keys are worked out as usual.
 
 ```why
-ask: Why does the program never mention x?
+ask: Why does the program never mention $x$?
 because: The input is already in X when the program starts, so the keys only say what to do to it: double it, then add three.
 ```
 
@@ -120,7 +120,7 @@ F
 F ENTER
 ```
 
-X shows <disp v="F02">13.0000</disp>: f(5) = 13. Any input works the same way:
+X shows <disp v="F02">13.0000</disp>: $f(5) = 13$. Any input works the same way:
 
 ```keys F03 after=F02
 1.5 XEQ F
@@ -138,11 +138,11 @@ X shows <disp v="F03">6.0000</disp>, and a negative one:
 4 +/− XEQ F ENTER
 ```
 
-X shows <disp v="F04">-5.0000</disp>: f(−4) = 2 × (−4) + 3 = −5.
+X shows <disp v="F04">-5.0000</disp>: $f(−4) = 2 × (−4) + 3 = −5$.
 
 ## A second program
 
-The rule g(x) = x² + x needs x twice. In RPN, ENTER makes the copy: with x in X, ENTER puts a copy
+The rule $g(x) = x^{2} + x$ needs $x$ twice. In RPN, ENTER makes the copy: with $x$ in X, ENTER puts a copy
 in Y, x² squares the one in X, and + adds the two. Turn program entry on again:
 
 ```keys G01A after=F04
@@ -164,7 +164,7 @@ turn program entry off:
 ENTER GOLD x² + BLUE RTN GOLD PRGM PRGM
 ```
 
-Then g(3):
+Then $g(3)$:
 
 ```keys G02 after=G01
 3 XEQ G
@@ -173,16 +173,16 @@ Then g(3):
 3 XEQ G ENTER
 ```
 
-X shows <disp v="G02">12.0000</disp>: 3² + 3 = 9 + 3.
+X shows <disp v="G02">12.0000</disp>: $3^{2} + 3 = 9 + 3$.
 
 ```why
 ask: Why does G need an ENTER before x², when F needed nothing like it?
-because: g uses x twice, and x² replaces the x in X with its square. ENTER keeps a copy in Y first, so the + still has the x to add.
+because: g uses $x$ twice, and x² replaces the $x$ in X with its square. ENTER keeps a copy in Y first, so the + still has the $x$ to add.
 ```
 
 ## Fixing a mistake
 
-In program entry, ← deletes the line showing. Say you meant k(x) = 2x − 3 but pressed + at the end.
+In program entry, ← deletes the line showing. Say you meant $k(x) = 2x − 3$ but pressed + at the end.
 K is on the COS key:
 
 ```keys M01 after=G02
@@ -205,7 +205,7 @@ Press − in its place, finish the program, and try it:
 − BLUE RTN GOLD PRGM PRGM 10 XEQ K ENTER
 ```
 
-X shows <disp v="M03">17.0000</disp>: k(10) = 20 − 3.
+X shows <disp v="M03">17.0000</disp>: $k(10) = 20 − 3$.
 
 Each label names one program, and the calculator refuses a label that is already used. Try to start
 another program F:
@@ -224,19 +224,19 @@ C GOLD PRGM PRGM 5 XEQ F
 C GOLD PRGM PRGM 5 XEQ F ENTER
 ```
 
-X shows <disp v="D02">13.0000</disp>, f(5) as before. Programs stay in the calculator until you
+X shows <disp v="D02">13.0000</disp>, $f(5)$ as before. Programs stay in the calculator until you
 clear them, so for each new function, pick a letter no program uses yet.
 
 ## Exercises
 
-1. Enter h(x) = 5 − 2x as program H (H is on the RCL key), and work out h(4). Hint: work out 2x
+1. Enter $h(x) = 5 − 2x$ as program H (H is on the RCL key), and work out $h(4)$. Hint: work out $2x$
    first, then bring in the 5; x↔y puts the two in the right order for the subtraction, as in
    num-01.
-2. Work out g(−2) with the program G you already have.
+2. Work out $g(−2)$ with the program G you already have.
 
 ## Answers
 
-1. After 2 ×, X holds 2x; typing 5 puts it in X with 2x in Y, and x↔y swaps them so − works 5 − 2x:
+1. After 2 ×, X holds $2x$; typing 5 puts it in X with $2x$ in Y, and x↔y swaps them so − works $5 − 2x$:
 
    ```keys E01 after=D02
    GOLD PRGM PRGM GOLD LBL H 2 × 5 x↔y − BLUE RTN GOLD PRGM PRGM 4 XEQ H
@@ -245,7 +245,7 @@ clear them, so for each new function, pick a letter no program uses yet.
    GOLD PRGM PRGM GOLD LBL H 2 × 5 x↔y − BLUE RTN GOLD PRGM PRGM 4 XEQ H ENTER
    ```
 
-   X shows <disp v="E01">-3.0000</disp>: h(4) = 5 − 8.
+   X shows <disp v="E01">-3.0000</disp>: $h(4) = 5 − 8$.
 
 2. G is still in the calculator:
 
@@ -256,38 +256,38 @@ clear them, so for each new function, pick a letter no program uses yet.
    2 +/− XEQ G ENTER
    ```
 
-   X shows <disp v="E02">2.0000</disp>: (−2)² + (−2) = 4 − 2.
+   X shows <disp v="E02">2.0000</disp>: $(−2)^{2} + (−2) = 4 − 2$.
 
 ## Mixed review
 
 ```item FN1M1
-prompt: f(x) = 3x − 4. What is f(5)?
+prompt: $f(x) = 3x − 4$. What is $f(5)$?
 topics: function
 answer: type
 calculator: no
-slip: FN1M1A | read 3x as 3 + x | 3x means 3 times x: 3 × 5 is 15, then take away 4.
+slip: FN1M1A | read 3x as 3 + x | $3x$ means 3 times $x$: $3 × 5$ is 15, then take away 4.
 ```
 
 ```item FN1M2
-prompt: Work out (10 − 4) ÷ (1 + 2).
+prompt: Work out $(10 − 4) ÷ (1 + 2)$.
 topics: fraction-bar
 answer: type
 calculator: no
-slip: FN1M2A | divided only the 4 | The brackets come first: 6 ÷ 3.
+slip: FN1M2A | divided only the 4 | The brackets come first: $6 ÷ 3$.
 ```
 
 ```item FN1M3
-prompt: g(x) = x² + x. What is g(−3)?
+prompt: $g(x) = x^{2} + x$. What is $g(−3)$?
 topics: function
 answer: type
 calculator: no
-slip: FN1M3A | squared 3, then made it negative | g(−3) puts −3 in for x: (−3)² is 9, then 9 + (−3).
+slip: FN1M3A | squared 3, then made it negative | $g(−3)$ puts −3 in for $x$: $(−3)^{2}$ is 9, then $9 + (−3)$.
 ```
 
 ```item FN1M4
-prompt: Work out √(5² − 4²).
+prompt: Work out $\sqrt{5^{2} − 4^{2}}$.
 topics: square-root
 answer: type
 calculator: no
-slip: FN1M4A | took the root of each square | Work out under the root first: 25 − 16 is 9, and √9 is 3.
+slip: FN1M4A | took the root of each square | Work out under the root first: $25 − 16$ is 9, and $\sqrt{9}$ is 3.
 ```
