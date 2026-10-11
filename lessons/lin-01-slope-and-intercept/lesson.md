@@ -5,15 +5,15 @@ requires: setup rpn-arithmetic stack-lift swap-roll change-sign sto rcl clear-me
 status: draft prose (accuracy: lessons/ACCEPTED; not yet read by Michael)
 setup: BLUE MODE {mode} GOLD DISP FIX 4
 display: FIX 4
+trial: productive failure (decision 81), judged by reading, since nothing about learners is measured. It follows Sinha and Kapur 2021, "When Problem Solving Followed by Instruction Works: Evidence for Productive Failure", Review of Educational Research 91(5), 761-798.
 ---
 
 # Slope and intercept
 
 A linear function has the form y = mx + b. Its graph, drawn on axes as in fn-02, is a straight
-line, and the two numbers say everything about it. m, the slope, is how far the line rises for each
-step of 1 to the right. b, the intercept, is the value of y at x = 0, where the line crosses the
-vertical axis. f(x) = 2x + 3 from fn-01 is one, with slope 2 and intercept 3. This lesson finds m and
-b from two points on a line.
+line, and the two numbers m and b say everything about it. This lesson finds what they mean, and how
+to find them from two points on a line. It starts with a question about steepness, before any of it
+is taught.
 
 ## From before
 
@@ -35,16 +35,84 @@ calculator: no
 slip: LN1F2A | read 4x at 0 as 4 | 4x at x = 0 is 4 × 0, which is 0. Then take away 1.
 ```
 
+## Try it first
+
+Nothing in this lesson has shown how yet. Try any way you can think of, a drawing, a table, a rule of your own,
+and give a number. Not finding it yet is expected: the lesson starts from what you tried.
+
+```item LN1T1
+prompt: Ramp A rises 3 m over a run of 12 m along the ground. Ramp B rises 2 m over a run of 6 m. A third ramp must rise 5 m and be exactly as steep as ramp B. How far along the ground must it run?
+topics: slope
+answer: type
+calculator: no
+slip: LN1T1A | the same difference | You kept the difference between run and rise the same as B's, 6 − 2. The next section tests whether that keeps the steepness the same.
+slip: LN1T1B | ramp A's steepness | That keeps ramp A's steepness, 3 m up for 12 m along. The question asks for B's.
+slip: LN1T1C | B's run over the new rise | That works 6 ÷ 5 × 2, which gives the taller ramp a shorter run than B's 6 m. The next section scales B three ways.
+```
+
 ## Before you start
 
-The setup from rpn-01: the mode you chose and FIX 4. The examples in the first two sections are one chain,
-each carrying on from the one before. In the third, each slope starts fresh. Two variables hold the
+The setup from rpn-01: the mode you chose and FIX 4. The examples in the next section each start fresh. In
+the two sections after it they are one chain, each carrying on from the one before, and in the one
+after those, each slope starts fresh. Two variables hold the
 answers, as in rpn-02: M for the slope and B for the intercept. M is on the ENTER key and B on the eˣ
 key; after STO, the next key means only its letter, so STO M is STO then ENTER.
 
 ```keys setup
 BLUE MODE {mode} GOLD DISP FIX 4
 ```
+
+## Four ways people answer it
+
+Here are four ways people often answer the ramps question. Each keeps something about ramp B the same. The
+question is which of those things is its steepness.
+
+**The same difference.** Ramp B's run is 4 m more than its rise, so a ramp 5 m high with the same difference
+runs 5 + 4 = 9 m. Test the idea on a tall ramp: one rising 100 m over a run of 104 m has the same difference
+of 4, but it is almost a wall. For each metre along, it rises:
+
+```keys W01
+100 ENTER 104 ÷
+```
+
+X shows <disp v="W01">0.9615</disp>: nearly a metre up for every metre along. Ramp B, the same way:
+
+```keys W02
+2 ENTER 6 ÷
+```
+
+X shows <disp v="W02">0.3333</disp>: a third of a metre up for every metre along. Keeping the difference did not
+keep the steepness.
+
+**Scaling.** The new ramp rises 5 m, which is 2.5 times B's 2 m. A ramp of the same shape as B, only bigger, has
+every length 2.5 times B's, so its run is 2.5 × 6. On the stack, 5 ÷ 2 makes the 2.5:
+
+```keys W03
+5 ENTER 2 ÷ 6 ×
+```
+
+X shows <disp v="W03">15.0000</disp>.
+
+**Along for each metre up.** B goes 6 m along for its 2 m up: 3 m along for each metre up. The new ramp goes up
+5 m, so it goes 5 × 3 along:
+
+```keys W04
+6 ENTER 2 ÷ 5 ×
+```
+
+X shows <disp v="W04">15.0000</disp> again.
+
+**A drawing.** On squared paper, draw B as a right triangle, 6 squares along and 2 up. Enlarge it until it is 5
+up: every side grows 2.5 times, and the bottom is 15 squares long. Enlarging keeps the shape, and the shape is
+the steepness.
+
+The last three are one idea: two ramps are equally steep when they rise the same amount for each 1 along. That
+amount is the rise divided by the run, and it is called the slope. B's is 2 ÷ 6, a third, and so is the new
+ramp's, 5 ÷ 15. Ramp A's is 3 ÷ 12, a quarter, which is why a ramp as steep as A, 5 m up, runs 20 m.
+
+A line has a slope too. For y = mx + b, m is the slope: how far the line rises for each step of 1 to the right.
+b, the intercept, is the value of y at x = 0, where the line crosses the vertical axis. f(x) = 2x + 3 from fn-01
+is one, with slope 2 and intercept 3. The rest of this lesson finds m and b from two points on a line.
 
 ## The slope from two points
 

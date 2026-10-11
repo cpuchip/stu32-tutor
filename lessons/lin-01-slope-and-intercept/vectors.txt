@@ -32,3 +32,14 @@ LN1M3A | slip: the run | MODE33 FIX4 6 ENTER 2 - | X=4
 LN1M4 | mixed review: g(3) for 5 − 2x, typed | MODE33 FIX4 1 CHS | X=-1
 LN1M4W | its working | MODE33 FIX4 5 ENTER 2 ENTER 3 * - | X=-1
 LN1M4A | slip: (5 − 2) × 3 | MODE33 FIX4 5 ENTER 2 - 3 * | X=9
+# Try it first (decision 81, the productive-failure trial): the answer typed, its working, and the likely ways in.
+LN1T1 | try it first: the third ramp's run, the answer typed | MODE33 FIX4 15 | X=15
+LN1T1W | its working: B's run scaled by 5 / 2 | MODE33 FIX4 5 ENTER 2 / 6 * | X=15
+LN1T1A | slip: the same difference, 6 - 2 + 5 | MODE33 FIX4 6 ENTER 2 - 5 + | X=9
+LN1T1B | slip: ramp A's steepness, 12 / 3 x 5 | MODE33 FIX4 12 ENTER 3 / 5 * | X=20
+LN1T1C | slip: B's run over the new rise, 6 / 5 x 2 | MODE33 FIX4 6 ENTER 5 / 2 * | X=2.4
+# Four ways people answer it: each starts fresh.
+W01 | the tall ramp's rise for each metre along: 100 / 104 | MODE33 FIX4 100 ENTER 104 / | X=0.9615384615384615384615384615384615
+W02 | ramp B's rise for each metre along: 2 / 6 | MODE33 FIX4 2 ENTER 6 / | X=0.3333333333333333333333333333333333
+W03 | scaling: 5 / 2 x 6 | MODE33 FIX4 5 ENTER 2 / 6 * | X=15
+W04 | along for each metre up: 6 / 2 x 5 | MODE33 FIX4 6 ENTER 2 / 5 * | X=15

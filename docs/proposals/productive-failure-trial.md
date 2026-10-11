@@ -1,7 +1,13 @@
 # A productive-failure trial: lin-01, slope (PROPOSAL, for Michael)
 
-**Status:** a proposal (decision 76's sixth choice, step 7 of docs/proposals/learning-science-plan.md). abacus asked
-for "the one-lesson design as a proposal" so Michael can judge a concrete lesson (#6425). Nothing is built.
+**Status:** BUILT in lin-01 (decision 81, Michael: "Build it on lin-01, judged by reading"; "Let's try it"). It
+began as a proposal (decision 76's sixth choice, step 7 of docs/proposals/learning-science-plan.md), which abacus
+asked for so Michael could judge a concrete lesson (#6425). The build differs from the design below in two places:
+- slip C (5 ÷ 3) is left out, as its value is not exact, so the item has three slips, A, B and D (LN1T1A to C);
+- "rise per metre across" is taught the other way round, as 3 m along for each metre up (6 ÷ 2 × 5). It is the
+  same idea, and the core gives exactly 15, where 5 ÷ (2 ÷ 6) is off in the 34th digit.
+
+lin-01's front matter says it is a trial and names the study it follows.
 
 **The binding question:** can one lesson open with a problem learners have not been taught to solve, and then teach
 from the ways they are likely to try it, within what a static page can do and what the evidence supports?
