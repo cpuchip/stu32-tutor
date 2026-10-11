@@ -38,7 +38,8 @@ SUP_BACK = dict(zip(SUPS, check.SUP_CHARS))
 OPS = "+−×÷=<>≤≥≠±/·"
 UNIT_WORDS = ("cm", "m", "km", "kg", "g", "mm", "ml", "l")
 FENCE = re.compile(r"^([ \t]*)```(\w*)[^\n]*\n(.*?)^\1```[ \t]*$", re.M | re.S)
-MASKS = (re.compile(r"<disp\b[^>]*>.*?</disp>", re.S), re.compile(r"</?(?:voice|mode|entry)\b[^>]*>"),
+MASKS = (re.compile(r"https?://[^\s)]+"),                                  # a bare URL is never maths
+         re.compile(r"<disp\b[^>]*>.*?</disp>", re.S), re.compile(r"</?(?:voice|mode|entry)\b[^>]*>"),
          re.compile(r"`[^`\n]*`"), re.compile(r"\[[^\]\n]*\]\([^)\n]*\)"), re.compile(r"<!--.*?-->", re.S))
 HOLE = "\x00"
 LIST_MARK = re.compile(r"[ \t]*(?:[-*] |\d+\. )")
@@ -164,7 +165,9 @@ def _post(s, j):
             j = k
         elif s[j] in "°%":
             j += 1
-        elif s[j] == "!" and s[j + 1:j + 2] != "=" and (s[j - 1].isdigit() or s[j - 1] == ")"):
+        elif s[j] == "!" and s[j + 1:j + 2] != "=" and (s[j - 1].isdigit() or s[j - 1] == ")"
+                                                         or re.match(rf" ?[{re.escape(OPS)}]", s[j + 1:j + 3])):
+            # (a letter's ! is a factorial only before an operator: "n! ÷ (n − r)!", not the key's "n! is gold")
             # a factorial: 5!, (n + 1)!; only after a digit or a bracket, so "Found!" never spans (abacus #7263)
             j += 1
         else:
@@ -176,7 +179,8 @@ def operand(s, i, inner=False):
     """The end of one operand at i: a number (with a letter product: 2t, 4ac), a single letter, a call f(x) or
     f′(a), a root, a ( ) group, or ∠ and a point's letters; with a sign before and powers after; or None."""
     j = i
-    if s[j:j + 1] == "−" or (s[j:j + 1] == "-" and re.match(r"-[\d(]", s[j:j + 2]) and (j == 0 or s[j - 1] in " (")):
+    if s[j:j + 1] == "−" or (s[j:j + 1] in "-+" and re.match(r"[-+][\d(]", s[j:j + 2]) and (j == 0 or s[j - 1] in " (")):
+        # (a + or ASCII - before a digit with a space before it is a sign: "makes it +2y")
         j += 1
     if s[j:j + 1] == "√":
         k = operand(s, j + 1, inner)
@@ -199,6 +203,8 @@ def operand(s, i, inner=False):
     m = re.compile(rf"(?<![A-Za-z])(?:{'|'.join(check.MATHS_OPERATORS)})(?![A-Za-z])").match(s, j)
     if m:                                             # LCM(4, 8), GCF: an upright name (abacus #7227)
         return _post(s, _paren(s, m.end(), commas=True) or m.end())
+    if s[j:j + 1] and s[j] in "".join(check.MATHS_VULGAR.values()):
+        return _post(s, j + 1)                        # ½ × 3 × 6
     k = _paren(s, j)
     if k is None:
         k = _num(s, j)
@@ -209,6 +215,8 @@ def operand(s, i, inner=False):
             m = re.compile(r"(?:[a-zπθ](?![a-z]*['’]))+(?![A-Za-z])").match(s, k)   # 2t, 4ac, 2π (abacus #7274)
             if m and not re.fullmatch(r"st|nd|rd|th|s|am|pm", m.group(0)):
                 k = m.end()
+            elif re.match(rf"[A-Z][{SUPS}]* ?[{re.escape(OPS)}]", s[k:k + 4]) and not re.match(r"[A-Z][A-Za-z]", s[k:k + 2]):
+                k += 1                                # a capital times a number, before an operator: 2S − S (not "2X means")
         else:
             m = re.compile(r"(?<![A-Za-z'’])[A-Za-zπθ][′″]{0,2}(?![A-Za-z'’])").match(s, j)
             if not m:
@@ -224,10 +232,17 @@ def operand(s, i, inner=False):
         if c is None:
             break
         k = _post(s, c)
-    if s[k - 1:k] == ")":                             # a group times a letter: (2/3)x
-        m = re.compile(r"[a-z](?![A-Za-z'’])").match(s, k)
-        if m:
-            k = _post(s, m.end())
+    while True:                                       # a letter right after a group or a power multiplies it:
+        if s[k - 1:k] == ")":                         # (2/3)x, (r − 1)S
+            pat = r"[A-Za-z](?![A-Za-z'’])"
+        elif s[k - 1:k] and s[k - 1] in SUPS:         # a²h, n·aⁿ⁻¹h
+            pat = r"[a-z](?![A-Za-z'’])"
+        else:
+            break
+        m = re.compile(pat).match(s, k)
+        if not m:
+            break
+        k = _post(s, m.end())
     return k
 
 
@@ -242,10 +257,21 @@ WORDS2 = {"is", "an", "of", "to", "in", "it", "be", "by", "or", "on", "at", "as"
 WORD = rf"(?<![A-Za-z\\])(?:(?:the|that|its) )?(?!(?:{'|'.join(check.MATHS_FUNCTIONS)})\b)[A-Za-z]{{2,}}"   # a word
 
 
-def _product(s, j):
+def _product(s, j, after_op=False):
     """The end of a product of letters at j, mx or abc (two or three small letters, not a word), or None."""
-    m = re.compile(rf"(?<![A-Za-z'’])([a-z]{{2,3}})[{SUPS}]*(?![A-Za-z'’(])").match(s, j)
-    return m.end() if m and m.group(1) not in WORDS2 else None
+    # small letters, or a capital then one or two (Ax + By = C, the solvers' coefficients): "by" is a word, "By" here not
+    m = re.compile(rf"(?<![A-Za-z'’])([a-z]{{2,3}}|[A-Z][a-z]{{1,2}}|[a-z][A-Z])[{SUPS}]*(?![A-Za-z'’(])").match(s, j)   # rS
+    if not m:
+        return None
+    w = m.group(1)
+    # a word is never a product; a capital-led one ("By") only after an operator, where "Ax + By" is maths and
+    # "The + 5" or "By hand" never arrive
+    if after_op and set(w) <= set("abcdmnxyz") and re.match(rf"[{SUPS}]* ?[{re.escape(OPS)}]", s[m.end(1):]):
+        return m.end()   # between two operators "by" is b times y (3x + by = 12); "up" stays a word (= \text{up} ÷ 1)
+    if w in WORDS2 or (w[0].isupper() and (w.lower() in ("the", "this", "that", "then", "these")
+                                           or (not after_op and w.lower() in WORDS2))):
+        return None
+    return m.end()
 
 
 def expression(s, i, inner=False):
@@ -276,8 +302,10 @@ def expression(s, i, inner=False):
         while s[k:k + 1] == " ":
             k += 1
         e = operand(s, k, inner)
-        if e is None and _product(s, k) is not None:
-            e = _post(s, _product(s, k))              # after an operator: y = mx + b
+        if e is None and s[k:k + 1] == "…":
+            e = k + 1                                 # an ellipsis after an operator: 1 + 2 + … + 10, 0.99 × …
+        if e is None and _product(s, k, after_op=True) is not None:
+            e = _post(s, _product(s, k, after_op=True))   # after an operator: y = mx + b, Ax + By
         if e is None:
             return j
         j = e
@@ -288,7 +316,8 @@ def runs(s):
     out, i = [], 0
     while i < len(s):
         ch = s[i]
-        if (ch.isalnum() or ch in "−-√∠(|") and (i == 0 or not (s[i - 1].isalnum() or s[i - 1] in "_'’.")):
+        if (ch.isalnum() or ch in "−-√∠(|½¼¾" or (ch == "+" and re.match(r"\+\d", s[i:i + 2]) and (i == 0 or s[i - 1] in " ("))) \
+                and (i == 0 or not (s[i - 1].isalnum() or s[i - 1] in "_'’.")):
             e = expression(s, i)
             if e is not None and e > i:
                 while e > i and s[e - 1] in " ":
@@ -307,11 +336,11 @@ def kind_of(t):
         return kind_of(t[1:-1].strip())
     if re.match(rf"[−-]?(?:{'|'.join(check.MATHS_FUNCTIONS)})(?![A-Za-z])", t):
         return "expr"                                  # sin 30°, log 1.04: a function applied
-    if re.fullmatch(r"[−-](?:\d+(?:\.\d+)?)?[A-Za-zθπ]", t) and not t.endswith("i"):
-        return "expr"                                  # a signed letter or term, −b, −4z, −θ (not −4i, a number)
-    if re.search(rf"[{re.escape(OPS)}]|\^", t.lstrip("−-")) or re.search(rf"[{SUPS}√′″|!]", t) or re.search(r"[A-Za-z]\(", t):
+    if re.fullmatch(r"[−+-](?:\d+(?:\.\d+)?)?[A-Za-zθπ]", t) and not t.endswith("i"):
+        return "expr"                                  # a signed letter or term, −b, +2y, −θ (not −4i, a number)
+    if re.search(rf"[{re.escape(OPS)}]|\^", t.lstrip("−+-")) or re.search(rf"[{SUPS}√′″|!]", t) or re.search(r"[A-Za-z]\(", t):
         return "expr"
-    if re.fullmatch(r"[−-]?\d+(?:[.,]\d+)*[%°]?", t):
+    if re.fullmatch(r"[−+-]?\d+(?:[.,]\d+)*[%°]?", t):     # a lone number, its sign included: −0.5, +0.5
         return "number"
     if t.startswith("∠"):
         return "angle"
@@ -327,7 +356,8 @@ def to_tex(u):
     t = re.sub(r"√\(([^()]*(?:\([^()]*\)[^()]*)*)\)", lambda m: r"\sqrt{" + m.group(1) + "}", u)
     t = re.sub(r"√([\w.]+)", lambda m: r"\sqrt{" + m.group(1) + "}", t)
     # every operand over an operand is stacked, a bracket group included (abacus #7227): 1/4, x/2, (1 + 3)/(4 + 8)
-    o = rf"(?:\d+(?:\.\d+)?|(?<![A-Za-z])[A-Za-z](?![A-Za-z])|\([^()]*\))[{SUPS}]*"     # 1/2³ too
+    o = rf"(?:\d+(?:\.\d+)?|(?<![A-Za-z])[a-z]{{1,2}}(?![A-Za-z])|(?<![A-Za-z])[A-Z](?![A-Za-z])|\([^()]*\))[{SUPS}]*"
+    # (1/2³, and a short product of letters: d/dx)
     t = re.sub(rf"(?<![\w.)])({o})/({o})(?![\w.(])",
                lambda m: r"\frac{" + re.sub(r"^\((.*)\)$", r"\1", m.group(1)) + "}{" + re.sub(r"^\((.*)\)$", r"\1", m.group(2)) + "}", t)
     t = re.sub(rf"(?<![A-Za-z\\])({'|'.join(check.MATHS_OPERATORS)})(?![A-Za-z])", r"\\operatorname{\1}", t)
@@ -336,7 +366,9 @@ def to_tex(u):
     t = re.sub(f"[{SUPS}]+", lambda m: "^{" + "".join(SUP_BACK[c] for c in m.group(0)) + "}", t)
     t = re.sub(r"\^\(([^()]*)\)", lambda m: "^{" + m.group(1) + "}", t)
     t = re.sub(r"\^([\d.]+)", lambda m: "^{" + m.group(1) + "}", t)
-    t = t.replace("″", "''").replace("′", "'").replace("%", r"\%")
+    t = t.replace("″", "''").replace("′", "'").replace("%", r"\%").replace("…", r"\dots")
+    for (a, b), v in check.MATHS_VULGAR.items():
+        t = t.replace(v, r"\tfrac{" + a + "}{" + b + "}")
     return re.sub(r"∠", r"\\angle ", t)
 
 
@@ -421,7 +453,8 @@ def plan(text, geometry, keys, hand=None):
             letters |= set(re.findall(r"(?<![\\A-Za-z])([A-Za-z])[′″]?\(", t)) - {"a", "A", "I"}
     # a product of the lesson's letters standing alone ("Take mx from both sides") is not a run, so it is listed
     for za, zb in zones(text):
-        for m in re.finditer(r"(?<![A-Za-z'’$\\])[a-z]{2}(?![A-Za-z'’(])", masked[za:zb]):   # two letters: "add" is a word
+        # two letters ("add" is a word), and not after a digit ("34th" is an ordinal)
+        for m in re.finditer(r"(?<![A-Za-z'’$\\\d])[a-z]{2}(?![A-Za-z'’(])", masked[za:zb]):
             s, e, t = za + m.start(), za + m.end(), m.group(0)
             if t not in WORDS2 and set(t) <= letters and not any(a <= s < b for a, b, _, _ in found):
                 ask(s, e, t, f"product: …{text[max(0, s - 20):s]}[{t}]{text[e:e + 12]}…".replace("\n", " "))
@@ -600,7 +633,15 @@ def main():
                  ("is 2π ÷ 12 = π ÷ 6. π has", ["2π ÷ 12 = π ÷ 6", "π"]),
                  ("again: p(x) = ((2x − 3)x + 4)x − 5.", ["p(x) = ((2x − 3)x + 4)x − 5"]),
                  ("form y = mx + b. Its graph", ["y = mx + b"]),
-                 ("by 3: y = −(2/3)x + 37/3, slope", ["3", "y = −(2/3)x + 37/3"])]
+                 ("by 3: y = −(2/3)x + 37/3, slope", ["3", "y = −(2/3)x + 37/3"]),
+                 # units 8-12: the solvers' coefficients, a product after a power or a bracket; words never products
+                 ("are Ax + By = C and", ["Ax + By = C"]),
+                 ("The + 5 was done last. By hand,", ["5"]),
+                 ("that is a³ + a²h + 2ah², and (r − 1)S", ["a³ + a²h + 2ah²", "(r − 1)S"]),
+                 ("So 2S − S takes away, and rS − S", ["2S − S", "rS − S"]),
+                 ("the sum 20 + 22 + … + 48, and 0.99 × … ten times", ["20 + 22 + … + 48", "0.99 × …"]),
+                 ("is n! ÷ (n − r)!, and n! is gold", ["n! ÷ (n − r)!", "n"]),
+                 ("the triangle is ½ × 3 × 6. and 0.333… so", ["½ × 3 × 6", "0.333"])]
         bad = 0
         for line, want in cases:
             got = [line[a:b] for a, b in runs(line)]

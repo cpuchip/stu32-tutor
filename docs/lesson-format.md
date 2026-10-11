@@ -274,7 +274,9 @@ arithmetic too, Michael via abacus #6967). The lesson says where the maths is:
 - **Inside a span, TeX** over a closed list: `^2` or `^{…}`, `\frac{a}{b}`, `\sqrt{…}`, `'` and `''`, and `\times
   \div \le \ge \pm \neq \cdot \pi \theta \infty \, \left \right \% \angle` (the last two by abacus #7218), and
   `\operatorname{LCM}` and `\operatorname{GCF}`, so those names set upright (abacus #7227), and `\sin \cos \tan
-  \log \ln` (abacus #7263), whose following space the reader keeps ("sin x"); a thousands comma is `10{,}000`. The
+  \log \ln` (abacus #7263), whose following space the reader keeps ("sin x"); a thousands comma is `10{,}000`; a
+  sum's ellipsis is `\dots` (its following space kept too: "1 + 2 + \dots + 10"); ½ ¼ ¾ are `\tfrac{1}{2}` and the
+  like (KaTeX refuses the characters). The
   calculator's key names (SIN, COS, TAN, LOG, LN, ABS) are refused inside a span: a key is plain. Any
   other character is taken as written, so − × ÷ ≤ ≥ ° π may be written as they are. A bare `%` is refused: TeX
   takes it as a comment and drops the rest of the span.
