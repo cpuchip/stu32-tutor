@@ -260,6 +260,40 @@ The controls are in whole-01's set:
 
 graph.py's selftest plants a plain voice that names its cast.
 
+### Maths: `$…$` and ```` ```math ````
+
+The page typesets maths with KaTeX (docs/proposals/maths-markup.md: TeX inside, with primer; everything typeset,
+arithmetic too, Michael via abacus #6967). The lesson says where the maths is:
+- **Inline:** `$…$`. A span opens at a `$` and closes at the next `$` on the same line. It is never empty, never
+  starts or ends with a space, and never crosses a line. A `$` that is not maths is written `\$`.
+- **Display:** a ```` ```math ```` fence holding one equation on one line, with no `$`.
+- **Where it may go:** prose, an item's `prompt:` and `slip:` lines, and a why block's `ask:` and `because:`. It may
+  not go in a heading, a keys block, a `<disp>` quote, a tag, or an item's other fields.
+- **It may not cross a tag.** A span lies wholly inside one `<voice>` span or outside them all.
+- **A key's name stays plain:** "the x² key", never a span before the word "key".
+- **Inside a span, TeX** over a closed list: `^2` or `^{…}`, `\frac{a}{b}`, `\sqrt{…}`, `'` and `''`, and `\times
+  \div \le \ge \pm \neq \cdot \pi \theta \infty \, \left \right`. Any other character is taken as written, so
+  − × ÷ ≤ ≥ ° π may be written as they are.
+
+check.py reads every span back to the plain text the lessons wrote before the markup (`maths_text`: `^2` as ²,
+`^{r × t}` as ^(r × t), `^{2.5}` as ^2.5, `\frac{1}{4}` as 1/4, `\sqrt{x + 1}` as √(x + 1), `'` as ′), and every
+other check reads that text. So the why rule and the voices rule count a span's numbers as written (1/4 names 1
+and 4; a superscript is not a numeral), and seen() lifts a span out before it strips tags and lesson ids, so
+"x < 2 … >" and "x-10" are read whole.
+
+check.py refuses:
+- a `$` with no closing `$` on its line;
+- an empty span, or one that starts or ends with a space;
+- a span in a place maths may not go, or across a tag;
+- a span written before the word "key";
+- a ```` ```math ```` fence that is not one line of TeX;
+- a command off the list, a bare brace, or a command missing its argument.
+
+The controls are in rpn-01's set: a span across a line, in a heading, in a keys block, with a command off the list,
+and before "key"; a why number the example's maths does not show; and, as greens, a why number shown only inside
+maths, and maths with `<` and `x-10` read whole. whole-01's set adds a span across a voice tag and voices whose
+maths differ in a number, with the same maths in both voices as a green.
+
 ### Review sections
 
 Two sections bring earlier lessons back (decision 76; docs/proposals/learning-science-plan.md):
@@ -467,6 +501,9 @@ out (until 2026-10-09 the Makefile named each lesson, and the first three geomet
   window around the cursor) is not.
 - Some correct keys are refused (false reds, not false passes): a shifted key with no legend in
   that shift, Equation mode's soft keys, CLR ALL?'s yes, and CONST's later pages.
+- Maths spans: check.py proves each one reads back over its closed list, not that KaTeX renders it; the page's
+  render with throwOnError is that check (primer). TeX drops the space after a command, so an author's `3 \times
+  4` reads as "3 ×4": the numbers read the same.
 - Pedagogy and voice: those are read by someone who did not write the lesson, and are Michael's.
 
 ## Courses

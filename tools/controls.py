@@ -126,6 +126,20 @@ CONTROLS = [
      "decimal places, so 12 appears as 12.0000.\n", {}, "'12.0000' looks like a display at FIX 4"),
     ("an em-dash written as an entity", "lesson.md", "## Two numbers, one operation", "## Two numbers &mdash; one operation", {},
      "em-dash"),
+    # Maths (docs/proposals/maths-markup.md): a span is $TeX$ on one line, where prose may hold it, read back by
+    # maths_text over a closed list.
+    ("a maths span across a line", "lesson.md", "To add 7 and 5, type 7,", "To add $7 +\n5$, type 7,", {},
+     "a $ with no closing $ on its line"),
+    ("a maths span in a heading", "lesson.md", "## Two numbers, one operation\n", "## Two numbers, one operation, $7 + 5$\n", {},
+     "a maths span in a heading"),
+    ("a maths span in a keys block", "lesson.md", "```keys S02\n", "```keys S02\n$7$\n", {}, "a maths span in a keys block"),
+    ("a maths span with a command off the list", "lesson.md", "To add 7 and 5, type 7,", "To add $\\log 7$ and 5, type 7,", {},
+     "\\log is not on the list"),
+    ("a maths span written as a key's name", "lesson.md", "To add 7 and 5, type 7,", "To add $7 + 5$ key and 5, type 7,", {},
+     "a maths span names a key"),
+    ("a why number its example's maths does not show", "lesson.md", 'X shows <disp v="S01">12.0000</disp>.\n',
+     'X shows <disp v="S01">12.0000</disp>, and $12 = 3 \\times 4$.\n\n```why\nask: Why is 12 also 6 doubled?\n'
+     'because: 6 + 6 is 12.\n```\n', {}, "a why block under S01 names 6, which its example does not show"),
 ]
 
 
@@ -145,6 +159,13 @@ GREENS = [
      "scientific form. A price of 1.05 or 21.5 is fine to write.\n"),
     ("an input written in the display's form, in a sentence about no screen", "lesson.md", "scientific form.\n",
      "scientific form. A rate of 0.0825 is typed as it is written.\n"),
+    ("a why number its example shows only inside maths", "lesson.md", 'X shows <disp v="S01">12.0000</disp>.\n',
+     'X shows <disp v="S01">12.0000</disp>, and $12 = 3 \\times 4$.\n\n```why\nask: Why is 12 also 3 × 4?\n'
+     'because: 3 fours make 12.\n```\n'),
+    # seen() strips tags and lesson ids; a span's reading is lifted out first, so neither eats the maths.
+    ("maths with < and x-10 read whole", "lesson.md", 'X shows <disp v="S01">12.0000</disp>.\n',
+     'X shows <disp v="S01">12.0000</disp>, so $x < 13$ and $x-10 = 2$ when x is 12 > 11.\n\n```why\n'
+     'ask: Why is x − 10 equal to 2?\nbecause: x is 12, which is below 13, and 10 less is 2.\n```\n'),
 ]
 
 
@@ -668,6 +689,14 @@ CONTROLS_FOR["whole-01-adding-and-subtracting"] += [
     ("a why block inside a voice span", "lesson.md", "\n## Answers\n",
      '\n<voice v="story">\n```why\nask: Why borrow?\nbecause: A column cannot give what it does not have.\n```\n</voice>\n## Answers\n',
      {}, '<voice v="story"> holds a why block'),
+    # Maths in voices: a span lies inside one voice span or outside them all, and both voices' maths read the same
+    # numbers (their prose numbers read each span through maths_text).
+    ("a maths span across a voice tag", "lesson.md", '1879 in the autumn.</voice><voice v="plain">A mill',
+     '$1879 in the autumn.</voice><voice v="plain">A$ mill', {}, "a maths span across a tag"),
+    ("voices whose maths differ in a number",
+     [("lesson.md", "and 1879 in the autumn.</voice><voice", "and 1879 in the autumn, $3452 + 1879$ in all.</voice><voice"),
+      ("lesson.md", "and 1879 in the autumn.</voice> How much", "and 1879 in the autumn, $3452 + 1897$ in all.</voice> How much")],
+     None, None, {}, "the plain reading's prose has other numbers than the story reading's"),
 ]
 CONTROLS_FOR["whole-02-multiplying-and-dividing"] = [
     ("INT÷ pressed without its gold shift", "lesson.md", "```keys D02 entry=alg\nGOLD INT÷ 59", "```keys D02 entry=alg\nINT÷ 59", {},
@@ -804,6 +833,10 @@ GREENS_FOR = {
         ("a story sentence reworded, the same numbers", "lesson.md",
          "Tobin had 5000 loaves to deliver this season and has delivered 2768.",
          "This season Tobin had 5000 loaves to deliver, and 2768 are delivered."),
+        ("the same maths in both voices",
+         [("lesson.md", "and 1879 in the autumn.</voice><voice", "and 1879 in the autumn, $3452 + 1879$ in all.</voice><voice"),
+          ("lesson.md", "and 1879 in the autumn.</voice> How much", "and 1879 in the autumn, $3452 + 1879$ in all.</voice> How much")],
+         None, None),
     ],
     "frac-01-equivalent-fractions": [
         ("a block's RPN variant written before its algebraic one", "lesson.md",

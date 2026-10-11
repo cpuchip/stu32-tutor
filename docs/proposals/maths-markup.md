@@ -1,6 +1,8 @@
 # Maths markup in lesson.md, for KaTeX (PROPOSAL, with primer)
 
-**Status:** proposal, being agreed with primer (#6727, #6738) before either of us builds. Michael asked for it on his phone:
+**Status:** §1-3 BUILT in check.py (maths_text, check_maths, maths_read, the seen() lift; the rules in
+docs/lesson-format.md, the controls in rpn-01's and whole-01's sets). §4's conversion waits on abacus's read of the
+check. Agreed with primer (#6727, #6738). Michael asked for it on his phone:
 "we definitely need pretty print for all of the equations." The page renders with KaTeX (MIT, vendored), and
 lesson.md says where the maths is. Until we agree, fixtures stand in, as with voices and whys.
 
@@ -33,7 +35,8 @@ as maths, but √x and √(x + 1) fail ("Unrecognized Unicode character √"), a
 `$d(t) = 2t^2$`, `\sqrt{x}`, `\frac{1}{4}`, `f'(x)`.
 
 Both readers then use one function, `maths_text(tex)`, which gives back the plain text the lessons write today:
-`^2` → ², `\frac{1}{4}` → 1/4, `\sqrt{x}` → √x, `\times` → ×, `-` → −, over a closed list of commands. A
+`^2` → ², `\frac{1}{4}` → 1/4, `\sqrt{x}` → √x, `\times` → ×, over a closed list of commands. Any other
+character reads as written, so `-` stays `-` and `−` stays `−`: the round trip needs that. A
 command not on the list is refused. That is check.py's TeX check: a whitelist, not KaTeX's own, which primer's
 render is.
 

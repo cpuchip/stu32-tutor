@@ -184,6 +184,185 @@ SKELETON = re.compile(r"^[ \t]*```(?:keys|item|why)\b.*?^[ \t]*```[ \t]*$|<disp\
 # core did not make.
 WHY_BLOCK = re.compile(r"^[ \t]*```why[ \t]*\n(.*?)^[ \t]*```[ \t]*$", re.M | re.S)
 
+# Maths (docs/proposals/maths-markup.md; TeX with primer #6738, everything typeset by Michael #6967): an inline span
+# is $...$ on one line with TeX inside, a ```math fence holds one display equation, and a $ that is not maths is
+# written \$. The page renders the TeX with KaTeX. check.py reads each span back to the plain text the lessons wrote
+# before the markup (maths_text, over a closed list of commands), and every other check reads that text, so the
+# markup changes nothing a check sees.
+MATHS_FENCE = re.compile(r"^[ \t]*```math[ \t]*\n(.*?)^[ \t]*```[ \t]*$", re.M | re.S)
+MATHS_TAG = re.compile(r"</?(?:voice|mode|entry|disp)\b[^>]*>")
+MATHS_KEEP, MATHS_END = "", ""      # around a span's reading, so seen() strips no tag or id inside it
+SUP_CHARS = "0123456789-+()n"
+SUP = str.maketrans(SUP_CHARS, "⁰¹²³⁴⁵⁶⁷⁸⁹⁻⁺⁽⁾ⁿ")
+MATHS_COMMANDS = {r"\times": "×", r"\div": "÷", r"\le": "≤", r"\ge": "≥", r"\pm": "±", r"\neq": "≠", r"\cdot": "·",
+                  r"\pi": "π", r"\theta": "θ", r"\infty": "∞", r"\,": "", r"\left": "", r"\right": ""}
+
+
+class MathsRefused(ValueError):
+    pass
+
+
+def maths_group(tex, i):
+    """(the text of the {...} group or the single character at i, the index after it)."""
+    if i >= len(tex):
+        raise MathsRefused("a command is missing its argument")
+    if tex[i] == "{":
+        depth, j = 1, i + 1
+        while depth:
+            if j >= len(tex):
+                raise MathsRefused("an unclosed {")
+            depth += {"{": 1, "}": -1}.get(tex[j], 0)
+            j += 1
+        return tex[i + 1:j - 1], j
+    if tex[i] in "}\\":
+        raise MathsRefused("a command is missing its argument")
+    return tex[i], i + 1
+
+
+def maths_wrap(s):
+    return s if re.fullmatch(r"[\w.]+", s) else f"({s})"
+
+
+def maths_text(tex):
+    """A maths span's TeX read as the plain text the lessons write: ^2 as ², ^{r × t} as ^(r × t), ^{2.5} as ^2.5,
+    \\frac{1}{4} as 1/4, \\sqrt{x} as √x, ' as ′, and MATHS_COMMANDS as their symbols. Anything else is taken as
+    written. A command off the list, a bare brace or a missing argument is refused (MathsRefused)."""
+    out, i = [], 0
+    while i < len(tex):
+        c = tex[i]
+        if c == "\\":
+            m = re.match(r"\\([A-Za-z]+|.)", tex[i:], re.S)
+            name = "\\" + m.group(1)
+            i += len(m.group(0))
+            if m.group(1).isalpha() and i < len(tex) and tex[i] == " ":
+                i += 1                              # TeX drops one space after a letter command
+            if name == r"\frac":
+                a, i = maths_group(tex, i)
+                b, i = maths_group(tex, i)
+                out.append(f"{maths_wrap(maths_text(a))}/{maths_wrap(maths_text(b))}")
+            elif name == r"\sqrt":
+                if tex[i:i + 1] == "[":
+                    raise MathsRefused(r"\sqrt[n] is not on the list")
+                a, i = maths_group(tex, i)
+                out.append("√" + maths_wrap(maths_text(a)))
+            elif name in MATHS_COMMANDS:
+                out.append(MATHS_COMMANDS[name])
+            else:
+                raise MathsRefused(f"{name} is not on the list")
+        elif c == "^":
+            a, i = maths_group(tex, i + 1)
+            body = maths_text(a)
+            plain = body.replace("−", "-")
+            if plain and all(ch in SUP_CHARS for ch in plain):
+                out.append(plain.translate(SUP))
+            elif re.fullmatch(r"[\d.]+", body):
+                out.append("^" + body)              # no superscript for the point: the lessons write 0.5^2.5
+            else:
+                out.append(f"^({body})")            # nor for letters: the lessons write e^(r × t)
+        elif tex.startswith("''", i):
+            out.append("″")
+            i += 2
+        elif c == "'":
+            out.append("′")
+            i += 1
+        elif c in "{}":
+            raise MathsRefused("a bare brace")
+        else:
+            out.append(c)
+            i += 1
+    return "".join(out)
+
+
+def maths_scan(text):
+    """(the inline maths spans of a text, each (start, end, tex) with start at its opening $ and end after its
+    closing $; the problems with its $ marks). A span opens at a $ and closes at the next $ on the same line; it is
+    not empty and neither starts nor ends with a space. \\$ is a dollar, not a mark."""
+    spans, out, at = [], [], 0
+    for line in text.splitlines(keepends=True):
+        marks = [m.start() for m in re.finditer(r"(?<!\\)\$", line)]
+        if len(marks) % 2:
+            out.append(f"a $ with no closing $ on its line: '{line.strip()[:80]}'")
+            marks = marks[:-1]
+        for a, b in zip(marks[::2], marks[1::2]):
+            tex = line[a + 1:b]
+            if not tex:
+                out.append(f"an empty maths span ($$) in '{line.strip()[:80]}': display maths is a ```math fence")
+            elif tex != tex.strip():
+                out.append(f"a maths span that starts or ends with a space: '${tex}$'")
+            else:
+                spans.append((at + a, at + b + 1, tex))
+        at += len(line)
+    return spans, out
+
+
+def maths_spans(text):
+    """The inline maths spans of a text, each (start, end, tex): the page's `maths` question (primer)."""
+    return maths_scan(text)[0]
+
+
+def check_maths(body):
+    """Problems with a lesson's maths: the $ marks; a span where maths may not go (a heading, a keys block, a <disp>
+    quote, a tag, a ```math fence, an item's field other than prompt: and slip:); a span across a tag (a voice span's
+    included); a span written before the word "key" (a key's name is plain: "the x² key"); a ```math fence that is not
+    one line of TeX; and any TeX maths_text refuses."""
+    spans, out = maths_scan(body)
+    places = [(m.start(), m.end(), what) for pattern, what in
+              ((re.compile(r"^#+ [^\n]*$", re.M), "a heading"), (KEYS_ANY, "a keys block"), (DISP_ANY, "a <disp> quote"),
+               (MATHS_TAG, "a tag"), (MATHS_FENCE, "a ```math fence (it holds TeX without $)"))
+              for m in pattern.finditer(body)]
+    for m in ITEM_BLOCK.finditer(body):
+        at = m.start(2)
+        for line in m.group(2).splitlines(keepends=True):
+            if line.split(":", 1)[0].strip() not in ("prompt", "slip"):
+                places.append((at, at + len(line), "an item's field other than prompt and slip"))
+            at += len(line)
+    for a, b, tex in spans:
+        where = next((what for s, e, what in places if s <= a < e), None)
+        if where:
+            out.append(f"a maths span in {where}: '${tex}$'")
+            continue
+        if MATHS_TAG.search(tex):
+            out.append(f"a maths span across a tag: '${tex}$'; a span lies wholly inside one <voice> span or outside them all")
+            continue
+        if re.match(r"\s*key", body[b:b + 6]):
+            out.append(f"a maths span names a key: '${tex}$ key'; write a key's name plain, as in 'the x² key'")
+        try:
+            maths_text(tex)
+        except MathsRefused as e:
+            out.append(f"the maths span '${tex}$': {e}")
+    for m in MATHS_FENCE.finditer(body):
+        lines = [l for l in m.group(1).splitlines() if l.strip()]
+        if len(lines) != 1 or "$" in m.group(1):
+            out.append(f"a ```math fence holds one equation on one line, with no $: {lines}")
+            continue
+        try:
+            maths_text(lines[0].strip())
+        except MathsRefused as e:
+            out.append(f"the ```math fence '{lines[0].strip()}': {e}")
+    return out
+
+
+def maths_read(body):
+    """The lesson as every other check reads it: each maths span and ```math fence replaced by its reading (between
+    MATHS_KEEP and MATHS_END), and \\$ by $. A span check_maths refused is left as written."""
+    def fence(m):
+        try:
+            return MATHS_KEEP + maths_text(m.group(1).strip()) + MATHS_END
+        except MathsRefused:
+            return m.group(0)
+    body = MATHS_FENCE.sub(fence, body)
+    for a, b, tex in reversed(maths_spans(body)):
+        try:
+            body = body[:a] + MATHS_KEEP + maths_text(tex) + MATHS_END + body[b:]
+        except MathsRefused:
+            pass
+    return body.replace("\\$", "$")
+
+
+def maths_plain(text):
+    """A read text with the marks around each span's reading dropped: the text the lessons wrote before the markup."""
+    return text.replace(MATHS_KEEP, "").replace(MATHS_END, "")
+
 
 def numbers_in(text):
     """The numbers written in a text, as values (commas dropped), so 12 and 12.0000 are one number."""
@@ -210,9 +389,17 @@ def lead_in(body, blocks, i):
 def seen(text):
     """What a learner reads of a stretch of lesson: no keys fence's info line, no tag's attributes, and no lesson id
     (the page shows sys-01 as its title, abacus #5459). An ID such as L02, <disp v="S01"> or rpn-01 is not a number
-    the example shows, nor one a why block names."""
+    the example shows, nor one a why block names. A maths span's reading is lifted out first and put back whole, so
+    "x < 2 ... >" is not taken for a tag nor "x-10" for a lesson id (docs/proposals/maths-markup.md §3)."""
+    lifted = []
+
+    def lift(m):
+        lifted.append(m.group(1))
+        return f"{len(lifted) - 1}"
+    text = re.sub(f"{MATHS_KEEP}(.*?){MATHS_END}", lift, text, flags=re.S)
     text = re.sub(r"<[^>]*>", " ", re.sub(r"^[ \t]*```keys[^\n]*\n", "", text, flags=re.M))
-    return re.sub(r"\b[a-z]+-\d{2}[a-z]?\b", " ", text)
+    text = re.sub(r"\b[a-z]+-\d{2}[a-z]?\b", " ", text)
+    return re.sub("(\\d+)", lambda m: " " + lifted[int(m.group(1))] + " ", text)
 
 
 def check_why(body):
@@ -574,6 +761,10 @@ class Lesson:
             return
         text = open(lesson_md, encoding="utf-8").read()
         meta, body = front_matter(text)
+        # Maths: the spans as written; then every check below reads each one as its plain text (maths_read).
+        for p in check_maths(body):
+            self.bad(p)
+        body = maths_read(body)
         # Voices: the spans and the same-skeleton proof first; then every check below reads the default voice,
         # which the proof shows has every other voice's examples, quotes and items.
         for p in check_voices(meta, body):
