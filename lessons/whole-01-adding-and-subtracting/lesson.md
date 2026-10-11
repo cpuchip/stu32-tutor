@@ -117,8 +117,8 @@ because: Its tens and hundreds hold nothing, so a thousand is traded down one st
 A calculator does exactly what it is told, so a key missed in typing gives a wrong answer that looks
 just as sure as a right one. An estimate catches that. Round each number to the nearest hundred and
 add those instead. To round to the nearest hundred, look at the tens digit: 5 or more rounds up, less
-than 5 rounds down. 3452 has 5 tens, so it rounds up to 3500; 1879 has 7 tens, so it rounds up to 1900, so the sum should be near 3500 + 1900 =
-5400. 5331 is near 5400, so it is believable.
+than 5 rounds down. 3452 has 5 tens, so it rounds up to 3500; 1879 has 7 tens, so it rounds up to 1900, so the sum should be near
+3500 + 1900 = 5400. 5331 is near 5400, so it is believable.
 
 Now suppose the 1 of 1879 was missed in typing:
 

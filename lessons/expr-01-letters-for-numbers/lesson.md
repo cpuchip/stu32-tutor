@@ -50,8 +50,8 @@ an expression. An expression has no = sign; it is something to work out. Algebra
 the × between a number and a letter: 7n means 7 × n.
 
 To find what 12 pies cost, put 12 in for n: 7 × 12 = 84. Putting in a number for the letter and
-working out the result is called evaluating the expression. By hand, 7 × 12 is 7 × 10 + 7 × 2 =
-70 + 14 = 84 (whole-02). The check:
+working out the result is called evaluating the expression. By hand, 7 × 12 is
+7 × 10 + 7 × 2 = 70 + 14 = 84 (whole-02). The check:
 
 ```keys P01 entry=alg
 7 × 12 ENTER
