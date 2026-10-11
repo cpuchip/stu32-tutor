@@ -263,18 +263,26 @@ Two sections bring earlier lessons back (decision 76; docs/proposals/learning-sc
   It holds four items or more, at least two of them on topics taught by earlier lessons, and no two
   items in a row share a topic (interleaving). Its items may use the calculator, and each carries its
   answer and working, with slips where a likely one exists.
+- **`## Try it first`** (decision 81, the productive-failure trial; docs/proposals/productive-failure-trial.md)
+  opens a lesson with a problem it has not taught yet, after From before and before the first keys block. It
+  holds one item or more, each `answer: type` and `calculator: no`, and each on a topic the lesson itself
+  teaches: the opposite of From before. Its slips are the likely ways in, made by the core, and their hints say
+  what each attempt kept the same, not that it is wrong. The lesson's teaching then starts from those attempts.
+  A lesson that carries it says so in its front matter, `trial: …`, naming the study it follows.
 
 graph.py (in `make check`) refuses:
-- an item followed by a keys block that is not in `## From before`;
+- an item followed by a keys block that is not in `## From before` or `## Try it first`;
+- a Try-it-first item that is not `type` and `calculator: no`, or that tests a topic another lesson teaches;
+  a Try-it-first section after a keys block, or with no item;
 - a From-before item that is not `type` and `calculator: no`, or that tests a topic the lesson teaches,
   a topic no prerequisite teaches, or a unit-0 topic;
 - a From-before set after a keys block, or of fewer than two items;
 - a Mixed review of fewer than four items, with fewer than two on earlier topics, with two items in a row
   sharing a topic, or after the Checkpoint;
-- either section given twice;
+- any of the three sections given twice;
 - an item ID used twice anywhere.
 
-`graph.py --selftest` (in `make controls`) plants both sections in a copy of poly-02. That copy must
+`graph.py --selftest` (in `make controls`) plants the sections in a copy of poly-02. That copy must
 pass, and so must a reordered one. Then it plants each fault in turn, and each must be refused for its
 own reason.
 

@@ -418,6 +418,7 @@ def selftest_tools(lessons, graph):
 # The review sections (docs/lesson-format.md, Review sections; docs/proposals/learning-science-plan.md, step 0):
 # a From-before set of retrieval items opens a lesson, and a Mixed review interleaves earlier topics near its end.
 FROM_BEFORE, MIXED_REVIEW = "From before", "Mixed review"
+TRY_FIRST = "Try it first"                          # the productive-failure trial (decision 81)
 FROM_BEFORE_ITEMS, MIXED_REVIEW_ITEMS = 2, 4         # the pilot's sizes (abacus #6425)
 ITEM = re.compile(r"^[ \t]*```item[ \t]+(\S+)[ \t]*\n(.*?)^[ \t]*```", re.M | re.S)
 KEYS = re.compile(r"^[ \t]*```keys\b", re.M)
@@ -458,7 +459,10 @@ def check_review(lessons, placement_texts, graph):
     items or more, and tests only topics taught by the lesson's prerequisites (transitively) outside unit 0,
     the calculator. ## Mixed review holds MIXED_REVIEW_ITEMS items or more, two of them on earlier lessons'
     topics, no two in a row sharing a topic, and comes before any ## Checkpoint. Each section appears at most
-    once. An item's ID is its own across lessons and placement (the browser's review queue keys on it)."""
+    once. An item's ID is its own across lessons and placement (the browser's review queue keys on it).
+    ## Try it first (decision 81) opens a lesson with a problem before its teaching: at most once, before the
+    first keys block, at least one item, each answer: type and calculator: no, and each on a topic the lesson
+    itself teaches. An item before a keys block may sit there as well as in From before."""
     bad, owner = [], {}
     topics = graph["topics"]
     unit_of = {l: u["n"] for c in graph.get("courses", {}).values() for u in c["units"] for l in u["lessons"]}
@@ -470,18 +474,20 @@ def check_review(lessons, placement_texts, graph):
         heads, items = lesson_items(text)
         names = [h for _, h in heads]
         at = {h: p for p, h in heads}
-        for sec in (FROM_BEFORE, MIXED_REVIEW):
+        for sec in (FROM_BEFORE, MIXED_REVIEW, TRY_FIRST):
             if names.count(sec) > 1:
                 bad.append(f"{lid}: '## {sec}' appears {names.count(sec)} times; once at most")
         keys = [m.start() for m in KEYS.finditer(text)]
         if FROM_BEFORE in at and keys and keys[0] < at[FROM_BEFORE]:
             bad.append(f"{lid}: '## {FROM_BEFORE}' comes after a keys block; it opens the lesson, before the setup")
+        if TRY_FIRST in at and keys and keys[0] < at[TRY_FIRST]:
+            bad.append(f"{lid}: '## {TRY_FIRST}' comes after a keys block; its problem comes before the teaching")
         earlier = before.get(lid, set())
         for iid, pos, under, f in items:
             owner.setdefault(iid, []).append(lid)
-            if under != FROM_BEFORE and any(k > pos for k in keys):
-                bad.append(f"{lid}: item {iid} comes before a keys block but is not in '## {FROM_BEFORE}': the "
-                           f"student run would meet the device as the learner left it")
+            if under not in (FROM_BEFORE, TRY_FIRST) and any(k > pos for k in keys):
+                bad.append(f"{lid}: item {iid} comes before a keys block but is not in '## {FROM_BEFORE}' or "
+                           f"'## {TRY_FIRST}': the student run would meet the device as the learner left it")
         fb = [i for i in items if i[2] == FROM_BEFORE]
         mr = [i for i in items if i[2] == MIXED_REVIEW]
         for iid, _, _, f in fb:
@@ -499,6 +505,18 @@ def check_review(lessons, placement_texts, graph):
                                f"among its prerequisites")
                 elif unit_of.get(src) == "0":
                     bad.append(f"{lid}: From-before item {iid} tests '{slug}', a calculator topic of unit 0 ({src})")
+        tf = [i for i in items if i[2] == TRY_FIRST]
+        for iid, _, _, f in tf:
+            if f.get("answer") != "type" or f.get("calculator") != "no":
+                bad.append(f"{lid}: Try-it-first item {iid} must be answer: type and calculator: no, since it "
+                           f"comes before the examples")
+            for slug in f.get("topics", "").split():
+                src = taught_by(slug)
+                if src is not None and src != lid:
+                    bad.append(f"{lid}: Try-it-first item {iid} tests '{slug}', taught by {src}: its problem is on "
+                               f"what this lesson teaches")
+        if TRY_FIRST in at and not tf:
+            bad.append(f"{lid}: '## {TRY_FIRST}' holds no item")
         if FROM_BEFORE in at and len(fb) < FROM_BEFORE_ITEMS:
             bad.append(f"{lid}: '## {FROM_BEFORE}' holds {len(fb)} of the {FROM_BEFORE_ITEMS} items it needs")
         if MIXED_REVIEW in at:
@@ -539,8 +557,8 @@ def selftest_review(lessons, placement_texts, graph):
     meta, text = lessons[lid]
     # The plants model a lesson without the sections, so the lesson's own come out first (poly-02 has had
     # them since 29bb6ae, and a second copy of each would refuse every plant for being twice).
-    text = re.sub(rf"^## (?:{FROM_BEFORE}|{MIXED_REVIEW})\n.*?(?=^## |\Z)", "", text, flags=re.M | re.S)
-    if FROM_BEFORE in text or MIXED_REVIEW in text:
+    text = re.sub(rf"^## (?:{FROM_BEFORE}|{MIXED_REVIEW}|{TRY_FIRST})\n.*?(?=^## |\Z)", "", text, flags=re.M | re.S)
+    if FROM_BEFORE in text or MIXED_REVIEW in text or TRY_FIRST in text:
         print(f"FAIL {lid}'s own review sections did not come out")
         return False
     lessons = {**lessons, lid: (meta, text)}
@@ -564,6 +582,9 @@ def selftest_review(lessons, placement_texts, graph):
 
     def mr(*its):
         return f"## {MIXED_REVIEW}\n\n" + "".join(its)
+
+    def tf(*its):
+        return f"## {TRY_FIRST}\n\n" + "".join(its)
     first_head = re.search(r"^## ", text, re.M).start()
     good_fb = fb(item("ZF1", o1), item("ZF2", o2))
     good_mr = mr(item("ZM1", o1), item("ZM2", own), item("ZM3", o2), item("ZM4", own))
@@ -574,6 +595,7 @@ def selftest_review(lessons, placement_texts, graph):
     some_id = next((im.group(1) for t in placement_texts.values() for im in ITEM.finditer(t)), None)
     greens = [
         ("a From-before set and a Mixed review as the plan has them", lesson(good_fb, "\n" + good_mr)),
+        ("a Try-it-first item on the lesson's own topic, after From before", lesson(good_fb + tf(item("ZT1", own)))),
         ("the same with each section's items reordered, no topic repeated in a row",
          lesson(fb(item("ZF2", o2), item("ZF1", o1)), "\n" + mr(item("ZM2", own), item("ZM1", o1),
                                                                  item("ZM4", own), item("ZM3", o2)))),
@@ -606,6 +628,15 @@ def selftest_review(lessons, placement_texts, graph):
         ("a Mixed review after the Checkpoint", lesson(tail="\n## Checkpoint\n\nDone.\n\n" + good_mr),
          f"'## {MIXED_REVIEW}' comes after '## Checkpoint'"),
         ("a Mixed review before the examples", lesson(good_mr), "item ZM1 comes before a keys block"),
+        # ## Try it first (decision 81): the three controls of the proposal, and its place before the teaching.
+        ("a Try-it-first item on the calculator", lesson(good_fb + tf(item("ZT1", own, calculator="yes"))),
+         "Try-it-first item ZT1 must be answer: type and calculator: no"),
+        ("a second Try-it-first section", lesson(good_fb + tf(item("ZT1", own)) + tf(item("ZT2", own))),
+         f"'## {TRY_FIRST}' appears 2 times"),
+        ("a Try-it-first item on a topic another lesson teaches", lesson(good_fb + tf(item("ZT1", o1))),
+         f"Try-it-first item ZT1 tests '{o1}', taught by"),
+        ("a Try-it-first section after the setup", lesson(good_fb, "\n" + tf(item("ZT1", own))),
+         f"'## {TRY_FIRST}' comes after a keys block"),
     ]
     if some_id:
         plants.append(("an item ID a placement item already has",
