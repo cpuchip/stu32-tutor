@@ -269,10 +269,10 @@ ROUTES = ("guided", "open")
 def route_data(lessons, graph):
     """For the routes map (abacus #7153, #7155): each unit's checkpoint (the lesson whose ## Checkpoint holds it, and
     its item ids; a unit passes when every one is right) and each lesson with no items of its own (no_items: true;
-    done once its last example's Try it is pressed). A unit with no checkpoint closes when each of its lessons is
-    done (closes_on: lessons; abacus #7157): the standing rule for a course's unit 0, the calculator, and the interim
-    rule for any other unit until its checkpoint is written. The passport stamps such a unit "lessons done", never
-    "passed". Problems: a unit with checkpoint items in two lessons."""
+    done once the last keys block in its file is tried, abacus #7180). A unit with no checkpoint closes when each of
+    its lessons is done (closes_on: lessons; abacus #7157): the standing rule for a course's unit 0, the calculator,
+    and the interim rule for any other unit until its checkpoint is written. The passport stamps such a unit "lessons
+    done", never "passed". Problems: a unit with checkpoint items in two lessons."""
     bad = []
     for cid, c in graph.get("courses", {}).items():
         for u in c["units"]:

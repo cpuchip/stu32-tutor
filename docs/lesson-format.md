@@ -359,8 +359,10 @@ the plain side doors.
 **What the map reads** (Michael's route cards; abacus #7153, #7155, #7157). Each course file says its default mode,
 `route | guided` or `route | open` (pre-algebra and geometry guided, algebra to calculus open; a path link can set
 either). A door opens when what the lesson leans on is done:
-- inside a unit, a lesson is done when its own items are right; a lesson with none (`no_items: true` in `--json`)
-  is done when its last example's Try it has been pressed;
+- inside a unit, a lesson is done when its own items are right, every one of them (From before and Try it first
+  included: retries are allowed and nothing records a first attempt, abacus #7180); a lesson with none
+  (`no_items: true` in `--json`) is done when the last keys block in its file has been tried, which is its last
+  exercise's check, present in every mode and entry the lesson offers;
 - a unit is done when its checkpoint passes, every item right, retries allowed (`checkpoint` in `--json`: its
   lesson and item ids; graph.py refuses a checkpoint split across two lessons);
 - a unit with no checkpoint (`closes_on: lessons`) is done when each of its lessons is: the standing rule for a

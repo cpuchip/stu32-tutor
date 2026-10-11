@@ -59,3 +59,26 @@ FC2M3W@alg | its working: 2 × 3 × 3 | MODE33 FIX4 2 * 3 * 3 ENTER | N=18 %LINE
 FC2M3W@rpn | its working: 2 × 3 × 3 | MODE33 FIX4 2 ENTER 3 * 3 * | X=18
 FC2M3A@alg | slip: 6 × 9 | MODE33 FIX4 6 * 9 ENTER | N=54 %LINE=6×9
 FC2M3A@rpn | slip: 6 × 9 | MODE33 FIX4 6 ENTER 9 * | X=54
+# Checkpoint, unit 3 (abacus #7157): each answer typed, its working, and the slips'; @alg the line, @rpn the stack.
+CPP3A@alg | checkpoint: the smallest prime dividing 91, typed | MODE33 FIX4 7 ENTER | N=7 %LINE=7
+CPP3A@rpn | checkpoint: the smallest prime dividing 91, typed | MODE33 FIX4 7 ENTER | X=7
+CPP3A1@alg | slip: 91 taken as prime | MODE33 FIX4 91 ENTER | N=91 %LINE=91
+CPP3A1@rpn | slip: 91 taken as prime | MODE33 FIX4 91 ENTER | X=91
+CPP3A2@alg | slip: the other factor, 91 / 7 | MODE33 FIX4 91 / 7 ENTER | N=13 %LINE=91÷7
+CPP3A2@rpn | slip: the other factor, 91 / 7 | MODE33 FIX4 91 ENTER 7 / | X=13
+CPP3B@alg | checkpoint: the GCF of 24 and 36, typed | MODE33 FIX4 12 ENTER | N=12 %LINE=12
+CPP3B@rpn | checkpoint: the GCF of 24 and 36, typed | MODE33 FIX4 12 ENTER | X=12
+CPP3BW@alg | its working: the shared primes, 2 x 2 x 3 | MODE33 FIX4 2 * 2 * 3 ENTER | N=12 %LINE=2×2×3
+CPP3BW@rpn | its working: the shared primes, 2 x 2 x 3 | MODE33 FIX4 2 ENTER 2 * 3 * | X=12
+CPP3B1@alg | slip: a common factor only, 2 x 3 | MODE33 FIX4 2 * 3 ENTER | N=6 %LINE=2×3
+CPP3B1@rpn | slip: a common factor only, 2 x 3 | MODE33 FIX4 2 ENTER 3 * | X=6
+CPP3B2@alg | slip: the LCM, 2 x 2 x 2 x 3 x 3 | MODE33 FIX4 2 * 2 * 2 * 3 * 3 ENTER | N=72 %LINE=2×2×2×3×3
+CPP3B2@rpn | slip: the LCM, 2 x 2 x 2 x 3 x 3 | MODE33 FIX4 2 ENTER 2 * 2 * 3 * 3 * | X=72
+CPP3C@alg | checkpoint: the LCM of 4 and 6, typed | MODE33 FIX4 12 ENTER | N=12 %LINE=12
+CPP3C@rpn | checkpoint: the LCM of 4 and 6, typed | MODE33 FIX4 12 ENTER | X=12
+CPP3CW@alg | its working: 4 x 6 / 2, the product over the GCF | MODE33 FIX4 4 * 6 / 2 ENTER | N=12 %LINE=4×6÷2
+CPP3CW@rpn | its working: 4 x 6 / 2, the product over the GCF | MODE33 FIX4 4 ENTER 6 * 2 / | X=12
+CPP3C1@alg | slip: the pack sizes multiplied | MODE33 FIX4 4 * 6 ENTER | N=24 %LINE=4×6
+CPP3C1@rpn | slip: the pack sizes multiplied | MODE33 FIX4 4 ENTER 6 * | X=24
+CPP3C2@alg | slip: the GCF of 4 and 6 | MODE33 FIX4 2 ENTER | N=2 %LINE=2
+CPP3C2@rpn | slip: the GCF of 4 and 6 | MODE33 FIX4 2 ENTER | X=2

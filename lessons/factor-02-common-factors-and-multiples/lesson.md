@@ -261,3 +261,35 @@ answer: type
 calculator: no
 slip: FC2M4A | stopped before the last digit | Bring down every digit: after 91 comes the 2.
 ```
+
+## Checkpoint
+
+Questions on the whole unit.
+
+```item CPP3A
+prompt: What is the smallest prime that divides 91? (If 91 is prime, the answer is 91.)
+topics: prime
+answer: type
+calculator: no
+working: none
+slip: CPP3A1 | stopped testing at 5 | 91 is odd, its digits add to 10 and it does not end in 0 or 5, but 7 is still below 10: 7 × 13 is 91.
+slip: CPP3A2 | the other factor | 91 is 7 × 13, and 7 is the smaller of the two primes.
+```
+
+```item CPP3B
+prompt: What is the greatest common factor of 24 and 36?
+topics: gcf
+answer: type
+calculator: no
+slip: CPP3B1 | a common factor, not the greatest | 6 divides both, but so does 12. Take every prime both share: 24 is 2 × 2 × 2 × 3 and 36 is 2 × 2 × 3 × 3.
+slip: CPP3B2 | the least common multiple | That is the smallest number both divide. The greatest common factor is the largest number dividing both.
+```
+
+```item CPP3C
+prompt: Buns come in packs of 4 and rolls in packs of 6. What is the smallest number of buns you can buy that matches a number of rolls you can buy?
+topics: lcm
+answer: type
+calculator: no
+slip: CPP3C1 | multiplied the pack sizes | 24 works, but a smaller number does: count up in fours and sixes until they meet.
+slip: CPP3C2 | the greatest common factor | 2 divides both pack sizes. The question asks for a number both pack sizes go into.
+```
