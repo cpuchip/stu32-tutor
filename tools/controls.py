@@ -342,6 +342,9 @@ CONTROLS_FOR["eq-03-two-answers-and-inequalities"] = [
     # | separates a slip's fields (check.py splits on it), so an absolute value may not sit in a slip's maths.
     ("an absolute value in a slip's maths", "lesson.md", "Square each first: $49 − 16$.", "Square each first: $|49 − 16|$.", {},
      "a | inside a maths span on a slip line"),
+    # An absolute value's bars outside its span (CP2B's own first form, abacus #7372): half the expression is prose.
+    ("an absolute value's bars outside its span", "lesson.md", "prompt: $|x − 2| = 5$ has two answers.",
+     "prompt: |$x − 2$| = 5 has two answers.", {}, "prompt: |$x − 2$| = 5 has tw'; put the whole expression in the span"),
     # On E01, not A03: A04's why block names A03's 8, so a wrong A03 quote stops at the why check first.
     ("the other root quoted", "lesson.md", 'kind="view">X=3.0000<', 'kind="view">X=-5.0000<', {},
      "E01: the device's X line shows 'X=3.0000' (view)"),
@@ -916,6 +919,11 @@ CONTROLS_FOR["rpn-03-the-display"].append(
      "```keys P01\nGOLD DISP FIX 4 2 ENTER 3 ÷\n", "```keys P01\n2 ENTER 3 ÷\n", {},
      "P01: working through in order"))
 GREENS_FOR = {
+    "eq-03-two-answers-and-inequalities": [
+        # A table's bars are cell walls, spaced from the span, not an absolute value (abacus #7372).
+        ("a table whose cells hold maths, bars spaced", "lesson.md", "\n## Exercises\n",
+         "\n| $x$ | 0 | 5 |\n|---|---|---|\n| $2x + 3 − 11$ | −8 | 2 |\n\n## Exercises\n"),
+    ],
     "whole-01-adding-and-subtracting": [
         ("a plain sentence reworded, the same numbers in the same order", "lesson.md",
          "A store holds 742 loaves, and 368 are sent out.", "A store has 742 loaves and sends out 368."),

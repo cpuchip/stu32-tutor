@@ -134,7 +134,19 @@ Try S on 6:
 6 XEQ S ENTER
 ```
 
-X shows <disp v="S01">2.0000</disp>: $s(6) = \sqrt{4}$. Now 2:
+X shows <disp v="S01">2.0000</disp>: $s(6) = \sqrt{4}$.
+
+```item SQ1T1
+prompt: Work out $s(51)$ by hand, for the same $s(x) = \sqrt{x − 2}$.
+twin: S01
+topics: function
+answer: type
+calculator: no
+slip: SQ1T1A | the root first | S takes the 2 away first and then the root: $\sqrt{49}$, not $\sqrt{51} − 2$.
+slip: SQ1T1B | no root | $51 − 2$ is 49, and the root of 49 is 7.
+```
+
+Now 2:
 
 ```keys S02 after=S01
 2 XEQ S

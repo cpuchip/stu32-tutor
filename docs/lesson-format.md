@@ -294,8 +294,9 @@ arithmetic too, Michael via abacus #6967). The lesson says where the maths is:
   of $r$"), and a product of letters is read where an operator touches it ($y = mx + b$). Each decision is a line of
   tools/maths_hand.txt, which the converter reads, so a regeneration reproduces every accepted lesson.
 - **No half-spans** (abacus #7274): check.py refuses an operator in the prose touching a span ("eˣ = $3x$") and a
-  span glued to a raised letter, a word character or a bracket ("$500 × 1.04$ᵀ", "($2x − 3$)$x$"): the whole
-  expression goes in the span. A plural s is English ("how many $\frac{2}{10}$s"). A raised letter (ˣ ʳ ᵗ ᵀ …) is
+  span glued to a raised letter, a word character, a bracket or an absolute value's bar ("$500 × 1.04$ᵀ",
+  "($2x − 3$)$x$", "|$x − 2$| = 5"): the whole expression goes in the span. A table's bar is spaced from its
+  cell's span ("| $x$ |") and passes. A plural s is English ("how many $\frac{2}{10}$s"). A raised letter (ˣ ʳ ᵗ ᵀ …) is
   `^{x}`, and a formula in words writes its words as `\text{…}` (letters and spaces only, and only in a span with a
   function, operator or relation): `$\sin A = \text{opposite} ÷ \text{hypotenuse}$`.
 - **An absolute value** is `$|x − 3|$`, the bars with no space inside (a table row is never read as bars), and a

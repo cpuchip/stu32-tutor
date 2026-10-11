@@ -221,7 +221,7 @@ slip: CP2A2 | undid the × 4 first | Undo in the opposite order: the − 7 first
 ```
 
 ```item CP2B
-prompt: |$x − 2$| = 5 has two answers. What is the larger one?
+prompt: $|x − 2| = 5$ has two answers. What is the larger one?
 topics: abs
 answer: type
 calculator: no

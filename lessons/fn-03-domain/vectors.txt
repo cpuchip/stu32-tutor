@@ -9,6 +9,11 @@ D03 | continues D02: C clears it, the 0 left in X | MODE33 FIX4 PRGM LBL:R INV R
 D04 | continues D03: program entry opens at the line that refused | MODE33 FIX4 PRGM LBL:R INV RTN LBL:S 2 - SQRT RTN PRGM 4 XEQ:R 0 XEQ:R C PRGM | ERR %PC=R002
 D05 | continues D04: program entry off, nothing changed | MODE33 FIX4 PRGM LBL:R INV RTN LBL:S 2 - SQRT RTN PRGM 4 XEQ:R 0 XEQ:R C PRGM PRGM | ERR %LINES=8 %PC=R002
 S01 | continues D05: s(6) | MODE33 FIX4 PRGM LBL:R INV RTN LBL:S 2 - SQRT RTN PRGM 4 XEQ:R 0 XEQ:R C PRGM PRGM 6 XEQ:S | ERR X=2
+# S01's twin (step 5): its answer typed, its working, and the slips'.
+SQ1T1 | twin: s(51) for the root of x - 2, typed | MODE33 FIX4 7 | X=7
+SQ1T1W | its working, S's own keys | MODE33 FIX4 51 ENTER 2 - SQRT | X=7
+SQ1T1A | slip: the root first, root 51 - 2 | MODE33 FIX4 51 SQRT 2 - | X=5.141428428542849997999399811367265
+SQ1T1B | slip: no root, 51 - 2 | MODE33 FIX4 51 ENTER 2 - | X=49
 S02 | continues S01: s(2) = 0, the edge of the domain | MODE33 FIX4 PRGM LBL:R INV RTN LBL:S 2 - SQRT RTN PRGM 4 XEQ:R 0 XEQ:R C PRGM PRGM 6 XEQ:S 2 XEQ:S | ERR X=0
 S03 | continues S02: s(1) is refused: SQRT(NEG) | MODE33 FIX4 PRGM LBL:R INV RTN LBL:S 2 - SQRT RTN PRGM 4 XEQ:R 0 XEQ:R C PRGM PRGM 6 XEQ:S 2 XEQ:S 1 XEQ:S | ERR
 S04 | continues S03: C clears it; X holds x - 2 = -1, the number the square root refused | MODE33 FIX4 PRGM LBL:R INV RTN LBL:S 2 - SQRT RTN PRGM 4 XEQ:R 0 XEQ:R C PRGM PRGM 6 XEQ:S 2 XEQ:S 1 XEQ:S C | ERR X=-1

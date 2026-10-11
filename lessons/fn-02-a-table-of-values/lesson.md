@@ -210,6 +210,16 @@ ask: Why do the inputs a half either side of 2 give the same value?
 because: $q(x)$ can also be written $(x − 2)^{2} − 1$, so it depends only on how far $x$ is from 2, not on which side.
 ```
 
+```item G1T1
+prompt: Work out $q(0.5)$ by hand, for the same $q(x) = x^{2} − 4x + 3$.
+twin: G01
+topics: function
+answer: type
+calculator: no
+slip: G1T1A | doubled instead of squared | $0.5^{2}$ is $0.5 × 0.5$, which is 0.25, not 1.
+slip: G1T1B | added the 4x | It is minus $4x$: $0.25 − 2 + 3$.
+```
+
 ## Exercises
 
 1. Where is $q(x)$ zero? Read it from the table, then check one of the answers with Q.

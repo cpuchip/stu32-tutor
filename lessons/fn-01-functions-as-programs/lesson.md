@@ -180,6 +180,16 @@ ask: Why does G need an ENTER before x², when F needed nothing like it?
 because: $g$ uses $x$ twice, and x² replaces the $x$ in X with its square. ENTER keeps a copy in Y first, so the + still has the $x$ to add.
 ```
 
+```item G2T1
+prompt: Work out $g(4)$ by hand, for the same $g(x) = x^{2} + x$.
+twin: G02
+topics: function
+answer: type
+calculator: no
+slip: G2T1A | squared only | $g$ adds $x$ back after squaring it: $4^{2}$ is 16, then $16 + 4$.
+slip: G2T1B | read the square as times 2 | $4^{2}$ is $4 × 4$, not $4 × 2$.
+```
+
 ## Fixing a mistake
 
 In program entry, ← deletes the line showing. Say you meant $k(x) = 2x − 3$ but pressed + at the end.

@@ -385,14 +385,15 @@ def check_maths(body):
             out.append(f"the maths span '${tex}$': {e}")
     # A half-span (abacus #7274, its maths_halfspan detector): an operator in the prose touching a span, as in
     # "eˣ = $3x$" or "$500 × 1.04$ᵀ = 1000", means part of one expression was left out of it. Tags are masked first
-    # (a voice tag's < is not an operator); keys blocks, quotes and math fences are not prose.
+    # (a voice tag's < is not an operator); keys blocks, quotes and math fences are not prose. An absolute value's bar
+    # touching a span, "|$x − 2$| = 5", is one too (abacus #7372); a table's cell, "| $x$ |", keeps its spaces.
     hidden = body
     for rx in (KEYS_ANY, DISP_ANY, MATHS_FENCE, MATHS_TAG):
         hidden = rx.sub(lambda m: "\x00" * len(m.group(0)), hidden)
     for a, b, tex in spans:
         left, right = hidden[max(0, a - 2):a], hidden[b:b + 2]
         if re.search(r"[=+−×÷<>≤≥≠±] ?\Z", left) or re.match(r" ?[=+−×÷<>≤≥≠±]", right) \
-                or re.search(rf"[\w{SUP_FORMS}′)]\Z", left) or re.match(rf"[{SUP_FORMS}(]|(?!s\b)\w", right):
+                or re.search(rf"[\w{SUP_FORMS}′)|]\Z", left) or re.match(rf"[{SUP_FORMS}(|]|(?!s\b)\w", right):
             # (a plural s is English: "how many $\frac{2}{10}$s make")
             out.append(f"a maths span touching more maths outside it: '{hidden[max(0, a - 12):a]}${tex}${hidden[b:b + 12]}'"
                        f"; put the whole expression in the span")
