@@ -53,7 +53,7 @@ To add 7 and 5, type 7, press ENTER, type 5, and press +.
 7 ENTER 5 +
 ```
 
-X shows <disp v="S01">12.0000</disp>.
+X shows <disp v="S01">12.0000</disp>, the sum of 7 and 5.
 
 ENTER copies the 7 up into Y. The 5 you type next replaces the copy left in X, so Y holds 7 and X
 holds 5. The + key then adds Y and X and puts the sum in X.

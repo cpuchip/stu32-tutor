@@ -41,12 +41,12 @@ CONTROLS = [
     ("a | inside a vector's description", "vectors.txt", "S01 | ENTER separates two numbers; + uses both |",
      "S01 | ENTER separates | two numbers; + uses both |", {}, "5 fields, expected 4"),
     # Why blocks (decision 76, step 4): planted under S01, whose example shows 7, 5 and 12.
-    ("a why block naming a number its example does not show", "lesson.md", 'X shows <disp v="S01">12.0000</disp>.\n',
-     'X shows <disp v="S01">12.0000</disp>.\n\n```why\nask: Why does Y hold 7 when + is pressed?\n'
+    ("a why block naming a number its example does not show", "lesson.md", 'X shows <disp v="S01">12.0000</disp>, the sum of 7 and 5.\n',
+     'X shows <disp v="S01">12.0000</disp>, the sum of 7 and 5.\n\n```why\nask: Why does Y hold 7 when + is pressed?\n'
      'because: ENTER copied the 7 up into Y, and the 6 replaced the copy in X.\n```\n', {},
      "a why block under S01 names 6, which its example does not show"),
-    ("a why block with no because:", "lesson.md", 'X shows <disp v="S01">12.0000</disp>.\n',
-     'X shows <disp v="S01">12.0000</disp>.\n\n```why\nask: Why does Y hold 7 when + is pressed?\n```\n', {},
+    ("a why block with no because:", "lesson.md", 'X shows <disp v="S01">12.0000</disp>, the sum of 7 and 5.\n',
+     'X shows <disp v="S01">12.0000</disp>, the sum of 7 and 5.\n\n```why\nask: Why does Y hold 7 when + is pressed?\n```\n', {},
      "a why block needs one ask: and one because: line"),
     ("a why block with no example above it", "lesson.md", "## Two numbers, one operation\n",
      "## Two numbers, one operation\n\n```why\nask: Why two numbers?\nbecause: An operation like + needs both.\n```\n", {},
@@ -56,20 +56,20 @@ CONTROLS = [
      "a why block with a ## heading between it and its example"),
     # The why block's region includes the example's lead-in paragraph (abacus #6632).
     ("a why number from two paragraphs above its example", [("lesson.md", "## Two numbers, one operation\n\nTo add 7",
-      "## Two numbers, one operation\n\nHere are 2 numbers.\n\nTo add 7"), ("lesson.md", 'X shows <disp v="S01">12.0000</disp>.\n', 'X shows <disp v="S01">12.0000</disp>.\n\n```why\nask: Why do 2 numbers go in before +?\nbecause: + needs both, so each is typed and kept first.\n```\n')], None, None, {},
+      "## Two numbers, one operation\n\nHere are 2 numbers.\n\nTo add 7"), ("lesson.md", 'X shows <disp v="S01">12.0000</disp>, the sum of 7 and 5.\n', 'X shows <disp v="S01">12.0000</disp>, the sum of 7 and 5.\n\n```why\nask: Why do 2 numbers go in before +?\nbecause: + needs both, so each is typed and kept first.\n```\n')], None, None, {},
      "a why block under S01 names 2, which its example does not show"),
     ("a why number from above a heading, the example having no lead-in", [("lesson.md", "To add 7 and 5, type 7, press ENTER, type 5, and press +.\n\n", ""),
       ("lesson.md", "You only do this setup once.", "You only do this setup once, in 2 steps."),
-      ("lesson.md", 'X shows <disp v="S01">12.0000</disp>.\n', 'X shows <disp v="S01">12.0000</disp>.\n\n```why\nask: Why do 2 numbers go in before +?\nbecause: + needs both, so each is typed and kept first.\n```\n')], None, None, {},
+      ("lesson.md", 'X shows <disp v="S01">12.0000</disp>, the sum of 7 and 5.\n', 'X shows <disp v="S01">12.0000</disp>, the sum of 7 and 5.\n\n```why\nask: Why do 2 numbers go in before +?\nbecause: + needs both, so each is typed and kept first.\n```\n')], None, None, {},
      "a why block under S01 names 2, which its example does not show"),
     # An ID is not a number the example shows: S01's 1, in its fence and its <disp v="S01"> tag.
-    ("a why number found only in its example's ID", "lesson.md", 'X shows <disp v="S01">12.0000</disp>.\n',
-     'X shows <disp v="S01">12.0000</disp>.\n\n```why\nask: Why does + need the ENTER?\n'
+    ("a why number found only in its example's ID", "lesson.md", 'X shows <disp v="S01">12.0000</disp>, the sum of 7 and 5.\n',
+     'X shows <disp v="S01">12.0000</disp>, the sum of 7 and 5.\n\n```why\nask: Why does + need the ENTER?\n'
      'because: ENTER keeps 1 number apart from the next.\n```\n', {},
      "a why block under S01 names 1, which its example does not show"),
     # A lesson id is shown as its title (abacus #5459), so its digits are no number on either side.
     ("a why number found only in a lesson id", [("lesson.md", "To add 7 and 5, type 7, press ENTER, type 5, and press +.", "To add 7 and 5, type 7, press ENTER, type 5, and press + (as in num-03)."),
-      ("lesson.md", 'X shows <disp v=\"S01\">12.0000</disp>.\n', 'X shows <disp v=\"S01\">12.0000</disp>.\n\n```why\nask: Why does + come 3rd?\nbecause: It needs both numbers first.\n```\n')], None, None, {},
+      ("lesson.md", 'X shows <disp v=\"S01\">12.0000</disp>, the sum of 7 and 5.\n', 'X shows <disp v=\"S01\">12.0000</disp>, the sum of 7 and 5.\n\n```why\nask: Why does + come 3rd?\nbecause: It needs both numbers first.\n```\n')], None, None, {},
      "a why block under S01 names 3, which its example does not show"),
     ("a | inside a display vector's line", "fmt-vectors.txt", "| 12 | FIX 4 |  | 12.0000", "| 12 | FIX 4 |  | 12.0000 | x", {},
      "7 fields, expected 6"),
@@ -183,7 +183,7 @@ CONTROLS = [
      "holds the key name SIN"),
     ("a maths span written as a key's name", "lesson.md", "To add 7 and 5, type 7,", "To add $7 + 5$ key and 5, type 7,", {},
      "a maths span names a key"),
-    ("a why number its example's maths does not show", "lesson.md", 'X shows <disp v="S01">12.0000</disp>.\n',
+    ("a why number its example's maths does not show", "lesson.md", 'X shows <disp v="S01">12.0000</disp>, the sum of 7 and 5.\n',
      'X shows <disp v="S01">12.0000</disp>, and $12 = 3 \\times 4$.\n\n```why\nask: Why is 12 also 6 doubled?\n'
      'because: 6 + 6 is 12.\n```\n', {}, "a why block under S01 names 6, which its example does not show"),
 ]
@@ -192,11 +192,11 @@ CONTROLS = [
 # Negative controls: harmless changes that must still pass, so a red above is not a check that
 # fails on everything near it. (The first em-dash check counted the text "2014".)
 GREENS = [
-    ("a why block naming a lesson id", "lesson.md", 'X shows <disp v=\"S01\">12.0000</disp>.\n', 'X shows <disp v=\"S01\">12.0000</disp>.\n\n```why\nask: Why does Y hold 7 when + is pressed?\nbecause: ENTER copied it up, as num-04 relies on.\n```\n'),
+    ("a why block naming a lesson id", "lesson.md", 'X shows <disp v=\"S01\">12.0000</disp>, the sum of 7 and 5.\n', 'X shows <disp v=\"S01\">12.0000</disp>, the sum of 7 and 5.\n\n```why\nask: Why does Y hold 7 when + is pressed?\nbecause: ENTER copied it up, as num-04 relies on.\n```\n'),
     ("a why number from its example's lead-in", [("lesson.md", "To add 7 and 5, type 7, press ENTER, type 5, and press +.",
-      "To add 7 and 5, 2 numbers, type 7, press ENTER, type 5, and press +."), ("lesson.md", 'X shows <disp v="S01">12.0000</disp>.\n', 'X shows <disp v="S01">12.0000</disp>.\n\n```why\nask: Why do 2 numbers go in before +?\nbecause: + needs both, so each is typed and kept first.\n```\n')], None, None),
-    ("a why block under S01 whose numbers its example shows", "lesson.md", 'X shows <disp v="S01">12.0000</disp>.\n',
-     'X shows <disp v="S01">12.0000</disp>.\n\n```why\nask: Why does Y hold 7 when + is pressed?\n'
+      "To add 7 and 5, 2 numbers, type 7, press ENTER, type 5, and press +."), ("lesson.md", 'X shows <disp v="S01">12.0000</disp>, the sum of 7 and 5.\n', 'X shows <disp v="S01">12.0000</disp>, the sum of 7 and 5.\n\n```why\nask: Why do 2 numbers go in before +?\nbecause: + needs both, so each is typed and kept first.\n```\n')], None, None),
+    ("a why block under S01 whose numbers its example shows", "lesson.md", 'X shows <disp v="S01">12.0000</disp>, the sum of 7 and 5.\n',
+     'X shows <disp v="S01">12.0000</disp>, the sum of 7 and 5.\n\n```why\nask: Why does Y hold 7 when + is pressed?\n'
      'because: ENTER copied the 7 up into Y, and the 5 replaced the copy in X, so + gives 12.\n```\n'),
     ("a year in the prose is not an em-dash", "lesson.md", "## Two numbers, one operation",
      "## Two numbers, one operation (CODATA 2014, 2018 and 2022)"),
@@ -205,7 +205,7 @@ GREENS = [
      "scientific form. A price of 1.05 or 21.5 is fine to write.\n"),
     ("an input written in the display's form, in a sentence about no screen", "lesson.md", "scientific form.\n",
      "scientific form. A rate of 0.0825 is typed as it is written.\n"),
-    ("a why number its example shows only inside maths", "lesson.md", 'X shows <disp v="S01">12.0000</disp>.\n',
+    ("a why number its example shows only inside maths", "lesson.md", 'X shows <disp v="S01">12.0000</disp>, the sum of 7 and 5.\n',
      'X shows <disp v="S01">12.0000</disp>, and $12 = 3 \\times 4$.\n\n```why\nask: Why is 12 also 3 × 4?\n'
      'because: 3 fours make 12.\n```\n'),
     ("\\% and \\angle on the list", "lesson.md", "To add 7 and 5, type 7,",
@@ -221,7 +221,7 @@ GREENS = [
     ("LCM and GCF upright, a bracket fraction and a mixed number", "lesson.md", "To add 7 and 5, type 7,",
      "To add 7 and 5 ($\\operatorname{LCM}(4, 8) = 8$, $\\operatorname{GCF} = 4$, $\\frac{1 + 3}{4 + 8}$, $1 \\frac{1}{8}$), type 7,"),
     # seen() strips tags and lesson ids; a span's reading is lifted out first, so neither eats the maths.
-    ("maths with < and x-10 read whole", "lesson.md", 'X shows <disp v="S01">12.0000</disp>.\n',
+    ("maths with < and x-10 read whole", "lesson.md", 'X shows <disp v="S01">12.0000</disp>, the sum of 7 and 5.\n',
      'X shows <disp v="S01">12.0000</disp>, so $x < 13$ and $x-10 = 2$ when x is 12 > 11.\n\n```why\n'
      'ask: Why is x − 10 equal to 2?\nbecause: x is 12, which is below 13, and 10 less is 2.\n```\n'),
 ]
