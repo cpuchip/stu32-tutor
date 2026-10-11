@@ -80,7 +80,7 @@ The screen shows <disp v="U01">15.0000</disp>. Carrying on, divide what is there
 
 The screen shows <disp v="U02">5.0000</disp>: she ordered 5 pies.
 
-Undo them in the other order, the × 3 first and then the + 5, and see what happens:
+Undo the two steps in the other order, the × 3 first and then the + 5, and see what happens:
 
 ```keys W01 entry=alg
 20 ÷ 3 − 5 ENTER

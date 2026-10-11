@@ -15,13 +15,11 @@ voices: story plain
 # Factors and primes
 
 <voice v="story">Maren has 84 pastries to set out in equal rows.</voice><voice v="plain">84 pastries are to be set out in equal rows.</voice> 84 in rows of 2 works, and so do rows of 3; rows of 5
-leave some over. The numbers that make equal rows of 84 are its factors. This lesson finds factors by
-hand, checks them with Rmdr (whole-02), and meets the primes: the numbers with exactly two different
+leave some over. The numbers that make equal rows of 84 are its factors. You find factors by
+hand, check them with Rmdr (whole-02), and meet the primes: the numbers with exactly two different
 factors, 1 and themselves.
 
 ## From before
-
-Two from unit 1, by hand.
 
 ```item FC1F1
 prompt: What is the remainder when 50 is divided by 7?
@@ -126,7 +124,7 @@ and a 3, so if 2 and 3 do not divide the number, none of them can. (This is for 
 prime below 10, like 7, divides itself: Rmdr of 7 and 7 is 0, and that does not make 7 not prime.)
 
 For 97: it is odd; its digits add to 16, which 3 does not divide; it does not end in 0 or 5. And 7, by
-hand (whole-02): 7 goes into 9 once with 2 over, and 27 holds three 7s (21) with 6 over: 13, with 6
+hand: 7 goes into 9 once with 2 over, and 27 holds three 7s (21) with 6 over: 13, with 6
 over. The check:
 
 ```keys R05 entry=alg
@@ -225,9 +223,6 @@ The screen shows <disp v="F01">84.0000</disp>.
    The screen shows <disp v="E03">5.0000</disp>. So 89 is prime.
 
 ## Mixed review
-
-Four from this lesson and the ones before it, in no order. Work each by hand unless it says to use
-the calculator.
 
 ```item FC1M1
 prompt: Does 9 divide 126? Give the remainder of 126 ÷ 9.

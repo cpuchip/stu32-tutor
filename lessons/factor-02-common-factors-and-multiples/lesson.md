@@ -24,8 +24,6 @@ second a multiple both share. Both come from the prime factorizations of factor-
 
 ## From before
 
-Two from before, by hand: a factorization from factor-01, and a division from whole-02.
-
 ```item FC2F1
 prompt: In the prime factorization of 72, how many 2s are there?
 topics: prime-factorization
@@ -56,7 +54,7 @@ BLUE MODE {mode} BLUE MODE {entry} GOLD DISP FIX 4
 A box size works when it divides both 84 and 90. The biggest such number is their greatest common
 factor (GCF). Find it from the prime factorizations:
 
-- 84 = 2 × 2 × 3 × 7 (factor-01).
+- 84 = 2 × 2 × 3 × 7.
 - 90 = 2 × 3 × 3 × 5 (90 = 2 × 45, 45 = 3 × 15, 15 = 3 × 5).
 
 The primes both have are one 2 and one 3. For each prime, take it the smaller number of times it
@@ -103,7 +101,7 @@ GOLD INT÷ 90 GOLD , 6 ▶ ENTER
 ```
 
 <disp v="G04">15.0000</disp> of cherry. To check by hand that 6 really is the greatest, list the factors
-of each (by their pairs, as in factor-01). 84: 1, 2, 3, 4, 6, 7, 12, 14, 21, 28, 42, 84. 90: 1, 2, 3, 5,
+of each (by their pairs, as before). 84: 1, 2, 3, 4, 6, 7, 12, 14, 21, 28, 42, 84. 90: 1, 2, 3, 5,
 6, 9, 10, 15, 18, 30, 45, 90. The ones in both lists are 1, 2, 3 and 6, and the greatest is 6.
 
 
@@ -233,9 +231,6 @@ because: Multiplying them gives a common multiple too, but 36 is the first day o
    The screen shows <disp v="E04">120.0000</disp>.
 
 ## Mixed review
-
-Four from this lesson and the ones before it, in no order. Work each by hand unless it says to use
-the calculator.
 
 ```item FC2M1
 prompt: What is the greatest common factor of 18 and 30?
