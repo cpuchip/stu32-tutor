@@ -19,7 +19,7 @@ it (eq-03). So the work is in deciding where to look, and in knowing when you ha
 
 ## From before
 
-Working out a polynomial at a number is this kind of arithmetic.
+Working out a polynomial at a number is arithmetic like this, in the order num-01 set out.
 
 ```item P2F1
 prompt: Work out 3 × 2² − 5.

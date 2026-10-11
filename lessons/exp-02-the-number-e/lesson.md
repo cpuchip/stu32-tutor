@@ -10,7 +10,7 @@ display: FIX 4
 # The number e
 
 exp-01 grew an amount by a factor once a year. Growth can also be added more often: interest of 6%
-a year paid as 0.5% every month, or as a tiny share every day. The more often, the more the amount
+a year (a percent, as in num-04) paid as 0.5% every month, or as a tiny share every day. The more often, the more the amount
 grows, but by less and less: the total gets closer and closer to a value it never passes, called
 its limit. That limit is a new number, e, about 2.7183. The eˣ key raises e to
 a power.

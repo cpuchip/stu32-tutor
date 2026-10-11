@@ -46,7 +46,7 @@ BLUE MODE {mode} GOLD DISP FIX 4
 
 ## Arithmetic sequences
 
-A sequence that adds the same number at every step is arithmetic, and the number it adds is its
+A sequence that adds the same number at every step, like a line from lin-01, is arithmetic, and the number it adds is its
 common difference, d. A theatre has 20 seats in its first row and 2 more in each row behind. Row 2
 has 20 + 2, row 3 has 20 + 2 + 2, and row n has 20 plus n − 1 steps of 2: the first term plus
 (n − 1) times d. Row 15 has 20 + 14 × 2:
