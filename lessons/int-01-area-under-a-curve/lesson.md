@@ -111,6 +111,11 @@ X shows <disp v="A02">9.4550</disp>, and carrying on, 300:
 <disp v="A03">9.0451</disp>. The sums seem to close in on 9 as the strips thin out, and the next section
 confirms it: the area under y = x² from 0 to 3 is 9.
 
+```why
+ask: Why do the sums come down toward 9 from above, and never below it?
+because: Each rectangle is as tall as the curve at its right end, and x² rises along every strip, so every rectangle sticks out above the curve; thinner strips stick out less.
+```
+
 ## The built-in integral
 
 The calculator can estimate the integral itself. ∫, gold above 8, finds the integral of the expression
