@@ -77,6 +77,11 @@ GOLD VIEW A
 
 The screen shows <disp v="S01V" kind="view">A=42.0000</disp>.
 
+```why
+ask: Why is the width 42 ÷ 12, when the formula multiplies?
+because: The formula says 12 times the width is 42. Dividing by 12 undoes the times 12, and leaves the width on its own.
+```
+
 ## The same formula, another letter
 
 The formula is still in the calculator, and A, L and W still hold 42, 12 and 3.5. Show it again with
@@ -101,6 +106,11 @@ R/S
 
 The X line shows <disp v="S02" kind="view">L=12.0000</disp>, the length you started from. One formula, typed once, answered
 for two different letters.
+
+```why
+ask: Why does solving for L give back 12, the length you started from?
+because: A and W still held the area and the width from before, and only one length gives that area with that width: the one that made them.
+```
 
 ## A formula with more in it
 

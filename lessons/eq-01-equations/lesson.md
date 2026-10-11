@@ -96,6 +96,11 @@ GOLD EQN XEQ 5 R/S
 X shows <disp v="Q04">2.0000</disp>. The left side is 2 × 5 + 3, which is 13, two more than 11, so
 5 is not a solution. The number left over tells you how far off a try is, and which way.
 
+```why
+ask: Why does trying 5 in place of the solution give exactly 2?
+because: The left side holds 2 × x, so each step of one in x moves the left side by 2, and left minus right moves with it.
+```
+
 ## Letting the calculator solve it
 
 SOLVE (gold, above 7) searches for a value of X that makes left minus right zero, and reports the
@@ -123,6 +128,11 @@ it, and any other key clears it and then does its own job. Press ←:
 
 X shows <disp v="Q05C">4.0000</disp>: the view is gone, and the 4 is still in X. To check the
 solution again, show the equation, press XEQ, and press R/S at X? to keep the 4.
+
+```why
+ask: Why is SOLVE's 4 the same value that made XEQ show zero?
+because: SOLVE searches for the X that makes left minus right zero, and that is exactly what XEQ works out. So the value SOLVE reports is one XEQ shows as zero.
+```
 
 ## The × matters
 

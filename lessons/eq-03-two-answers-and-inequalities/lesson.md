@@ -86,6 +86,11 @@ The X line shows <disp v="A04" kind="view">X=-2.0000</disp>. Both answers, found
 you expect more than one answer, work out roughly where they are first, by reasoning as above or by
 checking values with XEQ and watching where left minus right changes sign, then guess near each.
 
+```why
+ask: Why did guesses 0 and −10 find −2, and not the 8 from before?
+because: SOLVE usually finds the answer nearest its guesses, and −2 is much nearer to 0 and −10 than 8 is.
+```
+
 One more thing about guesses. Right after you type an equation and press ENTER, Equation mode is
 still on, and digits you type start a new equation instead of setting a guess. So press EQN once
 to leave Equation mode, set the guesses, then press EQN again to show the equation for SOLVE.
@@ -116,6 +121,11 @@ GOLD EQN XEQ 5 R/S
 X shows <disp v="B02">2.0000</disp>: positive, so 5 does not. The inequality is true for every x less
 than 4: x < 4. At 4 itself the two sides are equal (eq-01 showed 0 there), so 4 is not less: it
 would count only for ≤, "less than or equal to".
+
+```why
+ask: Why does one test at 0 settle every x less than 4?
+because: Left minus right, 2x + 3 − 11, is a straight line that crosses zero only at 4, so it cannot change sign anywhere else. Negative at 0, it stays negative all the way to 4.
+```
 
 ## Exercises
 

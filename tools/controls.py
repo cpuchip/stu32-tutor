@@ -245,8 +245,9 @@ CONTROLS_FOR["eq-02-formulas"] = [
      "T02: printed keys and vector disagree in 33s mode"),
 ]
 CONTROLS_FOR["eq-03-two-answers-and-inequalities"] = [
-    ("the other root quoted", "lesson.md", 'kind="view">X=8.0000<', 'kind="view">X=-2.0000<', {},
-     "A03: the device's X line shows 'X=8.0000' (view)"),
+    # On E01, not A03: A04's why block names A03's 8, so a wrong A03 quote stops at the why check first.
+    ("the other root quoted", "lesson.md", 'kind="view">X=3.0000<', 'kind="view">X=-5.0000<', {},
+     "E01: the device's X line shows 'X=3.0000' (view)"),
     ("a guess keyed without its sign", "lesson.md", "```keys A04 after=A03\n0 STO X 10 +/− ",
      "```keys A04 after=A03\n0 STO X 10 ", {}, "A04: printed keys and vector disagree in 33s mode"),
     # A computed answer's working (abacus #6439): a wrong typed answer is caught by the core, not only a reader.
