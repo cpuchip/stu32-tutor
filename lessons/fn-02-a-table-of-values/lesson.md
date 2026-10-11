@@ -79,6 +79,11 @@ X shows <disp v="Q02">-1.0000</disp>: q(2) = 4 − 8 + 3. And Y holds 2, the inp
 the two ENTERs made is left over. So when Q finishes, the input sits in Y beside the output in X,
 which is just what a table needs.
 
+```why
+ask: Why does Q start with two ENTERs?
+because: The rule needs one copy of x for the 4x, after x² has squared the one in X. The second ENTER makes a spare, and the spare is what is left in Y beside q(x) when Q ends.
+```
+
 ## A loop
 
 A table needs Q run for x = 0, 1, 2, 3 and 4. A second program, T, does that with a loop: a run of
@@ -201,6 +206,11 @@ X shows <disp v="G02">-0.7500</disp> too. Both are above −1 and below 0, and e
 rounded at the bottom, and its two sides mirror each other about the vertical line x = 2. Join the
 points with a smooth curve, not straight lines. The graph of any function of the form ax² + bx + c,
 with a not zero, has this shape, which is called a parabola.
+
+```why
+ask: Why do the inputs a half either side of 2 give the same value?
+because: q(x) can also be written (x − 2)² − 1, so it depends only on how far x is from 2, not on which side.
+```
 
 ## Exercises
 

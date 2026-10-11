@@ -98,6 +98,11 @@ quotient a/b is the number that gives a when it is multiplied by b, and no numbe
 is multiplied by 0. So 0 is not in the domain of r. Every other number is, so the domain of r is
 all numbers except 0.
 
+```why
+ask: Why can no number stand for 1 ÷ 0, not even a very large one?
+because: A very large number times 0 is still 0, never 1. And 1 divided by numbers closer and closer to 0 grows without end, so there is no number for it to settle on.
+```
+
 Press C to clear the message:
 
 ```keys D03 after=D02
@@ -178,6 +183,11 @@ GOLD PRGM PRGM
 So the domain of s is the inputs x for which x − 2 is not negative: x − 2 ≥ 0, which is x ≥ 2.
 2 itself is in it, as s(2) = 0 showed. It is the edge of the domain: every number above it is in,
 every number below it is out, however close.
+
+```why
+ask: Why is 2 the edge of s's domain, and not 0, the edge of √x's own?
+because: S takes 2 away before the root, so the root sees x − 2. That is 0 when x is 2, and negative for any x below it.
+```
 
 The domain comes from the rule, worked out as above; the calculator's message confirms it. A
 calculator can refuse for other reasons too, so a message alone does not tell you the domain.

@@ -98,6 +98,11 @@ GOLD PRGM PRGM
 
 PRGM leaves the status band and the X line shows a number again: keys are worked out as usual.
 
+```why
+ask: Why does the program never mention x?
+because: The input is already in X when the program starts, so the keys only say what to do to it: double it, then add three.
+```
+
 ## Using the function
 
 XEQ runs a program. With no equation showing, it waits for a label. Type the input, then XEQ:
@@ -169,6 +174,11 @@ Then g(3):
 ```
 
 X shows <disp v="G02">12.0000</disp>: 3² + 3 = 9 + 3.
+
+```why
+ask: Why does G need an ENTER before x², when F needed nothing like it?
+because: g uses x twice, and x² replaces the x in X with its square. ENTER keeps a copy in Y first, so the + still has the x to add.
+```
 
 ## Fixing a mistake
 
