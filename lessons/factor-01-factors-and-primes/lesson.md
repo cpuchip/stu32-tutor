@@ -14,7 +14,7 @@ voices: story plain
 
 # Factors and primes
 
-<voice v="story">Maren has 84 pastries to set out in equal rows.</voice><voice v="plain">84 pastries are to be set out in equal rows.</voice> 84 in rows of 2 works, and so do rows of 3; rows of 5
+<voice v="story">Maren has 84 pastries to set out in equal rows on the bakery's long table.</voice><voice v="plain">84 pastries are to be set out in equal rows.</voice> 84 in rows of 2 works, and so do rows of 3; rows of 5
 leave some over. The numbers that make equal rows of 84 are its factors. You find factors by
 hand, check them with Rmdr (whole-02), and meet the primes: the numbers with exactly two different
 factors, 1 and themselves.

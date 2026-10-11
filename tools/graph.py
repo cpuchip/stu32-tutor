@@ -782,7 +782,7 @@ def selftest_links(lessons):
 
 
 VOICE_SPAN = re.compile(r'<voice v="([^"]*)">(.*?)</voice>', re.S)        # check.py's, for the plain voice's cast
-LORE_KINDS = ("character", "place", "object", "age")
+LORE_KINDS = ("character", "place", "object", "age", "event")   # an event: a plot point, under the cast rule
 LORE_VERBS = ("lives_in", "located_in", "works_with", "keeps", "made", "passes_to", "before")
 
 
@@ -871,7 +871,40 @@ def check_lore(entities, edges, lessons, graph):
                     bad.append(f"{lid}: '{who}' is cast:, but their home {home} is not among its prerequisites")
             if home not in ("world", lid) and course_of.get(home) != course_of.get(lid):
                 cameos.append({"lesson": lid, "name": who, "home": home, "home_course": course_of.get(home)})
+    bad += check_doors(ents, lessons, graph, reach)
     graph["lore"] = {"entities": ents, "edges": rels, "appearances": appear, "cameos": cameos}
+    return bad
+
+
+def opening_story(text):
+    """A lesson's opening (after the front matter and title, before its first ## heading), in its story voice."""
+    body = text.split("\n---", 1)[-1]
+    opening = re.split(r"^## ", body, maxsplit=1, flags=re.M)[0]
+    return VOICE_SPAN.sub(lambda m: m.group(2) if m.group(1) == "story" else "", opening)
+
+
+def check_doors(ents, lessons, graph, reach):
+    """Rule 4 of lore/WORLD.md on every door (routes, ruled 2026-10-11, abacus #6967). A learner can enter a unit at
+    its first lesson, or, on an open route, at a side door: a lesson whose prerequisites leave out an earlier lesson
+    of its unit. Each such lesson with a story voice names where we are, a lore place or age, in its story opening,
+    so a learner who starts there is not lost. --json marks each side door (side_door: true) for the map."""
+    bad = []
+    where = [n for n, e in ents.items() if e["kind"] in ("place", "age")]
+    for cid, c in sorted(graph.get("courses", {}).items()):
+        for u in c["units"]:
+            ls = [l for l in u["lessons"] if l in lessons]
+            for i, lid in enumerate(ls):
+                left_out = [e for e in ls[:i] if e not in reach(lid)]
+                if left_out:
+                    graph["lessons"][lid]["side_door"] = True
+                if (i and not left_out) or "story" not in lessons[lid][0].get("voices", "").split():
+                    continue
+                story = opening_story(lessons[lid][1])
+                named = [n for n in where if re.search(r"(?i)\b" + re.escape(re.sub(r"^the ", "", n)) + r"\b", story)]
+                if not named:
+                    door = "its unit's first lesson" if not i else f"a side door, open before {', '.join(left_out)}"
+                    bad.append(f"{lid}: a learner can start here ({door}), but its story opening names no lore place "
+                               f"or age; say where we are (lore/WORLD.md rule 4)")
     return bad
 
 
@@ -905,6 +938,42 @@ def selftest_lore(entities, edges, lessons, graph):
     else:
         print("FAIL no whole-01 plain span to plant the plain-voice fault in")
         return False
+    # Routes (abacus #7120): an event under the cast rule, and rule 4 on every door. neg-01 opens unit 4 naming only
+    # the mill; frac-03 is pre-algebra's one voiced side door (open before frac-02).
+    ev = (98, ["event", "the mill wheel broke", "whole-02", "A plot point, planted"])
+    late = next((l for l in sorted(lessons) if "whole-02" in graph_reach(graph, l)), None)
+    plants.append(("an event leaned on before its home", entities + [ev], edges,
+                   {**lessons, "whole-01": ({**lessons["whole-01"][0], "cast": "Hesk, Tobin, the mill wheel broke"},
+                                            lessons["whole-01"][1])},
+                   "whole-01: 'the mill wheel broke' is cast:, but their home whole-02 is not among its prerequisites"))
+    nm, nt = lessons["neg-01"]
+    pond = '<voice v="story">In winter, Hesk keeps a thermometer by the mill pond.</voice>'
+    plants.append(("a unit's first lesson that says nowhere", entities, edges,
+                   {**lessons, "neg-01": (nm, nt.replace(pond, '<voice v="story">In winter, Hesk keeps a thermometer by a pond.</voice>'))},
+                   "neg-01: a learner can start here (its unit's first lesson)"))
+    fm, ft = lessons["frac-03"]
+    place3 = "a customer from across Thornwick buys"
+    if ft.count(place3) != 1:
+        print("FAIL frac-03's opening has no 'from across Thornwick' to take out")
+        return False
+    plants.append(("a side door that says nowhere", entities, edges,
+                   {**lessons, "frac-03": (fm, ft.replace(place3, "a customer buys"))},
+                   "frac-03: a learner can start here (a side door, open before frac-02)"))
+    greens = [("an event leaned on after its home", entities + [ev], edges,
+               {**lessons, late: ({**lessons[late][0], "cast": ", ".join(x for x in [lessons[late][0].get("cast", ""),
+                                  "the mill wheel broke"] if x)}, lessons[late][1])} if late else lessons)]
+    ok = bool(late)
+    for gname, en, ed, ls in greens:
+        problems = check_lore(en, ed, ls, json.loads(json.dumps(graph)))
+        print(f"{'ok  ' if not problems else 'FAIL'} {gname} is accepted" + (f": {problems[:2]}" if problems else ""))
+        ok = ok and not problems
+    g2 = json.loads(json.dumps(graph))
+    problems = check_lore(entities, edges, lessons, g2)
+    plain_doors = sorted(l for l, v in g2["lessons"].items() if v.get("side_door") and "voices" not in lessons[l][0])
+    quiet = not problems and "rpn-03" in plain_doors and g2["lessons"]["frac-03"].get("side_door")
+    print(f"{'ok  ' if quiet else 'FAIL'} plain side doors are marked and left alone: {plain_doors}" +
+          (f": {problems[:2]}" if problems else ""))
+    ok = ok and quiet
     red = 0
     for pname, en, ed, ls, why in plants:
         problems = check_lore(en, ed, ls, json.loads(json.dumps(graph)))
@@ -912,7 +981,16 @@ def selftest_lore(entities, edges, lessons, graph):
         print(f"{'ok  ' if hit else 'FAIL'} {pname}" + (f"\n       -> {hit[0]}" if hit else f": {problems[:2]}"))
         red += bool(hit)
     print(f"{red}/{len(plants)} lore controls red as planted")
-    return red == len(plants)
+    return ok and red == len(plants)
+
+
+def graph_reach(graph, lid, seen=None):
+    """A lesson's prerequisites, transitively (for the selftest's choice of a lesson after another)."""
+    out = set()
+    for d in graph["lessons"].get(lid, {}).get("needs", []):
+        out.add(d)
+        out |= graph_reach(graph, d)
+    return out
 
 
 def selftest_placement(placement_texts, graph):

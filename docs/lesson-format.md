@@ -344,6 +344,17 @@ view). A lesson names who appears in it in its front matter, as comma lists (a n
   first. A character no lesson introduces (home `world`) cannot be cast.
 - `walk-ons: Tobin`: parts that stand alone; a learner who has never met them loses nothing. That is
   the non-author read's to check, not graph.py's.
+- An `event` in lore/ENTITIES is a plot point ("the mill wheel broke"), homed in the lesson that tells it. A lesson
+  whose story leans on it lists it in `cast:`, so the same rule holds: every route meets the event first. Otherwise
+  the story tells it again in a line.
+
+**Where we are, on every door** (routes, ruled 2026-10-11, abacus #6967). A learner can enter a unit at its first
+lesson, or, on an open route, at a side door: a lesson whose prerequisites leave out an earlier lesson of its unit.
+graph.py refuses such a lesson with a story voice whose story opening (before its first `##`) names no lore place
+or age (lore/WORLD.md rule 4), so a learner who starts there is never lost. `--json` marks each side door
+(`side_door: true`) for the map. A plain lesson needs no such line. `graph.py --selftest` plants an event leaned on
+before its home, a unit's first lesson and a side door that say nowhere, and accepts an event after its home and
+the plain side doors.
 
 graph.py (in `make check`) refuses an unknown kind or verb, an edge end or appearance that is not an
 entity, a home that is not a lesson, and a cast character not met on every route. `--json` gives the

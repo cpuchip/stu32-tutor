@@ -14,10 +14,9 @@ voices: story plain
 
 # Letters for numbers
 
-<voice v="story">Maren sells pies at 7 coins each.</voice><voice v="plain">Pies sell at 7 coins each.</voice> Two pies cost 7 × 2 = 14 coins, and ten cost 7 × 10 = 70. Each
+<voice v="story">In the bakery on Thornwick's square, Maren sells pies at 7 coins each.</voice><voice v="plain">Pies sell at 7 coins each.</voice> Two pies cost 7 × 2 = 14 coins, and ten cost 7 × 10 = 70. Each
 time the rule is the same: 7 times the number of pies. Algebra writes a rule like that once, with a
-letter standing for the number that changes: if n is the number of pies, they cost 7 × n coins. This
-lesson is about letters like n: what they mean, and how to work out what a rule gives for a number.
+letter standing for the number that changes: if n is the number of pies, they cost 7 × n coins.
 
 ## From before
 

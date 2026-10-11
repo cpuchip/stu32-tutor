@@ -60,7 +60,9 @@ true map of the town or the bay.
    lesson is among the lesson's prerequisites, on every route). One who only passes by stands alone
    (`walk-ons:`), and the link back to their home is an invitation, never a need.
 4. **A unit's story stands alone.** Its first lesson opens with one line that says where we are, so a
-   learner who starts there (placement, or a chosen route) is never lost.
+   learner who starts there (placement, or a chosen route) is never lost. So does any lesson an open route
+   lets a learner reach before its unit's earlier lessons (a side door). graph.py checks both: the story
+   opening names a place or an age of the lore.
 5. **No real person,** and nothing about the learners.
 
 ## The files

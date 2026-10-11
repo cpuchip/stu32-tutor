@@ -14,7 +14,7 @@ voices: story plain
 
 # Multiplying and dividing fractions
 
-<voice v="story">On Monday, Maren has 3/4 of a pan of fudge left, and a customer buys half of it. What fraction of the
+<voice v="story">On Monday, Maren has 3/4 of a pan of fudge left, and a customer from across Thornwick buys half of it. What fraction of the
 pan is that? On Tuesday, with 3/4 of another pan, she cuts pieces of 3/8 pan each: how many pieces?</voice><voice v="plain">3/4 of a pan of fudge is left, and a customer buys half of it. What fraction of the
 pan is that? From 3/4 of another pan, pieces of 3/8 pan each are cut: how many pieces?</voice>
 The first is multiplying fractions, the second dividing them. Neither needs a common bottom, though one
