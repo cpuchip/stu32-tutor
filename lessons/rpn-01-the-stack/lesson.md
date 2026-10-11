@@ -12,8 +12,8 @@ display: FIX 4
 The STU-32 has no equals key. You give it the numbers first and the operation last, and it works
 each step the moment you press it. This is RPN, Reverse Polish Notation. The "Polish" is for Jan
 Łukasiewicz, a Polish logician whose notation put the operation before the numbers; RPN puts it
-after. While you type, the numbers wait on a stack, so this lesson is about the stack: where your
-numbers go, and how to move them.
+after. While you type, the numbers wait on a stack, and most of using RPN is knowing where each
+one goes and how to move it.
 
 ## Before you start
 
@@ -41,7 +41,7 @@ The screen shows four lines, labelled T, Z, Y and X from top to bottom. X, at th
 number you are looking at, and it is where every answer lands. With FIX 4, numbers show four
 decimal places, and very large or very small ones switch to scientific form.
 
-You only do this setup once. The examples below are meant to be worked in order. Most start
+You only do this setup once. Work the examples in order. Most start
 fresh and don't depend on what is already on the stack; when one carries on from the example
 before it, the text says so and its keys are only what you press next.
 
@@ -80,7 +80,7 @@ and X holds 2. Twenty divided by eight is:
 20 ENTER 8 ÷
 ```
 
-X shows <disp v="S03">2.5000</disp>.
+X shows <disp v="S03">2.5000</disp>: eight goes into twenty two and a half times.
 
 ## ENTER copies
 
@@ -96,8 +96,7 @@ Both X and Y hold 6. Therefore ENTER followed by × multiplies a number by itsel
 6 ENTER ×
 ```
 
-The rule for typing is worth knowing exactly. Right after ENTER, the next number you type replaces
-the copy in X. After an operation such as + − × or ÷, the next number you type pushes X up into Y
+Right after ENTER, the next number you type replaces the copy in X. After an operation such as + − × or ÷, the next number you type pushes X up into Y
 first.
 
 ## A result is a number you can keep using
@@ -182,13 +181,13 @@ X holds 12 again.
 ## Negative numbers
 
 The − key subtracts, so it cannot also make a number negative. For that there is +/−, which
-changes the sign of the number you are typing. Here is −5 minus 3:
+changes the sign of the number you are typing. So −5 minus 3 is:
 
 ```keys S13
 5 +/− ENTER 3 −
 ```
 
-X shows <disp v="S13">-8.0000</disp>.
+X shows <disp v="S13">-8.0000</disp>: from five below zero, three further down.
 
 If you press − in place of +/−, the calculator subtracts your 5 from whatever is in Y. That gives a
 wrong answer and no error message, so watch for it.
@@ -206,7 +205,7 @@ times, so all four levels hold 1.05, then press × five times:
 1.05 ENTER ENTER ENTER × × × × ×
 ```
 
-X shows <disp v="S14">1.3401</disp>. That is 1.05 to the sixth power: over six years the price grows
+X shows <disp v="S14">1.3401</disp>, which is 1.05 to the sixth power: over six years the price grows
 by about 34%. The first three presses of × use the four 1.05s you filled in. From the fourth press
 on, each × uses a copy that T dropped down.
 

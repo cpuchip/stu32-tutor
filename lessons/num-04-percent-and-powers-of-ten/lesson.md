@@ -10,7 +10,7 @@ display: FIX 2
 # Percent and powers of ten
 
 Two kinds of number come up often: percents, in prices and changes, and very large or very small
-numbers, written with powers of ten. This lesson finishes the unit on numbers with both.
+numbers, written with powers of ten.
 
 ## Before you start
 
@@ -33,7 +33,7 @@ percent of Y. Type the number first, then the percent:
 ```
 
 X holds 12, and Y still holds the 80. That is different from + and ×, which use up Y and drop the
-stack: % leaves Y where it was, and Z and T too. Here it is with two more numbers above:
+stack: % leaves Y where it was, and Z and T too. With two more numbers above:
 
 ```keys C00
 1 ENTER 2 ENTER 80 ENTER 15 GOLD %
@@ -88,10 +88,9 @@ typing the power. So 4 × 10⁻³, which is 0.004, is 4, E, 3, +/−:
 ```
 
 X shows <disp v="C06">4.00E-3</disp>. The number 0.004 has no digit but zero in its first two
-places, so at FIX 2 the calculator switches to scientific form on its own, as rpn-03 showed for
-FIX 4.
+places, so at FIX 2 the calculator switches to scientific form on its own, as it does at FIX 4.
 
-Where you press +/− matters. Pressed before E, it changes the sign of the front number instead:
+Pressed before E, +/− changes the sign of the front number instead:
 
 ```keys C06B
 4 +/− E 3 ENTER
@@ -186,7 +185,7 @@ because: 10¹² is twelve tens multiplied together and 10⁹ is nine tens, so th
 
 ## Checkpoint
 
-Questions on the whole unit. Work each by hand first (a few offer the calculator), then give your answer; the page checks it. A wrong answer that comes from a common slip gets a hint that names the step.
+Questions on the whole unit.
 
 ```item CP1A
 prompt: Work out 2 + 3 × 4².

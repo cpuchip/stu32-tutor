@@ -14,11 +14,11 @@ parentheses first, then powers, then multiplication and division, then addition 
 Multiplication and division share a rank and are done left to right, and so are addition and
 subtraction. A minus sign in front of a number is applied after powers: −3² is the negative of 3².
 So 3 + 4 × 5 is 23: the multiplication comes first. On the STU-32 you do the operations yourself,
-one key at a time, so you choose the order. This lesson is about choosing it.
+one key at a time, so you choose the order.
 
 ## Before you start
 
-The setup from rpn-01: the mode you chose and FIX 4. Each example below is written out in full from it.
+The setup from rpn-01: the mode you chose and FIX 4. Each example is written out in full from it.
 
 ```keys setup
 BLUE MODE {mode} GOLD DISP FIX 4
@@ -50,8 +50,7 @@ You can also start with the multiplication and bring the 3 in last:
 4 ENTER 5 × 3 +
 ```
 
-X holds 23 again. This second way, working from the inside out, comes back at the end of the
-lesson.
+X holds 23 again. This second way works from the inside out.
 
 ## Parentheses first
 
@@ -183,7 +182,7 @@ ask: Why does working from the inside out never need more than two levels?
 because: Each step finishes a result before the next number is typed, so the stack holds only that result and the one new number it waits for.
 ```
 
-It has one catch. With + and × the order of the two numbers does not matter, but with − and ÷ it
+It has one catch: with + and × the order of the two numbers does not matter, but with − and ÷ it
 does. Take 20 − 3 × 4 from the inside out: work out 3 × 4, then type the 20.
 
 ```keys N10S

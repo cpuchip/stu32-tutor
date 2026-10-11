@@ -11,11 +11,9 @@ display: FIX 4
 
 A power is repeated multiplication: 2⁵ is 2 × 2 × 2 × 2 × 2. A root undoes a power: the cube root
 of 8 is 2, because 2³ is 8. The STU-32 has keys for the common cases and one key, yˣ, for the
-rest. This lesson is about those keys, and about the order of the two numbers they use.
+rest. yˣ and its root each take two numbers, and which one goes in first changes the answer.
 
 ## From before
-
-Two from num-01 and num-02, by hand.
 
 ```item NM3F1
 prompt: Work out (6 − 2) × 5.
@@ -200,7 +198,7 @@ X shows <disp v="R10">1,000.0000</disp>. And 1/x, the key beside yˣ, gives one 
 8 1/x
 ```
 
-X shows <disp v="R11">0.1250</disp>.
+X shows <disp v="R11">0.1250</disp>, one eighth.
 
 ## Exercises
 
@@ -231,7 +229,7 @@ X shows <disp v="R11">0.1250</disp>.
 
    X shows <disp v="E03">16.0000</disp>.
 
-4. −16. The power comes before the minus sign (num-01), so raise 2 to the 4th, then change the sign:
+4. −16. The power comes before the minus sign, so raise 2 to the 4th, then change the sign:
 
    ```keys E04
    2 ENTER 4 yˣ +/−

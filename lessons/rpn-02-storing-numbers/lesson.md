@@ -15,7 +15,7 @@ them, named A to Z, and a variable keeps its number until you change it.
 
 ## Before you start
 
-This lesson works in money, so set the display to two decimal places: blue, then ENTER (MODE), the
+Money takes two decimal places, so set the display to two: blue, then ENTER (MODE), the
 soft key under your mode, then gold, 2 (DISP), the soft key under FIX, and 2.
 
 ```keys setup
@@ -61,14 +61,14 @@ RCL can also do the arithmetic. Press RCL, then ×, then A, and X is multiplied 
 0.0825 STO A 40 RCL × A
 ```
 
-The answer is the same. RCL with − or ÷ works X minus A, or X divided by A. Here it takes 10 from
+The answer is the same. RCL with − or ÷ works X minus A, or X divided by A. RCL − A takes 10 from
 25:
 
 ```keys V03A
 10 STO A 25 RCL − A
 ```
 
-X holds 15. And here it divides 10 by 4:
+X holds 15, and RCL ÷ A divides 10 by 4:
 
 ```keys V03B
 4 STO A 10 RCL ÷ A
@@ -97,8 +97,8 @@ B (the eˣ key) at 0 and add each one:
 0 STO B 12.5 STO + B 7.25 STO + B 30 STO + B
 ```
 
-B now holds 49.75. Starting at 0 matters: STO + adds to whatever B held before, and a calculator
-that has been used may have left anything there.
+B now holds 49.75. Start at 0, because STO + adds to whatever B held before, and a calculator that
+has been used may have left anything there.
 
 To look at a variable without disturbing the stack, use VIEW (gold, above STO):
 
@@ -132,7 +132,7 @@ width and length of a rectangle, 3.5 in W and 12 in L, and find its area:
 3.5 STO W 12 STO L RCL L RCL W ×
 ```
 
-X shows <disp v="V07">42.00</disp>. The same two variables give its perimeter, 2 × (L + W):
+X shows <disp v="V07">42.00</disp>, the area. The same two variables give its perimeter, 2 × (L + W):
 
 ```keys V08
 3.5 STO W 12 STO L RCL L RCL W + 2 ×
@@ -160,7 +160,7 @@ because: RCL pushes the stack up, as a typed number does after an operation, so 
    1.08 STO G 250 RCL × G RCL × G
    ```
 
-   X shows <disp v="E01">291.60</disp>.
+   X shows <disp v="E01">291.60</disp>, the price after two years.
 
 2. D holds 67. STO − takes X away from the variable, so D goes from 100 to 76.6 to 67:
 

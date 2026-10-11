@@ -11,7 +11,7 @@ display: FIX 4
 
 Measurements and recipes come in fractions: 3/8 of an inch, 2/3 of a cup. The STU-32 lets you type
 them as fractions and can show its answers as fractions. Underneath, every number is still a
-decimal with 34 significant digits, and this lesson is about both sides of that.
+decimal with 34 significant digits, and that decimal decides which fraction you see.
 
 ## Before you start
 
@@ -124,7 +124,7 @@ Turn fraction display off again before the exercises:
 BLUE →FRAC
 ```
 
-X shows <disp v="G08">0.8333</disp>.
+X shows <disp v="G08">0.8333</disp>, five sixths as a decimal.
 
 ## Exercises
 
@@ -133,7 +133,7 @@ X shows <disp v="G08">0.8333</disp>.
 
 ## Answers
 
-1. The keys:
+1. Two thirds plus one sixth, then →FRAC:
 
    ```keys E01
    .2.3 ENTER .1.6 + BLUE →FRAC

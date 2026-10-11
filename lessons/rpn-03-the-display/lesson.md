@@ -11,8 +11,8 @@ display: FIX 4
 
 The STU-32 keeps 34 significant digits of every number: its digits counted from the first one that
 is not zero, so 0.00456 has three. The screen shows far fewer, and the display setting decides
-which ones. This lesson is about that setting: what each kind shows, and
-why changing it leaves the number underneath as it was.
+which ones. Each kind of setting shows the number its own way, and changing it leaves the number
+underneath as it was.
 
 ## Before you start
 
@@ -35,7 +35,7 @@ have without the change: after ENTER, it still replaces the copy in X.
 X shows <disp v="P00" kind="entry">7_</disp>, the 7 still being typed, with Y holding 2 and Z
 holding 1: the same as 1 ENTER 2 ENTER 7 would leave them.
 
-A display setting stays until you change it. Each example below is written out in full from the
+A display setting stays until you change it. Each example is written out in full from the
 setup, so if you have just changed the setting, an example that needs FIX 4 sets it again.
 
 ## FIX: a fixed number of decimal places
@@ -48,15 +48,14 @@ digits, and FIX 4 shows four decimal places, rounded. Set FIX 4 again (the last 
 GOLD DISP FIX 4 2 ENTER 3 ÷
 ```
 
-X shows <disp v="P01">0.6667</disp>. Here is the same number at FIX 2:
+X shows <disp v="P01">0.6667</disp>, rounded to four places. At FIX 2 the same number shows:
 
 ```keys P02
 2 ENTER 3 ÷ GOLD DISP FIX 2
 ```
 
-X shows <disp v="P02">0.67</disp>.
-
-The display rounded; the number kept its 34 digits. Multiply it by 3:
+X shows <disp v="P02">0.67</disp>. The display rounded, and the number kept its 34 digits. Multiply
+it by 3:
 
 ```keys P03
 2 ENTER 3 ÷ GOLD DISP FIX 2 3 ×
@@ -122,7 +121,7 @@ billion, type 4.5, press E, and type 9. Shown at SCI 2:
 4.5 E 9 GOLD DISP SCI 2
 ```
 
-X shows <disp v="P07">4.50E9</disp>.
+X shows <disp v="P07">4.50E9</disp>, four and a half billion.
 
 ## ALL: no padding
 
@@ -161,7 +160,7 @@ because: The screen has to stop somewhere, and the digit just past where it stop
    22 ENTER 7 ÷ GOLD DISP FIX 3
    ```
 
-   X shows <disp v="E01">3.143</disp>.
+   X shows <disp v="E01">3.143</disp>, close to π.
 
 2. Seven ninths at FIX 2:
 
