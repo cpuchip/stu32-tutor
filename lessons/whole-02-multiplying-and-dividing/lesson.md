@@ -67,13 +67,13 @@ The parts add up to the whole because 23 trays are 20 trays and 3 trays. The che
 The screen shows <disp v="M01">1,058.0000</disp>.
 
 ```item M1T1
-prompt: Work out $37 × 24$ in parts, as above: $37 × 4$, then $37 × 20$, then add them.
+prompt: Work out $43 × 26$ in parts, as above: $43 × 6$, then $43 × 20$, then add them.
 twin: M01
 topics: partial-products
 answer: type
 calculator: no
-slip: M1T1A | the tens taken as ones | The 2 in 24 is 2 tens, so the second part is $37 × 20 = 740$, not $37 × 2$.
-slip: M1T1B | stopped after the ones | That is only the first part. Add the tens part, $37 × 20 = 740$, as well.
+slip: M1T1A | the tens taken as ones | The 2 in 26 is 2 tens, so the second part is $43 × 20 = 860$, not $43 × 2$.
+slip: M1T1B | stopped after the ones | That is only the first part. Add the tens part, $43 × 20 = 860$, as well.
 ```
 
 ## Dividing, and what is left over

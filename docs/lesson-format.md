@@ -326,8 +326,11 @@ maths differ in a number, with the same maths in both voices as a green.
 docs/proposals/worked-examples.md, approved by abacus (#7299) with primer's page answers (#7300).
 - **An item twin**, after a worked example: an item with `twin: <block ID>`, `answer: type` and `calculator: no`,
   right after the example's blocks (a continuation of the example may come between) and under the same `##`
-  heading. Its operands are not the example's own, in any order: $24 × 37$ is not a twin of $37 × 24$. It is an
-  item like any other, with its typed answer, its working and its slips as vectors.
+  heading. Its operands are not the example's own, in any order: $24 × 37$ is not a twin of $37 × 24$. Nor are they
+  any problem's in its unit, an item's (the checkpoint, From before, Mixed review) or an exercise's, or the twin
+  would hand the learner that answer (abacus #7310). A prompt's operands are its problem's, its first maths span, so
+  "Work out $37 × 24$ in parts: $37 × 4$, ..." is [24, 37]. It is an item like any other, with its typed answer, its
+  working and its slips as vectors.
 - **A keys twin**, in a calculator lesson: ```` ```keys ID twin=<block ID> ````. Its prompt is the paragraph above
   it, after the example's own lines, so a twin needs at least two paragraphs between it and its example. Its
   operands are new, and check.py presses and runs it like any block. The page holds its keys back until the

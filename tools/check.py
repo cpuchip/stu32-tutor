@@ -508,7 +508,57 @@ def check_why(body):
 SHIFTS = ("GOLD", "BLUE")                             # a shift and its key are one keystroke for fading
 
 
-def check_worked(body):
+def operands(text):
+    """The numbers of a text, sorted, as values: a twin and an item collide when these are equal (in any order)."""
+    return sorted(Decimal(n) for n in re.findall(r"(?<![\w.])\d+(?:\.\d+)?(?![\w.])", text))
+
+
+def problem_operands(prompt):
+    """A prompt's problem, as operands: its first maths span (a read prompt keeps it between MATHS_KEEP and MATHS_END),
+    so "Work out $37 × 24$ in parts: $37 × 4$, then ..." is [24, 37], not its helper parts too; a prompt with no
+    span gives all its numbers."""
+    m = re.search(f"{MATHS_KEEP}(.*?){MATHS_END}", prompt)
+    return operands(m.group(1) if m else prompt)
+
+
+def unit_problems(lesson_dir, lesson_id):
+    """Every problem a learner meets in the lesson's unit (abacus #7310): each item's prompt, as (ID, operands), and
+    each Exercises line, as ("lesson exercise N", operands), over the lessons the course files put in its unit. The
+    unit is found by the lesson's id in this repository's courses; the lesson itself is read from lesson_dir (a
+    control's planted copy is what is checked), its siblings from lessons/."""
+    root = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+    folders = [d for d in os.listdir(os.path.join(root, "lessons")) if os.path.isdir(os.path.join(root, "lessons", d))]
+    me = next((f for f in folders if f == lesson_id or f.startswith(f"{lesson_id}-")), None)
+    unit = None
+    for path in sorted(os.listdir(os.path.join(root, "courses"))):
+        here, members = None, {}
+        for line in open(os.path.join(root, "courses", path), encoding="utf-8"):
+            p = [x.strip() for x in line.split("|")]
+            if p[0] == "unit":
+                here = p[1]
+            elif p[0] == "lesson":
+                d = next((f for f in folders if f == p[1] or f.startswith(p[1] + "-")), None)
+                members.setdefault(here, []).append(d)
+        for u, ds in members.items():
+            if me in ds:
+                unit = ds
+    out = []
+    for d in unit or [me]:
+        path = os.path.join(lesson_dir, "lesson.md") if d == me or d is None else os.path.join(root, "lessons", d, "lesson.md")
+        meta, body = front_matter(open(path, encoding="utf-8").read())
+        voices = lesson_voices(meta)[0]
+        body = maths_read(body if voices == [None] else voice_view(body, voices[0]))   # the default reading
+        for m in ITEM_BLOCK.finditer(body):
+            prompt = next((l.split(":", 1)[1] for l in m.group(2).splitlines() if l.strip().startswith("prompt:")), "")
+            if not re.search(r"^[ \t]*twin:", m.group(2), re.M):
+                out.append((m.group(1), problem_operands(prompt)))
+        ex = re.search(r"^## Exercises\n(.*?)(?=^## |\Z)", body, re.M | re.S)
+        for n, item in re.findall(r"^(\d+)\. (.*?)(?=^\d+\. |\Z)", ex.group(1) if ex else "", re.M | re.S):
+            out.append((f"{d[:8]} exercise {n}", operands(maths_plain(item))))
+    return out
+
+
+def check_worked(body, unit=()):
     """Problems with a lesson's twins and faded blocks (docs/proposals/worked-examples.md, abacus #7299, primer
     #7300). A twin names an earlier keys block: an item with `twin:` (answer: type, calculator: no) after it and
     before the next block, or a keys block with `twin=` that has prose of its own (its prompt) after it; neither
@@ -521,8 +571,12 @@ def check_worked(body):
         first.setdefault(m.group(2), m)
         last[m.group(2)] = m
 
-    def operands(text):
-        return sorted(Decimal(n) for n in re.findall(r"(?<![\w.])\d+(?:\.\d+)?(?![\w.])", text))
+    def collides(who, ops):
+        """A twin whose operands are an item's or an exercise's in the unit hands the learner that answer."""
+        for label, other in unit:
+            if other == ops and len(ops) >= 2:
+                out.append(f"{who} works the same operands as {label} in its unit; a twin's numbers are its own")
+                return
 
     def section_between(a, b):
         return bool(re.search(r"^## ", body[a:b], re.M))
@@ -557,6 +611,7 @@ def check_worked(body):
                            f"paragraph after the example's own lines")
             if operands(keys) == operands(last[ex].group(4)):
                 out.append(f"keys block {bid}: twin of {ex} works the example's own operands; a twin has new numbers")
+            collides(f"keys block {bid}", operands(keys))
     for m in ITEM_BLOCK.finditer(body):
         iid, f = m.group(1), {}
         for line in m.group(2).splitlines():
@@ -575,8 +630,10 @@ def check_worked(body):
             out.append(f"item {iid}: twin of {ex} is not right after it (a keys block or a ## heading comes between)")
         if f.get("answer") != "type" or f.get("calculator") != "no":
             out.append(f"item {iid}: a twin item is answer: type and calculator: no (it leaves the device alone)")
-        if operands(seen(f.get("prompt", ""))) == operands(last[ex].group(4)):
+        ops = problem_operands(f.get("prompt", ""))
+        if ops == operands(last[ex].group(4)):
             out.append(f"item {iid}: twin of {ex} works the example's own operands; a twin has new numbers")
+        collides(f"item {iid}", ops)
     return out
 
 
@@ -915,7 +972,7 @@ class Lesson:
         if voices != [None]:
             body = voice_view(body, voices[0])
             self.notes.append(f"voices: {' '.join(voices)}, one skeleton")
-        for p in check_worked(body):
+        for p in check_worked(body, unit_problems(self.d, meta.get("id", ""))):
             self.bad(p)
         for p in check_why(body):
             self.bad(p)

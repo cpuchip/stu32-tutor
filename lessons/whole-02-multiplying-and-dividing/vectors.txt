@@ -3,14 +3,14 @@
 M01@alg | 46 x 23 | MODE33 FIX4 46 * 23 ENTER | N=1058 %LINE=46×23
 M01@rpn | 46 x 23 | MODE33 FIX4 46 ENTER 23 * | X=1058
 # M01's twin (step 5, abacus #7299): its answer typed, its working, and the slips'.
-M1T1@alg | twin: 37 x 24 in parts, typed | MODE33 FIX4 888 ENTER | N=888 %LINE=888
-M1T1@rpn | twin: 37 x 24 in parts, typed | MODE33 FIX4 888 ENTER | X=888
-M1T1W@alg | its working: 37 x 4 + 37 x 20 | MODE33 FIX4 37 * 4 + 37 * 20 ENTER | N=888 %LINE=37×4+37×20
-M1T1W@rpn | its working: 37 x 4 + 37 x 20 | MODE33 FIX4 37 ENTER 4 * 37 ENTER 20 * + | X=888
-M1T1A@alg | slip: the tens taken as ones, 37 x 4 + 37 x 2 | MODE33 FIX4 37 * 4 + 37 * 2 ENTER | N=222 %LINE=37×4+37×2
-M1T1A@rpn | slip: the tens taken as ones, 37 x 4 + 37 x 2 | MODE33 FIX4 37 ENTER 4 * 37 ENTER 2 * + | X=222
-M1T1B@alg | slip: the ones part only, 37 x 4 | MODE33 FIX4 37 * 4 ENTER | N=148 %LINE=37×4
-M1T1B@rpn | slip: the ones part only, 37 x 4 | MODE33 FIX4 37 ENTER 4 * | X=148
+M1T1@alg | twin: 43 x 26 in parts, typed | MODE33 FIX4 1118 ENTER | N=1118 %LINE=1118
+M1T1@rpn | twin: 43 x 26 in parts, typed | MODE33 FIX4 1118 ENTER | X=1118
+M1T1W@alg | its working: 43 x 6 + 43 x 20 | MODE33 FIX4 43 * 6 + 43 * 20 ENTER | N=1118 %LINE=43×6+43×20
+M1T1W@rpn | its working: 43 x 6 + 43 x 20 | MODE33 FIX4 43 ENTER 6 * 43 ENTER 20 * + | X=1118
+M1T1A@alg | slip: the tens taken as ones, 43 x 6 + 43 x 2 | MODE33 FIX4 43 * 6 + 43 * 2 ENTER | N=344 %LINE=43×6+43×2
+M1T1A@rpn | slip: the tens taken as ones, 43 x 6 + 43 x 2 | MODE33 FIX4 43 ENTER 6 * 43 ENTER 2 * + | X=344
+M1T1B@alg | slip: the ones part only, 43 x 6 | MODE33 FIX4 43 * 6 ENTER | N=258 %LINE=43×6
+M1T1B@rpn | slip: the ones part only, 43 x 6 | MODE33 FIX4 43 ENTER 6 * | X=258
 D01@alg | 59 / 9: a decimal | MODE33 FIX4 59 / 9 ENTER | N=6.555555555555555555555555555555556 %LINE=59÷9
 D01@rpn | 59 / 9: a decimal | MODE33 FIX4 59 ENTER 9 / | X=6.555555555555555555555555555555556
 D02@alg | INT÷: how many whole boxes | MODE33 FIX4 IDIV 59 , 9 > ENTER | N=6 %LINE=IDIV(59,9)

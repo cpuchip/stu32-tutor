@@ -755,9 +755,16 @@ CONTROLS_FOR["whole-01-adding-and-subtracting"] += [
 ]
 CONTROLS_FOR["whole-02-multiplying-and-dividing"] = [
     # An item twin (step 5): M1T1 twins M01.
+    # Whole prompts, helper parts included, so the problem is read from the first span (a bare prompt passed my first
+    # version for the wrong reason).
     ("an item twin with the example's operands, swapped", "lesson.md",
-     "prompt: Work out $37 × 24$ in parts, as above: $37 × 4$, then $37 × 20$, then add them.",
-     "prompt: Work out $23 × 46$ in parts.", {}, "item M1T1: twin of M01 works the example's own operands"),
+     "prompt: Work out $43 × 26$ in parts, as above: $43 × 6$, then $43 × 20$, then add them.",
+     "prompt: Work out $23 × 46$ in parts, as above: $23 × 6$, then $23 × 40$, then add them.", {},
+     "item M1T1: twin of M01 works the example's own operands"),
+    ("an item twin equal to the unit's checkpoint CPP1B (abacus #7310)", "lesson.md",
+     "prompt: Work out $43 × 26$ in parts, as above: $43 × 6$, then $43 × 20$, then add them.",
+     "prompt: Work out $37 × 24$ in parts, as above: $37 × 4$, then $37 × 20$, then add them.", {},
+     "item M1T1 works the same operands as CPP1B in its unit"),
     ("an item twin on the calculator", "lesson.md", "twin: M01\ntopics: partial-products\nanswer: type\ncalculator: no",
      "twin: M01\ntopics: partial-products\nanswer: type\ncalculator: yes", {}, "a twin item is answer: type and calculator: no"),
     ("an item twin naming a later block", "lesson.md", "twin: M01\n", "twin: D01\n", {}, "twin: D01 names no keys block before it"),
