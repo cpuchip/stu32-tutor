@@ -798,7 +798,7 @@ GREENS_FOR = {
         ("a plain sentence reworded, the same numbers in the same order", "lesson.md",
          "A store holds 742 loaves, and 368 are sent out.", "A store has 742 loaves and sends out 368."),
         ("a why number from the lead-in above an example's first entry variant",
-         [("lesson.md", "By hand, 3452 + 1879 = 5331. Now the check:", "By hand, in 4 columns, 3452 + 1879 = 5331. Now the check:"),
+         [("lesson.md", "So 3452 + 1879 = 5331. Now the check:", "So, in 4 columns, 3452 + 1879 = 5331. Now the check:"),
           ("lesson.md", "to make a long number easier to read.\n",
            "to make a long number easier to read.\n\n```why\nask: Why do the 4 columns add one at a time?\nbecause: Each column's carry belongs to the next column to the left.\n```\n")], None, None),
         ("a story sentence reworded, the same numbers", "lesson.md",

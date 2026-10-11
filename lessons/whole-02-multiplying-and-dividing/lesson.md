@@ -16,12 +16,10 @@ voices: story plain
 
 <voice v="story">Thornwick's bakery works in batches and boxes. Maren bakes trays of rolls by the dozen, and Tobin
 packs them into boxes to carry.</voice><voice v="plain">A bakery works in batches and boxes: trays of rolls baked by the dozen, packed into boxes to carry.</voice> Finding how many rolls are in all the trays is multiplying; finding
-how many boxes they fill, and how many are left over, is dividing. This lesson does both by hand, then checks them on the
+how many boxes they fill, and how many are left over, is dividing. You do both by hand, then check them on the
 calculator, which has a key for each part of a division.
 
 ## From before
-
-Two from whole-01, by hand.
 
 ```item WH2F1
 prompt: Work out 2478 + 1365.
@@ -73,7 +71,7 @@ The screen shows <disp v="M01">1,058.0000</disp>.
 ## Dividing, and what is left over
 
 <voice v="story">Tobin has 59 rolls to pack, 9 to a box.</voice><voice v="plain">59 rolls are to be packed, 9 to a box.</voice> How many full boxes, and how many rolls over? The number you
-divide by, here 9, is the divisor. By hand: how many 9s are in 59? 6 × 9 = 54, and 7 × 9 = 63 is too
+divide by, here 9, is the divisor. How many 9s are in 59? 6 × 9 = 54, and 7 × 9 = 63 is too
 many, so 6 boxes. 59 − 54 = 5 rolls are left over. The 6 is the quotient and the 5 is the remainder.
 Check it: 6 × 9 + 5 = 59.
 

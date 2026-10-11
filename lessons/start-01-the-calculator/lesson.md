@@ -66,7 +66,7 @@ because of FIX 4.
 
 ## Using the answer
 
-Tomorrow the bakery bakes twice as many: by hand, 12 × 2 = 24. The answer is still there, so carry
+Tomorrow the bakery bakes twice as many: 12 × 2 = 24. The answer is still there, so carry
 on from it.
 <entry e="alg">When you press an operation key straight after an answer, the calculator starts the
 new line with ANS, short for the last answer:</entry>
@@ -84,7 +84,7 @@ and the 2:</entry>
 The screen shows <disp v="C02">24.0000</disp>.
 <entry e="alg">The line reads <disp v="C02" kind="line">ANS×2</disp>.</entry>
 
-The bakery has 100 boxes, and each of the 24 pies takes one. How many boxes are left? By hand,
+The bakery has 100 boxes, and each of the 24 pies takes one. How many boxes are left?
 100 − 24 = 76. This time the last answer comes second.
 <entry e="alg">Pressing − first would start the line with ANS and work out 24 − 100. Instead type 100,
 then −, then ANS. In ALG, the key with LASTx printed in gold above ENTER types ANS:</entry>
@@ -104,7 +104,7 @@ The screen shows <disp v="C03">76.0000</disp>: 76 boxes left.
 
 ## Fractions on the screen
 
-The bakery shares 20 cups of flour equally among 8 batches of dough. By hand: 8 goes into 20 twice,
+The bakery shares 20 cups of flour equally among 8 batches of dough. 8 goes into 20 twice,
 which uses 16 cups, and 4 cups are left. Those 4 cups shared among 8 batches is half a cup each, so
 each batch gets 2 and a half cups. Now check it:
 
@@ -164,7 +164,7 @@ for the slip in each: either one can be the wrong one.
 
 ## Answers
 
-1. By hand: the tens, 40 + 30 = 70, and the ones, 5 + 8 = 13, so 70 + 13 = 83. The check:
+1. The tens, 40 + 30 = 70, and the ones, 5 + 8 = 13, so 70 + 13 = 83. The check:
 
    ```keys E01 entry=alg
    45 + 38 ENTER
@@ -176,7 +176,7 @@ for the slip in each: either one can be the wrong one.
 
    The screen shows <disp v="E01">83.0000</disp>.
 
-2. By hand: 4 goes into 9 twice, which uses 8 cups, and 1 cup is left. That 1 cup shared among 4
+2. Working it: 4 goes into 9 twice, which uses 8 cups, and 1 cup is left. That 1 cup shared among 4
    cakes is 1/4 cup each, so each cake gets 2 1/4 cups. The check, with fraction display turned on
    first:
 

@@ -16,8 +16,8 @@ voices: story plain
 
 <voice v="story">In Thornwick, Hesk runs the mill on the river, and Tobin carries the bakery's orders around town.
 Both of them add and take away large numbers every day: sacks of grain, loaves delivered, loaves
-still to go. This lesson does it by hand, the way they would, then checks it on the calculator.</voice><voice v="plain">A mill and a bakery add and take away large numbers every day: sacks of grain, loaves delivered,
-loaves still to go. This lesson does it by hand, then checks it on the calculator.</voice>
+still to go. You do it by hand, the way they would, then check it on the calculator.</voice><voice v="plain">A mill and a bakery add and take away large numbers every day: sacks of grain, loaves delivered,
+loaves still to go. You do it by hand, then check it on the calculator.</voice>
 
 ## Before you start
 
@@ -47,7 +47,7 @@ Write the numbers one above the other, ones under ones, and add each column from
 - Hundreds: 4 + 8 + 1 = 13 hundreds. Write the 3, carry 1 to the thousands.
 - Thousands: 3 + 1 + 1 = 5.
 
-By hand, 3452 + 1879 = 5331. Now the check:
+So 3452 + 1879 = 5331. Now the check:
 <entry e="alg">type it as written, then ENTER:</entry><entry e="rpn">the first number, ENTER, the second, then +.
 In RPN, − works the same way, and takes the second number away from the first:</entry>
 
@@ -73,7 +73,7 @@ Taking away also goes column by column from the right. <voice v="story">Tobin ha
   hundreds left. 13 − 6 = 7.
 - Hundreds: 6 − 3 = 3.
 
-By hand, 742 − 368 = 374. The check:
+So 742 − 368 = 374. The check:
 
 ```keys B01 entry=alg
 742 − 368 ENTER
@@ -96,7 +96,7 @@ Now 5000 is 4 thousands, 9 hundreds, 9 tens and 10 ones, still 5000, and every c
 - Hundreds: 9 − 7 = 2.
 - Thousands: 4 − 2 = 2.
 
-By hand, 5000 − 2768 = 2232. The check:
+So 5000 − 2768 = 2232. The check:
 
 ```keys A02 entry=alg
 5000 − 2768 ENTER
@@ -150,7 +150,7 @@ Do each by hand first, estimate, then check.
 
 ## Answers
 
-1. The estimate: 600 + 2600 = 3200. By hand: ones 7 + 8 = 15, write 5, carry 1. Tens: 0 + 9 + 1 = 10,
+1. The estimate: 600 + 2600 = 3200. Then the columns: ones 7 + 8 = 15, write 5, carry 1. Tens: 0 + 9 + 1 = 10,
    write 0, carry 1. Hundreds: 6 + 5 + 1 = 12, write 2, carry 1. Thousands: 2 + 1 = 3. So 3205, near
    the estimate. The check:
 
@@ -164,7 +164,7 @@ Do each by hand first, estimate, then check.
 
    The screen shows <disp v="E01">3,205.0000</disp>.
 
-2. The estimate: 4000 − 1800 = 2200. By hand, trade down from the thousands as for 5000: 4003 is 3
+2. The estimate: 4000 − 1800 = 2200. Then trade down from the thousands as for 5000: 4003 is 3
    thousands, 9 hundreds, 9 tens and 10 + 3 = 13 ones. Then 13 − 6 = 7, 9 − 5 = 4, 9 − 7 = 2 and
    3 − 1 = 2: 2247, near the estimate. The check:
 
