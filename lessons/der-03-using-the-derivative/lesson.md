@@ -78,6 +78,14 @@ ask: Why does halving the distance quarter the gap?
 because: The gap is exactly $(x − 3)^{2}$, and half a distance, squared, is a quarter of the distance squared.
 ```
 
+Now $q$ at 3.2, the same way. The line there is $2 × 3.2 − 6 = 0.4$.
+
+```keys T01T twin=T01
+3.2 ENTER GOLD x² x↔y 4 × − 3 +
+```
+
+X holds 0.44: a gap of 0.04, which is $0.2^{2}$.
+
 Any line through (3, 0) is close to $q$ near 3, so compare another: $y = 3x − 9$. At 3.1 it gives 0.3, a gap
 of 0.09; at 3.05 it gives 0.15, a gap of 0.0475, only about half. Its gap is $(x − 3)(x − 4)$, which
 shrinks only as fast as the distance itself; the tangent's, $(x − 3)^{2}$, shrinks as fast as the distance

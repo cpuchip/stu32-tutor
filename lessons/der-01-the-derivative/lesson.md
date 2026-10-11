@@ -125,6 +125,16 @@ ask: Why did a ten times smaller $h$ land ten times nearer to 12?
 because: Each average is off from the rule by exactly $2h$, so a tenth of the $h$ leaves a tenth of the gap.
 ```
 
+```item DR1T1
+prompt: By hand, how fast is the ball going at $t = 3.5$, with $d(t) = 2t^{2}$?
+twin: D03
+topics: derivative-function
+answer: type
+calculator: no
+slip: DR1T1A | the distance, not the speed | $2 × 3.5^{2}$ is how far the ball has gone, $d(3.5)$; its speed is $d'(3.5) = 4 × 3.5$.
+slip: DR1T1B | 2t, not 4t | The 2 in front doubles the derivative of $t^{2}$, which is $2t$: so $d'(t) = 4t$.
+```
+
 ## A picture: the tangent line
 
 On a graph of $d$, the average speed from $a$ to $a + h$ is the slope (lin-01) of the straight line through

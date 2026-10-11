@@ -2,6 +2,11 @@
 # MODE33 FIX4 (the lesson's setup). Values from build/proto/der02.py, modelling the keys; Casimir's
 # texts as the core writes them at c7ab388.
 P01 | (f(2.001) - f(2)) / 0.001, f(x) = x^3 - 4x + 1 | MODE33 FIX4 2.001 ENTER ENTER 3 POW XY 4 * - 1 + 1 - 0.001 / | X=8.006001
+# P01's twin (step 5): its answer typed, its working, and the slips'.
+DR2T1 | twin: g'(2) for x^4 - 5x, typed | MODE33 FIX4 27 | X=27
+DR2T1W | its working: 4 x 2^3 - 5 | MODE33 FIX4 4 ENTER 2 ENTER 3 POW * 5 - | X=27
+DR2T1A | slip: 2^3 - 5, the 4 not brought down | MODE33 FIX4 2 ENTER 3 POW 5 - | X=3
+DR2T1B | slip: 4 x 2^3 - 5 x 2 | MODE33 FIX4 4 ENTER 2 ENTER 3 POW * 5 ENTER 2 * - | X=22
 B01@STU | STU: D/DX of X^3-4X+1 in X | MODE33 FIX4 EQN RCL:X POW 3 - 4 * RCL:X + 1 ENTER CASD:X | %EQ=3×X^2-4
 B02@STU | continues B01: XEQ at X = 2 | MODE33 FIX4 EQN RCL:X POW 3 - 4 * RCL:X + 1 ENTER CASD:X XEQ 2 RS | X=8
 R01 | 1/x from 2 to 2.001: (1/2.001 - 0.5) / 0.001 | MODE33 FIX4 2.001 INV 0.5 - 0.001 / | X=-0.2498750624687656171914042978511

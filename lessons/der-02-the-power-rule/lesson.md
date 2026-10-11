@@ -106,6 +106,16 @@ ask: Why does the average land a little above 8?
 because: The average is $3a^{2} + 3ah + h^{2} − 4$. At $a = 2$, the $3ah$ adds $3 × 2 × 0.001$ to the rule's 8, and the $h^{2}$ adds far less.
 ```
 
+```item DR2T1
+prompt: By hand, what is $g'(2)$ for $g(x) = x^{4} − 5x$?
+twin: P01
+topics: power-rule
+answer: type
+calculator: no
+slip: DR2T1A | the power not brought down | $x^{4}$ gives $4x^{3}$: the 4 comes down in front of $2^{3}$.
+slip: DR2T1B | −5x kept as it is | $−5x$ is −5 times $x$, and its derivative is −5, not $−5x$.
+```
+
 <mode m="STU">
 
 STU mode's D/DX gives the rule itself, as before: type the expression in the equation list, then
