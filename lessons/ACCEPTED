@@ -11,7 +11,7 @@
 # The 24 lessons of units 0 to 6 were accepted one by one (rpn-01 #4228 ... exp-01 #4546), then all
 # together in all three modes with the decision-56 migration (#4646 at 7f1d58f); that is the line
 # recorded for them. The per-lesson reads are in docs/evidence/.
-rpn-01 | #4646 | 7f1d58f | #6638 @ a5487ef, #6753 @ 6207051, #7261 @ 4ee80e1
+rpn-01 | #4646 | 7f1d58f | #6638 @ a5487ef, #6753 @ 6207051, #7261 @ 4ee80e1, #7317 @ 4be10dd
 rpn-02 | #4646 | 7f1d58f | #4764 @ 9a26e28, #6638 @ a5487ef, #6753 @ 6207051, #7261 @ 4ee80e1
 rpn-03 | #4646 | 7f1d58f | #4764 @ 9a26e28, #5042 @ 0624e7f, #6638 @ a5487ef, #6753 @ 6207051, #7103 @ b0b9d8d
 num-01 | #4646 | 7f1d58f | #6638 @ a5487ef, #6753 @ 6207051, #7103 @ b0b9d8d, #7261 @ 4ee80e1
@@ -55,7 +55,7 @@ der-02 | #5276 | 49a8374 | #5474 @ 51f4142, #6538 @ c61531d, #6668 @ 0a2902b, #6
 der-03 | #5284 | c4c806d | #5355 @ 1d3508c, #5474 @ 51f4142, #6538 @ c61531d, #6668 @ 0a2902b, #6835 @ 5a1aee8, #7103 @ b0b9d8d, #7291 @ 2e6c3d7
 place-algebra-to-calculus | #5355 | b1a388b | #6605 @ f9af144
 whole-01 | #5444 | 5ea608f | #6558 @ 8081553, #6632 @ 2cabab9, #6866 @ ee74df1, #7103 @ b0b9d8d, #7239 @ 2f9665f
-whole-02 | #5444 | 5ea608f | #6558 @ 8081553, #6632 @ 2cabab9, #6866 @ ee74df1, #7103 @ b0b9d8d, #7172 @ ee92048, #7177 @ 5d1013b, #7239 @ 2f9665f
+whole-02 | #5444 | 5ea608f | #6558 @ 8081553, #6632 @ 2cabab9, #6866 @ ee74df1, #7103 @ b0b9d8d, #7172 @ ee92048, #7177 @ 5d1013b, #7239 @ 2f9665f, #7317 @ 4be10dd
 expr-01 | #5444 | 5ea608f | #6565 @ d0faa89, #6632 @ 2cabab9, #6937 @ 83645ac, #7103 @ b0b9d8d, #7147 @ cbe4f0d, #7239 @ 2f9665f
 expr-02 | #5444 | 5ea608f | #6565 @ d0faa89, #6632 @ 2cabab9, #6937 @ 83645ac, #6942 @ 750d5d2, #7103 @ b0b9d8d, #7177 @ 5d1013b, #7239 @ 2f9665f
 factor-01 | #5458 | 38d9d67 | #6567 @ 996743a, #6632 @ 2cabab9, #6942 @ 750d5d2, #7103 @ b0b9d8d, #7147 @ cbe4f0d, #7239 @ 2f9665f
