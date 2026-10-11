@@ -9,6 +9,8 @@ Public since 2026-10-09, under the licences in LICENSE. Everything here is writt
 - `lessons/<id>/`: one lesson. `vectors.txt` (the maths, as key vectors), `fmt-vectors.txt` (the displays the prose quotes), `lesson.md` (the prose and the keys the student presses).
 - `docs/lesson-format.md`: the rules, and what `make check` proves.
 - `docs/evidence/`: the independent recomputation of every lesson's expected values.
+- `docs/how-this-was-built.md`: who wrote this, how a lesson is checked and accepted, and what the `#NNNN` numbers in
+  the history mean.
 - `tools/`: the checker. `keyrun` presses a lesson's printed keys on the firmware's own key layer and compares them with the lesson's vectors.
 
 ## Running
