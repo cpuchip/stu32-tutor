@@ -39,6 +39,20 @@ CONTROLS = [
     # A | in a description splits the line's fields (U3BW's "|−7|", 2026-10-10; abacus #6605).
     ("a | inside a vector's description", "vectors.txt", "S01 | ENTER separates two numbers; + uses both |",
      "S01 | ENTER separates | two numbers; + uses both |", {}, "5 fields, expected 4"),
+    # Why blocks (decision 76, step 4): planted under S01, whose example shows 7, 5 and 12.
+    ("a why block naming a number its example does not show", "lesson.md", 'X shows <disp v="S01">12.0000</disp>.\n',
+     'X shows <disp v="S01">12.0000</disp>.\n\n```why\nask: Why does Y hold 7 when + is pressed?\n'
+     'because: ENTER copied the 7 up into Y, and the 6 replaced the copy in X.\n```\n', {},
+     "a why block under S01 names 6, which its example does not show"),
+    ("a why block with no because:", "lesson.md", 'X shows <disp v="S01">12.0000</disp>.\n',
+     'X shows <disp v="S01">12.0000</disp>.\n\n```why\nask: Why does Y hold 7 when + is pressed?\n```\n', {},
+     "a why block needs one ask: and one because: line"),
+    ("a why block with no example above it", "lesson.md", "## Two numbers, one operation\n",
+     "## Two numbers, one operation\n\n```why\nask: Why two numbers?\nbecause: An operation like + needs both.\n```\n", {},
+     "a why block with no worked example above it"),
+    ("a why block with a heading between it and its example", "lesson.md", "## ENTER copies\n",
+     "## ENTER copies\n\n```why\nask: Why does ENTER matter?\nbecause: It keeps the first number apart.\n```\n", {},
+     "a why block with a ## heading between it and its example"),
     ("a | inside a display vector's line", "fmt-vectors.txt", "| 12 | FIX 4 |  | 12.0000", "| 12 | FIX 4 |  | 12.0000 | x", {},
      "7 fields, expected 6"),
     ("a vector that does not set its mode", "vectors.txt", "MODE33 FIX4 7 ENTER 5 + |", "FIX4 7 ENTER 5 + |", {},
@@ -101,6 +115,9 @@ CONTROLS = [
 # Negative controls: harmless changes that must still pass, so a red above is not a check that
 # fails on everything near it. (The first em-dash check counted the text "2014".)
 GREENS = [
+    ("a why block under S01 whose numbers its example shows", "lesson.md", 'X shows <disp v="S01">12.0000</disp>.\n',
+     'X shows <disp v="S01">12.0000</disp>.\n\n```why\nask: Why does Y hold 7 when + is pressed?\n'
+     'because: ENTER copied the 7 up into Y, and the 5 replaced the copy in X, so + gives 12.\n```\n'),
     ("a year in the prose is not an em-dash", "lesson.md", "## Two numbers, one operation",
      "## Two numbers, one operation (CODATA 2014, 2018 and 2022)"),
     ("a hyphen is not an em-dash", "lesson.md", "## Two numbers, one operation", "## Two numbers - one operation"),
@@ -627,6 +644,9 @@ CONTROLS_FOR["whole-01-adding-and-subtracting"] += [
      '<voice v="tale">4003 loaves', {}, '<voice v="tale">: tale is not one of the lesson\'s voices'),
     ("a heading inside a voice span", "lesson.md", "\n## Answers\n", '\n<voice v="story">\n## Answers\n</voice>\n', {},
      '<voice v="story"> holds a ## heading'),
+    ("a why block inside a voice span", "lesson.md", "\n## Answers\n",
+     '\n<voice v="story">\n```why\nask: Why borrow?\nbecause: A column cannot give what it does not have.\n```\n</voice>\n## Answers\n',
+     {}, '<voice v="story"> holds a why block'),
 ]
 CONTROLS_FOR["whole-02-multiplying-and-dividing"] = [
     ("INT÷ pressed without its gold shift", "lesson.md", "```keys D02 entry=alg\nGOLD INT÷ 59", "```keys D02 entry=alg\nINT÷ 59", {},

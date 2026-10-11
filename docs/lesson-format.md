@@ -177,6 +177,31 @@ slip: K01B | f(2), not f′(2) | That is the height at 2. Take the derivative fi
 - An item's ID is its own across every lesson and placement file: the browser's review queue keys on
   it, so an item whose question changes takes a new ID.
 
+### Why? blocks
+
+A "Why?" prompt under a worked example (decision 76, step 4; the proposal's section 5, self-explanation):
+
+````
+```why
+ask: Why does Y hold 7 when + is pressed?
+because: ENTER copied the 7 up into Y, and the 5 replaced the copy in X, so + gives 12.
+```
+````
+
+The page shows `ask:` and reveals `because:` when the learner asks for it. The words are read, not judged; the
+non-author read checks them, as it does all prose.
+
+check.py refuses:
+- a why block without exactly one `ask:` and one `because:` line, or with any other line;
+- a why block with no worked example above it (the nearest keys block other than the setup);
+- a why block with a `##` heading between it and that example;
+- a why block naming a number its example doesn't show. Numbers are compared by value, so 12 and 12.0000 are one
+  number, and an example's numbers are those in its keys, its prose and its quoted displays.
+
+A why block is part of the skeleton every voice shares, so it never sits inside a voice span. The controls are in
+rpn-01's set (a number the example doesn't show, no `because:`, no example above, a heading between, and a good one
+as a green) and whole-01's (a why block inside a voice span).
+
 ### Voices: story and plain
 
 A lesson may offer two readings of the same skeleton (decision 71: story first for the young courses, the algebra

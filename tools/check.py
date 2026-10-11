@@ -175,9 +175,59 @@ def read_vectors(path, nfields):
 # every voice has the same keys blocks, quotes, items and sections; check_voices proves it on the readings.
 VOICES = ("story", "plain")
 VOICE_SPAN = re.compile(r'<voice v="([^"]*)">(.*?)</voice>', re.S)
-VOICE_HOLDS_NOT = (("```keys", "a keys block"), ("```item", "an item"), ("<disp", "a <disp> quote"),
+VOICE_HOLDS_NOT = (("```keys", "a keys block"), ("```item", "an item"), ("```why", "a why block"), ("<disp", "a <disp> quote"),
                    ("<mode", "a <mode> span"), ("<entry", "an <entry> span"), ("<voice", "a <voice> span"))
-SKELETON = re.compile(r"^[ \t]*```(?:keys|item)\b.*?^[ \t]*```[ \t]*$|<disp\b[^>]*>.*?</disp>|^## [^\n]*$", re.M | re.S)
+SKELETON = re.compile(r"^[ \t]*```(?:keys|item|why)\b.*?^[ \t]*```[ \t]*$|<disp\b[^>]*>.*?</disp>|^## [^\n]*$", re.M | re.S)
+# ```why```: a "Why?" prompt under a worked example (decision 76, step 4): `ask:` the question, `because:` the reason
+# the page reveals on request. The words are the non-author read's; the numbers are checked: every number in a why
+# block is one its example shows (its keys, its prose, its quoted displays), so a reason cannot cite a number the
+# core did not make.
+WHY_BLOCK = re.compile(r"^[ \t]*```why[ \t]*\n(.*?)^[ \t]*```[ \t]*$", re.M | re.S)
+
+
+def numbers_in(text):
+    """The numbers written in a text, as values (commas dropped), so 12 and 12.0000 are one number."""
+    out = set()
+    for n in re.findall(r"\d+(?:[.,]\d+)*", text):
+        try:
+            out.add(Decimal(n.replace(",", "")))
+        except InvalidOperation:
+            pass
+    return out
+
+
+def check_why(body):
+    """Problems with a lesson's why blocks: each holds ask: and because: and nothing else, sits under a worked example
+    (the nearest keys block above it other than the setup, with no ## heading between), and names only numbers that
+    example shows."""
+    out = []
+    for m in WHY_BLOCK.finditer(body):
+        fields, bad_lines = {}, []
+        for raw in m.group(1).splitlines():
+            line = raw.strip()
+            if not line:
+                continue
+            k, sep, v = line.partition(":")
+            if not sep or k.strip() not in ("ask", "because") or k.strip() in fields:
+                bad_lines.append(line)
+            else:
+                fields[k.strip()] = v.strip()
+        if bad_lines or not fields.get("ask") or not fields.get("because"):
+            out.append(f"a why block needs one ask: and one because: line and nothing else: {bad_lines or sorted(fields)}")
+            continue
+        above = [k for k in KEYS_ANY.finditer(body[:m.start()]) if k.group(2) != "setup"]
+        if not above:
+            out.append(f"a why block with no worked example above it: '{fields['ask']}'")
+            continue
+        example = body[above[-1].start():m.start()]
+        if re.search(r"^## ", example, re.M):
+            out.append(f"a why block with a ## heading between it and its example ({above[-1].group(2)}): '{fields['ask']}'")
+            continue
+        missing = sorted(numbers_in(fields["ask"] + " " + fields["because"]) - numbers_in(example))
+        if missing:
+            out.append(f"a why block under {above[-1].group(2)} names {', '.join(str(x) for x in missing)}, which its "
+                       f"example does not show")
+    return out
 
 
 def lesson_voices(meta):
@@ -511,6 +561,8 @@ class Lesson:
         if voices != [None]:
             body = voice_view(body, voices[0])
             self.notes.append(f"voices: {' '.join(voices)}, one skeleton")
+        for p in check_why(body):
+            self.bad(p)
         vectors = read_vectors(vec_path, 4)
         fmts = read_vectors(fmt_path, 6) if os.path.exists(fmt_path) else []
 
