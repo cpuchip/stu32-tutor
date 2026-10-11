@@ -108,6 +108,16 @@ ask: Why is 6 the greatest common factor, and not 3?
 because: 3 divides both, but so does 6, and nothing bigger divides both 84 and 90.
 ```
 
+```item G4T1
+prompt: Find the greatest common factor of 42 and 70 from their prime factorizations.
+twin: G04
+topics: gcf
+answer: type
+calculator: no
+slip: G4T1A | a common factor, not the greatest | 7 divides both, but so does 14: 42 and 70 share a 2 and a 7, and $2 × 7 = 14$.
+slip: G4T1B | the least common multiple | 210 is the smallest number both divide; the greatest common factor is the largest number dividing both.
+```
+
 ## The least common multiple
 
 The multiples of 12 are $12 × 1$, $12 × 2$, $12 × 3$ and so on: 12, 24, 36, 48. Call today day 0. <voice v="story">Tobin

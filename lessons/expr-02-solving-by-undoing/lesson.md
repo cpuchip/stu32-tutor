@@ -78,6 +78,16 @@ The screen shows <disp v="U01">15.0000</disp>. Carrying on, divide what is there
 
 The screen shows <disp v="U02">5.0000</disp>: she ordered 5 pies.
 
+```item U1T1
+prompt: Solve $4n + 9 = 37$ by undoing the steps in the opposite order.
+twin: U01
+topics: undoing
+answer: type
+calculator: no
+slip: U1T1A | divided first | The 9 was added last, so take it away first: $37 − 9 = 28$, then $28 ÷ 4$.
+slip: U1T1B | stopped after one undo | $37 − 9 = 28$ undoes the + 9; the × 4 still has to be undone: $28 ÷ 4$.
+```
+
 Undo the two steps in the other order, the × 3 first and then the + 5, and see what happens:
 
 ```keys W01 entry=alg

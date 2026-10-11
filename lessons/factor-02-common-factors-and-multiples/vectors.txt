@@ -8,6 +8,15 @@ G03@alg | INT÷ of 84 and 6 | MODE33 FIX4 IDIV 84 , 6 > ENTER | N=14 %LINE=IDIV(
 G03@rpn | INT÷ of 84 and 6 | MODE33 FIX4 84 ENTER 6 IDIV | X=14
 G04@alg | INT÷ of 90 and 6 | MODE33 FIX4 IDIV 90 , 6 > ENTER | N=15 %LINE=IDIV(90,6)
 G04@rpn | INT÷ of 90 and 6 | MODE33 FIX4 90 ENTER 6 IDIV | X=15
+# G04's twin (step 5): its answer typed, its working, and the slips'.
+G4T1@alg | twin: the GCF of 42 and 70, typed | MODE33 FIX4 14 ENTER | N=14 %LINE=14
+G4T1@rpn | twin: the GCF of 42 and 70, typed | MODE33 FIX4 14 ENTER | X=14
+G4T1W@alg | its working: the shared primes, 2 x 7 | MODE33 FIX4 2 * 7 ENTER | N=14 %LINE=2×7
+G4T1W@rpn | its working: the shared primes, 2 x 7 | MODE33 FIX4 2 ENTER 7 * | X=14
+G4T1A@alg | slip: a common factor only, 7 | MODE33 FIX4 7 ENTER | N=7 %LINE=7
+G4T1A@rpn | slip: a common factor only, 7 | MODE33 FIX4 7 ENTER | X=7
+G4T1B@alg | slip: the LCM, 2 x 3 x 5 x 7 | MODE33 FIX4 2 * 3 * 5 * 7 ENTER | N=210 %LINE=2×3×5×7
+G4T1B@rpn | slip: the LCM, 2 x 3 x 5 x 7 | MODE33 FIX4 2 ENTER 3 * 5 * 7 * | X=210
 M01@alg | 2 x 2 x 3 x 3 | MODE33 FIX4 2 * 2 * 3 * 3 ENTER | N=36 %LINE=2×2×3×3
 M01@rpn | 2 x 2 x 3 x 3 | MODE33 FIX4 2 ENTER 2 * 3 * 3 * | X=36
 M02@alg | Rmdr of 36 and 12 | MODE33 FIX4 RMDR 36 , 12 > ENTER | N=0 %LINE=RMDR(36,12)

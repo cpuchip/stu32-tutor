@@ -512,8 +512,9 @@ FADE_WORDS = {"×": ("multiply", "times", "multiplied"), "÷": ("divide", "divid
 
 def operands(text):
     """The numbers of a text, sorted, as values: a twin and an item collide when these are equal (in any order)."""
-    # (a full stop after a number ends its sentence: "crates of 12." names 12; only a point and a digit is a decimal)
-    return sorted(Decimal(n) for n in re.findall(r"(?<![\w.])\d+(?:\.\d+)?(?!\w|\.\d)", text))
+    # (a full stop after a number ends its sentence: "crates of 12." names 12; only a point and a digit is a decimal;
+    # a coefficient counts: "4n + 7" names 4 and 7)
+    return sorted(Decimal(n) for n in re.findall(r"(?<![\w.])\d+(?:\.\d+)?(?!\d|\.\d)", text))
 
 
 def problem_operands(prompt):

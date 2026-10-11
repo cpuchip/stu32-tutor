@@ -63,6 +63,16 @@ $7 × 10 + 7 × 2 = 70 + 14 = 84$ (whole-02). The check:
 
 The screen shows <disp v="P01">84.0000</disp>: 84 coins.
 
+```item P1T1
+prompt: Work out $7 × 9$, what 9 pies cost: $7n$ with 9 put in for $n$.
+twin: P01
+topics: evaluating
+answer: type
+calculator: no
+slip: P1T1A | added instead | $7n$ means $7 × n$: the letter is multiplied, so $7 × 9$, not $7 + 9$.
+slip: P1T1B | read 7n as two digits | $7n$ is 7 times $n$, not the digits 7 and 9 written side by side.
+```
+
 ## Multiply before you add
 
 <voice v="story">Tobin carries orders for 5 coins. For the bakery's small pies, at 3 coins each, an order of $n$ pies

@@ -92,6 +92,17 @@ ask: Why does a remainder of 4 mean 5 is not a factor?
 because: A factor makes equal rows with none over, and 84 in rows of 5 leaves 4 over.
 ```
 
+```item R3T1
+prompt: Which of 2, 3 and 5 does not divide 105? Use the three tests, without the calculator.
+twin: R03
+topics: divides
+answer: type
+calculator: no
+working: none
+slip: R3T1A | 3 taken as not dividing | The digits of 105 add to $1 + 0 + 5 = 6$, and 3 divides 6, so 3 divides 105.
+slip: R3T1B | 5 taken as not dividing | 105 ends in 5, so 5 divides it.
+```
+
 Factors come in pairs that multiply to the number. Testing 1, 2, 3 and so on, 84's pairs are $1 × 84$,
 $2 × 42$, $3 × 28$, $4 × 21$, $6 × 14$ and $7 × 12$. <voice v="story">So Maren can set out 84 pastries in rows of 1, 2, 3, 4, 6,
 7, 12, 14, 21, 28, 42 or 84.</voice><voice v="plain">So 84 pastries can be set out in rows of 1, 2, 3, 4, 6,
