@@ -33,7 +33,7 @@ slip: PL4F2A | halved instead of taking the root | √16 is 4, since 4 × 4 is 1
 
 ## Before you start
 
-The setup from rpn-01: the mode you chose and FIX 4. Most examples start fresh; where one carries on from the
+Most examples start fresh; where one carries on from the
 one before, it says so.
 
 ```keys setup

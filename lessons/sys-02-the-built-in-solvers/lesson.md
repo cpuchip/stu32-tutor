@@ -40,7 +40,7 @@ slip: SY2F2A | found x | Taking the second from the first gives 2y = 6, so y is 
 
 ## Before you start
 
-The setup from rpn-01: the mode you chose and FIX 4. The solvers are in 35s and STU mode: in
+The solvers are in 35s and STU mode: in
 33s mode, as on an HP 33s, they are not there, so if you chose 33s, choose 35s or STU in the
 setup. The examples are one chain: each carries on from the one before,
 because the equation list remembers where you left it. "X shows" means the bottom line of the screen,

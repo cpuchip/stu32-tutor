@@ -35,7 +35,7 @@ slip: LM2F2A | squared the products | The powers belong to the 3 and the 1 alone
 
 ## Before you start
 
-The setup from rpn-01: the mode you chose and FIX 4. From the program on, the examples are one chain
+From the program on, the examples are one chain
 through the next two sections and the first exercise, each carrying on from the one before; the other
 examples start fresh.
 

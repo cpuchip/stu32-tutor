@@ -39,7 +39,7 @@ slip: PL3F2A | took 3 from 7 | It is 3 − 7, which is −4: a negative number, 
 
 ## Before you start
 
-The setup from rpn-01: the mode you chose and FIX 4. Each section's examples are one chain; each section and
+Each section's examples are one chain; each section and
 the exercise start fresh. A, B, C and D are on the top row, each printed small at the lower right
 of its key as rpn-02 showed: A on √x, B on eˣ, C on LN, D on yˣ.
 

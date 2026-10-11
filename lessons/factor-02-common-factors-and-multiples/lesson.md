@@ -43,8 +43,6 @@ slip: FC2F2A | the remainder, not the quotient | 14 sevens are 98, with 2 over: 
 
 ## Before you start
 
-The setup from start-01.
-
 ```keys setup
 BLUE MODE {mode} BLUE MODE {entry} GOLD DISP FIX 4
 ```

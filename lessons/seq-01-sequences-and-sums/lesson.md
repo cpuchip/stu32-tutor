@@ -34,7 +34,7 @@ slip: SQ1F2A | added before multiplying | Five steps of 2 is 2 × 5, which is 10
 
 ## Before you start
 
-The setup from rpn-01: the mode you chose and FIX 4. Each example starts fresh, except where one says
+Each example starts fresh, except where one says
 it carries on. The last section enters a program, as in fn-01, with a loop as in fn-02.
 
 <mode m="35s,STU">In this mode XEQ and GTO wait, after the label's letter, for ENTER; the keys below

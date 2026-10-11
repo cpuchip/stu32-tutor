@@ -33,7 +33,7 @@ slip: EQ3F2A | took tops from tops and bottoms from bottoms | Give them one bott
 
 ## Before you start
 
-The setup from rpn-01: the mode you chose and FIX 4. Work the examples in order: each one either carries on
+Work the examples in order: each one either carries on
 from the one before or starts fresh, and the text says which.
 
 ```keys setup

@@ -56,7 +56,7 @@ slip: TR2F2A | multiplied instead | Dividing asks how many 2/10s make 6/10: thre
 
 ## Before you start
 
-The setup from trig-01: the mode you chose, FIX 4, and degrees. Every example starts fresh, except
+Every example starts fresh, except
 where one says it carries on.
 
 ```keys setup

@@ -18,7 +18,7 @@ one key at a time, so you choose the order.
 
 ## Before you start
 
-The setup from rpn-01: the mode you chose and FIX 4. Each example is written out in full from it.
+Each example is written out in full from the setup.
 
 ```keys setup
 BLUE MODE {mode} GOLD DISP FIX 4

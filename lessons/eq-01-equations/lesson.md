@@ -35,7 +35,7 @@ slip: EQ1F2A | 10 × 3, not 10³ | 10³ is 10 × 10 × 10, which is 1000. Then 1
 
 ## Before you start
 
-The setup from rpn-01: the mode you chose and FIX 4. Work the examples in order; most of them carry on from
+Work the examples in order; most of them carry on from
 the one before, and the text says when.
 
 ```keys setup

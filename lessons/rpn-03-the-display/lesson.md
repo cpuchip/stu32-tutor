@@ -16,8 +16,6 @@ underneath as it was.
 
 ## Before you start
 
-The setup is the one from rpn-01: the mode you chose and FIX 4.
-
 ```keys setup
 BLUE MODE {mode} GOLD DISP FIX 4
 ```

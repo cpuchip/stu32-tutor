@@ -26,9 +26,8 @@ two names for one amount. Fractions like that are called equivalent fractions.
 
 ## Before you start
 
-Set the calculator up as in start-01: the mode, how you type
-<entry e="alg">(ALG)</entry><entry e="rpn">(RPN)</entry>, and the display. Then press BLUE →FRAC to
-turn on fraction display, so the calculator shows its answers as fractions. It stays on for the whole
+BLUE →FRAC turns on
+fraction display, so the calculator shows its answers as fractions. It stays on for the whole
 lesson.
 
 ```keys setup

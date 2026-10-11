@@ -38,7 +38,7 @@ slip: AN2F2A | a carry left out | 7 + 3 is 10: write 0 and carry 1 to the tens.
 
 ## Before you start
 
-The setup from start-01, and paper, a pencil, a ruler and a protractor, as in angle-01.
+You need paper, a pencil, a ruler and a protractor.
 
 ```keys setup
 BLUE MODE {mode} BLUE MODE {entry} GOLD DISP FIX 4

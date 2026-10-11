@@ -39,7 +39,7 @@ slip: P2F2A | squared −2 | −2² is the negative of 2², so −4. Only (−2)
 
 ## Before you start
 
-The setup from rpn-01: the mode you chose and FIX 4. The examples about c are one chain, each carrying on from
+The examples about c are one chain, each carrying on from
 the one before; the one about x² + 1 starts fresh, and so does the exercise.
 
 ```keys setup

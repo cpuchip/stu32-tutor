@@ -36,7 +36,7 @@ slip: FN1F2A | doubled 6 instead of squaring it | 6² is 6 × 6, which is 36, no
 
 ## Before you start
 
-The setup from rpn-01: the mode you chose and FIX 4. This whole lesson is one chain: each example carries on
+This whole lesson is one chain: each example carries on
 from the one before, because a program is entered once and then used.
 
 <mode m="35s,STU">In this mode XEQ and GTO wait, after the label's letter, for ENTER; the keys

@@ -38,7 +38,7 @@ slip: IN1F2A | squared the sum | Square each first: 1 + 4 + 9. (1 + 2 + 3)² is 
 
 ## Before you start
 
-The setup from rpn-01: the mode you chose and FIX 4. The program's examples are one chain, each
+The program's examples are one chain, each
 carrying on from the one before; the others start fresh, except where one says it carries on.
 
 <mode m="35s,STU">In this mode XEQ and GTO wait, after the label's letter, for ENTER; the keys below

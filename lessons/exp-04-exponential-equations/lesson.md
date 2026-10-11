@@ -35,7 +35,7 @@ slip: EX4F2A | raised 3 × 2 to the 4th | The power belongs to the 2 alone: 2⁴
 
 ## Before you start
 
-The setup from rpn-01: the mode you chose and FIX 4. The examples about eˣ = 3x are one chain, each
+The examples about eˣ = 3x are one chain, each
 carrying on from the one before; the others start fresh.
 
 ```keys setup

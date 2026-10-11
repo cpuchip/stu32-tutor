@@ -36,7 +36,7 @@ slip: PL1F2A | took 2 from 3, then squared | Square first: 2² is 4, then 3 − 
 
 ## Before you start
 
-The setup from rpn-01: the mode you chose and FIX 4. The worked example in "On the stack" is one chain, each
+The worked example in "On the stack" is one chain, each
 step carrying on from the one before, and so is the program and its runs. Everything else starts
 fresh. If a program is still stopped from fn-03, press GOLD GTO . . before you key in P, as the last answer
 there says.

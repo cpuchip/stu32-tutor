@@ -39,8 +39,6 @@ slip: EP2F2A | added the 4 | The second part is 25 × 4, which is 100, not 4.
 
 ## Before you start
 
-The setup from start-01.
-
 ```keys setup
 BLUE MODE {mode} BLUE MODE {entry} GOLD DISP FIX 4
 ```

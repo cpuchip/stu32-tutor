@@ -38,7 +38,7 @@ slip: SY1F2A | worked left to right | Both multiplications come first: 14 + 15.
 
 ## Before you start
 
-The setup from rpn-01: the mode you chose and FIX 4. Work the examples in order; when one carries on
+Work the examples in order; when one carries on
 from the one before, the text says so. The pair goes in two variables, X for x and Y for y. X is on
 the 6 key and Y on the 1 key; after STO or RCL, the next key means only its letter (rpn-02). The
 bottom line of the screen is also called X. "X shows" always means that bottom line,

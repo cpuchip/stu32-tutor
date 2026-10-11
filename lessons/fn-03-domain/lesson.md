@@ -35,7 +35,7 @@ slip: FN3F2A | kept the minus sign | Undo the − 8 by adding 8: 2x = 8, then ÷
 
 ## Before you start
 
-The setup from rpn-01: the mode you chose and FIX 4. The examples are one chain: each carries on from
+The examples are one chain: each carries on from
 the one before. Two programs go in, R and S, with the program entry, labels, XEQ and RTN you know.
 R is on the XEQ key and S is on 7; the programs of the last two lessons use neither letter.
 

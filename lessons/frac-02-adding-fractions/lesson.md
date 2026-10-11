@@ -40,8 +40,6 @@ slip: FR2F2A | added instead of multiplying | Top and bottom are multiplied alik
 
 ## Before you start
 
-The setup from start-01, with →FRAC at the end to turn on fraction display, as in frac-01.
-
 ```keys setup
 BLUE MODE {mode} BLUE MODE {entry} GOLD DISP FIX 4 BLUE →FRAC
 ```

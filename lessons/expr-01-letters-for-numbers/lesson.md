@@ -39,8 +39,6 @@ slip: EP1F2A | took the smaller digit from the larger | 0 − 4 needs a borrow, 
 
 ## Before you start
 
-The setup from start-01.
-
 ```keys setup
 BLUE MODE {mode} BLUE MODE {entry} GOLD DISP FIX 4
 ```

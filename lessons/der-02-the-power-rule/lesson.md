@@ -34,7 +34,7 @@ slip: DR2F2A | dropped the brackets | From the inside: 4 + 3 is 7, then 7 × 4 +
 
 ## Before you start
 
-The setup from rpn-01: the mode you chose and FIX 4. Each example starts fresh, except where one says
+Each example starts fresh, except where one says
 it carries on.
 
 ```keys setup

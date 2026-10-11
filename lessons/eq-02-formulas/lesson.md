@@ -34,7 +34,7 @@ slip: EQ2F2A | the left side alone | Left minus right: 3 × 5 − 2 is 13, and 1
 
 ## Before you start
 
-The setup from rpn-01: the mode you chose and FIX 4. Work the examples in order: each one either carries on
+Work the examples in order: each one either carries on
 from the one before or starts fresh, and the text says which. eq-01 showed how to type an equation,
 check it with XEQ, and solve it with SOLVE; the examples here type and solve.
 

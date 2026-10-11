@@ -35,7 +35,7 @@ slip: DR3F2A | the lowest height, not where | The question is where: the second 
 
 ## Before you start
 
-The setup from rpn-01: the mode you chose and FIX 4. Each example starts fresh, except where one says
+Each example starts fresh, except where one says
 it carries on.
 
 ```keys setup

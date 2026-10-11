@@ -33,7 +33,7 @@ slip: EX3F2A | added 10 each year | The second year's 10% is of 110: the factor 
 
 ## Before you start
 
-The setup from rpn-01: the mode you chose and FIX 4. Most examples start fresh; where one carries
+Most examples start fresh; where one carries
 on from the one before, it says so.
 
 ```keys setup

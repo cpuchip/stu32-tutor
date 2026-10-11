@@ -39,8 +39,6 @@ slip: WH2F2A | took the smaller digit from the larger | When the top digit is sm
 
 ## Before you start
 
-The setup from start-01.
-
 ```keys setup
 BLUE MODE {mode} BLUE MODE {entry} GOLD DISP FIX 4
 ```

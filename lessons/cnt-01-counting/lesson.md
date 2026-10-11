@@ -34,7 +34,7 @@ slip: CN1F2A | multiplied by the 2 | ÷ 2 divides: 90 ÷ 2.
 
 ## Before you start
 
-The setup from rpn-01: the mode you chose and FIX 4. Each example starts fresh, except where one says
+Each example starts fresh, except where one says
 it carries on.
 
 ```keys setup

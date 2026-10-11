@@ -32,7 +32,7 @@ slip: TR3F2A | added the sides | Square, add, then take the root: 81 + 144 is 22
 
 ## Before you start
 
-The setup from trig-01: the mode you chose, FIX 4, and degrees. Every example starts fresh.
+Every example starts fresh.
 
 ```keys setup
 BLUE MODE {mode} GOLD DISP FIX 4 BLUE ∡MODE DEG

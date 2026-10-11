@@ -41,7 +41,7 @@ slip: AN1F2A | stopped before the last digit | Bring down every digit: after 36 
 
 ## Before you start
 
-The setup from start-01. You also need paper, a sharp pencil, a ruler and a protractor. Geometry is
+You need paper, a sharp pencil, a ruler and a protractor. Geometry is
 done on paper first, and the calculator does the arithmetic.
 
 ```keys setup

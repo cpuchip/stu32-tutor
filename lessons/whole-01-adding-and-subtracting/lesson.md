@@ -21,8 +21,6 @@ loaves still to go. You do it by hand, then check it on the calculator.</voice>
 
 ## Before you start
 
-The setup from start-01.
-
 ```keys setup
 BLUE MODE {mode} BLUE MODE {entry} GOLD DISP FIX 4
 ```

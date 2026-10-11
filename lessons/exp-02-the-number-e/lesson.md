@@ -35,7 +35,7 @@ slip: EX2F2A | forgot the hundredth | 6% means 6 hundredths: 0.06 × 250.
 
 ## Before you start
 
-The setup from rpn-01: the mode you chose and FIX 4. Every example starts fresh.
+Every example starts fresh.
 
 ```keys setup
 BLUE MODE {mode} GOLD DISP FIX 4

@@ -35,7 +35,7 @@ slip: LN2F2A | added first | Multiplication comes before addition: 0.5 × 8 is 4
 
 ## Before you start
 
-The setup from rpn-01: the mode you chose and FIX 4. All the examples in the lesson are one chain, each
+All the examples in the lesson are one chain, each
 carrying on from the one before; each exercise starts fresh.
 
 ```keys setup

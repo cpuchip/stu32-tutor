@@ -39,8 +39,6 @@ slip: NG2F2A | added the 1 | The second part is 18 × 1, which is 18, not 1.
 
 ## Before you start
 
-The setup from start-01.
-
 ```keys setup
 BLUE MODE {mode} BLUE MODE {entry} GOLD DISP FIX 4
 ```

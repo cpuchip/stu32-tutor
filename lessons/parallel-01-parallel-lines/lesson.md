@@ -40,7 +40,7 @@ slip: PA1F2A | took the smaller digit from the larger | 0 − 2 needs a borrow: 
 
 ## Before you start
 
-The setup from start-01, and paper, a pencil, a ruler and a protractor, as in angle-01.
+You need paper, a pencil, a ruler and a protractor.
 
 ```keys setup
 BLUE MODE {mode} BLUE MODE {entry} GOLD DISP FIX 4

@@ -34,7 +34,7 @@ slip: FN2F2A | lost the minus sign | f(−4) puts −4 in for x: 2 × (−4) is 
 
 ## Before you start
 
-The setup from rpn-01: the mode you chose and FIX 4. The examples are one chain: each carries on from
+The examples are one chain: each carries on from
 the one before. It uses the program entry, labels, XEQ and RTN of fn-01. It enters two programs, Q
 and T, and T has a second label inside it, U, for its loop to jump back to. None of these letters
 is used there.

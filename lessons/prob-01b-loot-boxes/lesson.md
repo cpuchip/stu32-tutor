@@ -37,7 +37,7 @@ slip: PB2F2A | took 10% | 1% is one hundredth: 300 ÷ 100.
 
 ## Before you start
 
-The setup from rpn-01: the mode you chose and FIX 4. Each example starts fresh, except where one says it
+Each example starts fresh, except where one says it
 carries on.
 
 ```keys setup

@@ -37,7 +37,7 @@ slip: LM1F2A | divided only the 1 | The whole top over the whole bottom: 3 ÷ 1.
 
 ## Before you start
 
-The setup from rpn-01: the mode you chose and FIX 4. In each section the examples carry on from one
+In each section the examples carry on from one
 another, and the text says so; each section starts fresh.
 
 <mode m="35s,STU">In this mode XEQ waits, after the label's letter, for ENTER; the keys below show the

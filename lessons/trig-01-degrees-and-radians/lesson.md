@@ -39,7 +39,7 @@ slip: TR1F2A | multiplied the bottom | 10 multiplies the top: 3 × 10 is 30, ove
 
 ## Before you start
 
-The setup from rpn-01, the mode you chose and FIX 4, and one thing more: the angle unit. ∡MODE is
+One thing more than usual: the angle unit. ∡MODE is
 blue above 2 (DISP is gold above the same key), and its soft keys are DEG, RAD and GRAD. GRAD is a
 third unit, with 400 in a turn, that these lessons do not use. The setup chooses DEG:
 

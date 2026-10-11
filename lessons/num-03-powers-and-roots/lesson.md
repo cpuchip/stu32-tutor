@@ -33,7 +33,7 @@ slip: NM3F2A | added the bottoms too | Fifths add as fifths: 2/5 + 1/5 is 3/5.
 
 ## Before you start
 
-The setup from rpn-01: the mode you chose and FIX 4. Work the examples in order; when one carries on from the
+Work the examples in order; when one carries on from the
 example before it, the text says so.
 
 ```keys setup

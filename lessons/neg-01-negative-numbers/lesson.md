@@ -39,8 +39,6 @@ slip: NG1F2A | rounded down | The tens digit is 6, which is 5 or more, so it rou
 
 ## Before you start
 
-The setup from start-01.
-
 ```keys setup
 BLUE MODE {mode} BLUE MODE {entry} GOLD DISP FIX 4
 ```

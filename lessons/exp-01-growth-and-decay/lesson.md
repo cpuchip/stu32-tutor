@@ -39,7 +39,7 @@ slip: EX1F2A | added before multiplying | Four steps of 3 is 3 × 4, which is 12
 
 ## Before you start
 
-The setup from rpn-01: the mode you chose and FIX 4. Every example starts fresh, except where one says it
+Every example starts fresh, except where one says it
 carries on.
 
 ```keys setup

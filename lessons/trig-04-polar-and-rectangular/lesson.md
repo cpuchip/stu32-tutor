@@ -56,7 +56,7 @@ slip: TR4F2A | squared the difference | Square each first: 25 − 9. (5 − 3)²
 
 ## Before you start
 
-The setup from trig-01: the mode you chose, FIX 4, and degrees. Every example starts fresh, except
+Every example starts fresh, except
 where one says it carries on.
 
 ```keys setup

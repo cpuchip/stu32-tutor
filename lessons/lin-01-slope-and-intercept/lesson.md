@@ -49,7 +49,7 @@ slip: LN1T1C | B's run over the new rise | That works 6 ÷ 5 × 2, which gives t
 
 ## Before you start
 
-The setup from rpn-01: the mode you chose and FIX 4. The examples in the next section each start fresh. In
+The examples in the next section each start fresh. In
 the two sections after it they are one chain, each carrying on from the one before, and in the one
 after those, each slope starts fresh. Two variables hold the
 answers, as in rpn-02: M for the slope and B for the intercept. M is on the ENTER key and B on the eˣ

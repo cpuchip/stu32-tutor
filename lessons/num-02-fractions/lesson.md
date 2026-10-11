@@ -15,7 +15,7 @@ decimal with 34 significant digits, and that decimal decides which fraction you 
 
 ## Before you start
 
-The setup from rpn-01: the mode you chose and FIX 4. Work the examples in order: several of them carry on
+Work the examples in order: several of them carry on
 from the one before, and the text says when.
 
 ```keys setup

@@ -34,7 +34,7 @@ slip: DR1F2A | squared 2 × 5 | The power belongs to the 5 alone: 25, then 2 × 
 
 ## Before you start
 
-The setup from rpn-01: the mode you chose and FIX 4. The program and the examples after it are one
+The program and the examples after it are one
 chain, each carrying on from the one before; the exercises start fresh.
 
 <mode m="35s,STU">In this mode XEQ, when it runs a program, waits after the label's letter for ENTER;

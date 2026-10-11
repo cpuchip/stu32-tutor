@@ -37,7 +37,7 @@ slip: LN3F2A | took 1 from x first | Multiply first: 2 × 7 is 14, then take awa
 
 ## Before you start
 
-The setup from rpn-01: the mode you chose and FIX 4. The examples in each section are one chain; each section
+The examples in each section are one chain; each section
 and the exercise start fresh, with the sums cleared.
 
 ```keys setup

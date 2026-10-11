@@ -39,8 +39,6 @@ slip: FC1F2A | stopped before the last digit | Bring down every digit: after 74 
 
 ## Before you start
 
-The setup from start-01.
-
 ```keys setup
 BLUE MODE {mode} BLUE MODE {entry} GOLD DISP FIX 4
 ```
