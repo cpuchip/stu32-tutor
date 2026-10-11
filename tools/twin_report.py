@@ -33,12 +33,14 @@ def main():
             voices = check.lesson_voices(meta)[0]
             body = check.maths_read(body if voices == [None] else check.voice_view(body, voices[0]))
             blocks = {m.group(2): m for m in check.KEYS_ANY.finditer(body)}
+            vec = os.path.join(d, "vectors.txt")
+            vt = open(vec, encoding="utf-8").read() if os.path.exists(vec) else ""
             for m in check.KEYS_ANY.finditer(body):
                 a = dict(re.findall(r"([a-z]+)=(\S+)", m.group(3)))
                 if "twin" in a and a.get("entry", "rpn") == "rpn":
                     ex = blocks.get(a["twin"])
                     print(f"  twin {meta['id']} {m.group(2)} (keys, twins {a['twin']}): {fmt(check.operands(m.group(4)))}"
-                          f"  example {fmt(check.operands(ex.group(4)) if ex else [])}")
+                          f"  answer {check.item_answer(vt, m.group(2))}  example {fmt(check.operands(ex.group(4)) if ex else [])}")
                 if "fade" in a:
                     print(f"  fade {meta['id']} {m.group(2)}: last {a['fade']} keystrokes of '{' '.join(m.group(4).split())}'")
             for m in check.ITEM_BLOCK.finditer(body):
@@ -46,10 +48,11 @@ def main():
                 if "twin" in f:
                     ex = blocks.get(f["twin"])
                     print(f"  twin {meta['id']} {m.group(1)} (item, twins {f['twin']}): "
-                          f"{fmt(check.problem_operands(f.get('prompt', '')))}  example {fmt(check.operands(ex.group(4)) if ex else [])}")
+                          f"{fmt(check.problem_operands(f.get('prompt', '')))}  answer {check.item_answer(vt, m.group(1))}  "
+                          f"example {fmt(check.operands(ex.group(4)) if ex else [])}")
         print("  the unit's problems (a twin may equal none of these):")
-        for label, ops in problems or []:
-            print(f"    {label:22} {fmt(ops)}")
+        for label, ops, ans in problems or []:
+            print(f"    {label:22} {fmt(ops)}  answer {ans if ans is not None else '?'}")
 
 
 if __name__ == "__main__":

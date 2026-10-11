@@ -607,15 +607,18 @@ def unit_problems(lesson_dir, lesson_id):
     for d in unit or [me]:
         path = os.path.join(lesson_dir, "lesson.md") if d == me or d is None else os.path.join(root, "lessons", d, "lesson.md")
         meta, body = front_matter(open(path, encoding="utf-8").read())
+        vec = os.path.join(os.path.dirname(path), "vectors.txt")
+        vt = open(vec, encoding="utf-8").read() if os.path.exists(vec) else ""
         voices = lesson_voices(meta)[0]
         body = maths_read(body if voices == [None] else voice_view(body, voices[0]))   # the default reading
         for m in ITEM_BLOCK.finditer(body):
             prompt = next((l.split(":", 1)[1] for l in m.group(2).splitlines() if l.strip().startswith("prompt:")), "")
             if not re.search(r"^[ \t]*twin:", m.group(2), re.M):
-                out.append((m.group(1), problem_operands(prompt)))
+                out.append((m.group(1), problem_operands(prompt), item_answer(vt, m.group(1))))
         ex = re.search(r"^## Exercises\n(.*?)(?=^## |\Z)", body, re.M | re.S)
         for n, item in re.findall(r"^(\d+)\. (.*?)(?=^\d+\. |\Z)", ex.group(1) if ex else "", re.M | re.S):
-            out.append((f"{meta.get('id', d)} exercise {n}", operands(maths_plain(item))))
+            # exercise N's answer is its Answers block's vector, E0N (the convention every lesson keeps)
+            out.append((f"{meta.get('id', d)} exercise {n}", operands(maths_plain(item)), item_answer(vt, f"E{int(n):02d}")))
     return out
 
 
@@ -632,11 +635,17 @@ def check_worked(body, unit=(), checkpoint=(), vectors_text=""):
         first.setdefault(m.group(2), m)
         last[m.group(2)] = m
 
-    def collides(who, ops):
-        """A twin whose operands are an item's or an exercise's in the unit hands the learner that answer."""
-        for label, other in unit:
+    def collides(who, ops, ans=None):
+        """A twin whose operands are an item's or an exercise's in the unit hands the learner that answer; so does
+        one whose numbers and answer, together, are another problem's (abacus #7350): a copy, a swap, or an inverse
+        (57 giving 123 against 123 giving 57) all have the same number set."""
+        for label, other, oans in unit:
             if other == ops and len(ops) >= 2:
                 out.append(f"{who} works the same operands as {label} in its unit; a twin's numbers are its own")
+                return
+            if ans is not None and oans is not None and sorted(ops + [ans]) == sorted(other + [oans]):
+                out.append(f"{who} has the same numbers, with its answer, as {label} in its unit (a copy, a swap or an "
+                           f"inverse); a twin's numbers are its own")
                 return
 
     def section_between(a, b):
@@ -685,7 +694,7 @@ def check_worked(body, unit=(), checkpoint=(), vectors_text=""):
                            f"paragraph after the example's own lines")
             if operands(keys) == operands(last[ex].group(4)):
                 out.append(f"keys block {bid}: twin of {ex} works the example's own operands; a twin has new numbers")
-            collides(f"keys block {bid}", operands(keys))
+            collides(f"keys block {bid}", operands(keys), item_answer(vectors_text, bid))
     for m in ITEM_BLOCK.finditer(body):
         iid, f = m.group(1), {}
         for line in m.group(2).splitlines():
@@ -707,7 +716,7 @@ def check_worked(body, unit=(), checkpoint=(), vectors_text=""):
         ops = problem_operands(f.get("prompt", ""))
         if ops == operands(last[ex].group(4)):
             out.append(f"item {iid}: twin of {ex} works the example's own operands; a twin has new numbers")
-        collides(f"item {iid}", ops)
+        collides(f"item {iid}", ops, item_answer(vectors_text, iid))
         # an answer the unit checkpoint shares, on a topic it shares, passes the checkpoint by memory (abacus #7333)
         ans = item_answer(vectors_text, iid)
         for cid, ctopics, cans in checkpoint:

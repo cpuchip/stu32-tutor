@@ -881,6 +881,12 @@ CONTROLS_FOR["angle-01-points-lines-and-angles"] = [
      "D-B01: the prose shows '145.0000'"),
 ]
 CONTROLS_FOR["angle-02-angle-pairs"] = [
+    # A twin may not be another problem run backwards (abacus #7350): S1T1's first draft, 52 giving 128, against
+    # exercise 1's 128 giving 52.
+    ("a twin that is an exercise's inverse", [
+        ("lesson.md", "A path leaves the straight road at 57°.", "A path leaves the straight road at 52°."),
+        ("vectors.txt", "57 path, typed | MODE33 FIX4 123 ENTER | N=123 %LINE=123", "52 path, typed | MODE33 FIX4 128 ENTER | N=128 %LINE=128")],
+     None, None, {}, "item S1T1 has the same numbers, with its answer, as angle-02 exercise 1"),
     ("the opposite angle quoted as the one beside it", "lesson.md", '<disp v="V02">70.0000<', '<disp v="V02">110.0000<', {},
      "D-V02: the prose shows '110.0000'"),
     ("an angle round the point added, not taken away", "lesson.md", "```keys P01 entry=alg\n360 − 120 − 95 ENTER\n",
