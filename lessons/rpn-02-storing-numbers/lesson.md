@@ -52,7 +52,7 @@ X shows <disp v="V02">3.30</disp>. A still holds 0.0825: recalling a number does
 
 ```why
 ask: Why is the tax 3.3, and not the tax on the rounded rate the screen showed after STO?
-because: Only the screen rounds. A keeps all of 0.0825, and RCL brings back every digit, so the tax is 40 × 0.0825.
+because: Only the screen rounds. A keeps all of 0.0825, and RCL brings back every digit, so the tax is $40 × 0.0825$.
 ```
 
 RCL can also do the arithmetic. Press RCL, then ×, then A, and X is multiplied by A in one step:
@@ -126,13 +126,13 @@ X still holds 30.
 ## Using stored numbers more than once
 
 A number you have stored can be used as many times as you like, without typing it again. Store the
-width and length of a rectangle, 3.5 in W and 12 in L, and find its area:
+width and length of a rectangle, 3.5 in $W$ and 12 in $L$, and find its area:
 
 ```keys V07
 3.5 STO W 12 STO L RCL L RCL W ×
 ```
 
-X shows <disp v="V07">42.00</disp>, the area. The same two variables give its perimeter, 2 × (L + W):
+X shows <disp v="V07">42.00</disp>, the area. The same two variables give its perimeter, $2 × (L + W)$:
 
 ```keys V08
 3.5 STO W 12 STO L RCL L RCL W + 2 ×

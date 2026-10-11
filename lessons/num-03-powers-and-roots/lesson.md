@@ -9,26 +9,26 @@ display: FIX 4
 
 # Powers and roots
 
-A power is repeated multiplication: 2⁵ is 2 × 2 × 2 × 2 × 2. A root undoes a power: the cube root
-of 8 is 2, because 2³ is 8. The STU-32 has keys for the common cases and one key, yˣ, for the
+A power is repeated multiplication: $2^{5}$ is $2 × 2 × 2 × 2 × 2$. A root undoes a power: the cube root
+of 8 is 2, because $2^{3}$ is 8. The STU-32 has keys for the common cases and one key, yˣ, for the
 rest. yˣ and its root each take two numbers, and which one goes in first changes the answer.
 
 ## From before
 
 ```item NM3F1
-prompt: Work out (6 − 2) × 5.
+prompt: Work out $(6 − 2) × 5$.
 topics: parentheses
 answer: type
 calculator: no
-slip: NM3F1A | multiplied before the brackets | The brackets come first: 6 − 2 is 4, then 4 × 5.
+slip: NM3F1A | multiplied before the brackets | The brackets come first: $6 − 2$ is 4, then $4 × 5$.
 ```
 
 ```item NM3F2
-prompt: Work out 2/5 + 1/5, as a decimal.
+prompt: Work out $\frac{2}{5} + \frac{1}{5}$, as a decimal.
 topics: fraction-arithmetic
 answer: type
 calculator: no
-slip: NM3F2A | added the bottoms too | Fifths add as fifths: 2/5 + 1/5 is 3/5.
+slip: NM3F2A | added the bottoms too | Fifths add as fifths: $\frac{2}{5} + \frac{1}{5}$ is $\frac{3}{5}$.
 ```
 
 ## Before you start
@@ -59,14 +59,14 @@ X holds 7. Both work on X alone, so they need no ENTER.
 ## Any power: yˣ
 
 The yˣ key is the fourth key in the top row, under the soft keys. It takes two numbers: it raises
-Y to the power X. So the number being raised goes in first, and the power second. For 2¹⁰:
+Y to the power X. So the number being raised goes in first, and the power second. For $2^{10}$:
 
 ```keys R03
 2 ENTER 10 yˣ
 ```
 
 X shows <disp v="R03">1,024.0000</disp>. The comma groups the thousands, so 1,024 is one thousand and
-twenty-four. Swap them, 10 first and 2 second, and you get 10², which is 100:
+twenty-four. Swap them, 10 first and 2 second, and you get $10^{2}$, which is 100:
 
 ```keys R04
 10 ENTER 2 yˣ
@@ -87,21 +87,21 @@ X holds 3.
 
 ## Negative and fractional powers
 
-A negative power means one over the positive power: 2⁻³ is 1/2³, which is 1/8. Make the power
+A negative power means one over the positive power: $2^{-3}$ is $\frac{1}{2^{3}}$, which is $\frac{1}{8}$. Make the power
 negative with +/− before you press yˣ:
 
 ```keys R06
 2 ENTER 3 +/− yˣ
 ```
 
-X shows <disp v="R06">0.1250</disp>, which is 1/8.
+X shows <disp v="R06">0.1250</disp>, which is $\frac{1}{8}$.
 
 ```why
-ask: Why is 2⁻³ one over 2³?
-because: Each step down in the power divides by 2 once more. One step down from 2¹, which is 2, gives 2⁰, which is 1, and three more steps give 1/8.
+ask: Why is $2^{-3}$ one over $2^{3}$?
+because: Each step down in the power divides by 2 once more. One step down from $2^{1}$, which is 2, gives $2^{0}$, which is 1, and three more steps give $\frac{1}{8}$.
 ```
 
-A power of one half is a square root: 16 to the 1/2 is the square root of 16. You can type the half
+A power of one half is a square root: 16 to the $\frac{1}{2}$ is the square root of 16. You can type the half
 as .5:
 
 ```keys R07
@@ -120,7 +120,7 @@ root of 27 as a power:
 X holds 3, the same as the ˣ√y example.
 
 There is one thing ˣ√y can do that yˣ cannot: take an odd root of a negative number. The cube root
-of −8 is −2, because (−2)³ is −8:
+of −8 is −2, because $(−2)^{3}$ is −8:
 
 ```keys R07C
 8 +/− ENTER 3 GOLD ˣ√y
@@ -145,15 +145,15 @@ before the yˣ.
 ## The order of two powers
 
 Powers stacked in a tower, a 2 with a 3 raised above it and a 2 raised above that, are read from the
-top down: the top power first. So that tower means 2 to the power 3², which is 2⁹. With
-parentheses, (2³)² means something else: cube the 2, then square the result. Cube first, then
+top down: the top power first. So that tower means 2 to the power $3^{2}$, which is $2^{9}$. With
+parentheses, $(2^{3})^{2}$ means something else: cube the 2, then square the result. Cube first, then
 square:
 
 ```keys R08
 2 ENTER 3 yˣ 2 yˣ
 ```
 
-X holds 64. For the tower, 2 to the power 3², work out 3² first, then raise 2 to that. Type all
+X holds 64. For the tower, 2 to the power $3^{2}$, work out $3^{2}$ first, then raise 2 to that. Type all
 three numbers and stop:
 
 ```keys R09A
@@ -166,8 +166,8 @@ The first 2 waits in Z, the 3 in Y and the second 2 in X. Press yˣ once:
 yˣ
 ```
 
-It worked 3² from Y and X, so X holds 9, and the stack dropped, bringing the first 2 back down to
-Y. Press yˣ again for 2⁹:
+It worked $3^{2}$ from Y and X, so X holds 9, and the stack dropped, bringing the first 2 back down to
+Y. Press yˣ again for $2^{9}$:
 
 ```keys R09 after=R09B
 yˣ
@@ -178,14 +178,14 @@ need no parentheses to work it: in RPN the order you press the keys in is the or
 worked.
 
 ```why
-ask: Why does the tower give so much more than (2³)²?
-because: (2³)² squares a cube, which is 2 to the power 3 × 2. The tower raises 2 to the power 3 × 3, which is 9.
+ask: Why does the tower give so much more than $(2^{3})^{2}$?
+because: $(2^{3})^{2}$ squares a cube, which is 2 to the power $3 × 2$. The tower raises 2 to the power $3 × 3$, which is 9.
 ```
 
 ## Two shortcuts
 
 Powers of ten have their own key, 10ˣ (gold, above eˣ; eˣ itself comes in a later lesson). It
-works on X alone. A thousand is 10³:
+works on X alone. A thousand is $10^{3}$:
 
 ```keys R10
 3 GOLD 10ˣ
@@ -202,10 +202,10 @@ X shows <disp v="R11">0.1250</disp>, one eighth.
 
 ## Exercises
 
-1. Work out 5⁴.
+1. Work out $5^{4}$.
 2. Work out the fourth root of 81.
-3. Work out (−2)⁴.
-4. Work out −2⁴, and compare it with exercise 3.
+3. Work out $(−2)^{4}$.
+4. Work out $−2^{4}$, and compare it with exercise 3.
 
 ## Answers
 

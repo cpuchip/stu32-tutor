@@ -25,7 +25,7 @@ The two percent keys are on the 1/x key, fifth in the top row: % in gold above i
 
 ## A percent of a number
 
-Percent means "per hundred", so 15% of 80 is 15/100 × 80. The % key works it from the stack: X
+Percent means "per hundred", so 15% of 80 is $\frac{15}{100} × 80$. The % key works it from the stack: X
 percent of Y. Type the number first, then the percent:
 
 ```keys C01
@@ -62,7 +62,7 @@ because: % leaves the 60 in Y and puts the discount in X, so − takes the disco
 ## Percent change
 
 The %CHG key works how much Y changed to become X, as a percent of Y: (X − Y) ÷ Y × 100. A price
-that went from 50 to 65 changed by (65 − 50) ÷ 50 × 100:
+that went from 50 to 65 changed by $(65 − 50) ÷ 50 × 100$:
 
 ```keys C04
 50 ENTER 65 BLUE %CHG
@@ -81,7 +81,7 @@ the change is measured from.
 ## Negative powers of ten
 
 rpn-03 showed how E types a power of ten. For a negative power, press +/− after E, while you are
-typing the power. So 4 × 10⁻³, which is 0.004, is 4, E, 3, +/−:
+typing the power. So $4 × 10^{-3}$, which is 0.004, is 4, E, 3, +/−:
 
 ```keys C06
 4 E 3 +/− ENTER
@@ -96,46 +96,46 @@ Pressed before E, +/− changes the sign of the front number instead:
 4 +/− E 3 ENTER
 ```
 
-X shows <disp v="C06B">-4,000.00</disp>, which is −4 × 10³.
+X shows <disp v="C06B">-4,000.00</disp>, which is $−4 × 10^{3}$.
 
 ## Calculating with powers of ten
 
 Numbers typed with E work like any others. To check an answer in your head, multiply the front
-numbers and add the powers. Six hundred thousand times four thousandths is 6 × 10⁵ times 4 × 10⁻³;
-6 × 4 is 24, and 5 + (−3) is 2, so the answer is 24 × 10², or 2,400:
+numbers and add the powers. Six hundred thousand times four thousandths is $6 × 10^{5}$ times $4 × 10^{-3}$;
+$6 × 4$ is 24, and $5 + (−3)$ is 2, so the answer is $24 × 10^{2}$, or 2,400:
 
 ```keys C07
 6 E 5 ENTER 4 E 3 +/− ×
 ```
 
 X shows <disp v="C07">2,400.00</disp>. For division, divide the front numbers and subtract the
-powers. A tiny number divided by a bigger one, 9 × 10⁻⁶ divided by 3 × 10²: 9 ÷ 3 is 3, and −6 − 2
+powers. A tiny number divided by a bigger one, $9 × 10^{-6}$ divided by $3 × 10^{2}$: $9 ÷ 3$ is 3, and $−6 − 2$
 is −8:
 
 ```keys C09
 9 E 6 +/− ENTER 3 E 2 ÷
 ```
 
-X shows <disp v="C09">3.00E-8</disp>, which is 3 × 10⁻⁸. A very large answer switches to scientific
-form the same way. Two large numbers, 3.2 × 10¹² and 2.5 × 10⁹; 3.2 × 2.5 is 8, and 12 + 9 is 21:
+X shows <disp v="C09">3.00E-8</disp>, which is $3 × 10^{-8}$. A very large answer switches to scientific
+form the same way. Two large numbers, $3.2 × 10^{12}$ and $2.5 × 10^{9}$; $3.2 × 2.5$ is 8, and $12 + 9$ is 21:
 
 ```keys C08
 3.2 E 12 ENTER 2.5 E 9 ×
 ```
 
-X shows <disp v="C08">8.00E21</disp>, which is 8 × 10²¹. Written out at FIX 2 it would need more
+X shows <disp v="C08">8.00E21</disp>, which is $8 × 10^{21}$. Written out at FIX 2 it would need more
 than 30 characters, too long to fit the line, so the calculator shows it in scientific form.
 
 ```why
-ask: Why do the powers add, 12 + 9, when the numbers multiply?
-because: 10¹² is twelve tens multiplied together and 10⁹ is nine tens, so the product multiplies twenty-one tens together: 10²¹.
+ask: Why do the powers add, $12 + 9$, when the numbers multiply?
+because: $10^{12}$ is twelve tens multiplied together and $10^{9}$ is nine tens, so the product multiplies twenty-one tens together: $10^{21}$.
 ```
 
 ## Exercises
 
 1. Work out 12% of 250.
 2. A price went from 40 to 46. By what percent did it change?
-3. Work out 2.5 × 10⁶ times 4 × 10⁻², and check it in your head.
+3. Work out $2.5 × 10^{6}$ times $4 × 10^{-2}$, and check it in your head.
 4. An item costs 60 and is 20% off. What does it cost?
 5. A price falls from 80 to 60, a 25% fall, then rises from 60 back to 80. By what percent did it
    rise?
@@ -158,7 +158,7 @@ because: 10¹² is twelve tens multiplied together and 10⁹ is nine tens, so th
 
    X shows <disp v="E02">15.00</disp>.
 
-3. In your head: 2.5 × 4 is 10, and 6 + (−2) is 4, so the answer is 10 × 10⁴, which is 10⁵:
+3. In your head: $2.5 × 4$ is 10, and $6 + (−2)$ is 4, so the answer is $10 × 10^{4}$, which is $10^{5}$:
 
    ```keys E03
    2.5 E 6 ENTER 4 E 2 +/− ×
@@ -188,11 +188,11 @@ because: 10¹² is twelve tens multiplied together and 10⁹ is nine tens, so th
 Questions on the whole unit.
 
 ```item CP1A
-prompt: Work out 2 + 3 × 4².
+prompt: Work out $2 + 3 × 4^{2}$.
 topics: mult-before-add powers-first
 answer: type
 calculator: no
-slip: CP1A1 | added before multiplying | Multiplying comes before adding: work out 3 × 4² first.
+slip: CP1A1 | added before multiplying | Multiplying comes before adding: work out $3 × 4^{2}$ first.
 slip: CP1A2 | squared the 3 × 4 | The power belongs to the 4 alone: square 4, then multiply by 3.
 ```
 
@@ -201,15 +201,15 @@ prompt: What is 15% of 240?
 topics: percent
 answer: type
 calculator: no
-slip: CP1B1 | times 15, not 15 per hundred | 15% is 15 per hundred: 15 ÷ 100 × 240.
-slip: CP1B2 | divided by 15 | 15% of a number is 15 ÷ 100 times it, not the number divided by 15.
+slip: CP1B1 | times 15, not 15 per hundred | 15% is 15 per hundred: $15 ÷ 100 × 240$.
+slip: CP1B2 | divided by 15 | 15% of a number is $15 ÷ 100$ times it, not the number divided by 15.
 ```
 
 ```item CP1C
-prompt: Write 3.2 × 10⁴ as an ordinary number.
+prompt: Write $3.2 × 10^{4}$ as an ordinary number.
 topics: read-e
 answer: type
 calculator: no
-slip: CP1C1 | times 4, not ten to the 4 | 10⁴ is 10 × 10 × 10 × 10, not 4.
+slip: CP1C1 | times 4, not ten to the 4 | $10^{4}$ is $10 × 10 × 10 × 10$, not 4.
 slip: CP1C2 | one place too many | The point moves 4 places to the right, not 5.
 ```

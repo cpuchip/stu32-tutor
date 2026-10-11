@@ -102,7 +102,7 @@ first.
 ## A result is a number you can keep using
 
 By that rule, an answer in X is kept when you start typing the next number: it moves up to Y.
-For (3 + 4) × 5, add first, then type 5 and multiply, with no ENTER before the 5:
+For $(3 + 4) × 5$, add first, then type 5 and multiply, with no ENTER before the 5:
 
 ```keys S06
 3 ENTER 4 + 5 ×
@@ -110,7 +110,7 @@ For (3 + 4) × 5, add first, then type 5 and multiply, with no ENTER before the 
 
 X holds 35.
 
-The stack is what lets you skip parentheses. For (2 + 3) × (4 + 6), work out the first sum, then
+The stack is what lets you skip parentheses. For $(2 + 3) × (4 + 6)$, work out the first sum, then
 start the second one. The 5 from the first sum stays on the stack while you work. Typing 4 pushes
 it up to Y, ENTER pushes it again to Z, and 6 replaces the copy of 4 in X:
 
@@ -216,11 +216,11 @@ because: The first × joins two of the 1.05s, and each × after it brings in one
 
 ## Exercises
 
-1. Work out (8 − 3) × (2 + 4).
-2. Work out 100 divided by (4 × 5), typing 100 first.
+1. Work out $(8 − 3) × (2 + 4)$.
+2. Work out 100 divided by ($4 × 5$), typing 100 first.
 3. Fill the stack with 2s and multiply until X holds 2 to the fifth power. How many times do you
    press ×?
-4. Work out −3 × −4.
+4. Work out $−3 × −4$.
 
 ## Answers
 

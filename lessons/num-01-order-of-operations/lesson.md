@@ -12,8 +12,8 @@ display: FIX 4
 When an expression mixes operations, mathematics has an agreed order for them: what is inside
 parentheses first, then powers, then multiplication and division, then addition and subtraction.
 Multiplication and division share a rank and are done left to right, and so are addition and
-subtraction. A minus sign in front of a number is applied after powers: −3² is the negative of 3².
-So 3 + 4 × 5 is 23: the multiplication comes first. On the STU-32 you do the operations yourself,
+subtraction. A minus sign in front of a number is applied after powers: $−3^{2}$ is the negative of $3^{2}$.
+So $3 + 4 × 5$ is 23: the multiplication comes first. On the STU-32 you do the operations yourself,
 one key at a time, so you choose the order.
 
 ## Before you start
@@ -28,7 +28,7 @@ Squaring is x² (gold, above √x).
 
 ## Multiplication before addition
 
-For 3 + 4 × 5 the multiplication comes first. Type the 3 and let it wait on the stack, then type
+For $3 + 4 × 5$ the multiplication comes first. Type the 3 and let it wait on the stack, then type
 the 4 and the 5, and stop before the × to look at the stack:
 
 ```keys N01A
@@ -54,7 +54,7 @@ X holds 23 again. This second way works from the inside out.
 
 ## Parentheses first
 
-Parentheses tell you to do their inside before anything else. For (6 + 2) ÷ 4, add first:
+Parentheses tell you to do their inside before anything else. For $(6 + 2) ÷ 4$, add first:
 
 ```keys N02
 6 ENTER 2 + 4 ÷
@@ -64,13 +64,13 @@ X holds 2.
 
 ## Powers before multiplication
 
-In 2 × 3², the power belongs to the 3 alone, so square the 3 before multiplying:
+In $2 × 3^{2}$, the power belongs to the 3 alone, so square the 3 before multiplying:
 
 ```keys N03
 2 ENTER 3 GOLD x² ×
 ```
 
-X holds 18. If the whole product is squared, written (2 × 3)², multiply first and then square:
+X holds 18. If the whole product is squared, written $(2 × 3)^{2}$, multiply first and then square:
 
 ```keys N04
 2 ENTER 3 × GOLD x²
@@ -81,7 +81,7 @@ X holds 36. The numbers and the operations are the same as before; only their or
 ## A fraction: top, bottom, then divide
 
 A fraction bar works like a pair of parentheses around the top and another around the bottom. For
-(12 − 4) ÷ (5 − 3), work out the top, then type the bottom's two numbers, and stop:
+$(12 − 4) ÷ (5 − 3)$, work out the top, then type the bottom's two numbers, and stop:
 
 ```keys N05A
 12 ENTER 4 − 5 ENTER 3
@@ -97,7 +97,7 @@ X holds 4. When − finished the bottom, the stack dropped and the 8 came back d
 
 ## A minus sign and a power
 
-The expression −3² means the negative of 3², which is −9: the power comes before the minus sign.
+The expression $−3^{2}$ means the negative of $3^{2}$, which is −9: the power comes before the minus sign.
 Square first, then change the sign. The +/− key changes the sign of a finished result in X as well
 as of a number you are typing:
 
@@ -106,7 +106,7 @@ as of a number you are typing:
 ```
 
 X shows <disp v="N06">-9.0000</disp>. If the minus belongs to the 3, the expression is written
-(−3)², and the answer is 9. Change the sign first, then square:
+$(−3)^{2}$, and the answer is 9. Change the sign first, then square:
 
 ```keys N07
 3 +/− GOLD x²
@@ -122,7 +122,7 @@ because: Squaring a negative number makes it positive, so a sign changed before 
 
 ## Two ways through a longer one
 
-Take 2 + 3 × (4 + 1)². You can type the numbers from left to right and let them wait, as long as
+Take $2 + 3 × (4 + 1)^{2}$. You can type the numbers from left to right and let them wait, as long as
 they fit in the four levels:
 
 ```keys N08
@@ -164,10 +164,10 @@ and gave a wrong answer with no error to warn you.
 
 ```why
 ask: Where does the wrong 19 come from?
-because: The extra ENTER left a copy of the 1 in Y, so the first + added 1 and 1, the × found the 4, and the last + found the 3: (1 + 1)² × 4 + 3 is 19.
+because: The extra ENTER left a copy of the 1 in Y, so the first + added 1 and 1, the × found the 4, and the last + found the 3: $(1 + 1)^{2} × 4 + 3$ is 19.
 ```
 
-The other way is to start from the inside, the (4 + 1), and work outward. It never needs more than
+The other way is to start from the inside, the ($4 + 1$), and work outward. It never needs more than
 two levels:
 
 ```keys N09
@@ -183,20 +183,20 @@ because: Each step finishes a result before the next number is typed, so the sta
 ```
 
 It has one catch: with + and × the order of the two numbers does not matter, but with − and ÷ it
-does. Take 20 − 3 × 4 from the inside out: work out 3 × 4, then type the 20.
+does. Take $20 − 3 × 4$ from the inside out: work out $3 × 4$, then type the 20.
 
 ```keys N10S
 3 ENTER 4 × 20
 ```
 
-Now the 20 is in X and the 12 in Y, the wrong way round for 20 − 12. Carry on: press x↔y to put
+Now the 20 is in X and the 12 in Y, the wrong way round for $20 − 12$. Carry on: press x↔y to put
 them right, then −:
 
 ```keys N10 after=N10S
 x↔y −
 ```
 
-X holds 8. Without the x↔y, the − works Y minus X, which is 12 − 20:
+X holds 8. Without the x↔y, the − works Y minus X, which is $12 − 20$:
 
 ```keys N10A
 3 ENTER 4 × 20 −
@@ -206,14 +206,14 @@ X shows <disp v="N10A">-8.0000</disp>, with no error to warn you.
 
 ## Exercises
 
-1. Work out 5 + 6 × 2.
-2. Work out (9 − 3)² ÷ 4.
-3. Work out 4 × 3² − 10.
-4. Work out 50 − 2 × 3² from the inside out.
+1. Work out $5 + 6 × 2$.
+2. Work out $(9 − 3)^{2} ÷ 4$.
+3. Work out $4 × 3^{2} − 10$.
+4. Work out $50 − 2 × 3^{2}$ from the inside out.
 
 ## Answers
 
-1. 17. The 6 × 2 first, with the 5 waiting:
+1. 17. The $6 × 2$ first, with the 5 waiting:
 
    ```keys E01
    5 ENTER 6 ENTER 2 × +
