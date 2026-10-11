@@ -146,6 +146,15 @@ X shows <disp v="I01C">0.0003</disp>. That is a cautious estimate, meant to be o
 actual error: the true error is usually far smaller, and here the 9 is exactly right. With more places showing, run ∫ again and the figure shrinks:
 at FIX 8 it is three hundred-millionths.
 
+Now the area under $y = x^{2}$ from 1 to 4: type the expression again, put the ends on the stack, and
+integrate the same way.
+
+```keys I01T twin=I01B
+GOLD EQN RCL X yˣ 2 ENTER GOLD EQN 1 ENTER 4 GOLD EQN GOLD ∫ X
+```
+
+The integral is 21.
+
 ## Area below the axis
 
 Where the curve is below the $x$ axis, its rectangles have negative heights, so height × width is

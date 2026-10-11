@@ -8,6 +8,8 @@ A03 | continues A02: 300 rectangles | MODE33 FIX4 GTO.. PRGM LBL:A STO:N 1000 / 
 I01 | x^2 typed as an expression | MODE33 FIX4 EQN RCL:X POW 2 ENTER | %EQ=X^2
 I01B | continues I01: Equation mode off, 0 ENTER 3, the expression shown, integrate in X: 9, uncertainty 3E-4 | MODE33 FIX4 EQN RCL:X POW 2 ENTER EQN 0 ENTER 3 EQN INTEG:X | X=9 Y=0.0003
 I01C | continues I01B: C leaves the view, x<>y brings the uncertainty down | MODE33 FIX4 EQN RCL:X POW 2 ENTER EQN 0 ENTER 3 EQN INTEG:X C XY | X=0.0003 Y=9
+# I01B's twin (step 5).
+I01T | twin of I01B: x^2 typed again, integrated from 1 to 4: (64 - 1) / 3 = 21 | MODE33 FIX4 EQN RCL:X POW 2 ENTER EQN 1 ENTER 4 EQN INTEG:X | X#21,1E-30
 S01 | x typed; integrated from -1 to 1: 0 | MODE33 FIX4 EQN RCL:X ENTER EQN 1 CHS ENTER 1 EQN INTEG:X | X=0
 E01 | exercise 1: 3x^2 from 0 to 2: 8 | MODE33 FIX4 EQN 3 * RCL:X POW 2 ENTER EQN 0 ENTER 2 EQN INTEG:X | X#8,1E-30
 E02 | exercise 2: x from -2 to 1: 0.5 - 2 = -1.5 | MODE33 FIX4 EQN RCL:X ENTER EQN 2 CHS ENTER 1 EQN INTEG:X | X#-1.5,1E-30
