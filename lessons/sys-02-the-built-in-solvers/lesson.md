@@ -160,7 +160,7 @@ because: The solver reads each equation as $A$ times $x$ plus $B$ times $y$ equa
 ```
 
 ```item RF1T1
-prompt: $y = 5x − 2$ goes into the solver as $Ax + By = C$. By hand, what is $A$?
+prompt: $y = 5x − 2$ goes into the solver with $B = 1$, as the example's did: take $5x$ from both sides. By hand, what is $A$?
 twin: R01
 topics: solver-form
 answer: type
