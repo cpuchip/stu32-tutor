@@ -61,6 +61,15 @@ stripped.
 
 ## 4. Converting the lessons, and the check on it
 
+**Prototyped first (2026-10-11, thrown away after).** A converter writes TeX only where KaTeX strict needs it:
+superscripts to `^{…}`, roots to `\sqrt{…}`, fractions of plain numbers to `\frac{…}{…}`, primes to `'`, and the
+lessons' own `^(…)` and bare `^2.5` to `^{…}`. It leaves × ÷ − ≤ ≥ ° π as written, which KaTeX strict renders.
+`maths_text` reads a span back over a closed list of commands. Run over every maths-like run in the 55 lessons'
+prose and fields, 537 of 538 came back byte for byte. The one miss is fn-02's "^ means 'to the power of'", which is
+prose about the symbol, not maths: a span boundary, which the conversion's span rule decides. The reader refuses an
+unknown command, a bare brace and a command missing its argument. One limit: an author's own `\times 4` reads as
+"×4", since TeX drops the space after a command; the numbers read the same, and the converter never writes it.
+
 683 paragraphs and 565 fields are too many to convert by hand and trust. A script converts them, and a round
 trip checks it: for every lesson, the text with each span replaced by its reading must equal today's text byte for
 byte. So every check.py and graph.py result stays the same, every voice reads the same numbers, and only the
