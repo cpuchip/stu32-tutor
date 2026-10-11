@@ -22,8 +22,6 @@ can help to picture dividing.
 
 ## From before
 
-Two from frac-01, by hand.
-
 ```item FR3F1
 prompt: Write 3/8 as a decimal.
 topics: fraction-is-division
@@ -175,9 +173,6 @@ By hand first, then check.
    The screen shows <disp v="E03">4</disp>.
 
 ## Mixed review
-
-Four from this lesson and the ones before it, in no order. Work each by hand unless it says to use
-the calculator.
 
 ```item FR3M1
 prompt: Work out 3/4 × 2/3, as a decimal.

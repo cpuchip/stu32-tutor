@@ -78,7 +78,7 @@ Share 2 pies equally among 4 people, and each person gets 2/4 of a pie. Sharing 
 The screen shows <disp v="Q01">0 1/2</disp>.
 <entry e="alg">The line you typed stays on the screen above the answer: <disp v="Q01" kind="line">2÷4</disp>.</entry>
 The 0 in front means no whole pies, and then 1/2. Fraction display shows a fraction in simplest form
-(when it is exact, with no arrow in the status band: start-01), so 2/4 comes out as 1/2. Now type 1/2 itself:
+(when it is exact, with no arrow in the status band), so 2/4 comes out as 1/2. Now type 1/2 itself:
 
 ```keys Q02 entry=alg
 1 ÷ 2 ENTER
@@ -98,7 +98,7 @@ because: Each half of the first pie holds two of its quarters, so two quarters c
 
 ## Checking your hand work
 
-By hand, 6/8 was 3/4. The calculator can check it:
+6/8 came out as 3/4. The calculator can check it:
 
 ```keys Q03 entry=alg
 6 ÷ 8 ENTER

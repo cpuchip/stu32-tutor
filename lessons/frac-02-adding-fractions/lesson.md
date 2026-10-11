@@ -17,12 +17,10 @@ voices: story plain
 <voice v="story">Maren's recipe for a small batch of buns needs 1/4 cup of sugar for the dough and 3/8 cup for the
 glaze.</voice><voice v="plain">A recipe for a small batch of buns needs 1/4 cup of sugar for the dough and 3/8 cup for the
 glaze.</voice> How much sugar is that in all? Adding fractions takes one idea first: fractions can only be
-added when their pieces are the same size. This lesson makes them the same size by hand, then
-checks with fraction display.
+added when their pieces are the same size. You make them the same size by hand, then check
+with fraction display.
 
 ## From before
-
-Two from before, by hand: a least common multiple from factor-02, and fractions from frac-01.
 
 ```item FR2F1
 prompt: What is the least common multiple of 4 and 6?
@@ -57,12 +55,12 @@ until they match. Cutting every piece into the same number of smaller pieces mul
 multiple works (32 would), but the smallest keeps the numbers small and leaves less to simplify: the
 least common multiple of the bottoms (factor-02). LCM(4, 8) = 8.
 
-- 1/4 = 2/8, multiplying top and bottom by 2 (frac-01).
+- 1/4 = 2/8, multiplying top and bottom by 2.
 - Now both are eighths: 2/8 + 3/8 = 5/8. Add the tops; the bottom stays 8, because the pieces are
   still eighths.
 
 <voice v="story">So Maren needs 5/8 cup.</voice><voice v="plain">So the recipe needs 5/8 cup.</voice> The method: a common bottom, add the tops, keep the bottom, and simplify at
-the end if you can. On the calculator, each fraction is a division (frac-01):
+the end if you can. On the calculator, each fraction is a division:
 <entry e="alg">type the sum as written; the line divides before it adds (expr-01), so each fraction is
 worked out before the +:</entry><entry e="rpn">each fraction, then +:</entry>
 
@@ -184,9 +182,6 @@ By hand first, with a common bottom, then check.
    The screen shows <disp v="E03">1 1/8</disp>.
 
 ## Mixed review
-
-Four from this lesson and the ones before it, in no order. Work each by hand unless it says to use
-the calculator.
 
 ```item FR2M1
 prompt: Work out 1/4 + 1/8, as a decimal.
