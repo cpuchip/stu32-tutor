@@ -4,6 +4,11 @@ Q01 | typing 2x + 3 = 11 and storing it | MODE33 FIX4 EQN 2 * RCL:X + 3 = 11 ENT
 Q02 | continues Q01: XEQ evaluates it, first asking for X | MODE33 FIX4 EQN 2 * RCL:X + 3 = 11 ENTER XEQ | %STOP=INPUT:X
 Q03 | continues Q02: try 4; left minus right is 0, so 4 solves it; 4 is stored in X | MODE33 FIX4 EQN 2 * RCL:X + 3 = 11 ENTER XEQ 4 RS | X=0 @X=4
 Q04 | continues Q03: show it again, try 5; 2 x 5 + 3 is 13, two more than 11 | MODE33 FIX4 EQN 2 * RCL:X + 3 = 11 ENTER XEQ 4 RS EQN XEQ 5 RS | X=2 @X=5
+# Q04's twin (step 5): its answer typed, its working, and the slips'.
+Q4T1 | twin: left minus right for 4x + 1 = 25 at 4, typed | MODE33 FIX4 8 CHS | X=-8
+Q4T1W | its working, with XEQ | MODE33 FIX4 EQN 4 * RCL:X + 1 = 25 ENTER XEQ 4 RS | X=-8 @X=4
+Q4T1A | slip: right minus left | MODE33 FIX4 25 ENTER 4 ENTER 4 * 1 + - | X=8
+Q4T1B | slip: the left side alone | MODE33 FIX4 4 ENTER 4 * 1 + | X=17
 Q05A | continues Q04: the equation shown again, then SOLVE waits for its variable | MODE33 FIX4 EQN 2 * RCL:X + 3 = 11 ENTER XEQ 4 RS EQN XEQ 5 RS EQN | %EQ=2×X+3=11
 Q05 | continues Q05A: X, and SOLVE finds 4 | MODE33 FIX4 EQN 2 * RCL:X + 3 = 11 ENTER XEQ 4 RS EQN XEQ 5 RS EQN SOLVE:X | X=4 @X=4
 Q05C | continues Q05: the backspace key clears only SOLVE's view; 4 stays in X | MODE33 FIX4 EQN 2 * RCL:X + 3 = 11 ENTER XEQ 4 RS EQN XEQ 5 RS EQN SOLVE:X BKSP | X=4 @X=4

@@ -125,6 +125,16 @@ ask: Why does one test at 0 settle every $x$ less than 4?
 because: Left minus right, $2x + 3 − 11$, is a straight line that crosses zero only at 4, so it cannot change sign anywhere else. Negative at 0, it stays negative all the way to 4.
 ```
 
+```item B1T1
+prompt: For $5x − 3 < 22$, work out left minus right at $x = 2$ by hand, as XEQ would. Its sign says whether 2 makes the inequality true.
+twin: B01
+topics: inequalities
+answer: type
+calculator: no
+slip: B1T1A | right minus left | XEQ takes the right side from the left: $7 − 22$, not $22 − 7$.
+slip: B1T1B | the left side alone | The left side at 2 is $5 × 2 − 3$, which is 7; then take away the right side, 22.
+```
+
 ## Exercises
 
 1. Find both answers to $|x + 1| = 4$.

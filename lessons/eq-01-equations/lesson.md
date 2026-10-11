@@ -100,6 +100,16 @@ ask: Why does trying 5 in place of the solution give exactly 2?
 because: The left side holds $2 × x$, so each step of one in $x$ moves the left side by 2, and left minus right moves with it.
 ```
 
+```item Q4T1
+prompt: For $4x + 1 = 25$, work out left minus right at $x = 4$ by hand, as XEQ would.
+twin: Q04
+topics: xeq-check
+answer: type
+calculator: no
+slip: Q4T1A | right minus left | XEQ takes the right side from the left: $17 − 25$, not $25 − 17$.
+slip: Q4T1B | the left side alone | The left side at 4 is $4 × 4 + 1$, which is 17; then take away the right side, 25.
+```
+
 ## Letting the calculator solve it
 
 SOLVE (gold, above 7) searches for a value of X that makes left minus right zero, and reports the

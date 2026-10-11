@@ -80,6 +80,16 @@ ask: Why is the width $42 ÷ 12$, when the formula multiplies?
 because: The formula says 12 times the width is 42. Dividing by 12 undoes the times 12, and leaves the width on its own.
 ```
 
+```item W1T1
+prompt: A rectangle has an area of 39 and a length of 6. Solve $A = L × W$ for its width by hand.
+twin: S01
+topics: solve-any-letter
+answer: type
+calculator: no
+slip: W1T1A | multiplied | The formula says 6 times the width is 39, so the width is 39 divided by 6, not times.
+slip: W1T1B | divided the wrong way round | It is the area divided by the length: $39 ÷ 6$, not $6 ÷ 39$.
+```
+
 ## The same formula, another letter
 
 The formula is still in the calculator, and $A$, $L$ and $W$ still hold 42, 12 and 3.5. Show it again with

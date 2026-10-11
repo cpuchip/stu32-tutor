@@ -4,6 +4,11 @@ S01A | A = L x W, SOLVE W: it asks for A first | MODE33 FIX4 EQN RCL:A = RCL:L *
 S01B | continues S01A: A = 42, then it asks for L | MODE33 FIX4 EQN RCL:A = RCL:L * RCL:W ENTER SOLVE:W 42 RS | %STOP=INPUT:L @A=42
 S01 | continues S01B: L = 12, and W = 42 / 12 = 3.5 | MODE33 FIX4 EQN RCL:A = RCL:L * RCL:W ENTER SOLVE:W 42 RS 12 RS | X=3.5 @W=3.5 @L=12 @A=42
 S01V | continues S01: VIEW A shows the 42 typed at SOLVE's prompt was stored | MODE33 FIX4 EQN RCL:A = RCL:L * RCL:W ENTER SOLVE:W 42 RS 12 RS VIEW:A | X=3.5 @A=42
+# S01's twin (step 5): its answer typed, its working, and the slips'.
+W1T1 | twin: the width of a rectangle of area 39 and length 6, typed | MODE33 FIX4 6.5 | X=6.5
+W1T1W | its working, with SOLVE | MODE33 FIX4 EQN RCL:A = RCL:L * RCL:W ENTER SOLVE:W 39 RS 6 RS | X=6.5 @W=6.5 @L=6 @A=39
+W1T1A | slip: multiplied | MODE33 FIX4 39 ENTER 6 * | X=234
+W1T1B | slip: divided the wrong way round | MODE33 FIX4 6 ENTER 39 / | X=0.1538461538461538461538461538461538
 S02A | continues S01V: the same formula, SOLVE L asks for A, showing the 42 it holds | MODE33 FIX4 EQN RCL:A = RCL:L * RCL:W ENTER SOLVE:W 42 RS 12 RS VIEW:A EQN SOLVE:L | %STOP=INPUT:A X=42
 S02B | continues S02A: R/S keeps 42, then it asks for W | MODE33 FIX4 EQN RCL:A = RCL:L * RCL:W ENTER SOLVE:W 42 RS 12 RS VIEW:A EQN SOLVE:L RS | %STOP=INPUT:W
 S02 | continues S02B: R/S keeps 3.5, and L = 12 | MODE33 FIX4 EQN RCL:A = RCL:L * RCL:W ENTER SOLVE:W 42 RS 12 RS VIEW:A EQN SOLVE:L RS RS | X=12 @L=12
