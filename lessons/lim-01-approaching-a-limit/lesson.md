@@ -132,6 +132,11 @@ Here the algebra settles it. (x − 1) × (x + 1) is x² + x − x − 1, which 
 1, f(x) is (x − 1) × (x + 1) divided by x − 1, which is x + 1. Near 1, x + 1 is as near to 2 as you like.
 f is x + 1 with one point missing, and the limit fills the gap.
 
+```why
+ask: Why is each value of L exactly as far from 2 as its x is from 1?
+because: Away from 1, L works out x + 1, so moving x a little from 1 moves the answer the same little from 2.
+```
+
 Coming close also has a floor on any calculator. The STU-32 keeps 34 digits (rpn-03), so 1 + 10⁻³⁴
 would need a 35th digit, and it is just 1. 1 plus 10⁻³⁴, minus 1:
 
@@ -204,6 +209,11 @@ carrying on, from below:
 ```
 
 X shows <disp v="N02">-1,000.0000</disp>. The values close in on no number, from either side.
+
+```why
+ask: Why does 1/x grow without end as x nears 0?
+because: 1 ÷ x asks how many x's make 1, and the smaller x is, the more of them it takes: a thousandth takes a thousand.
+```
 
 The two sides can also disagree. x ÷ |x|, x divided by its absolute value (eq-03), is 1 for every
 positive x and −1 for every negative one. With x in X, ENTER copies it, ABS (gold, above +/−) makes the

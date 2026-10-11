@@ -64,6 +64,11 @@ top of the fraction, then the bottom, then divide:
 X shows <disp v="A01">8.0000</disp> metres a second, on average. But the ball went slower than that near
 t = 1 and faster near t = 3.
 
+```why
+ask: Why is the average rate the slope of the line through the two points?
+because: A line's slope is its rise over its run (lin-01). Here the rise is the change in d, 18 − 2, and the run is the change in t, 3 − 1.
+```
+
 ## The rate at an instant
 
 To find the speed at t = 1, take the average over a short time h around it, from t = 1 to t = 1 + h:
@@ -129,6 +134,11 @@ X shows <disp v="D03B">3.9980</disp>. From both sides the averages close in on 4
 for any h that is not 0, that is 4 + 2h, and as h shrinks from either side, 4 + 2h comes as near to 4 as
 you like. So at t = 1 the ball is going 4 metres a second. This rate at an instant is called the
 derivative of d at t = 1; finding derivatives is a large part of calculus.
+
+```why
+ask: Why are the averages above 4 when h is above 0, and below 4 when h is below 0?
+because: The average is 4 + 2h. With h above 0 that is 4 plus a little; with h below 0, 2h is negative, and it is 4 minus a little.
+```
 
 ## Where the digits run out
 
