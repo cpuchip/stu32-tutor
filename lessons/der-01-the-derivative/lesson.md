@@ -11,12 +11,10 @@ display: FIX 4
 
 The ball from lim-02 rolls down a ramp, and after t seconds it has gone d(t) = 2t² metres. At t = 1 it is going
 4 metres a second: the averages over shorter and shorter times close in on 4. But the ball has a speed
-at every moment, not only at t = 1. This lesson finds them all at once, as a new function, and tries
-it on the calculator.
+at every moment, not only at t = 1. Those speeds can all be found at once, as a new function, and
+tried on the calculator.
 
 ## From before
-
-Two from before, by hand: the ball's average speed from lim-02, and one from unit 1.
 
 ```item DR1F1
 prompt: d(t) = 2t². What is the average speed from t = 2 to t = 4?
@@ -48,21 +46,21 @@ BLUE MODE {mode} GOLD DISP FIX 4
 
 ## The speed at every moment
 
-lim-02 worked at t = 1. Do the same algebra at any time a. Over the short time from a to a + h, the
+The last lesson worked at t = 1. Do the same algebra at any time a. Over the short time from a to a + h, the
 ball goes d(a + h) − d(a) = 2(a + h)² − 2a². Since (a + h)² = a² + 2ah + h², the first part is
 2(a² + 2ah + h²) = 2a² + 4ah + 2h², and taking away 2a² leaves 4ah + 2h². Divided by the time h, the
 average speed is 4a + 2h, for any h that is not 0. As h shrinks from either side, 4a + 2h closes in on
 4a, because 2h shrinks to 0. h = 0 could not go into the first fraction (it would be 0 ÷ 0), but
 4a + 2h has no division left in it.
 
-So at time a the ball is going 4a metres a second: 4 at t = 1, as lim-02 found, and 12 at t = 3. a was
+So at time a the ball is going 4a metres a second: 4 at t = 1, as found before, and 12 at t = 3. a was
 any time, so call it t again: one rule gives the speed at every moment, and the speed is itself a
 function of t. It is called the derivative of d, and written d′, read "d prime". Its value at t is
 d′(t), and here d′(t) = 4t.
 
 ## Checking it
 
-Program V works out the average from lim-02 for any time, not only t = 1. (Program D from lim-02 may still be in
+Program V works out the same average for any time, not only t = 1. (Program D from the last lesson may still be in
 memory, so this one is V, for velocity.) The time a waits in A; with h in X,
 V keeps h in H, adds a, squares, doubles to get d(a + h), then takes away d(a) = 2a², worked out the
 same way, and divides by h. First GOLD GTO . . (fn-03) moves to the top of program memory. (If you
@@ -73,7 +71,7 @@ GOLD GTO . . GOLD PRGM PRGM GOLD LBL V STO H RCL A + GOLD x² 2 × RCL A GOLD x�
 ```
 
 The X line shows <disp v="V01A" kind="program">V015 RTN</disp>: V's fifteenth line. Another number
-means a key was missed or doubled (fn-01 showed how to fix a line). Carrying on, turn program entry
+means a key was missed or doubled (← deletes a wrong line). Carrying on, turn program entry
 off:
 
 ```keys V01 after=V01A
@@ -152,8 +150,8 @@ GOLD EQN 2 × RCL T yˣ 2 ENTER CAS D/DX T
 
 <mode m="STU">The screen shows <disp v="B01" kind="eqn">4×T</disp>: d′(t) = 4t, the rule the algebra
 found. Casimir puts the derivative in the list as a new equation, after the one it came from, which is
-kept. A derivative found this way is an equation like any other, so XEQ works it out at a time
-(eq-01): it asks for T, and 3 then R/S answers:</mode>
+kept. A derivative found this way is an equation like any other, so XEQ works it out at a time:
+it asks for T, and 3 then R/S answers:</mode>
 
 ```keys B02 after=B01 mode=STU
 XEQ 3 R/S
@@ -193,7 +191,7 @@ XEQ 3 R/S
    ```
 
    <mode m="STU">The screen shows <disp v="E02B" kind="eqn">2×X</disp>. Turn Equation mode off before
-   the next exercise, since a digit typed while an equation shows starts a new equation (eq-01):</mode>
+   the next exercise, since a digit typed while an equation shows starts a new equation:</mode>
 
    ```keys E02C after=E02B mode=STU
    GOLD EQN
@@ -210,9 +208,6 @@ XEQ 3 R/S
    X shows <disp v="E03">12.0020</disp>.
 
 ## Mixed review
-
-Four from this lesson and the ones before it, in no order. Work each by hand unless it says to use
-the calculator.
 
 ```item DR1M1
 prompt: d(t) = 2t² has d′(t) = 4t. How fast is the ball going at t = 3?

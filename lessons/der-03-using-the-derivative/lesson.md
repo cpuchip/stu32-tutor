@@ -9,14 +9,12 @@ display: FIX 4
 
 # Using the derivative
 
-A derivative is a function that gives a curve's slope at each point. This lesson puts that to work
+A derivative is a function that gives a curve's slope at each point. It can be put to work
 twice: to find the straight line that best fits a curve near a point, and to find where a curve turns,
 from falling to rising or back. The examples use the function from fn-02, q(x) = x² − 4x + 3, whose graph you drew by hand, and
 by the rules of der-02, q′(x) = 2x − 4.
 
 ## From before
-
-Two from before, by hand: a derivative from der-02, and a graph from fn-02.
 
 ```item DR3F1
 prompt: f(x) = 3x² + x. What is f′(1)?
@@ -52,7 +50,7 @@ through that point with that slope (the slope of lin-01). At x = 3,
 q(3) = 9 − 12 + 3 = 0 and q′(3) = 2 × 3 − 4 = 2, so the tangent line is y = 0 + 2(x − 3), or y = 2x − 6.
 
 Near the point, the tangent line and the curve are very close. At x = 3.1, q is worked out on the
-stack as fn-02 did: 3.1 ENTER keeps a copy in Y for the 4 ×, after x² has squared the one in X.
+stack as program Q did: 3.1 ENTER keeps a copy in Y for the 4 ×, after x² has squared the one in X.
 
 ```keys T01
 3.1 ENTER GOLD x² x↔y 4 × − 3 +
@@ -88,7 +86,7 @@ makes it the best straight-line stand-in for the curve near the point.
 
 ## Lowest and highest points
 
-On the graph of q from fn-02, the curve falls, turns at its lowest point, and rises. Where it falls, its
+On the graph of q, the curve falls, turns at its lowest point, and rises. Where it falls, its
 slope is negative; where it rises, positive. At the turn the tangent line is flat: the slope is 0. So
 where a smooth curve turns, its derivative is 0, and the turns are among the places where f′ = 0.
 
@@ -118,17 +116,17 @@ q's lowest point anywhere, not only nearby. Its height, q(2):
 2 ENTER GOLD x² x↔y 4 × − 3 +
 ```
 
-X shows <disp v="S02">-1.0000</disp>. The lowest point of q is (2, −1), the turn the drawing in fn-02 showed.
+X shows <disp v="S02">-1.0000</disp>. The lowest point of q is (2, −1), the turn the drawing showed.
 
 ```why
-ask: Why is the slope zero at x = 2, where fn-02 found the curve's mirror line?
+ask: Why is the slope zero at x = 2, where the drawing showed the curve's mirror line?
 because: Mirrored about x = 2, the slope at each point is minus the slope at its mirror point. At the mirror line a point is its own mirror, so its slope is minus itself, and only zero is.
 ```
 
 A curve can have more than one. f(x) = x³ − 3x has f′(x) = 3x² − 3, which is 0 when x² = 1: at x = 1 and
 x = −1. The slope's sign tells which is which. f′(−2) = 9 is positive, f′(0) = −3 negative, and
 f′(2) = 9 positive again. So f rises, turns down at x = −1, falls, and turns up at x = 1. The heights,
-f(−1) on the stack (yˣ uses the copy in Y as its base, and the last copy waits for 3 ×, as in der-02):
+f(−1) on the stack (yˣ uses the copy in Y as its base, and the last copy waits for 3 ×, as before):
 
 ```keys C01
 1 +/− ENTER ENTER 3 yˣ x↔y 3 × −
@@ -151,9 +149,9 @@ points in this mode.</mode>
 
 ## On the graph
 
-STU mode's GRAPH (fn-02) has tools that find these points from the picture. Type q, turn Equation
-mode off, and set the window from fn-02, XMIN −2 and XMAX 5.98: its 400 columns are 0.02 apart, so column 200,
-where the trace starts, is x = 2 (fn-02).</mode>
+STU mode's GRAPH has tools that find these points from the picture. Type q, turn Equation
+mode off, and set the window used before, XMIN −2 and XMAX 5.98: its 400 columns are 0.02 apart, so column 200,
+where the trace starts, is x = 2.</mode>
 
 ```keys G01 mode=STU
 GOLD EQN RCL X yˣ 2 − 4 × RCL X + 3 ENTER GOLD EQN 2 +/− BLUE GRAPH XMIN 5.98 BLUE GRAPH XMAX
@@ -258,9 +256,6 @@ C
 
 ## Mixed review
 
-Four from this lesson and the ones before it, in no order. Work each by hand unless it says to use
-the calculator.
-
 ```item DR3M1
 prompt: q(x) = x² − 8x + 1 has q′(x) = 2x − 8. At which x is q lowest?
 topics: extremes
@@ -295,8 +290,7 @@ slip: DR3M4A | the distance, not the speed | d(2.5) is how far it has gone. Its 
 
 ## Checkpoint
 
-Three questions on the whole unit. Work each by hand first, then give your answer; the calculator
-checks it. A wrong answer that comes from a common slip gets a hint that names the step.
+Three questions on the whole unit.
 
 ```item K01
 prompt: f(x) = x³ − 2x. What is f′(2)?

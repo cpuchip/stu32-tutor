@@ -16,8 +16,6 @@ it, so that any polynomial's derivative can be written down at once.
 
 ## From before
 
-Two from before, by hand: a speed from der-01, and nesting from poly-01.
-
 ```item DR2F1
 prompt: d(t) = 2t² has d′(t) = 4t. What is d′(5)?
 topics: derivative-function
@@ -45,7 +43,7 @@ BLUE MODE {mode} GOLD DISP FIX 4
 
 ## Powers of x
 
-Do the algebra from der-01 for x³. (a + h)³ is (a + h)² × (a + h), which is (a² + 2ah + h²)(a + h). Multiplied
+Do the same algebra for x³. (a + h)³ is (a + h)² × (a + h), which is (a² + 2ah + h²)(a + h). Multiplied
 out, that is a³ + a²h + 2a²h + 2ah² + ah² + h³, and collecting like terms, a³ + 3a²h + 3ah² + h³. Take
 away a³ and divide by h: the average rate is 3a² + 3ah + h², for any h that
 is not 0. As h shrinks, 3ah and h² shrink to 0, and the average closes in on 3a². So the derivative of
@@ -77,7 +75,7 @@ flat line, with slope 0.
 Two more rules come straight from the averages.
 - A number times a function. (2(a + h)² − 2a²) ÷ h is 2 × ((a + h)² − a²) ÷ h: twice the average of
   t². Whatever that average closes in on, twice it closes in on twice as much. So the derivative of
-  k times a function is k times its derivative: for 2t², 2 × 2t = 4t, which is the answer der-01 found.
+  k times a function is k times its derivative: for 2t², 2 × 2t = 4t, which is the answer found before.
 - A sum. For f + g, the change from a to a + h is f's change plus g's change, so the average of the
   sum is f's average plus g's average. If those close in on f′(a) and g′(a), their sum closes in on
   f′(a) + g′(a): the derivative of a sum is the sum of the derivatives. A difference is a sum with a
@@ -90,7 +88,7 @@ f′(2) = 3 × 4 − 4 = 8.
 
 ## Checking the rule
 
-As in der-01, one average over a small h should land near the rule's answer. f(2) = 8 − 8 + 1 = 1, so
+As before, one average over a small h should land near the rule's answer. f(2) = 8 − 8 + 1 = 1, so
 work out f(2.001), take away 1, and divide by 0.001. On the stack, 2.001 ENTER ENTER leaves 2.001 in X, Y
 and Z. Typing 3 replaces the 2.001 in X, and yˣ uses the copy in Y as its base: 2.001³. The last copy
 drops down to Y, and x↔y brings it back to X for 4 ×. Then − takes 4x away from x³, and 1 + finishes
@@ -110,7 +108,7 @@ because: The average is 3a² + 3ah + h² − 4. At a = 2, the 3ah adds 3 × 2 ×
 
 <mode m="STU">
 
-STU mode's D/DX gives the rule itself, as in der-01: type the expression in the equation list, then
+STU mode's D/DX gives the rule itself, as before: type the expression in the equation list, then
 CAS, D/DX, and the variable.</mode>
 
 ```keys B01 mode=STU
@@ -211,9 +209,6 @@ GOLD EQN
    <mode m="STU">The screen shows <disp v="E03" kind="eqn">0</disp>.</mode>
 
 ## Mixed review
-
-Four from this lesson and the ones before it, in no order. Work each by hand unless it says to use
-the calculator.
 
 ```item DR2M1
 prompt: What is the derivative of x⁵ at x = 2?
