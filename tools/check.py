@@ -198,6 +198,9 @@ MATHS_COMMANDS = {r"\times": "×", r"\div": "÷", r"\le": "≤", r"\ge": "≥", 
                   r"\pi": "π", r"\theta": "θ", r"\infty": "∞", r"\,": "", r"\left": "", r"\right": "",
                   r"\%": "%", r"\angle": "∠"}         # \% and \angle: abacus #7218
 MATHS_OPERATORS = ("LCM", "GCF")                      # \operatorname{...}: upright names (abacus #7227)
+MATHS_FUNCTIONS = ("sin", "cos", "tan", "log", "ln")  # \sin ...: KaTeX's own names (abacus #7263); unlike other
+#                                                       letter commands the space after one is kept: "sin x"
+MATHS_KEY_NAMES = ("SIN", "COS", "TAN", "LOG", "LN", "ABS", "ASIN", "ACOS", "ATAN")   # keys: never in a span
 
 
 class MathsRefused(ValueError):
@@ -237,6 +240,9 @@ def maths_text(tex):
             m = re.match(r"\\([A-Za-z]+|.)", tex[i:], re.S)
             name = "\\" + m.group(1)
             i += len(m.group(0))
+            if m.group(1) in MATHS_FUNCTIONS:
+                out.append(m.group(1))              # sin, cos ...: the space after is kept, as the lessons write it
+                continue
             if m.group(1).isalpha() and i < len(tex) and tex[i] == " ":
                 i += 1                              # TeX drops one space after a letter command
             if name == r"\frac":
@@ -273,6 +279,9 @@ def maths_text(tex):
         elif c == "'":
             out.append("′")
             i += 1
+        elif tex.startswith("{,}", i):
+            out.append(",")                         # a thousands comma, 10{,}000: no space after it
+            i += 3
         elif c in "{}":
             raise MathsRefused("a bare brace")
         elif c == "%":
@@ -343,6 +352,12 @@ def check_maths(body):
             continue
         if re.match(r"\s*key", body[b:b + 6]):
             out.append(f"a maths span names a key: '${tex}$ key'; write a key's name plain, as in 'the x² key'")
+        named = re.findall(rf"(?<![A-Za-z\\])({'|'.join(MATHS_KEY_NAMES)})(?![A-Za-z])", tex)
+        if named:
+            maths = {"ABS": "|x|", "ASIN": "\\sin^{-1}", "ACOS": "\\cos^{-1}", "ATAN": "\\tan^{-1}"}.get(
+                named[0], "\\" + named[0].lower())
+            out.append(f"a maths span holds the key name {named[0]}: '${tex}$'; a key's name is plain, and in maths "
+                       f"the function is written {maths}")
         try:
             maths_text(tex)
         except MathsRefused as e:

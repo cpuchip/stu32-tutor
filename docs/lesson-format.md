@@ -273,7 +273,9 @@ arithmetic too, Michael via abacus #6967). The lesson says where the maths is:
 - **A key's name stays plain:** "the x² key", never a span before the word "key".
 - **Inside a span, TeX** over a closed list: `^2` or `^{…}`, `\frac{a}{b}`, `\sqrt{…}`, `'` and `''`, and `\times
   \div \le \ge \pm \neq \cdot \pi \theta \infty \, \left \right \% \angle` (the last two by abacus #7218), and
-  `\operatorname{LCM}` and `\operatorname{GCF}`, so those names set upright (abacus #7227). Any
+  `\operatorname{LCM}` and `\operatorname{GCF}`, so those names set upright (abacus #7227), and `\sin \cos \tan
+  \log \ln` (abacus #7263), whose following space the reader keeps ("sin x"); a thousands comma is `10{,}000`. The
+  calculator's key names (SIN, COS, TAN, LOG, LN, ABS) are refused inside a span: a key is plain. Any
   other character is taken as written, so − × ÷ ≤ ≥ ° π may be written as they are. A bare `%` is refused: TeX
   takes it as a comment and drops the rest of the span.
 - **What is a span** (the conversion's rules, docs/proposals/maths-markup.md §6): an expression or relation,
@@ -284,7 +286,10 @@ arithmetic too, Michael via abacus #6967). The lesson says where the maths is:
   geometry a capital is a point (plain) and a small letter is an angle (a span: "the angles $p$, $q$, $r$ and $s$").
   Decided by hand, never by the converter: a lone a, A or I in a sentence with a one-letter span, a lone capital
   that is also a memory letter ("3.5 in $W$", a variable; "W is on the 5 key", the calculator's letter), and a
-  register letter in an expression ("$D = R × T$" is time; "2 × X" is the register). Each decision is a line of
+  register letter in an expression ("$D = R × T$" is time; "2 × X" is the register), a lone product of letters
+  ("Take $mx$ from both sides"), and a formula an operator joins to a word ("sin A = opposite ÷ hypotenuse",
+  plain as a whole so no half of it is typeset). A letter used as a function counts as the lesson's ("the domain
+  of $r$"), and a product of letters is read where an operator touches it ($y = mx + b$). Each decision is a line of
   tools/maths_hand.txt, which the converter reads, so a regeneration reproduces every accepted lesson.
 - **An absolute value** is `$|x − 3|$`, the bars with no space inside (a table row is never read as bars), and a
   **factorial** is `$5!$`, the `!` after a digit or a bracket only. A `|` may not sit in a span on a slip line,

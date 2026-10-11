@@ -191,6 +191,11 @@ def operand(s, i, inner=False):
         if k is not None and s[k:k + 1] == "|" and s[k - 1] != " ":   # and never on a table row
             return _post(s, k + 1)
         return None
+    m = re.compile(rf"(?<![A-Za-z])(?:{'|'.join(check.MATHS_FUNCTIONS)})[{SUPS}]*(?![A-Za-z])").match(s, j)
+    if m:                                             # sin 30°, cos A, ln 2, sin⁻¹ 0.5: a function and its argument
+        k = m.end() + (s[m.end():m.end() + 1] == " ")
+        e = operand(s, k, inner)
+        return e if e is not None else None           # a name alone ("the sine, sin,") stays plain
     m = re.compile(rf"(?<![A-Za-z])(?:{'|'.join(check.MATHS_OPERATORS)})(?![A-Za-z])").match(s, j)
     if m:                                             # LCM(4, 8), GCF: an upright name (abacus #7227)
         return _post(s, _paren(s, m.end(), commas=True) or m.end())
@@ -222,12 +227,30 @@ def operand(s, i, inner=False):
     return k
 
 
+WORDS2 = {"is", "an", "of", "to", "in", "it", "be", "by", "or", "on", "at", "as", "if", "up", "so", "do", "no", "we",
+          "me", "he", "us", "am", "go", "my", "the", "and", "for", "but", "not", "are", "was", "has", "its", "one",
+          "two", "six", "ten", "all", "any", "can", "you", "let", "put", "set", "get", "new", "now", "how", "why",
+          "who", "own", "per", "via", "yet", "off", "out", "too", "use", "see", "say", "way", "end", "top", "row",
+          "key", "box", "pie", "bun", "day", "car", "map", "cm", "km", "kg", "mm", "ml", "add", "sum", "few", "low",
+          "big", "old", "far", "ago", "act", "lot", "had", "did", "may", "our", "his", "her", "him", "she", "each"}
+
+
+def _product(s, j):
+    """The end of a product of letters at j, mx or abc (two or three small letters, not a word), or None."""
+    m = re.compile(rf"(?<![A-Za-z'’])([a-z]{{2,3}})[{SUPS}]*(?![A-Za-z'’(])").match(s, j)
+    return m.end() if m and m.group(1) not in WORDS2 else None
+
+
 def expression(s, i, inner=False):
     """The end of an expression at i: an operand, then (operator operand)*. A space either side of an operator is
-    allowed; an ASCII - is an operator only with a space on both sides."""
+    allowed; an ASCII - is an operator only with a space on both sides. A product of letters (y = mx + b) is an
+    operand only where an operator touches it, so a word is never read as one."""
     j = operand(s, i, inner)
     if j is None:
-        return None
+        k = _product(s, i)
+        if k is None or not re.match(rf" ?[{re.escape(OPS)}]", s[k:]):
+            return None
+        j = _post(s, k)
     while True:
         k = j
         while s[k:k + 1] == " ":
@@ -246,6 +269,8 @@ def expression(s, i, inner=False):
         while s[k:k + 1] == " ":
             k += 1
         e = operand(s, k, inner)
+        if e is None and _product(s, k) is not None:
+            e = _post(s, _product(s, k))              # after an operator: y = mx + b
         if e is None:
             return j
         j = e
@@ -273,6 +298,10 @@ def kind_of(t):
     the kind of what it holds: "(28)" is a lone number."""
     if re.fullmatch(r"\((?:[^()]|\([^()]*\))*\)", t):
         return kind_of(t[1:-1].strip())
+    if re.match(rf"[−-]?(?:{'|'.join(check.MATHS_FUNCTIONS)})(?![A-Za-z])", t):
+        return "expr"                                  # sin 30°, log 1.04: a function applied
+    if re.fullmatch(r"[−-](?:\d+(?:\.\d+)?)?[A-Za-zθπ]", t) and not t.endswith("i"):
+        return "expr"                                  # a signed letter or term, −b, −4z, −θ (not −4i, a number)
     if re.search(rf"[{re.escape(OPS)}]|\^", t.lstrip("−-")) or re.search(rf"[{SUPS}√′″|!]", t) or re.search(r"[A-Za-z]\(", t):
         return "expr"
     if re.fullmatch(r"[−-]?\d+(?:[.,]\d+)*[%°]?", t):
@@ -295,6 +324,8 @@ def to_tex(u):
     t = re.sub(rf"(?<![\w.)])({o})/({o})(?![\w.(])",
                lambda m: r"\frac{" + re.sub(r"^\((.*)\)$", r"\1", m.group(1)) + "}{" + re.sub(r"^\((.*)\)$", r"\1", m.group(2)) + "}", t)
     t = re.sub(rf"(?<![A-Za-z\\])({'|'.join(check.MATHS_OPERATORS)})(?![A-Za-z])", r"\\operatorname{\1}", t)
+    t = re.sub(rf"(?<![A-Za-z\\])({'|'.join(check.MATHS_FUNCTIONS)})(?![A-Za-z])", r"\\\1", t)
+    t = re.sub(r"(?<=\d),(?=\d{3}(?!\d))", "{,}", t)  # 10,000: TeX would space a bare comma
     t = re.sub(f"[{SUPS}]+", lambda m: "^{" + "".join(SUP_BACK[c] for c in m.group(0)) + "}", t)
     t = re.sub(r"\^\(([^()]*)\)", lambda m: "^{" + m.group(1) + "}", t)
     t = re.sub(r"\^([\d.]+)", lambda m: "^{" + m.group(1) + "}", t)
@@ -359,6 +390,15 @@ def plan(text, geometry, keys, hand=None):
     for s, e, t, key in found:
         if kind_of(t) == "expr" and not key:
             letters |= set(re.findall(r"(?<![\\A-Za-z])[A-Za-z](?![A-Za-z(])", re.sub(r"[A-Za-z][′″]?\(", "(", t)))
+            # a letter used as a function counts too, so "the domain of $r$" matches its $r(x)$ (abacus #7268); not
+            # a, A or I, where "a(a + h)" is a product and a lone a is the article rule's
+            letters |= set(re.findall(r"(?<![\\A-Za-z])([A-Za-z])[′″]?\(", t)) - {"a", "A", "I"}
+    # a product of the lesson's letters standing alone ("Take mx from both sides") is not a run, so it is listed
+    for za, zb in zones(text):
+        for m in re.finditer(r"(?<![A-Za-z'’$\\])[a-z]{2}(?![A-Za-z'’(])", masked[za:zb]):   # two letters: "add" is a word
+            s, e, t = za + m.start(), za + m.end(), m.group(0)
+            if t not in WORDS2 and set(t) <= letters and not any(a <= s < b for a, b, _, _ in found):
+                ask(s, e, t, f"product: …{text[max(0, s - 20):s]}[{t}]{text[e:e + 12]}…".replace("\n", " "))
     for s, e, t, key in found:
         k = kind_of(t)
         before, after = text[max(0, s - 24):s], text[e:e + 12]
@@ -368,6 +408,11 @@ def plan(text, geometry, keys, hand=None):
         if k == "expr":
             if re.search(r"(?<![A-Za-z])[XYZT](?![A-Za-z(])", t) and not re.search(r"[a-z]", t):
                 ask(s, e, t, f"register: {t}")          # X Y Z T in an expression: registers, or a formula's T
+                continue
+            if re.match(rf" ?[{re.escape(OPS)}] ?(?:the |that |its )?[A-Za-z]{{2,}}", masked[e:e + 12]) and not key:
+                # an expression an operator joins to a word, "sin A = opposite ÷ hypotenuse": spanning it would
+                # leave the rest of the formula plain, so it is a decision by hand
+                ask(s, e, t, f"word formula: {t}{after}".replace("\n", " "))
                 continue
             if re.match(rf"\s?(?:{'|'.join(UNIT_WORDS)})\b", after) or re.match(r"\s?[a-z]{3,}", after):
                 left["word after, kept outside"] += 1
@@ -397,6 +442,9 @@ def plan(text, geometry, keys, hand=None):
     # is always listed for a decision by hand, never decided (abacus #7248: angle-02's "a with c"). Elsewhere it is
     # the word, or listed when the lesson uses it as a variable and no noun follows.
     lspans = [x for x in spans if re.fullmatch(r"[A-Za-z]", x[2]) or re.search(r"(?<![\\A-Za-z])[aAI](?![A-Za-z])", x[2])]
+    # a deferred letter decided a span by hand counts too ("here $A$" lists the "a formula" in its sentence)
+    lspans += [(s, e, t) for s, e, t, before, after in deferred
+               if hand.get(f"{t}: …{before[-20:]}[{t}]{after}…".replace("\n", " ")) == "span"]
     for s, e, t, before, after in deferred:
         a, b = sentence(text, s)
         if any(a <= x[0] < b for x in lspans) or (t in letters and not re.match(
