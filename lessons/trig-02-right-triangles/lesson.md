@@ -10,8 +10,8 @@ display: FIX 4
 # Right triangles
 
 A right triangle has one square corner, a right angle of 90 degrees. Its longest side, across from
-the right angle, is the hypotenuse. Pick one of the other two angles and call it A. The side across
-from A is the opposite side, and the side beside A that is not the hypotenuse is the adjacent side.
+the right angle, is the hypotenuse. Pick one of the other two angles and call it $A$. The side across
+from $A$ is the opposite side, and the side beside $A$ that is not the hypotenuse is the adjacent side.
 In this picture the right angle is the square corner at the bottom left:
 
 ```
@@ -43,15 +43,15 @@ prompt: A circle has radius 5. How long is the arc for an angle of 0.4 radians?
 topics: arc-length
 answer: type
 calculator: no
-slip: TR2F1A | added them | Arc length is the radius times the angle in radians: 5 × 0.4.
+slip: TR2F1A | added them | Arc length is the radius times the angle in radians: $5 × 0.4$.
 ```
 
 ```item TR2F2
-prompt: Work out 6/10 ÷ 2/10.
+prompt: Work out $\frac{6}{10} ÷ \frac{2}{10}$.
 topics: fraction-arithmetic
 answer: type
 calculator: no
-slip: TR2F2A | multiplied instead | Dividing asks how many 2/10s make 6/10: three.
+slip: TR2F2A | multiplied instead | Dividing asks how many $\frac{2}{10}$s make $\frac{6}{10}$: three.
 ```
 
 ## Before you start
@@ -67,15 +67,15 @@ BLUE MODE {mode} GOLD DISP FIX 4 BLUE ∡MODE DEG
 
 A 5 m ladder leans against a wall, at 70 degrees to the ground. The ladder is the hypotenuse; the
 height it reaches up the wall is the side opposite the 70 degrees. sin 70° = height ÷ 5, and
-multiplying both sides by 5 gives the height: 5 × sin 70°. On the stack, SIN works on X alone, so
-the 5 waits in Y while 70 becomes sin 70°, and × multiplies them:
+multiplying both sides by 5 gives the height: $5 × \sin 70°$. On the stack, SIN works on X alone, so
+the 5 waits in Y while 70 becomes $\sin 70°$, and × multiplies them:
 
 ```keys L01
 5 ENTER 70 SIN ×
 ```
 
 X shows <disp v="L01">4.6985</disp> m. The adjacent side is the ground between the ladder's foot and
-the wall, so that distance is 5 × cos 70°:
+the wall, so that distance is $5 × \cos 70°$:
 
 ```keys L02
 5 ENTER 70 COS ×
@@ -85,13 +85,13 @@ X shows <disp v="L02">1.7101</disp> m.
 
 ```why
 ask: Why do the height and the distance along the ground not add up to the ladder's 5 m?
-because: They are the two shorter sides of a right triangle, and the ladder is the longest. It is their squares that add up to 5², not the sides themselves.
+because: They are the two shorter sides of a right triangle, and the ladder is the longest. It is their squares that add up to $5^{2}$, not the sides themselves.
 ```
 
 Tangent uses the two shorter sides. Standing 12 m from a tree, you look up 35 degrees to its top.
 The triangle has its corner at your eye: the 12 m level with your eye is adjacent to the angle, and
 the side opposite runs up from eye level to the top of the tree. So tan 35° = that height ÷ 12,
-and it is 12 × tan 35°:
+and it is $12 × \tan 35°$:
 
 ```keys T01
 12 ENTER 35 TAN ×
@@ -107,20 +107,20 @@ ratio and give back the angle: ASIN, ACOS and ATAN, gold above SIN, COS and TAN 
 sin⁻¹, cos⁻¹ and tan⁻¹). For a right triangle's angles, all between 0 and 90 degrees, they give the
 angle meant; trig-03 shows that a sine belongs to more than one angle in general. A triangle with
 sides 3, 4 and 5 is a right triangle: Pythagoras' rule says a triangle whose sides fit
-a² + b² = c², with c the longest, has a right angle, and 3² + 4² = 9 + 16 = 25 = 5². The angle A
-opposite the 3 has sin A = 3 ÷ 5:
+$a^{2} + b^{2} = c^{2}$, with $c$ the longest, has a right angle, and $3^{2} + 4^{2} = 9 + 16 = 25 = 5^{2}$. The angle $A$
+opposite the 3 has $\sin A = 3 ÷ 5$:
 
 ```keys A01
 3 ENTER 5 ÷ GOLD ASIN
 ```
 
-X shows <disp v="A01">36.8699</disp> degrees. The same angle has the 4 beside it, so cos A = 4 ÷ 5:
+X shows <disp v="A01">36.8699</disp> degrees. The same angle has the 4 beside it, so $\cos A = 4 ÷ 5$:
 
 ```keys A02
 4 ENTER 5 ÷ GOLD ACOS
 ```
 
-X shows <disp v="A02">36.8699</disp> again. And tan A = 3 ÷ 4:
+X shows <disp v="A02">36.8699</disp> again. And $\tan A = 3 ÷ 4$:
 
 ```keys A03
 3 ENTER 4 ÷ GOLD ATAN
@@ -142,7 +142,7 @@ because: A triangle's three angles together make half a turn, and the right angl
 
 ## Answers
 
-1. The rise is opposite the angle and the 12 m adjacent to it, so tan A = 1 ÷ 12:
+1. The rise is opposite the angle and the 12 m adjacent to it, so $\tan A = 1 ÷ 12$:
 
    ```keys E01
    1 ENTER 12 ÷ GOLD ATAN
@@ -150,21 +150,21 @@ because: A triangle's three angles together make half a turn, and the right angl
 
    X shows <disp v="E01">4.7636</disp> degrees.
 
-2. The 0.7 m is adjacent to the angle and the ladder is the hypotenuse, so cos A = 0.7 ÷ 2.5:
+2. The 0.7 m is adjacent to the angle and the ladder is the hypotenuse, so $\cos A = 0.7 ÷ 2.5$:
 
    ```keys E02
    0.7 ENTER 2.5 ÷ GOLD ACOS
    ```
 
-   X shows <disp v="E02">73.7398</disp> degrees. The height is sin A × 2.5, with A still in X: SIN,
-   then typing 2.5 pushes sin A up to Y (as typing after any function does, exp-03), and × in
+   X shows <disp v="E02">73.7398</disp> degrees. The height is $\sin A × 2.5$, with $A$ still in X: SIN,
+   then typing 2.5 pushes $\sin A$ up to Y (as typing after any function does, exp-03), and × in
    either order gives the same:
 
    ```keys E02B after=E02
    SIN 2.5 ×
    ```
 
-   X shows <disp v="E02B">2.4000</disp> m. (Check with 0.7² + 2.4² = 2.5².)
+   X shows <disp v="E02B">2.4000</disp> m. (Check with $0.7^{2} + 2.4^{2} = 2.5^{2}$.)
 
 ## Mixed review
 
@@ -173,23 +173,23 @@ prompt: A right triangle's two shorter sides are 6 and 8. How long is its hypote
 topics: pythagoras
 answer: type
 calculator: no
-slip: TR2M1A | added the sides | Square, add, then take the root: 36 + 64 is 100, and √100 is 10.
+slip: TR2M1A | added the sides | Square, add, then take the root: $36 + 64$ is 100, and $\sqrt{100}$ is 10.
 ```
 
 ```item TR2M2
-prompt: 90° is k × π radians. What is k?
+prompt: 90° is $k × π$ radians. What is $k$?
 topics: convert-angle
 answer: type
 calculator: no
-slip: TR2M2A | divided the wrong way | π radians is 180°, so 90° is 90 ÷ 180 of π.
+slip: TR2M2A | divided the wrong way | π radians is 180°, so 90° is $90 ÷ 180$ of π.
 ```
 
 ```item TR2M3
-prompt: In a right triangle with sides 7, 24 and hypotenuse 25, the side opposite angle A is 7. What is sin A?
+prompt: In a right triangle with sides 7, 24 and hypotenuse 25, the side opposite angle $A$ is 7. What is $\sin A$?
 topics: trig-ratios
 answer: type
 calculator: no
-slip: TR2M3A | the cosine | Sine is opposite over hypotenuse: 7 ÷ 25. 24 ÷ 25 is the cosine.
+slip: TR2M3A | the cosine | Sine is opposite over hypotenuse: $7 ÷ 25$. $24 ÷ 25$ is the cosine.
 ```
 
 ```item TR2M4
@@ -197,5 +197,5 @@ prompt: An arc of 12 lies on a circle of radius 4. What is its angle in radians?
 topics: arc-length
 answer: type
 calculator: no
-slip: TR2M4A | multiplied | The angle is the arc divided by the radius: 12 ÷ 4.
+slip: TR2M4A | multiplied | The angle is the arc divided by the radius: $12 ÷ 4$.
 ```

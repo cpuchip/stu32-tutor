@@ -11,7 +11,7 @@ display: FIX 4
 
 The calculator finds the best line for any data you give it, even data no line suits. $r$, from
 lin-02, measures one thing only: how well a sloping line fits. Given points that follow a rule
-exactly, the table of q from fn-02, $r$ finds no sloping line in them. Then come points on one sloping
+exactly, the table of $q$ from fn-02, $r$ finds no sloping line in them. Then come points on one sloping
 line, points on a flat line, and points a line fits well by $r$ but describes badly.
 
 A model is a rule chosen to describe data. A line is one kind of model, and sometimes the wrong

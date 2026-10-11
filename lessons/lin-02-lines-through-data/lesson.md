@@ -22,7 +22,7 @@ prompt: A line has slope 2 and goes through (3, 10). What is its intercept?
 topics: intercept
 answer: type
 calculator: no
-slip: LN2F1A | took away the slope, not the slope times x | $b = y$ − mx: $10 − 2 × 3$.
+slip: LN2F1A | took away the slope, not the slope times x | $b = y − mx$: $10 − 2 × 3$.
 ```
 
 ```item LN2F2

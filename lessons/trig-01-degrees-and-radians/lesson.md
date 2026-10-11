@@ -22,19 +22,19 @@ and convert between the two.
 Radians are full of fractions.
 
 ```item TR1F1
-prompt: Work out 1/2 + 1/4, as a decimal.
+prompt: Work out $\frac{1}{2} + \frac{1}{4}$, as a decimal.
 topics: fraction-arithmetic
 answer: type
 calculator: no
-slip: TR1F1A | added the tops over the larger bottom | Give them one bottom: 1/2 is 2/4, and 2/4 + 1/4 is 3/4.
+slip: TR1F1A | added the tops over the larger bottom | Give them one bottom: $\frac{1}{2}$ is $\frac{2}{4}$, and $\frac{2}{4} + \frac{1}{4}$ is $\frac{3}{4}$.
 ```
 
 ```item TR1F2
-prompt: Work out 3/5 × 10.
+prompt: Work out $\frac{3}{5} × 10$.
 topics: fraction-arithmetic
 answer: type
 calculator: no
-slip: TR1F2A | multiplied the bottom | 10 multiplies the top: 3 × 10 is 30, over 5.
+slip: TR1F2A | multiplied the bottom | 10 multiplies the top: $3 × 10$ is 30, over 5.
 ```
 
 ## Before you start
@@ -56,7 +56,7 @@ them again.
 
 SIN, the fourth key of the second row (after STO, RCL and R↓), gives the sine of the angle in X.
 What a sine is comes in trig-02, with right triangles; here it is only a way to see the unit
-matter. The sine of an angle x is written sin x, so the sine of 30 degrees is sin 30°. In degrees:
+matter. The sine of an angle $x$ is written $\sin x$, so the sine of 30 degrees is $\sin 30°$. In degrees:
 
 ```keys A01
 30 SIN
@@ -102,19 +102,19 @@ because: Half a turn is π radians, so one radian is half a turn divided by 3.14
 ## π in radians
 
 In radians, the angles that come up most are fractions of π. 30 degrees is a twelfth of a turn
-(360 ÷ 30 = 12), and a turn is 2π radians, so 30 degrees is 2π ÷ 12 = π ÷ 6. π has a key of its
+($360 ÷ 30 = 12$), and a turn is 2π radians, so 30 degrees is 2π ÷ $12 = π ÷ 6$. π has a key of its
 own, gold above E (the E key of rpn-03):
 
 ```keys R01
 BLUE ∡MODE RAD GOLD π 6 ÷ SIN
 ```
 
-X shows <disp v="R01">0.5000</disp>, as sin 30° did in degrees: the same angle, in the other unit.
+X shows <disp v="R01">0.5000</disp>, as $\sin 30°$ did in degrees: the same angle, in the other unit.
 
 ## Arc length
 
-Radians make the length of an arc simple: on a circle of radius r, an angle of θ radians cuts an
-arc of length r × θ. That is the definition of a radian, stretched: one radian cuts one radius, so
+Radians make the length of an arc simple: on a circle of radius $r$, an angle of θ radians cuts an
+arc of length $r × θ$. That is the definition of a radian, stretched: one radian cuts one radius, so
 θ radians cut θ radii. An angle of 60 degrees on a circle of radius 10, converted first:
 
 ```keys S01
@@ -126,7 +126,7 @@ than one radian.
 
 ```why
 ask: Why must the 60 be turned into radians before multiplying by the radius?
-because: r × θ counts radii along the arc, and only a radian cuts exactly one radius. Multiplied straight, 60 × 10 would be far longer than the whole way round the circle.
+because: $r × θ$ counts radii along the arc, and only a radian cuts exactly one radius. Multiplied straight, $60 × 10$ would be far longer than the whole way round the circle.
 ```
 
 ## Exercises
@@ -144,7 +144,7 @@ because: r × θ counts radii along the arc, and only a radian cuts exactly one 
    45 BLUE →RAD
    ```
 
-   X shows <disp v="E01">0.7854</disp>: π ÷ 4, an eighth of a turn.
+   X shows <disp v="E01">0.7854</disp>: $π ÷ 4$, an eighth of a turn.
 
 2. Radians to degrees:
 
@@ -169,15 +169,15 @@ prompt: A circle has radius 3. How long is the arc for an angle of 2 radians?
 topics: arc-length
 answer: type
 calculator: no
-slip: TR1M1A | added them | Arc length is the radius times the angle in radians: 3 × 2.
+slip: TR1M1A | added them | Arc length is the radius times the angle in radians: $3 × 2$.
 ```
 
 ```item TR1M2
-prompt: Work out 1/4 + 3/8, as a decimal.
+prompt: Work out $\frac{1}{4} + \frac{3}{8}$, as a decimal.
 topics: fraction-arithmetic
 answer: type
 calculator: no
-slip: TR1M2A | added the tops over the larger bottom | Give them one bottom: 1/4 is 2/8, and 2/8 + 3/8 is 5/8.
+slip: TR1M2A | added the tops over the larger bottom | Give them one bottom: $\frac{1}{4}$ is $\frac{2}{8}$, and $\frac{2}{8} + \frac{3}{8}$ is $\frac{5}{8}$.
 ```
 
 ```item TR1M3
@@ -190,9 +190,9 @@ slip: TR1M3A | a full turn | A full turn is 360 degrees, and π radians is half 
 ```
 
 ```item TR1M4
-prompt: Write the mixed number 1 2/5 as a decimal.
+prompt: Write the mixed number $1 \frac{2}{5}$ as a decimal.
 topics: type-fraction
 answer: type
 calculator: no
-slip: TR1M4A | read 1 2/5 as 12/5 | 1 2/5 is one and two fifths: 1 + 0.4.
+slip: TR1M4A | read 1 2/5 as 12/5 | $1 \frac{2}{5}$ is one and two fifths: $1 + 0.4$.
 ```

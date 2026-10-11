@@ -9,10 +9,10 @@ display: FIX 4
 
 # Roots with SOLVE
 
-A root of a polynomial, also called a zero, is a value of x where the polynomial is 0. On its graph,
-it is where the curve meets the x axis. SOLVE, from eq-01, finds the roots of
+A root of a polynomial, also called a zero, is a value of $x$ where the polynomial is 0. On its graph,
+it is where the curve meets the $x$ axis. SOLVE, from eq-01, finds the roots of
 
-c(x) = x³ − 6x² + 11x − 6
+$c(x) = x^{3} − 6x^{2} + 11x − 6$
 
 one at a time, usually the one near the two guesses you give
 it (eq-03). So the work is in deciding where to look, and in knowing when you have found them all.
@@ -22,25 +22,25 @@ it (eq-03). So the work is in deciding where to look, and in knowing when you ha
 Working out a polynomial at a number is arithmetic like this, in the order num-01 set out.
 
 ```item P2F1
-prompt: Work out 3 × 2² − 5.
+prompt: Work out $3 × 2^{2} − 5$.
 topics: powers-first
 answer: type
 calculator: no
-slip: P2F1A | squared 3 × 2 | The power belongs to the 2 alone: 2² is 4, then 3 × 4 is 12.
+slip: P2F1A | squared 3 × 2 | The power belongs to the 2 alone: $2^{2}$ is 4, then $3 × 4$ is 12.
 ```
 
 ```item P2F2
-prompt: Work out −2² + 5.
+prompt: Work out $−2^{2} + 5$.
 topics: minus-and-power
 answer: type
 calculator: no
-slip: P2F2A | squared −2 | −2² is the negative of 2², so −4. Only (−2)² is 4.
+slip: P2F2A | squared −2 | $−2^{2}$ is the negative of $2^{2}$, so −4. Only $(−2)^{2}$ is 4.
 ```
 
 ## Before you start
 
-The examples about c are one chain, each carrying on from
-the one before; the one about x² + 1 starts fresh, and so does the exercise.
+The examples about $c$ are one chain, each carrying on from
+the one before; the one about $x^{2} + 1$ starts fresh, and so does the exercise.
 
 ```keys setup
 BLUE MODE {mode} GOLD DISP FIX 4
@@ -48,7 +48,7 @@ BLUE MODE {mode} GOLD DISP FIX 4
 
 ## Typing c
 
-Equation mode, with yˣ for the powers. c has no = sign<mode m="STU">, as the expression
+Equation mode, with yˣ for the powers. $c$ has no = sign<mode m="STU">, as the expression
 in the TABLE section of fn-02 had none</mode>: SOLVE treats an expression on its own as equal to 0, and XEQ gives its
 value.
 
@@ -60,7 +60,7 @@ The screen shows <disp v="R01" kind="eqn">X^3-6×X^2+11×X-6</disp>.
 
 ## Where to look
 
-Work out c at a few values of x with XEQ and watch the sign. At 0:
+Work out $c$ at a few values of $x$ with XEQ and watch the sign. At 0:
 
 ```keys R02 after=R01
 XEQ 0 R/S
@@ -87,20 +87,20 @@ GOLD EQN XEQ 4 R/S
 
 X shows <disp v="R05">6.0000</disp>.
 
-| x | 0 | 1.5 | 2.5 | 4 |
+| $x$ | 0 | 1.5 | 2.5 | 4 |
 |---|---|---|---|---|
-| c(x) | −6 | 0.375 | −0.375 | 6 |
+| $c(x)$ | −6 | 0.375 | −0.375 | 6 |
 
 The sign changes three times: from 0 to 1.5, from 1.5 to 2.5, and from 2.5 to 4. A polynomial's
-graph is one unbroken curve, so to get from below the x axis to above it, it must cross the axis
+graph is one unbroken curve, so to get from below the $x$ axis to above it, it must cross the axis
 somewhere in between. Each change of sign marks at least one root inside that gap.
 
-How many roots can there be? Each root r goes with a factor x − r: if c(r) = 0, then c(x) can be
-written as (x − r) times a polynomial of one degree less. Three roots would use up all three
-degrees of c, so a polynomial of degree 3 has at most three roots, and in general a polynomial of
-degree n has at most n. c has three gaps with a root in each, so those are all of its roots.
+How many roots can there be? Each root $r$ goes with a factor $x − r$: if $c(r) = 0$, then $c(x)$ can be
+written as ($x − r$) times a polynomial of one degree less. Three roots would use up all three
+degrees of $c$, so a polynomial of degree 3 has at most three roots, and in general a polynomial of
+degree n has at most n. $c$ has three gaps with a root in each, so those are all of its roots.
 
-The other way round is not true: no sign change does not mean no root. (x − 2)² is 0 at x = 2 but
+The other way round is not true: no sign change does not mean no root. $(x − 2)^{2}$ is 0 at $x = 2$ but
 positive on both sides of it; its graph touches the axis there without crossing. A gap can also hide
 two roots, the curve crossing down and back up between two values where the sign is the same. Try
 more values when the count does not add up.
@@ -127,14 +127,14 @@ The X line shows <disp v="S02" kind="view">X=2.0000</disp>. The third:
 ```
 
 The X line shows <disp v="S03" kind="view">X=3.0000</disp>. The roots are 1, 2 and 3, and indeed
-c(x) = (x − 1)(x − 2)(x − 3): multiply it out to check.
+$c(x) = (x − 1)(x − 2)(x − 3)$: multiply it out to check.
 
 ```why
-ask: Why are the roots exactly the numbers taken away in (x − 1)(x − 2)(x − 3)?
-because: A product is zero only when one of its factors is zero, and x − 1 is zero at 1, x − 2 at 2, and x − 3 at 3.
+ask: Why are the roots exactly the numbers taken away in $(x − 1)(x − 2)(x − 3)$?
+because: A product is zero only when one of its factors is zero, and $x − 1$ is zero at 1, $x − 2$ at 2, and $x − 3$ at 3.
 ```
 
-SOLVE works by trying values of x and narrowing in on the root, and it stops when it is close
+SOLVE works by trying values of $x$ and narrowing in on the root, and it stops when it is close
 enough. So a root it finds can be off in its last digit. The calculator keeps 34 significant digits
 (rpn-03), and the third root here is 3.000…0003: every one of those digits is right except the
 34th, which is 3 where the exact root has 0. FIX 4 shows only the first few digits, all of them
@@ -142,7 +142,7 @@ right. It is a reminder that SOLVE's answers come from searching, not from a for
 
 ## A polynomial with no real root
 
-Not every polynomial crosses the x axis. x² + 1 is never less than 1, since x² is never negative,
+Not every polynomial crosses the $x$ axis. $x^{2} + 1$ is never less than 1, since x² is never negative,
 so it is never 0. Ask SOLVE anyway:
 
 ```keys N01
@@ -150,7 +150,7 @@ GOLD EQN RCL X yˣ 2 + 1 ENTER GOLD SOLVE X
 ```
 
 The screen shows <disp v="N01" kind="message">NO ROOT FND</disp>: SOLVE searched and found no root.
-None exists among the real numbers, the only numbers these lessons have used so far. x² + 1 does
+None exists among the real numbers, the only numbers these lessons have used so far. $x^{2} + 1$ does
 have roots, but they are complex numbers, which poly-04 meets. Clear the message with C before you
 go on<mode m="35s,STU">: in this mode a key pressed while a message shows only clears it, so the
 next example's first key would be lost</mode>.
@@ -160,19 +160,19 @@ C
 ```
 
 ```why
-ask: Why does SOLVE give up on x² + 1, when it found every root of c?
-because: SOLVE hunts for a value of x that makes the expression zero, and x² + 1 is never below 1, so among the real numbers there is none to find.
+ask: Why does SOLVE give up on $x^{2} + 1$, when it found every root of $c$?
+because: SOLVE hunts for a value of $x$ that makes the expression zero, and $x^{2} + 1$ is never below 1, so among the real numbers there is none to find.
 ```
 
 ## Exercise
 
-Find all the roots of d(x) = x³ − 3x + 1. Start by working out d at the whole numbers from −2 to 2,
-find where the sign changes, and use SOLVE in each gap. d has no x² term: type only the terms it
+Find all the roots of $d(x) = x^{3} − 3x + 1$. Start by working out $d$ at the whole numbers from −2 to 2,
+find where the sign changes, and use SOLVE in each gap. $d$ has no x² term: type only the terms it
 has.
 
 ## Answer
 
-Type d:
+Type $d$:
 
 ```keys E01
 GOLD EQN RCL X yˣ 3 − 3 × RCL X + 1 ENTER
@@ -209,7 +209,7 @@ GOLD EQN XEQ 2 R/S
 ```
 
 X shows <disp v="E01E">3.0000</disp>. The sign changes from −2 to −1, from 0 to 1, and from 1 to 2:
-three gaps, and d has degree 3, so one root in each and no more. Between −1 and 0 the sign stays
+three gaps, and $d$ has degree 3, so one root in each and no more. Between −1 and 0 the sign stays
 positive, and the count of three is already reached, so nothing hides there. One SOLVE in each gap:
 
 ```keys E02 after=E01E
@@ -239,31 +239,31 @@ topics: root-count
 answer: type
 calculator: no
 working: none
-slip: P2M1A | one less than the degree | Each root r gives a factor x − r, and four factors use up degree 4: four at most.
+slip: P2M1A | one less than the degree | Each root $r$ gives a factor $x − r$, and four factors use up degree 4: four at most.
 ```
 
 ```item P2M2
-prompt: p(x) = x³ − 2x. Work out p(2.5) with XEQ.
+prompt: $p(x) = x^{3} − 2x$. Work out $p(2.5)$ with XEQ.
 topics: xeq-check
 answer: type
 calculator: yes
-slip: P2M2A | 2.5 × 3, not 2.5³ | x³ is x × x × x. In Equation mode it is yˣ 3, not × 3.
+slip: P2M2A | 2.5 × 3, not 2.5³ | $x^{3}$ is $x × x × x$. In Equation mode it is yˣ 3, not × 3.
 ```
 
 ```item P2M3
-prompt: A polynomial q has q(1) = −2 and q(2) = 3. At least how many roots does q have between 1 and 2?
+prompt: A polynomial $q$ has $q(1) = −2$ and $q(2) = 3$. At least how many roots does $q$ have between 1 and 2?
 topics: sign-change
 answer: type
 calculator: no
 working: none
-slip: P2M3A | none | The graph is one unbroken curve. To go from below the x axis to above it, it must cross.
+slip: P2M3A | none | The graph is one unbroken curve. To go from below the $x$ axis to above it, it must cross.
 ```
 
 ```item P2M4
-prompt: What is the degree of 4x² − x⁵ + 7?
+prompt: What is the degree of $4x^{2} − x^{5} + 7$?
 topics: polynomial
 answer: type
 calculator: no
 working: none
-slip: P2M4A | the first power written | The degree is the highest power, wherever it sits: here x⁵.
+slip: P2M4A | the first power written | The degree is the highest power, wherever it sits: here $x^{5}$.
 ```

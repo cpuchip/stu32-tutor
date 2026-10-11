@@ -177,7 +177,7 @@ X shows <disp v="G02">12.0000</disp>: $3^{2} + 3 = 9 + 3$.
 
 ```why
 ask: Why does G need an ENTER before x², when F needed nothing like it?
-because: g uses $x$ twice, and x² replaces the $x$ in X with its square. ENTER keeps a copy in Y first, so the + still has the $x$ to add.
+because: $g$ uses $x$ twice, and x² replaces the $x$ in X with its square. ENTER keeps a copy in Y first, so the + still has the $x$ to add.
 ```
 
 ## Fixing a mistake

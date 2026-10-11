@@ -10,17 +10,17 @@ display: FIX 4
 # Logarithms
 
 exp-01 and exp-02 worked out an amount after a given time. The opposite question is just as
-common: how long until an amount doubles, or halves? The time is the power in a × bⁿ, so the
+common: how long until an amount doubles, or halves? The time is the power in $a × b^{n}$, so the
 question is "what power?", and the answer is a logarithm.
 
 ## From before
 
 ```item EX3F1
-prompt: Work out 10⁻².
+prompt: Work out $10^{-2}$.
 topics: neg-frac-powers
 answer: type
 calculator: no
-slip: EX3F1A | made it negative | A negative power means one over: 10⁻² is 1 ÷ 10², which is 0.01.
+slip: EX3F1A | made it negative | A negative power means one over: $10^{-2}$ is $1 ÷ 10^{2}$, which is 0.01.
 ```
 
 ```item EX3F2
@@ -43,7 +43,7 @@ BLUE MODE {mode} GOLD DISP FIX 4
 ## What power?
 
 A logarithm is a power. The logarithm of a number to the base 10 is the power 10 must be raised to
-to give that number: 10³ = 1000, so the logarithm of 1000, base 10, is 3, written log 1000 = 3. LOG
+to give that number: $10^{3} = 1000$, so the logarithm of 1000, base 10, is 3, written $\log 1000 = 3$. LOG
 is gold above LN, the third key of the top row:
 
 ```keys L01
@@ -72,14 +72,14 @@ ask: Why would the rounded 0.3010 give a little less than 2, and not a little mo
 because: The rounding dropped digits from the end of 0.30102999…, so 0.3010 is below the true power, and a smaller power of 10 gives a smaller number.
 ```
 
-LN is the logarithm to the base e: the natural logarithm, the power of e that gives a number. eˣ
+LN is the logarithm to the base $e$: the natural logarithm, the power of $e$ that gives a number. eˣ
 undoes it:
 
 ```keys N01
 2 LN
 ```
 
-X shows <disp v="N01">0.6931</disp>: e to the power 0.69314…, in full, is 2. Carry on:
+X shows <disp v="N01">0.6931</disp>: $e$ to the power 0.69314…, in full, is 2. Carry on:
 
 ```keys N02 after=N01
 eˣ
@@ -89,18 +89,18 @@ X shows <disp v="N02">2.0000</disp>.
 
 ## Solving for the power
 
-How long does an amount take to double at 4% a year? That is the n with 1.04ⁿ = 2. Take the
-logarithm of both sides. 1.04 is 10 to the power log 1.04, so
+How long does an amount take to double at 4% a year? That is the $n$ with $1.04^{n} = 2$. Take the
+logarithm of both sides. 1.04 is 10 to the power $\log 1.04$, so
 
-1.04ⁿ = (10^(log 1.04))ⁿ = 10^(n × log 1.04),
+$1.04^{n} = (10^{\log 1.04})^{n} = 10^{n × \log 1.04}$,
 
-since a power of a power multiplies the powers. So the logarithm of 1.04ⁿ is n × log 1.04.
+since a power of a power multiplies the powers. So the logarithm of $1.04^{n}$ is $n × \log 1.04$.
 A logarithm turns a power into a multiplication, and then
 
-n × log 1.04 = log 2, and n = log 2 ÷ log 1.04.
+$n × \log 1.04 = \log 2$, and $n = \log 2 ÷ \log 1.04$.
 
 On the stack: 2, LOG, then 1.04 and LOG. Typing a number after a function like LOG pushes its
-result up to Y, as after + or ×, so log 2 waits in Y while log 1.04 is worked out in X,
+result up to Y, as after + or ×, so $\log 2$ waits in Y while $\log 1.04$ is worked out in X,
 and ÷ divides them:
 
 ```keys S01
@@ -130,8 +130,8 @@ X shows <disp v="Y17">1.9479</disp>, not yet double. After 18:
 X shows <disp v="Y18">2.0258</disp>. So: 18 years. A fraction of a year counts only for growth that
 goes on smoothly, as continuous growth does (below) and decay did before.
 
-The same argument with e in place of 10 gives n × ln 1.04 = ln 2, so natural logarithms give the
-same n:
+The same argument with $e$ in place of 10 gives $n × \ln 1.04 = \ln 2$, so natural logarithms give the
+same $n$:
 
 ```keys S03
 2 LN 1.04 LN ÷
@@ -140,24 +140,24 @@ same n:
 X shows <disp v="S03">17.6730</disp>. Use whichever is nearer to hand; LN saves the gold key.
 
 ```why
-ask: Why do LOG and LN give the same n, when their logarithms differ?
-because: Each natural logarithm is the base-10 one times the same number, ln 10. In ln 2 ÷ ln 1.04 that number is on the top and the bottom, so it cancels.
+ask: Why do LOG and LN give the same $n$, when their logarithms differ?
+because: Each natural logarithm is the base-10 one times the same number, $\ln 10$. In $\ln 2 ÷ \ln 1.04$ that number is on the top and the bottom, so it cancels.
 ```
 
 ## Halving, and numbers with no logarithm
 
 Something that keeps 90% of itself each hour, decaying smoothly, has a factor of 0.9 an hour, and
-it is half gone when 0.9ⁿ = 0.5:
+it is half gone when $0.9^{n} = 0.5$:
 
 ```keys H01
 0.5 LN 0.9 LN ÷
 ```
 
 X shows <disp v="H01">6.5788</disp> hours: its half-life. Both logarithms are negative here. A number
-between 0 and 1 is e (or 10) to a negative power, since a negative power is one over the positive
+between 0 and 1 is $e$ (or 10) to a negative power, since a negative power is one over the positive
 power; the quotient of two negatives is positive.
 
-0 and the negative numbers have no logarithm: no power of 10 or of e is 0 or below. The calculator
+0 and the negative numbers have no logarithm: no power of 10 or of $e$ is 0 or below. The calculator
 refuses them:
 
 ```keys V01
@@ -173,8 +173,8 @@ C
 
 ## Continuous growth
 
-For continuous growth, e^(r × t) = 2 means r × t = ln 2, because LN undoes eˣ. So the time
-to double at a rate r is ln 2 ÷ r. At 6%:
+For continuous growth, $e^{r × t} = 2$ means $r × t = \ln 2$, because LN undoes eˣ. So the time
+to double at a rate $r$ is $\ln 2 ÷ r$. At 6%:
 
 ```keys C01
 2 LN 0.06 ÷
@@ -185,14 +185,14 @@ partway through the twelfth year.
 
 ## Exercises
 
-1. How long does an amount take to triple at 4% paid once a year? Find n with logarithms, then
+1. How long does an amount take to triple at 4% paid once a year? Find $n$ with logarithms, then
    check the whole years on either side of it.
 2. Something loses 20% of itself each day, smoothly. What is its half-life?
 3. How long does an amount take to double at 3% a year, continuously?
 
 ## Answers
 
-1. 1.04ⁿ = 3, so n = ln 3 ÷ ln 1.04:
+1. $1.04^{n} = 3$, so $n = \ln 3 ÷ \ln 1.04$:
 
    ```keys E01
    3 LN 1.04 LN ÷
@@ -212,7 +212,7 @@ partway through the twelfth year.
 
    X shows <disp v="E01C">3.1187</disp>. So 29 years.
 
-2. Losing 20% leaves a factor of 0.8, so 0.8ⁿ = 0.5:
+2. Losing 20% leaves a factor of 0.8, so $0.8^{n} = 0.5$:
 
    ```keys E02
    0.5 LN 0.8 LN ÷
@@ -220,7 +220,7 @@ partway through the twelfth year.
 
    X shows <disp v="E02">3.1063</disp> days.
 
-3. ln 2 ÷ 0.03:
+3. $\ln 2 ÷ 0.03$:
 
    ```keys E03
    2 LN 0.03 ÷
@@ -231,11 +231,11 @@ partway through the twelfth year.
 ## Mixed review
 
 ```item EX3M1
-prompt: What is log 1000 (base 10)?
+prompt: What is $\log 1000$ (base 10)?
 topics: log
 answer: type
 calculator: no
-slip: EX3M1A | divided by 10 | log 1000 asks what power of 10 makes 1000: 10³.
+slip: EX3M1A | divided by 10 | $\log 1000$ asks what power of 10 makes 1000: $10^{3}$.
 ```
 
 ```item EX3M2
@@ -243,16 +243,16 @@ prompt: A town falls from 400 to 300 people. What is the percent change?
 topics: percent-change
 answer: type
 calculator: no
-slip: EX3M2A | lost the sign | It fell, so the change is negative: −100 ÷ 400, as a percent.
+slip: EX3M2A | lost the sign | It fell, so the change is negative: $−100 ÷ 400$, as a percent.
 ```
 
 ```item EX3M3
-prompt: log x is defined only for x greater than what number?
+prompt: $\log x$ is defined only for $x$ greater than what number?
 topics: no-log
 answer: type
 calculator: no
 working: none
-slip: EX3M3A | 1 | Numbers between 0 and 1 have logarithms too (log 0.5 is negative). No power of 10 is 0 or below.
+slip: EX3M3A | 1 | Numbers between 0 and 1 have logarithms too ($\log 0.5$ is negative). No power of 10 is 0 or below.
 ```
 
 ```item EX3M4
@@ -260,5 +260,5 @@ prompt: Interest of 12% a year is paid as 1% each month. What factor is that eac
 topics: compounding
 answer: type
 calculator: no
-slip: EX3M4A | the year's factor | Each month adds 12% ÷ 12, which is 1%: the factor is 1.01.
+slip: EX3M4A | the year's factor | Each month adds $12\% ÷ 12$, which is 1%: the factor is 1.01.
 ```

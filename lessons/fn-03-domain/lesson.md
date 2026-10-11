@@ -93,7 +93,7 @@ X shows <disp v="D01">0.2500</disp>: $r(4) = \frac{1}{4}$. Now try it on 0:
 
 The screen shows <disp v="D02" kind="message">DIVIDE BY 0</disp>. One over zero has no value: a
 quotient $\frac{a}{b}$ is the number that gives $a$ when it is multiplied by $b$, and no number gives 1 when it
-is multiplied by 0. So 0 is not in the domain of r. Every other number is, so the domain of r is
+is multiplied by 0. So 0 is not in the domain of $r$. Every other number is, so the domain of $r$ is
 all numbers except 0.
 
 ```why
@@ -178,7 +178,7 @@ off:
 GOLD PRGM PRGM
 ```
 
-So the domain of s is the inputs $x$ for which $x − 2$ is not negative: $x − 2 ≥ 0$, which is $x ≥ 2$.
+So the domain of $s$ is the inputs $x$ for which $x − 2$ is not negative: $x − 2 ≥ 0$, which is $x ≥ 2$.
 2 itself is in it, as $s(2) = 0$ showed. It is the edge of the domain: every number above it is in,
 every number below it is out, however close.
 
@@ -221,9 +221,9 @@ its end does the same: the pointer goes back to the top when a program finishes.
 
 ## Exercises
 
-1. Is −2 in the domain of r? Work out $r(−2)$ with R.
-2. Is 2.25 in the domain of s? Work out $s(2.25)$ with S.
-3. Is 1.99 in the domain of s? Try it with S, and read X after you clear the message.
+1. Is −2 in the domain of $r$? Work out $r(−2)$ with R.
+2. Is 2.25 in the domain of $s$? Work out $s(2.25)$ with S.
+3. Is 1.99 in the domain of $s$? Try it with S, and read X after you clear the message.
 
 ## Answers
 

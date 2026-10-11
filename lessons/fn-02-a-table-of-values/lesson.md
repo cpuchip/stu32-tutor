@@ -177,7 +177,7 @@ The last row stays showing: X shows <disp v="T07">3.0000</disp>. The whole table
 
 ## Drawing the graph
 
-On squared paper, draw an $x$ axis across and a q axis up, and mark each row as a point: (0, 3),
+On squared paper, draw an $x$ axis across and a $q$ axis up, and mark each row as a point: (0, 3),
 (1, 0), (2, −1), (3, 0) and (4, 3). The curve comes down from 3, crosses the $x$ axis at $x = 1$, is
 lowest in the table at $x = 2$, crosses the $x$ axis again at $x = 3$, and rises back to 3.
 
@@ -202,7 +202,7 @@ X shows <disp v="G01">-0.7500</disp>.
 
 X shows <disp v="G02">-0.7500</disp> too. Both are above −1 and below 0, and equal, so the curve is
 rounded at the bottom, and its two sides mirror each other about the vertical line $x = 2$. Join the
-points with a smooth curve, not straight lines. The graph of any function of the form ax² + bx + c,
+points with a smooth curve, not straight lines. The graph of any function of the form $ax^{2} + bx + c$,
 with a not zero, has this shape, which is called a parabola.
 
 ```why
@@ -343,7 +343,7 @@ BLUE GRAPH GO
 
 The curve is drawn column by column, the parabola of the drawing by hand. The y axis was fitted
 from <disp v="W02" kind="ymin">-1.8000</disp> to <disp v="W02" kind="ymax">15.8000</disp>: the
-lowest and highest values of q between −2 and 5.98, with a margin of a twentieth of their span each
+lowest and highest values of $q$ between −2 and 5.98, with a margin of a twentieth of their span each
 way. Below the curve the trace shows where it stands: <disp v="W02" kind="readout">x=2.0000 y=-1.0000</disp>,
 the lowest point. ▶ moves the trace one column right:
 

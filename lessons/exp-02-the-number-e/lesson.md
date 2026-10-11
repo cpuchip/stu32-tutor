@@ -12,7 +12,7 @@ display: FIX 4
 exp-01 grew an amount by a factor once a year. Growth can also be added more often: interest of 6%
 a year (a percent, as in num-04) paid as 0.5% every month, or as a tiny share every day. The more often, the more the amount
 grows, but by less and less: the total gets closer and closer to a value it never passes, called
-its limit. That limit is a new number, e, about 2.7183. The eˣ key raises e to
+its limit. That limit is a new number, $e$, about 2.7183. The eˣ key raises $e$ to
 a power.
 
 ## From before
@@ -22,7 +22,7 @@ prompt: 1000 grows by a factor of 1.06 each year. How much after 2 years?
 topics: growth
 answer: type
 calculator: no
-slip: EX2F1A | multiplied by the number of years | Each year multiplies by 1.06 again: 1000 × 1.06 × 1.06.
+slip: EX2F1A | multiplied by the number of years | Each year multiplies by 1.06 again: $1000 × 1.06 × 1.06$.
 ```
 
 ```item EX2F2
@@ -30,7 +30,7 @@ prompt: What is 6% of 250?
 topics: percent
 answer: type
 calculator: no
-slip: EX2F2A | forgot the hundredth | 6% means 6 hundredths: 0.06 × 250.
+slip: EX2F2A | forgot the hundredth | 6% means 6 hundredths: $0.06 × 250$.
 ```
 
 ## Before you start
@@ -50,8 +50,8 @@ the end of the year:
 1000 ENTER 1.06 ×
 ```
 
-X shows <disp v="C01">1,060.0000</disp>. Paid monthly instead, each month adds 6% ÷ 12 = 0.5% of
-what is there, twelve times: the year's factor is (1 + 0.06 ÷ 12)¹². On the stack: 1000, then 0.06
+X shows <disp v="C01">1,060.0000</disp>. Paid monthly instead, each month adds $6\% ÷ 12 = 0.5\%$ of
+what is there, twelve times: the year's factor is $(1 + 0.06 ÷ 12)^{12}$. On the stack: 1000, then 0.06
 divided by 12, plus 1, to the power 12. The 1000 waits in Z most of the way; yˣ drops it to Y, and
 the last × multiplies by it:
 
@@ -71,16 +71,16 @@ Paying ever more often keeps adding, but less each time, towards a limit.
 
 ## The number e
 
-Take the simplest case: an amount of 1, and growth of 100% shared out n times, so each share adds
-1/n and the factor for the whole is (1 + 1/n)ⁿ. Here the keys put the 1 first and then add 1/n to
-it; adding in either order gives the same. For n = 12, with 1/x (the fifth key of the top row) for
+Take the simplest case: an amount of 1, and growth of 100% shared out $n$ times, so each share adds
+$\frac{1}{n}$ and the factor for the whole is $(1 + \frac{1}{n})^{n}$. Here the keys put the 1 first and then add $\frac{1}{n}$ to
+it; adding in either order gives the same. For $n = 12$, with 1/x (the fifth key of the top row) for
 one twelfth:
 
 ```keys L01
 1 ENTER 12 1/x + 12 yˣ
 ```
 
-X shows <disp v="L01">2.6130</disp>. For n = 365:
+X shows <disp v="L01">2.6130</disp>. For $n = 365$:
 
 ```keys L02
 1 ENTER 365 1/x + 365 yˣ
@@ -92,33 +92,33 @@ X shows <disp v="L02">2.7146</disp>. For a million:
 1 ENTER 1000000 1/x + 1000000 yˣ
 ```
 
-X shows <disp v="L03">2.7183</disp>. The limit as n grows without end is the number called e. eˣ,
-the second key of the top row, raises e to the power in X; e itself is e to the power 1:
+X shows <disp v="L03">2.7183</disp>. The limit as $n$ grows without end is the number called $e$. eˣ,
+the second key of the top row, raises $e$ to the power in X; $e$ itself is $e$ to the power 1:
 
 ```keys L04
 1 eˣ
 ```
 
-X shows <disp v="L04">2.7183</disp>. A million shares agree with e in every place FIX 4 shows; the
+X shows <disp v="L04">2.7183</disp>. A million shares agree with $e$ in every place FIX 4 shows; the
 calculator keeps 34 digits (ALL, from rpn-03, shows more of them), and the two first differ in the
-sixth decimal place. Like π, e never ends and never repeats.
+sixth decimal place. Like π, $e$ never ends and never repeats.
 
 ```why
-ask: Why is the factor for n shares (1 + 1/n)ⁿ?
-because: Each share keeps the whole amount, the 1, and adds one n-th of it, so it multiplies by 1 + 1/n; n shares multiply by that n times.
+ask: Why is the factor for $n$ shares $(1 + \frac{1}{n})^{n}$?
+because: Each share keeps the whole amount, the 1, and adds one $n$-th of it, so it multiplies by $1 + \frac{1}{n}$; $n$ shares multiply by that $n$ times.
 ```
 
 ## Continuous growth
 
-Growth shared out without end, every instant, is called continuous. For a rate r, written as a
-decimal (0.06 for 6%, not 6), the factor for a year is the limit of (1 + r/n)ⁿ, and that limit is
-eʳ. A million shares of 6% come close:
+Growth shared out without end, every instant, is called continuous. For a rate $r$, written as a
+decimal (0.06 for 6%, not 6), the factor for a year is the limit of $(1 + \frac{r}{n})^{n}$, and that limit is
+$e$ʳ. A million shares of 6% come close:
 
 ```keys L05
 1 ENTER 0.06 ENTER 1000000 ÷ + 1000000 yˣ
 ```
 
-X shows <disp v="L05">1.0618</disp>, and e to the 0.06:
+X shows <disp v="L05">1.0618</disp>, and $e$ to the 0.06:
 
 ```keys L06
 0.06 eˣ
@@ -131,9 +131,9 @@ X shows <disp v="L06">1.0618</disp>. So 1000 at 6% a year, continuously:
 ```
 
 X shows <disp v="G01">1,061.8365</disp>: just above the daily 1061.8313, and above every way of
-paying 6% a fixed number of times. Over t years the factor is eʳ multiplied by itself t times,
-(eʳ)ᵗ, and a power of a power multiplies the powers, as (2³)² = 2⁶ = 64: so the factor is e^(r × t),
-and continuous growth from an amount a is a × e^(r × t).
+paying 6% a fixed number of times. Over $t$ years the factor is $e$ʳ multiplied by itself $t$ times,
+($e$ʳ)ᵗ, and a power of a power multiplies the powers, as $(2^{3})^{2} = 2^{6} = 64$: so the factor is $e^{r × t}$,
+and continuous growth from an amount $a$ is $a × e^{r × t}$.
 
 ```why
 ask: Why is continuous growth above every way of paying 6% a fixed number of times?
@@ -144,11 +144,11 @@ because: Paying more often always adds a little more, from yearly to monthly to 
 
 1. 2500 grows at 4% a year, continuously, for 10 years. How much is there?
 2. The same 2500 at 4% paid once a year for 10 years, as in the last lesson. How much less is it?
-3. The same 2500 at 4% a year paid monthly for 10 years: 120 payments of 4% ÷ 12 each.
+3. The same 2500 at 4% a year paid monthly for 10 years: 120 payments of $4\% ÷ 12$ each.
 
 ## Answers
 
-1. The power is r × t = 0.04 × 10: work it out, then eˣ. The × that makes 0.4 drops the 2500 from
+1. The power is $r × t = 0.04 × 10$: work it out, then eˣ. The × that makes 0.4 drops the 2500 from
    Z to Y, where the last × finds it:
 
    ```keys E01
@@ -165,7 +165,7 @@ because: Paying more often always adds a little more, from yearly to monthly to 
 
    X shows <disp v="E02">3,700.6107</disp>: about 28.95 less than continuous growth gives.
 
-3. The factor is (1 + 0.04 ÷ 12)¹²⁰:
+3. The factor is $(1 + 0.04 ÷ 12)^{120}$:
 
    ```keys E03
    2500 ENTER 0.04 ENTER 12 ÷ 1 + 120 yˣ ×
@@ -177,11 +177,11 @@ because: Paying more often always adds a little more, from yearly to monthly to 
 ## Mixed review
 
 ```item EX2M1
-prompt: (2³)² is one power of 2. What is the power?
+prompt: $(2^{3})^{2}$ is one power of 2. What is the power?
 topics: power-of-power
 answer: type
 calculator: no
-slip: EX2M1A | added the powers | A power of a power multiplies them: (2³)² is 2³ × 2³, which is 2⁶.
+slip: EX2M1A | added the powers | A power of a power multiplies them: $(2^{3})^{2}$ is $2^{3} × 2^{3}$, which is $2^{6}$.
 ```
 
 ```item EX2M2
@@ -189,16 +189,16 @@ prompt: An amount goes from 50 to 60 in one step. What is the factor?
 topics: find-factor
 answer: type
 calculator: no
-slip: EX2M2A | gave the difference | The factor is what 50 is multiplied by: 60 ÷ 50.
+slip: EX2M2A | gave the difference | The factor is what 50 is multiplied by: $60 ÷ 50$.
 ```
 
 ```item EX2M3
-prompt: What is e⁰?
+prompt: What is $e^{0}$?
 topics: e
 answer: type
 calculator: no
 working: none
-slip: EX2M3A | zero | Any number to the power 0 is 1, e too.
+slip: EX2M3A | zero | Any number to the power 0 is 1, $e$ too.
 ```
 
 ```item EX2M4
@@ -206,5 +206,5 @@ prompt: A car loses 20% of its value each year. What factor is that each year?
 topics: decay
 answer: type
 calculator: no
-slip: EX2M4A | gave the share lost | What is kept is 100% − 20%, which is 80%: the factor is 0.8.
+slip: EX2M4A | gave the share lost | What is kept is $100\% − 20\%$, which is 80%: the factor is 0.8.
 ```

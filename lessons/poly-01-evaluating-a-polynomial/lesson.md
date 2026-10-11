@@ -9,29 +9,29 @@ display: FIX 4
 
 # Evaluating a polynomial
 
-A polynomial adds up terms, each a number times a power of x: x, x², x³ and so on, plus a term with
-no x at all, the constant term. The numbers are its coefficients. p(x) = 2x³ − 3x² + 4x − 5 has the
+A polynomial adds up terms, each a number times a power of $x$: $x$, x², $x^{3}$ and so on, plus a term with
+no $x$ at all, the constant term. The numbers are its coefficients. $p(x) = 2x^{3} − 3x^{2} + 4x − 5$ has the
 coefficients 2, −3 and 4, and the constant term −5. Its degree is the highest power with a
-coefficient that is not 0, here 3. q(x) = x² − 4x + 3 from fn-02 has degree 2, and the lines of
+coefficient that is not 0, here 3. $q(x) = x^{2} − 4x + 3$ from fn-02 has degree 2, and the lines of
 lin-01 to lin-03 are polynomials of degree 1 (or 0, for a flat line). A polynomial's value takes very
 few keys, by a method built on the stack.
 
 ## From before
 
 ```item PL1F1
-prompt: Work out 2 × 3³.
+prompt: Work out $2 × 3^{3}$.
 topics: powers-first
 answer: type
 calculator: no
-slip: PL1F1A | cubed 2 × 3 | The power belongs to the 3 alone: 3³ is 27, then 2 × 27.
+slip: PL1F1A | cubed 2 × 3 | The power belongs to the 3 alone: $3^{3}$ is 27, then $2 × 27$.
 ```
 
 ```item PL1F2
-prompt: h(x) = 3 − x². What is h(2)?
+prompt: $h(x) = 3 − x^{2}$. What is $h(2)$?
 topics: function
 answer: type
 calculator: no
-slip: PL1F2A | took 2 from 3, then squared | Square first: 2² is 4, then 3 − 4.
+slip: PL1F2A | took 2 from 3, then squared | Square first: $2^{2}$ is 4, then $3 − 4$.
 ```
 
 ## Before you start
@@ -50,27 +50,27 @@ BLUE MODE {mode} GOLD DISP FIX 4
 
 ## Nesting
 
-Working out 2x³, 3x² and 4x one at a time takes many keys and a place to keep each term. There is a
-shorter way. Each of the first three terms has at least one x in it, so x can be taken out of them
+Working out $2x^{3}$, $3x^{2}$ and $4x$ one at a time takes many keys and a place to keep each term. There is a
+shorter way. Each of the first three terms has at least one $x$ in it, so $x$ can be taken out of them
 as a common factor:
 
-p(x) = (2x² − 3x + 4)x − 5.
+$p(x) = (2x^{2} − 3x + 4)$$x − 5$.
 
-The first two terms inside the parentheses still have an x each, so take it out again:
+The first two terms inside the parentheses still have an $x$ each, so take it out again:
 
-p(x) = ((2x − 3)x + 4)x − 5.
+$p(x)$ = (($2x − 3$)$x + 4$)$x − 5$.
 
-Multiply the parentheses out again (2x − 3 times x is 2x² − 3x, and so on) and the first form comes
-back. Now read the nested form from the inside: start with the first coefficient, 2; times x, then
-add the next coefficient, −3, which is the same as subtracting 3; times x, add 4; times x, add −5.
-Every step is "times x, then add the next coefficient". Working a polynomial out this way, from the
-inside of its nested form, is called Horner's method. It needs x again and again, and the stack can
+Multiply the parentheses out again ($2x − 3$ times $x$ is $2x^{2} − 3x$, and so on) and the first form comes
+back. Now read the nested form from the inside: start with the first coefficient, 2; times $x$, then
+add the next coefficient, −3, which is the same as subtracting 3; times $x$, add 4; times $x$, add −5.
+Every step is "times $x$, then add the next coefficient". Working a polynomial out this way, from the
+inside of its nested form, is called Horner's method. It needs $x$ again and again, and the stack can
 supply it.
 
 ## On the stack
 
 When the stack drops, T keeps its number and copies it down. So fill the stack
-with x, and every × finds a copy of x waiting in Y. Work out p(4). Fill the stack with 4, then type
+with $x$, and every × finds a copy of $x$ waiting in Y. Work out $p(4)$. Fill the stack with 4, then type
 the first coefficient:
 
 ```keys H01A
@@ -78,7 +78,7 @@ the first coefficient:
 ```
 
 X shows <disp v="H01A" kind="entry">2_</disp>, and Y, Z and T each hold 4: the third ENTER left a
-copy of 4 in X, and the 2 you typed replaced it. Now × gives 2 × 4, and the stack drops, T copying
+copy of 4 in X, and the 2 you typed replaced it. Now × gives $2 × 4$, and the stack drops, T copying
 its 4 down, so Y, Z and T hold 4 again. Then type the next coefficient, 3:
 
 ```keys H01C after=H01A
@@ -93,34 +93,34 @@ takes the 3 from the 8, and the stack drops, T copying its 4 down once more:
 −
 ```
 
-X shows <disp v="H01B">5.0000</disp>, which is 2 × 4 − 3, and 4 is in Y, Z and T again. The first
+X shows <disp v="H01B">5.0000</disp>, which is $2 × 4 − 3$, and 4 is in Y, Z and T again. The first
 coefficient only replaced the copy ENTER left in X; each later coefficient you type pushes one 4 off
-the top, and the drop that follows has T copy one back, so the supply of 4s never runs out. The rest goes the same way: times x, add 4; times x, take away 5.
+the top, and the drop that follows has T copy one back, so the supply of 4s never runs out. The rest goes the same way: times $x$, add 4; times $x$, take away 5.
 
 ```keys H01 after=H01B
 × 4 + × 5 −
 ```
 
-X shows <disp v="H01">91.0000</disp>: 5 × 4 + 4 is 24, and 24 × 4 − 5 is 91. Check it the long way if
-you like: 2 × 64 − 3 × 16 + 4 × 4 − 5 = 128 − 48 + 16 − 5 = 91.
+X shows <disp v="H01">91.0000</disp>: $5 × 4 + 4$ is 24, and $24 × 4 − 5$ is 91. Check it the long way if
+you like: $2 × 64 − 3 × 16 + 4 × 4 − 5 = 128 − 48 + 16 − 5 = 91$.
 
 ```why
 ask: Why does Horner's way need only three multiplications?
-because: Each power is built from the one before inside the nesting, so x³ is never worked out on its own: every step multiplies once by x and adds the next coefficient.
+because: Each power is built from the one before inside the nesting, so $x^{3}$ is never worked out on its own: every step multiplies once by $x$ and adds the next coefficient.
 ```
 
-The same keys work for any x. p(2), all at once:
+The same keys work for any $x$. $p(2)$, all at once:
 
 ```keys H02
 2 ENTER ENTER ENTER 2 × 3 − × 4 + × 5 −
 ```
 
-X shows <disp v="H02">7.0000</disp>: 16 − 12 + 8 − 5.
+X shows <disp v="H02">7.0000</disp>: $16 − 12 + 8 − 5$.
 
 ## As a program
 
 The keys after the number never change, so they make a program, as in fn-01. You start a program
-with x in X, so its three ENTERs fill the stack with x the same way. P is on the E key:
+with $x$ in X, so its three ENTERs fill the stack with $x$ the same way. P is on the E key:
 
 ```keys P01A
 GOLD PRGM PRGM GOLD LBL P ENTER ENTER ENTER 2 × 3 − × 4 + × 5 − BLUE RTN
@@ -133,7 +133,7 @@ off:
 GOLD PRGM PRGM
 ```
 
-Now any value is a number and XEQ P. p(1.5):
+Now any value is a number and XEQ P. $p(1.5)$:
 
 ```keys P02 after=P01
 1.5 XEQ P
@@ -142,8 +142,8 @@ Now any value is a number and XEQ P. p(1.5):
 1.5 XEQ P ENTER
 ```
 
-X shows <disp v="P02">1.0000</disp>: 2 × 3.375 − 3 × 2.25 + 4 × 1.5 − 5 is 6.75 − 6.75 + 6 − 5. And
-p(−1):
+X shows <disp v="P02">1.0000</disp>: $2 × 3.375 − 3 × 2.25 + 4 × 1.5 − 5$ is $6.75 − 6.75 + 6 − 5$. And
+$p(−1)$:
 
 ```keys P03 after=P02
 1 +/− XEQ P
@@ -152,21 +152,21 @@ p(−1):
 1 +/− XEQ P ENTER
 ```
 
-X shows <disp v="P03">-14.0000</disp>: −2 − 3 − 4 − 5.
+X shows <disp v="P03">-14.0000</disp>: $−2 − 3 − 4 − 5$.
 
 ```why
 ask: Why does program P start with three ENTERs and no number?
-because: XEQ P runs with x already in X, so the ENTERs fill the stack with copies of it, and the first coefficient then replaces the copy left in X.
+because: XEQ P runs with $x$ already in X, so the ENTERs fill the stack with copies of it, and the first coefficient then replaces the copy left in X.
 ```
 
 ## Exercises
 
-r(x) = x³ − 2x + 1 has no x² term. In the nested form a missing power has the coefficient 0, so the
-coefficients in order are 1, 0, −2 and 1, and r(x) = ((1x + 0)x − 2)x + 1.
+$r(x) = x^{3} − 2x + 1$ has no x² term. In the nested form a missing power has the coefficient 0, so the
+coefficients in order are 1, 0, −2 and 1, and $r(x)$ = (($1x + 0$)$x − 2$)$x + 1$.
 
-1. Work out r(2) on the stack, keying every coefficient in order, the 1 and the 0 too.
-2. Write r as a program N (N is on the x↔y key; your calculator may still hold other lessons'
-   programs, and N is a letter none of them used). Then work out r(0.5) with it.
+1. Work out $r(2)$ on the stack, keying every coefficient in order, the 1 and the 0 too.
+2. Write $r$ as a program N (N is on the x↔y key; your calculator may still hold other lessons'
+   programs, and N is a letter none of them used). Then work out $r(0.5)$ with it.
 
 ## Answers
 
@@ -176,7 +176,7 @@ coefficients in order are 1, 0, −2 and 1, and r(x) = ((1x + 0)x − 2)x + 1.
    2 ENTER ENTER ENTER 1 × 0 + × 2 − × 1 +
    ```
 
-   X shows <disp v="E01">5.0000</disp>: 8 − 4 + 1. The 1 × and the 0 + change nothing, and you could
+   X shows <disp v="E01">5.0000</disp>: $8 − 4 + 1$. The 1 × and the 0 + change nothing, and you could
    skip them, but keying every coefficient in order is what keeps a longer polynomial from going
    wrong.
 
@@ -195,39 +195,39 @@ coefficients in order are 1, 0, −2 and 1, and r(x) = ((1x + 0)x − 2)x + 1.
    GOLD PRGM PRGM 0.5 XEQ N ENTER
    ```
 
-   X shows <disp v="E02">0.1250</disp>: 0.125 − 1 + 1.
+   X shows <disp v="E02">0.1250</disp>: $0.125 − 1 + 1$.
 
 ## Mixed review
 
 ```item PL1M1
-prompt: What is the constant term of 5x³ − x + 8?
+prompt: What is the constant term of $5x^{3} − x + 8$?
 topics: polynomial
 answer: type
 calculator: no
 working: none
-slip: PL1M1A | the first coefficient | The constant term is the one with no x: the 8.
+slip: PL1M1A | the first coefficient | The constant term is the one with no $x$: the 8.
 ```
 
 ```item PL1M2
-prompt: Work out √(2 × 18).
+prompt: Work out $\sqrt{2 × 18}$.
 topics: square-root
 answer: type
 calculator: no
-slip: PL1M2A | halved instead of taking the root | 2 × 18 is 36, and √36 is 6, since 6 × 6 is 36.
+slip: PL1M2A | halved instead of taking the root | $2 × 18$ is 36, and $\sqrt{36}$ is 6, since $6 × 6$ is 36.
 ```
 
 ```item PL1M3
-prompt: 2x² − x + 4 nested is (2x − 1)x + 4. Work it out at x = 3, from the inside.
+prompt: $2x^{2} − x + 4$ nested is ($2x − 1$)$x + 4$. Work it out at $x = 3$, from the inside.
 topics: horner
 answer: type
 calculator: no
-slip: PL1M3A | dropped the brackets | From the inside: 2 × 3 − 1 is 5, then 5 × 3 + 4.
+slip: PL1M3A | dropped the brackets | From the inside: $2 × 3 − 1$ is 5, then $5 × 3 + 4$.
 ```
 
 ```item PL1M4
-prompt: 5x − 15 < 0 has its boundary where 5x − 15 = 0. What x is that?
+prompt: $5x − 15 < 0$ has its boundary where $5x − 15 = 0$. What $x$ is that?
 topics: inequalities
 answer: type
 calculator: no
-slip: PL1M4A | kept the minus sign | Undo the − 15 by adding 15: 5x = 15, then ÷ 5.
+slip: PL1M4A | kept the minus sign | Undo the − 15 by adding 15: $5x = 15$, then ÷ 5.
 ```

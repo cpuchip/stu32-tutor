@@ -10,9 +10,9 @@ display: FIX 4
 # Polar and rectangular
 
 A point on a plane can be named two ways. Rectangular coordinates say how far across and how far up:
-(x, y), the across and up of trig-03. Polar coordinates say how far the point is from O, where the
-axes cross, and in which direction: a distance r and an angle θ, measured anticlockwise from the
-positive x axis. A point in polar form is written (r, θ).
+($x$, $y$), the across and up of trig-03. Polar coordinates say how far the point is from O, where the
+axes cross, and in which direction: a distance $r$ and an angle θ, measured anticlockwise from the
+positive $x$ axis. A point in polar form is written ($r$, θ).
 
 ```
             y
@@ -27,13 +27,13 @@ positive x axis. A point in polar form is written (r, θ).
             |    x
 ```
 
-The point lies on the same arm as the point P on the unit circle, r times as far out. Every length
-is stretched by r and the angle stays the same, as with the scaled triangles of trig-02, so
+The point lies on the same arm as the point P on the unit circle, $r$ times as far out. Every length
+is stretched by $r$ and the angle stays the same, as with the scaled triangles of trig-02, so
 
-x = r cos θ, y = r sin θ, and r = √(x² + y²)
+$x = r$ $\cos θ$, $y = r$ $\sin θ$, and $r = \sqrt{x^{2} + y^{2}}$
 
 by Pythagoras' rule, squaring removing any signs. The point (3, 4) is 5 from O, since
-3² + 4² = 5², at an angle of about 53 degrees. The calculator converts between the two forms. Both
+$3^{2} + 4^{2} = 5^{2}$, at an angle of about 53 degrees. The calculator converts between the two forms. Both
 conversions use the angle unit that is set, so check it first; here it is degrees.
 
 ## From before
@@ -43,15 +43,15 @@ prompt: −90° points the same way as which angle from 0° to 360°?
 topics: full-turn
 answer: type
 calculator: no
-slip: TR4F1A | dropped the minus | −90° turns clockwise: add a full turn, −90 + 360.
+slip: TR4F1A | dropped the minus | −90° turns clockwise: add a full turn, $−90 + 360$.
 ```
 
 ```item TR4F2
-prompt: Work out 5² − 3².
+prompt: Work out $5^{2} − 3^{2}$.
 topics: x-squared
 answer: type
 calculator: no
-slip: TR4F2A | squared the difference | Square each first: 25 − 9. (5 − 3)² is another number.
+slip: TR4F2A | squared the difference | Square each first: $25 − 9$. $(5 − 3)^{2}$ is another number.
 ```
 
 ## Before you start
@@ -65,14 +65,14 @@ BLUE MODE {mode} GOLD DISP FIX 4 BLUE ∡MODE DEG
 
 ## Rectangular to polar
 
-The ANGLE menu, blue above SIN, has →POL. It takes y in Y and x in X, so type y first, then ENTER,
-then x, and gives back r in X and the angle in Y. For (3, 4):
+The ANGLE menu, blue above SIN, has →POL. It takes $y$ in Y and $x$ in X, so type $y$ first, then ENTER,
+then $x$, and gives back $r$ in X and the angle in Y. For (3, 4):
 
 ```keys P01
 4 ENTER 3 BLUE ANGLE →POL
 ```
 
-X shows <disp v="P01">5.0000</disp>: r. The angle is in Y; x↔y brings it down:
+X shows <disp v="P01">5.0000</disp>: $r$. The angle is in Y; x↔y brings it down:
 
 ```keys P02 after=P01
 x↔y
@@ -81,8 +81,8 @@ x↔y
 X shows <disp v="P02">53.1301</disp> degrees. So (3, 4) is (5, 53.1301°) in polar form.
 
 ```why
-ask: Why is r exactly 5 for the point (3, 4)?
-because: r is the distance from O, the longest side of a right triangle whose other sides are 3 and 4, and 3² + 4² is 5².
+ask: Why is $r$ exactly 5 for the point (3, 4)?
+because: $r$ is the distance from O, the longest side of a right triangle whose other sides are 3 and 4, and $3^{2} + 4^{2}$ is $5^{2}$.
 ```
 
 The angle follows the point all the way round, which ATAN alone cannot. For (−3, 4), up and to the
@@ -92,7 +92,7 @@ left:
 4 ENTER 3 +/− BLUE ANGLE →POL x↔y
 ```
 
-X shows <disp v="Q01">126.8699</disp> degrees, past 90, where the point is. ATAN of the ratio 4 ÷ −3
+X shows <disp v="Q01">126.8699</disp> degrees, past 90, where the point is. ATAN of the ratio $4 ÷ −3$
 gives a different answer:
 
 ```keys Q02
@@ -100,65 +100,65 @@ gives a different answer:
 ```
 
 X shows <disp v="Q02">-53.1301</disp>. Like ASIN, ATAN answers only between −90 and 90
-degrees, and a ratio cannot tell (−3, 4) from (3, −4): 4 ÷ −3 and −4 ÷ 3 are the same number. So
+degrees, and a ratio cannot tell (−3, 4) from (3, −4): $4 ÷ −3$ and $−4 ÷ 3$ are the same number. So
 ATAN's −53.1301 points at (3, −4), down and to the right; for a point on the left you would have to
 add 180 yourself. →POL knows the signs of both coordinates, so it puts the angle on the correct side
 without that. Its angles run from just above −180 up to and including 180 degrees (a point straight
-left gets 180, never −180): a point below the x axis gets a negative angle, and adding 360 gives
+left gets 180, never −180): a point below the $x$ axis gets a negative angle, and adding 360 gives
 the same direction between 0 and 360.
 
 ## Polar to rectangular
 
-→REC goes the other way: it takes the angle in Y and r in X, and gives x in X and y in Y, by
-x = r cos θ and y = r sin θ. A point 10 from O at 30 degrees:
+→REC goes the other way: it takes the angle in Y and $r$ in X, and gives $x$ in X and $y$ in Y, by
+$x = r$ $\cos θ$ and $y = r$ $\sin θ$. A point 10 from O at 30 degrees:
 
 ```keys R01
 30 ENTER 10 BLUE ANGLE →REC
 ```
 
-X shows <disp v="R01">8.6603</disp>: x, which is 10 cos 30°. Bring y down:
+X shows <disp v="R01">8.6603</disp>: $x$, which is 10 $\cos 30°$. Bring $y$ down:
 
 ```keys R02 after=R01
 x↔y
 ```
 
-X shows <disp v="R02">5.0000</disp>: y, 10 sin 30°.
+X shows <disp v="R02">5.0000</disp>: $y$, 10 $\sin 30°$.
 
 ```why
-ask: Why is y exactly half of r at 30 degrees?
-because: y is r sin 30°, and the sine of 30 degrees is one half, so y is half of 10.
+ask: Why is $y$ exactly half of $r$ at 30 degrees?
+because: $y$ is $r$ $\sin 30°$, and the sine of 30 degrees is one half, so $y$ is half of 10.
 ```
 
 ## Exercises
 
-1. Write the point (−5, −12) in polar form. What would ATAN of −12 ÷ −5 give instead?
+1. Write the point (−5, −12) in polar form. What would ATAN of $−12 ÷ −5$ give instead?
 2. Write the polar point (2, 135°) in rectangular form.
 
 ## Answers
 
-1. y first:
+1. $y$ first:
 
    ```keys E01
    12 +/− ENTER 5 +/− BLUE ANGLE →POL
    ```
 
-   X shows <disp v="E01">13.0000</disp>: r = √(25 + 144). Then the angle:
+   X shows <disp v="E01">13.0000</disp>: $r = \sqrt{25 + 144}$. Then the angle:
 
    ```keys E01B after=E01
    x↔y
    ```
 
    X shows <disp v="E01B">-112.6199</disp> degrees: down and to the left, so (−5, −12) is
-   (13, −112.6199°), the same direction as 247.3801° (add 360). ATAN of −12 ÷ −5 = 2.4 would give
+   (13, −112.6199°), the same direction as 247.3801° (add 360). ATAN of $−12 ÷ −5 = 2.4$ would give
    about 67.38 degrees, up and to the right: the opposite direction.
 
-2. The angle first, then r:
+2. The angle first, then $r$:
 
    ```keys E02
    135 ENTER 2 BLUE ANGLE →REC
    ```
 
-   X shows <disp v="E02">-1.4142</disp>: x, to the left. Then y:
+   X shows <disp v="E02">-1.4142</disp>: $x$, to the left. Then $y$:
 
    ```keys E02B after=E02
    x↔y
@@ -173,31 +173,31 @@ prompt: How far is the point (6, 8) from O?
 topics: to-polar
 answer: type
 calculator: no
-slip: TR4M1A | added the coordinates | r comes from Pythagoras: √(6² + 8²).
+slip: TR4M1A | added the coordinates | $r$ comes from Pythagoras: $\sqrt{6^{2} + 8^{2}}$.
 ```
 
 ```item TR4M2
-prompt: π/3 radians is how many degrees?
+prompt: $π/3$ radians is how many degrees?
 topics: convert-angle
 answer: type
 calculator: no
-slip: TR4M2A | multiplied by 3 | π radians is 180°, so π/3 is 180 ÷ 3.
+slip: TR4M2A | multiplied by 3 | π radians is 180°, so $π/3$ is $180 ÷ 3$.
 ```
 
 ```item TR4M3
-prompt: A point is at r = 4 and angle 180°. What is its x?
+prompt: A point is at $r = 4$ and angle 180°. What is its $x$?
 topics: to-rect
 answer: type
 calculator: no
-slip: TR4M3A | lost the sign | At 180° the point is on the negative x axis: x is 4 × cos 180°, and cos 180° is −1.
+slip: TR4M3A | lost the sign | At 180° the point is on the negative $x$ axis: $x$ is $4 × \cos 180°$, and $\cos 180°$ is −1.
 ```
 
 ```item TR4M4
-prompt: sin θ = 0.8. What is cos²θ?
+prompt: $\sin θ = 0.8$. What is $\cos^{2}θ$?
 topics: pythagorean-identity
 answer: type
 calculator: no
-slip: TR4M4A | did not square the sine | cos²θ is 1 − 0.8², which is 1 − 0.64.
+slip: TR4M4A | did not square the sine | $\cos^{2}θ$ is $1 − 0.8^{2}$, which is $1 − 0.64$.
 ```
 
 ## Checkpoint
@@ -209,24 +209,24 @@ prompt: A right triangle's two shorter sides are 5 and 12. How long is its hypot
 topics: pythagoras
 answer: type
 calculator: no
-slip: CP7A1 | added the sides | Square each side, add, then take the square root: 25 + 144 = 169.
+slip: CP7A1 | added the sides | Square each side, add, then take the square root: $25 + 144 = 169$.
 slip: CP7A2 | stopped at the square | That is the hypotenuse squared; take its square root.
 ```
 
 ```item CP7B
-prompt: In a right triangle, the hypotenuse is 10 and the side opposite angle A is 6. What is sin A?
+prompt: In a right triangle, the hypotenuse is 10 and the side opposite angle $A$ is 6. What is $\sin A$?
 topics: trig-ratios pythagoras
 answer: type
 calculator: no
-slip: CP7B1 | the cosine | That is the adjacent side over the hypotenuse, the cosine. The sine is the opposite side over the hypotenuse: 6 ÷ 10.
+slip: CP7B1 | the cosine | That is the adjacent side over the hypotenuse, the cosine. The sine is the opposite side over the hypotenuse: $6 ÷ 10$.
 slip: CP7B2 | the tangent | That is the opposite side over the adjacent side, the tangent. The sine divides by the hypotenuse.
 ```
 
 ```item CP7C
-prompt: A point is at r = 2 and angle 90°. What is its x?
+prompt: A point is at $r = 2$ and angle 90°. What is its $x$?
 topics: to-rect
 answer: type
 calculator: no
 working: none
-slip: CP7C1 | r itself | At 90° the point is straight up, on the y axis, so x = r × cos 90° = 0.
+slip: CP7C1 | r itself | At 90° the point is straight up, on the $y$ axis, so $x = r × \cos 90° = 0$.
 ```

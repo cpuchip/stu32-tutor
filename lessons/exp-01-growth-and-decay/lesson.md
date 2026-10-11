@@ -10,10 +10,10 @@ display: FIX 4
 # Growth and decay
 
 A linear function (lin-01) adds the same amount at every step. An exponential function multiplies
-by the same factor at every step. After n steps from a starting amount a, with a factor b each
+by the same factor at every step. After n steps from a starting amount $a$, with a factor $b$ each
 step, the amount is
 
-a × bⁿ.
+$a × b^{n}$.
 
 A factor above 1 makes growth, and a factor between 0 and 1 makes decay. The doubling data in lin-03 was
 exponential, with a factor of 2, which is why a line described it so badly. yˣ from num-03 works out
@@ -26,7 +26,7 @@ prompt: What is 15% of 80?
 topics: percent
 answer: type
 calculator: no
-slip: EX1F1A | forgot the hundredth | 15% means 15 hundredths: 0.15 × 80.
+slip: EX1F1A | forgot the hundredth | 15% means 15 hundredths: $0.15 × 80$.
 ```
 
 ```item EX1F2
@@ -34,7 +34,7 @@ prompt: A line starts at 5 and adds 3 at every step. What is it after 4 steps?
 topics: linear-function
 answer: type
 calculator: no
-slip: EX1F2A | added before multiplying | Four steps of 3 is 3 × 4, which is 12. Then 5 + 12.
+slip: EX1F2A | added before multiplying | Four steps of 3 is $3 × 4$, which is 12. Then $5 + 12$.
 ```
 
 ## Before you start
@@ -49,7 +49,7 @@ BLUE MODE {mode} GOLD DISP FIX 4
 ## Growth
 
 Growth of 4% a year means each year's amount is the last year's plus 4% of it: 1.04 times it. So the
-factor is 1 + 0.04 = 1.04. Start with 500 and grow 4% a year for 10 years: 500 × 1.04¹⁰. yˣ raises
+factor is $1 + 0.04 = 1.04$. Start with 500 and grow 4% a year for 10 years: $500 × 1.04^{10}$. yˣ raises
 Y to the power in X. Type 500, ENTER, 1.04, ENTER, 10: the 500 waits in Z. yˣ uses Y and X and the
 stack drops, bringing the 500 down to Y, so a last × multiplies by it:
 
@@ -70,14 +70,14 @@ fixed 20 never grows. That is why exponential growth is fast in the end, however
 
 ## Decay
 
-Decay works the same way with a factor below 1. Losing r% each step leaves 100 − r of every 100, so
-the factor is 1 − r ÷ 100: losing 15% is a factor of 0.85, and losing half is a factor of 0.5.
+Decay works the same way with a factor below 1. Losing r% each step leaves $100 − r$ of every 100, so
+the factor is $1 − r ÷ 100$: losing 15% is a factor of 0.85, and losing half is a factor of 0.5.
 
 A medicine whose amount in the body halves every 6 hours has a factor of 0.5 for every 6 hours. The
 time it takes to halve is called its half-life. Start with 80 mg. The amount does not drop in jumps
-at each halving; it falls smoothly all the time, so a × bⁿ holds for part of a step too, with n a
-fraction. After 15 hours, 15 ÷ 6 = 2.5 half-lives have passed, so 80 × 0.5^2.5 remain. A power of
-2.5 is a power of 2 and a power of one half together: 0.5^2.5 = 0.5² × √0.5, since multiplying
+at each halving; it falls smoothly all the time, so $a × b^{n}$ holds for part of a step too, with n a
+fraction. After 15 hours, $15 ÷ 6 = 2.5$ half-lives have passed, so $80 × 0.5^{2.5}$ remain. A power of
+2.5 is a power of 2 and a power of one half together: $0.5^{2.5} = 0.5^{2} × \sqrt{0.5}$, since multiplying
 powers of one number adds the powers (num-04 did it with powers of ten), and the power of one
 half is a square root. yˣ takes any power. First the 2.5:
 
@@ -100,14 +100,14 @@ halfway amount: the drop is faster early in those six hours, 20 to 14.1421 in th
 14.1421 to 10 in the next three, because there is more to lose at the start.
 
 ```why
-ask: Why is the power 15 ÷ 6, and not 15?
-because: The factor 0.5 belongs to one half-life, 6 hours, so the power counts half-lives, and 15 hours is 15 ÷ 6 of them.
+ask: Why is the power $15 ÷ 6$, and not 15?
+because: The factor 0.5 belongs to one half-life, 6 hours, so the power counts half-lives, and 15 hours is $15 ÷ 6$ of them.
 ```
 
 ## Finding the factor
 
-If an amount went from 1200 to 1452 in two years, growing by the same factor b each year, then
-1200 × b × b = 1452, so b × b = 1452 ÷ 1200 and b is its square root. Over n years it would be the
+If an amount went from 1200 to 1452 in two years, growing by the same factor $b$ each year, then
+$1200 × b × b = 1452$, so $b × b = 1452 ÷ 1200$ and $b$ is its square root. Over n years it would be the
 n-th root, ˣ√y (gold above yˣ):
 
 ```keys R01
@@ -119,8 +119,8 @@ X shows <disp v="R01">1.1000</disp>: a factor of 1.1, growth of 10% a year. The 
 grows from a bigger amount than the first, so 10% a year is enough, 1200 to 1320 to 1452.
 
 ```why
-ask: Why is the yearly factor the square root of 1452 ÷ 1200, and not half of it?
-because: The two years multiply, b × b; they do not add. Undoing a multiplication done twice takes a square root, where halving would undo b + b.
+ask: Why is the yearly factor the square root of $1452 ÷ 1200$, and not half of it?
+because: The two years multiply, $b × b$; they do not add. Undoing a multiplication done twice takes a square root, where halving would undo $b + b$.
 ```
 
 ## Exercises
@@ -148,7 +148,7 @@ because: The two years multiply, b × b; they do not add. Undoing a multiplicati
 
    X shows <disp v="E02">9,396.1125</disp>.
 
-3. The factor is the cube root of 9261 ÷ 8000:
+3. The factor is the cube root of $9261 ÷ 8000$:
 
    ```keys E03
    9261 ENTER 8000 ÷ 3 GOLD ˣ√y
@@ -163,7 +163,7 @@ prompt: 200 grows by a factor of 3 at each step. How much after 2 steps?
 topics: growth
 answer: type
 calculator: no
-slip: EX1M1A | multiplied by the number of steps | Each step multiplies by 3 again: 200 × 3 × 3.
+slip: EX1M1A | multiplied by the number of steps | Each step multiplies by 3 again: $200 × 3 × 3$.
 ```
 
 ```item EX1M2
@@ -171,7 +171,7 @@ prompt: A price rises from 50 to 60. What is the percent change?
 topics: percent-change
 answer: type
 calculator: no
-slip: EX1M2A | gave the change, not the percent | The change, 10, is a share of where it started: 10 ÷ 50, as a percent.
+slip: EX1M2A | gave the change, not the percent | The change, 10, is a share of where it started: $10 ÷ 50$, as a percent.
 ```
 
 ```item EX1M3
@@ -183,9 +183,9 @@ slip: EX1M3A | halved only once | Each hour halves it again: 80, 40, 20, 10.
 ```
 
 ```item EX1M4
-prompt: Work out 3 × 10⁴ × 2 × 10⁻² as a plain number.
+prompt: Work out $3 × 10^{4} × 2 × 10^{-2}$ as a plain number.
 topics: e-arithmetic
 answer: type
 calculator: no
-slip: EX1M4A | multiplied the powers | Multiply the numbers and add the powers: 6 × 10², which is 600.
+slip: EX1M4A | multiplied the powers | Multiply the numbers and add the powers: $6 × 10^{2}$, which is 600.
 ```

@@ -10,7 +10,7 @@ trial: productive failure (decision 81), judged by reading, since nothing about 
 
 # Slope and intercept
 
-A linear function has the form $y$ = mx + $b$. Its graph, drawn on axes as in fn-02, is a straight
+A linear function has the form $y = mx + b$. Its graph, drawn on axes as in fn-02, is a straight
 line, and the two numbers $m$ and $b$ say everything about it. A question about steepness comes first,
 before any of it is taught; what $m$ and $b$ mean, and how to find them from two points, follow from it.
 
@@ -107,7 +107,7 @@ The last three are one idea: two ramps are equally steep when they rise the same
 amount is the rise divided by the run, and it is called the slope. B's is $2 ÷ 6$, a third, and so is the new
 ramp's, $5 ÷ 15$. Ramp A's is $3 ÷ 12$, a quarter, which is why a ramp as steep as A, 5 $m$ up, runs 20 $m$.
 
-A line has a slope too. For $y$ = mx + $b$, $m$ is the slope: how far the line rises for each step of 1 to the right.
+A line has a slope too. For $y = mx + b$, $m$ is the slope: how far the line rises for each step of 1 to the right.
 $b$, the intercept, is the value of $y$ at $x = 0$, where the line crosses the vertical axis. $f(x) = 2x + 3$ from fn-01
 is one, with slope 2 and intercept 3.
 
@@ -138,8 +138,8 @@ because: Taking only one of them the other way round flips its sign, and the slo
 
 ## The intercept
 
-Any point on the line makes $y$ = mx + $b$ true. Take mx from both sides of that, and it gives
-the intercept: $b = y$ − mx. With the point (3, 9) and the slope in M, that is $b = 9 − m × 3$. Start it:
+Any point on the line makes $y = mx + b$ true. Take $mx$ from both sides of that, and it gives
+the intercept: $b = y − mx$. With the point (3, 9) and the slope in M, that is $b = 9 − m × 3$. Start it:
 
 ```keys L03A after=L02
 9 RCL M 3
@@ -154,10 +154,10 @@ result in B:
 × − STO B
 ```
 
-X shows <disp v="L03">3.0000</disp>: $b = 9 − 6$. The line is $y = 2x + 3$, the same f.
+X shows <disp v="L03">3.0000</disp>: $b = 9 − 6$. The line is $y = 2x + 3$, the same $f$.
 
 ```why
-ask: Why does $b = y$ − mx give the intercept?
+ask: Why does $b = y − mx$ give the intercept?
 because: The intercept is the value of $y$ where $x$ is zero. From the point (3, 9), going back 3 steps to that crossing drops the line by 2 at each step, so $9 − 2 × 3$ is where it crosses.
 ```
 
@@ -206,7 +206,7 @@ X shows <disp v="L07B">0.0000</disp>, the run. The rise is still in Y; x↔y bri
 x↔y
 ```
 
-X shows <disp v="L07C">4.0000</disp>. Such a line is not $y$ = mx + $b$ for any $m$. It is the line $x = 3$,
+X shows <disp v="L07C">4.0000</disp>. Such a line is not $y = mx + b$ for any $m$. It is the line $x = 3$,
 and it is not a function of $x$: a function gives one output for each input, and here the input 3
 would need every $y$ as its output.
 
