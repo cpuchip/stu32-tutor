@@ -82,6 +82,11 @@ x↔y
 
 X shows <disp v="P02">53.1301</disp> degrees. So (3, 4) is (5, 53.1301°) in polar form.
 
+```why
+ask: Why is r exactly 5 for the point (3, 4)?
+because: r is the distance from O, the longest side of a right triangle whose other sides are 3 and 4, and 3² + 4² is 5².
+```
+
 The angle follows the point all the way round, which ATAN alone cannot. For (−3, 4), up and to the
 left:
 
@@ -120,6 +125,11 @@ x↔y
 ```
 
 X shows <disp v="R02">5.0000</disp>: y, 10 sin 30°.
+
+```why
+ask: Why is y exactly half of r at 30 degrees?
+because: y is r sin 30°, and the sine of 30 degrees is one half, so y is half of 10.
+```
 
 ## Exercises
 

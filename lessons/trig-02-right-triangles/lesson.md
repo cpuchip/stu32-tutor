@@ -85,6 +85,11 @@ the wall, so that distance is 5 × cos 70°:
 
 X shows <disp v="L02">1.7101</disp> m.
 
+```why
+ask: Why do the height and the distance along the ground not add up to the ladder's 5 m?
+because: They are the two shorter sides of a right triangle, and the ladder is the longest. It is their squares that add up to 5², not the sides themselves.
+```
+
 Tangent uses the two shorter sides. Standing 12 m from a tree, you look up 35 degrees to its top.
 The triangle has its corner at your eye: the 12 m level with your eye is adjacent to the angle, and
 the side opposite runs up from eye level to the top of the tree. So tan 35° = that height ÷ 12,
@@ -125,6 +130,11 @@ X shows <disp v="A02">36.8699</disp> again. And tan A = 3 ÷ 4:
 
 X shows <disp v="A03">36.8699</disp>. Any two sides give the angle, through whichever ratio uses
 those two.
+
+```why
+ask: Why is the angle opposite the 4 what is left of a right angle after 36.8699?
+because: A triangle's three angles together make half a turn, and the right angle takes half of that, so the two sharp angles share the other half: together they make a right angle.
+```
 
 ## Exercises
 

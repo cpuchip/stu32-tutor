@@ -94,6 +94,11 @@ way. One radian in degrees:
 
 X shows <disp v="C02">57.2958</disp>: a radian is a little over 57 degrees.
 
+```why
+ask: Why is a radian a little over 57 degrees?
+because: Half a turn is π radians, so one radian is half a turn divided by 3.1416, a bit less than a third of it.
+```
+
 ## π in radians
 
 In radians, the angles that come up most are fractions of π. 30 degrees is a twelfth of a turn
@@ -118,6 +123,11 @@ arc of length r × θ. That is the definition of a radian, stretched: one radian
 
 X shows <disp v="S01">10.4720</disp>: a little more than the radius, as 60 degrees is a little more
 than one radian.
+
+```why
+ask: Why must the 60 be turned into radians before multiplying by the radius?
+because: r × θ counts radii along the arc, and only a radian cuts exactly one radius. Multiplied straight, 60 × 10 would be far longer than the whole way round the circle.
+```
 
 ## Exercises
 

@@ -116,6 +116,11 @@ degrees, with x² (gold above √x) squaring each:
 
 X shows <disp v="U05">1.0000</disp>.
 
+```why
+ask: Why does the check work at 200 degrees, where the sine and cosine are both negative?
+because: x² squares each one, and a negative number squared is positive, so the signs drop out and only the sides' lengths are added.
+```
+
 ## Around again
 
 A full turn of 360 degrees brings the arm back where it started, so 390 degrees is the same point as
@@ -155,6 +160,11 @@ X shows <disp v="U07">30.0000</disp>. ASIN always answers between −90 and 90 d
 angle with the same sine is 180 minus that one, here 150. (Only at the very top and bottom, sin θ = 1
 or −1, is there one angle and no mirror.) This is what trig-02 promised: for a right triangle the
 answer between 0 and 90 is the one meant, but in general it is one of two.
+
+```why
+ask: Why does turning 30 short of 180 give the same height as turning 30 past 0?
+because: The two arms are mirror images across the y axis. The mirror swaps left for right but keeps every height, and the height is the sine.
+```
 
 Cosine has its own mirror: across the x axis. The point at −θ, or 360 − θ, is straight below the
 point at θ, the same distance across. So the other angle with the same cosine is 360 minus the one
