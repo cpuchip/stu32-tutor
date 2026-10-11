@@ -75,6 +75,11 @@ from 3, to 3.05:
 X shows <disp v="T03">0.1025</disp>. The line there is 2 × 3.05 − 6 = 0.1, so the gap is 0.0025, a
 quarter of 0.01. Halving the distance quartered the gap.
 
+```why
+ask: Why does halving the distance quarter the gap?
+because: The gap is exactly (x − 3)², and half a distance, squared, is a quarter of the distance squared.
+```
+
 Any line through (3, 0) is close to q near 3, so compare another: y = 3x − 9. At 3.1 it gives 0.3, a gap
 of 0.09; at 3.05 it gives 0.15, a gap of 0.0475, only about half. Its gap is (x − 3)(x − 4), which
 shrinks only as fast as the distance itself; the tangent's, (x − 3)², shrinks as fast as the distance
@@ -114,6 +119,11 @@ q's lowest point anywhere, not only nearby. Its height, q(2):
 ```
 
 X shows <disp v="S02">-1.0000</disp>. The lowest point of q is (2, −1), the turn the drawing in fn-02 showed.
+
+```why
+ask: Why is the slope zero at x = 2, where fn-02 found the curve's mirror line?
+because: Mirrored about x = 2, the slope at each point is minus the slope at its mirror point. At the mirror line a point is its own mirror, so its slope is minus itself, and only zero is.
+```
 
 A curve can have more than one. f(x) = x³ − 3x has f′(x) = 3x² − 3, which is 0 when x² = 1: at x = 1 and
 x = −1. The slope's sign tells which is which. f′(−2) = 9 is positive, f′(0) = −3 negative, and

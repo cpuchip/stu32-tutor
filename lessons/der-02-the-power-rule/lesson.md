@@ -102,6 +102,12 @@ method.
 ```
 
 X shows <disp v="P01">8.0060</disp>, near 8. It agrees with the rule; the algebra above is what proves it.
+
+```why
+ask: Why does the average land a little above 8?
+because: The average is 3a² + 3ah + h² − 4. At a = 2, the 3ah adds 3 × 2 × 0.001 to the rule's 8, and the h² adds far less.
+```
+
 <mode m="STU">
 
 STU mode's D/DX gives the rule itself, as in der-01: type the expression in the equation list, then
@@ -135,6 +141,12 @@ X shows <disp v="R01">-0.2499</disp>, near −0.25. The algebra proves it. 1/(a 
 bottom a(a + h), is (a − (a + h)) ÷ (a(a + h)), which is −h ÷ (a(a + h)). Divided by h, the average is
 −1 ÷ (a(a + h)), and as h shrinks it closes in on −1 ÷ a². So the rule holds for n = −1, at every a
 but 0, where 1/x has no value. A later course proves the rule for other powers, such as fractions.
+
+```why
+ask: Why is the average −0.2499, a little above −0.25?
+because: The average is −1 ÷ (a(a + h)). With h above 0, a + h is a little more than a, so −1 is divided by a little more than 4, which lands a little nearer 0 than −1 ÷ 4.
+```
+
 <mode m="STU">
 
 STU mode's D/DX agrees:</mode>

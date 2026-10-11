@@ -122,6 +122,11 @@ X shows <disp v="D03">2.0020</disp>: close to 2, off by 2h, as at t = 3. Program
 averages. At each time you try, they land within 2h of the rule, which agrees with it but does not
 prove it; the algebra is what proves the rule for every t.
 
+```why
+ask: Why did a ten times smaller h land ten times nearer to 12?
+because: Each average is off from the rule by exactly 2h, so a tenth of the h leaves a tenth of the gap.
+```
+
 ## A picture: the tangent line
 
 On a graph of d, the average speed from a to a + h is the slope (lin-01) of the straight line through
