@@ -109,6 +109,11 @@ The screen shows <disp v="V02">17.0000</disp>, the hand work's answer.
 <entry e="alg">The line reads <disp v="V02" kind="line">3×N+5</disp>: the letter is in the line, and the
 calculator used the number stored under it.</entry>
 
+```why
+ask: Why does RCL N give the hand work's answer?
+because: N holds the number stored a step before, so the rule uses it in place of the letter: 3 times it, then 5 more.
+```
+
 The point of a letter is that the number can change and the rule stays. Carrying on, an order of 10
 pies:
 
@@ -127,6 +132,11 @@ The screen shows <disp v="V03">10.0000</disp>. Carrying on, the same expression 
 ```
 
 The screen shows <disp v="V04">35.0000</disp>: 3 × 10 + 5.
+
+```why
+ask: Why did the same keys now give 35?
+because: N was changed to 10, and the rule is the same: 3 × 10 + 5.
+```
 
 ## Exercises
 

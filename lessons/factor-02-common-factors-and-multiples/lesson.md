@@ -106,6 +106,12 @@ GOLD INT÷ 90 GOLD , 6 ▶ ENTER
 of each (by their pairs, as in factor-01). 84: 1, 2, 3, 4, 6, 7, 12, 14, 21, 28, 42, 84. 90: 1, 2, 3, 5,
 6, 9, 10, 15, 18, 30, 45, 90. The ones in both lists are 1, 2, 3 and 6, and the greatest is 6.
 
+
+```why
+ask: Why is 6 the greatest common factor, and not 3?
+because: 3 divides both, but so does 6, and nothing bigger divides both 84 and 90.
+```
+
 ## The least common multiple
 
 The multiples of 12 are 12 × 1, 12 × 2, 12 × 3 and so on: 12, 24, 36, 48. Call today day 0. <voice v="story">Tobin
@@ -148,6 +154,12 @@ BLUE Rmdr 36 GOLD , 18 ▶ ENTER
 ```
 
 shows <disp v="M03">0.0000</disp>. <voice v="story">Tobin's two rounds meet again 36 days from today.</voice><voice v="plain">The two rounds meet again 36 days from today.</voice>
+
+
+```why
+ask: Why is 36 the least common multiple, and not the two numbers multiplied?
+because: Multiplying them gives a common multiple too, but 36 is the first day on both lists.
+```
 
 ## Exercises
 

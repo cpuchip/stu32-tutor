@@ -109,6 +109,11 @@ By hand, 5000 − 2768 = 2232. The check:
 The screen shows <disp v="A02">2,232.0000</disp>. Order matters in taking away: 2768 − 5000 would be a
 different question, a number below zero, which unit 4 is about.
 
+```why
+ask: Why does 5000 have to borrow from its thousands for the ones column?
+because: Its tens and hundreds hold nothing, so a thousand is traded down one step at a time until the ones have ten.
+```
+
 ## Estimating, to catch a slip
 
 A calculator does exactly what it is told, so a key missed in typing gives a wrong answer that looks
@@ -129,6 +134,11 @@ Now suppose the 1 of 1879 was missed in typing:
 
 The screen shows <disp v="A03">4,331.0000</disp>, more than a thousand away from the estimate of 5400.
 Something went wrong, and the estimate said so before anyone believed it.
+
+```why
+ask: Why did the estimate catch this slip?
+because: The missed digit was worth a thousand, and 4331 is more than a thousand away from 5400. A slip in the ones would hide inside the rounding.
+```
 
 ## Exercises
 

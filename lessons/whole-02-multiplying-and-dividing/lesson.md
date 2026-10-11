@@ -118,6 +118,11 @@ BLUE Rmdr 59 GOLD , 9 ▶ ENTER
 
 The screen shows <disp v="D03">5.0000</disp>: 5 rolls over, as the hand work said.
 
+```why
+ask: Why is the decimal part of 59 ÷ 9 not the remainder?
+because: The decimal is the part of one more box that the 5 rolls left over would fill. Rmdr counts the rolls themselves.
+```
+
 ## Long division
 
 A big division by hand goes one digit at a time from the left. <voice v="story">Tobin has 1000 rolls in boxes of 7.</voice><voice v="plain">1000 rolls go into boxes of 7.</voice>
@@ -152,6 +157,11 @@ BLUE Rmdr 1000 GOLD , 7 ▶ ENTER
 ```
 
 The screen shows <disp v="D05">6.0000</disp>.
+
+```why
+ask: Why must the remainder be less than 7?
+because: With 7 or more left over, one more full box of 7 would fit.
+```
 
 ## Exercises
 

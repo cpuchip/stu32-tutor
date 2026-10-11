@@ -91,6 +91,11 @@ The 0 in front means no whole pies, and then 1/2. Fraction display shows a fract
 The screen shows <disp v="Q02">0 1/2</disp>: the same number. Two fractions are equivalent when they
 are the same number, and the calculator agrees with the drawing.
 
+```why
+ask: Why are the two pies' shares the same number?
+because: Each half of the first pie holds two of its quarters, so two quarters cover exactly one half.
+```
+
 ## Checking your hand work
 
 By hand, 6/8 was 3/4. The calculator can check it:
@@ -138,6 +143,11 @@ number goes into 111 exactly 3 times and into 296 exactly 8 times, so 3 times it
 
 The screen shows <disp v="Q05">296</disp>. Both 111 and 296 divide by 37, and dividing both by it
 leaves 3/8. The hand work and the calculator agree.
+
+```why
+ask: Why does dividing both by 37 not change the fraction?
+because: 111 and 296 are 3 × 37 and 8 × 37, so the 37s cancel: 3/8 is the same number.
+```
 
 ## Exercises
 

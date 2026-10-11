@@ -95,6 +95,11 @@ The order matters. Undo the × 3 first, and then the + 5, and see what happens:
 The screen shows <disp v="W01">1.6667</disp>: not even a whole number of pies. Undoing in the wrong order
 does not take you back.
 
+```why
+ask: Why does undoing in the wrong order fail?
+because: The rule multiplied by 3 and then added 5, so the 5 came last. Undoing has to take it away first, before the ÷ 3.
+```
+
 ## Check by putting it back
 
 An answer to an equation can always be checked: put it back into the rule and see whether it gives the
@@ -146,6 +151,11 @@ The screen shows <disp v="U04">20.0000</disp>: the batch was 20 rolls. The check
 ```
 
 The screen shows <disp v="C02">3.0000</disp>, as it should.
+
+```why
+ask: Why put the answer back into the rule?
+because: If 20 rolls shared among 4 shelves, less 2, leave 3, then 20 is right: the check runs the rule forward.
+```
 
 ## Exercises
 

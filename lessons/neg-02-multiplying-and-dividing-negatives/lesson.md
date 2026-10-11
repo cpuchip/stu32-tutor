@@ -90,6 +90,11 @@ warmer.
 The screen shows <disp v="M02">12.0000</disp>. So for multiplying: the same signs give a positive
 answer, and different signs give a negative one.
 
+```why
+ask: Why is a negative times a negative positive?
+because: Each hour back in time is 4 degrees warmer, so 3 hours back is 12 degrees warmer: (−3) × (−4) is 12.
+```
+
 ## Dividing
 
 Dividing undoes multiplying (expr-02), so each division is a multiplication question, and that is why
@@ -158,6 +163,12 @@ is always at or left of the number, so this calculator's remainder is never nega
 calculators and computer languages chop −3.5 to −3 instead, with remainder −1: −7 = 2 × (−3) + (−1).
 Neither is wrong; they follow different rules. So check which one a calculator follows before
 trusting it with negatives.)
+
+
+```why
+ask: Why is the remainder 1, and not −1?
+because: −7 is not a multiple of 2, so the calculator steps left to the multiple below it and counts up: 2 × (−4) is one below −7, so 1 is left.
+```
 
 ## Exercises
 

@@ -91,6 +91,11 @@ BLUE Rmdr 84 GOLD , 5 ▶ ENTER
 
 The screen shows <disp v="R03">4.0000</disp>: 4 over, so 5 is not a factor of 84.
 
+```why
+ask: Why does a remainder of 4 mean 5 is not a factor?
+because: A factor makes equal rows with none over, and 84 in rows of 5 leaves 4 over.
+```
+
 Factors come in pairs that multiply to the number. Testing 1, 2, 3 and so on, 84's pairs are 1 × 84,
 2 × 42, 3 × 28, 4 × 21, 6 × 14 and 7 × 12. <voice v="story">So Maren can set out 84 pastries in rows of 1, 2, 3, 4, 6,
 7, 12, 14, 21, 28, 42 or 84.</voice><voice v="plain">So 84 pastries can be set out in rows of 1, 2, 3, 4, 6,
@@ -133,6 +138,11 @@ BLUE Rmdr 97 GOLD , 7 ▶ ENTER
 ```
 
 The screen shows <disp v="R05">6.0000</disp>. None of 2, 3, 5 and 7 divides 97, so 97 is prime.
+
+```why
+ask: Why stop testing at 7?
+because: Any factor pair of 97 would need one factor no bigger than just under ten, and the primes below ten are 2, 3, 5 and 7.
+```
 
 ## Breaking a number into primes
 

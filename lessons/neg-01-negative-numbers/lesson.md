@@ -99,6 +99,11 @@ into that same number. Here is the mistake, typing 8, +/−, then 5:
 The screen shows <disp v="S01">-85.0000</disp>: not −8 and 5, but one number, −85. To get −8 and then 5,
 finish the −8 first, with an operation key (as in the example above) or, in RPN, with ENTER.
 
+```why
+ask: Why did the screen show −85, not −8 and 5?
+because: +/− changed the sign of the number still being typed, and the 5 joined it: one number, 85, made negative.
+```
+
 A negative plus a negative goes further left: −3 + (−5). Start at −3 and move 5 to the left: −8.
 
 ```keys A04 entry=alg
@@ -127,6 +132,11 @@ picture it: in the morning the air is −4 degrees, and the sun takes away 6 deg
 ```
 
 The screen shows <disp v="A02">2.0000</disp>.
+
+```why
+ask: Why does taking away −6 move to the right?
+because: Taking away a debt of 6 leaves you 6 better off, so −4 − (−6) is −4 + 6.
+```
 
 Taking away a positive from a negative goes further left: −3 − 5. Start at −3 and move 5 to the left:
 −8.

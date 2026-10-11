@@ -104,6 +104,12 @@ them:</entry><entry e="rpn">each fraction is worked out first, then ÷ divides t
 ```
 
 The screen shows <disp v="D01">2</disp>: two pieces.
+
+```why
+ask: Why does 3/4 ÷ 3/8 give 2?
+because: 3/4 is twice 3/8: two pieces of 3/8 make 3/4.
+```
+
 <entry e="alg">The line reads <disp v="D01" kind="line">3÷4÷(3÷8)</disp>. Without the brackets, the line
 would work left to right, 3 ÷ 4, then ÷ 3, then ÷ 8. Dividing by 3 and then by 8 is dividing by 24,
 when it should have been times 8 and divided by 3:</entry><entry e="rpn">In RPN there is no bracket to

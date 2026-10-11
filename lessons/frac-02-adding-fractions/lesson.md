@@ -79,6 +79,12 @@ The screen shows <disp v="A01">0 5/8</disp>, the hand work's answer.
 A common slip is to add the tops and add the bottoms: (1 + 3)/(4 + 8) = 4/12 = 1/3. That cannot be
 right: 1/3 is less than the 3/8 cup of glaze alone, and adding more sugar cannot give less.
 
+
+```why
+ask: Why must the pieces be the same size before adding?
+because: Adding counts pieces, so they must be pieces of one size: quarters become eighths, and then the eighths add.
+```
+
 ## Another pair
 
 2/5 + 1/2: LCM(5, 2) = 10. 2/5 = 4/10 (top and bottom times 2) and 1/2 = 5/10 (times 5), so the sum is
