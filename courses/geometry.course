@@ -2,6 +2,7 @@
 # offered (decision 63). Unit 1 is written; the rest are in preparation.
 course | geometry | Geometry
 entry | alg rpn
+route | guided
 prerequisite | pre-algebra
 unit | 1 | Points, lines and angles
 lesson | angle-01

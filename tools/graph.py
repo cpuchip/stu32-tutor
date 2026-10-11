@@ -186,7 +186,8 @@ def load_courses(root):
 
 def check_courses(course_texts, graph):
     """(problems, courses). A course file: `course | id | title`, `entry | rpn alg` (offered, default first),
-    any `prerequisite | course-id` lines (courses a learner is expected to have done first), then `unit | n |
+    `route | guided` or `route | open` (the map's default mode, routes ruled 2026-10-11, abacus #7153), any
+    `prerequisite | course-id` lines (courses a learner is expected to have done first), then `unit | n |
     title` and `lesson | id` lines in order. Refused: a malformed line; an unknown or repeated lesson; an
     unknown prerequisite; a lesson requiring a topic taught later in the same course, by no lesson in any
     course, or by a lesson that is neither earlier in this course nor in one of its prerequisites (taken
@@ -194,7 +195,7 @@ def check_courses(course_texts, graph):
     bad, courses, in_some = [], {}, set()
     parsed = []
     for name, text in course_texts.items():
-        c = {"file": name, "id": None, "title": None, "entry": ["rpn"], "prerequisites": [], "units": []}
+        c = {"file": name, "id": None, "title": None, "entry": ["rpn"], "route": None, "prerequisites": [], "units": []}
         for n, line in enumerate(text.splitlines(), 1):
             if not line.strip() or line.lstrip().startswith("#"):
                 continue
@@ -204,6 +205,8 @@ def check_courses(course_texts, graph):
                 c["id"], c["title"] = args
             elif kind == "entry" and len(args) == 1 and args[0].split() and all(e in ENTRIES for e in args[0].split()):
                 c["entry"] = args[0].split()
+            elif kind == "route" and len(args) == 1 and args[0] in ROUTES and not c["units"]:
+                c["route"] = args[0]
             elif kind == "prerequisite" and len(args) == 1 and args[0] and not c["units"]:
                 c["prerequisites"].append(args[0])
             elif kind == "unit" and len(args) == 2:
@@ -211,10 +214,12 @@ def check_courses(course_texts, graph):
             elif kind == "lesson" and len(args) == 1 and c["units"]:
                 c["units"][-1]["lessons"].append(args[0])
             else:
-                bad.append(f"{name}:{n}: expected course | id | title, entry | rpn alg, prerequisite | course-id "
-                           f"(before the units), unit | n | title, or lesson | id")
+                bad.append(f"{name}:{n}: expected course | id | title, entry | rpn alg, route | guided or open, "
+                           f"prerequisite | course-id (before the units), unit | n | title, or lesson | id")
         if not c["id"] or f"{c['id']}.course" != name:
             bad.append(f"{name}: its course line must name it ({name[:-7]})")
+        if not c["route"]:
+            bad.append(f"{name}: no route | guided or route | open line before its units (the map's default mode)")
         parsed.append(c)
         for u in c["units"]:
             in_some.update(u["lessons"])
@@ -252,10 +257,72 @@ def check_courses(course_texts, graph):
                 elif src is not None and src not in order and src not in before:
                     bad.append(f"{c['file']}: {lid} requires '{slug}', taught by {src}, which is neither earlier "
                                f"in this course nor in a prerequisite course")
-        courses[c["id"]] = {k: c[k] for k in ("title", "entry", "prerequisites", "units")}
+        courses[c["id"]] = {k: c[k] for k in ("title", "entry", "route", "prerequisites", "units")}
     for lid in sorted(set(graph["lessons"]) - in_some):
         bad.append(f"{lid}: in no course")
     return bad, courses
+
+
+ROUTES = ("guided", "open")
+
+
+def route_data(lessons, graph):
+    """For the routes map (abacus #7153, #7155): each unit's checkpoint (the lesson whose ## Checkpoint holds it, and
+    its item ids; a unit passes when every one is right) and each lesson with no items of its own (no_items: true;
+    done once its last example's Try it is pressed). A unit with no checkpoint closes when each of its lessons is
+    done (closes_on: lessons; abacus #7157): the standing rule for a course's unit 0, the calculator, and the interim
+    rule for any other unit until its checkpoint is written. The passport stamps such a unit "lessons done", never
+    "passed". Problems: a unit with checkpoint items in two lessons."""
+    bad = []
+    for cid, c in graph.get("courses", {}).items():
+        for u in c["units"]:
+            cps = []
+            for lid in u["lessons"]:
+                if lid not in lessons:
+                    continue
+                _, items = lesson_items(lessons[lid][1])
+                ids = [i for i, _, under, _ in items if under == "Checkpoint"]
+                if ids:
+                    cps.append({"lesson": lid, "items": ids})
+                if not items and lid in graph["lessons"]:
+                    graph["lessons"][lid]["no_items"] = True
+            if len(cps) > 1:
+                bad.append(f"{cid} unit {u['n']}: checkpoint items in {len(cps)} lessons; a unit has one checkpoint")
+            u["checkpoint"] = cps[0] if cps else None
+            u["closes_on"] = "checkpoint" if cps else "lessons"
+    return bad
+
+
+def interim_units(graph):
+    """The units closing on their lessons only because their checkpoint is not written yet (unit 0 is the calculator
+    and closes on its lessons by rule): kept in the summary line so the gap stays in view (abacus #7157)."""
+    return [f"{cid} {u['n']}" for cid, c in sorted(graph.get("courses", {}).items()) for u in c["units"]
+            if u.get("closes_on") == "lessons" and u["n"] != "0" and u["lessons"]]
+
+
+def selftest_routes(lessons, graph):
+    """A unit's checkpoint items in two of its lessons are refused; the real data closes where expected."""
+    g = json.loads(json.dumps(graph))
+    clean = route_data(lessons, g)
+    lin3 = lessons["lin-03"][1]
+    cp = re.search(r"^## Checkpoint\n.*?(?=^## |\Z)", lin3, re.M | re.S)
+    if not cp:
+        print("FAIL lin-03 has no ## Checkpoint to copy")
+        return False
+    copy = re.sub(r"```item (CP\w+)", lambda m: "```item " + m.group(1) + "Z", cp.group(0))
+    planted = {**lessons, "lin-02": (lessons["lin-02"][0], lessons["lin-02"][1].rstrip("\n") + "\n\n" + copy)}
+    problems = route_data(planted, json.loads(json.dumps(graph)))
+    hit = [x for x in problems if "unit 4: checkpoint items in 2 lessons" in x]
+    print(f"{'ok  ' if hit else 'FAIL'} a unit's checkpoint split across two lessons" +
+          (f"\n       -> {hit[0]}" if hit else f": {problems[:2]}"))
+    units = {(cid, u["n"]): u for cid, c in g["courses"].items() for u in c["units"]}
+    expect = (units[("algebra-to-calculus", "4")]["closes_on"] == "checkpoint"
+              and units[("algebra-to-calculus", "0")]["closes_on"] == "lessons"
+              and units[("pre-algebra", "1")]["closes_on"] == "lessons"
+              and "pre-algebra 1" in interim_units(g) and not any(x.endswith(" 0") for x in interim_units(g)))
+    print(f"{'ok  ' if expect and not clean else 'FAIL'} the real units close on their checkpoint or their lessons, "
+          f"unit 0 by rule and the rest listed: {interim_units(g)}" + (f": {clean[:2]}" if clean else ""))
+    return bool(hit) and expect and not clean
 
 
 def selftest_courses(course_texts, graph):
@@ -272,10 +339,12 @@ def selftest_courses(course_texts, graph):
         ("a lesson in no course", t.replace("lesson | int-01\n", ""), "int-01: in no course"),
         ("an unknown prerequisite", t.replace("entry | rpn\n", "entry | rpn\nprerequisite | no-such-course\n"),
          "prerequisite no-such-course is not another course"),
+        ("a course with no route line", t.replace("route | open\n", ""), "no route | guided or route | open line"),
+        ("a route that is neither guided nor open", t.replace("route | open\n", "route | roguelike\n"), "expected course"),
     ]
     # A second course listing a lesson whose requires the algebra course teaches: refused without the
     # prerequisite line, accepted with it.
-    lone = "course | lone | Lone\nunit | 1 | One\nlesson | int-01\n"
+    lone = "course | lone | Lone\nroute | open\nunit | 1 | One\nlesson | int-01\n"
     plants.append(("a lesson requiring what only another course teaches, that course not a prerequisite",
                    lone, "int-01 requires"))
     red = 0
@@ -1029,6 +1098,7 @@ def main():
         ok = selftest_lore(*load_lore(ROOT), lessons, g) and ok
         ok = selftest_tools(lessons, g) and ok
         ok = selftest_review(lessons, load_placement(ROOT), g) and ok
+        ok = selftest_routes(lessons, g) and ok
         ok = selftest_links(lessons) and ok
         return 0 if ok else 1
     bad, graph = check(topics_text, lessons)
@@ -1038,6 +1108,7 @@ def main():
     bad += check_lore(*load_lore(ROOT), lessons, graph)
     bad += check_tools(lessons, graph)
     bad += check_review(lessons, load_placement(ROOT), graph)
+    bad += route_data(lessons, graph)
     lbad, pending = check_links(lessons)
     bad += lbad
     if "--json" in sys.argv:
@@ -1048,7 +1119,8 @@ def main():
     listed = sum(len(u["lessons"]) for c in graph["courses"].values() for u in c["units"])
     print(f"graph: {len(graph['topics'])} topics, {len(graph['lessons'])}/{len(lessons)} lessons, "
           f"{edges} lesson links, {len(graph['courses'])} courses ({listed} lessons listed), {len(bad)} problems; "
-          f"{sum(pending.values())} repeated links in {len(pending)} lessons on LINKS_PENDING",
+          f"{sum(pending.values())} repeated links in {len(pending)} lessons on LINKS_PENDING; "
+          f"units closing on their lessons until their checkpoint is written: {', '.join(interim_units(graph)) or 'none'}",
           file=sys.stderr)
     return 1 if bad else 0
 

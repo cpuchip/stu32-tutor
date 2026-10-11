@@ -2,6 +2,7 @@
 # kind | fields. tools/graph.py checks every lesson, and that no lesson requires a topic taught later here.
 course | algebra-to-calculus | Algebra to Calculus
 entry | rpn
+route | open
 unit | 0 | The calculator
 lesson | rpn-01
 lesson | rpn-02

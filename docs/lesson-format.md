@@ -356,6 +356,21 @@ or age (lore/WORLD.md rule 4), so a learner who starts there is never lost. `--j
 before its home, a unit's first lesson and a side door that say nowhere, and accepts an event after its home and
 the plain side doors.
 
+**What the map reads** (Michael's route cards; abacus #7153, #7155, #7157). Each course file says its default mode,
+`route | guided` or `route | open` (pre-algebra and geometry guided, algebra to calculus open; a path link can set
+either). A door opens when what the lesson leans on is done:
+- inside a unit, a lesson is done when its own items are right; a lesson with none (`no_items: true` in `--json`)
+  is done when its last example's Try it has been pressed;
+- a unit is done when its checkpoint passes, every item right, retries allowed (`checkpoint` in `--json`: its
+  lesson and item ids; graph.py refuses a checkpoint split across two lessons);
+- a unit with no checkpoint (`closes_on: lessons`) is done when each of its lessons is: the standing rule for a
+  course's unit 0, the calculator, and the interim rule for any other unit until its checkpoint is written. graph.py's
+  summary line names every unit on the interim rule, so the gap stays in view;
+- placement opens the units before the one it places.
+
+The passport says only what was checked: a unit is stamped "passed" for its checkpoint, "lessons done" when it
+closed on its lessons, and "placed" when placement opened it.
+
 graph.py (in `make check`) refuses an unknown kind or verb, an edge end or appearance that is not an
 entity, a home that is not a lesson, and a cast character not met on every route. `--json` gives the
 lore, each lesson's appearances, and every cameo (a character outside their home course) with the

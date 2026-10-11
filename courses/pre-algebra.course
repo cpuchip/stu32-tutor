@@ -2,6 +2,7 @@
 # Algebraic entry first, RPN offered (decision 63). Lessons are in preparation; the pilot is P5's first.
 course | pre-algebra | Pre-algebra
 entry | alg rpn
+route | guided
 unit | 0 | The calculator, algebraic first
 lesson | start-01
 unit | 1 | Whole numbers
