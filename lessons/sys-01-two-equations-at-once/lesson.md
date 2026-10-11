@@ -127,8 +127,8 @@ X shows <disp v="F01">4.0000</disp>: four pears. Carrying on, x = 6 − y:
 STO Y 6 RCL Y −
 ```
 
-X shows <disp v="F02">2.0000</disp>: two apples. Check it in your head: 2 × 0.75 + 4 × 1.25 is 1.50 +
-5.00, which is 6.50.
+X shows <disp v="F02">2.0000</disp>: two apples. Check it in your head: 2 × 0.75 + 4 × 1.25 is
+1.50 + 5.00, which is 6.50.
 
 ```why
 ask: Why does (6.5 − 0.75 × 6) ÷ (1.25 − 0.75) count the pears?
@@ -139,8 +139,8 @@ because: Six apples would cost 0.75 × 6. Each pear in place of an apple costs 1
 
 The graph of each equation in these systems is a line. To see its slope and intercept (lin-01),
 rewrite it as y = mx + b. x + y = 15: take x from both sides, and y = −x + 15, slope −1 and intercept
-15. 2x + 3y = 37: take 2x from both sides, 3y = −2x + 37, and divide both sides by 3: y = −(2/3)x +
-37/3, slope −2/3. A solution is a point on both lines, where they cross. Two different lines with
+15. 2x + 3y = 37: take 2x from both sides, 3y = −2x + 37, and divide both sides by 3:
+y = −(2/3)x + 37/3, slope −2/3. A solution is a point on both lines, where they cross. Two different lines with
 different slopes cross at exactly one point, and these slopes, −1 and −2/3, differ: that is why the
 tickets had one answer.
 

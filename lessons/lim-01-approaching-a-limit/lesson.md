@@ -9,8 +9,8 @@ display: FIX 4
 
 # Approaching a limit
 
-Some functions have no value at a point, yet settle on a number as x comes close to it. f(x) =
-(x² − 1) ÷ (x − 1) has no value at x = 1: the top and the bottom of the fraction are both 0 there,
+Some functions have no value at a point, yet settle on a number as x comes close to it.
+f(x) = (x² − 1) ÷ (x − 1) has no value at x = 1: the top and the bottom of the fraction are both 0 there,
 and 0 ÷ 0 has no answer. fn-03 showed why 1 ÷ 0 has none: no number times 0 gives 1. 0 ÷ 0 fails the
 other way: every number times 0 gives 0, so no one number is the answer. But near x = 1, f has values.
 If they can be made as near to one number as you like by taking x near enough to 1, from either side,

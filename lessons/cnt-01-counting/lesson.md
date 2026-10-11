@@ -166,8 +166,8 @@ combination.
 
 ## Answers
 
-1. 10,000. Each of the 4 digits has 10 choices, and a digit can repeat, so the choices multiply: 10 × 10
-   × 10 × 10, which is 10⁴:
+1. 10,000. Each of the 4 digits has 10 choices, and a digit can repeat, so the choices multiply:
+   10 × 10 × 10 × 10, which is 10⁴:
 
    ```keys E01
    10 ENTER 4 yˣ
