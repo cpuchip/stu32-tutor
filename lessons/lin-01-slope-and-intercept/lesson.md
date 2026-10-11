@@ -11,13 +11,10 @@ trial: productive failure (decision 81), judged by reading, since nothing about 
 # Slope and intercept
 
 A linear function has the form y = mx + b. Its graph, drawn on axes as in fn-02, is a straight
-line, and the two numbers m and b say everything about it. This lesson finds what they mean, and how
-to find them from two points on a line. It starts with a question about steepness, before any of it
-is taught.
+line, and the two numbers m and b say everything about it. A question about steepness comes first,
+before any of it is taught; what m and b mean, and how to find them from two points, follow from it.
 
 ## From before
-
-Two from before, by hand: one from unit 1, and one function from fn-01.
 
 ```item LN1F1
 prompt: Work out (13 − 7) ÷ (5 − 2).
@@ -37,7 +34,7 @@ slip: LN1F2A | read 4x at 0 as 4 | 4x at x = 0 is 4 × 0, which is 0. Then take 
 
 ## Try it first
 
-Nothing in this lesson has shown how yet. Try any way you can think of, a drawing, a table, a rule of your own,
+Nothing so far has shown how. Try any way you can think of, a drawing, a table, a rule of your own,
 and give a number. Not finding it yet is expected: the lesson starts from what you tried.
 
 ```item LN1T1
@@ -64,7 +61,7 @@ BLUE MODE {mode} GOLD DISP FIX 4
 
 ## Four ways people answer it
 
-Here are four ways people often answer the ramps question. Each keeps something about ramp B the same. The
+People often answer the ramps question in four ways. Each keeps something about ramp B the same. The
 question is which of those things is its steepness.
 
 **The same difference.** Ramp B's run is 4 m more than its rise, so a ramp 5 m high with the same difference
@@ -112,7 +109,7 @@ ramp's, 5 ÷ 15. Ramp A's is 3 ÷ 12, a quarter, which is why a ramp as steep as
 
 A line has a slope too. For y = mx + b, m is the slope: how far the line rises for each step of 1 to the right.
 b, the intercept, is the value of y at x = 0, where the line crosses the vertical axis. f(x) = 2x + 3 from fn-01
-is one, with slope 2 and intercept 3. The rest of this lesson finds m and b from two points on a line.
+is one, with slope 2 and intercept 3.
 
 ## The slope from two points
 
@@ -157,7 +154,7 @@ result in B:
 × − STO B
 ```
 
-X shows <disp v="L03">3.0000</disp>: b = 9 − 6. The line is y = 2x + 3, the f of fn-01.
+X shows <disp v="L03">3.0000</disp>: b = 9 − 6. The line is y = 2x + 3, the same f.
 
 ```why
 ask: Why does b = y − mx give the intercept?
@@ -234,7 +231,7 @@ would need every y as its output.
 
    X shows <disp v="E01B">7.0000</disp>. The line is y = 2x + 7.
 
-2. The keys:
+2. The slope from the two points:
 
    ```keys E02
    4 ENTER 1 − 4 ENTER 0 − ÷
@@ -244,9 +241,6 @@ would need every y as its output.
    line crosses the vertical axis: the intercept is 1, and the line is y = 0.75x + 1.
 
 ## Mixed review
-
-Four from this lesson and the ones before it, in no order. Work each by hand unless it says to use
-the calculator.
 
 ```item LN1M1
 prompt: What is the slope of the line through (1, 2) and (4, 11)?

@@ -10,17 +10,14 @@ display: FIX 4
 # When a line does not fit
 
 The calculator finds the best line for any data you give it, even data no line suits. r, from
-lin-02, measures one thing only: how well a sloping line fits. This lesson gives the line some
-points that follow a rule exactly, the table of q from fn-02, and watches r find no sloping line in
-them. Then it tries points on one sloping line, points on a flat line, and points a line fits well
-by r but describes badly.
+lin-02, measures one thing only: how well a sloping line fits. Given points that follow a rule
+exactly, the table of q from fn-02, r finds no sloping line in them. Then come points on one sloping
+line, points on a flat line, and points a line fits well by r but describes badly.
 
-A model is a rule chosen to describe data. A line is one kind of model; the lesson is about when it
-is the wrong kind.
+A model is a rule chosen to describe data. A line is one kind of model, and sometimes the wrong
+kind.
 
 ## From before
-
-Two from before, by hand: one from unit 1, and an estimate from lin-02.
 
 ```item LN3F1
 prompt: Work out 3² + 4².
@@ -49,13 +46,13 @@ BLUE MODE {mode} GOLD DISP FIX 4
 
 ## A curve
 
-In fn-02, q(x) = x² − 4x + 3 gave this table:
+Earlier, q(x) = x² − 4x + 3 gave this table:
 
 | x | 0 | 1 | 2 | 3 | 4 |
 |---|---|---|---|---|---|
 | q(x) | 3 | 0 | −1 | 0 | 3 |
 
-Enter the five points as lin-02 does, y first. The −1 is 1 +/−:
+Enter the five points as before, y first. The −1 is 1 +/−:
 
 ```keys Q01
 GOLD CLEAR Σ 3 ENTER 0 Σ+ 0 ENTER 1 Σ+ 1 +/− ENTER 2 Σ+ 0 ENTER 3 Σ+ 3 ENTER 4 Σ+
@@ -93,7 +90,7 @@ does not tilt. It lies flat, and fits neither half. Ask it for x = 2:
 X shows <disp v="Q05">1.0000</disp>, but q(2) is −1. The line misses the lowest point by 2.
 
 So r near 0 does not mean x and y are unrelated. It means no sloping line describes them. Look at
-the points first, in a table or on a graph as in fn-02, and use a line only when they lie roughly
+the points first, in a table or on a graph, and use a line only when they lie roughly
 along one.
 
 ```why
@@ -103,7 +100,7 @@ because: A flat line has one height for every x, and of all heights, the average
 
 ## A perfect fit
 
-The other end of the scale. f(x) = 2x + 3 from fn-01 gives 3, 5, 7, 9 and 11 at x = 0 to 4, all on
+At the other end of the scale, f(x) = 2x + 3 from fn-01 gives 3, 5, 7, 9 and 11 at x = 0 to 4, all on
 one line:
 
 ```keys P01
@@ -200,9 +197,6 @@ meets.
 
 ## Mixed review
 
-Four from this lesson and the ones before it, in no order. Work each by hand unless it says to use
-the calculator.
-
 ```item LN3M1
 prompt: The points (0, 1), (1, 3) and (2, 5) all lie on one rising line. What is their r?
 topics: perfect-fit
@@ -239,7 +233,7 @@ slip: LN3M4A | squared 2, then made it negative | f(−2) puts −2 in for x: (�
 
 ## Checkpoint
 
-Questions on the whole unit. Work each by hand first (a few offer the calculator), then give your answer; the page checks it. A wrong answer that comes from a common slip gets a hint that names the step.
+Questions on the whole unit.
 
 ```item CP4A
 prompt: What is the slope of the line through (2, 5) and (6, 13)?

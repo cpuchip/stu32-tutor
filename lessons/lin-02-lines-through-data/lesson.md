@@ -13,11 +13,9 @@ Measurements rarely sit exactly on a line. A seedling measured at the end of eac
 might be 3, 5, 6, 8 and 11 centimetres tall: rising steadily, but not by the same amount each week.
 No straight line passes through all five points, but one passes closest to them, and the calculator
 can find it. Its slope and intercept summarise the data, and the line can then estimate a value you
-did not measure. This lesson finds that line for the seedling.
+did not measure.
 
 ## From before
-
-Two from before, by hand: an intercept from lin-01, and one from unit 1.
 
 ```item LN2F1
 prompt: A line has slope 2 and goes through (3, 10). What is its intercept?
@@ -53,7 +51,7 @@ CLEAR is gold above ←, and its Σ soft key clears the sums.
 
 Σ+, the last key of the top row, reads x from X and y from Y. So give each point y first, then
 ENTER, which pushes the y up to Y, then x, then Σ+. That is the opposite of the (x, y) order points
-are written in, so it is worth saying to yourself as you go: y, ENTER, x, Σ+. The first point is
+are written in, so say it to yourself as you go: y, ENTER, x, Σ+. The first point is
 week 1, 3 centimetres:
 
 ```keys D01
@@ -118,7 +116,7 @@ X shows <disp v="D05">0.9851</disp>. r is always between −1 and 1, and it has 
 slope. Near 1, the points lie close to a rising line; near −1, close to a falling one. Near 0, they
 show no rise or fall a line can follow: they may be scattered, or spread along a flat line, or on
 a curve that rises and falls (lin-03 has one). Points exactly on a flat line have no r at all, as
-lin-03 shows. 0.9851 says the seedling's points lie very close to their
+the next lesson shows. 0.9851 says the seedling's points lie very close to their
 rising line.
 
 ## Estimating
@@ -208,7 +206,7 @@ because: The line is worked out from the running sums alone. Σ− takes out exa
 
    X shows <disp v="E01C">14.6000</disp>: 2.2 × 6 + 1.4.
 
-2. The keys:
+2. Clear the sums, enter the four points, then ask for r:
 
    ```keys E02
    GOLD CLEAR Σ 10 ENTER 1 Σ+ 8 ENTER 2 Σ+ 7 ENTER 3 Σ+ 4 ENTER 4 Σ+ BLUE L.R. r
@@ -224,9 +222,6 @@ because: The line is worked out from the running sums alone. Σ− takes out exa
    negative, as r and m always share a sign: the water goes down as the hours go up.
 
 ## Mixed review
-
-Four from this lesson and the ones before it, in no order. Work each by hand unless it says to use
-the calculator.
 
 ```item LN2M1
 prompt: Points lie very close to a falling line. Their r is near which whole number?
