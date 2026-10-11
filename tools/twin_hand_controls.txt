@@ -1,0 +1,5 @@
+# The controls' hand file (controls.py sets TWIN_HAND to it; check.py never reads it otherwise). For der-01:
+# DR1T1 planted at t = 3 is 2t^2 at 3, DR1M1's numbers, and its multiset [2, 2, 3] is also K01's (x^3 - 2x at 2,
+# another problem with the same numbers). These lines pass the plant; on the clean lesson they are stale and refused.
+DR1T1	DR1M1	a control's cousin: the same function as DR1M1 at the same input, planted (controls.py only)
+DR1T1	K01	a control's cousin: x^3 - 2x at 2 has the same numbers as 2t^2 at 3, a different problem (controls.py only)

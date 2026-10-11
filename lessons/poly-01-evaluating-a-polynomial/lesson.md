@@ -28,6 +28,7 @@ slip: PL1F1A | cubed 2 × 3 | The power belongs to the 3 alone: $3^{3}$ is 27, t
 
 ```item PL1F2
 prompt: $h(x) = 3 − x^{2}$. What is $h(2)$?
+operands: 3, 2, 2
 topics: function
 answer: type
 calculator: no
@@ -227,6 +228,7 @@ slip: PL1M2A | halved instead of taking the root | $2 × 18$ is 36, and $\sqrt{3
 
 ```item PL1M3
 prompt: $2x^{2} − x + 4$ nested is $(2x − 1)x + 4$. Work it out at $x = 3$, from the inside.
+operands: 2, 2, 1, 4, 3
 topics: horner
 answer: type
 calculator: no
@@ -235,6 +237,7 @@ slip: PL1M3A | dropped the brackets | From the inside: $2 × 3 − 1$ is 5, then
 
 ```item PL1M4
 prompt: $5x − 15 < 0$ has its boundary where $5x − 15 = 0$. What $x$ is that?
+operands: 5, 15, 0
 topics: inequalities
 answer: type
 calculator: no

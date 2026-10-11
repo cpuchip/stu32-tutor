@@ -97,6 +97,7 @@ because: Each half of the first pie holds two of its quarters, so two quarters c
 
 ```item Q2T1
 prompt: Work out $4 ÷ 5$, the fraction $\frac{4}{5}$ as a division, by hand, as a decimal.
+operands: 4, 5
 twin: Q02
 topics: fraction-is-division
 answer: type

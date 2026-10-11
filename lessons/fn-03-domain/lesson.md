@@ -27,6 +27,7 @@ slip: FN3F1A | multiplied instead | Dividing by a quarter asks how many quarters
 
 ```item FN3F2
 prompt: $2x − 8 ≥ 0$ has its boundary where $2x − 8 = 0$. What $x$ is that?
+operands: 2, 8, 0
 topics: inequalities
 answer: type
 calculator: no
@@ -138,6 +139,7 @@ X shows <disp v="S01">2.0000</disp>: $s(6) = \sqrt{4}$.
 
 ```item SQ1T1
 prompt: Work out $s(51)$ by hand, for the same $s(x) = \sqrt{x − 2}$.
+operands: 51, 2
 twin: S01
 topics: function
 answer: type
@@ -283,6 +285,7 @@ its end does the same: the pointer goes back to the top when a program finishes.
 
 ```item FN3M1
 prompt: For $\sqrt{x − 1}$ at $x = 0.75$, what is the number under the root?
+operands: 1, 0.75
 topics: sqrt-negative
 answer: type
 calculator: no
@@ -307,6 +310,7 @@ slip: FN3M3A | the sign turned | The bottom is 0 when $2x − 4 = 0$: $2x = 4$.
 
 ```item FN3M4
 prompt: For $2x + 1 = 7$, what is left minus right at $x = 2$?
+operands: 2, 1, 7, 2
 topics: xeq-check
 answer: type
 calculator: no
@@ -319,6 +323,7 @@ Questions on the whole unit.
 
 ```item CP3A
 prompt: $f(x) = x^{2} − 2x$. What is $f(3)$?
+operands: 2, 2, 3
 topics: function
 answer: type
 calculator: no

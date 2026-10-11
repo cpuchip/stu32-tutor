@@ -18,6 +18,7 @@ by the rules of der-02, $q'(x) = 2x − 4$.
 
 ```item DR3F1
 prompt: $f(x) = 3x^{2} + x$. What is $f'(1)$?
+operands: 3, 2, 1
 topics: power-rule
 answer: type
 calculator: no
@@ -266,6 +267,7 @@ C
 
 ```item DR3M1
 prompt: $q(x) = x^{2} − 8x + 1$ has $q'(x) = 2x − 8$. At which $x$ is $q$ lowest?
+operands: 2, 8, 1
 topics: extremes
 answer: type
 calculator: no
@@ -282,6 +284,7 @@ slip: DR3M2A | squared 3 × 4 | The power belongs to the 4 alone: 16, then $3 ×
 
 ```item DR3M3
 prompt: $f(x) = x^{2}$. Its tangent at $a = 3$ is $y = f(3) + f'(3)(x − 3)$. What is that $y$ at $x = 4$?
+operands: 2, 3, 4
 topics: tangent-equation
 answer: type
 calculator: no
@@ -290,6 +293,7 @@ slip: DR3M3A | the curve, not the line | $f(4)$ is the curve's height. The line 
 
 ```item DR3M4
 prompt: $d'(t) = 4t$. How fast is the ball going at $t = 2.5$?
+operands: 4, 2.5
 topics: derivative-function
 answer: type
 calculator: no
@@ -302,6 +306,7 @@ Three questions on the whole unit.
 
 ```item K01
 prompt: $f(x) = x^{3} − 2x$. What is $f'(2)$?
+operands: 3, 2, 2
 topics: power-rule sum-multiple-rules
 answer: type
 calculator: no

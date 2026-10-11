@@ -295,6 +295,12 @@ CONTROLS_FOR["num-03-powers-and-roots"] = [
      "item R4T1 works the same operands as num-03 exercise 3 in its unit"),
 ]
 CONTROLS_FOR["eq-01-equations"] = [
+    # A prompt with more than one numeric span declares its problem (operands:), and only numbers it names
+    # (abacus #7432).
+    ("a prompt with two numeric spans and no operands:", "lesson.md", "operands: 3, 5, 13, 6\n", "", {},
+     "item EQ1M1: its prompt has 2 numeric spans"),
+    ("a declared number its prompt does not name", "lesson.md", "operands: 3, 5, 13, 6\n", "operands: 3, 5, 13, 7\n",
+     {}, "item EQ1M1: operands: names 7"),
     ("a variant naming a mode that does not exist", "lesson.md", "```keys Q06B after=Q06 mode=33s,35s\n",
      "```keys Q06B after=Q06 mode=33s,36s\n", {}, "mode=33s,36s names 36s"),
     ("STU's own vector missing: the shared one (SYNTAX ERROR) run in STU", "vectors.txt", "Q06@STU |", "Q06Z@STU |", {},
@@ -684,7 +690,18 @@ CONTROLS_FOR["start-01-the-calculator"] = [
     ("exercise 2 without fraction display turned on", "lesson.md", "BLUE →FRAC 9 ÷ 4 ENTER\n", "9 ÷ 4 ENTER\n", {},
      "E02: printed keys and vector disagree in STU alg mode"),
 ]
+DR1T1_AT_3 = [  # DR1T1 planted at t = 3: DR1M1's function and input, so DR1M1's numbers and answer
+    ("lesson.md", "how fast is the ball going at $t = 3.5$? Work it out by hand.\noperands: 2, 2, 3.5",
+     "how fast is the ball going at $t = 3$? Work it out by hand.\noperands: 2, 2, 3"),
+    ("vectors.txt", "MODE33 FIX4 14 | X=14", "MODE33 FIX4 12 | X=12"),
+    ("vectors.txt", "MODE33 FIX4 4 ENTER 3.5 * | X=14", "MODE33 FIX4 4 ENTER 3 * | X=12")]
 CONTROLS_FOR["der-01-the-derivative"] = [
+    # The hand file (abacus #7432): a listed pair passes; a listed pair that no longer collides is refused; an
+    # unlisted collision is refused. tools/twin_hand_controls.txt lists DR1T1 against DR1M1.
+    ("a hand line for a pair that does not collide", None, None, None, {"TWIN_HAND": "twin_hand_controls.txt"},
+     "twin_hand.txt lists DR1T1 against DR1M1, which no longer collide"),
+    ("a twin with a problem's numbers and no hand line", DR1T1_AT_3, None, None, {},
+     "item DR1T1 works the same operands as DR1M1"),
     ("d(a) in program V not doubled", "lesson.md", "RCL A GOLD x² 2 × − RCL H", "RCL A GOLD x² − RCL H", {},
      "V01A: printed keys and vector disagree in 33s mode"),
     ("the speed at t = 3 quoted as exactly 12", "lesson.md", '<disp v="D01">12.0020<', '<disp v="D01">12.0000<', {},
@@ -789,15 +806,15 @@ CONTROLS_FOR["whole-01-adding-and-subtracting"] += [
 ]
 CONTROLS_FOR["whole-02-multiplying-and-dividing"] = [
     # An item twin (step 5): M1T1 twins M01.
-    # Whole prompts, helper parts included, so the problem is read from the first span (a bare prompt passed my first
-    # version for the wrong reason).
+    # Whole prompts, helper parts included, with the problem declared beside them (operands:, abacus #7432), as a
+    # writer would change both (a bare prompt passed my first version for the wrong reason).
     ("an item twin with the example's operands, swapped", "lesson.md",
-     "prompt: Work out $43 × 26$ in parts, as above: $43 × 6$, then $43 × 20$, then add them.",
-     "prompt: Work out $23 × 46$ in parts, as above: $23 × 6$, then $23 × 40$, then add them.", {},
+     "prompt: Work out $43 × 26$ in parts, as above: $43 × 6$, then $43 × 20$, then add them.\noperands: 43, 26",
+     "prompt: Work out $23 × 46$ in parts, as above: $23 × 6$, then $23 × 40$, then add them.\noperands: 23, 46", {},
      "item M1T1: twin of M01 works the example's own operands"),
     ("an item twin equal to the unit's checkpoint CPP1B (abacus #7310)", "lesson.md",
-     "prompt: Work out $43 × 26$ in parts, as above: $43 × 6$, then $43 × 20$, then add them.",
-     "prompt: Work out $37 × 24$ in parts, as above: $37 × 4$, then $37 × 20$, then add them.", {},
+     "prompt: Work out $43 × 26$ in parts, as above: $43 × 6$, then $43 × 20$, then add them.\noperands: 43, 26",
+     "prompt: Work out $37 × 24$ in parts, as above: $37 × 4$, then $37 × 20$, then add them.\noperands: 37, 24", {},
      "item M1T1 works the same operands as CPP1B in its unit"),
     ("an item twin on the calculator", "lesson.md", "twin: M01\ntopics: partial-products\nanswer: type\ncalculator: no",
      "twin: M01\ntopics: partial-products\nanswer: type\ncalculator: yes", {}, "a twin item is answer: type and calculator: no"),
@@ -939,6 +956,11 @@ CONTROLS_FOR["rpn-03-the-display"].append(
      "```keys P01\nGOLD DISP FIX 4 2 ENTER 3 ÷\n", "```keys P01\n2 ENTER 3 ÷\n", {},
      "P01: working through in order"))
 GREENS_FOR = {
+    "der-01-the-derivative": [
+        # the same planted pair, with its hand line: a judged cousin passes
+        ("a twin with a problem's numbers, listed in the hand file", DR1T1_AT_3, None, None,
+         {"TWIN_HAND": "twin_hand_controls.txt"}),
+    ],
     "eq-03-two-answers-and-inequalities": [
         # A table's bars are cell walls, spaced from the span, not an absolute value (abacus #7372).
         ("a table whose cells hold maths, bars spaced", "lesson.md", "\n## Exercises\n",
@@ -1039,7 +1061,9 @@ def main():
                 line = next(l.strip() for l in out.splitlines() if want in l)
                 print(f"ok   {name}\n       -> {line[:150]}")
         greens_bad = 0
-        for name, fn, old, new in greens:
+        for g in greens:
+            name, fn, old, new = g[:4]
+            genv = g[4] if len(g) > 4 else {}   # (a green may run with an env, as a control does)
             d = os.path.join(tmp, "g")
             shutil.rmtree(d, ignore_errors=True)
             shutil.copytree(lesson, d)
@@ -1056,7 +1080,7 @@ def main():
             if not applied:
                 greens_bad += 1
                 continue
-            rc, out = run_check(a.core, d, {})
+            rc, out = run_check(a.core, d, genv)
             if rc != 0:
                 print(f"FAIL {name}: check.py failed a harmless change:\n{out}")
                 greens_bad += 1

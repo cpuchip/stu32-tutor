@@ -238,6 +238,7 @@ slip: CPP5B2 | changed only one top | $\frac{1}{4}$ as twelfths is $\frac{3}{12}
 
 ```item CPP5C
 prompt: How many pieces of $\frac{3}{8}$ are in $\frac{3}{4}$?
+operands: 3, 8, 3, 4
 topics: divide-fractions
 answer: type
 calculator: no

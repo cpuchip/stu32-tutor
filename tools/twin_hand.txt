@@ -1,0 +1,4 @@
+# Twins the operand rules flag that are cousins, not copies (abacus #7432): TWIN<TAB>PROBLEM<TAB>why, one pair a
+# line. check.py passes only a listed pair, and refuses a listed pair that no longer collides, so this file holds
+# judged cousins, not standing exemptions. With every multi-span prompt declaring its problem (operands:), no twin
+# collides today, and the file has no pairs.

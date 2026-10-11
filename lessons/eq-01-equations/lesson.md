@@ -102,6 +102,7 @@ because: The left side holds $2 × x$, so each step of one in $x$ moves the left
 
 ```item Q4T1
 prompt: For $4x + 1 = 25$, work out left minus right at $x = 4$ by hand, as XEQ would.
+operands: 4, 1, 25, 4
 twin: Q04
 topics: xeq-check
 answer: type
@@ -226,6 +227,7 @@ always types the ×. Typing it in STU mode does no harm.
 
 ```item EQ1M1
 prompt: Type $3x − 5 = 13$ and XEQ it at $x = 6$. What does X show? Does 6 solve it?
+operands: 3, 5, 13, 6
 topics: xeq-check
 answer: type
 calculator: yes

@@ -18,6 +18,7 @@ tried on the calculator.
 
 ```item DR1F1
 prompt: $d(t) = 2t^{2}$. What is the average speed from $t = 2$ to $t = 4$?
+operands: 2, 2, 2, 4
 topics: average-rate
 answer: type
 calculator: no
@@ -126,7 +127,8 @@ because: Each average is off from the rule by exactly $2h$, so a tenth of the $h
 ```
 
 ```item DR1T1
-prompt: By hand, how fast is the ball going at $t = 3.5$, with $d(t) = 2t^{2}$?
+prompt: For $d(t) = 2t^{2}$, how fast is the ball going at $t = 3.5$? Work it out by hand.
+operands: 2, 2, 3.5
 twin: D03
 topics: derivative-function
 answer: type
@@ -221,6 +223,7 @@ XEQ 3 R/S
 
 ```item DR1M1
 prompt: $d(t) = 2t^{2}$ has $d'(t) = 4t$. How fast is the ball going at $t = 3$?
+operands: 2, 2, 3
 topics: derivative-function
 answer: type
 calculator: no
@@ -237,6 +240,7 @@ slip: DR1M2A | 0 ÷ 0 read as 0 | Near 4 the fraction is $x + 4$, which closes i
 
 ```item DR1M3
 prompt: $f(x) = x^{2}$ has $f'(x) = 2x$. What is the slope of its tangent line at $x = 5$?
+operands: 2, 5
 topics: tangent-line
 answer: type
 calculator: no

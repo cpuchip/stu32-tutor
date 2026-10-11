@@ -330,8 +330,14 @@ docs/proposals/worked-examples.md, approved by abacus (#7299) with primer's page
   heading. Its operands are not the example's own, in any order: $24 × 37$ is not a twin of $37 × 24$. Nor are they
   any problem's in its unit, an item's (the checkpoint, From before, Mixed review) or an exercise's (a lesson's one
   unnumbered `## Exercise` is its exercise 1, answered by E01), or the twin
-  would hand the learner that answer (abacus #7310). A prompt's operands are its problem's, its first maths span, so
-  "Work out $37 × 24$ in parts: $37 × 4$, ..." is [24, 37] (its first span holding a number). A power's raised
+  would hand the learner that answer (abacus #7310). A prompt's operands are its problem's. A prompt with one maths
+  span holding a number is that span; any item whose prompt has more than one declares its problem's numbers in an
+  `operands:` field (abacus #7432), the problem's and not its helpers': "Work out $43 × 26$ in parts: $43 × 6$, ..."
+  is `operands: 43, 26`, and "For $d(t) = 2t^{2}$, how fast at $t = 3.5$?" is `operands: 2, 2, 3.5`. check.py
+  refuses a multi-span prompt without the field, and a declared number the prompt does not name. The prompt is
+  written for the learner; the field carries the checker's reading. A twin the rules flag that is a cousin, not a
+  copy, is listed with its reason in tools/twin_hand.txt (twin, problem, why); check.py passes only listed pairs and
+  refuses a listed pair that no longer collides. A power's raised
   number counts: $2^{5}$ is [2, 5] and $(−2)^{4}$ is [2, 4], where a reading without powers gives [2] for both. A problem written wholly in words reads its number words, "two"
   to "twelve", "twice" and "thrice" ("a coin tossed twice ... two heads" is [2, 2]); beside digits they are prose ("the
   two lines" names no operand), and "one" and "once" never count. Nor

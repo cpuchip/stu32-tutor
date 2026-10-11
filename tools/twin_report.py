@@ -48,11 +48,16 @@ def main():
                 if "twin" in f:
                     ex = blocks.get(f["twin"])
                     print(f"  twin {meta['id']} {m.group(1)} (item, twins {f['twin']}): "
-                          f"{fmt(check.problem_operands(f.get('prompt', '')))}  answer {check.item_answer(vt, m.group(1))}  "
+                          f"{fmt(check.problem_operands(f.get('prompt', ''), f.get('operands')))}{' (declared)' if 'operands' in f else ''}  answer {check.item_answer(vt, m.group(1))}  "
                           f"example {fmt(check.operands(ex.group(4)) if ex else [])}")
         print("  the unit's problems (a twin may equal none of these):")
         for label, ops, ans in problems or []:
             print(f"    {label:22} {fmt(ops)}  answer {ans if ans is not None else '?'}")
+        labels = {label for label, _, _ in problems or []}
+        cousins = [(t, p, why) for (t, p), why in sorted(check.twin_hand().items()) if p in labels]
+        print(f"  cousins in tools/twin_hand.txt: {len(cousins)}")
+        for t, p, why in cousins:
+            print(f"    {t} against {p}: {why}")
 
 
 if __name__ == "__main__":

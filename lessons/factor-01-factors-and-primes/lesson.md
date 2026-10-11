@@ -260,6 +260,7 @@ slip: FC1M3A | 21 | 21 is $3 × 7$, and 22 is $2 × 11$. 23 has no factors but 1
 
 ```item FC1M4
 prompt: Work out $23 × 15$ by parts: $23 × 10$, then $23 × 5$.
+operands: 23, 15
 topics: partial-products
 answer: type
 calculator: no

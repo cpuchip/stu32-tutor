@@ -59,7 +59,7 @@ ENTRY_SPAN = re.compile(r'<entry e="([^"]*)">(.*?)</entry>', re.S)
 # places (in a placement file: the unit it shows a learner is ready for), working (none: a typed answer
 # that is counted or recalled, not computed), and any number of slip lines, "slip: VID | name | hint".
 ITEM_BLOCK = re.compile(r"^[ \t]*```item[ \t]+(\S+)[ \t]*\n(.*?)^[ \t]*```[ \t]*$", re.M | re.S)
-ITEM_FIELDS = ("prompt", "topics", "answer", "calculator", "keys", "places", "working", "slip", "twin")
+ITEM_FIELDS = ("prompt", "topics", "answer", "calculator", "keys", "places", "working", "slip", "twin", "operands")
 # A typed answer that is computed is made by the core too, as vector <ID>W beside the typed one (abacus #6439).
 # The lessons and placement files whose typed items predate that rule; the sweep (decision 76) takes each off
 # as its unit's batch gives every computed item its working. A listed file whose items all have it is refused,
@@ -103,6 +103,9 @@ def parse_items(view):
             problems.append(f"item {m.group(1)}: working: is none (a count or a concept), or left out")
         elif fields.get("working") == "none" and fields.get("answer") != "type":
             problems.append(f"item {m.group(1)}: working: none is for a typed answer; a worked item's keys are its working")
+        if "operands" in fields and declared_operands(fields["operands"]) is None:
+            problems.append(f"item {m.group(1)}: operands: is a list of numbers with commas between: "
+                            f"'{fields['operands']}'")
         out.append((m.group(1), m.start(), fields, slips, problems))
     return out
 
@@ -532,13 +535,53 @@ def operands(text):
     return sorted(Decimal(n) for n in re.findall(number, text))
 
 
-def problem_operands(prompt):
-    """A prompt's problem, as operands: its first maths span (a read prompt keeps it between MATHS_KEEP and MATHS_END),
-    so "Work out $37 × 24$ in parts: $37 × 4$, then ..." is [24, 37], not its helper parts too; a prompt with no
-    span gives all its numbers."""
-    # (the first span that holds a number: "in the same place as $q$" names no problem, the 48 before it does)
-    spans = [s for s in re.findall(f"{MATHS_KEEP}(.*?){MATHS_END}", prompt) if re.search(r"\d", s)]
+def declared_operands(text):
+    """An item's `operands:` field, "2, 2, 3.5", as sorted values; None when it is not a list of numbers."""
+    try:
+        return sorted(Decimal(x.strip()) for x in text.split(","))
+    except InvalidOperation:
+        return None
+
+
+def numeric_spans(prompt):
+    """The maths spans of a read prompt that hold a number, a raised one included: "$f(x) = x^{2}$" reads x², whose
+    2 is a number of the problem."""
+    return [s for s in re.findall(f"{MATHS_KEEP}(.*?){MATHS_END}", prompt) if re.search(f"[0-9{SUP_FORMS[:10]}]", s)]
+
+
+def problem_operands(prompt, declared=None):
+    """A prompt's problem, as operands. A prompt with more than one numeric span declares its problem's numbers in
+    `operands:` (abacus #7432): "Work out $37 × 24$ in parts: $37 × 4$, ..." is 24 and 37, its helper parts left
+    out, and "For $d(t) = 2t^{2}$, how fast at $t = 3.5$?" is 2, 2 and 3.5, the input not left out. A prompt with
+    one numeric span is that span; with none, all its numbers."""
+    if declared is not None:
+        return declared_operands(declared) or []
+    spans = numeric_spans(prompt)
     return operands(spans[0]) if spans else operands(maths_plain(prompt))
+
+
+def item_field(block_text, name):
+    """One field of an item block's text, or None."""
+    return next((l.split(":", 1)[1].strip() for l in block_text.splitlines() if l.strip().startswith(f"{name}:")), None)
+
+
+# Twins the operand rules flag that are cousins, not copies (abacus #7432): "TWIN<TAB>PROBLEM<TAB>why", one pair a
+# line. check.py passes only a listed pair, and refuses a listed pair that no longer collides. TWIN_HAND names
+# another file in tools/ (a control's way to read its own pair, or none).
+TWIN_HAND = os.path.join(os.path.dirname(os.path.abspath(__file__)), os.environ.get("TWIN_HAND") or "twin_hand.txt")
+
+
+def twin_hand():
+    """{(twin, problem): why} from the hand file."""
+    if not os.path.exists(TWIN_HAND):
+        return {}
+    out = {}
+    for line in open(TWIN_HAND, encoding="utf-8"):
+        if line.strip() and not line.startswith("#"):
+            p = line.rstrip("\n").split("\t")
+            if len(p) == 3:
+                out[(p[0], p[1])] = p[2]
+    return out
 
 
 def unit_files(lesson_dir, lesson_id):
@@ -630,7 +673,8 @@ def unit_problems(lesson_dir, lesson_id):
         for m in ITEM_BLOCK.finditer(body):
             prompt = next((l.split(":", 1)[1] for l in m.group(2).splitlines() if l.strip().startswith("prompt:")), "")
             if not re.search(r"^[ \t]*twin:", m.group(2), re.M):
-                out.append((m.group(1), problem_operands(prompt), item_answer(vt, m.group(1))))
+                out.append((m.group(1), problem_operands(prompt, item_field(m.group(2), "operands")),
+                            item_answer(vt, m.group(1))))
         # (a lesson with one exercise heads it "## Exercise" and leaves it unnumbered: it is exercise 1)
         ex = re.search(r"^## Exercises?\n(.*?)(?=^## |\Z)", body, re.M | re.S)
         items = re.findall(r"^(\d+)\. (.*?)(?=^\d+\. |\Z)", ex.group(1) if ex else "", re.M | re.S)
@@ -657,15 +701,24 @@ def check_worked(body, unit=(), checkpoint=(), vectors_text=""):
         first.setdefault(m.group(2), m)
         last[m.group(2)] = m
 
-    def collides(who, ops, ans=None):
+    hand, hand_used, twin_ids = twin_hand(), set(), set()
+
+    def collides(who, tid, ops, ans=None):
         """A twin whose operands are an item's or an exercise's in the unit hands the learner that answer; so does
         one whose numbers and answer, together, are another problem's (abacus #7350): a copy, a swap, or an inverse
-        (57 giving 123 against 123 giving 57) all have the same number set."""
+        (57 giving 123 against 123 giving 57) all have the same number set. A pair in the hand file is a cousin,
+        judged and recorded, and passes."""
+        twin_ids.add(tid)
         for label, other, oans in unit:
-            if other == ops and len(ops) >= 2:
+            same_ops = other == ops and len(ops) >= 2
+            same_set = ans is not None and oans is not None and sorted(ops + [ans]) == sorted(other + [oans])
+            if (same_ops or same_set) and (tid, label) in hand:
+                hand_used.add((tid, label))
+                continue
+            if same_ops:
                 out.append(f"{who} works the same operands as {label} in its unit; a twin's numbers are its own")
                 return
-            if ans is not None and oans is not None and sorted(ops + [ans]) == sorted(other + [oans]):
+            if same_set:
                 out.append(f"{who} has the same numbers, with its answer, as {label} in its unit (a copy, a swap or an "
                            f"inverse); a twin's numbers are its own")
                 return
@@ -716,13 +769,27 @@ def check_worked(body, unit=(), checkpoint=(), vectors_text=""):
                            f"paragraph after the example's own lines")
             if operands(keys) == operands(last[ex].group(4)):
                 out.append(f"keys block {bid}: twin of {ex} works the example's own operands; a twin has new numbers")
-            collides(f"keys block {bid}", operands(keys), item_answer(vectors_text, bid))
+            collides(f"keys block {bid}", bid, operands(keys), item_answer(vectors_text, bid))
     for m in ITEM_BLOCK.finditer(body):
         iid, f = m.group(1), {}
         for line in m.group(2).splitlines():
             k, sep, v = line.strip().partition(":")
             if sep and k.strip() not in f:
                 f[k.strip()] = v.strip()
+        # Every item: a prompt with more than one numeric span declares its problem (abacus #7432), and what it
+        # declares is the prompt's own: each declared number is one the whole prompt reads, as often as it is named.
+        spans = numeric_spans(f.get("prompt", ""))
+        if len(spans) > 1 and "operands" not in f:
+            out.append(f"item {iid}: its prompt has {len(spans)} numeric spans; declare its problem's numbers with "
+                       f"operands: (the problem's, not its helpers')")
+        if "operands" in f and declared_operands(f["operands"]) is not None:
+            whole = operands(maths_plain(f.get("prompt", "")))
+            for n in declared_operands(f["operands"]):
+                if n in whole:
+                    whole.remove(n)
+                else:
+                    out.append(f"item {iid}: operands: names {n}, which its prompt does not (or not that often)")
+                    break
         ex = f.get("twin")
         if ex is None:
             continue
@@ -735,16 +802,21 @@ def check_worked(body, unit=(), checkpoint=(), vectors_text=""):
             out.append(f"item {iid}: twin of {ex} is not right after it (a keys block or a ## heading comes between)")
         if f.get("answer") != "type" or f.get("calculator") != "no":
             out.append(f"item {iid}: a twin item is answer: type and calculator: no (it leaves the device alone)")
-        ops = problem_operands(f.get("prompt", ""))
+        ops = problem_operands(f.get("prompt", ""), f.get("operands"))
         if ops == operands(last[ex].group(4)):
             out.append(f"item {iid}: twin of {ex} works the example's own operands; a twin has new numbers")
-        collides(f"item {iid}", ops, item_answer(vectors_text, iid))
+        collides(f"item {iid}", iid, ops, item_answer(vectors_text, iid))
         # an answer the unit checkpoint shares, on a topic it shares, passes the checkpoint by memory (abacus #7333)
         ans = item_answer(vectors_text, iid)
         for cid, ctopics, cans in checkpoint:
             if ans is not None and ans == cans and ctopics & set(f.get("topics", "").split()):
                 out.append(f"item {iid}: twin's answer {ans} is checkpoint {cid}'s, on a topic they share; give the "
                            f"twin another answer")
+    # a hand line for one of this lesson's twins that no longer collides is stale: the file holds judged cousins,
+    # not standing exemptions
+    for tid, label in sorted(set(hand) - hand_used):
+        if tid in twin_ids:
+            out.append(f"twin_hand.txt lists {tid} against {label}, which no longer collide; take the line out")
     return out
 
 

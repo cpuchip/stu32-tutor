@@ -287,6 +287,7 @@ two different numbers, so there is no limit. This is why a limit is checked from
 
 ```item LM1M1
 prompt: $f(1.9) = 2.9$ and $f(2.1) = 3.1$, and nearer $x$ give values ever nearer one number. What is the limit at 2?
+operands: 1.9, 2.9, 2.1, 3.1, 2
 topics: limit-by-approach
 answer: type
 calculator: no

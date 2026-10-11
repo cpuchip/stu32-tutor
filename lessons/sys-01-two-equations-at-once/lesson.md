@@ -266,6 +266,7 @@ slip: SY1M2A | divided only the 6 | The brackets come first: $12 ÷ 3$.
 
 ```item SY1M3
 prompt: Add $x + y = 9$ and $x − y = 3$ to eliminate $y$. What is $x$?
+operands: 9, 3
 topics: elimination
 answer: type
 calculator: no

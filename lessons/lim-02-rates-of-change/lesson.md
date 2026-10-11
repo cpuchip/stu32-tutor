@@ -19,6 +19,7 @@ helping.
 
 ```item LM2F1
 prompt: $y = 3x + 1$. How much does $y$ rise from $x = 2$ to $x = 5$?
+operands: 3, 1, 2, 5
 topics: linear-function
 answer: type
 calculator: no
@@ -238,6 +239,7 @@ no smaller. Here 0.001 already suggested 4.
 
 ```item LM2M1
 prompt: $d(t) = 2t^{2}$. What is the average speed from $t = 1$ to $t = 3$?
+operands: 2, 2, 1, 3
 topics: average-rate
 answer: type
 calculator: no
@@ -275,6 +277,7 @@ Questions on the whole unit.
 
 ```item CP10A
 prompt: What is the average rate of change of x² from $x = 2$ to $x = 4$?
+operands: 2, 2, 4
 topics: average-rate
 answer: type
 calculator: no

@@ -26,6 +26,7 @@ slip: LN1F1A | divided only the 7 | The brackets come first: $6 ÷ 3$.
 
 ```item LN1F2
 prompt: $f(x) = 4x − 1$. What is $f(0)$?
+operands: 4, 1, 0
 topics: function
 answer: type
 calculator: no
@@ -278,6 +279,7 @@ slip: LN1M3A | gave the run | Rise over run: the rise is $7 − 7$, which is 0, 
 
 ```item LN1M4
 prompt: $g(x) = 5 − 2x$. What is $g(3)$?
+operands: 5, 2, 3
 topics: function
 answer: type
 calculator: no

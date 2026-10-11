@@ -17,6 +17,7 @@ quadratic formula was pointing at.
 
 ```item PL4F1
 prompt: What is the discriminant $b^{2} − 4ac$ of $x^{2} + 2x + 2$?
+operands: 2, 2, 2
 topics: discriminant
 answer: type
 calculator: no
@@ -315,6 +316,7 @@ Questions on the whole unit.
 
 ```item CP5A
 prompt: What is the discriminant $b^{2} − 4ac$ of $x^{2} + 4x + 13$?
+operands: 2, 4, 13
 topics: discriminant
 answer: type
 calculator: no
@@ -333,6 +335,7 @@ slip: CP5B2 | the sign of −b | In the formula $−b$ is $−(−7) = 7$, so th
 
 ```item CP5C
 prompt: Evaluate $2x^{3} − x + 1$ at $x = 2$.
+operands: 2, 3, 1, 2
 topics: polynomial
 answer: type
 calculator: no

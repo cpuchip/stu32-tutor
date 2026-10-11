@@ -182,6 +182,7 @@ because: $g$ uses $x$ twice, and x² replaces the $x$ in X with its square. ENTE
 
 ```item G2T1
 prompt: Work out $g(4)$ by hand, for the same $g(x) = x^{2} + x$.
+operands: 4, 2
 twin: G02
 topics: function
 answer: type
@@ -272,6 +273,7 @@ clear them, so for each new function, pick a letter no program uses yet.
 
 ```item FN1M1
 prompt: $f(x) = 3x − 4$. What is $f(5)$?
+operands: 3, 4, 5
 topics: function
 answer: type
 calculator: no
@@ -288,6 +290,7 @@ slip: FN1M2A | divided only the 4 | The brackets come first: $6 ÷ 3$.
 
 ```item FN1M3
 prompt: $g(x) = x^{2} + x$. What is $g(−3)$?
+operands: 2, 3
 topics: function
 answer: type
 calculator: no

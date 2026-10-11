@@ -26,6 +26,7 @@ slip: EQ2F1A | divided only the 4 by the 5 | A fraction bar divides all of the t
 
 ```item EQ2F2
 prompt: For $3x − 2 = 10$, what is left minus right at $x = 5$?
+operands: 3, 2, 10, 5
 topics: xeq-check
 answer: type
 calculator: no
@@ -176,6 +177,7 @@ The X line shows <disp v="T02" kind="view">F=212.0000</disp>, the boiling point 
 
 ```item EQ2M1
 prompt: A rectangle's perimeter is $P = 2 × L + 2 × W$. With $P = 30$ and $L = 9$, solve for $W$ with SOLVE.
+operands: 2, 2, 30, 9
 topics: solve-any-letter
 answer: type
 calculator: yes

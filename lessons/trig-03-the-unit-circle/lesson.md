@@ -204,6 +204,7 @@ sine's mirror, and $\cos 60°$ is +0.5, not −0.5.)
 
 ```item TR3M1
 prompt: $\cos θ = 0.6$. What is $\sin^{2}θ$?
+operands: 0.6, 2
 topics: pythagorean-identity
 answer: type
 calculator: no

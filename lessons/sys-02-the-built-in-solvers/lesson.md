@@ -24,6 +24,7 @@ variables, so $C$ in $Ax + By = C$ is not the C key, and it means a different nu
 
 ```item SY2F1
 prompt: $A = L × W$, with $A = 24$ and $W = 4$. What is $L$?
+operands: 24, 4
 topics: solve-any-letter
 answer: type
 calculator: no
@@ -32,6 +33,7 @@ slip: SY2F1A | multiplied | $A$ is $L$ times $W$, so $L$ is $A$ divided by $W$: 
 
 ```item SY2F2
 prompt: $x + y = 8$ and $x − y = 2$. What is $y$?
+operands: 8, 2
 topics: elimination
 answer: type
 calculator: no
@@ -161,6 +163,7 @@ because: The solver reads each equation as $A$ times $x$ plus $B$ times $y$ equa
 
 ```item RF1T1
 prompt: $y = 5x − 2$ goes into the solver with $B = 1$, as the example's did: take $5x$ from both sides. By hand, what is $A$?
+operands: 5, 2
 twin: R01
 topics: solver-form
 answer: type
@@ -286,6 +289,7 @@ every point of one line, as before. Here the line is the first equation, $x + y 
 
 ```item SY2M1
 prompt: In the solver's form $ax + by = c$, $3x = 12 − 2y$ becomes $3x + by = 12$. What is $b$?
+operands: 3, 12, 2
 topics: solver-form
 answer: type
 calculator: no
@@ -324,6 +328,7 @@ Questions on the whole unit.
 
 ```item CP8A
 prompt: $x + y = 10$ and $x − y = 2$. What is $x$?
+operands: 10, 2
 topics: elimination
 answer: type
 calculator: no
@@ -333,6 +338,7 @@ slip: CP8A2 | forgot to halve | Adding the equations gives $2x = 12$; divide by 
 
 ```item CP8B
 prompt: $2x + 3y = 12$ and $x = 3$. What is $y$?
+operands: 2, 3, 12, 3
 topics: check-pair
 answer: type
 calculator: no
@@ -342,6 +348,7 @@ slip: CP8B2 | found 3y | That is $3y$; divide by 3.
 
 ```item CP8C
 prompt: $x + y = 5$ and $x + y = 7$. How many pairs ($x$, $y$) make both true?
+operands: 5, 7
 topics: no-or-every-solution
 answer: type
 calculator: no

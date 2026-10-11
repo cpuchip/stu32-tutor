@@ -192,6 +192,7 @@ the area below it, $0.5 − 0.5$, which is 0.
 
 ```item IN1M1
 prompt: Two strips of width 1 stand under $y = x^{2}$, with heights taken at $x = 1$ and $x = 2$. What is their total area?
+operands: 1, 2, 1, 2
 topics: riemann-sum
 answer: type
 calculator: no
@@ -208,6 +209,7 @@ slip: IN1M2A | 0 ÷ 0 read as 0 | Near 6 the fraction is $x + 6$, which closes i
 
 ```item IN1M3
 prompt: $y = −3$ from $x = 0$ to $x = 2$: what does that stretch count for in the integral?
+operands: 3, 0, 2
 topics: signed-area
 answer: type
 calculator: no
@@ -228,6 +230,7 @@ Questions on the whole unit.
 
 ```item CP12A
 prompt: What is the area under $y = 2x$ from $x = 0$ to $x = 3$?
+operands: 2, 0, 3
 topics: integral riemann-sum
 answer: type
 calculator: no
@@ -237,6 +240,7 @@ slip: CP12A2 | the slope times the width | The height at $x = 3$ is 6: the trian
 
 ```item CP12B
 prompt: What is the integral of $y = x − 2$ from $x = 0$ to $x = 2$?
+operands: 2, 0, 2
 topics: integral signed-area
 answer: type
 calculator: no

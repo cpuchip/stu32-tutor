@@ -26,6 +26,7 @@ slip: FN2F1A | 3 × 4, not 3⁴ | $3^{4}$ is four 3s multiplied: $3 × 3 × 3 ×
 
 ```item FN2F2
 prompt: $f(x) = 2x + 3$. What is $f(−4)$?
+operands: 2, 3, 4
 topics: function
 answer: type
 calculator: no
@@ -212,6 +213,7 @@ because: $q(x)$ can also be written $(x − 2)^{2} − 1$, so it depends only on
 
 ```item G1T1
 prompt: Work out $q(0.5)$ by hand, for the same $q(x) = x^{2} − 4x + 3$.
+operands: 0.5, 2, 4, 3
 twin: G01
 topics: function
 answer: type
@@ -401,6 +403,7 @@ slip: FN2M2A | squared 2 × 3 | The power belongs to the 3 alone: $3^{2}$ is 9, 
 
 ```item FN2M3
 prompt: $q(x) = x^{2} − 4x + 3$. What is $q(−1)$?
+operands: 2, 4, 3, 1
 topics: function
 answer: type
 calculator: no

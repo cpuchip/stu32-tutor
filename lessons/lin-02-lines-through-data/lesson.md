@@ -252,6 +252,7 @@ slip: LN2M2A | took the run as 2 | The run is $2 − (−2)$, which is 4.
 
 ```item LN2M3
 prompt: A line through some data is $y = 1.5x + 2$. What does it estimate $y$ to be at $x = 6$?
+operands: 1.5, 2, 6
 topics: estimate
 answer: type
 calculator: no

@@ -127,6 +127,7 @@ because: Left minus right, $2x + 3 − 11$, is a straight line that crosses zero
 
 ```item B1T1
 prompt: For $5x − 3 < 22$, work out left minus right at $x = 2$ by hand, as XEQ would. Its sign says whether 2 makes the inequality true.
+operands: 5, 3, 22, 2
 twin: B01
 topics: inequalities
 answer: type
@@ -193,6 +194,7 @@ slip: EQ3M2A | added before dividing | Division comes before the addition: $12 �
 
 ```item EQ3M3
 prompt: The boundary of $2x − 4 > 10$ is where $2x − 4 = 10$. What $x$ is that?
+operands: 2, 4, 10
 topics: inequalities
 answer: type
 calculator: no

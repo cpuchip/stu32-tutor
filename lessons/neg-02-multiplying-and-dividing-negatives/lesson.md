@@ -31,6 +31,7 @@ slip: NG2F1A | added the sizes and kept the minus | Start at −8 and go 3 to th
 
 ```item NG2F2
 prompt: Work out $18 × 21$ by parts: $18 × 20$, then $18 × 1$.
+operands: 18, 21
 topics: partial-products
 answer: type
 calculator: no

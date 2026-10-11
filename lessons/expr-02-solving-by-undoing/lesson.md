@@ -23,6 +23,7 @@ the number of pies is not. To find it, undo what the rule did, step by step.
 
 ```item EP2F1
 prompt: Evaluate $3n + 5$ when $n = 6$.
+operands: 3, 5, 6
 topics: evaluating
 answer: type
 calculator: no
@@ -31,6 +32,7 @@ slip: EP2F1A | added before multiplying | $3n$ means 3 times $n$: $3 × 6$ is 18
 
 ```item EP2F2
 prompt: Work out $25 × 14$ by parts: $25 × 10$, then $25 × 4$.
+operands: 25, 14
 topics: partial-products
 answer: type
 calculator: no
@@ -298,6 +300,7 @@ slip: EP2M2A | took away first | Multiplying comes before taking away: $3 × 4$ 
 
 ```item EP2M3
 prompt: Is $n = 7$ a solution of $3n − 2 = 19$? Put it back: what is $3 × 7 − 2$?
+operands: 7, 3, 2, 19
 topics: check-by-putting-back
 answer: type
 calculator: no

@@ -18,6 +18,7 @@ polynomial's derivative can be written down at once.
 
 ```item DR2F1
 prompt: $d(t) = 2t^{2}$ has $d'(t) = 4t$. What is $d'(5)$?
+operands: 2, 2, 5
 topics: derivative-function
 answer: type
 calculator: no
@@ -26,6 +27,7 @@ slip: DR2F1A | d(5), not d′(5) | $d'(5)$ is the speed at 5: $4 × 5$. $d(5)$ i
 
 ```item DR2F2
 prompt: Nested, $x^{2} + 3x + 2$ is $(x + 3)x + 2$. Work it out at $x = 4$, from the inside.
+operands: 2, 3, 2, 4
 topics: horner
 answer: type
 calculator: no
@@ -107,7 +109,8 @@ because: The average is $3a^{2} + 3ah + h^{2} − 4$. At $a = 2$, the $3ah$ adds
 ```
 
 ```item DR2T1
-prompt: By hand, what is $g'(2)$ for $g(x) = x^{4} − 5x$?
+prompt: For $g(x) = x^{4} − 5x$, what is $g'(2)$? Work it out by hand.
+operands: 4, 5, 2
 twin: P01
 topics: power-rule
 answer: type
@@ -222,6 +225,7 @@ GOLD EQN
 
 ```item DR2M1
 prompt: What is the derivative of $x^{5}$ at $x = 2$?
+operands: 5, 2
 topics: power-rule
 answer: type
 calculator: no
@@ -247,6 +251,7 @@ slip: DR2M3A | the constant itself | A constant does not change, so its rate of 
 
 ```item DR2M4
 prompt: What is the average rate of change of $x^{3}$ from $x = 1$ to $x = 3$?
+operands: 3, 1, 3
 topics: average-rate
 answer: type
 calculator: no

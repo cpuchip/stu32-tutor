@@ -29,6 +29,7 @@ slip: LN3F1A | squared the sum | Square each first: $9 + 16$. $(3 + 4)^{2}$ is a
 
 ```item LN3F2
 prompt: The line $y = 2x − 1$ estimates $y$ at $x = 7$. What is the estimate?
+operands: 2, 1, 7
 topics: estimate
 answer: type
 calculator: no
@@ -235,6 +236,7 @@ slip: LN3M3A | gave the height | Every point is at the same height, so the line 
 
 ```item LN3M4
 prompt: $f(x) = x^{2} − 1$. What is $f(−2)$?
+operands: 2, 1, 2
 topics: function
 answer: type
 calculator: no
@@ -265,6 +267,7 @@ slip: CP4B2 | divided by 2 | The $b$ is added to $2x$, not multiplied: $7 = 2 ×
 
 ```item CP4C
 prompt: For $y = 3x − 4$, what is $y$ when $x = 10$?
+operands: 3, 4, 10
 topics: linear-function
 answer: type
 calculator: no

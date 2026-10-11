@@ -68,6 +68,7 @@ The screen shows <disp v="M01">1,058.0000</disp>.
 
 ```item M1T1
 prompt: Work out $43 × 26$ in parts, as above: $43 × 6$, then $43 × 20$, then add them.
+operands: 43, 26
 twin: M01
 topics: partial-products
 answer: type

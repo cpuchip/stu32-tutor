@@ -202,6 +202,7 @@ slip: TR4M3A | lost the sign | At 180° the point is on the negative $x$ axis: $
 
 ```item TR4M4
 prompt: $\sin θ = 0.8$. What is $\cos^{2}θ$?
+operands: 0.8, 2
 topics: pythagorean-identity
 answer: type
 calculator: no

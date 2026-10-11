@@ -185,6 +185,7 @@ X shows <disp v="E01C">-2.0000</disp>: $(−3 − 5) ÷ 4$.
 
 ```item PL3M1
 prompt: What is the discriminant $b^{2} − 4ac$ of $x^{2} − 6x + 9$?
+operands: 2, 6, 9
 topics: discriminant
 answer: type
 calculator: no

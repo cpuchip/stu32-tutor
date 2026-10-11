@@ -254,6 +254,7 @@ slip: P2M1A | one less than the degree | Each root $r$ gives a factor $x − r$,
 
 ```item P2M2
 prompt: $p(x) = x^{3} − 2x$. Work out $p(2.5)$ with XEQ.
+operands: 3, 2, 2.5
 topics: xeq-check
 answer: type
 calculator: yes
@@ -262,6 +263,7 @@ slip: P2M2A | 2.5 × 3, not 2.5³ | $x^{3}$ is $x × x × x$. In Equation mode i
 
 ```item P2M3
 prompt: A polynomial $q$ has $q(1) = −2$ and $q(2) = 3$. At least how many roots does $q$ have between 1 and 2?
+operands: 1, 2, 2, 3
 topics: sign-change
 answer: type
 calculator: no

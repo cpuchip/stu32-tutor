@@ -192,6 +192,7 @@ slip: EX4M1A | once | The curve bends one way, so a line can cut it twice, going
 
 ```item EX4M2
 prompt: Nested, $3x^{2} + 2x − 1$ is $(3x + 2)x − 1$. Work it out at $x = 2$, from the inside.
+operands: 3, 2, 2, 1, 2
 topics: horner
 answer: type
 calculator: no

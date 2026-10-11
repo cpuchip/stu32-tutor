@@ -22,6 +22,7 @@ letter standing for the number that changes: if $n$ is the number of pies, they 
 
 ```item EP1F1
 prompt: Work out $34 × 12$ by parts: $34 × 10$, then $34 × 2$.
+operands: 34, 12
 topics: partial-products
 answer: type
 calculator: no
@@ -65,6 +66,7 @@ The screen shows <disp v="P01">84.0000</disp>: 84 coins.
 
 ```item P1T1
 prompt: Work out $7 × 9$, what 9 pies cost: $7n$ with 9 put in for $n$.
+operands: 7, 9
 twin: P01
 topics: evaluating
 answer: type
@@ -206,6 +208,7 @@ Work each out by hand first, then check it with the number stored under its lett
 
 ```item EP1M1
 prompt: Evaluate $4n + 3$ when $n = 5$.
+operands: 4, 3, 5
 topics: evaluating
 answer: type
 calculator: no
