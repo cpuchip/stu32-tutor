@@ -102,6 +102,19 @@ $24 − 100$, so first the x↔y key swaps X and Y:</entry>
 The screen shows <disp v="C03">76.0000</disp>: 76 boxes left.
 <entry e="alg">The line reads <disp v="C03" kind="line">100-ANS</disp>.</entry>
 
+A second shop has 200 boxes and sends the first shop 76 of them. The 76 is still the last answer,
+so it comes second again: work out $200 − 76$.
+
+```keys C03T entry=alg after=C03 twin=C03
+200 − GOLD LASTx ENTER
+```
+
+```keys C03T entry=rpn after=C03 twin=C03
+200 x↔y −
+```
+
+That leaves 124 boxes at the second shop.
+
 ## Fractions on the screen
 
 The bakery shares 20 cups of flour equally among 8 batches of dough. 8 goes into 20 twice,

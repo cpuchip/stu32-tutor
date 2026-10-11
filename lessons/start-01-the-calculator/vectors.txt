@@ -6,6 +6,8 @@ C02@alg | twice that: ANS x 2 | MODE33 FIX4 7 + 5 ENTER * 2 ENTER | N=24 %LINE=A
 C02@rpn | twice that: ANS x 2 | MODE33 FIX4 7 ENTER 5 + 2 * | X=24
 C03@alg | 100 boxes less that: 100 - ANS | MODE33 FIX4 7 + 5 ENTER * 2 ENTER 100 - LASTX ENTER | N=76 %LINE=100-ANS
 C03@rpn | 100 boxes less that: 100 - ANS | MODE33 FIX4 7 ENTER 5 + 2 * 100 XY - | X=76
+C03T@alg | twin of C03: 200 boxes less the same 76, 200 - ANS | MODE33 FIX4 7 + 5 ENTER * 2 ENTER 100 - LASTX ENTER 200 - LASTX ENTER | N=124 %LINE=200-ANS
+C03T@rpn | twin of C03: 200 boxes less the same 76, 200 - ANS | MODE33 FIX4 7 ENTER 5 + 2 * 100 XY - 200 XY - | X=124
 F01@alg | 20 / 8 | MODE33 FIX4 20 / 8 ENTER | N=2.5 %LINE=20÷8
 F01@rpn | 20 / 8 | MODE33 FIX4 20 ENTER 8 / | X=2.5
 F02@alg | fraction display on | MODE33 FIX4 20 / 8 ENTER FDISP | N=2.5 %LINE=20÷8

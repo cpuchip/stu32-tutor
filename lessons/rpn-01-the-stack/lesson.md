@@ -102,7 +102,8 @@ first.
 ## A result is a number you can keep using
 
 By that rule, an answer in X is kept when you start typing the next number: it moves up to Y.
-For $(3 + 4) × 5$, add first, then type 5 and multiply, with no ENTER before the 5:
+For $(3 + 4) × 5$, add first. After +, the 7 is already finished in X, so the number that comes
+next needs no ENTER before it:
 
 ```keys S06 fade=2
 3 ENTER 4 + 5 ×

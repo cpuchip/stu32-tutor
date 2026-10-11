@@ -338,7 +338,9 @@ docs/proposals/worked-examples.md, approved by abacus (#7299) with primer's page
 - **A faded block**: ```` ```keys ID fade=N ```` hides the block's last N keystrokes until the learner has pressed
   them. A keystroke is a key with its shift: "GOLD INT÷" is one, and a fade may not split them. A fade hides at least
   one keystroke and leaves at least one shown, never on the setup and never on a twin. check.py runs the block
-  unchanged.
+  unchanged. The paragraph above a faded block gives the reason, not the hidden keys: it may not name them in
+  order, by legend or by word (× as multiply or times, + as add), or the learner copies instead of finding them
+  (abacus #7321).
 - After an attempt the page replays the student run to the end of the block, so every later block starts from the
   full keys (primer #7300).
 

@@ -60,6 +60,16 @@ In RPN, − works the same way, and takes the second number away from the first:
 The screen shows <disp v="A01">5,331.0000</disp>, the same as the hand work. The calculator puts a
 comma every three digits to the left of the point, to make a long number easier to read.
 
+```item A1T1
+prompt: Add $2687 + 1546$ by hand, column by column, carrying each ten to the next column.
+twin: A01
+topics: column-addition
+answer: type
+calculator: no
+slip: A1T1A | the carries dropped | The ones, tens and hundreds each make more than 9: $7 + 6 = 13$, so write 3 and carry 1 ten, and so on.
+slip: A1T1B | the last carry dropped | The hundreds make $6 + 5 + 1 = 12$: the 1 carried into the thousands makes $2 + 1 + 1 = 4$.
+```
+
 ## Taking away, column by column
 
 Taking away also goes column by column from the right. <voice v="story">Tobin had 742 loaves in the store and sent out

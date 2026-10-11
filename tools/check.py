@@ -506,11 +506,14 @@ def check_why(body):
 
 
 SHIFTS = ("GOLD", "BLUE")                             # a shift and its key are one keystroke for fading
+FADE_WORDS = {"×": ("multiply", "times", "multiplied"), "÷": ("divide", "divided"), "+": ("add", "plus", "added"),
+              "−": ("subtract", "minus", "away", "subtracted"), "ENTER": ("enter",)}   # a key named in words
 
 
 def operands(text):
     """The numbers of a text, sorted, as values: a twin and an item collide when these are equal (in any order)."""
-    return sorted(Decimal(n) for n in re.findall(r"(?<![\w.])\d+(?:\.\d+)?(?![\w.])", text))
+    # (a full stop after a number ends its sentence: "crates of 12." names 12; only a point and a digit is a decimal)
+    return sorted(Decimal(n) for n in re.findall(r"(?<![\w.])\d+(?:\.\d+)?(?!\w|\.\d)", text))
 
 
 def problem_operands(prompt):
@@ -595,6 +598,19 @@ def check_worked(body, unit=()):
             elif toks[len(toks) - n - 1] in SHIFTS:
                 out.append(f"keys block {bid}: fade={n} splits {toks[len(toks) - n - 1]} from its key; a shift and its "
                            f"key are one keystroke")
+            else:
+                # the paragraph just above may not spell the hidden keys out in order ("type 5 and multiply" over
+                # a faded "5 ×", abacus #7321): each hidden key, by its legend or its word, in turn
+                hidden = [t for t in toks[-n:] if t not in SHIFTS]
+                para = maths_plain(body[:m.start()].rstrip().split("\n\n")[-1])
+                words = re.findall(r"\d+(?:\.\d+)?|[A-Za-z]+|[^\s\w]", para)
+                i = 0
+                for w in words:
+                    if i < len(hidden) and (w == hidden[i] or w.lower() in FADE_WORDS.get(hidden[i], ())):
+                        i += 1
+                if hidden and i == len(hidden):
+                    out.append(f"keys block {bid}: the paragraph above names its faded keys ({' '.join(hidden)}) in "
+                               f"order; give the reason, not the keys")
         if "twin" in attrs:
             ex = attrs["twin"]
             if ex not in first or first[ex].start() >= m.start():

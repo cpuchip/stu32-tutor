@@ -18,8 +18,9 @@ sys.stdout.reconfigure(encoding="utf-8")
 
 # (name, file, old, new, env, text the failure must contain)
 CONTROLS = [
-    ("a printed key does something else", "lesson.md", "3 ENTER 4 + 5 ×", "3 ENTER 4 + 5 +", {},
-     "S06: printed keys and vector disagree in 33s mode: DIFF"),
+    # (on S09, not S06: S06 is faded since step 5, and its plant "5 +" met the fade check first)
+    ("a printed key does something else", "lesson.md", "5 ENTER 20 x↔y ÷", "5 ENTER 20 x↔y ×", {},
+     "S09: printed keys and vector disagree in 33s mode: DIFF"),
     ("a shifted legend printed without its shift", "lesson.md", "4 ÷ GOLD LASTx\n", "4 ÷ LASTx\n", {},
      "S11: printed keys and vector disagree in 33s mode: KEY"),
     ("a legend no key carries", "lesson.md", "5 ENTER 20 x↔y ÷", "5 ENTER 20 SWAP ÷", {},
@@ -158,6 +159,11 @@ CONTROLS = [
     ("a faded setup", "lesson.md", "```keys setup\n", "```keys setup fade=1\n", {}, "the setup block may not be faded"),
     ("a fade splitting a shift from its key", "lesson.md", "```keys S11\n", "```keys S11 fade=1\n", {},
      "splits GOLD from its key"),
+    # The lead-in may give the reason, not the faded keys (abacus #7321): S06's text before the fix.
+    ("a faded block whose lead-in names its hidden keys", "lesson.md",
+     "For $(3 + 4) × 5$, add first. After +, the 7 is already finished in X, so the number that comes\nnext needs no ENTER before it:",
+     "For $(3 + 4) × 5$, add first, then type 5 and multiply, with no ENTER before the 5:", {},
+     "the paragraph above names its faded keys (5 ×) in order"),
     # Half-spans (abacus #7274, its maths_halfspan detector): an expression partly outside its span.
     ("a half-span: an operator outside touching the span", "lesson.md", "To add 7 and 5, type 7,",
      "To add eˣ = $3x$, type 7,", {}, "a maths span touching more maths outside it"),
