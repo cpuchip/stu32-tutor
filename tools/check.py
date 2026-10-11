@@ -207,6 +207,12 @@ def lead_in(body, blocks, i):
     return para
 
 
+def seen(text):
+    """What a learner reads of a stretch of lesson: no keys fence's info line, no tag's attributes. An ID such as
+    L02 or <disp v="S01"> is not a number the example shows."""
+    return re.sub(r"<[^>]*>", " ", re.sub(r"^[ \t]*```keys[^\n]*\n", "", text, flags=re.M))
+
+
 def check_why(body):
     """Problems with a lesson's why blocks: each holds ask: and because: and nothing else, sits under a worked example
     (the nearest keys block above it other than the setup, with no ## heading between), and names only numbers that
@@ -237,7 +243,7 @@ def check_why(body):
             out.append(f"a why block with a ## heading between it and its example ({last.group(2)}): '{fields['ask']}'")
             continue
         missing = sorted(numbers_in(fields["ask"] + " " + fields["because"])
-                         - numbers_in(example) - numbers_in(lead_in(body, blocks, above[-1])))
+                         - numbers_in(seen(example)) - numbers_in(seen(lead_in(body, blocks, above[-1]))))
         if missing:
             out.append(f"a why block under {last.group(2)} names {', '.join(str(x) for x in missing)}, which its "
                        f"example does not show")

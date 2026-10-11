@@ -61,6 +61,11 @@ CONTROLS = [
       ("lesson.md", "You only do this setup once.", "You only do this setup once, in 2 steps."),
       ("lesson.md", 'X shows <disp v="S01">12.0000</disp>.\n', 'X shows <disp v="S01">12.0000</disp>.\n\n```why\nask: Why do 2 numbers go in before +?\nbecause: + needs both, so each is typed and kept first.\n```\n')], None, None, {},
      "a why block under S01 names 2, which its example does not show"),
+    # An ID is not a number the example shows: S01's 1, in its fence and its <disp v="S01"> tag.
+    ("a why number found only in its example's ID", "lesson.md", 'X shows <disp v="S01">12.0000</disp>.\n',
+     'X shows <disp v="S01">12.0000</disp>.\n\n```why\nask: Why does + need the ENTER?\n'
+     'because: ENTER keeps 1 number apart from the next.\n```\n', {},
+     "a why block under S01 names 1, which its example does not show"),
     ("a | inside a display vector's line", "fmt-vectors.txt", "| 12 | FIX 4 |  | 12.0000", "| 12 | FIX 4 |  | 12.0000 | x", {},
      "7 fields, expected 6"),
     ("a vector that does not set its mode", "vectors.txt", "MODE33 FIX4 7 ENTER 5 + |", "FIX4 7 ENTER 5 + |", {},
