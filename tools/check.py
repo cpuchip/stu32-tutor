@@ -196,10 +196,21 @@ def numbers_in(text):
     return out
 
 
+def lead_in(body, blocks, i):
+    """The example's lead-in (abacus #6632): the prose paragraph directly above its first keys block, a run of its
+    variants (mode= or entry=) taken as one block, or "" when that paragraph is a heading or another fence."""
+    while i > 0 and blocks[i - 1].group(2) == blocks[i].group(2) and not body[blocks[i - 1].end():blocks[i].start()].strip():
+        i -= 1
+    para = body[:blocks[i].start()].rstrip().split("\n\n")[-1]
+    if re.search(r"^## ", para, re.M) or para.strip().endswith("```"):
+        return ""
+    return para
+
+
 def check_why(body):
     """Problems with a lesson's why blocks: each holds ask: and because: and nothing else, sits under a worked example
     (the nearest keys block above it other than the setup, with no ## heading between), and names only numbers that
-    example shows."""
+    example shows: its lead-in paragraph, its keys, and its prose and displays below (abacus #6632)."""
     out = []
     for m in WHY_BLOCK.finditer(body):
         fields, bad_lines = {}, []
@@ -215,17 +226,20 @@ def check_why(body):
         if bad_lines or not fields.get("ask") or not fields.get("because"):
             out.append(f"a why block needs one ask: and one because: line and nothing else: {bad_lines or sorted(fields)}")
             continue
-        above = [k for k in KEYS_ANY.finditer(body[:m.start()]) if k.group(2) != "setup"]
+        blocks = list(KEYS_ANY.finditer(body))
+        above = [i for i, k in enumerate(blocks) if k.end() <= m.start() and k.group(2) != "setup"]
         if not above:
             out.append(f"a why block with no worked example above it: '{fields['ask']}'")
             continue
-        example = body[above[-1].start():m.start()]
+        last = blocks[above[-1]]
+        example = body[last.start():m.start()]
         if re.search(r"^## ", example, re.M):
-            out.append(f"a why block with a ## heading between it and its example ({above[-1].group(2)}): '{fields['ask']}'")
+            out.append(f"a why block with a ## heading between it and its example ({last.group(2)}): '{fields['ask']}'")
             continue
-        missing = sorted(numbers_in(fields["ask"] + " " + fields["because"]) - numbers_in(example))
+        missing = sorted(numbers_in(fields["ask"] + " " + fields["because"])
+                         - numbers_in(example) - numbers_in(lead_in(body, blocks, above[-1])))
         if missing:
-            out.append(f"a why block under {above[-1].group(2)} names {', '.join(str(x) for x in missing)}, which its "
+            out.append(f"a why block under {last.group(2)} names {', '.join(str(x) for x in missing)}, which its "
                        f"example does not show")
     return out
 

@@ -53,6 +53,14 @@ CONTROLS = [
     ("a why block with a heading between it and its example", "lesson.md", "## ENTER copies\n",
      "## ENTER copies\n\n```why\nask: Why does ENTER matter?\nbecause: It keeps the first number apart.\n```\n", {},
      "a why block with a ## heading between it and its example"),
+    # The why block's region includes the example's lead-in paragraph (abacus #6632).
+    ("a why number from two paragraphs above its example", [("lesson.md", "## Two numbers, one operation\n\nTo add 7",
+      "## Two numbers, one operation\n\nHere are 2 numbers.\n\nTo add 7"), ("lesson.md", 'X shows <disp v="S01">12.0000</disp>.\n', 'X shows <disp v="S01">12.0000</disp>.\n\n```why\nask: Why do 2 numbers go in before +?\nbecause: + needs both, so each is typed and kept first.\n```\n')], None, None, {},
+     "a why block under S01 names 2, which its example does not show"),
+    ("a why number from above a heading, the example having no lead-in", [("lesson.md", "To add 7 and 5, type 7, press ENTER, type 5, and press +.\n\n", ""),
+      ("lesson.md", "You only do this setup once.", "You only do this setup once, in 2 steps."),
+      ("lesson.md", 'X shows <disp v="S01">12.0000</disp>.\n', 'X shows <disp v="S01">12.0000</disp>.\n\n```why\nask: Why do 2 numbers go in before +?\nbecause: + needs both, so each is typed and kept first.\n```\n')], None, None, {},
+     "a why block under S01 names 2, which its example does not show"),
     ("a | inside a display vector's line", "fmt-vectors.txt", "| 12 | FIX 4 |  | 12.0000", "| 12 | FIX 4 |  | 12.0000 | x", {},
      "7 fields, expected 6"),
     ("a vector that does not set its mode", "vectors.txt", "MODE33 FIX4 7 ENTER 5 + |", "FIX4 7 ENTER 5 + |", {},
@@ -115,6 +123,8 @@ CONTROLS = [
 # Negative controls: harmless changes that must still pass, so a red above is not a check that
 # fails on everything near it. (The first em-dash check counted the text "2014".)
 GREENS = [
+    ("a why number from its example's lead-in", [("lesson.md", "To add 7 and 5, type 7, press ENTER, type 5, and press +.",
+      "To add 7 and 5, 2 numbers, type 7, press ENTER, type 5, and press +."), ("lesson.md", 'X shows <disp v="S01">12.0000</disp>.\n', 'X shows <disp v="S01">12.0000</disp>.\n\n```why\nask: Why do 2 numbers go in before +?\nbecause: + needs both, so each is typed and kept first.\n```\n')], None, None),
     ("a why block under S01 whose numbers its example shows", "lesson.md", 'X shows <disp v="S01">12.0000</disp>.\n',
      'X shows <disp v="S01">12.0000</disp>.\n\n```why\nask: Why does Y hold 7 when + is pressed?\n'
      'because: ENTER copied the 7 up into Y, and the 5 replaced the copy in X, so + gives 12.\n```\n'),
@@ -776,6 +786,10 @@ GREENS_FOR = {
     "whole-01-adding-and-subtracting": [
         ("a plain sentence reworded, the same numbers in the same order", "lesson.md",
          "A store holds 742 loaves, and 368 are sent out.", "A store has 742 loaves and sends out 368."),
+        ("a why number from the lead-in above an example's first entry variant",
+         [("lesson.md", "By hand, 3452 + 1879 = 5331. Now the check:", "By hand, in 4 columns, 3452 + 1879 = 5331. Now the check:"),
+          ("lesson.md", "to make a long number easier to read.\n",
+           "to make a long number easier to read.\n\n```why\nask: Why do the 4 columns add one at a time?\nbecause: Each column's carry belongs to the next column to the left.\n```\n")], None, None),
         ("a story sentence reworded, the same numbers", "lesson.md",
          "Tobin had 5000 loaves to deliver this season and has delivered 2768.",
          "This season Tobin had 5000 loaves to deliver, and 2768 are delivered."),
