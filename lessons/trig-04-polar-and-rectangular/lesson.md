@@ -12,7 +12,7 @@ display: FIX 4
 A point on a plane can be named two ways. Rectangular coordinates say how far across and how far up:
 (x, y), the across and up of trig-03. Polar coordinates say how far the point is from O, where the
 axes cross, and in which direction: a distance r and an angle θ, measured anticlockwise from the
-positive x axis as in trig-03. A point in polar form is written (r, θ).
+positive x axis. A point in polar form is written (r, θ).
 
 ```
             y
@@ -27,18 +27,16 @@ positive x axis as in trig-03. A point in polar form is written (r, θ).
             |    x
 ```
 
-The point lies on the arm from trig-03, r times as far out as the point P on the unit circle. Every length
+The point lies on the same arm as the point P on the unit circle, r times as far out. Every length
 is stretched by r and the angle stays the same, as with the scaled triangles of trig-02, so
 
 x = r cos θ, y = r sin θ, and r = √(x² + y²)
 
-by Pythagoras' rule, squaring removing any signs (trig-03). The point (3, 4) is 5 from O, since
-3² + 4² = 5², at an angle of about 53 degrees. This lesson converts between the two forms. Both
-conversions use the angle unit that is set, so check it first (trig-01); here it is degrees.
+by Pythagoras' rule, squaring removing any signs. The point (3, 4) is 5 from O, since
+3² + 4² = 5², at an angle of about 53 degrees. The calculator converts between the two forms. Both
+conversions use the angle unit that is set, so check it first; here it is degrees.
 
 ## From before
-
-Two from before, by hand: an angle from trig-03, and one from unit 1.
 
 ```item TR4F1
 prompt: −90° points the same way as which angle from 0° to 360°?
@@ -101,13 +99,13 @@ gives a different answer:
 4 ENTER 3 +/− ÷ GOLD ATAN
 ```
 
-X shows <disp v="Q02">-53.1301</disp>. Like ASIN in trig-03, ATAN answers only between −90 and 90
+X shows <disp v="Q02">-53.1301</disp>. Like ASIN, ATAN answers only between −90 and 90
 degrees, and a ratio cannot tell (−3, 4) from (3, −4): 4 ÷ −3 and −4 ÷ 3 are the same number. So
 ATAN's −53.1301 points at (3, −4), down and to the right; for a point on the left you would have to
 add 180 yourself. →POL knows the signs of both coordinates, so it puts the angle on the correct side
 without that. Its angles run from just above −180 up to and including 180 degrees (a point straight
 left gets 180, never −180): a point below the x axis gets a negative angle, and adding 360 gives
-the same direction between 0 and 360 (trig-03).
+the same direction between 0 and 360.
 
 ## Polar to rectangular
 
@@ -170,9 +168,6 @@ because: y is r sin 30°, and the sine of 30 degrees is one half, so y is half o
 
 ## Mixed review
 
-Four from this lesson and the ones before it, in no order. Work each by hand unless it says to use
-the calculator.
-
 ```item TR4M1
 prompt: How far is the point (6, 8) from O?
 topics: to-polar
@@ -207,7 +202,7 @@ slip: TR4M4A | did not square the sine | cos²θ is 1 − 0.8², which is 1 − 
 
 ## Checkpoint
 
-Questions on the whole unit. Work each by hand first (a few offer the calculator), then give your answer; the page checks it. A wrong answer that comes from a common slip gets a hint that names the step.
+Questions on the whole unit.
 
 ```item CP7A
 prompt: A right triangle's two shorter sides are 5 and 12. How long is its hypotenuse?

@@ -38,8 +38,6 @@ angle, or an angle from two sides.
 
 ## From before
 
-Two from before, by hand: an arc from trig-01, and fractions from unit 1.
-
 ```item TR2F1
 prompt: A circle has radius 5. How long is the arc for an angle of 0.4 radians?
 topics: arc-length
@@ -169,9 +167,6 @@ because: A triangle's three angles together make half a turn, and the right angl
    X shows <disp v="E02B">2.4000</disp> m. (Check with 0.7² + 2.4² = 2.5².)
 
 ## Mixed review
-
-Four from this lesson and the ones before it, in no order. Work each by hand unless it says to use
-the calculator.
 
 ```item TR2M1
 prompt: A right triangle's two shorter sides are 6 and 8. How long is its hypotenuse?

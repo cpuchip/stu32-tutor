@@ -14,8 +14,6 @@ But SIN and COS take any angle: 120, 200, 390, or −30. They come from a circle
 
 ## From before
 
-Two from before, by hand: a square root from unit 1, and a hypotenuse from trig-02.
-
 ```item TR3F1
 prompt: Work out √(1 − 0.36).
 topics: square-root
@@ -68,7 +66,7 @@ negative below the x axis.
                         |
 ```
 
-For an angle between 0 and 90 degrees this is the triangle of trig-02: O, P, and the point below P on the x
+For an angle between 0 and 90 degrees this is the right triangle from before: O, P, and the point below P on the x
 axis make a right triangle whose hypotenuse is the arm, of length 1, so sin θ = up ÷ 1 and
 cos θ = across ÷ 1. Beyond 90 degrees there is no right triangle with that angle, but P still has
 coordinates, and those are the sine and cosine.
@@ -105,7 +103,7 @@ x axis sine is negative.
 
 For any angle, O, P and the point on the x axis straight below or above P make a right triangle,
 whatever side of the axes P is on. Its sides are as long as the across and the up, without their
-signs, and its hypotenuse is the arm, 1. Pythagoras' rule (trig-02 used it the other way round) says
+signs, and its hypotenuse is the arm, 1. Pythagoras' rule (the last lesson used it the other way round) says
 that in a right triangle the two shorter sides squared add up to the longest squared. So, writing
 sin²θ for (sin θ)², cos²θ + sin²θ = 1, for every angle: squaring removes the signs. Check it at 200
 degrees, with x² (gold above √x) squaring each:
@@ -158,7 +156,7 @@ between 0 and 360. ASIN can give only one:
 
 X shows <disp v="U07">30.0000</disp>. ASIN always answers between −90 and 90 degrees, and the other
 angle with the same sine is 180 minus that one, here 150. (Only at the very top and bottom, sin θ = 1
-or −1, is there one angle and no mirror.) This is what trig-02 promised: for a right triangle the
+or −1, is there one angle and no mirror.) This is what the last lesson promised: for a right triangle the
 answer between 0 and 90 is the one meant, but in general it is one of two.
 
 ```why
@@ -193,9 +191,6 @@ X shows <disp v="E02">-0.5000</disp>. The two angles are 120 and 240 degrees. (1
 sine's mirror, and cos 60° is +0.5, not −0.5.)
 
 ## Mixed review
-
-Four from this lesson and the ones before it, in no order. Work each by hand unless it says to use
-the calculator.
 
 ```item TR3M1
 prompt: cos θ = 0.6. What is sin²θ?

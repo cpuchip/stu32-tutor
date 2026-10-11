@@ -14,12 +14,12 @@ the arc it cuts from a circle centred on the angle's corner: one radian is the a
 as long as the circle's radius. A full circle's edge is 2π times its radius, so the radius fits
 around the edge 2π times, and a full turn is 2π radians; half a turn, 180 degrees, is π radians.
 The calculator's sine and the other angle functions read angles in whichever unit is set, and a
-wrong unit gives a wrong answer with no warning. This lesson sets the unit, sees what it changes,
-and converts between the two.
+wrong unit gives a wrong answer with no warning. So set the unit first; then see what it changes,
+and convert between the two.
 
 ## From before
 
-Two from num-02, by hand: fractions, which radians are full of.
+Radians are full of fractions.
 
 ```item TR1F1
 prompt: Work out 1/2 + 1/4, as a decimal.
@@ -138,7 +138,7 @@ because: r × θ counts radii along the arc, and only a radian cuts exactly one 
 
 ## Answers
 
-1. The keys:
+1. Degrees to radians:
 
    ```keys E01
    45 BLUE →RAD
@@ -146,7 +146,7 @@ because: r × θ counts radii along the arc, and only a radian cuts exactly one 
 
    X shows <disp v="E01">0.7854</disp>: π ÷ 4, an eighth of a turn.
 
-2. The keys:
+2. Radians to degrees:
 
    ```keys E02
    2 BLUE →DEG
@@ -163,9 +163,6 @@ because: r × θ counts radii along the arc, and only a radian cuts exactly one 
    X shows <disp v="E03">0.7071</disp>.
 
 ## Mixed review
-
-Four from this lesson and the ones before it, in no order. Work each by hand unless it says to use
-the calculator.
 
 ```item TR1M1
 prompt: A circle has radius 3. How long is the arc for an angle of 2 radians?
