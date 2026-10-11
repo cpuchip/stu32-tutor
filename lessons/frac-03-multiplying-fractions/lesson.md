@@ -203,3 +203,34 @@ answer: type
 calculator: no
 slip: FR3M4A | the part eaten, not the part left | 8 − 3 is 5 pieces left: 5/8.
 ```
+
+## Checkpoint
+
+Questions on the whole unit.
+
+```item CPP5A
+prompt: Put 18/24 in simplest form. What is its bottom number?
+topics: simplest-form
+answer: type
+calculator: no
+slip: CPP5A1 | divided by 2 only | 9/12 is simpler, but 9 and 12 still share a 3. Divide top and bottom by the greatest common factor, 6.
+slip: CPP5A2 | divided by 3 only | 6/8 is simpler, but 6 and 8 still share a 2. Divide top and bottom by the greatest common factor, 6.
+```
+
+```item CPP5B
+prompt: Work out 2/3 + 1/4. Written with a bottom number of 12, what is its top?
+topics: common-bottom
+answer: type
+calculator: no
+slip: CPP5B1 | added the tops and the bottoms | Fractions add only when their pieces are the same size: make both twelfths first, 2/3 = 8/12 and 1/4 = 3/12.
+slip: CPP5B2 | changed only one top | 1/4 as twelfths is 3/12: multiply its top by 3 as well as its bottom.
+```
+
+```item CPP5C
+prompt: How many pieces of 3/8 are in 3/4?
+topics: divide-fractions
+answer: type
+calculator: no
+slip: CPP5C1 | multiplied instead of dividing | "How many fit" is a division: 3/4 ÷ 3/8, which is 3/4 × 8/3.
+slip: CPP5C2 | flipped the wrong fraction | Keep the first fraction and flip the one you divide by: 3/4 × 8/3.
+```
