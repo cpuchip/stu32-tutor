@@ -135,6 +135,15 @@ ask: Why does $(6.5 − 0.75 × 6) ÷ (1.25 − 0.75)$ count the pears?
 because: Six apples would cost $0.75 × 6$. Each pear in place of an apple costs $1.25 − 0.75$ more, so the money above that, divided by the extra for each pear, is the number of pears.
 ```
 
+Now pencils at 0.60 dollars and pens at 1.40: nine of them cost 7.80. How many pens? The same way,
+with the pens as $y$.
+
+```keys F01T twin=F01
+7.8 ENTER 0.6 ENTER 9 × − 1.4 ENTER 0.6 − ÷
+```
+
+X holds 3: three pens, and so six pencils.
+
 ## No solution, or every solution
 
 The graph of each equation in these systems is a line. To see its slope and intercept (lin-01),

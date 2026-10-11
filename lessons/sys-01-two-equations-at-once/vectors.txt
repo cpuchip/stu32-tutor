@@ -8,6 +8,8 @@ L01 | elimination: y = 37 - 2 x 15 | MODE33 FIX4 37 ENTER 2 ENTER 15 * - | X=7
 L02 | continues L01: y kept in Y; x = 15 - y | MODE33 FIX4 37 ENTER 2 ENTER 15 * - STO:Y 15 RCL:Y - | X=8 @Y=7
 F01 | the fruit: y = (6.5 - 0.75 x 6) / (1.25 - 0.75) | MODE33 FIX4 6.5 ENTER 0.75 ENTER 6 * - 1.25 ENTER 0.75 - / | X=4
 F02 | continues F01: x = 6 - y | MODE33 FIX4 6.5 ENTER 0.75 ENTER 6 * - 1.25 ENTER 0.75 - / STO:Y 6 RCL:Y - | X=2 @Y=4
+# F01's twin (step 5).
+F01T | twin of F01: pencils 0.60, pens 1.40, nine for 7.80: (7.8 - 0.6 x 9) / (1.4 - 0.6) pens | MODE33 FIX4 7.8 ENTER 0.6 ENTER 9 * - 1.4 ENTER 0.6 - / | X=3
 P01 | parallel lines: the second minus the first leaves 0 = 5 - 3 | MODE33 FIX4 5 ENTER 3 - | X=2
 P02 | the same line twice: 6 - 2 x 3 = 0, so 0 = 0 | MODE33 FIX4 6 ENTER 2 ENTER 3 * - | X=0
 E01 | exercise 1: x = 16 - 2 x 6 | MODE33 FIX4 16 ENTER 2 ENTER 6 * - | X=4

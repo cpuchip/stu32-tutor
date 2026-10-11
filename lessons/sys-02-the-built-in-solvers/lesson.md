@@ -159,6 +159,17 @@ ask: Why must $y = 2x + 1$ be rearranged before it goes in?
 because: The solver reads each equation as $A$ times $x$ plus $B$ times $y$ equals $C$: both unknowns on the left and only a number on the right. $−2x + y = 1$ is the same equation in that form.
 ```
 
+```item RF1T1
+prompt: $y = 5x − 2$ goes into the solver as $Ax + By = C$. By hand, what is $A$?
+twin: R01
+topics: solver-form
+answer: type
+calculator: no
+working: none
+slip: RF1T1A | the sign kept | Taking $5x$ from both sides leaves $−5x + y = −2$, so $A$ is −5.
+slip: RF1T1B | B, not A | $A$ goes with $x$; the 1 in front of $y$ is $B$.
+```
+
 ## Three equations
 
 At a market, three shoppers buy apples by the kilo, loaves of bread and cheeses. The first pays 9.50
