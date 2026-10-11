@@ -10,13 +10,12 @@ display: FIX 4
 # Equations, and checking a solution
 
 An equation says two things are equal: 2x + 3 = 11. Solving it means finding the x that makes it
-true. Before the STU-32 finds x for you, this lesson shows how to check an answer, because a check
-is how you know any answer is right, yours or the calculator's.
+true. Checking an answer comes before the STU-32 finds x for you, because a check is how you know
+any answer is right, yours or the calculator's.
 
 ## From before
 
-Two from unit 1, by hand, before the calculator comes out. Solving an equation is undoing
-arithmetic like this, so it needs to be sure.
+Solving an equation undoes arithmetic like this.
 
 ```item EQ1F1
 prompt: Work out 2 × (3 + 4).
@@ -45,7 +44,7 @@ BLUE MODE {mode} GOLD DISP FIX 4
 
 A word about names. The unknown in an equation is usually called x, and on the calculator it is
 the variable X, the same kind of variable as A to Z in rpn-02. The bottom line of the screen is
-also called X. In this lesson, "X shows" always means that bottom line, and "the variable X" means
+also called X. From here on, "X shows" always means that bottom line, and "the variable X" means
 the stored value.
 
 ## Typing an equation
@@ -118,8 +117,8 @@ X
 ```
 
 The X line shows <disp v="Q05" kind="view">X=4.0000</disp>: SOLVE ends by showing the
-variable it solved for, as VIEW does in rpn-02. The 4 is in X, and it is stored in the variable
-X too: the solution you checked by hand above. The next key clears the view: ← and C only clear
+variable it solved for, as VIEW does. The 4 is in X, and it is stored in the variable
+X too: the solution XEQ checked. The next key clears the view: ← and C only clear
 it, and any other key clears it and then does its own job. Press ←:
 
 ```keys Q05C after=Q05
@@ -190,7 +189,7 @@ always types the ×. Typing it in STU mode does no harm.
 
 ## Answers
 
-1. Yes. The keys:
+1. Yes:
 
    ```keys E01
    GOLD EQN 5 × RCL X − 4 = 11 ENTER XEQ 3 R/S
@@ -214,9 +213,6 @@ always types the ×. Typing it in STU mode does no harm.
    X shows <disp v="E02B">0.0000</disp>, because 3 × (−2) + 7 is 1.
 
 ## Mixed review
-
-Four from this lesson and the ones before it, in no order. Work each by hand unless it says to use
-the calculator.
 
 ```item EQ1M1
 prompt: Type 3x − 5 = 13 and XEQ it at x = 6. What does X show? Does 6 solve it?

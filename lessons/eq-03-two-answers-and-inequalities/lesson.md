@@ -10,12 +10,10 @@ display: FIX 4
 # Two answers, and inequalities
 
 The equations in eq-01 and eq-02 each had one answer. Some have more than one, and SOLVE finds only
-one at a time. This lesson shows how to point SOLVE at each answer, and then how the check from
-eq-01 answers a second question: which side of an answer a value is on.
+one at a time, so you point it at each answer in turn. The XEQ check then answers a second
+question: which side of an answer a value is on.
 
 ## From before
-
-Two from unit 1, by hand.
 
 ```item EQ3F1
 prompt: Work out 7² − 4².
@@ -82,7 +80,7 @@ Now guesses on the other side, 0 and −10:
 0 STO X 10 +/− GOLD EQN GOLD SOLVE X
 ```
 
-The X line shows <disp v="A04" kind="view">X=-2.0000</disp>. Both answers, found by giving SOLVE guesses near each one. When
+The X line shows <disp v="A04" kind="view">X=-2.0000</disp>. SOLVE found both answers, from guesses near each one. When
 you expect more than one answer, work out roughly where they are first, by reasoning as above or by
 checking values with XEQ and watching where left minus right changes sign, then guess near each.
 
@@ -91,7 +89,7 @@ ask: Why did guesses 0 and −10 find −2, and not the 8 from before?
 because: SOLVE usually finds the answer nearest its guesses, and −2 is much nearer to 0 and −10 than 8 is.
 ```
 
-One more thing about guesses. Right after you type an equation and press ENTER, Equation mode is
+Right after you type an equation and press ENTER, Equation mode is
 still on, and digits you type start a new equation instead of setting a guess. So press EQN once
 to leave Equation mode, set the guesses, then press EQN again to show the equation for SOLVE.
 SOLVE and XEQ need the equation showing; STO and the guesses need Equation mode off.
@@ -99,11 +97,11 @@ SOLVE and XEQ need the equation showing; STO and the guesses need Equation mode 
 ## Inequalities
 
 An inequality says one side is less than or greater than the other: 2x + 3 < 11. The x where the
-two sides are equal is the boundary; eq-01 found it: 2x + 3 = 11 at x = 4. This equation has one
+two sides are equal is the boundary: 2x + 3 = 11 at x = 4, as you found before. This equation has one
 answer, so the x that make the inequality true lie all on one side of 4. (An inequality whose
 equation has two answers, like |x − 3| < 5, is true between them, from −2 to 8.)
 
-The check from eq-01 tells you which side a value is on. XEQ works out left minus right, and if that
+The XEQ check tells you which side a value is on. XEQ works out left minus right, and if that
 is negative, the left side is smaller. This example starts fresh. Type the boundary equation and
 test 0:
 
@@ -119,7 +117,7 @@ GOLD EQN XEQ 5 R/S
 ```
 
 X shows <disp v="B02">2.0000</disp>: positive, so 5 does not. The inequality is true for every x less
-than 4: x < 4. At 4 itself the two sides are equal (eq-01 showed 0 there), so 4 is not less: it
+than 4: x < 4. At 4 itself the two sides are equal (XEQ showed 0 there), so 4 is not less: it
 would count only for ≤, "less than or equal to".
 
 ```why
@@ -167,9 +165,6 @@ because: Left minus right, 2x + 3 − 11, is a straight line that crosses zero o
 
 ## Mixed review
 
-Four from this lesson and the ones before it, in no order. Work each by hand unless it says to use
-the calculator.
-
 ```item EQ3M1
 prompt: x × x = 9 has two answers. Which does SOLVE find from guesses 1 and 5?
 topics: solve-guesses
@@ -204,7 +199,7 @@ slip: EQ3M4A | multiplied the powers | 10² × 10³ is 100 × 1000: the powers a
 
 ## Checkpoint
 
-Questions on the whole unit. Work each by hand first (a few offer the calculator), then give your answer; the page checks it. A wrong answer that comes from a common slip gets a hint that names the step.
+Questions on the whole unit.
 
 ```item CP2A
 prompt: Solve 4x − 7 = 13. What is x?

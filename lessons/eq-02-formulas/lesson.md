@@ -16,8 +16,6 @@ for whichever letter you need.
 
 ## From before
 
-Two from before, by hand: one from unit 1, and one check from eq-01.
-
 ```item EQ2F1
 prompt: Work out (8 + 4) ÷ (5 − 2): the whole top over the whole bottom.
 topics: fraction-bar
@@ -38,7 +36,7 @@ slip: EQ2F2A | the left side alone | Left minus right: 3 × 5 − 2 is 13, and 1
 
 The setup from rpn-01: the mode you chose and FIX 4. Work the examples in order: each one either carries on
 from the one before or starts fresh, and the text says which. eq-01 showed how to type an equation,
-check it with XEQ, and solve it with SOLVE; this lesson types and solves.
+check it with XEQ, and solve it with SOLVE; the examples here type and solve.
 
 ```keys setup
 BLUE MODE {mode} GOLD DISP FIX 4
@@ -104,8 +102,8 @@ Now it asks <disp v="S02B" kind="prompt">W?</disp>, with the 3.5 showing. R/S ke
 R/S
 ```
 
-The X line shows <disp v="S02" kind="view">L=12.0000</disp>, the length you started from. One formula, typed once, answered
-for two different letters.
+The X line shows <disp v="S02" kind="view">L=12.0000</disp>, the length you started from: the formula, typed once,
+has answered for two different letters.
 
 ```why
 ask: Why does solving for L give back 12, the length you started from?
@@ -137,7 +135,7 @@ Celsius? EQN shows the last equation you viewed, here the temperature formula, s
 GOLD EQN GOLD SOLVE F 100 R/S
 ```
 
-The X line shows <disp v="T02" kind="view">F=212.0000</disp>.
+The X line shows <disp v="T02" kind="view">F=212.0000</disp>, the boiling point of water.
 
 ## Exercises
 
@@ -156,7 +154,7 @@ The X line shows <disp v="T02" kind="view">F=212.0000</disp>.
 
    The X line shows <disp v="E01" kind="view">T=2.5000</disp>: two and a half hours.
 
-2. The keys:
+2. The same formula, solved for C:
 
    ```keys E02
    GOLD EQN RCL F = 1.8 × RCL C + 32 ENTER GOLD SOLVE C 40 +/− R/S
@@ -165,9 +163,6 @@ The X line shows <disp v="T02" kind="view">F=212.0000</disp>.
    The X line shows <disp v="E02" kind="view">C=-40.0000</disp>: −40 degrees is the same in both scales.
 
 ## Mixed review
-
-Four from this lesson and the ones before it, in no order. Work each by hand unless it says to use
-the calculator.
 
 ```item EQ2M1
 prompt: A rectangle's perimeter is P = 2 × L + 2 × W. With P = 30 and L = 9, solve for W with SOLVE.
