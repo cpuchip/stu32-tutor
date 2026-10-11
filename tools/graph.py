@@ -319,10 +319,13 @@ def selftest_routes(lessons, graph):
     units = {(cid, u["n"]): u for cid, c in g["courses"].items() for u in c["units"]}
     expect = (units[("algebra-to-calculus", "4")]["closes_on"] == "checkpoint"
               and units[("algebra-to-calculus", "0")]["closes_on"] == "lessons"
-              and units[("pre-algebra", "1")]["closes_on"] == "lessons"
               and units[("pre-algebra", "6")]["closes_on"] == "unwritten"
               and units[("geometry", "2")]["closes_on"] == "unwritten"
-              and "pre-algebra 1" in interim_units(g) and not any(x.endswith(" 0") for x in interim_units(g)))
+              and all(u["closes_on"] == ("checkpoint" if u["checkpoint"] else "lessons" if u["lessons"] else "unwritten")
+                      for u in units.values())
+              and set(interim_units(g)) == {f"{c} {n}" for (c, n), u in units.items()
+                                            if u["closes_on"] == "lessons" and n != "0"}
+              and not any(x.endswith(" 0") for x in interim_units(g)))
     print(f"{'ok  ' if expect and not clean else 'FAIL'} the real units close on their checkpoint or their lessons, "
           f"unit 0 by rule and the rest listed: {interim_units(g)}; empty units unwritten" + (f": {clean[:2]}" if clean else ""))
     return bool(hit) and expect and not clean

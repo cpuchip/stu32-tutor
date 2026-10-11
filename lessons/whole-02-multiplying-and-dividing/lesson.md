@@ -227,3 +227,34 @@ Do each by hand first, then check.
    ```
 
    shows <disp v="E03B">1.0000</disp>.
+
+## Checkpoint
+
+Questions on the whole unit.
+
+```item CPP1A
+prompt: A shop had 4206 nails and sold 1859 of them. How many are left?
+topics: column-subtraction
+answer: type
+calculator: no
+slip: CPP1A1 | the smaller digit from the larger | In the ones, 6 take away 9 cannot be done as it stands: trade a ten down first. Taking the smaller digit from the larger in each column gives the wrong number.
+slip: CPP1A2 | one trade not counted | After trading down, the column you traded from has one less. Check the hundreds: 2 hundreds lent one to the tens.
+```
+
+```item CPP1B
+prompt: Work out 37 × 24.
+topics: partial-products
+answer: type
+calculator: no
+slip: CPP1B1 | tens by tens and ones by ones only | 37 × 24 has four parts: 30 × 20, 30 × 4, 7 × 20 and 7 × 4. Two of them were left out.
+slip: CPP1B2 | the tens row without its zero | The 2 in 24 is 2 tens, so 37 × 2 tens is 740, not 74.
+```
+
+```item CPP1C
+prompt: 86 rolls are packed into boxes of 6. How many boxes are filled?
+topics: quotient-remainder
+answer: type
+calculator: no
+slip: CPP1C1 | counted the part box | 6 × 15 is 90, more than 86: the last box is not full. Count only the full ones.
+slip: CPP1C2 | the rolls left over | That is how many rolls are left over. The question asks for the full boxes.
+```

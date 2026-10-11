@@ -35,3 +35,28 @@ WH2F2W@alg | its working | MODE33 FIX4 6004 - 2357 ENTER | N=3647 %LINE=6004-235
 WH2F2W@rpn | its working | MODE33 FIX4 6004 ENTER 2357 - | X=3647
 WH2F2A@alg | slip: the smaller digit from the larger in each column, 4353 | MODE33 FIX4 6004 - 2357 + 706 ENTER | N=4353 %LINE=6004-2357+706
 WH2F2A@rpn | slip: the smaller digit from the larger in each column, 4353 | MODE33 FIX4 6004 ENTER 2357 - 706 + | X=4353
+# Checkpoint, unit 1 (abacus #7157): each answer typed, its working, and the slips'; @alg the line, @rpn the stack.
+CPP1A@alg | checkpoint: 4206 − 1859, typed | MODE33 FIX4 2347 ENTER | N=2347 %LINE=2347
+CPP1A@rpn | checkpoint: 4206 − 1859, typed | MODE33 FIX4 2347 ENTER | X=2347
+CPP1AW@alg | its working | MODE33 FIX4 4206 - 1859 ENTER | N=2347 %LINE=4206-1859
+CPP1AW@rpn | its working | MODE33 FIX4 4206 ENTER 1859 - | X=2347
+CPP1A1@alg | slip: the smaller digit from the larger in each column, 3653 | MODE33 FIX4 4206 - 1859 + 1306 ENTER | N=3653 %LINE=4206-1859+1306
+CPP1A1@rpn | slip: the smaller digit from the larger in each column, 3653 | MODE33 FIX4 4206 ENTER 1859 - 1306 + | X=3653
+CPP1A2@alg | slip: the hundreds' trade not counted, 2447 | MODE33 FIX4 4206 - 1859 + 100 ENTER | N=2447 %LINE=4206-1859+100
+CPP1A2@rpn | slip: the hundreds' trade not counted, 2447 | MODE33 FIX4 4206 ENTER 1859 - 100 + | X=2447
+CPP1B@alg | checkpoint: 37 x 24, typed | MODE33 FIX4 888 ENTER | N=888 %LINE=888
+CPP1B@rpn | checkpoint: 37 x 24, typed | MODE33 FIX4 888 ENTER | X=888
+CPP1BW@alg | its working | MODE33 FIX4 37 * 24 ENTER | N=888 %LINE=37×24
+CPP1BW@rpn | its working | MODE33 FIX4 37 ENTER 24 * | X=888
+CPP1B1@alg | slip: 30 x 20 + 7 x 4 only | MODE33 FIX4 30 * 20 + 7 * 4 ENTER | N=628 %LINE=30×20+7×4
+CPP1B1@rpn | slip: 30 x 20 + 7 x 4 only | MODE33 FIX4 30 ENTER 20 * 7 ENTER 4 * + | X=628
+CPP1B2@alg | slip: 37 x 4 + 37 x 2, the tens row's zero lost | MODE33 FIX4 37 * 4 + 37 * 2 ENTER | N=222 %LINE=37×4+37×2
+CPP1B2@rpn | slip: 37 x 4 + 37 x 2, the tens row's zero lost | MODE33 FIX4 37 ENTER 4 * 37 ENTER 2 * + | X=222
+CPP1C@alg | checkpoint: full boxes of 6 from 86, typed | MODE33 FIX4 14 ENTER | N=14 %LINE=14
+CPP1C@rpn | checkpoint: full boxes of 6 from 86, typed | MODE33 FIX4 14 ENTER | X=14
+CPP1CW@alg | its working: INT÷ | MODE33 FIX4 IDIV 86 , 6 > ENTER | N=14 %LINE=IDIV(86,6)
+CPP1CW@rpn | its working: INT÷ | MODE33 FIX4 86 ENTER 6 IDIV | X=14
+CPP1C1@alg | slip: the part box counted | MODE33 FIX4 IDIV 86 , 6 > + 1 ENTER | N=15 %LINE=IDIV(86,6)+1
+CPP1C1@rpn | slip: the part box counted | MODE33 FIX4 86 ENTER 6 IDIV 1 + | X=15
+CPP1C2@alg | slip: the remainder given | MODE33 FIX4 RMDR 86 , 6 > ENTER | N=2 %LINE=RMDR(86,6)
+CPP1C2@rpn | slip: the remainder given | MODE33 FIX4 86 ENTER 6 RMDR | X=2
