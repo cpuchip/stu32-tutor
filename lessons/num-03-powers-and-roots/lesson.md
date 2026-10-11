@@ -74,6 +74,16 @@ twenty-four. Swap them, 10 first and 2 second, and you get $10^{2}$, which is 10
 
 X holds 100.
 
+```item R4T1
+prompt: Work out $2^{5}$ by hand: five 2s multiplied.
+twin: R04
+topics: power
+answer: type
+calculator: no
+slip: R4T1A | multiplied by the power | $2^{5}$ is $2 × 2 × 2 × 2 × 2$, not $2 × 5$.
+slip: R4T1B | the two swapped | The 2 is raised and the 5 is the power: $2^{5}$, not $5^{2}$.
+```
+
 ## Roots of any order
 
 The root that undoes yˣ is ˣ√y (gold, above yˣ). It takes the X-th root of Y, again with the

@@ -62,6 +62,16 @@ Parentheses tell you to do their inside before anything else. For $(6 + 2) ÷ 4$
 
 X holds 2.
 
+```item N2T1
+prompt: Work out $(10 + 2) ÷ 3$ by hand: the parentheses first.
+twin: N02
+topics: parentheses
+answer: type
+calculator: no
+slip: N2T1A | divided first | The parentheses come first: $10 + 2 = 12$, and then $12 ÷ 3$.
+slip: N2T1B | divided the 9 only | The ÷ 3 divides the whole of $(10 + 2)$, not the 10 alone.
+```
+
 ## Powers before multiplication
 
 In $2 × 3^{2}$, the power belongs to the 3 alone, so square the 3 before multiplying:

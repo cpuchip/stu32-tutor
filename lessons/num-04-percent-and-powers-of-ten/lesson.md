@@ -59,6 +59,16 @@ ask: Why do % and then − take 25% off 60, with no second 60 typed?
 because: % leaves the 60 in Y and puts the discount in X, so − takes the discount away from the 60.
 ```
 
+```item C3T1
+prompt: Take 20% off 55 by hand: the discount first, then take it away.
+twin: C03
+topics: percent
+answer: type
+calculator: no
+slip: C3T1A | stopped at the discount | 20% of 55 is the discount, 11; the price after it is 55 less the 11.
+slip: C3T1B | added the discount | A discount is taken off: 55 less 11, not 55 and 11 more.
+```
+
 ## Percent change
 
 The %CHG key works how much Y changed to become X, as a percent of Y: (X − Y) ÷ Y × 100. A price

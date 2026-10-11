@@ -4,6 +4,11 @@ R01 | 3 squared | MODE33 FIX4 3 SQ | X=9
 R02 | the square root of 49 | MODE33 FIX4 49 SQRT | X=7
 R03 | 2 to the 10th: y^x raises Y to the power X | MODE33 FIX4 2 ENTER 10 POW | X=1024
 R04 | the order matters: 10 squared is 10 ENTER 2 y^x | MODE33 FIX4 10 ENTER 2 POW | X=100
+# R04's twin (step 5): its answer typed, its working, and the slips'.
+R4T1 | twin: 2 to the 5th, typed | MODE33 FIX4 32 ENTER | X=32
+R4T1W | its working: 2 to the 5th | MODE33 FIX4 2 ENTER 5 POW | X=32
+R4T1A | slip: 2 x 5 | MODE33 FIX4 2 ENTER 5 * | X=10
+R4T1B | slip: swapped, 5 squared | MODE33 FIX4 5 ENTER 2 POW | X=25
 R05 | the cube root of 27: x-root takes the X-th root of Y | MODE33 FIX4 27 ENTER 3 XROOT | X=3
 R06 | a negative power: 2 to the -3 is 1/8 | MODE33 FIX4 2 ENTER 3 CHS POW | X=0.125
 R07 | a root as a power: 16 to the 1/2 is 4 | MODE33 FIX4 16 ENTER .5 POW | X=4

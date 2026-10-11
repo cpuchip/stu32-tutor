@@ -4,6 +4,11 @@ C00 | % leaves the stack where it was: 15% of 80 with 1 and 2 above | MODE33 FIX
 C01 | 15% of 80: % works X percent of Y and keeps Y | MODE33 FIX2 80 ENTER 15 PCT | X=12 Y=80
 C02 | continues C00: + adds the 12 to the 80 kept in Y | MODE33 FIX2 1 ENTER 2 ENTER 80 ENTER 15 PCT + | X=92 Y=2
 C03 | 25% off 60: the discount, then subtract it | MODE33 FIX2 60 ENTER 25 PCT - | X=45
+# C03's twin (step 5): its answer typed, its working, and the slips'.
+C3T1 | twin: 20% off 55, typed | MODE33 FIX2 44 ENTER | X=44
+C3T1W | its working: 20% of 55, taken off | MODE33 FIX2 55 ENTER 20 PCT - | X=44
+C3T1A | slip: the discount only | MODE33 FIX2 55 ENTER 20 PCT | X=11
+C3T1B | slip: the discount added | MODE33 FIX2 55 ENTER 20 PCT + | X=66
 C04 | percent change from 50 to 65, Y kept | MODE33 FIX2 50 ENTER 65 PCTCHG | X=30 Y=50
 C05 | percent change from 80 down to 60 | MODE33 FIX2 80 ENTER 60 PCTCHG | X=-25
 C06 | a power of ten typed with a negative exponent: 4 E -3 | MODE33 FIX2 4 E 3 CHS ENTER | X=0.004

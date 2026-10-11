@@ -55,6 +55,14 @@ ask: Why is the tax 3.3, and not the tax on the rounded rate the screen showed a
 because: Only the screen rounds. A keeps all of 0.0825, and RCL brings back every digit, so the tax is $40 × 0.0825$.
 ```
 
+A lower tax of 6% is 0.06. Store it in A, then work out the tax on a 25 dollar purchase the same way:
+
+```keys V02T twin=V02
+0.06 STO A 25 RCL A ×
+```
+
+That is a tax of 1.5 dollars.
+
 RCL can also do the arithmetic. Press RCL, then ×, then A, and X is multiplied by A in one step:
 
 ```keys V03

@@ -86,6 +86,16 @@ ask: Why is the answer in sixteenths, when one board was measured in eighths?
 because: An eighth is two sixteenths, so the exact sum is a number of sixteenths. Its top, 13, is odd, so it cannot be halved back into eighths.
 ```
 
+```item G5T1
+prompt: Add $3 \frac{3}{4} + 1 \frac{5}{8}$ by hand. Written as a mixed number in eighths, what is the top of its fraction part?
+twin: G05
+topics: fraction-arithmetic
+answer: type
+calculator: no
+slip: G5T1A | the whole not carried | $\frac{6}{8} + \frac{5}{8} = \frac{11}{8}$, which is more than 1: carry the 1 whole, leaving $\frac{3}{8}$.
+slip: G5T1B | the tops added as they are | Quarters and eighths are different sizes: $\frac{3}{4}$ is $\frac{6}{8}$ before the tops add.
+```
+
 Fraction display is still on. A recipe calls for $\frac{2}{3}$ of a cup, and you are making $\frac{3}{4}$ of the
 recipe:
 

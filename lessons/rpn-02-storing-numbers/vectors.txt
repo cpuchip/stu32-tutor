@@ -3,6 +3,7 @@
 # (every variable holding 7), so no example leans on an empty variable.
 V01 | STO A keeps a copy of X in the variable A; X keeps its number | MODE33 FIX2 0.0825 STO:A | X=0.0825 @A=0.0825
 V02 | RCL A brings it back: the tax at 8.25% on 40 | MODE33 FIX2 0.0825 STO:A 40 RCL:A * | X=3.3 @A=0.0825
+V02T | twin of V02: the tax at 6% on 25 | MODE33 FIX2 0.06 STO:A 25 RCL:A * | X=1.5 @A=0.06
 V03 | recall arithmetic: RCL then x then A multiplies X by A in one step | MODE33 FIX2 0.0825 STO:A 40 RCL*:A | X=3.3 Y=0.0825 @A=0.0825
 V03A | RCL - A works X minus A: 25 minus 10 | MODE33 FIX2 10 STO:A 25 RCL-:A | X=15 @A=10
 V03B | RCL / A works X divided by A: 10 divided by 4 (abacus #4268) | MODE33 FIX2 4 STO:A 10 RCL/:A | X=2.5 @A=4

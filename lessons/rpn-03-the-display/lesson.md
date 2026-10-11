@@ -63,6 +63,14 @@ X shows <disp v="P03">2.00</disp>, and the number underneath is exactly 2. The s
 was rounded at its 34th digit, and three times it rounds back to 2. If the calculator had kept
 only the 0.67 you could see, the answer would have been 2.01.
 
+Now an eighth: divide 1 by 8, set FIX 2, and multiply by 8, as above:
+
+```keys P03T twin=P03
+1 ENTER 8 ÷ GOLD DISP FIX 2 8 ×
+```
+
+The answer is exactly 1: the eighth was kept whole underneath the two places on the screen.
+
 ## Reading a power of ten
 
 The next two settings write a number with E and a power of ten after it. E means "times ten to

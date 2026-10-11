@@ -4,6 +4,11 @@ N01 | 3 + 4 x 5: the multiplication first, with the 3 waiting on the stack | MOD
 N01A | inside N01, just before x: the 3 waits in Z | MODE33 FIX4 3 ENTER 4 ENTER 5 | X=5 Y=4 Z=3
 N01B | the same, from the inside out: 4 x 5 first, then add 3 | MODE33 FIX4 4 ENTER 5 * 3 + | X=23
 N02 | (6 + 2) / 4: the parentheses first | MODE33 FIX4 6 ENTER 2 + 4 / | X=2
+# N02's twin (step 5): its answer typed, its working, and the slips'.
+N2T1 | twin: (10 + 2) / 3, typed | MODE33 FIX4 4 ENTER | X=4
+N2T1W | its working: (10 + 2) / 3 | MODE33 FIX4 10 ENTER 2 + 3 / | X=4
+N2T1A | slip: divided first, 10 + 2 / 3 | MODE33 FIX4 10 ENTER 2 ENTER 3 / + | X=10.66666666666666666666666666666667
+N2T1B | slip: the 10 divided only, 10 / 3 + 2 | MODE33 FIX4 10 ENTER 3 / 2 + | X=5.333333333333333333333333333333333
 N03 | 2 x 3 squared: the power first | MODE33 FIX4 2 ENTER 3 SQ * | X=18
 N04 | (2 x 3) squared: the product first | MODE33 FIX4 2 ENTER 3 * SQ | X=36
 N05 | (12 - 4) / (5 - 3): top and bottom, then the division | MODE33 FIX4 12 ENTER 4 - 5 ENTER 3 - / | X=4

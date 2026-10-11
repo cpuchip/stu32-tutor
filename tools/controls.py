@@ -288,6 +288,11 @@ CONTROLS_FOR["num-03-powers-and-roots"] = [
      {"KEYRUN_FAULT": "no-m35-rule"}, "R07E: printed keys and vector disagree in 35s mode: DIFF"),
     ("a quoted error message the screen does not show", "lesson.md", 'kind="message">INVALID yˣ<',
      'kind="message">INVALID ˣ√y<', {}, "R07D: the device's X line shows 'INVALID yˣ' (message)"),
+    # A power's raised number is an operand: 2⁴ against exercise 3's (−2)⁴ read [2] and [2] before it was (one
+    # operand each, under the two-operand floor, so the collision went unseen).
+    ("an item twin with an exercise's base and power", "lesson.md", "prompt: Work out $2^{5}$ by hand: five 2s multiplied.",
+     "prompt: Work out $2^{4}$ by hand: four 2s multiplied.", {},
+     "item R4T1 works the same operands as num-03 exercise 3 in its unit"),
 ]
 CONTROLS_FOR["eq-01-equations"] = [
     ("a variant naming a mode that does not exist", "lesson.md", "```keys Q06B after=Q06 mode=33s,35s\n",
