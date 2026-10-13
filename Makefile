@@ -1,11 +1,11 @@
 # stu32-tutor: every lesson's examples run on the STU-32's own core. `make check` runs them all.
 #
-# The core is the firmware at CORE_PIN, a commit pushed to cpuchip/abacus-firmware, exported with
+# The core is the firmware at CORE_PIN, a commit pushed to cpuchip/stu32-firmware, exported with
 # git archive into build/ (never built in the firmware's own checkout). Its Makefile builds the
 # runners with its own recipes; we add only the trace (tools/trace.c) at link time.
 # Without a native toolchain, run it in the gcc:14 container: scripts/check-docker.sh.
-CORE_PIN := 1556ade
-FIRMWARE ?= ../abacus-firmware
+CORE_PIN := 6e51b56
+FIRMWARE ?= ../stu32-firmware
 CORE_DIR := build/core-$(CORE_PIN)
 PYTHON ?= python3
 TRACE_O := $(abspath build/trace.o)

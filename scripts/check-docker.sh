@@ -7,12 +7,12 @@
 # image (calc/build.sh passes gcc:14 by digest); gcc:14 by default.
 set -euo pipefail
 here="$(cd "$(dirname "$0")/.." && pwd)"
-fw="$(cd "$here/../abacus-firmware" && pwd)"
+fw="$(cd "$here/../stu32-firmware" && pwd)"
 arcade="$(cd "$here/../stu32-arcade" && pwd)"
 casim="$(cd "$here/../casim" && pwd)"
 w() { if command -v cygpath >/dev/null; then cygpath -w "$1"; else echo "$1"; fi; }
 MSYS_NO_PATHCONV=1 exec docker run --rm \
-    -v "$(w "$here"):/w/stu32-tutor" -v "$(w "$fw"):/w/abacus-firmware:ro" \
+    -v "$(w "$here"):/w/stu32-tutor" -v "$(w "$fw"):/w/stu32-firmware:ro" \
     -v "$(w "$arcade"):/w/stu32-arcade:ro" -v "$(w "$casim"):/w/casim:ro" \
     -e GAMES_REPOS=/w -e CASIM_REPO=/w/casim \
     -w /w/stu32-tutor "${GCC_IMAGE:-gcc:14}" make "${@:-check}"

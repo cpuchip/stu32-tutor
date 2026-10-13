@@ -31,7 +31,7 @@ GCC=gcc@sha256:9188ac751ca24431dc43dbd142a223c98ea74f01d2858e84d30ba342a0d67844
 BASE=gcr.io/distroless/cc-debian13@sha256:e792ab3d241a468a4fd7519ddbbebe66b49b5f365771716ea688ad40b6c6f1c2
 
 pin="$(sed -n 's/^CORE_PIN := //p' Makefile)"
-fw="$(cd ../abacus-firmware && pwd)"
+fw="$(cd ../stu32-firmware && pwd)"
 casim="$(cd ../casim && pwd)"
 g() { git -c safe.directory='*' -C "$1" "${@:2}"; }
 fw_full="$(g "$fw" rev-parse --verify "$pin^{commit}")"
@@ -57,9 +57,11 @@ GCC_IMAGE="$GCC" bash scripts/check-docker.sh tools CORE_DIR="$core" GAMES_LIST=
 [ "$(cat "$core/.exported")" = "$fw_full" ] || { echo "build.sh: $core is not $fw_full" >&2; exit 1; }
 
 # 2. Casimir's CLI at CASIM_PIN, the entry program, and every binary stripped into the stage. Casimir's
-# build reads the firmware checkout beside it (../abacus-firmware) at casim's own CORE_PIN file; that file
-# is set to the firmware pin, as casim's own repins do, so the CLI's core is the device's (abacus #5868,
-# soroban #5866: one core in the image). The core the CLI was built on is read back from its build.
+# build reads the firmware checkout beside it (../abacus-firmware, casim's default CORE_REPO and the
+# firmware's name before it went public, so the stu32-firmware checkout is mounted at that path) at casim's
+# own CORE_PIN file; that file is set to the firmware pin, as casim's own repins do, so the CLI's core is the
+# device's (abacus #5868, soroban #5866: one core in the image). The core the CLI was built on is read back
+# from its build.
 w() { if command -v cygpath >/dev/null; then cygpath -w "$1"; else echo "$1"; fi; }
 MSYS_NO_PATHCONV=1 docker run --rm \
     -v "$(w "$here"):/w/stu32-tutor" -v "$(w "$casim"):/w/casim:ro" -v "$(w "$fw"):/x/abacus-firmware:ro" \
@@ -79,7 +81,7 @@ cas_core="$(tr -d '[:space:]' < "$stage/casim-core")"
 rm "$stage/casim-core"
 [ "$cas_core" = "$fw_full" ] || { echo "build.sh: Casimir's CLI was built on core $cas_core, not $fw_full" >&2; exit 1; }
 # 3. The licences, at /licenses (abacus #5868): the firmware's MIT, Casimir's MIT, Intel's BSD-3 notice.
-cp "$core/LICENSE" "$stage/licenses/abacus-firmware-MIT.txt"
+cp "$core/LICENSE" "$stage/licenses/stu32-firmware-MIT.txt"
 cp "$core/third_party/LICENSE.intel-dfp.txt" "$stage/licenses/intel-dfp-BSD-3.txt"
 cp docs/lesson-format.md "$stage/opt/stu32/doc/lesson-format.md"
 intel_sha="$(sed -n 's/.*sha256 `\([0-9a-f]\{64\}\)`.*/\1/p' "$core/third_party/README.md" | head -1)"

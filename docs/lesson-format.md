@@ -6,7 +6,7 @@ one of them on the STU-32's own core at `CORE_PIN`.
 
 ## vectors.txt: the maths
 
-The firmware's key-vector format (`abacus-firmware/tests/vectors.c`): `ID | note | keys |
+The firmware's key-vector format (`stu32-firmware/tests/vectors.c`): `ID | note | keys |
 expectations`, one example per line. Rules (abacus, 2026-10-06):
 
 - Every vector's keys begin `MODE33` and a display setting (`FIX4`, `SCI2`, `ALL`...), so nothing

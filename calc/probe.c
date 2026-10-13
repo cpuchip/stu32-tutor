@@ -41,7 +41,7 @@ static const char *readable(const char *path)
 
 int main(void)
 {
-    printf("{\"licenses\":\"%s %s %s\",", readable("/licenses/abacus-firmware-MIT.txt"),
+    printf("{\"licenses\":\"%s %s %s\",", readable("/licenses/stu32-firmware-MIT.txt"),
            readable("/licenses/casimir-MIT.txt"), readable("/licenses/intel-dfp-BSD-3.txt"));
     printf("\"uid\":%d,\"write_root\":\"%s\",\"write_opt\":\"%s\",\"write_tmp\":\"%s\","
            "\"tcp_1.1.1.1:53\":\"%s\",\"udp_1.1.1.1:53\":\"%s\"}\n",
