@@ -11,12 +11,17 @@ This repository is under two licences.
 2. The programs and the test vectors are licensed under the MIT License. The full text is in
    LICENSE-MIT. This covers:
    - the keystroke and program listings in the lessons (the ```keys``` blocks in lesson.md);
-   - the vectors (lessons/*/vectors.txt and lessons/*/fmt-vectors.txt);
+   - the vectors (lessons/*/vectors.txt and lessons/*/fmt-vectors.txt), except a vectors file whose
+     first line marks it CC BY-SA because it holds the numbers and working of a problem quoted from a
+     CC BY-SA book: that file is under CC BY-SA 4.0, as in 1, and names the book's credit;
    - the tools and build files (tools/, scripts/, Makefile).
 
 3. Quotations from other people's works are not ours and are under neither licence. Each is marked
    as a quotation, with its author and source named beside it (for example in
-   lessons/prob-01-probability/lesson.md), and is reproduced only as that quotation.
+   lessons/prob-01-probability/lesson.md), and is reproduced only as that quotation. The problems
+   quoted in a word-problems lesson's "From the books" set are quotations too: each is marked with its
+   book, author, year and place in it (a page, or an exercise and number), and one from a CC BY-SA
+   book also with that book's licence and credit.
 
 The STU-32 calculator's firmware is a separate project with its own licence; nothing in this
 repository is part of it.

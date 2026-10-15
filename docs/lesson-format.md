@@ -29,7 +29,8 @@ expectations`, one example per line. Rules (abacus, 2026-10-06):
 - Every vector has at least one expectation, and every expected value is recomputed independently
   (exact rationals, mpmath or SymPy) with the computation kept in `docs/evidence/`.
 - Every physical constant names its CODATA year in the note. Every example is ours: nothing is
-  copied from a textbook or from any calculator's manual.
+  copied from a textbook or from any calculator's manual. The one exception is a word-problems lesson's "From the
+  books" set, whose quoted problems are marked with their source; its vectors carry those problems' numbers.
 
 ## fmt-vectors.txt: the displays
 

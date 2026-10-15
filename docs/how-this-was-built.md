@@ -28,7 +28,9 @@ Decisions are numbered too ("decision 82"): those are Michael's rulings, recorde
 ## How a lesson gets made
 
 1. **tutor writes it.** Every lesson is written fresh. Textbooks set the scope and order of a course and nothing
-   more: no text, figure or problem is copied from a book or from any calculator's manual.
+   more: no text, figure or problem is copied from a book or from any calculator's manual. The one exception is a
+   word-problems lesson's "From the books" set, which quotes public-domain and CC BY-SA problems, each marked with
+   its source (Michael's choice, 2026-10-15).
 2. **The calculator checks the maths.** Each worked example is a key vector, and `make check` runs every vector on
    the pinned core, in each mode the lesson offers. It then presses the keys the lesson prints, through the
    firmware's own key layer, and they must give the same result. Every display the prose quotes must match the
