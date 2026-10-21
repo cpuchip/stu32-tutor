@@ -17,6 +17,29 @@ D02@alg | INT÷: how many whole boxes | MODE33 FIX4 IDIV 59 , 9 > ENTER | N=6 %L
 D02@rpn | INT÷: how many whole boxes | MODE33 FIX4 59 ENTER 9 IDIV | X=6
 D03@alg | Rmdr: how many left over | MODE33 FIX4 RMDR 59 , 9 > ENTER | N=5 %LINE=RMDR(59,9)
 D03@rpn | Rmdr: how many left over | MODE33 FIX4 59 ENTER 9 RMDR | X=5
+# Dividing in parts (sense-making section 6, abacus #9439): 117 / 9 by parts; 156 / 12 halved to 39 / 3.
+P01@alg | 117 / 9: 90 / 9 + 27 / 9 | MODE33 FIX4 117 / 9 ENTER | N=13 %LINE=117÷9
+P01@rpn | 117 / 9: 90 / 9 + 27 / 9 | MODE33 FIX4 117 ENTER 9 / | X=13
+# P01's twin (abacus #9439): its answer typed, its working, and the slip's.
+DP1T1@alg | twin: 112 / 8 in parts, typed | MODE33 FIX4 14 ENTER | N=14 %LINE=14
+DP1T1@rpn | twin: 112 / 8 in parts, typed | MODE33 FIX4 14 ENTER | X=14
+DP1T1W@alg | its working: 80 / 8 + 32 / 8 | MODE33 FIX4 80 / 8 + 32 / 8 ENTER | N=14 %LINE=80÷8+32÷8
+DP1T1W@rpn | its working: 80 / 8 + 32 / 8 | MODE33 FIX4 80 ENTER 8 / 32 ENTER 8 / + | X=14
+DP1T1A@alg | slip: the first part only, 80 / 8 | MODE33 FIX4 80 / 8 ENTER | N=10 %LINE=80÷8
+DP1T1A@rpn | slip: the first part only, 80 / 8 | MODE33 FIX4 80 ENTER 8 / | X=10
+P02@alg | halved twice: 39 / 3 | MODE33 FIX4 39 / 3 ENTER | N=13 %LINE=39÷3
+P02@rpn | halved twice: 39 / 3 | MODE33 FIX4 39 ENTER 3 / | X=13
+P03@alg | the division it started from: 156 / 12 | MODE33 FIX4 156 / 12 ENTER | N=13 %LINE=156÷12
+P03@rpn | the division it started from: 156 / 12 | MODE33 FIX4 156 ENTER 12 / | X=13
+# P03's twin: its answer typed, its working, and the slips'.
+DP3T1@alg | twin: 132 / 12 by halving, typed | MODE33 FIX4 11 ENTER | N=11 %LINE=11
+DP3T1@rpn | twin: 132 / 12 by halving, typed | MODE33 FIX4 11 ENTER | X=11
+DP3T1W@alg | its working: halved twice, 33 / 3 | MODE33 FIX4 33 / 3 ENTER | N=11 %LINE=33÷3
+DP3T1W@rpn | its working: halved twice, 33 / 3 | MODE33 FIX4 33 ENTER 3 / | X=11
+DP3T1A@alg | slip: the 132 halved only, 66 / 12 | MODE33 FIX4 66 / 12 ENTER | N=5.5 %LINE=66÷12
+DP3T1A@rpn | slip: the 132 halved only, 66 / 12 | MODE33 FIX4 66 ENTER 12 / | X=5.5
+DP3T1B@alg | slip: the 12 halved only, 132 / 6 | MODE33 FIX4 132 / 6 ENTER | N=22 %LINE=132÷6
+DP3T1B@rpn | slip: the 12 halved only, 132 / 6 | MODE33 FIX4 132 ENTER 6 / | X=22
 D04@alg | INT÷ of 1000 and 7 | MODE33 FIX4 IDIV 1000 , 7 > ENTER | N=142 %LINE=IDIV(1000,7)
 D04@rpn | INT÷ of 1000 and 7 | MODE33 FIX4 1000 ENTER 7 IDIV | X=142
 D05@alg | Rmdr of 1000 and 7 | MODE33 FIX4 RMDR 1000 , 7 > ENTER | N=6 %LINE=RMDR(1000,7)

@@ -165,6 +165,79 @@ ask: Why put the answer back into the rule?
 because: If 20 rolls shared among 4 shelves, less 2, leave 3, then 20 is right: the check runs the rule forward.
 ```
 
+## Covering a part
+
+There is a second way to look at an equation. Go back to $3n + 5 = 20$ and cover the $3n$ with a finger. What is
+left reads: something plus 5 is 20. The something has to be 15, since $15 + 5 = 20$. So $3n$ is 15, and 3 times
+what is 15? 5, the answer undoing gave.
+
+Covering works on longer equations too. In $3 × (n + 2) − 5 = 25$, cover the part with the letter in it,
+$3 × (n + 2)$. Something take away 5 is 25, so the something is 5 more than 25:
+
+```keys K01 entry=alg
+25 + 5 ENTER
+```
+
+```keys K01 entry=rpn
+25 ENTER 5 +
+```
+
+The screen shows <disp v="K01">30.0000</disp>.
+
+```why
+ask: Why add the 5 to the 25, when the equation takes 5 away?
+because: The covered part had 5 taken away and left 25, so before that it was 5 more than 25.
+```
+
+Now uncover one layer: $3 × (n + 2)$ is 30, so 3 times the bracket is 30, so the bracket is 30 divided by 3:
+
+```keys K02 entry=alg after=K01
+÷ 3 ENTER
+```
+
+```keys K02 entry=rpn after=K01
+3 ÷
+```
+
+The screen shows <disp v="K02">10.0000</disp>. Inside the bracket, $n + 2$ is 10, so $n$ is 2 less than 10:
+
+```keys K03 entry=alg after=K02
+− 2 ENTER
+```
+
+```keys K03 entry=rpn after=K02
+2 −
+```
+
+The screen shows <disp v="K03">8.0000</disp>: $n = 8$. Covering takes the same steps as undoing, from the outside
+in, and each step answers one question: what must the covered part be?
+
+```item CV1T1
+prompt: Solve $2 × (n + 4) − 3 = 17$ by covering: first the part with $n$ in it, then the bracket.
+operands: 2, 4, 3, 17
+twin: K03
+topics: covering
+answer: type
+calculator: no
+slip: CV1T1A | took the 3 away | The covered part had 3 taken away and left 17, so it is $17 + 3 = 20$, not $17 − 3$.
+slip: CV1T1B | stopped at the bracket | 10 is $n + 4$, not $n$. Take the 4 away as well: $n = 10 − 4$.
+```
+
+The check for $n = 8$ puts it back, the bracket first, then × 3 and − 5:
+
+```keys C03 entry=alg
+8 + 2 ENTER × 3 − 5 ENTER
+```
+
+```keys C03 entry=rpn
+8 ENTER 2 + 3 × 5 −
+```
+
+The screen shows <disp v="C03">25.0000</disp>, the equation's right side.
+
+Covering needs the letter to appear once, so that one part holds it. In $5n = 2n + 9$ the letter is on both sides,
+there is no single part to cover, and neither covering nor undoing solves it as it stands. A later unit shows how.
+
 ## Exercises
 
 Solve each by undoing, by hand first, then check by putting the answer back.

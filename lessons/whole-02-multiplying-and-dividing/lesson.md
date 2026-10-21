@@ -130,6 +130,81 @@ ask: Why is the decimal part of $59 ÷ 9$ not the remainder?
 because: The decimal is the part of one more box that the 5 rolls left over would fill. Rmdr counts the rolls themselves.
 ```
 
+## Dividing in parts
+
+Multiplying went faster in parts, and so can dividing. Here is a new number, bigger than the 59 above.
+<voice v="story">Tobin has 117 rolls to pack, 9 to a box.</voice><voice v="plain">117 rolls are to be packed, 9 to a box.</voice> Split the 117 into two parts that 9 goes into
+exactly: 90, which is 9 tens, and the 27 left over.
+
+- $90 ÷ 9 = 10$: 10 boxes.
+- $27 ÷ 9 = 3$: 3 boxes more.
+- So $117 ÷ 9 = 13$, with no rolls over.
+
+The parts add up to the whole, so their boxes do too. Choose the split by looking for tens that 9 goes into: 90
+works, and 100 does not, since 100 is not a whole number of 9s. The check:
+
+```keys P01 entry=alg
+117 ÷ 9 ENTER
+```
+
+```keys P01 entry=rpn
+117 ENTER 9 ÷
+```
+
+The screen shows <disp v="P01">13.0000</disp>.
+
+```item DP1T1
+prompt: Work out $112 ÷ 8$ in parts, as above: a part made of tens that 8 goes into, then the rest.
+operands: 112, 8
+twin: P01
+topics: dividing-in-parts
+answer: type
+calculator: no
+slip: DP1T1A | the first part only | $80 ÷ 8 = 10$ is the first part. The 32 left over is more eights: add $32 ÷ 8$ as well.
+```
+
+Another way works when both numbers are even. <voice v="story">Maren has 156 rolls for boxes of 12.</voice><voice v="plain">156 rolls go into boxes of 12.</voice> Halve both numbers:
+78 rolls in boxes of 6 fill just as many boxes. Each small box holds half as many rolls, and there are half as
+many rolls, so the count of boxes does not change. Both are still even, so halve again: 39 rolls in boxes of 3.
+39 is odd, so the halving stops there: halving 39 would give a part of a roll. In parts, 39 is 30 and 9, and
+$39 ÷ 3$ is $10 + 3 = 13$.
+
+```keys P02 entry=alg
+39 ÷ 3 ENTER
+```
+
+```keys P02 entry=rpn
+39 ENTER 3 ÷
+```
+
+The screen shows <disp v="P02">13.0000</disp>, and the division it started from gives the same:
+
+```keys P03 entry=alg
+156 ÷ 12 ENTER
+```
+
+```keys P03 entry=rpn
+156 ENTER 12 ÷
+```
+
+The screen shows <disp v="P03">13.0000</disp>. Halving works only while both numbers are even.
+
+```item DP3T1
+prompt: Work out $132 ÷ 12$ by halving both numbers until one of them is odd.
+operands: 132, 12
+twin: P03
+topics: dividing-in-parts
+answer: type
+calculator: no
+slip: DP3T1A | halved the 132 only | Halve both: 66 rolls in boxes of 12 fill half as many boxes. $66 ÷ 6$ keeps the count.
+slip: DP3T1B | halved the 12 only | Halve both: 132 rolls in boxes of 6 fill twice as many boxes. $66 ÷ 6$ keeps the count.
+```
+
+```why
+ask: Why does halving both numbers leave the number of boxes the same?
+because: Each box holds half as many rolls, and there are half as many rolls to fill them, so the count of boxes does not change.
+```
+
 ## Long division
 
 A big division by hand goes one digit at a time from the left. <voice v="story">Tobin has 1000 rolls in boxes of 7.</voice><voice v="plain">1000 rolls go into boxes of 7.</voice>
