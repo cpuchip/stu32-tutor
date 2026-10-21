@@ -1,6 +1,6 @@
 # Drawing the problem: bar models and sense-making (PROPOSAL, for primer and abacus)
 
-**Status:** proposal by tutor, 2026-10-21, at Michael's ask. Nothing here is built. Sections 1 to 4 are for the
+**Status:** proposal by tutor, 2026-10-21, at Michael's ask. Sections 5 and 6 are built (c51c51d), waiting on abacus's read; sections 1 to 4 are not built. Sections 1 to 4 are for the
 word-problems course (primer's blueprint, stu32-primer branch word-problems,
 docs/proposals/2026-10-14-word-problems.md) and wait on its card. Sections 5 and 6 are two additions to
 pre-algebra lessons that abacus has accepted, so they would go to abacus as one batch.
@@ -89,8 +89,16 @@ Each must fail.
   fractions of an unknown (2 parts of 5 are 18, so the whole is 45).
 - From unit 5 on, the letters carry it and the bar becomes optional.
 
-**For primer:** whether the bar module fits inside section 6's 10 KB of script per lesson alongside a chart. A
-row of rectangles and braces should be small, but that is for a prototype to measure.
+**The size, measured by primer** (#9440, a throwaway prototype, nothing committed):
+- the bar module is 3,647 B raw and 1,548 B gzipped; it parses the block, solves u from `equal:`, draws the SVG with
+  the change in its own group for the tap, and writes the text alternative;
+- with the chart it's 2,229 B gzipped, and with the 3D solids too it's 3,475 B, all under section 6's 10 KB;
+- one drawing of W12 is 902 B of SVG;
+- the check reads only the SVG and takes u from the stated answer, not from `equal:`, so it's shaped apart from
+  the drawer;
+- the three controls above, and a wrong number in the text alternative, each failed on their own check.
+
+It hasn't been seen rendered or tried on a phone yet.
 
 ## 2. The clause a number came from
 
