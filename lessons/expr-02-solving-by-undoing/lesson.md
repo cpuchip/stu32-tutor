@@ -212,17 +212,6 @@ The screen shows <disp v="K02">10.0000</disp>. Inside the bracket, $n + 2$ is 10
 The screen shows <disp v="K03">8.0000</disp>: $n = 8$. Covering takes the same steps as undoing, from the outside
 in, and each step answers one question: what must the covered part be?
 
-```item CV1T1
-prompt: Solve $2 × (n + 4) − 3 = 17$ by covering: first the part with $n$ in it, then the bracket.
-operands: 2, 4, 3, 17
-twin: K03
-topics: covering
-answer: type
-calculator: no
-slip: CV1T1A | took the 3 away | The covered part had 3 taken away and left 17, so it is $17 + 3 = 20$, not $17 − 3$.
-slip: CV1T1B | stopped at the bracket | 10 is $n + 4$, not $n$. Take the 4 away as well: $n = 10 − 4$.
-```
-
 The check for $n = 8$ puts it back, the bracket first, then × 3 and − 5:
 
 ```keys C03 entry=alg
@@ -234,6 +223,17 @@ The check for $n = 8$ puts it back, the bracket first, then × 3 and − 5:
 ```
 
 The screen shows <disp v="C03">25.0000</disp>, the equation's right side.
+
+```item CV1T1
+prompt: Solve $2 × (n + 4) − 3 = 17$ by covering: first the part with $n$ in it, then the bracket.
+operands: 2, 4, 3, 17
+twin: C03
+topics: covering
+answer: type
+calculator: no
+slip: CV1T1A | took the 3 away | The covered part had 3 taken away and left 17, so it is $17 + 3 = 20$, not $17 − 3$.
+slip: CV1T1B | stopped at the bracket | 10 is $n + 4$, not $n$. Take the 4 away as well: $n = 10 − 4$.
+```
 
 Covering needs the letter to appear once, so that one part holds it. In $5n = 2n + 9$ the letter is on both sides,
 there is no single part to cover, and neither covering nor undoing solves it as it stands. A later unit shows how.

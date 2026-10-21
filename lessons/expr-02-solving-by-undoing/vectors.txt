@@ -30,7 +30,9 @@ K02@alg | continues K01: / 3, the bracket | MODE33 FIX4 25 + 5 ENTER / 3 ENTER |
 K02@rpn | continues K01: / 3, the bracket | MODE33 FIX4 25 ENTER 5 + 3 / | X=10
 K03@alg | continues K02: - 2, n | MODE33 FIX4 25 + 5 ENTER / 3 ENTER - 2 ENTER | N=8 %LINE=ANS-2
 K03@rpn | continues K02: - 2, n | MODE33 FIX4 25 ENTER 5 + 3 / 2 - | X=8
-# K01's twin (abacus #9439): its answer typed, its working, and the slips'.
+C03@alg | the check: (8 + 2) x 3 - 5 | MODE33 FIX4 8 + 2 ENTER * 3 - 5 ENTER | N=25 %LINE=ANS×3-5
+C03@rpn | the check: (8 + 2) x 3 - 5 | MODE33 FIX4 8 ENTER 2 + 3 * 5 - | X=25
+# C03's twin (abacus #9439, moved after the check at #9452): its answer typed, its working, and the slips'.
 CV1T1@alg | twin: 2(n + 4) - 3 = 17 by covering, typed | MODE33 FIX4 6 ENTER | N=6 %LINE=6
 CV1T1@rpn | twin: 2(n + 4) - 3 = 17 by covering, typed | MODE33 FIX4 6 ENTER | X=6
 CV1T1W@alg | its working: 17 + 3, / 2, - 4 | MODE33 FIX4 17 + 3 ENTER / 2 ENTER - 4 ENTER | N=6 %LINE=ANS-4
@@ -39,8 +41,6 @@ CV1T1A@alg | slip: the 3 taken away, (17 - 3) / 2 - 4 | MODE33 FIX4 17 - 3 ENTER
 CV1T1A@rpn | slip: the 3 taken away, (17 - 3) / 2 - 4 | MODE33 FIX4 17 ENTER 3 - 2 / 4 - | X=3
 CV1T1B@alg | slip: stopped at the bracket, (17 + 3) / 2 | MODE33 FIX4 17 + 3 ENTER / 2 ENTER | N=10 %LINE=ANS÷2
 CV1T1B@rpn | slip: stopped at the bracket, (17 + 3) / 2 | MODE33 FIX4 17 ENTER 3 + 2 / | X=10
-C03@alg | the check: (8 + 2) x 3 - 5 | MODE33 FIX4 8 + 2 ENTER * 3 - 5 ENTER | N=25 %LINE=ANS×3-5
-C03@rpn | the check: (8 + 2) x 3 - 5 | MODE33 FIX4 8 ENTER 2 + 3 * 5 - | X=25
 E01@alg | exercise 1: (31 - 7) / 2 | MODE33 FIX4 31 - 7 ENTER | N=24 %LINE=31-7
 E01@rpn | exercise 1: (31 - 7) / 2 | MODE33 FIX4 31 ENTER 7 - | X=24
 E01B@alg | continues E01: / 2 | MODE33 FIX4 31 - 7 ENTER / 2 ENTER | N=12 %LINE=ANS÷2
