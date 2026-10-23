@@ -4,7 +4,7 @@
 # git archive into build/ (never built in the firmware's own checkout). Its Makefile builds the
 # runners with its own recipes; we add only the trace (tools/trace.c) at link time.
 # Without a native toolchain, run it in the gcc:14 container: scripts/check-docker.sh.
-CORE_PIN := 6e51b56
+CORE_PIN := 351271e
 FIRMWARE ?= ../stu32-firmware
 CORE_DIR := build/core-$(CORE_PIN)
 PYTHON ?= python3
