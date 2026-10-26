@@ -56,7 +56,7 @@ value.
 GOLD EQN RCL X yˣ 3 − 6 × RCL X yˣ 2 + 11 × RCL X − 6 ENTER
 ```
 
-The screen shows <disp v="R01" kind="eqn">X^3-6×X^2+11×X-6</disp>.
+The screen shows <disp v="R01" kind="eqn" m="33s,35s">X^3-6×X^2+11×X-6</disp><disp v="R01" kind="drawn" m="STU">X^3-6X^2+11X-6</disp>.
 
 ## Where to look
 

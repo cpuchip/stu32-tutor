@@ -291,7 +291,8 @@ an expression with no = sign. Type $x^{2} − 4x + 3$ that way, with yˣ for the
 GOLD EQN RCL X yˣ 2 − 4 × RCL X + 3 ENTER
 ```
 
-The screen shows <disp v="B02" kind="eqn">X^2-4×X+3</disp>; ^ means "to the power of". With no =,
+The screen shows <disp v="B02" kind="drawn">X^2-4X+3</disp>, drawn as a textbook writes it, with the 2 raised.
+Written on one line, as here, ^ means "to the power of". With no =,
 TABLE and GRAPH use the expression's value. (With an =, they would use left minus right, as XEQ does.)
 
 TABLE, blue above 8, opens a menu: VAR picks the variable, START and STEP each take the number in X,

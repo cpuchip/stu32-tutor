@@ -128,7 +128,7 @@ CAS, D/DX, and the variable.</mode>
 GOLD EQN RCL X yˣ 3 − 4 × RCL X + 1 ENTER CAS D/DX X
 ```
 
-<mode m="STU">The screen shows <disp v="B01" kind="eqn">3×X^2-4</disp>, the rule's $3x^{2} − 4$. Carrying on,
+<mode m="STU">The screen shows <disp v="B01" kind="drawn">3X^2-4</disp>, the rule's $3x^{2} − 4$. Carrying on,
 XEQ works it out at $x = 2$:</mode>
 
 ```keys B02 after=B01 mode=STU
@@ -166,7 +166,7 @@ STU mode's D/DX agrees:</mode>
 GOLD EQN 1 ÷ RCL X ENTER CAS D/DX X
 ```
 
-<mode m="STU">The screen shows <disp v="R02" kind="eqn">-1÷X^2</disp>. Carrying on, Equation mode off:</mode>
+<mode m="STU">The screen shows <disp v="R02" kind="drawn">-1÷X^2</disp>, drawn as a fraction. Carrying on, Equation mode off:</mode>
 
 ```keys R03 after=R02 mode=STU
 GOLD EQN
@@ -205,7 +205,7 @@ GOLD EQN
    GOLD EQN RCL X yˣ 2 + 3 × RCL X ENTER CAS D/DX X
    ```
 
-   <mode m="STU">The screen shows <disp v="E02B" kind="eqn">2×X+3</disp>. Carrying on, Equation mode
+   <mode m="STU">The screen shows <disp v="E02B" kind="drawn">2X+3</disp>. Carrying on, Equation mode
    off:</mode>
 
    ```keys E02C after=E02B mode=STU
@@ -219,7 +219,7 @@ GOLD EQN
    GOLD EQN 7 ENTER CAS D/DX X
    ```
 
-   <mode m="STU">The screen shows <disp v="E03" kind="eqn">0</disp>.</mode>
+   <mode m="STU">The screen shows <disp v="E03" kind="drawn">0</disp>.</mode>
 
 ## Mixed review
 

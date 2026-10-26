@@ -51,7 +51,7 @@ the bracket when you are done inside it. Type the power, X, then ▶:
 GOLD EQN eˣ RCL X ▶ = 3 × RCL X ENTER
 ```
 
-The screen shows <disp v="Q01" kind="eqn">EXP(X)=3×X</disp>.
+The screen shows <disp v="Q01" kind="eqn" m="33s,35s">EXP(X)=3×X</disp><disp v="Q01" kind="drawn" m="STU">e^X=3X</disp><mode m="STU">, drawn as a textbook writes it, with the X raised</mode>.
 
 ## Where to look
 
@@ -145,7 +145,7 @@ solution with SOLVE.
 GOLD EQN 2 yˣ RCL X = RCL X + 3 ENTER
 ```
 
-The screen shows <disp v="E01" kind="eqn">2^X=X+3</disp>. At −3:
+The screen shows <disp v="E01" kind="eqn" m="33s,35s">2^X=X+3</disp><disp v="E01" kind="drawn" m="STU">2^X=X+3</disp>. At −3:
 
 ```keys E01A after=E01
 XEQ 3 +/− R/S

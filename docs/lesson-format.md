@@ -117,6 +117,13 @@ display: FIX 4
   `<disp v="B04" kind="row">0.0000 3.0000</disp>`; the device spaces them to the line's width),
   and line (the algebraic line as typed, shown in Y's place above the result: `<disp v="Q01"
   kind="line" e="alg">2÷4</disp>`).
+  An equation STU draws in 2D (firmware 080: an STU-stamped equation shown in STU's Equation mode, a CAS answer
+  among them) is `drawn`, quoted as the glass draws it, in screen_page's drawn text (keyrun's DRAWN line): ×
+  only where it is drawn, e^u, |u|, √u, a÷b for a fraction and ^ for a raised power, so `<disp v="B01"
+  kind="drawn">4T</disp>` where the equation's text is 4×T. Wherever the glass draws, an `eqn` quote fails, even
+  when the two texts agree (X^2), and a `drawn` quote fails where nothing is drawn (33s and 35s modes), so a quote
+  read in every mode splits by mode: `<disp v="Q01" kind="eqn" m="33s,35s">2×X+3=11</disp><disp v="Q01"
+  kind="drawn" m="STU">2X+3=11</disp>`.
   A quoted value's display vector may carry
   `w=21`, the device's X-line width (firmware/screen.c FMT_WIDTH); the runner's default of 22
   agrees with the device only for short values.

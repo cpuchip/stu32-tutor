@@ -52,7 +52,7 @@ when you are done inside it. Type $|x − 3| = 5$:
 GOLD EQN GOLD ABS RCL X − 3 ▶ = 5 ENTER
 ```
 
-The screen shows <disp v="A01" kind="eqn">ABS(X-3)=5</disp>. Check the first answer, 8, with XEQ:
+The screen shows <disp v="A01" kind="eqn" m="33s,35s">ABS(X-3)=5</disp><disp v="A01" kind="drawn" m="STU">|X-3|=5</disp><mode m="STU">, drawn with bars, as it is written above</mode>. Check the first answer, 8, with XEQ:
 
 ```keys A02 after=A01
 XEQ 8 R/S

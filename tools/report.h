@@ -16,14 +16,20 @@ const char *kr_kind(int kind);
    or nothing when no graph shows. The length written, or -1 when out is too small. */
 int kr_graph_line(const screen_page *page, const char *id, char *out, size_t cap);
 
+/* The DRAWN line for an equation STU draws in 2D (unit 080: screen_page's textbook_on), what the area draws as text
+   ("DRAWN<TAB>id<TAB>drawn\n": × only where drawn, e^u, |u|, √u, a÷b), or nothing when none is drawn. The length
+   written, or -1 when out is too small. */
+int kr_drawn_line(const screen_page *page, const char *id, char *out, size_t cap);
+
 /* The report after a step named id: the X line, the line above it, the status band, X Y Z T as exact
-   numbers (a complex one as its two parts joined by "i", "" for a vector), and the GRAPH line:
+   numbers (a complex one as its two parts joined by "i", "" for a vector), and the GRAPH and DRAWN lines:
      X<TAB>id<TAB>kind<TAB>text
      YL<TAB>id<TAB>kind<TAB>text
      STATUS<TAB>id<TAB>text
      VAL<TAB>id<TAB>x<TAB>y<TAB>z<TAB>t
      ANS<TAB>id<TAB>ans<TAB>shown
      GRAPH<TAB>...          (only with a graph shown)
+     DRAWN<TAB>id<TAB>drawn  (only with an equation drawn in 2D)
    ANS is the last result (calc.h's ans: algebraic entry's result, the stack untouched) and shown the value an
    algebraic X line shows: a history entry while one is selected, else ans (screen.c's rule; soroban #5854).
    The length written, or -1 when out is too small. */

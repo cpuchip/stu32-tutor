@@ -73,7 +73,7 @@ From the top, ▲ goes up to the $3×3$ solver and ▲ again to the $2×2$, howe
 ▲ ▲
 ```
 
-The X line shows <disp v="T01A" kind="eqn">2*2 lin. solve</disp>. SOLVE runs it. Unlike SOLVE
+The screen shows <disp v="T01A" kind="eqn" m="35s">2*2 lin. solve</disp><disp v="T01A" kind="drawn" m="STU">2*2 lin. solve</disp>. SOLVE runs it. Unlike SOLVE
 W in eq-02, you press no letter after it: it asks for the six numbers in turn, A first.
 
 ```keys T01B after=T01A
@@ -125,7 +125,7 @@ which is the $2×2$ solver:
 GOLD EQN
 ```
 
-The X line shows <disp v="F01A" kind="eqn">2*2 lin. solve</disp>. SOLVE:
+The screen shows <disp v="F01A" kind="eqn" m="35s">2*2 lin. solve</disp><disp v="F01A" kind="drawn" m="STU">2*2 lin. solve</disp>. SOLVE:
 
 ```keys F01B after=F01A
 GOLD SOLVE
@@ -186,7 +186,7 @@ C leaves the view, and EQN opens at the $2×2$ solver again. The $3×3$ solver i
 C GOLD EQN ▼
 ```
 
-The X line shows <disp v="M01A" kind="eqn">3*3 lin. solve</disp>. SOLVE asks for A to L, a row of
+The screen shows <disp v="M01A" kind="eqn" m="35s">3*3 lin. solve</disp><disp v="M01A" kind="drawn" m="STU">3*3 lin. solve</disp>. SOLVE asks for A to L, a row of
 four numbers for each equation:
 
 ```keys M01 after=M01A
@@ -217,7 +217,7 @@ to the $2×2$:
 C GOLD EQN ▲
 ```
 
-The X line shows <disp v="N01A" kind="eqn">2*2 lin. solve</disp>. The parallel lines $x + y = 3$ and
+The screen shows <disp v="N01A" kind="eqn" m="35s">2*2 lin. solve</disp><disp v="N01A" kind="drawn" m="STU">2*2 lin. solve</disp>. The parallel lines $x + y = 3$ and
 $x + y = 5$:
 
 ```keys N01 after=N01A

@@ -125,7 +125,7 @@ with no = sign (poly-02):
 GOLD EQN RCL X yˣ 2 ENTER
 ```
 
-The screen shows <disp v="I01" kind="eqn">X^2</disp>. Carrying on, turn Equation mode off with EQN, since
+The screen shows <disp v="I01" kind="eqn" m="33s,35s">X^2</disp><disp v="I01" kind="drawn" m="STU">X^2</disp>. Carrying on, turn Equation mode off with EQN, since
 in Equation mode digits type into an equation (eq-01); put 0 and 3 on the stack; show the expression
 again with EQN; and press ∫. Like SOLVE (eq-02), it asks which variable to integrate over; answer X:
 

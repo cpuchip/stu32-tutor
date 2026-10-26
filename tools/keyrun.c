@@ -226,5 +226,6 @@ int main(int argc, char **argv)
            kr_kind(page.y.kind), page.y.text, page.status.text);
     static char gline[512];
     if (kr_graph_line(&page, "-", gline, sizeof gline) > 0) fputs(gline, stdout);
+    if (kr_drawn_line(&page, "-", gline, sizeof gline) > 0) fputs(gline, stdout);
     return 0;
 }

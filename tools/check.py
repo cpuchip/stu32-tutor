@@ -48,7 +48,7 @@ ALL_MODES = ["33s", "35s", "STU"]
 ENTRIES = {"rpn": "RPN", "alg": "ALG"}
 ALL_ENTRIES = ["rpn", "alg"]
 SETTING = re.compile(r"^(FIX|SCI|ENG)(\d+)$|^ALL$")
-DISP = re.compile(r'<disp v="([^"]+)"(?: kind="(view|prompt|message|entry|status|eqn|program|row|line|readout|xmin|xmax|ymin|ymax|note)")?>(.*?)</disp>', re.S)
+DISP = re.compile(r'<disp v="([^"]+)"(?: kind="(view|prompt|message|entry|status|eqn|drawn|program|row|line|readout|xmin|xmax|ymin|ymax|note)")?>(.*?)</disp>', re.S)
 # A <disp> as written, attributes in any order (v, kind, m); mode_view rewrites it to DISP's form.
 DISP_ANY = re.compile(r'<disp((?:\s+[a-z]+="[^"]*")*)\s*>(.*?)</disp>', re.S)
 ATTR = re.compile(r'([a-z]+)="([^"]*)"')
@@ -1333,9 +1333,17 @@ class Lesson:
         own_keys = {bid: own for bid, own, _, _, _, _ in found}
         continued = {after for (_, _, _, _, _, after) in found if after}
         byid = {v[0]: v for v in vectors}
-        shown, screen, screen_y, status, graph = set(), {}, {}, {}, {}
+        shown, screen, screen_y, status, graph, drawn = set(), {}, {}, {}, {}, {}
 
-        def line_says(xline, yline, qkind, text):
+        def line_says(xline, yline, qkind, text, glass=None):
+            # STU draws an STU-stamped equation in 2D (firmware 080): x keeps casim's text, and glass is
+            # what is drawn, as text (keyrun's DRAWN line), or None when nothing is. A drawn quote reads
+            # it; an equation quoted as its line is wrong wherever the glass draws, even when the two
+            # texts agree: X^2 is the line's text and the drawn text, and the glass shows a raised 2.
+            if qkind == "drawn":
+                return glass is not None and glass == text
+            if qkind == "eqn" and glass is not None:
+                return False
             # A prompt for a variable (INPUT's or an equation's "X?") takes the Y line (screen.h);
             # STO's "STO _" takes X. Every other kind is the X line.
             if qkind == "prompt":
@@ -1382,6 +1390,8 @@ class Lesson:
                 status[bid] = sl[0].split() if sl else []
                 gl = [l.split("\t") for l in k.stdout.splitlines() if l.startswith("GRAPH\t")]
                 graph[bid] = dict(zip(GRAPH_KINDS, gl[0][2:8])) if gl and len(gl[0]) == 8 else {}
+                dl = [l.split("\t") for l in k.stdout.splitlines() if l.startswith("DRAWN\t")]
+                drawn[bid] = dl[0][2] if dl and len(dl[0]) == 3 else None
         # 3b. Items (docs/lesson-format.md, Items): the answer and each slip are vectors of this view;
         # the working printed with an item presses to its answer's ops; each slip's value is not the
         # answer; and nothing shows the answer or a slip before the item asks it. The page reveals an
@@ -1525,10 +1535,13 @@ class Lesson:
                 # A VIEW's "B=49.75" is no value the formatter's vectors cover: the device's own
                 # screen line is the check, kind and text both.
                 kind, stext = screen.get(vid, ("?", ""))
-                if not line_says((kind, stext), screen_y.get(vid, ("?", "")), qkind, shown_text):
+                if not line_says((kind, stext), screen_y.get(vid, ("?", "")), qkind, shown_text, drawn.get(vid)):
+                    where = "X line"
                     if qkind == "line":                 # the algebraic line is in Y's place: say what is there
                         kind, stext = screen_y.get(vid, ("?", ""))
-                    where = "line above X" if qkind == "line" else "X line"
+                        where = "line above X"
+                    elif qkind in ("eqn", "drawn") and drawn.get(vid) is not None:
+                        kind, stext, where = "drawn", drawn[vid], "glass"
                     self.bad(f"{vid}: the device's {where} shows '{stext}' ({kind}), the prose '{shown_text}' ({qkind}) ({mode})")
                 continue
             # A quote that differs by mode or entry (33s's real part against 35s's a i b) has its own
@@ -1585,10 +1598,12 @@ class Lesson:
             t.write(student_sequence(self.d, md, entry))
         r = self.run(f"{self.core}/build/keyrun", "--sequence", t.name)
         os.unlink(t.name)
-        seq_x, seq_y, seq_st, seq_val, seq_graph = {}, {}, {}, {}, {}
+        seq_x, seq_y, seq_st, seq_val, seq_graph, seq_drawn = {}, {}, {}, {}, {}, {}
         for l in r.stdout.splitlines():
             p = l.split("\t")
-            if p[0] == "X" and len(p) == 4:
+            if p[0] == "DRAWN" and len(p) == 3:
+                seq_drawn[p[1]] = p[2]
+            elif p[0] == "X" and len(p) == 4:
                 seq_x[p[1]] = (p[2], p[3])
             elif p[0] == "YL" and len(p) == 4:
                 seq_y[p[1]] = (p[2], p[3])
@@ -1631,10 +1646,13 @@ class Lesson:
                              f"'{got if got is not None else '(no graph)'}', the prose '{shown_text}' ({mode})")
                 continue
             kind, stext = seq_x.get(vid, ("?", ""))
-            if not line_says((kind, stext), seq_y.get(vid, ("?", "")), qkind, shown_text):
+            if not line_says((kind, stext), seq_y.get(vid, ("?", "")), qkind, shown_text, seq_drawn.get(vid)):
+                where = "X"
                 if qkind == "line":
                     kind, stext = seq_y.get(vid, ("?", ""))
-                where = "the line above X" if qkind == "line" else "X"
+                    where = "the line above X"
+                elif qkind in ("eqn", "drawn") and vid in seq_drawn:
+                    kind, stext, where = "drawn", seq_drawn[vid], "the glass"
                 self.bad(f"{vid}: working through in order, {where} shows '{stext}' ({kind}), the prose '{shown_text}' ({mode})")
 
 

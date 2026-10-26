@@ -31,6 +31,14 @@ int kr_graph_line(const screen_page *page, const char *id, char *out, size_t cap
     return n < 0 || (size_t)n >= cap ? -1 : n;
 }
 
+int kr_drawn_line(const screen_page *page, const char *id, char *out, size_t cap)
+{
+    if (cap) out[0] = '\0';
+    if (!page->textbook_on) return 0;
+    int n = snprintf(out, cap, "DRAWN\t%s\t%s\n", id, page->drawn);
+    return n < 0 || (size_t)n >= cap ? -1 : n;
+}
+
 /* A stack level as exact text: a complex number as its two parts joined by "i"; "" for a vector. A
    coincidence in X alone (a stray digit that still lands on the right X) must not pass, so all four
    levels are reported. */
@@ -59,5 +67,7 @@ int kr_report(const ab_calc *c, const screen_page *page, const char *id, char *o
                      id, page->status.text, id, val[0], val[1], val[2], val[3], id, ans, shown);
     if (n < 0 || (size_t)n >= cap) return -1;
     int g = kr_graph_line(page, id, out + n, cap - (size_t)n);
-    return g < 0 ? -1 : n + g;
+    if (g < 0) return -1;
+    int d = kr_drawn_line(page, id, out + n + g, cap - (size_t)(n + g));
+    return d < 0 ? -1 : n + g + d;
 }

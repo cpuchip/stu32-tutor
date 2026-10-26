@@ -160,7 +160,7 @@ change in", as in a small change in $d$ over a small change in $t$; they are not
 GOLD EQN 2 × RCL T yˣ 2 ENTER CAS D/DX T
 ```
 
-<mode m="STU">The screen shows <disp v="B01" kind="eqn">4×T</disp>: $d'(t) = 4t$, the rule the algebra
+<mode m="STU">The screen shows <disp v="B01" kind="drawn">4T</disp>: $d'(t) = 4t$, the rule the algebra
 found. Casimir puts the derivative in the list as a new equation, after the one it came from, which is
 kept. A derivative found this way is an equation like any other, so XEQ works it out at a time:
 it asks for T, and 3 then R/S answers:</mode>
@@ -202,7 +202,7 @@ XEQ 3 R/S
    GOLD EQN RCL X yˣ 2 ENTER CAS D/DX X
    ```
 
-   <mode m="STU">The screen shows <disp v="E02B" kind="eqn">2×X</disp>. Turn Equation mode off before
+   <mode m="STU">The screen shows <disp v="E02B" kind="drawn">2X</disp>. Turn Equation mode off before
    the next exercise, since a digit typed while an equation shows starts a new equation:</mode>
 
    ```keys E02C after=E02B mode=STU

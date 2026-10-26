@@ -62,7 +62,7 @@ Type $2x + 3 = 11$:
 GOLD EQN 2 × RCL X + 3 = 11 ENTER
 ```
 
-The screen shows the equation, <disp v="Q01" kind="eqn">2×X+3=11</disp>, and the status band shows
+The screen shows the equation, <disp v="Q01" kind="eqn" m="33s,35s">2×X+3=11</disp><disp v="Q01" kind="drawn" m="STU">2X+3=11</disp><mode m="STU">, drawn as a textbook writes it, with no × between the 2 and the X</mode>, and the status band shows
 <disp v="Q01" kind="status">EQN</disp> while Equation mode is on.
 
 ## Checking an answer
@@ -167,8 +167,8 @@ The screen shows <disp v="Q06A" kind="eqn">2X+3=11</disp>. It is stored as typed
 worked out. The trouble shows only when the calculator tries, after R/S:
 </mode>
 <mode m="STU">
-The screen shows <disp v="Q06A" kind="eqn">2×X+3=11</disp>: the calculator put the × in for you.
-Work it out at 4, after R/S:
+The screen shows <disp v="Q06A" kind="drawn">2X+3=11</disp>, just as it showed the first one: STU
+reads 2X as 2 × X, so the two are the same equation. Work it out at 4, after R/S:
 </mode>
 
 ```keys Q06 after=Q06A
