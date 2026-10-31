@@ -160,6 +160,15 @@ complex | Complex numbers and i, and typing them | poly-04 | A number whose squa
 complex-roots | Complex roots, in conjugate pairs | poly-04 | The roots of x² + 2x + 5
 complex-check | Checking a complex root | poly-04 | Checking a root
 
+# poly-05 An expression you can hold
+eqn-more | EQN MORE: the list's second row of keys, behind ▸ | poly-05 | Onto the stack
+eq-drop | →X: the expression shown, onto the stack | poly-05 | Onto the stack
+expression-value | An expression held in X, drawn as the list draws it | poly-05 | Onto the stack
+expression-line | Y, Z and T write an expression on one line, in quotes | poly-05 | On one line in Y
+not-a-number | NOT A NUMBER: arithmetic needs numbers | poly-05 | Not a number
+sto-expression | STO and RCL keep an expression | poly-05 | Keeping it in a letter
+eq-store | →EQN: X's expression into the list | poly-05 | Back into the list
+
 # exp-01 Growth and decay
 growth | Growth by a factor | exp-01 | Growth
 decay | Decay and half-life | exp-01 | Decay

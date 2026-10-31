@@ -116,7 +116,12 @@ display: FIX 4
   line, the variable's value then the equation's, written with one space between:
   `<disp v="B04" kind="row">0.0000 3.0000</disp>`; the device spaces them to the line's width),
   and line (the algebraic line as typed, shown in Y's place above the result: `<disp v="Q01"
-  kind="line" e="alg">2÷4</disp>`).
+  kind="line" e="alg">2÷4</disp>`), and y (Y's line as the stack shows it, where an expression is written on one
+  line in quotes, unit 082: `<disp v="B03" kind="y">'3×X^2-4'</disp>`).
+  An expression held on the stack (082) is checked by its vector: `%XEXPR=` and `%YEXPR=` give X's and Y's
+  expression as STU's text, `none` for a number, and `%XDRAWN=` X as the glass draws it, `none` when nothing is
+  drawn, blanks written `_` (the firmware's runner reads them; the student run compares them with keyrun's EXPR and
+  DRAWN lines). A plain quote of X where the glass draws an expression fails: quote it `drawn`.
   An equation STU draws in 2D (firmware 080: an STU-stamped equation shown in STU's Equation mode, a CAS answer
   among them) is `drawn`, quoted as the glass draws it, in screen_page's drawn text (keyrun's DRAWN line): ×
   only where it is drawn, e^u, |u|, √u, a÷b for a fraction and ^ for a raised power, so `<disp v="B01"

@@ -455,6 +455,21 @@ CONTROLS_FOR["poly-04-complex-roots"] = [
     ("the conjugate checked with its i part's sign lost", "lesson.md", "```keys H02A\n1 +/− BLUE CMPLX i 2 +/−\n",
      "```keys H02A\n1 +/− BLUE CMPLX i 2\n", {}, "H02A: printed keys and vector disagree in 35s mode"),
 ]
+CONTROLS_FOR["poly-05-an-expression-you-can-hold"] = [
+    # The expression rules (G3, 082): a plain quote where the glass draws, Y's one-line form, and an expression
+    # expectation that passes from the setup but not on the student's carried device.
+    ("X's expression quoted as its line, where the glass draws it", "lesson.md", '<disp v="B02" kind="drawn">3X^2-4</disp>',
+     "<disp v=\"B02\">'3×X^2-4'</disp>", {}, "B02: working through in order, the glass shows '3X^2-4' (drawn)"),
+    ("Y's one-line form quoted without its ×", "lesson.md", "kind=\"y\">'3×X^2-4'<", "kind=\"y\">'3X^2-4'<", {},
+     "B03: the device's line above X shows ''3×X^2-4'' (value), the prose ''3X^2-4'' (y)"),
+    ("exercise 1 expecting nothing held in Y, true only from the setup", "vectors.txt",
+     "| %XEXPR=2×X+5=11 %XDRAWN=2X+5=11\n", "| %XEXPR=2×X+5=11 %XDRAWN=2X+5=11 %YEXPR=none\n", {},
+     "E01: working through in order, Y's expression is 3×X^2-4, the vector says none (STU)"),
+    ("→EQN pressed without EQN MORE's ▸", "lesson.md", "```keys L02 after=L01\n▸ →EQN\n", "```keys L02 after=L01\n→EQN\n", {},
+     "L02: printed keys and vector disagree"),
+    ("the refusal misquoted", "lesson.md", '<disp v="N01" kind="message">NOT A NUMBER<', '<disp v="N01" kind="message">INVALID DATA<', {},
+     "N01: the device's X line shows 'NOT A NUMBER' (message)"),
+]
 CONTROLS_FOR["exp-01-growth-and-decay"] = [
     ("4% growth keyed as a factor of 0.04", "lesson.md", "```keys G01\n500 ENTER 1.04 ENTER 10 yˣ ×\n",
      "```keys G01\n500 ENTER 0.04 ENTER 10 yˣ ×\n", {}, "G01: printed keys and vector disagree in 33s mode"),

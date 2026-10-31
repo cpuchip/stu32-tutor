@@ -48,7 +48,7 @@ ALL_MODES = ["33s", "35s", "STU"]
 ENTRIES = {"rpn": "RPN", "alg": "ALG"}
 ALL_ENTRIES = ["rpn", "alg"]
 SETTING = re.compile(r"^(FIX|SCI|ENG)(\d+)$|^ALL$")
-DISP = re.compile(r'<disp v="([^"]+)"(?: kind="(view|prompt|message|entry|status|eqn|drawn|program|row|line|readout|xmin|xmax|ymin|ymax|note)")?>(.*?)</disp>', re.S)
+DISP = re.compile(r'<disp v="([^"]+)"(?: kind="(view|prompt|message|entry|status|eqn|drawn|program|row|line|y|readout|xmin|xmax|ymin|ymax|note)")?>(.*?)</disp>', re.S)
 # A <disp> as written, attributes in any order (v, kind, m); mode_view rewrites it to DISP's form.
 DISP_ANY = re.compile(r'<disp((?:\s+[a-z]+="[^"]*")*)\s*>(.*?)</disp>', re.S)
 ATTR = re.compile(r'([a-z]+)="([^"]*)"')
@@ -1362,6 +1362,9 @@ class Lesson:
             # an equation line to keyrun.
             if qkind == "line":
                 return yline[0] == "eqn" and yline[1].strip() == text
+            # Y's line as the stack shows it (082: an expression in Y is written on one line, in quotes).
+            if qkind == "y":
+                return yline[0] == "value" and yline[1].strip() == text
             return xline[0] == qkind and xline[1].strip() == text
         for bid, keys, _, _ in blocks:
             if bid == "setup":                  # the setup as printed for the student, {mode} and all
@@ -1543,7 +1546,7 @@ class Lesson:
                 kind, stext = screen.get(vid, ("?", ""))
                 if not line_says((kind, stext), screen_y.get(vid, ("?", "")), qkind, shown_text, drawn.get(vid)):
                     where = "X line"
-                    if qkind == "line":                 # the algebraic line is in Y's place: say what is there
+                    if qkind in ("line", "y"):          # the algebraic line, or Y: say what is there
                         kind, stext = screen_y.get(vid, ("?", ""))
                         where = "line above X"
                     elif qkind in ("eqn", "drawn") and drawn.get(vid) is not None:
@@ -1667,7 +1670,7 @@ class Lesson:
             kind, stext = seq_x.get(vid, ("?", ""))
             if not line_says((kind, stext), seq_y.get(vid, ("?", "")), qkind, shown_text, seq_drawn.get(vid)):
                 where = "X"
-                if qkind == "line":
+                if qkind in ("line", "y"):
                     kind, stext = seq_y.get(vid, ("?", ""))
                     where = "the line above X"
                 elif qkind in ("eqn", "drawn", "value") and vid in seq_drawn:

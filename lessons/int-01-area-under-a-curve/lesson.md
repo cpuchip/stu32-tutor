@@ -133,6 +133,9 @@ again with EQN; and press ∫. Like SOLVE (eq-02), it asks which variable to int
 GOLD EQN 0 ENTER 3 GOLD EQN GOLD ∫ X
 ```
 
+While the expression showed, the two ends were out of sight, but they were still in Y and X: Equation mode
+gives the screen to the equation, and the stack comes back when it closes.
+
 The X line shows <disp v="I01B" kind="view">∫=9.0000</disp>. The calculator adds up many slices, chosen
 more cleverly than the program's equal ones, until its answer is good enough for the places on the
 screen. It also leaves in Y its own cautious figure for how far off the answer might be. Carrying on, C

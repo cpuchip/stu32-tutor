@@ -1,11 +1,18 @@
 # Proposal: a short lesson on expressions (▸, →X, →EQN), STU only
 
-**Status:** a draft, unblocked, its keys after →X held. Asked for by Michael's ruling on the learn-082-140 card (via
-abacus #11861): publish 082, plus a short lesson on expressions. He answered the eqn-screen card on 31 October with
-option 1 (abacus #11975): Equation mode gets its own screen in every mode, and STU's →X leaves Equation mode. The
-firmware builds it as unit 083 (blueprint approved at stu32-firmware 81442f7, work/blueprint/083-eqn-screen.md; abacus
-#11987). Until 083 is built and accepted, the places that press a key after →X stay marked **HELD**. No vectors exist
-yet, and the lesson folder is made only once they can (section 3).
+**Status:** built, green, and waiting for Michael's card. The lesson is lessons/poly-05-an-expression-you-can-hold on
+branch lesson-poly-05, with int-01's sentence beside it; neither is on main, so learn cannot take them before his
+answer. Unit 083 was accepted at stu32-firmware 0acbbdc (abacus #12011), and main's CORE_PIN is 0acbbdc (64fa4cc). The
+branch passes make check (57/57) and make controls (405/405 red over 65 folders, 27/27 harmless green) there. The draft
+below is kept as it was written; the lesson folder supersedes its prose.
+
+Asked for by Michael's ruling on the learn-082-140 card (via abacus #11861): publish 082, plus a short lesson on
+expressions. He answered the eqn-screen card on 31 October with option 1 (abacus #11975): Equation mode gets its own
+screen in every mode, and STU's →X leaves Equation mode. The firmware built it as unit 083 (blueprint at
+stu32-firmware 81442f7, work/blueprint/083-eqn-screen.md; abacus #11987).
+- **Placement (abacus #12018):** unit 5's checkpoint stays in poly-04, so no existing text moves, and poly-05 comes
+  after it. docs/lesson-format.md says a unit's checkpoint is in its last lesson. That sentence no longer holds for
+  unit 5. No tool checks it. The card names the choice: move the checkpoint into poly-05, or change the sentence.
 
 **Measured on:** the core at CORE_PIN 52134a4 (firmware 0.82, Casimir 1.4.0), with keyrun --sequence from
 `BLUE MODE STU GOLD DISP FIX 4`, 2026-10-31. The screens quoted below are keyrun's report lines from those runs,
@@ -121,10 +128,10 @@ band.
   the check should not move, though the pictures do. One passage reads differently once the stack is hidden: int-01's
   "The built-in integral" puts the two ends on the stack, then shows the expression again with EQN. At 083 the ends are
   out of view while the list shows. A sentence saying they are still there would help (lesson text, so on a card).
-  Drafted, not in the lesson. It goes after "and press ∫. Like SOLVE (eq-02), it asks which variable to integrate
-  over; answer X:", before the I01B block, in every mode (STU's list has hidden the stack since 080):
+  On branch lesson-poly-05, the sentence is in the lesson, in every mode (STU's list has hidden the stack since 080).
+  It sits right after the I01B block, so "answer X:" still leads into its keys, and so it is in the past tense:
 
-  > While the expression shows, the two ends are out of sight, but they are still in Y and X: Equation mode
+  > While the expression showed, the two ends were out of sight, but they were still in Y and X: Equation mode
   > gives the screen to the equation, and the stack comes back when it closes.
 
   abacus (#11999): this sentence and poly-05 ride one card with 083's learn update, once 083 is accepted.
