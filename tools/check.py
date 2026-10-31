@@ -166,6 +166,11 @@ def read_vectors(path, nfields):
             if not s.strip() or s.lstrip().startswith("#"):
                 continue
             parts = [p.strip() for p in s.split("|")]
+            # A key vector's expectations are the rest of the line, as the firmware's runner reads them: a drawn
+            # text may hold | (082: %XDRAWN=|Y_SIN(Z)|). Only there: a | in a description or a display vector
+            # still miscounts the fields.
+            if nfields == 4 and len(parts) > 4 and parts[2].startswith("MODE33"):
+                parts = parts[:3] + ["|".join(s.split("|")[3:]).strip()]
             if len(parts) != nfields:
                 raise ValueError(f"{path}:{n}: {len(parts)} fields, expected {nfields}")
             out.append((parts[0], parts, s))
@@ -1342,7 +1347,8 @@ class Lesson:
             # texts agree: X^2 is the line's text and the drawn text, and the glass shows a raised 2.
             if qkind == "drawn":
                 return glass is not None and glass == text
-            if qkind == "eqn" and glass is not None:
+            # An expression in X (082) is drawn too: its line, '3×X^2-4', is not what the glass shows.
+            if qkind in ("eqn", "value") and glass is not None:
                 return False
             # A prompt for a variable (INPUT's or an equation's "X?") takes the Y line (screen.h);
             # STO's "STO _" takes X. Every other kind is the X line.
@@ -1598,11 +1604,13 @@ class Lesson:
             t.write(student_sequence(self.d, md, entry))
         r = self.run(f"{self.core}/build/keyrun", "--sequence", t.name)
         os.unlink(t.name)
-        seq_x, seq_y, seq_st, seq_val, seq_graph, seq_drawn = {}, {}, {}, {}, {}, {}
+        seq_x, seq_y, seq_st, seq_val, seq_graph, seq_drawn, seq_expr = {}, {}, {}, {}, {}, {}, {}
         for l in r.stdout.splitlines():
             p = l.split("\t")
             if p[0] == "DRAWN" and len(p) == 3:
                 seq_drawn[p[1]] = p[2]
+            elif p[0] == "EXPR" and len(p) == 6:
+                seq_expr[p[1]] = dict(zip("XYZT", p[2:6]))
             elif p[0] == "X" and len(p) == 4:
                 seq_x[p[1]] = (p[2], p[3])
             elif p[0] == "YL" and len(p) == 4:
@@ -1632,6 +1640,17 @@ class Lesson:
                 if not same:
                     self.bad(f"{bid}: working through in order, {level} holds {got or '(not a real)'}, "
                              f"the vector says {want_v} ({mode})")
+            # An expression (082) has no number: the vector names its text, and X's drawn form, as the firmware's
+            # runner reads them (none for a number or for nothing drawn, blanks written _).
+            for level, what, want_v in re.findall(r"(?:^|\s)%([XY])(EXPR|DRAWN)=(\S+)", byid[bid][1][3]):
+                if what == "EXPR":
+                    got = seq_expr.get(bid, {}).get(level, "none")
+                else:
+                    got = seq_drawn.get(bid, "none")
+                got = got.replace(" ", "_")
+                if got != want_v:
+                    self.bad(f"{bid}: working through in order, {level}'s {'expression' if what == 'EXPR' else 'drawn form'} "
+                             f"is {got}, the vector says {want_v} ({mode})")
         for q in quotes:
             vid, qkind, shown_text = q.group(1), q.group(2) or "value", q.group(3)
             if qkind == "status":
@@ -1651,7 +1670,7 @@ class Lesson:
                 if qkind == "line":
                     kind, stext = seq_y.get(vid, ("?", ""))
                     where = "the line above X"
-                elif qkind in ("eqn", "drawn") and vid in seq_drawn:
+                elif qkind in ("eqn", "drawn", "value") and vid in seq_drawn:
                     kind, stext, where = "drawn", seq_drawn[vid], "the glass"
                 self.bad(f"{vid}: working through in order, {where} shows '{stext}' ({kind}), the prose '{shown_text}' ({mode})")
 

@@ -21,8 +21,14 @@ int kr_graph_line(const screen_page *page, const char *id, char *out, size_t cap
    written, or -1 when out is too small. */
 int kr_drawn_line(const screen_page *page, const char *id, char *out, size_t cap);
 
+/* The EXPR line when a stack level holds an expression or a name (unit 082): X Y Z T each as STU's text (calc.h's
+   ab_expr_text, a name as its letter), "none" for a number ("EXPR<TAB>id<TAB>x<TAB>y<TAB>z<TAB>t\n"), or nothing
+   when every level is a number. The length written, or -1 when out is too small. */
+int kr_expr_line(const ab_calc *c, const char *id, char *out, size_t cap);
+
 /* The report after a step named id: the X line, the line above it, the status band, X Y Z T as exact
-   numbers (a complex one as its two parts joined by "i", "" for a vector), and the GRAPH and DRAWN lines:
+   numbers (a complex one as its two parts joined by "i", "" for a vector or an expression), and the GRAPH, DRAWN and
+   EXPR lines:
      X<TAB>id<TAB>kind<TAB>text
      YL<TAB>id<TAB>kind<TAB>text
      STATUS<TAB>id<TAB>text
@@ -30,6 +36,7 @@ int kr_drawn_line(const screen_page *page, const char *id, char *out, size_t cap
      ANS<TAB>id<TAB>ans<TAB>shown
      GRAPH<TAB>...          (only with a graph shown)
      DRAWN<TAB>id<TAB>drawn  (only with an equation drawn in 2D)
+     EXPR<TAB>id<TAB>x<TAB>y<TAB>z<TAB>t  (only with an expression on the stack)
    ANS is the last result (calc.h's ans: algebraic entry's result, the stack untouched) and shown the value an
    algebraic X line shows: a history entry while one is selected, else ans (screen.c's rule; soroban #5854).
    The length written, or -1 when out is too small. */

@@ -54,6 +54,22 @@ static void level_text(const ab_val *v, char *out, size_t cap)
     }
 }
 
+int kr_expr_line(const ab_calc *c, const char *id, char *out, size_t cap)
+{
+    if (cap) out[0] = '\0';
+    const ab_val *lv[4] = {&c->x, &c->y, &c->z, &c->t};
+    const char *e[4];
+    bool any = false;
+    for (int i = 0; i < 4; i++) {
+        e[i] = ab_is_sym(lv[i]) ? ab_expr_text(c, lv[i]) : NULL;
+        any = any || e[i];
+    }
+    if (!any) return 0;
+    int n = snprintf(out, cap, "EXPR\t%s\t%s\t%s\t%s\t%s\n", id, e[0] ? e[0] : "none", e[1] ? e[1] : "none",
+                     e[2] ? e[2] : "none", e[3] ? e[3] : "none");
+    return n < 0 || (size_t)n >= cap ? -1 : n;
+}
+
 int kr_report(const ab_calc *c, const screen_page *page, const char *id, char *out, size_t cap)
 {
     char val[4][200], ans[200], shown[200];
@@ -69,5 +85,7 @@ int kr_report(const ab_calc *c, const screen_page *page, const char *id, char *o
     int g = kr_graph_line(page, id, out + n, cap - (size_t)n);
     if (g < 0) return -1;
     int d = kr_drawn_line(page, id, out + n + g, cap - (size_t)(n + g));
-    return d < 0 ? -1 : n + g + d;
+    if (d < 0) return -1;
+    int e = kr_expr_line(c, id, out + n + g + d, cap - (size_t)(n + g + d));
+    return e < 0 ? -1 : n + g + d + e;
 }
