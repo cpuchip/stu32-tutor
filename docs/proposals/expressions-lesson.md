@@ -1,10 +1,11 @@
 # Proposal: a short lesson on expressions (▸, →X, →EQN), STU only
 
-**Status:** a draft, held. Asked for by Michael's ruling on the learn-082-140 card (via abacus #11861):
-publish 082, plus a short lesson on expressions. The keys wait for his answer on the eqn-screen card (abacus #11864),
-whose recommended option makes →X leave the list. So nothing below presses a key after →X that depends on where →X
-leaves you; those places are marked **HELD**. No vectors exist yet, and the lesson folder is made only once they can
-(section 3).
+**Status:** a draft, unblocked, its keys after →X held. Asked for by Michael's ruling on the learn-082-140 card (via
+abacus #11861): publish 082, plus a short lesson on expressions. He answered the eqn-screen card on 31 October with
+option 1 (abacus #11975): Equation mode gets its own screen in every mode, and STU's →X leaves Equation mode. The
+firmware builds it as unit 083 (blueprint approved at stu32-firmware 81442f7, work/blueprint/083-eqn-screen.md; abacus
+#11987). Until 083 is built and accepted, the places that press a key after →X stay marked **HELD**. No vectors exist
+yet, and the lesson folder is made only once they can (section 3).
 
 **Measured on:** the core at CORE_PIN 52134a4 (firmware 0.82, Casimir 1.4.0), with keyrun --sequence from
 `BLUE MODE STU GOLD DISP FIX 4`, 2026-10-31. The screens quoted below are keyrun's report lines from those runs,
@@ -12,17 +13,21 @@ not yet checked by vectors.
 
 ## 1. The lesson
 
-- **id:** expr-01, **title:** An equation you can hold. **modes:** STU, with `modes_reason:` saying that →X and →EQN
+- **id:** poly-05, **title:** An expression you can hold. **modes:** STU, with `modes_reason:` saying that →X and →EQN
   are STU mode's keys alone (firmware 082: in 33s and 35s modes the list keeps EXIT and has no EQN MORE).
-- **Place:** the algebra-to-calculus course, after eq-01 (the equation list) and before der-01, which can then point
-  back to it.
+  (This draft first said expr-01, but that id is taken: lessons/expr-01-letters-for-numbers, "Letters for numbers".)
+- **Place:** the algebra-to-calculus course, unit 5 (Polynomials), after poly-04. Its example, 3X² − 4, is an
+  expression without =, which the course teaches in poly-02 ("Typing c", topic `expression`). Placed in unit 2, as this
+  draft first had it, it would lean on a topic taught three units later, which the course file forbids. der-01 can
+  still point back to it.
 - **requires:** setup shift-keys soft-keys stack-levels sto rcl swap-roll clear-message eqn-typing equation-list
+  expression
 - **Teaches (new TOPICS rows):** expression-value (an expression in X, and how T, Z and Y write one), eqn-more (the
   list's ▸ and EQN MORE), eq-drop (→X), eq-store (→EQN), not-a-number (NOT A NUMBER, and why).
 
 ### Draft prose
 
-**An equation you can hold.** In eq-01 an equation lived in the list: you typed it, and XEQ or SOLVE worked with it
+**An expression you can hold.** In eq-01 an equation lived in the list: you typed it, and XEQ or SOLVE worked with it
 there. STU mode can also hand you a copy of it, to keep on the stack like a number. A copy held this way is called an
 *expression*: the rule itself, with no value yet.
 
@@ -39,8 +44,9 @@ opens a second row of keys for the list, EQN MORE. Its first key, →X, copies t
 ▸ →X
 ```
 
-**HELD (eqn-screen):** what the screen shows right after →X, and the keys that take you to the stack. At 52134a4
-the list stays on the screen with nothing changed (abacus's walk, item 2), and C then leaves it.
+**HELD (083):** what the screen shows right after →X. At 52134a4 the list stays on the screen (abacus's walk, item 2),
+and C then leaves it. At 083 (§2) →X leaves Equation mode, so the expression lands in X and no key is needed to reach
+the stack. It is one →X per visit: GOLD EQN reopens the list at the same entry, for another.
 
 **What X shows.** X draws the expression as the list did, 3X² − 4. In Y, Z or T the same expression is written on
 one line, in quotes: `'3×X^2-4'` (measured). The quotes say "this is a rule, not a number", so `'2'` can never be
@@ -53,13 +59,15 @@ the list (eq-01). ← clears the message.
 **Keeping it in a letter.** STO A stores an expression just as it stores a number, and RCL A brings it back
 (measured: X `'3×X^2-4'` after RCL A).
 
-**Back into the list.** With the expression in X, open the list and press ▸ then →EQN. The expression goes into the
+**Back into the list.** With the expression in X, open the list with GOLD EQN and press ▸ then →EQN. (At 083, →EQN
+outside the list is NO EQN, so the GOLD EQN is needed.) The expression goes into the
 list just after the equation that was showing, and becomes the one showing. X keeps its copy. ▲ shows the equation it
 came from (measured: two `3×X^2-4` entries, then EQN LIST TOP). With a number in X, →EQN refuses: INVALID DATA, and the
 list is unchanged (measured, with 2 in X).
 
-**HELD (eqn-screen): a warning about C.** At 52134a4, C after →X leaves the list and a second C clears X, so the
-expression is gone unless it was stored (measured). Whether the warning is needed, and its keys, depend on the card.
+**A warning about C, probably not needed.** At 52134a4, C after →X leaves the list and a second C clears X, so the
+expression is gone unless it was stored (measured). At 083 →X has already left the list, so one C clears X, as it
+clears any number, and only by choice (083's new vector X10 proves it). Decided at the build.
 
 ### Exercises (outline)
 1. Type 2X + 5 = 11, take it onto the stack, and store it in B. (HELD at the →X step.)
@@ -79,10 +87,37 @@ expression is gone unless it was stored (measured). Whether the warning is neede
 
 ## 3. What the check needs before the lesson folder exists
 
-- **G1, the eqn-screen card:** the keys after →X.
-- **G2, firmware vectors (tests/vectors.c at 52134a4):** no token for →X or →EQN (the CAS ops have `CASD:` and the
-  like), and no expectation for an expression in X or Y (`X=` compares a number). The lesson format requires vectors
-  before prose, so the lesson needs both. That is the firmware's tool, not tutor's.
-- **G3, tutor's tools:** keyrun's VAL line prints an empty field for an expression (measured), so check.py's VAL
-  comparison needs a rule for it. X's expression is quoted with kind="drawn" (the DRAWN line), and Y's one-line text
-  with the line kinds; both exist.
+- **G1, the eqn-screen card:** answered (option 1). The keys after →X follow unit 083 once it is built and accepted;
+  then the pin moves to its head.
+- **G2, firmware vectors:** done at stu32-firmware 67db051. It adds the tokens EQDROP and EQSTORE, and the expectations
+  %XEXPR, %YEXPR and %XDRAWN (tests/082-soroban.txt X1-X9). 083 moves X1-X5, X7 and X8 with its §2, and soroban
+  carries them.
+- **G3, tutor's tools:** done. keyrun prints an EXPR line (X Y Z T as STU's text, none for a number) whenever the
+  stack holds an expression. The walk-through checks a vector's %XEXPR and %YEXPR against what the student's device
+  holds, and %XDRAWN against the DRAWN line. check.py reads a key vector's expectations as the rest of the line, as
+  the firmware does, since a drawn text may hold |; a | anywhere else still miscounts the fields. A plain quote of X
+  where the glass draws is refused with that reason. (It was already refused before, but only because it had no
+  display vector.) Falsified with a throwaway STU lesson at firmware 9df97a8: the lesson passed; a planted %YEXPR
+  fault went red for its own reason; and two mutants of the new comparison each went red.
+
+## 4. What 083's screen moves in the published lessons (abacus #11987)
+
+Measured at 52134a4 by walking every lesson and the placement file in each of its modes, as the learning page presses
+them (check.py's student_sequence through keyrun --sequence), and listing every block that ends with EQN in the status
+band.
+- **33s and 35s, a block that ends on the list with Y in view** (083 hides T, Z and Y), in 6 lessons:
+  - eq-01: Q01, Q06A;
+  - eq-03: A01;
+  - exp-04: Q01, E01;
+  - int-01: I01;
+  - poly-02: R01, E01;
+  - sys-02, 35s only: T01Z, T01A, F01A, M01A, N01A, N02A.
+- **STU:** every block that ends in Equation mode ends on the list, which 080 already draws clean. None ends while an
+  equation is being typed. Typing shows only between a block's keys, in the 11 lessons that press EQN: der-01, der-02,
+  der-03, eq-01, eq-02, eq-03, exp-04, fn-02, int-01, poly-02, sys-02.
+- **One block 083's blueprint doesn't name:** eq-01 Q05A, SOLVE's variable prompt (`SOLVE _`). It has EQN in the
+  status band and Y in view (5.0000) in all three modes. It is neither the list nor the editor.
+- **Quotes:** none of these blocks quotes T, Z or Y. Their quotes are kind eqn, drawn or prompt, all on X's line. So
+  the check should not move, though the pictures do. One passage reads differently once the stack is hidden: int-01's
+  "The built-in integral" puts the two ends on the stack, then shows the expression again with EQN. At 083 the ends are
+  out of view while the list shows. A sentence saying they are still there would help (lesson text, so on a card).
