@@ -121,3 +121,10 @@ band.
   the check should not move, though the pictures do. One passage reads differently once the stack is hidden: int-01's
   "The built-in integral" puts the two ends on the stack, then shows the expression again with EQN. At 083 the ends are
   out of view while the list shows. A sentence saying they are still there would help (lesson text, so on a card).
+  Drafted, not in the lesson. It goes after "and press ∫. Like SOLVE (eq-02), it asks which variable to integrate
+  over; answer X:", before the I01B block, in every mode (STU's list has hidden the stack since 080):
+
+  > While the expression shows, the two ends are out of sight, but they are still in Y and X: Equation mode
+  > gives the screen to the equation, and the stack comes back when it closes.
+
+  abacus (#11999): this sentence and poly-05 ride one card with 083's learn update, once 083 is accepted.
