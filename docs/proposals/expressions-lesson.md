@@ -10,6 +10,11 @@ expressions, so that 2 × with an expression in Y multiplies the whole expressio
 exercise 2 (E02, E02B) change, along with the not-a-number topic in lessons/TOPICS and the control that misquotes
 NOT A NUMBER in tools/controls.py.
 
+**Revisited at unit 084** (stu32-firmware 6ee62e4, VER 0.84, abacus #12411): it landed, and the lesson changed as
+flagged. "Not a number" became "Arithmetic on an expression", after the list: 2 × gives (3×X^2-4)×2, kept as typed.
+The letter step moved before it and stores X directly, because 2 × now uses the expression up. Exercise 2's 7 × gives
+both sides times 7. The topic is expression-arithmetic, and the control misquotes the product as tidied (6X^2-8).
+
 The rest of this status is as it stood before the card. Unit 083 was accepted at stu32-firmware 0acbbdc (abacus #12011), and main's CORE_PIN is 0acbbdc (64fa4cc). The
 branch passes make check (57/57) and make controls (405/405 red over 65 folders, 27/27 harmless green) there. The draft
 below is kept as it was written; the lesson folder supersedes its prose.

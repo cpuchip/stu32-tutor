@@ -14,7 +14,7 @@ display: FIX 4
 In poly-02 an expression lived in the equation list: you typed it there, and XEQ and SOLVE worked with it in
 place. STU mode can also hand you a copy of it, to keep on the stack like a number, to store in a letter, and
 to put back into the list. A copy held this way is still a rule, not a number: it has no value until $x$ has
-one.
+one. But arithmetic works on it all the same, the rule as a whole.
 
 ## From before
 
@@ -74,28 +74,12 @@ ENTER
 Only X is drawn. Y, Z and T write an expression on one line, in quotes, with every × shown: Y shows
 <disp v="B03" kind="y">'3×X^2-4'</disp>. The quotes mark it as a rule, not a number.
 
-## Not a number
-
-Now type 2 and press ×, as if to double it:
-
-```keys N01 after=B03
-2 ×
-```
-
-The screen says <disp v="N01" kind="message">NOT A NUMBER</disp>, and nothing changes: X holds 2 and the
-expression is still in Y. × needs two numbers, and the expression has no value until $x$ has one, which is what
-XEQ gives it in the list (eq-01). C clears the message:
-
-```keys N02 after=N01
-C
-```
-
 ## Keeping it in a letter
 
-x↔y brings the expression down into X, and STO A stores it, just as it stores a number:
+STO A stores the expression in X, just as it stores a number:
 
-```keys K01 after=N02
-x↔y STO A
+```keys K01 after=B03
+STO A
 ```
 
 C clears X. RCL A brings the expression back:
@@ -136,10 +120,27 @@ C
 
 X shows <disp v="L04" kind="drawn">3X^2-4</disp>, the copy it kept.
 
+## Arithmetic on an expression
+
+Carrying on, X holds $3x^2 - 4$. Type 2 and press ×, to double it:
+
+```keys N01 after=L04
+2 ×
+```
+
+X shows <disp v="N01" kind="drawn">(3X^2-4)·2</disp>: the whole expression times 2, kept as you built it. The
+calculator does not tidy it into $6x^2 - 8$, though the two are equal for every $x$. Y still holds
+<disp v="N01" kind="y">'3×X^2-4'</disp>, the copy ENTER made at the start.
+
+```why
+ask: Why are there brackets round 3X^2-4?
+because: × comes before −, so without them only the 4 would be doubled; the brackets make the 2 multiply all of it.
+```
+
 ## Exercises
 
 1. Type $2x + 5 = 11$, take it onto the stack with →X, and store it in B.
-2. With that equation in X, type 7 and press ×. What does the screen say?
+2. With that equation in X, type 7 and press ×. What does X show?
 3. Recall B, type $x + 1$ into the list, and put B's equation in just after it.
 
 ## Answers
@@ -152,13 +153,14 @@ X shows <disp v="L04" kind="drawn">3X^2-4</disp>, the copy it kept.
 
    X shows <disp v="E01" kind="drawn">2X+5=11</disp>.
 
-2. The 7 lifts the equation into Y, and × cannot multiply a rule:
+2. × works on both sides of an equation, as when you solve one by hand:
 
    ```keys E02 after=E01
    7 ×
    ```
 
-   The screen says <disp v="E02" kind="message">NOT A NUMBER</disp>. C clears it:
+   X shows <disp v="E02" kind="drawn">(2X+5)·7=11·7</disp>: both sides times 7, so it still holds for the same
+   $x$. C clears it:
 
    ```keys E02B after=E02
    C

@@ -460,15 +460,17 @@ CONTROLS_FOR["poly-05-an-expression-you-can-hold"] = [
     # expectation that passes from the setup but not on the student's carried device.
     ("X's expression quoted as its line, where the glass draws it", "lesson.md", '<disp v="B02" kind="drawn">3X^2-4</disp>',
      "<disp v=\"B02\">'3×X^2-4'</disp>", {}, "B02: working through in order, the glass shows '3X^2-4' (drawn)"),
-    ("Y's one-line form quoted without its ×", "lesson.md", "kind=\"y\">'3×X^2-4'<", "kind=\"y\">'3X^2-4'<", {},
+    ("Y's one-line form quoted without its ×", "lesson.md", "<disp v=\"B03\" kind=\"y\">'3×X^2-4'<",
+     "<disp v=\"B03\" kind=\"y\">'3X^2-4'<", {},
      "B03: the device's line above X shows ''3×X^2-4'' (value), the prose ''3X^2-4'' (y)"),
+    # Since unit 084 the carried device reaches E01 with N01's doubled expression in Y.
     ("exercise 1 expecting nothing held in Y, true only from the setup", "vectors.txt",
      "| %XEXPR=2×X+5=11 %XDRAWN=2X+5=11\n", "| %XEXPR=2×X+5=11 %XDRAWN=2X+5=11 %YEXPR=none\n", {},
-     "E01: working through in order, Y's expression is 3×X^2-4, the vector says none (STU)"),
+     "E01: working through in order, Y's expression is (3×X^2-4)×2, the vector says none (STU)"),
     ("→EQN pressed without EQN MORE's ▸", "lesson.md", "```keys L02 after=L01\n▸ →EQN\n", "```keys L02 after=L01\n→EQN\n", {},
      "L02: printed keys and vector disagree"),
-    ("the refusal misquoted", "lesson.md", '<disp v="N01" kind="message">NOT A NUMBER<', '<disp v="N01" kind="message">INVALID DATA<', {},
-     "N01: the device's X line shows 'NOT A NUMBER' (message)"),
+    ("the doubled expression quoted tidied, as the calculator does not write it", "lesson.md",
+     '<disp v="N01" kind="drawn">(3X^2-4)·2<', '<disp v="N01" kind="drawn">6X^2-8<', {}, "N01: working through in order"),
 ]
 CONTROLS_FOR["exp-01-growth-and-decay"] = [
     ("4% growth keyed as a factor of 0.04", "lesson.md", "```keys G01\n500 ENTER 1.04 ENTER 10 yˣ ×\n",

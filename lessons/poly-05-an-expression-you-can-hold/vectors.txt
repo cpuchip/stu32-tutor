@@ -1,7 +1,8 @@
 # poly-05 an expression you can hold: key vectors (the firmware's format). Every example is ours. Each starts MODE33
 # FIX4 (the lesson's setup). EQN toggles Equation mode; EQDROP is EQN MORE's →X and EQSTORE its →EQN (082); BST is
 # the list's ▲. %XEXPR and %YEXPR are X's and Y's expression as STU's text, none for a number; %XDRAWN is X as the
-# screen draws it (unit 082, firmware 67db051; →X leaves Equation mode from unit 083).
+# screen draws it (unit 082, firmware 67db051; →X leaves Equation mode from unit 083; arithmetic on an
+# expression from unit 084, firmware 6ee62e4).
 # From before
 PL5F1 | from before: 3x^2 - 4 at x = 2, typed | MODE33 FIX4 8 | X=8
 PL5F1W | its working | MODE33 FIX4 2 SQ 3 * 4 - | X=8
@@ -13,19 +14,18 @@ PL5F2A | slip: right minus left | MODE33 FIX4 9 ENTER 4 ENTER 3 * 1 - - | X=-2
 B01 | typing 3x^2 - 4 | MODE33 FIX4 EQN 3 * RCL:X POW 2 - 4 ENTER | %EQ=3×X^2-4 %XEXPR=none
 B02 | continues B01: →X, Equation mode left, the expression in X | MODE33 FIX4 EQN 3 * RCL:X POW 2 - 4 ENTER EQDROP | %XEXPR=3×X^2-4 %XDRAWN=3X^2-4 %YEXPR=none %EQN=1
 B03 | continues B02: ENTER copies it into Y | MODE33 FIX4 EQN 3 * RCL:X POW 2 - 4 ENTER EQDROP ENTER | %XEXPR=3×X^2-4 %YEXPR=3×X^2-4
-N01 | continues B03: 2 x is NOT A NUMBER, nothing changed | MODE33 FIX4 EQN 3 * RCL:X POW 2 - 4 ENTER EQDROP ENTER 2 * | ERR X=2 %YEXPR=3×X^2-4
-N02 | continues N01: C clears the message | MODE33 FIX4 EQN 3 * RCL:X POW 2 - 4 ENTER EQDROP ENTER 2 * C | ERR X=2 %YEXPR=3×X^2-4
-K01 | continues N02: x<>y, STO A | MODE33 FIX4 EQN 3 * RCL:X POW 2 - 4 ENTER EQDROP ENTER 2 * C XY STO:A | ERR %XEXPR=3×X^2-4 Y=2
-K02 | continues K01: C, RCL A brings it back | MODE33 FIX4 EQN 3 * RCL:X POW 2 - 4 ENTER EQDROP ENTER 2 * C XY STO:A C RCL:A | ERR %XEXPR=3×X^2-4 %XDRAWN=3X^2-4
-L01 | continues K02: x + 1 typed into the list | MODE33 FIX4 EQN 3 * RCL:X POW 2 - 4 ENTER EQDROP ENTER 2 * C XY STO:A C RCL:A EQN RCL:X + 1 ENTER | ERR %EQ=X+1 %EQN=2 %XEXPR=3×X^2-4
-L02 | continues L01: →EQN puts X's expression after x + 1 | MODE33 FIX4 EQN 3 * RCL:X POW 2 - 4 ENTER EQDROP ENTER 2 * C XY STO:A C RCL:A EQN RCL:X + 1 ENTER EQSTORE | ERR %EQ=3×X^2-4 %EQN=3 %XEXPR=3×X^2-4
-L03 | continues L02: the entry before | MODE33 FIX4 EQN 3 * RCL:X POW 2 - 4 ENTER EQDROP ENTER 2 * C XY STO:A C RCL:A EQN RCL:X + 1 ENTER EQSTORE BST | ERR %EQ=X+1 %EQN=3
-L04 | continues L03: C leaves, X kept its copy | MODE33 FIX4 EQN 3 * RCL:X POW 2 - 4 ENTER EQDROP ENTER 2 * C XY STO:A C RCL:A EQN RCL:X + 1 ENTER EQSTORE BST C | ERR %XEXPR=3×X^2-4 %XDRAWN=3X^2-4
+K01 | continues B03: STO A | MODE33 FIX4 EQN 3 * RCL:X POW 2 - 4 ENTER EQDROP ENTER STO:A | %XEXPR=3×X^2-4 %YEXPR=3×X^2-4
+K02 | continues K01: C, RCL A brings it back | MODE33 FIX4 EQN 3 * RCL:X POW 2 - 4 ENTER EQDROP ENTER STO:A C RCL:A | %XEXPR=3×X^2-4 %XDRAWN=3X^2-4
+L01 | continues K02: x + 1 typed into the list | MODE33 FIX4 EQN 3 * RCL:X POW 2 - 4 ENTER EQDROP ENTER STO:A C RCL:A EQN RCL:X + 1 ENTER | %EQ=X+1 %EQN=2 %XEXPR=3×X^2-4
+L02 | continues L01: →EQN puts X's expression after x + 1 | MODE33 FIX4 EQN 3 * RCL:X POW 2 - 4 ENTER EQDROP ENTER STO:A C RCL:A EQN RCL:X + 1 ENTER EQSTORE | %EQ=3×X^2-4 %EQN=3 %XEXPR=3×X^2-4
+L03 | continues L02: the entry before | MODE33 FIX4 EQN 3 * RCL:X POW 2 - 4 ENTER EQDROP ENTER STO:A C RCL:A EQN RCL:X + 1 ENTER EQSTORE BST | %EQ=X+1 %EQN=3
+L04 | continues L03: C leaves, X kept its copy | MODE33 FIX4 EQN 3 * RCL:X POW 2 - 4 ENTER EQDROP ENTER STO:A C RCL:A EQN RCL:X + 1 ENTER EQSTORE BST C | %XEXPR=3×X^2-4 %XDRAWN=3X^2-4
+N01 | continues L04: 2 x doubles the expression, kept as typed (unit 084) | MODE33 FIX4 EQN 3 * RCL:X POW 2 - 4 ENTER EQDROP ENTER STO:A C RCL:A EQN RCL:X + 1 ENTER EQSTORE BST C 2 * | %XEXPR=(3×X^2-4)×2 %XDRAWN=(3X^2-4)·2 %YEXPR=3×X^2-4
 # Exercises
 E01 | exercise 1: 2x + 5 = 11 onto the stack, stored in B | MODE33 FIX4 EQN 2 * RCL:X + 5 = 11 ENTER EQDROP STO:B | %XEXPR=2×X+5=11 %XDRAWN=2X+5=11
-E02 | continues E01: 7 x is NOT A NUMBER | MODE33 FIX4 EQN 2 * RCL:X + 5 = 11 ENTER EQDROP STO:B 7 * | ERR X=7 %YEXPR=2×X+5=11
-E02B | continues E02: C clears it | MODE33 FIX4 EQN 2 * RCL:X + 5 = 11 ENTER EQDROP STO:B 7 * C | ERR X=7 %YEXPR=2×X+5=11
-E03 | continues E02B: RCL B, x + 1 typed, →EQN after it | MODE33 FIX4 EQN 2 * RCL:X + 5 = 11 ENTER EQDROP STO:B 7 * C RCL:B EQN RCL:X + 1 ENTER EQSTORE | ERR %EQ=2×X+5=11 %EQN=3 %XEXPR=2×X+5=11
+E02 | continues E01: 7 x multiplies both sides (unit 084) | MODE33 FIX4 EQN 2 * RCL:X + 5 = 11 ENTER EQDROP STO:B 7 * | %XEXPR=(2×X+5)×7=11×7 %XDRAWN=(2X+5)·7=11·7
+E02B | continues E02: C clears it | MODE33 FIX4 EQN 2 * RCL:X + 5 = 11 ENTER EQDROP STO:B 7 * C | X=0 %XEXPR=none
+E03 | continues E02B: RCL B, x + 1 typed, →EQN after it | MODE33 FIX4 EQN 2 * RCL:X + 5 = 11 ENTER EQDROP STO:B 7 * C RCL:B EQN RCL:X + 1 ENTER EQSTORE | %EQ=2×X+5=11 %EQN=3 %XEXPR=2×X+5=11
 # Mixed review: each answer typed, its working, and the slips'.
 PL5M1 | mixed review: x^2 - 2x at 5 with XEQ, typed | MODE33 FIX4 15 | X=15
 PL5M1W | its working, with XEQ as the prompt says | MODE33 FIX4 EQN RCL:X POW 2 - 2 * RCL:X ENTER XEQ 5 RS | X=15

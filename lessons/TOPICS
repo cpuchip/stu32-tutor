@@ -165,7 +165,7 @@ eqn-more | EQN MORE: the list's second row of keys, behind ▸ | poly-05 | Onto 
 eq-drop | →X: the expression shown, onto the stack | poly-05 | Onto the stack
 expression-value | An expression held in X, drawn as the list draws it | poly-05 | Onto the stack
 expression-line | Y, Z and T write an expression on one line, in quotes | poly-05 | On one line in Y
-not-a-number | NOT A NUMBER: arithmetic needs numbers | poly-05 | Not a number
+expression-arithmetic | Arithmetic on an expression: 2 × doubles all of it, kept as typed | poly-05 | Arithmetic on an expression
 sto-expression | STO and RCL keep an expression | poly-05 | Keeping it in a letter
 eq-store | →EQN: X's expression into the list | poly-05 | Back into the list
 
