@@ -1,0 +1,13 @@
+# Astronomy: how we know (proposed, docs/courses/astronomy.md; the physics). RPN, as algebra-to-calculus, which is
+# its prerequisite. Only the pilot's lessons are listed so far.
+course | astronomy-how-we-know | Astronomy: how we know
+entry | rpn
+route | guided
+prerequisite | algebra-to-calculus
+unit | 1 | Angles and parallax
+lesson | hms-01
+unit | 2 | Light: the inverse square and magnitudes
+unit | 3 | Gravity and orbits
+unit | 4 | Light as a thermometer
+unit | 5 | Spectra and Doppler
+unit | 6 | The distance ladder

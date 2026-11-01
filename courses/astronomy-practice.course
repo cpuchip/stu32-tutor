@@ -1,0 +1,16 @@
+# Astronomy: the practice (proposed, docs/courses/astronomy.md; observing). Algebraic entry first, RPN offered, as
+# pre-algebra, which is its prerequisite; geometry's angle-01 is listed here rather than all of geometry. Only the
+# pilot's lessons are listed so far.
+course | astronomy-practice | Astronomy: the practice
+entry | alg rpn
+route | guided
+prerequisite | pre-algebra
+unit | 1 | Before you go out
+unit | 2 | The sky as a sphere, and angles with your hand
+lesson | angle-01
+unit | 3 | Finding stars: alt-az and RA/Dec
+lesson | hms-01
+unit | 4 | Time, the sky's motion and precession
+unit | 5 | Brightness by eye
+unit | 6 | Variable stars and a light curve of your own
+unit | 7 | An observing log

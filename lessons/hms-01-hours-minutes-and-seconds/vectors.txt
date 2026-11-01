@@ -1,0 +1,58 @@
+# hms-01 hours, minutes and seconds: key vectors (the firmware's format). Every example is ours. Each starts MODE33
+# FIX4 (the setup). The lesson offers every mode: a plain ID is RPN, in 33s, 35s and STU (check.py's lesson_pairs);
+# ID@alg is STU's algebraic line (firmware 029: the result is ANS, N=; %LINE= the line as typed). Values read from
+# the core at 1a12ecf with keyrun (HMS→ of 18.36563 and 38.4701, →HMS of 86164.0989 ÷ 3600, HMS→ of 0.01).
+H01 | 2 h 30 min 45 s into hours: HMS-> of 2.3045 | MODE33 FIX4 2.3045 HMSINV | X=2.5125
+H01@alg | 2 h 30 min 45 s into hours: HMS-> of 2.3045 | MODE33 FIX4 HMSINV 2.3045 > ENTER | N=2.5125 %LINE=HMS→(2.3045)
+H02 | Vega's right ascension, 18h 36m 56.3s, into hours | MODE33 FIX4 18.36563 HMSINV | X=18.61563888888888888888888888888889
+H02@alg | Vega's right ascension, 18h 36m 56.3s, into hours | MODE33 FIX4 HMSINV 18.36563 > ENTER | N=18.61563888888888888888888888888889 %LINE=HMS→(18.36563)
+H03 | 1.5 hours back to hours and minutes: ->HMS | MODE33 FIX4 1.5 HMS | X=1.3
+H03@alg | 1.5 hours back to hours and minutes: ->HMS | MODE33 FIX4 HMS 1.5 > ENTER | N=1.3 %LINE=→HMS(1.5)
+H04 | the stars' day, 86164.0989 s (USNO Circular 179), in hours and ->HMS | MODE33 FIX4 86164.0989 ENTER 3600 / HMS | X=23.56040989
+H04@alg | the stars' day, 86164.0989 s (USNO Circular 179), in hours and ->HMS | MODE33 FIX4 HMS 86164.0989 / 3600 > ENTER | N=23.56040989 %LINE=→HMS(86164.0989÷3600)
+H05 | Vega's declination, 38 deg 47 min 01 s, into degrees | MODE33 FIX4 38.4701 HMSINV | X=38.78361111111111111111111111111111
+H05@alg | Vega's declination, 38 deg 47 min 01 s, into degrees | MODE33 FIX4 HMSINV 38.4701 > ENTER | N=38.78361111111111111111111111111111 %LINE=HMS→(38.4701)
+E01 | exercise 1: 3 h 45 min into hours | MODE33 FIX4 3.45 HMSINV | X=3.75
+E01@alg | exercise 1: 3 h 45 min into hours | MODE33 FIX4 HMSINV 3.45 > ENTER | N=3.75 %LINE=HMS→(3.45)
+E02 | exercise 2: 2.75 hours in hours and minutes | MODE33 FIX4 2.75 HMS | X=2.45
+E02@alg | exercise 2: 2.75 hours in hours and minutes | MODE33 FIX4 HMS 2.75 > ENTER | N=2.45 %LINE=→HMS(2.75)
+E03 | exercise 3: 1 arcminute in degrees | MODE33 FIX4 0.01 HMSINV | X=0.01666666666666666666666666666666667
+E03@alg | exercise 3: 1 arcminute in degrees | MODE33 FIX4 HMSINV 0.01 > ENTER | N=0.01666666666666666666666666666666667 %LINE=HMS→(0.01)
+# From before and Mixed review (decision 76): each answer typed, its working (W), and the slip's; plain the stack,
+# @alg the line.
+HM1F1 | from before: 15 minutes as part of an hour, typed | MODE33 FIX4 0.25 ENTER | X=0.25
+HM1F1@alg | from before: 15 minutes as part of an hour, typed | MODE33 FIX4 0.25 ENTER | N=0.25 %LINE=0.25
+HM1F1W | its working | MODE33 FIX4 15 ENTER 60 / | X=0.25
+HM1F1W@alg | its working | MODE33 FIX4 15 / 60 ENTER | N=0.25 %LINE=15÷60
+HM1F1A | slip: 15 / 100 | MODE33 FIX4 15 ENTER 100 / | X=0.15
+HM1F1A@alg | slip: 15 / 100 | MODE33 FIX4 15 / 100 ENTER | N=0.15 %LINE=15÷100
+HM1F2 | from before: a quarter turn, typed | MODE33 FIX4 90 ENTER | X=90
+HM1F2@alg | from before: a quarter turn, typed | MODE33 FIX4 90 ENTER | N=90 %LINE=90
+HM1F2W | its working | MODE33 FIX4 360 ENTER 4 / | X=90
+HM1F2W@alg | its working | MODE33 FIX4 360 / 4 ENTER | N=90 %LINE=360÷4
+HM1F2A | slip: half a turn, 360 / 2 | MODE33 FIX4 360 ENTER 2 / | X=180
+HM1F2A@alg | slip: half a turn, 360 / 2 | MODE33 FIX4 360 / 2 ENTER | N=180 %LINE=360÷2
+HM1M1 | mixed review: minutes in 2.5 hours, typed | MODE33 FIX4 150 ENTER | X=150
+HM1M1@alg | mixed review: minutes in 2.5 hours, typed | MODE33 FIX4 150 ENTER | N=150 %LINE=150
+HM1M1W | its working | MODE33 FIX4 2.5 ENTER 60 * | X=150
+HM1M1W@alg | its working | MODE33 FIX4 2.5 * 60 ENTER | N=150 %LINE=2.5×60
+HM1M1A | slip: .5 read as 50 minutes | MODE33 FIX4 2 ENTER 60 * 50 + | X=170
+HM1M1A@alg | slip: .5 read as 50 minutes | MODE33 FIX4 2 * 60 + 50 ENTER | N=170 %LINE=2×60+50
+HM1M2 | mixed review: a third of a turn, typed | MODE33 FIX4 120 ENTER | X=120
+HM1M2@alg | mixed review: a third of a turn, typed | MODE33 FIX4 120 ENTER | N=120 %LINE=120
+HM1M2W | its working | MODE33 FIX4 360 ENTER 3 / | X=120
+HM1M2W@alg | its working | MODE33 FIX4 360 / 3 ENTER | N=120 %LINE=360÷3
+HM1M2A | slip: a third of half a turn | MODE33 FIX4 180 ENTER 3 / | X=60
+HM1M2A@alg | slip: a third of half a turn | MODE33 FIX4 180 / 3 ENTER | N=60 %LINE=180÷3
+HM1M3 | mixed review: minutes past the hour in 1.75 hours, typed | MODE33 FIX4 45 ENTER | X=45
+HM1M3@alg | mixed review: minutes past the hour in 1.75 hours, typed | MODE33 FIX4 45 ENTER | N=45 %LINE=45
+HM1M3W | its working | MODE33 FIX4 0.75 ENTER 60 * | X=45
+HM1M3W@alg | its working | MODE33 FIX4 0.75 * 60 ENTER | N=45 %LINE=0.75×60
+HM1M3A | slip: the decimal read as minutes, 75 | MODE33 FIX4 75 ENTER | X=75
+HM1M3A@alg | slip: the decimal read as minutes, 75 | MODE33 FIX4 75 ENTER | N=75 %LINE=75
+HM1M4 | mixed review: 12 minutes as part of an hour, typed | MODE33 FIX4 0.2 ENTER | X=0.2
+HM1M4@alg | mixed review: 12 minutes as part of an hour, typed | MODE33 FIX4 0.2 ENTER | N=0.2 %LINE=0.2
+HM1M4W | its working | MODE33 FIX4 12 ENTER 60 / | X=0.2
+HM1M4W@alg | its working | MODE33 FIX4 12 / 60 ENTER | N=0.2 %LINE=12÷60
+HM1M4A | slip: 12 / 100 | MODE33 FIX4 12 ENTER 100 / | X=0.12
+HM1M4A@alg | slip: 12 / 100 | MODE33 FIX4 12 / 100 ENTER | N=0.12 %LINE=12÷100

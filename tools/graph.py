@@ -122,7 +122,7 @@ def check(topics_text, lessons):
                            f"mode, but offers {' '.join(offered)}")
             if len(srcs) == 1:
                 needs |= srcs
-            elif srcs:
+            elif srcs and sorted(srcs) not in needs_any:
                 needs_any.append(sorted(srcs))
         # An item's topics (docs/lesson-format.md, Items) are where a miss links back: each must be a topic.
         for im in re.finditer(r"^[ \t]*```item[ \t]+(\S+)[ \t]*\n(.*?)^[ \t]*```", lessons[lid][1], re.M | re.S):

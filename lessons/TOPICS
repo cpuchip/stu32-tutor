@@ -381,3 +381,10 @@ transversal | A transversal and its eight angles | parallel-01 | A line across
 corresponding-angles | Corresponding angles are equal for parallel lines (taken as given) | parallel-01 | Corresponding angles
 alternate-angles | Alternate angles are equal, and why | parallel-01 | Alternate angles
 co-interior | Co-interior angles add to 180°, and why | parallel-01 | Co-interior angles
+
+# hms-01 Hours, minutes and seconds (both astronomy courses: A1 before parallax, B2 before right ascension)
+sexagesimal | Sixty, not ten: minutes and seconds as parts of an hour | hms-01 | Sixty, not ten
+hms-form | H.MMSS: hours, minutes and seconds typed as one number | hms-01 | Into hours
+hms-to-hours | HMS→: into hours | hms-01 | Into hours
+hours-to-hms | →HMS: back to hours, minutes and seconds | hms-01 | Back to hours and minutes
+dms | Degrees, arcminutes and arcseconds, with the same keys | hms-01 | Degrees, arcminutes and arcseconds

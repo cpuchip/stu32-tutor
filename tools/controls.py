@@ -661,6 +661,21 @@ CONTROLS_FOR["fn-03-domain"] = [
     ("GTO . with one dot: the prompt left waiting", "lesson.md", "```keys S07 after=S06\nGOLD GTO . .\n",
      "```keys S07 after=S06\nGOLD GTO .\n", {}, "S07: printed keys and vector disagree in 33s mode"),
 ]
+# hms-01: every mode, with alg in STU alone (check.py's lesson_pairs, abacus #12198). The RPN vectors serve 33s, 35s
+# and STU; the alg vectors STU's algebraic line.
+CONTROLS_FOR["hms-01-hours-minutes-and-seconds"] = [
+    ("HMS-> and ->HMS swapped in the first example", "lesson.md", "```keys H01\n2.3045 BLUE ANGLE HMS→\n",
+     "```keys H01\n2.3045 BLUE ANGLE →HMS\n", {}, "H01: printed keys and vector disagree in 33s rpn mode"),
+    ("the algebraic block typed number first, which is a SYNTAX ERROR", "lesson.md",
+     "```keys H03 entry=alg\nBLUE ANGLE →HMS 1.5 ▶ ENTER\n", "```keys H03 entry=alg\n1.5 BLUE ANGLE →HMS ENTER\n", {},
+     "H03: printed keys and vector disagree in STU alg mode"),
+    ("Vega's declination quoted as typed, not as HMS-> gives it", "lesson.md", 'v="H05">38.7836<', 'v="H05">38.4701<',
+     {}, "D-H05: the prose shows '38.4701'"),
+    ("an algebraic keys block scoped to 33s mode", "lesson.md", "```keys H01 entry=alg\n",
+     "```keys H01 entry=alg mode=33s\n", {}, "H01: entry=alg in 33s mode"),
+    ("the RPN vector's value wrong, caught in 33s before STU", "vectors.txt", "MODE33 FIX4 1.5 HMS | X=1.3\n",
+     "MODE33 FIX4 1.5 HMS | X=1.5\n", {}, "vectors in 33s rpn mode"),
+]
 # The entry axis (decision 63), proven on the first lesson to offer entries.
 FRAC01_REASON = ("modes_reason: algebraic entry, this course's default, is STU mode's alone (firmware 029); RPN is "
                  "offered in STU mode too\n")
