@@ -9,7 +9,8 @@ Nothing here is published to learn before abacus's review and Michael's card.
 **What may come in** (the repo is PUBLIC, CC BY-SA 4.0): new text, and text already published on
 astrometrics.cpuchip.net (CC BY 4.0, attributed where used). Nothing from private drafts. A claim from the stories
 comes one at a time, with its source. Primary works are cited by author, title and year. OpenStax Astronomy 2e is
-named as a source where it is used, under its own licence (astrometrics confirms the licence before relying on it).
+CC BY-NC-SA 4.0 (its preface, fetched 2026-11-01; astrometrics #12158), which cannot go into a CC BY-SA repo: it is a
+link for further reading, chapter by chapter, and no text, figure or problem is copied or adapted from it.
 
 ## Two courses, and why
 
