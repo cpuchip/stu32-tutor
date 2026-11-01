@@ -41,8 +41,11 @@ parallax) without being repeated.
   line through data (lin-02: sigma-plus, regression).
 - **Not yet taught:** hours, minutes and seconds, and degrees, arcminutes and arcseconds. The core has →HMS and HMS→
   (AB_HMS and AB_HMSINV in the firmware's core/calc.h at 1a12ecf), but no lesson uses them. Right ascension, time
-  and parallax all need them, so a new topic is needed early in both courses. Their keys and screens in each mode
-  get measured with keyrun before any prose.
+  and parallax all need them, so a new topic is needed early in both courses. Measured with keyrun at 1a12ecf
+  (2026-11-01), the same in 33s, 35s and STU, as BLUE ANGLE →HMS and BLUE ANGLE HMS→: 1.5 →HMS gives 1.3000;
+  2.3045 HMS→ gives 2.5125; 23.56 HMS→ 15 × gives 359.0000 (a sidereal day's turn, in degrees); 360 ÷ 25800 →HMS
+  gives 0.0050 (50 arcseconds a year). 0.00003 HMS→ (0.3 arcseconds) is 8.33 × 10⁻⁵, which FIX 4 shows as 0.0001,
+  so the parallax unit works in SCI (rpn-03's sci topic).
 
 ## A. Astronomy: how we know
 
