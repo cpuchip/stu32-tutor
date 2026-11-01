@@ -67,8 +67,7 @@ def main():
         if not os.path.exists(path):
             continue
         meta, _ = check.front_matter(open(os.path.join(d, "lesson.md"), encoding="utf-8").read())
-        md = check.lesson_modes(meta)[0][0]
-        entry = check.lesson_entries(meta, check.lesson_modes(meta)[0])[0][0]
+        md, entry = check.lesson_pairs(meta)[0]
         for vid, parts, _ in check.vectors_for_mode(check.read_vectors(path, 4), md, None, entry):
             parts = check.variant(parts, md, False, entry).split(" | ")
             exps = parts[3].split()

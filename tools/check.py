@@ -952,10 +952,21 @@ def lesson_entries(meta, modes):
     entries = meta["entries"].split()
     if not entries or any(e not in ENTRIES for e in entries) or len(set(entries)) != len(entries):
         return [None], f"front matter `entries: {meta['entries']}`: give some of rpn alg, once each, the default first"
-    if "alg" in entries and modes != ["STU"]:
-        return entries, ("front matter offers alg in a mode other than STU: algebraic entry is STU mode's alone "
-                         "(firmware 029 rule 2), so the lesson gives `modes: STU` and a `modes_reason`")
+    if "alg" in entries and "STU" not in modes:
+        return entries, ("front matter offers alg, but not STU mode: algebraic entry is STU mode's alone "
+                         "(firmware 029 rule 2), so a lesson offering it offers STU")
+    if "alg" in entries and modes != ["STU"] and "rpn" not in entries:
+        return entries, ("front matter offers alg alone, but modes other than STU: in 33s and 35s mode the lesson is "
+                         "RPN, so it offers rpn as well")
     return entries, None
+
+
+def lesson_pairs(meta):
+    """The (mode, entry) pairs a lesson is read and checked in, as the page offers them: each mode with each entry,
+    except alg outside STU mode (firmware 029 rule 2), so a lesson in every mode may offer alg in STU (abacus
+    #12198). Entry None is a lesson that offers no entries (RPN)."""
+    modes = lesson_modes(meta)[0]
+    return [(m, e) for m in modes for e in lesson_entries(meta, modes)[0] if not (e == "alg" and m != "STU")]
 
 
 def mode_list(text):
@@ -1011,6 +1022,9 @@ def mode_view(body, mode, problems, entry=None):
             for x in es or []:
                 if x not in ENTRIES:
                     problems.append(f"keys block {bid}: entry={a['entry']} names {x}, not one of rpn alg")
+            if "alg" in (es or []) and [x for x in ms or [] if x != "STU"]:
+                problems.append(f"keys block {bid}: entry=alg in {a['mode']} mode, but algebraic entry is STU "
+                                f"mode's alone")
         if bid not in groups:
             groups[bid] = []
             order.append(bid)
@@ -1100,6 +1114,8 @@ def vectors_for_mode(vectors, mode, problems=None, entry=None):
         if problems is not None:
             for x in unknown:
                 problems.append(f"vector {vid}: {x} is not one of 33s 35s STU rpn alg")
+            if "alg" in (es or []) and [x for x in ms or [] if x != "STU"]:
+                problems.append(f"vector {vid}: alg in {','.join(ms)} mode, but algebraic entry is STU mode's alone")
         by_base.setdefault(base, []).append((ms, es, (base, parts, line)))
     out = []
     for base, cands in by_base.items():
@@ -1268,10 +1284,9 @@ class Lesson:
             if "key" in m.group(2).lower() and not KEYS_FENCE.match(line):
                 self.bad(f"a fence that looks like keys but is not checked: '{line}'")
         problems = []
-        for mode in modes:
-            for entry in entries:
-                mode_view(body, mode, problems, entry)
-                vectors_for_mode(vectors, mode, problems, entry)
+        for mode, entry in lesson_pairs(meta):
+            mode_view(body, mode, problems, entry)
+            vectors_for_mode(vectors, mode, problems, entry)
         for p in dict.fromkeys(problems):
             self.bad(p)
         if self.fail:
@@ -1287,9 +1302,8 @@ class Lesson:
                 self.notes.append("displays: " + out[-1].split(": ", 1)[-1])
         self.quoted = 0
         self.working_pending = set()
-        for mode in modes:
-            for entry in entries:
-                self.check_mode(mode, entry, meta, body, vectors, fmts, settings, setup_t)
+        for mode, entry in lesson_pairs(meta):
+            self.check_mode(mode, entry, meta, body, vectors, fmts, settings, setup_t)
         self.notes.append(f"displays quoted: {self.quoted} (all modes)")
         if meta.get("id") in WORKING_PENDING:
             if self.working_pending:

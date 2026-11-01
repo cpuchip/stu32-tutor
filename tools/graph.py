@@ -848,16 +848,13 @@ def link_readings(meta, text):
     import check
     _, body = check.front_matter(text)
     voices = check.lesson_voices(meta)[0]
-    modes = check.lesson_modes(meta)[0]
-    entries = check.lesson_entries(meta, modes)[0]
     for v in voices:
         vb = check.voice_view(body, v) if v else body
-        for md in modes:
-            for e in entries:
-                view = check.mode_view(vb, md, None, e)
-                view = CODE_FENCE.sub(linked_fields, view)
-                view = re.sub(r"`[^`\n]*`|\[[^\]\n]*\]\([^)\n]*\)|<[^>]*>", " ", view)
-                yield " ".join(x for x in (v, md, e) if x), view
+        for md, e in check.lesson_pairs(meta):
+            view = check.mode_view(vb, md, None, e)
+            view = CODE_FENCE.sub(linked_fields, view)
+            view = re.sub(r"`[^`\n]*`|\[[^\]\n]*\]\([^)\n]*\)|<[^>]*>", " ", view)
+            yield " ".join(x for x in (v, md, e) if x), view
 
 
 def check_links(lessons, pending=None):

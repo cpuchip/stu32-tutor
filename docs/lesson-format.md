@@ -75,8 +75,11 @@ display: FIX 4
 - `entries:` lists the entries the lesson offers, `rpn` and `alg`, the default first (`entries: alg
   rpn` for the young courses, decision 63). A lesson with no `entries:` is RPN only, as every lesson
   of the algebra course is, and nothing about it changes. Algebraic entry is STU mode's alone
-  (firmware 029 rule 2: the 33s and 35s modes refuse ALG), so a lesson offering `alg` gives
-  `modes: STU` and a `modes_reason:`.
+  (firmware 029 rule 2: the 33s and 35s modes refuse ALG), so a lesson offering `alg` offers STU mode. Most such
+  lessons give `modes: STU` and a `modes_reason:`. A lesson in every mode may offer `alg` too, as long as it offers
+  `rpn` as well (abacus #12198: hms-01, in a course entered in each): it is read and checked in STU with each entry
+  and in 33s and 35s in RPN alone (check.py's `lesson_pairs`, which the page and stage2 use too), and a keys block
+  or vector scoped to alg in 33s or 35s is refused.
 
 - `setup` is the keys the student presses once, with `{mode}` for MODE's soft key; the checker
   presses them, the mode filled in, before every example. The lesson prints them, `{mode}` and all,

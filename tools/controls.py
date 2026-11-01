@@ -662,9 +662,19 @@ CONTROLS_FOR["fn-03-domain"] = [
      "```keys S07 after=S06\nGOLD GTO .\n", {}, "S07: printed keys and vector disagree in 33s mode"),
 ]
 # The entry axis (decision 63), proven on the first lesson to offer entries.
+FRAC01_REASON = ("modes_reason: algebraic entry, this course's default, is STU mode's alone (firmware 029); RPN is "
+                 "offered in STU mode too\n")
 CONTROLS_FOR["frac-01-equivalent-fractions"] = [
-    ("algebraic entry offered in the 33s and 35s modes, which refuse ALG", "lesson.md", "modes: STU\n", "", {},
-     "algebraic entry is STU mode's alone"),
+    # Since abacus #12198 a lesson in every mode may offer alg in STU, so the plant takes STU away.
+    ("algebraic entry offered in the 33s and 35s modes alone, which refuse ALG", "lesson.md", "modes: STU\n",
+     "modes: 33s 35s\n", {}, "algebraic entry is STU mode's alone"),
+    ("algebraic entry alone in a lesson that also offers 33s and 35s", "lesson.md",
+     "modes: STU\n" + FRAC01_REASON + "entries: alg rpn\n", "modes: 33s 35s STU\n" + FRAC01_REASON + "entries: alg\n",
+     {}, "it offers rpn as well"),
+    ("an algebraic keys block scoped to 33s mode", "lesson.md", "```keys Q01 entry=alg\n",
+     "```keys Q01 entry=alg mode=33s\n", {}, "Q01: entry=alg in 33s mode"),
+    ("an algebraic vector scoped to 33s mode", "vectors.txt", "Q01@alg |", "Q01@33s,alg |", {},
+     "vector Q01@33s,alg: alg in 33s mode"),
     ("the entry pressed after the display setting, not right after the mode", "lesson.md",
      "setup: BLUE MODE {mode} BLUE MODE {entry} GOLD DISP FIX 4 BLUE →FRAC",
      "setup: BLUE MODE {mode} GOLD DISP FIX 4 BLUE MODE {entry} BLUE →FRAC", {},
