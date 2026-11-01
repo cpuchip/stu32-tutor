@@ -12,8 +12,8 @@ display: FIX 4
 Hold a finger up at arm's length and look at it with one eye, then the other. The finger jumps against the wall
 behind it, and the nearer the finger, the bigger the jump. The Earth does the same thing to the stars. In six
 months it moves to the other side of its orbit around the Sun, and a near star shifts a little against the far
-ones behind it. In 1838 Friedrich Bessel measured that shift for the star 61 Cygni. He took the angle as 0.3136
-arcseconds, and from it he found the star to be 657,700 times as far from the Sun as the Earth is, so far that light
+ones behind it. In 1838 Friedrich Bessel measured that shift for the star 61 Cygni. He took its parallax, half the
+yearly shift, as 0.3136 arcseconds, and from it he found the star to be 657,700 times as far from the Sun as the Earth is, so far that light
 takes 10.3 years to cross the distance (his report, as Shapley and Howarth's Source Book in Astronomy of 1929 prints
 it). How does an angle that small give a distance?
 
@@ -88,22 +88,25 @@ The X line shows <disp v="P03">3.1888</disp> parsecs. That many parsecs of 206,2
 
 ## Parsecs and light-years
 
-A light-year is the distance light travels in a year, which the same glossary gives as 9.46 trillion kilometers. The
-astronomical unit is 149,597,870,700 meters exactly (the International Astronomical Union, 2012), which is
-149,597,870.7 kilometers. So a parsec in kilometers, divided by a light-year, is a parsec in light-years:
+A light-year is the distance light travels in a year. The year is the Julian year, 365.25 days of 86,400 seconds
+(the basis NIST's Guide for the Use of the International System of Units, 2008, gives for the light-year), and light
+travels 299,792.458 kilometers a second, the speed the SI fixes exactly. The glossary rounds the light-year to 9.46
+trillion kilometers. The astronomical unit is 149,597,870,700 meters exactly (the International Astronomical Union,
+2012), which is 149,597,870.7 kilometers. So a parsec in kilometers, divided by a light-year in kilometers, is a
+parsec in light-years:
 
 ```keys P04
-206264.8 ENTER 149597870.7 × 9.46 E 12 ÷
+206264.8 ENTER 149597870.7 × 299792.458 ENTER 86400 × 365.25 × ÷
 ```
 
-The X line shows <disp v="P04">3.2618</disp>: a parsec is about 3.26 light-years, as the glossary says. Bessel's
-star in light-years is its parsecs times that:
+The X line shows <disp v="P04">3.2616</disp>: a parsec is about 3.26 light-years, as the glossary says. Carrying on,
+Bessel's star in light-years is its parsecs times that, with the 3.2616 still in X:
 
-```keys P05
-3.1888 ENTER 3.2618 ×
+```keys P05 after=P04
+0.3136 1/x ×
 ```
 
-The X line shows <disp v="P05">10.4012</disp> light-years. Bessel wrote 10.3.
+The X line shows <disp v="P05">10.4004</disp> light-years. Bessel wrote 10.3.
 
 ## How sure?
 
@@ -139,7 +142,7 @@ because: The distance is one divided by p, and one divided by a smaller number i
 
 1. The Hipparcos Catalogue gives Sirius a parallax of 379.21 ± 1.58 milliarcseconds. How far away is Sirius in
    parsecs, and between what distances does the uncertainty put it?
-2. How many light-years away is Alpha Centauri A? Use 1.3475 parsecs and 3.2618 light-years to a parsec.
+2. How many light-years away is Alpha Centauri A? Use 1.3475 parsecs and 3.2616 light-years to a parsec.
 
 ## Answers
 
@@ -167,10 +170,10 @@ because: The distance is one divided by p, and one divided by a smaller number i
 2. Parsecs times light-years to a parsec:
 
    ```keys E02
-   1.3475 ENTER 3.2618 ×
+   1.3475 ENTER 3.2616 ×
    ```
 
-   The X line shows <disp v="E02">4.3953</disp>, about 4.4 light-years.
+   The X line shows <disp v="E02">4.3950</disp>, about 4.4 light-years.
 
 ## Mixed review
 

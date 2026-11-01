@@ -685,7 +685,7 @@ CONTROLS_FOR["par-01-parallax"] = [
     ("the range's ends swapped in the prose", "lesson.md", 'v="U02">1.3450<', 'v="U02">1.3500<', {},
      "D-U02: the prose shows '1.3500'"),
     ("Bessel's light-years quoted as he wrote them, not as the calculator gives them", "lesson.md",
-     'v="P05">10.4012<', 'v="P05">10.3000<', {}, "D-P05: the prose shows '10.3000'"),
+     'v="P05">10.4004<', 'v="P05">10.3000<', {}, "D-P05: the prose shows '10.3000'"),
 ]
 # The entry axis (decision 63), proven on the first lesson to offer entries.
 FRAC01_REASON = ("modes_reason: algebraic entry, this course's default, is STU mode's alone (firmware 029); RPN is "
