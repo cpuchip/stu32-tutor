@@ -18,12 +18,14 @@ check: tools
 	$(PYTHON) tools/graph.py
 	$(PYTHON) tools/check.py --core $(CORE_DIR) $(LESSONS) $(PLACEMENT)
 	$(PYTHON) tools/judge_check.py --core $(CORE_DIR)
+	$(PYTHON) tools/calc_lint.py
 
 # Proves the checker can fail: one planted fault at a time, each must turn it red for its own reason.
 # Every lesson and placement folder is run, so a new one cannot be skipped: controls.py fails one with none.
 controls: tools
 	$(PYTHON) tools/graph.py --selftest
 	$(PYTHON) tools/accepted.py --selftest
+	$(PYTHON) tools/calc_lint.py --selftest
 	bash scripts/judge-controls.sh $(CORE_DIR)
 	@set -e; for d in $(LESSONS) $(PLACEMENT); do echo "controls: $${d%/}"; \
 	    $(PYTHON) tools/controls.py --core $(CORE_DIR) $${d%/}; done
