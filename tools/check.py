@@ -51,6 +51,8 @@ SETTING = re.compile(r"^(FIX|SCI|ENG)(\d+)$|^ALL$")
 DISP = re.compile(r'<disp v="([^"]+)"(?: kind="(view|prompt|message|entry|status|eqn|drawn|program|row|line|y|readout|xmin|xmax|ymin|ymax|note)")?>(.*?)</disp>', re.S)
 # A <disp> as written, attributes in any order (v, kind, m); mode_view rewrites it to DISP's form.
 DISP_ANY = re.compile(r'<disp((?:\s+[a-z]+="[^"]*")*)\s*>(.*?)</disp>', re.S)
+# A widget's quote, in the form mode_view writes it: kept in the view for the page, checked by tools/widgets.py.
+WIDGET_DISP = re.compile(r'<disp v="[^"]*" kind="widget" k="[^"]*">.*?</disp>', re.S)
 ATTR = re.compile(r'([a-z]+)="([^"]*)"')
 MODE_SPAN = re.compile(r'<mode m="([^"]*)">(.*?)</mode>', re.S)
 ENTRY_SPAN = re.compile(r'<entry e="([^"]*)">(.*?)</entry>', re.S)
@@ -1079,8 +1081,8 @@ def mode_view(body, mode, problems, entry=None):
     # Quotes: those for this mode and entry, in DISP's form (v, then kind).
     def disp(m):
         a = dict(ATTR.findall(m.group(1)))
-        if a.get("kind") == "widget":
-            return ""                           # a widget's quote: tools/widgets.py checks it, once per lesson
+        if a.get("kind") == "widget":           # tools/widgets.py checks it, once per lesson; the page shows it
+            return f'<disp v="{a.get("v", "")}" kind="widget" k="{a.get("k", "")}">{m.group(2)}</disp>'
         for k in a:
             if k not in ("v", "kind", "m", "e") and report:
                 problems.append(f"<disp> with unknown attribute {k}=")
@@ -1545,7 +1547,7 @@ class Lesson:
         ends_at = {v[0]: final_setting(v[1][2].split()) for v in vectors}
         quotes = list(DISP.finditer(view))
         self.quoted += len(quotes)
-        if view.count("<disp") != len(quotes):
+        if view.count("<disp") - len(WIDGET_DISP.findall(view)) != len(quotes):
             self.bad(f"{view.count('<disp')} <disp tags, {len(quotes)} of the checked form <disp v=\"ID\">text</disp>")
         for q in quotes:
             vid, qkind, shown_text = q.group(1), q.group(2) or "value", q.group(3)
@@ -1616,7 +1618,7 @@ class Lesson:
         # input ("a 7.25 item") is not a claim about the screen, so only such sentences count.
         m = SETTING.match(sorted(settings)[0]) if settings else None
         if m and m.group(1) == "FIX" and int(m.group(2)) > 0:
-            prose = DISP.sub("", KEYS_BLOCK.sub("", view))
+            prose = WIDGET_DISP.sub("", DISP.sub("", KEYS_BLOCK.sub("", view)))
             fixed = re.compile(r"(?<![\d.])-?\d+\.\d{%d}(?!\d|\.\d)" % int(m.group(2)))
             for sentence in re.split(r"(?<=[.!?:])\s+", prose):
                 if SHOWS.search(sentence):
