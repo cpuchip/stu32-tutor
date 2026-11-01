@@ -194,8 +194,11 @@ slip: K01B | f(2), not f′(2) | That is the height at 2. Take the derivative fi
   The item's own vectors need no keys block; the page reveals them after the attempt.
 - Items are not part of the student run (check 5): a learner's own answer leaves the device in a
   state no lesson can know, so items come at the end of a lesson (a unit's checkpoint is a
-  `## Checkpoint` section in its last lesson). The one exception is a From-before set (below), whose
-  items leave the device alone.
+  `## Checkpoint` section in one of its lessons, usually its last). The one exception is a From-before set
+  (below), whose items leave the device alone.
+- A unit's checkpoint may sit before its last lesson when that lesson is for one mode only, so that learners in
+  the other modes still reach it: unit 5's is in poly-04, before poly-05, which is STU only (Michael's ruling on
+  the poly-05-lesson card, 2026-11-01).
 - An item's ID is its own across every lesson and placement file: the browser's review queue keys on
   it, so an item whose question changes takes a new ID.
 

@@ -1,8 +1,16 @@
 # Proposal: a short lesson on expressions (▸, →X, →EQN), STU only
 
-**Status:** built, green, and waiting for Michael's card. The lesson is lessons/poly-05-an-expression-you-can-hold on
-branch lesson-poly-05, with int-01's sentence beside it; neither is on main, so learn cannot take them before his
-answer. Unit 083 was accepted at stu32-firmware 0acbbdc (abacus #12011), and main's CORE_PIN is 0acbbdc (64fa4cc). The
+**Status:** accepted by Michael on the poly-05-lesson card (2026-11-01: "Publish both; the checkpoint stays in
+poly-04.", via abacus #12143), after abacus walked poly-05's keys on primer's preview at 1a12ecf. The lesson is
+lessons/poly-05-an-expression-you-can-hold, with int-01's sentence, merged to main from lesson-poly-05.
+
+**To revisit if symbolic stack arithmetic lands:** Michael's note on the card asks for 50g-style arithmetic on
+expressions, so that 2 × with an expression in Y multiplies the whole expression. It is not decided or built
+(soroban has the blueprint ask, abacus #12143). If it lands, poly-05's "Not a number" section (N01, N02) and
+exercise 2 (E02, E02B) change, along with the not-a-number topic in lessons/TOPICS and the control that misquotes
+NOT A NUMBER in tools/controls.py.
+
+The rest of this status is as it stood before the card. Unit 083 was accepted at stu32-firmware 0acbbdc (abacus #12011), and main's CORE_PIN is 0acbbdc (64fa4cc). The
 branch passes make check (57/57) and make controls (405/405 red over 65 folders, 27/27 harmless green) there. The draft
 below is kept as it was written; the lesson folder supersedes its prose.
 
@@ -11,8 +19,8 @@ expressions. He answered the eqn-screen card on 31 October with option 1 (abacus
 screen in every mode, and STU's →X leaves Equation mode. The firmware built it as unit 083 (blueprint at
 stu32-firmware 81442f7, work/blueprint/083-eqn-screen.md; abacus #11987).
 - **Placement (abacus #12018):** unit 5's checkpoint stays in poly-04, so no existing text moves, and poly-05 comes
-  after it. docs/lesson-format.md says a unit's checkpoint is in its last lesson. That sentence no longer holds for
-  unit 5. No tool checks it. The card names the choice: move the checkpoint into poly-05, or change the sentence.
+  after it. Michael kept it there, and docs/lesson-format.md now says a checkpoint may sit before a one-mode last
+  lesson.
 
 **Measured on:** the core at CORE_PIN 52134a4 (firmware 0.82, Casimir 1.4.0), with keyrun --sequence from
 `BLUE MODE STU GOLD DISP FIX 4`, 2026-10-31. The screens quoted below are keyrun's report lines from those runs,
