@@ -68,6 +68,15 @@ cases against (b); (e) the learner's readout equal to (b) for the starting state
 sideways scroll; (g) a planted wrong formula that must fail (c) and (d). abacus recomputes every `shows:` figure from
 the catalog.
 
+**Every widget names its epoch** (abacus #12384, #12387). The catalog's positions are J2000. A widget that takes a
+sidereal time (the sphere prototype) draws them unprecessed, so its `shows:` says J2000; a widget that takes a date
+precesses to it, and its oracle checks the precession against an independent formula. A lesson that quotes an
+altitude or azimuth for a date either takes a precessed figure or says J2000 and rounds to what that supports
+(precession since 2000 moves a star by up to about 0.4°, more than a little finger). Separations between two stars
+barely move, so the hand-ruler's figures stand. astrometrics's page precesses its dome to the date (held against
+astropy, worst of 324 named stars 0.0028°), draws its RA and Dec grid in J2000, and its star panel gives only "N
+degrees up, toward the <compass>", rounded to whole degrees (astrometrics #12386; primer #12385).
+
 **The first widgets:**
 1. **sky-sphere** (the prototype Michael liked). Parameters: lat, lst, star (HR number), grids. Shows: alt, az, hour
    angle, and the star's RA and Dec as the grid reads them. Oracle: the vector rotation, 2,000 random cases and 4
@@ -117,7 +126,9 @@ number out, press Try it beside the example and watch the keys."
 ## The four pilots, and how each changes
 
 - **hms-01 (both courses).** Keeps its conversions: HMS→ and →HMS are real calculator work. Gains a first step on the
-  sky-sphere: Vega's place read off the grid as 18h 36m 56.3s and +38° 47′ 01″, then turned into hours and degrees.
+  sky-sphere: Vega found on the J2000 grid at about 18h 37m and +39°, which is as close as a grid reads; then the
+  catalog row's exact 18h 36m 56.3s and +38° 47′ 01″ (said to be the catalog's, not the grid's), turned into hours
+  and degrees.
 - **par-01 (A1).** Keeps Bessel and the triangle: TAN and 1/x are the point. Gains a plate lab before them, linked:
   two plates six months apart, the near star's shift measured with markers, half of it the parallax (astrometrics's
   Calc station, #12367). astrometrics sends the link when it is live.
