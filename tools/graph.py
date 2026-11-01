@@ -232,7 +232,8 @@ def load_courses(root):
 def check_courses(course_texts, graph):
     """(problems, courses). A course file: `course | id | title`, `entry | rpn alg` (offered, default first),
     `route | guided` or `route | open` (the map's default mode, routes ruled 2026-10-11, abacus #7153), any
-    `prerequisite | course-id` lines (courses a learner is expected to have done first), then `unit | n |
+    `prerequisite | course-id` lines (courses a learner is expected to have done first), a `subject | name` line
+    (one of SUBJECTS, for the home page's headings; mathematics when there is none, primer #12155), then `unit | n |
     title` and `lesson | id` lines in order. Refused: a malformed line; an unknown or repeated lesson; an
     unknown prerequisite; a lesson requiring a topic taught later in the same course, by no lesson in any
     course, or by a lesson that is neither earlier in this course nor in one of its prerequisites (taken
@@ -240,7 +241,8 @@ def check_courses(course_texts, graph):
     bad, courses, in_some = [], {}, set()
     parsed = []
     for name, text in course_texts.items():
-        c = {"file": name, "id": None, "title": None, "entry": ["rpn"], "route": None, "prerequisites": [], "units": []}
+        c = {"file": name, "id": None, "title": None, "entry": ["rpn"], "route": None, "prerequisites": [], "units": [],
+             "subject": SUBJECTS[0]}
         for n, line in enumerate(text.splitlines(), 1):
             if not line.strip() or line.lstrip().startswith("#"):
                 continue
@@ -254,13 +256,16 @@ def check_courses(course_texts, graph):
                 c["route"] = args[0]
             elif kind == "prerequisite" and len(args) == 1 and args[0] and not c["units"]:
                 c["prerequisites"].append(args[0])
+            elif kind == "subject" and len(args) == 1 and args[0] in SUBJECTS and not c["units"]:
+                c["subject"] = args[0]
             elif kind == "unit" and len(args) == 2:
                 c["units"].append({"n": args[0], "title": args[1], "lessons": []})
             elif kind == "lesson" and len(args) == 1 and c["units"]:
                 c["units"][-1]["lessons"].append(args[0])
             else:
                 bad.append(f"{name}:{n}: expected course | id | title, entry | rpn alg, route | guided or open, "
-                           f"prerequisite | course-id (before the units), unit | n | title, or lesson | id")
+                           f"prerequisite | course-id or subject | {' or '.join(SUBJECTS)} (before the units), "
+                           f"unit | n | title, or lesson | id")
         if not c["id"] or f"{c['id']}.course" != name:
             bad.append(f"{name}: its course line must name it ({name[:-7]})")
         if not c["route"]:
@@ -309,13 +314,14 @@ def check_courses(course_texts, graph):
                 elif src is not None and src not in order and src not in before:
                     bad.append(f"{c['file']}: {lid} requires '{slug}', taught by {src}, which is neither earlier "
                                f"in this course nor in a prerequisite course")
-        courses[c["id"]] = {k: c[k] for k in ("title", "entry", "route", "prerequisites", "units")}
+        courses[c["id"]] = {k: c[k] for k in ("title", "subject", "entry", "route", "prerequisites", "units")}
     for lid in sorted(set(graph["lessons"]) - in_some):
         bad.append(f"{lid}: in no course")
     return bad, courses
 
 
 ROUTES = ("guided", "open")
+SUBJECTS = ("mathematics", "astronomy")     # the first is a course file's subject when it names none
 
 
 def route_data(lessons, graph):
@@ -399,6 +405,8 @@ def selftest_courses(course_texts, graph):
          "prerequisite no-such-course is not another course"),
         ("a course with no route line", t.replace("route | open\n", ""), "no route | guided or route | open line"),
         ("a route that is neither guided nor open", t.replace("route | open\n", "route | roguelike\n"), "expected course"),
+        ("a subject not in the list", t.replace("route | open\n", "route | open\nsubject | alchemy\n"), "expected course"),
+        ("a subject line after the units", t + "subject | astronomy\n", "expected course"),
     ]
     # A second course listing a lesson whose requires the algebra course teaches: refused without the
     # prerequisite line, accepted with it.
@@ -440,7 +448,11 @@ def selftest_courses(course_texts, graph):
         print(f"{'ok  ' if ok else 'FAIL'} with {pre} as its prerequisite it is accepted, gateway {gate}"
               + ("" if not mine else f": {mine[:2]}"))
         gates_ok = gates_ok and ok
-    return red == len(plants) and green and bool(refused) and gates_ok
+    subj = {cid: c["subject"] for cid, c in check_courses(course_texts, graph)[1].items()}
+    want = {cid: "astronomy" if cid.startswith("astronomy-") else "mathematics" for cid in subj}
+    subj_ok = subj == want
+    print(f"{'ok  ' if subj_ok else 'FAIL'} each course's subject as its file names it, mathematics by default: {subj}")
+    return red == len(plants) and green and bool(refused) and gates_ok and subj_ok
 
 
 def load_placement(root):
