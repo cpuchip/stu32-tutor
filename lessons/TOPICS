@@ -388,3 +388,10 @@ hms-form | H.MMSS: hours, minutes and seconds typed as one number | hms-01 | Int
 hms-to-hours | HMS→: into hours | hms-01 | Into hours
 hours-to-hms | →HMS: back to hours, minutes and seconds | hms-01 | Back to hours and minutes
 dms | Degrees, arcminutes and arcseconds, with the same keys | hms-01 | Degrees, arcminutes and arcseconds
+
+# par-01 Parallax: a distance from an angle (astronomy-how-we-know unit 1)
+parallax | Parallax: a near star's shift as the Earth goes round the Sun | par-01 | -
+parallax-triangle | The distance from the angle: d = 1 ÷ tan p, in AU | par-01 | The triangle
+parsec | The parsec, and d = 1 ÷ p with p in arcseconds | par-01 | The parsec
+light-year | Parsecs and light-years | par-01 | Parsecs and light-years
+distance-range | A parallax's ± and the range of the distance | par-01 | How sure?

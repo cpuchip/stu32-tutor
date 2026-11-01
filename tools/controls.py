@@ -676,6 +676,17 @@ CONTROLS_FOR["hms-01-hours-minutes-and-seconds"] = [
     ("the RPN vector's value wrong, caught in 33s before STU", "vectors.txt", "MODE33 FIX4 1.5 HMS | X=1.3\n",
      "MODE33 FIX4 1.5 HMS | X=1.5\n", {}, "vectors in 33s rpn mode"),
 ]
+# par-01: the parallax triangle and the parsec (astronomy-how-we-know unit 1).
+CONTROLS_FOR["par-01-parallax"] = [
+    ("arcseconds taken as degrees: TAN of 0.3136 degrees", "lesson.md", "```keys P01\n0.3136 ENTER 3600 ÷ TAN 1/x\n",
+     "```keys P01\n0.3136 TAN 1/x\n", {}, "P01: printed keys and vector disagree in 33s mode"),
+    ("the parallax taken as the distance (no 1/x)", "vectors.txt", "MODE33 FIX4 DEG 0.3136 INV | X=3.188775510204081632653061224489796",
+     "MODE33 FIX4 DEG 0.3136 ENTER | X=3.188775510204081632653061224489796", {}, "vectors in 33s mode"),
+    ("the range's ends swapped in the prose", "lesson.md", 'v="U02">1.3450<', 'v="U02">1.3500<', {},
+     "D-U02: the prose shows '1.3500'"),
+    ("Bessel's light-years quoted as he wrote them, not as the calculator gives them", "lesson.md",
+     'v="P05">10.4012<', 'v="P05">10.3000<', {}, "D-P05: the prose shows '10.3000'"),
+]
 # The entry axis (decision 63), proven on the first lesson to offer entries.
 FRAC01_REASON = ("modes_reason: algebraic entry, this course's default, is STU mode's alone (firmware 029); RPN is "
                  "offered in STU mode too\n")

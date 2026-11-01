@@ -1,0 +1,35 @@
+# par-01 parallax: key vectors (the firmware's format). Every example is ours; the numbers are Bessel's 0.3136
+# arcseconds for 61 Cygni, the parsec and light-year from the IAU's education glossary, the AU from IAU 2012
+# Resolution B2, and Alpha Centauri A's and Sirius's parallaxes from the Hipparcos Catalogue (1997), via astrometrics
+# #12193 and #12255. Each starts MODE33 FIX4 DEG (the setup). Values read from the core at 1a12ecf with keyrun.
+P01 | Bessel's 0.3136 arcseconds: 1 / tan, in AU | MODE33 FIX4 DEG 0.3136 ENTER 3600 / TAN INV | X=657732.1627772239324496793131256367
+P02 | 1 arcsecond: the parsec in AU | MODE33 FIX4 DEG 1 ENTER 3600 / TAN INV | X=206264.8062454803095527723717367028
+P03 | Bessel's star in parsecs: 1 / 0.3136 | MODE33 FIX4 DEG 0.3136 INV | X=3.188775510204081632653061224489796
+P04 | a parsec in light-years: 206264.8 AU x 149597870.7 km / 9.46e12 km | MODE33 FIX4 DEG 206264.8 ENTER 149597870.7 * 9.46 E 12 / | X=3.261815526465260042283298097251586
+P05 | Bessel's star in light-years: 3.1888 x 3.2618 | MODE33 FIX4 DEG 3.1888 ENTER 3.2618 * | X=10.40122784
+U01 | Alpha Centauri A, 742.12 mas: 1 / 0.74212 | MODE33 FIX4 DEG 0.74212 INV | X=1.347490971810488869724572845361936
+U02 | the largest parallax in the range, 0.74352 | MODE33 FIX4 DEG 0.74352 INV | X=1.344953733591564450182913707768453
+U03 | the smallest parallax in the range, 0.74072 | MODE33 FIX4 DEG 0.74072 INV | X=1.35003780105842963602980883464737
+E01 | exercise 1: Sirius, 379.21 mas | MODE33 FIX4 DEG 0.37921 INV | X=2.6370612589330450146356899870784
+E01B | exercise 1: the largest parallax, 0.38079 | MODE33 FIX4 DEG 0.38079 INV | X=2.626119383387168780692770293337535
+E01C | exercise 1: the smallest parallax, 0.37763 | MODE33 FIX4 DEG 0.37763 INV | X=2.648094695866324179752667955406085
+E02 | exercise 2: Alpha Centauri A in light-years | MODE33 FIX4 DEG 1.3475 ENTER 3.2618 * | X=4.3952755
+# From before and Mixed review (decision 76): each answer typed, its working (W), and the slip's.
+PX1F1 | from before: the tangent, opposite 3 over next to 4, typed | MODE33 FIX4 DEG 0.75 ENTER | X=0.75
+PX1F1W | its working | MODE33 FIX4 DEG 3 ENTER 4 / | X=0.75
+PX1F1A | slip: opposite over the longest side, the sine | MODE33 FIX4 DEG 3 ENTER 5 / | X=0.6
+PX1F2 | from before: arcseconds in a degree, typed | MODE33 FIX4 DEG 3600 ENTER | X=3600
+PX1F2W | its working | MODE33 FIX4 DEG 60 ENTER 60 * | X=3600
+PX1F2A | slip: the arcminutes only | MODE33 FIX4 DEG 60 ENTER | X=60
+PX1M1 | mixed review: a parallax of 0.5 arcseconds, in parsecs, typed | MODE33 FIX4 DEG 2 ENTER | X=2
+PX1M1W | its working | MODE33 FIX4 DEG 0.5 INV | X=2
+PX1M1A | slip: the parallax taken as the distance | MODE33 FIX4 DEG 0.5 ENTER | X=0.5
+PX1M2 | mixed review: the side opposite, 10 x 0.5, typed | MODE33 FIX4 DEG 5 ENTER | X=5
+PX1M2W | its working | MODE33 FIX4 DEG 10 ENTER 0.5 * | X=5
+PX1M2A | slip: divided by the tangent | MODE33 FIX4 DEG 10 ENTER 0.5 / | X=20
+PX1M3 | mixed review: 10 parsecs in light-years, typed | MODE33 FIX4 DEG 32.6 ENTER | X=32.6
+PX1M3W | its working | MODE33 FIX4 DEG 10 ENTER 3.26 * | X=32.6
+PX1M3A | slip: the factor added | MODE33 FIX4 DEG 10 ENTER 3.26 + | X=13.26
+PX1M4 | mixed review: 0.01 of a degree in arcseconds, typed | MODE33 FIX4 DEG 36 ENTER | X=36
+PX1M4W | its working | MODE33 FIX4 DEG 0.01 ENTER 3600 * | X=36
+PX1M4A | slip: arcminutes, 0.01 x 60 | MODE33 FIX4 DEG 0.01 ENTER 60 * | X=0.6
