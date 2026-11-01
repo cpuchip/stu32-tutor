@@ -76,6 +76,25 @@ parallax) without being repeated.
    measurement is quoted to the places the lesson shows, and the source's own figure stays in the prose with its
    citation.
 
+## The site (primer #12155), and what the format adds
+
+1. **A subject per course.** A `subject | astronomy` line after the `course |` line, one word from a fixed list in
+   graph.py (`mathematics`, `astronomy`). A course file without it is mathematics, so no existing file changes.
+   primer groups the home page by it. The home page's new heading and lede are site text, so they go on Michael's
+   card.
+2. **Links out.** A link to astrometrics.cpuchip.net (`?thread=<id>`), openstax.org or a primary source's host is
+   cited the way a lesson link is: once per lesson. The allowed hosts live in one file in this repo, read by
+   check.py (a host not on it is refused) and by primer's learn gate (each link answers 200, with no credentials).
+   A link into a private repo is refused by both.
+3. **An interactive in a lesson.** A new fenced block, `widget <name>`, with its parameters as `key: value` lines,
+   which primer's page draws (Michael's rule: a problem that makes a 3D shape gets 3D controls). check.py checks the
+   name against the widgets primer has built, and every number the lesson quotes from a widget against a vector or a
+   stated figure. primer's own oracle checks that the widget shows those numbers. Candidates: the celestial sphere
+   (B1, B3, 3D), parallax (A1, 3D), an orbit (A3, 2D). astrometrics's own tools stay on the sky page, linked and not
+   copied.
+
+None of the three is built before the card. Each comes with its controls when the first lesson needs it.
+
 ## Before writing: one pilot each
 
 Unit 1 of each course, written and measured at 1a12ecf, then abacus's check, then a card to Michael with the
