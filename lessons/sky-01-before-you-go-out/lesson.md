@@ -60,7 +60,7 @@ through the pinhole.
 ## Eyes that open slowly
 
 After white light, your eyes take 20 to 30 minutes to adjust to the dark (the US National Park Service's stargazing
-advice). Red light disturbs them much less, so observers use a red torch, or a white one covered with red
+advice). Red light disturbs them much less, so observers use a red flashlight, or a white one covered with red
 cellophane. One brief flash of white light, from a phone or a car's headlights, can set your night vision back by
 several minutes.
 
