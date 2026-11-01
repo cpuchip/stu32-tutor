@@ -43,6 +43,27 @@ bracket and ENTER, which works as = here.</entry><entry e="rpn">In RPN the numbe
 BLUE MODE {mode} BLUE MODE {entry} GOLD DISP FIX 4
 ```
 
+## Vega on the sky
+
+The sphere below is the sky over New York, with the grid astronomers use to say where a star is. The lines from pole
+to pole are right ascension, counted in hours around the sky; the circles are declination, counted in degrees north
+or south of the sky's equator. Vega is marked. Turn the sphere, and follow its lines to where they cross.
+
+```widget W01 sky-sphere
+lat: 40.7
+lst: 18.6
+star: 7001
+grids: radec
+epoch: J2000
+shows: ra | 18h 37m
+shows: dec | +39°
+```
+
+The readout puts Vega at <disp v="W01" kind="widget" k="ra">18h 37m</disp> and
+<disp v="W01" kind="widget" k="dec">+39°</disp>, which is as close as a grid can be read. The catalog's 18h 36m 56.3s
+and +38° 47′ 01″ are the same place to a second, measured with instruments. Both are on the lines of the year 2000,
+the catalog's own (J2000), which the grid draws too.
+
 ## Sixty, not ten
 
 An hour has 60 minutes, and a minute has 60 seconds, so an hour has $60 × 60 = 3600$ seconds. Half an hour is 30

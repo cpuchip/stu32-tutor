@@ -1,0 +1,12 @@
+# The stars lessons name, for widgets (tools/widgets.py) and for abacus's recomputing (primer #12391).
+# From the Yale Bright Star Catalogue, 5th revised edition (bsc5.dat, SAO Telescope Data Center mirror of
+# the NASA HEASARC/CDS public archives); data, not text. RA and Dec are J2000, in degrees, from the row's own
+# J2000 fields, which the last column quotes as printed (RA hhmmss.s, Dec sddmmss).
+# HR | name | RA J2000 (deg) | Dec J2000 (deg) | Vmag | bsc5.dat J2000 fields
+1852 | Mintaka | 83.001667 | -0.299167 | 2.23 | 053200.4 -001757
+1948 | Alnitak | 85.189583 | -1.942778 | 2.05 | 054045.5 -015634
+2891 | Castor | 113.650000 | 31.888333 | 1.98 | 073436.0 +315318
+2990 | Pollux | 116.328750 | 28.026111 | 1.14 | 074518.9 +280134
+4295 | Merak | 165.460417 | 56.382500 | 2.37 | 110150.5 +562257
+4301 | Dubhe | 165.932083 | 61.750833 | 1.79 | 110343.7 +614503
+7001 | Vega | 279.234583 | 38.783611 | 0.03 | 183656.3 +384701

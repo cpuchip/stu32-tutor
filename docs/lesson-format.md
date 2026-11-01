@@ -32,6 +32,35 @@ expectations`, one example per line. Rules (abacus, 2026-10-06):
   copied from a textbook or from any calculator's manual. The one exception is a word-problems lesson's "From the
   books" set, whose quoted problems are marked with their source; its vectors carry those problems' numbers.
 
+## Widgets: what the page draws
+
+A `widget` block is a tool the page draws inside the lesson (docs/courses/astronomy-shape.md; the format agreed with
+primer, #12390 and #12391), not a calculation: it adds no vectors, is not in the student run, has no mode or entry
+variants, and is neither tried nor an item.
+
+    ```widget W01 sky-sphere
+    lat: 40.7
+    lst: 18.6
+    star: 7001
+    grids: radec
+    epoch: J2000
+    shows: ra | 18h 37m
+    shows: dec | +39°
+    ```
+
+- The fence names an ID (the lesson's own; no keys block shares it) and a widget from tools/WIDGETS, which lists each
+  widget's parameters (a number in a range, one of a few words, or a star), the epochs it takes and the keys its
+  readout prints. primer's gate checks the page's widgets against the same file, both ways.
+- Every parameter the widget takes is given once, as `key: value`; `epoch:` is J2000 for a widget that takes a sidereal
+  time, or a date for one that precesses. A `star:` is an HR number in data/stars.tsv (the Yale Bright Star Catalogue's
+  rows for the stars lessons name).
+- `shows: <key> | <text>` gives a figure the lesson may quote, as the readout prints it at the starting state the
+  parameters set; the page's "Back to the lesson's view" returns a learner to that state.
+- A quote is `<disp v="W01" kind="widget" k="ra">18h 37m</disp>`, and must give that key's shows text exactly.
+  tools/widgets.py, called by check.py, refuses an unknown widget, a parameter it does not take or a missing one, a
+  value out of its range, a star not in data/stars.tsv, a missing or wrong epoch, a shows key it does not print, and a
+  quote that differs from shows or names no widget; `widgets.py --selftest` (in `make controls`) plants each.
+
 ## fmt-vectors.txt: the displays
 
 The firmware's display-vector format (`tests/fmt_vectors.c`): `ID | note | value | setting |

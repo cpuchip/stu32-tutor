@@ -1,0 +1,15 @@
+# The widgets a lesson may use (tools/widgets.py; the format agreed with primer, #12390 and #12391). primer's gate
+# checks that the page's built widgets and this file list the same names, parameters and shows keys, both ways.
+# name | param | key | number LO HI, one-of A B C, or star (an HR number in data/stars.tsv) | note
+# name | shows | key | how the readout prints it
+# name | epoch | J2000 (a widget that takes a sidereal time) or date (one that precesses to a YYYY-MM-DD)
+sky-sphere | param | lat | number -90 90 | the observer's latitude, degrees north
+sky-sphere | param | lst | number 0 24 | the local sidereal time, hours
+sky-sphere | param | star | star | the star the readout follows
+sky-sphere | param | grids | one-of radec altaz both | the grids drawn
+sky-sphere | epoch | J2000
+sky-sphere | shows | ra | hours and whole minutes, as 18h 37m
+sky-sphere | shows | dec | whole degrees, signed, as +39°
+sky-sphere | shows | ha | hours and whole minutes, as ra
+sky-sphere | shows | alt | degrees to one decimal, as 73.9°
+sky-sphere | shows | az | degrees to one decimal, as 272.3°

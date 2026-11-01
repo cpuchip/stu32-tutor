@@ -673,6 +673,8 @@ CONTROLS_FOR["hms-01-hours-minutes-and-seconds"] = [
      {}, "D-H05: the prose shows '38.4701'"),
     ("an algebraic keys block scoped to 33s mode", "lesson.md", "```keys H01 entry=alg\n",
      "```keys H01 entry=alg mode=33s\n", {}, "H01: entry=alg in 33s mode"),
+    ("the widget's right ascension quoted to the catalog's minute, not the readout's", "lesson.md",
+     'k="ra">18h 37m<', 'k="ra">18h 36m<', {}, "the prose quotes '18h 36m', the widget shows '18h 37m'"),
     ("the RPN vector's value wrong, caught in 33s before STU", "vectors.txt", "MODE33 FIX4 1.5 HMS | X=1.3\n",
      "MODE33 FIX4 1.5 HMS | X=1.5\n", {}, "vectors in 33s rpn mode"),
 ]

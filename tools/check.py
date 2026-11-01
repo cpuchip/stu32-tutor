@@ -1079,6 +1079,8 @@ def mode_view(body, mode, problems, entry=None):
     # Quotes: those for this mode and entry, in DISP's form (v, then kind).
     def disp(m):
         a = dict(ATTR.findall(m.group(1)))
+        if a.get("kind") == "widget":
+            return ""                           # a widget's quote: tools/widgets.py checks it, once per lesson
         for k in a:
             if k not in ("v", "kind", "m", "e") and report:
                 problems.append(f"<disp> with unknown attribute {k}=")
@@ -1283,6 +1285,14 @@ class Lesson:
             line = m.group(0).strip()           # a fence may be indented (in a list item)
             if "key" in m.group(2).lower() and not KEYS_FENCE.match(line):
                 self.bad(f"a fence that looks like keys but is not checked: '{line}'")
+        # Widget blocks, drawn by the page (tools/widgets.py; primer #12391): checked once, in no mode or entry.
+        if "```widget" in body or 'kind="widget"' in body:
+            import widgets
+            here = os.path.dirname(os.path.abspath(__file__))
+            for p in widgets.problems(body, widgets.load_widgets(os.path.join(here, "WIDGETS")),
+                                      widgets.load_stars(os.path.join(here, "..", "data", "stars.tsv")),
+                                      other_ids={k.group(2) for k in KEYS_ANY.finditer(body)}):
+                self.bad(p)
         problems = []
         for mode, entry in lesson_pairs(meta):
             mode_view(body, mode, problems, entry)
