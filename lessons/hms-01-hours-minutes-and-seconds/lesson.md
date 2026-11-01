@@ -10,7 +10,7 @@ display: FIX 4
 
 # Hours, minutes and seconds
 
-Vega, one of the brightest stars in the summer sky, has its place in a star catalog written as 18h 36m 56.3s and
+Vega, one of the brightest stars in the northern summer sky, has its place in a star catalog written as 18h 36m 56.3s and
 +38° 47′ 01″. The first is a time: 18 hours, 36 minutes and 56.3 seconds. The second is an angle: 38 degrees, 47
 arcminutes and 1 arcsecond. Both count in sixties, the way a clock does, and neither is a number the calculator can
 add or multiply as it stands. How many hours is 18h 36m 56.3s, as one number?
@@ -97,8 +97,10 @@ BLUE ANGLE →HMS 1.5 ▶ ENTER
 
 The screen shows <disp v="H03">1.3000</disp>: 1 hour, 30 minutes and 0 seconds.
 
-The stars take 86164.0989 seconds to turn once around the sky (the US Naval Observatory's figure, in its Circular
-179). Divide by 3600 for hours, and →HMS shows how long that is:
+Measured against the stars, the Earth turns once in 86164.0989 seconds: the US Naval Observatory's Circular 179
+gives it as the Earth's rotation period. (The sidereal day, timed from the equinox instead of from a star, is
+shorter by about 0.008 seconds, the same Circular says.) Divide by 3600 for hours, and →HMS shows how long a turn
+takes:
 
 ```keys H04 entry=alg
 BLUE ANGLE →HMS 86164.0989 ÷ 3600 ▶ ENTER
@@ -125,7 +127,7 @@ BLUE ANGLE HMS→ 38.4701 ▶ ENTER
 38.4701 BLUE ANGLE HMS→
 ```
 
-The screen shows <disp v="H05">38.7836</disp>. That is the star catalog's own figure for Vega, in degrees.
+The screen shows <disp v="H05">38.7836</disp>: the catalog's 38° 47′ 01″, the same angle in degrees.
 
 ## Exercises
 
