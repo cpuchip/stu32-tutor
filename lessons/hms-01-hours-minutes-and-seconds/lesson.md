@@ -61,8 +61,9 @@ shows: dec | +39°
 
 The readout puts Vega at <disp v="W01" kind="widget" k="ra">18h 37m</disp> and
 <disp v="W01" kind="widget" k="dec">+39°</disp>, which is as close as a grid can be read. The catalog's 18h 36m 56.3s
-and +38° 47′ 01″ are the same place to a second, measured with instruments. Both are on the lines of the year 2000,
-the catalog's own (J2000), which the grid draws too.
+and +38° 47′ 01″ are the same place, measured with instruments and given to the nearest tenth of a second of time
+and the nearest arcsecond. Both are on the lines of the year 2000, the catalog's own (J2000), which the grid draws
+too.
 
 ## Sixty, not ten
 
