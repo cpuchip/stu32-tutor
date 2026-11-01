@@ -7,8 +7,10 @@ route | guided
 subject | astronomy
 prerequisite | pre-algebra
 unit | 1 | Before you go out
+lesson | sky-01
 unit | 2 | The sky as a sphere, and angles with your hand
 lesson | angle-01
+lesson | sky-02
 unit | 3 | Finding stars: alt-az and RA/Dec
 lesson | hms-01
 unit | 4 | Time, the sky's motion and precession

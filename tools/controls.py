@@ -687,6 +687,25 @@ CONTROLS_FOR["par-01-parallax"] = [
     ("Bessel's light-years quoted as he wrote them, not as the calculator gives them", "lesson.md",
      'v="P05">10.4004<', 'v="P05">10.3000<', {}, "D-P05: the prose shows '10.3000'"),
 ]
+# sky-01: before you go out (astronomy-practice unit 1), STU with alg and rpn.
+CONTROLS_FOR["sky-01-before-you-go-out"] = [
+    ("the hour not taken away: 65 minutes past 9 quoted as 65 past 10", "lesson.md", 'v="D02">5.0000<', 'v="D02">65.0000<',
+     {}, "D-D02: the prose shows '65.0000'"),
+    ("the magnitudes the wrong way round in the algebraic block", "lesson.md", "```keys L01 entry=alg\n7 − 2 ENTER\n",
+     "```keys L01 entry=alg\n2 − 7 ENTER\n", {}, "L01: printed keys and vector disagree in STU alg mode"),
+    ("the RPN block typed as algebra", "lesson.md", "```keys D01 entry=rpn\n40 ENTER 25 +\n",
+     "```keys D01 entry=rpn\n40 + 25 ENTER\n", {}, "D01: printed keys and vector disagree in STU rpn mode"),
+]
+# sky-02: angles with your hand (astronomy-practice unit 2), STU with alg and rpn.
+CONTROLS_FOR["sky-02-angles-with-your-hand"] = [
+    ("fingers counted as fists: 2 fists and 3 fingers quoted as 50", "lesson.md", 'v="H03">23.0000<', 'v="H03">50.0000<',
+     {}, "D-H03: the prose shows '50.0000'"),
+    ("horizon to overhead in fists, the division the wrong way round", "lesson.md", "```keys H01 entry=rpn\n90 ENTER 10 ÷\n",
+     "```keys H01 entry=rpn\n10 ENTER 90 ÷\n", {}, "H01: printed keys and vector disagree in STU rpn mode"),
+    ("the Pointers' gap quoted to the wrong hundredth", "vectors.txt",
+     "5.37 - 5 | MODE33 FIX4 5.37 ENTER 5 - | X=0.37\n", "5.37 - 5 | MODE33 FIX4 5.37 ENTER 5 - | X=0.38\n", {},
+     "vectors in STU rpn mode"),
+]
 # The entry axis (decision 63), proven on the first lesson to offer entries.
 FRAC01_REASON = ("modes_reason: algebraic entry, this course's default, is STU mode's alone (firmware 029); RPN is "
                  "offered in STU mode too\n")

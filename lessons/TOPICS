@@ -395,3 +395,12 @@ parallax-triangle | The distance from the angle: d = 1 ÷ tan p, in AU | par-01 
 parsec | The parsec, and d = 1 ÷ p with p in arcseconds | par-01 | The parsec
 light-year | Parsecs and light-years | par-01 | Parsecs and light-years
 distance-range | A parallax's ± and the range of the distance | par-01 | How sure?
+
+# sky-01 Before you go out (astronomy-practice unit 1)
+solar-safety | Never look at the Sun: eclipse viewers, filters, and a pinhole projector | sky-01 | The Sun: never by eye
+dark-adaptation | Eyes take 20 to 30 minutes to adjust to the dark, and red light keeps them | sky-01 | Eyes that open slowly
+light-pollution | A city sky hides the faint stars: the faintest magnitude you can see | sky-01 | The sky you can see
+
+# sky-02 Angles with your hand (astronomy-practice unit 2, after angle-01)
+hand-ruler | Your hand at arm's length: a little finger 1°, three fingers 5°, a fist 10° | sky-02 | Your hand as a ruler
+sky-separation | Checking the hand against two stars a catalog puts a known angle apart | sky-02 | Checking the hand on the stars

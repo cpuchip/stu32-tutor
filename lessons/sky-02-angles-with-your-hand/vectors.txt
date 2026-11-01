@@ -1,0 +1,55 @@
+# sky-02 angles with your hand: ID@alg is the expression line (firmware 029: the result is ANS, N=; %LINE= the line
+# as typed); ID@rpn is the stack. The hand marks (little finger 1, three middle fingers 5, fist 10 degrees) are
+# NASA's skywatching FAQ and Chandra's scales page; the Pointers' 5.37 and Castor and Pollux's 4.5 degrees are
+# from the Yale Bright Star Catalogue's J2000 positions (astrometrics #12193; tutor's own BSC5 check: 5.374, 4.505).
+H01@alg | horizon to overhead in fists: 90 / 10 | MODE33 FIX4 90 / 10 ENTER | N=9 %LINE=90÷10
+H01@rpn | horizon to overhead in fists: 90 / 10 | MODE33 FIX4 90 ENTER 10 / | X=9
+H02@alg | two fists: 2 x 10 | MODE33 FIX4 2 * 10 ENTER | N=20 %LINE=2×10
+H02@rpn | two fists: 2 x 10 | MODE33 FIX4 2 ENTER 10 * | X=20
+H03@alg | and three little fingers: 20 + 3 | MODE33 FIX4 20 + 3 ENTER | N=23 %LINE=20+3
+H03@rpn | and three little fingers: 20 + 3 | MODE33 FIX4 20 ENTER 3 + | X=23
+S01@alg | the Pointers against three fingers: 5.37 - 5 | MODE33 FIX4 5.37 - 5 ENTER | N=0.37 %LINE=5.37-5
+S01@rpn | the Pointers against three fingers: 5.37 - 5 | MODE33 FIX4 5.37 ENTER 5 - | X=0.37
+E01@alg | exercise 1: three fingers against Castor and Pollux, 5 - 4.5 | MODE33 FIX4 5 - 4.5 ENTER | N=0.5 %LINE=5-4.5
+E01@rpn | exercise 1: three fingers against Castor and Pollux, 5 - 4.5 | MODE33 FIX4 5 ENTER 4.5 - | X=0.5
+E02@alg | exercise 2: four fists, 4 x 10 | MODE33 FIX4 4 * 10 ENTER | N=40 %LINE=4×10
+E02@rpn | exercise 2: four fists, 4 x 10 | MODE33 FIX4 4 ENTER 10 * | X=40
+E02B@alg | exercise 2: and two little fingers, 40 + 2 | MODE33 FIX4 40 + 2 ENTER | N=42 %LINE=40+2
+E02B@rpn | exercise 2: and two little fingers, 40 + 2 | MODE33 FIX4 40 ENTER 2 + | X=42
+# From before and Mixed review (decision 76): each answer typed, its working (W), and the slip's.
+SK2F1@alg | from before: a right angle, typed | MODE33 FIX4 90 ENTER | N=90 %LINE=90
+SK2F1@rpn | from before: a right angle, typed | MODE33 FIX4 90 ENTER | X=90
+SK2F1W@alg | its working, half a straight angle | MODE33 FIX4 180 / 2 ENTER | N=90 %LINE=180÷2
+SK2F1W@rpn | its working, half a straight angle | MODE33 FIX4 180 ENTER 2 / | X=90
+SK2F1A@alg | slip: a straight angle, 180 | MODE33 FIX4 180 ENTER | N=180 %LINE=180
+SK2F1A@rpn | slip: a straight angle, 180 | MODE33 FIX4 180 ENTER | X=180
+SK2F2@alg | from before: half a turn, typed | MODE33 FIX4 180 ENTER | N=180 %LINE=180
+SK2F2@rpn | from before: half a turn, typed | MODE33 FIX4 180 ENTER | X=180
+SK2F2W@alg | its working | MODE33 FIX4 360 / 2 ENTER | N=180 %LINE=360÷2
+SK2F2W@rpn | its working | MODE33 FIX4 360 ENTER 2 / | X=180
+SK2F2A@alg | slip: a quarter turn, 90 | MODE33 FIX4 360 / 4 ENTER | N=90 %LINE=360÷4
+SK2F2A@rpn | slip: a quarter turn, 90 | MODE33 FIX4 360 ENTER 4 / | X=90
+SK2M1@alg | mixed review: three fists, typed | MODE33 FIX4 30 ENTER | N=30 %LINE=30
+SK2M1@rpn | mixed review: three fists, typed | MODE33 FIX4 30 ENTER | X=30
+SK2M1W@alg | its working | MODE33 FIX4 3 * 10 ENTER | N=30 %LINE=3×10
+SK2M1W@rpn | its working | MODE33 FIX4 3 ENTER 10 * | X=30
+SK2M1A@alg | slip: three fingers, 3 | MODE33 FIX4 3 ENTER | N=3 %LINE=3
+SK2M1A@rpn | slip: three fingers, 3 | MODE33 FIX4 3 ENTER | X=3
+SK2M2@alg | mixed review: a full turn, typed | MODE33 FIX4 360 ENTER | N=360 %LINE=360
+SK2M2@rpn | mixed review: a full turn, typed | MODE33 FIX4 360 ENTER | X=360
+SK2M2W@alg | its working, twice half a turn | MODE33 FIX4 180 * 2 ENTER | N=360 %LINE=180×2
+SK2M2W@rpn | its working, twice half a turn | MODE33 FIX4 180 ENTER 2 * | X=360
+SK2M2A@alg | slip: half a turn, 180 | MODE33 FIX4 180 ENTER | N=180 %LINE=180
+SK2M2A@rpn | slip: half a turn, 180 | MODE33 FIX4 180 ENTER | X=180
+SK2M3@alg | mixed review: the hand short by, typed | MODE33 FIX4 0.37 ENTER | N=0.37 %LINE=0.37
+SK2M3@rpn | mixed review: the hand short by, typed | MODE33 FIX4 0.37 ENTER | X=0.37
+SK2M3W@alg | its working | MODE33 FIX4 5.37 - 5 ENTER | N=0.37 %LINE=5.37-5
+SK2M3W@rpn | its working | MODE33 FIX4 5.37 ENTER 5 - | X=0.37
+SK2M3A@alg | slip: added, 10.37 | MODE33 FIX4 5.37 + 5 ENTER | N=10.37 %LINE=5.37+5
+SK2M3A@rpn | slip: added, 10.37 | MODE33 FIX4 5.37 ENTER 5 + | X=10.37
+SK2M4@alg | mixed review: 360 / 10, typed | MODE33 FIX4 36 ENTER | N=36 %LINE=36
+SK2M4@rpn | mixed review: 360 / 10, typed | MODE33 FIX4 36 ENTER | X=36
+SK2M4W@alg | its working | MODE33 FIX4 360 / 10 ENTER | N=36 %LINE=360÷10
+SK2M4W@rpn | its working | MODE33 FIX4 360 ENTER 10 / | X=36
+SK2M4A@alg | slip: a zero too many, 3.6 | MODE33 FIX4 360 / 100 ENTER | N=3.6 %LINE=360÷100
+SK2M4A@rpn | slip: a zero too many, 3.6 | MODE33 FIX4 360 ENTER 100 / | X=3.6

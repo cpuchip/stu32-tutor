@@ -1,0 +1,53 @@
+# sky-01 before you go out: ID@alg is the expression line (firmware 029: the result is ANS, N=; %LINE= the line as
+# typed); ID@rpn is the stack. Every example is ours; the 20 to 30 minutes of dark adaptation is the US National
+# Park Service's, and the faintest magnitudes (2 city, 4 suburb, 6 country, 7 truly dark) its Rate Your Night Sky
+# guide's, via astrometrics #12193.
+D01@alg | out at 9:40, 25 minutes: 40 + 25 | MODE33 FIX4 40 + 25 ENTER | N=65 %LINE=40+25
+D01@rpn | out at 9:40, 25 minutes: 40 + 25 | MODE33 FIX4 40 ENTER 25 + | X=65
+D02@alg | 65 minutes past 9 is 5 past 10: 65 - 60 | MODE33 FIX4 65 - 60 ENTER | N=5 %LINE=65-60
+D02@rpn | 65 minutes past 9 is 5 past 10: 65 - 60 | MODE33 FIX4 65 ENTER 60 - | X=5
+L01@alg | a truly dark sky against a city: 7 - 2 magnitudes | MODE33 FIX4 7 - 2 ENTER | N=5 %LINE=7-2
+L01@rpn | a truly dark sky against a city: 7 - 2 magnitudes | MODE33 FIX4 7 ENTER 2 - | X=5
+E01@alg | exercise 1: out at 8:50, 30 minutes: 50 + 30 | MODE33 FIX4 50 + 30 ENTER | N=80 %LINE=50+30
+E01@rpn | exercise 1: out at 8:50, 30 minutes: 50 + 30 | MODE33 FIX4 50 ENTER 30 + | X=80
+E01B@alg | exercise 1: 80 minutes past 8 is 20 past 9 | MODE33 FIX4 80 - 60 ENTER | N=20 %LINE=80-60
+E01B@rpn | exercise 1: 80 minutes past 8 is 20 past 9 | MODE33 FIX4 80 ENTER 60 - | X=20
+E02@alg | exercise 2: a suburb to a truly dark sky, 7 - 4 | MODE33 FIX4 7 - 4 ENTER | N=3 %LINE=7-4
+E02@rpn | exercise 2: a suburb to a truly dark sky, 7 - 4 | MODE33 FIX4 7 ENTER 4 - | X=3
+# From before and Mixed review (decision 76): each answer typed, its working (W), and the slip's.
+SK1F1@alg | from before: 45 + 25, typed | MODE33 FIX4 70 ENTER | N=70 %LINE=70
+SK1F1@rpn | from before: 45 + 25, typed | MODE33 FIX4 70 ENTER | X=70
+SK1F1W@alg | its working | MODE33 FIX4 45 + 25 ENTER | N=70 %LINE=45+25
+SK1F1W@rpn | its working | MODE33 FIX4 45 ENTER 25 + | X=70
+SK1F1A@alg | slip: the carry forgotten, 60 | MODE33 FIX4 45 + 25 - 10 ENTER | N=60 %LINE=45+25-10
+SK1F1A@rpn | slip: the carry forgotten, 60 | MODE33 FIX4 45 ENTER 25 + 10 - | X=60
+SK1F2@alg | from before: 82 - 47, typed | MODE33 FIX4 35 ENTER | N=35 %LINE=35
+SK1F2@rpn | from before: 82 - 47, typed | MODE33 FIX4 35 ENTER | X=35
+SK1F2W@alg | its working | MODE33 FIX4 82 - 47 ENTER | N=35 %LINE=82-47
+SK1F2W@rpn | its working | MODE33 FIX4 82 ENTER 47 - | X=35
+SK1F2A@alg | slip: the smaller digit from the larger, 45 | MODE33 FIX4 82 - 47 + 10 ENTER | N=45 %LINE=82-47+10
+SK1F2A@rpn | slip: the smaller digit from the larger, 45 | MODE33 FIX4 82 ENTER 47 - 10 + | X=45
+SK1M1@alg | mixed review: out at 9:45, 30 minutes, minutes past 10, typed | MODE33 FIX4 15 ENTER | N=15 %LINE=15
+SK1M1@rpn | mixed review: out at 9:45, 30 minutes, minutes past 10, typed | MODE33 FIX4 15 ENTER | X=15
+SK1M1W@alg | its working | MODE33 FIX4 45 + 30 - 60 ENTER | N=15 %LINE=45+30-60
+SK1M1W@rpn | its working | MODE33 FIX4 45 ENTER 30 + 60 - | X=15
+SK1M1A@alg | slip: the hour not taken away, 75 | MODE33 FIX4 45 + 30 ENTER | N=75 %LINE=45+30
+SK1M1A@rpn | slip: the hour not taken away, 75 | MODE33 FIX4 45 ENTER 30 + | X=75
+SK1M2@alg | mixed review: 91 - 36, typed | MODE33 FIX4 55 ENTER | N=55 %LINE=55
+SK1M2@rpn | mixed review: 91 - 36, typed | MODE33 FIX4 55 ENTER | X=55
+SK1M2W@alg | its working | MODE33 FIX4 91 - 36 ENTER | N=55 %LINE=91-36
+SK1M2W@rpn | its working | MODE33 FIX4 91 ENTER 36 - | X=55
+SK1M2A@alg | slip: the smaller digit from the larger, 65 | MODE33 FIX4 91 - 36 + 10 ENTER | N=65 %LINE=91-36+10
+SK1M2A@rpn | slip: the smaller digit from the larger, 65 | MODE33 FIX4 91 ENTER 36 - 10 + | X=65
+SK1M3@alg | mixed review: country against city magnitudes, typed | MODE33 FIX4 4 ENTER | N=4 %LINE=4
+SK1M3@rpn | mixed review: country against city magnitudes, typed | MODE33 FIX4 4 ENTER | X=4
+SK1M3W@alg | its working | MODE33 FIX4 6 - 2 ENTER | N=4 %LINE=6-2
+SK1M3W@rpn | its working | MODE33 FIX4 6 ENTER 2 - | X=4
+SK1M3A@alg | slip: the magnitudes added, 8 | MODE33 FIX4 6 + 2 ENTER | N=8 %LINE=6+2
+SK1M3A@rpn | slip: the magnitudes added, 8 | MODE33 FIX4 6 ENTER 2 + | X=8
+SK1M4@alg | mixed review: 38 + 47, typed | MODE33 FIX4 85 ENTER | N=85 %LINE=85
+SK1M4@rpn | mixed review: 38 + 47, typed | MODE33 FIX4 85 ENTER | X=85
+SK1M4W@alg | its working | MODE33 FIX4 38 + 47 ENTER | N=85 %LINE=38+47
+SK1M4W@rpn | its working | MODE33 FIX4 38 ENTER 47 + | X=85
+SK1M4A@alg | slip: the carry forgotten, 75 | MODE33 FIX4 38 + 47 - 10 ENTER | N=75 %LINE=38+47-10
+SK1M4A@rpn | slip: the carry forgotten, 75 | MODE33 FIX4 38 ENTER 47 + 10 - | X=75
