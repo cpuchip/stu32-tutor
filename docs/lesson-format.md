@@ -57,6 +57,11 @@ display: FIX 4
   re-taught in place, is not. TOPICS gives each topic its lesson and section (- for the opening);
   `tools/graph.py` (in `make check`) refuses an unknown slug, a lesson requiring its own topic, a
   heading not in its lesson, and a cycle. A new lesson adds its topics to TOPICS.
+- A `requires:` item may be alternatives, `calc-setup|setup`, met by any one of them: for a lesson listed in two
+  courses whose chains teach the same thing under two topics (abacus #12198). In a course, at least one
+  alternative must be taught earlier in it or in a prerequisite course; together they must cover every mode the
+  lesson offers. graph.py's `--json` gives such a lesson `needs_any`, a list of any-of groups of lessons, beside
+  `needs` (all of them); a unit's gateway names the alternatives its own course's chain teaches.
 - `status:` is `draft prose (accuracy: lessons/ACCEPTED; not yet read by Michael)` until Michael's
   read; the learning page marks a draft. Acceptance is never written here: lessons/ACCEPTED is the
   one record of what abacus has accepted, the list the site publishes from, checked by

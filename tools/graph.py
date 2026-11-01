@@ -64,8 +64,20 @@ def parse_topics(text, bad):
     return out
 
 
+def alts(item):
+    """A requires item's slugs: one topic, or alternatives `a|b`, any one of which meets it (abacus #12198: a lesson in
+    two courses, whose chains teach the same thing under two topics)."""
+    return item.split("|")
+
+
+def all_needs(node):
+    """Every lesson a lesson leans on: its needs, and each lesson of its any-of groups."""
+    return node.get("needs", []) + [l for g in node.get("needs_any", []) for l in g]
+
+
 def check(topics_text, lessons):
-    """(problems, graph): graph is {id: {"requires": [...], "teaches": [...], "needs": [...]}}."""
+    """(problems, graph): graph is {id: {"requires": [...], "teaches": [...], "needs": [...]}}, plus "needs_any":
+    [[lesson, ...], ...] for a lesson with an alternatives item (any one lesson of a group meets it)."""
     bad = []
     topics = parse_topics(topics_text, bad)
     teaches = {lid: [] for lid in lessons}
@@ -89,34 +101,48 @@ def check(topics_text, lessons):
             continue
         req = meta["requires"].split()
         offered = tuple(meta.get("modes", " ".join(ALL_MODES)).split())
-        needs = set()
-        for slug in req:
-            if slug not in topics:
-                bad.append(f"{lid}: requires '{slug}', which is not a topic")
-                continue
-            _, src, modes, _ = topics[slug]
-            if src == lid:
-                bad.append(f"{lid}: requires '{slug}', which it teaches itself")
-                continue
-            if not set(offered) <= set(modes):
-                bad.append(f"{lid}: requires '{slug}', taught only in {','.join(modes)} mode, but offers {' '.join(offered)}")
-            needs.add(src)
+        needs, needs_any = set(), []
+        for item in req:
+            srcs, covered = set(), set()
+            for slug in alts(item):
+                if slug not in topics:
+                    bad.append(f"{lid}: requires '{slug}', which is not a topic")
+                    continue
+                _, src, modes, _ = topics[slug]
+                if src == lid:
+                    bad.append(f"{lid}: requires '{slug}', which it teaches itself")
+                    continue
+                if "|" not in item and not set(offered) <= set(modes):
+                    bad.append(f"{lid}: requires '{slug}', taught only in {','.join(modes)} mode, but offers {' '.join(offered)}")
+                srcs.add(src)
+                covered |= set(modes)
+            if "|" in item and srcs and not set(offered) <= covered:
+                # Alternatives together must cover every mode offered: each mode's learner meets one of them.
+                bad.append(f"{lid}: requires '{item}', whose alternatives are taught only in {','.join(sorted(covered))} "
+                           f"mode, but offers {' '.join(offered)}")
+            if len(srcs) == 1:
+                needs |= srcs
+            elif srcs:
+                needs_any.append(sorted(srcs))
         # An item's topics (docs/lesson-format.md, Items) are where a miss links back: each must be a topic.
         for im in re.finditer(r"^[ \t]*```item[ \t]+(\S+)[ \t]*\n(.*?)^[ \t]*```", lessons[lid][1], re.M | re.S):
             tl = re.search(r"^[ \t]*topics:(.*)$", im.group(2), re.M)
             for slug in (tl.group(1).split() if tl else []):
                 if slug not in topics:
                     bad.append(f"{lid}: item {im.group(1)} names topic '{slug}', which is not a topic")
-        if len(set(req)) != len(req):
+        flat = [s for item in req for s in alts(item)]
+        if len(set(flat)) != len(flat):
             bad.append(f"{lid}: requires a topic twice")
         graph[lid] = {"requires": req, "teaches": teaches[lid], "needs": sorted(needs)}
+        if needs_any:
+            graph[lid]["needs_any"] = needs_any
     # A cycle between lessons: depth first, reporting the path.
     state, stack = {}, []
 
     def visit(lid):
         state[lid] = 1
         stack.append(lid)
-        for nxt in graph.get(lid, {}).get("needs", []):
+        for nxt in all_needs(graph.get(lid, {})):
             if state.get(nxt) == 1:
                 cyc = stack[stack.index(nxt):] + [nxt]
                 bad.append("a cycle: " + " needs ".join(cyc))
@@ -165,6 +191,18 @@ def selftest(topics_text, lessons):
         a_topic = next(s for s, v in parse_topics(topics_text, []).items() if v[1] == a)
         plants.append(("a cycle between lessons", topics_text,
                        with_req(b, " ".join(lessons[b][0]["requires"].split() + [a_topic])), "a cycle"))
+    # Alternatives (abacus #12198), on exp-01, which offers every mode and requires setup (rpn-01's).
+    alt_lid = "exp-01"
+    alt_req = lessons[alt_lid][0]["requires"]
+    plants += [
+        ("an alternative that is not a topic", topics_text,
+         with_req(alt_lid, alt_req.replace("setup", "setup|no-such-topic", 1)), "requires 'no-such-topic'"),
+        ("alternatives that together miss a mode the lesson offers", topics_text,
+         with_req(alt_lid, alt_req.replace("setup", "solver-2x2|solver-keep", 1)),   # both sys-02@35s,STU
+         "whose alternatives are taught only in 35s,STU mode"),
+        ("a topic both required and an alternative", topics_text,
+         with_req(alt_lid, alt_req.replace("setup", "setup|calc-setup", 1) + " calc-setup"), "requires a topic twice"),
+    ]
     red = 0
     for name, t, ls, why in plants:
         problems = check(t, ls)[0]
@@ -172,7 +210,14 @@ def selftest(topics_text, lessons):
         print(f"{'ok  ' if hit else 'FAIL'} {name}" + (f"\n       -> {hit[0]}" if hit else f": {problems[:2]}"))
         red += bool(hit)
     print(f"{red}/{len(plants)} graph controls red as planted")
-    return red == len(plants)
+    # Harmless: setup or calc-setup, which between them cover every mode, is accepted, and the lesson's needs gain an
+    # any-of group of the two teaching lessons.
+    probs, g2 = check(topics_text, with_req(alt_lid, alt_req.replace("setup", "calc-setup|setup", 1)))
+    mine = [p for p in probs if p.startswith(f"{alt_lid}:")]
+    green = not mine and g2["lessons"][alt_lid].get("needs_any") == [["rpn-01", "start-01"]]
+    print(f"{'ok  ' if green else 'FAIL'} {alt_lid} requiring calc-setup|setup is accepted, needs_any "
+          f"{g2['lessons'][alt_lid].get('needs_any')}" + ("" if not mine else f": {mine[:2]}"))
+    return red == len(plants) and green
 
 
 ENTRIES = ("rpn", "alg")
@@ -249,6 +294,13 @@ def check_courses(course_texts, graph):
                 bad.append(f"{c['file']}: lesson {lid} is listed twice")
             seen.add(lid)
             for slug in graph["lessons"][lid]["requires"]:
+                if "|" in slug:
+                    # Alternatives: met when one of them is taught earlier here or in a prerequisite course.
+                    srcs = [topics.get(s, {}).get("lesson") for s in alts(slug)]
+                    if not any(s is not None and ((s in order and order.index(s) < i) or s in before) for s in srcs):
+                        bad.append(f"{c['file']}: {lid} requires '{slug}', and no alternative is taught earlier in "
+                                   f"this course or in a prerequisite course")
+                    continue
                 src = topics.get(slug, {}).get("lesson")
                 if src in order and order.index(src) > i:
                     bad.append(f"{c['file']}: {lid} requires '{slug}', taught later in the course by {src}")
@@ -366,7 +418,29 @@ def selftest_courses(course_texts, graph):
     green = not still
     print(f"{'ok  ' if green else 'FAIL'} the same course naming the algebra course as its prerequisite is accepted"
           + ("" if green else f": {still[:2]}"))
-    return red == len(plants) and green
+    # Alternatives (abacus #12198): exp-01 made to require only calc-setup|setup, listed in a second course. Refused
+    # when neither alternative is in that course's chain; accepted with either chain as its prerequisite, and its
+    # unit's gateway names the alternative that chain teaches.
+    alt = {**graph, "lessons": {**graph["lessons"], "exp-01": {**graph["lessons"]["exp-01"],
+                                                               "requires": ["calc-setup|setup"]}}}
+    two = "course | lone | Lone\nroute | open\nunit | 1 | One\nlesson | exp-01\n"
+    refused = [p for p in check_courses({**course_texts, "lone.course": two}, alt)[0]
+               if "and no alternative is taught" in p]
+    print(f"{'ok  ' if refused else 'FAIL'} a lesson whose alternatives are both outside the course's chain"
+          + (f"\n       -> {refused[0]}" if refused else ""))
+    gates_ok = True
+    for pre, want in (("pre-algebra", ["calc-setup"]), ("algebra-to-calculus", ["setup"])):
+        texts = {**course_texts, "lone.course": two.replace("unit | 1", f"prerequisite | {pre}\nunit | 1")}
+        cbad, courses = check_courses(texts, alt)
+        mine = [p for p in cbad if "lone.course" in p]
+        g3 = {**alt, "courses": courses}
+        check_placement({}, g3)
+        gate = courses["lone"]["units"][0]["gateway"]
+        ok = not mine and gate == want
+        print(f"{'ok  ' if ok else 'FAIL'} with {pre} as its prerequisite it is accepted, gateway {gate}"
+              + ("" if not mine else f": {mine[:2]}"))
+        gates_ok = gates_ok and ok
+    return red == len(plants) and green and bool(refused) and gates_ok
 
 
 def load_placement(root):
@@ -385,13 +459,25 @@ def check_placement(placement_texts, graph):
     courses, topics = graph["courses"], graph["topics"]
     for cid, c in courses.items():                  # the gateways, for the page's search
         unit_of = {l: i for i, u in enumerate(c["units"]) for l in u["lessons"]}
+        chain, todo, done = set(unit_of), list(c["prerequisites"]), {cid}
+        while todo:                                 # this course's lessons and its prerequisites', transitively
+            p = todo.pop()
+            if p in done or p not in courses:
+                continue
+            done.add(p)
+            chain |= {l for u in courses[p]["units"] for l in u["lessons"]}
+            todo.extend(courses[p]["prerequisites"])
         for i, u in enumerate(c["units"]):
             gate = set()
             for l in u["lessons"]:
-                for slug in graph["lessons"].get(l, {}).get("requires", []):
-                    src = topics.get(slug, {}).get("lesson")
-                    if src not in unit_of or unit_of[src] < i:
-                        gate.add(slug)
+                for item in graph["lessons"].get(l, {}).get("requires", []):
+                    # Of an alternatives item, the gateway names the alternatives this course's chain teaches.
+                    for slug in alts(item):
+                        src = topics.get(slug, {}).get("lesson")
+                        if "|" in item and src not in chain:
+                            continue
+                        if src not in unit_of or unit_of[src] < i:
+                            gate.add(slug)
             u["gateway"] = sorted(gate)
     for name, text in placement_texts.items():
         meta = dict(re.findall(r"^(\w+):[ \t]*(.*)$", text.split("\n---", 1)[0], re.M))
@@ -509,7 +595,7 @@ def prerequisites(graph):
     def reach(lid):
         if lid not in out:
             out[lid] = set()
-            for d in graph["lessons"].get(lid, {}).get("needs", []):
+            for d in all_needs(graph["lessons"].get(lid, {})):
                 out[lid] |= {d} | reach(d)
         return out[lid]
     for lid in graph["lessons"]:
@@ -915,7 +1001,7 @@ def check_lore(entities, edges, lessons, graph):
         if lid in before:
             return before[lid]
         out = set()
-        for d in graph["lessons"].get(lid, {}).get("needs", []):
+        for d in all_needs(graph["lessons"].get(lid, {})):
             out.add(d)
             out |= reach(d)
         before[lid] = out
@@ -1063,7 +1149,7 @@ def selftest_lore(entities, edges, lessons, graph):
 def graph_reach(graph, lid, seen=None):
     """A lesson's prerequisites, transitively (for the selftest's choice of a lesson after another)."""
     out = set()
-    for d in graph["lessons"].get(lid, {}).get("needs", []):
+    for d in all_needs(graph["lessons"].get(lid, {})):
         out.add(d)
         out |= graph_reach(graph, d)
     return out
