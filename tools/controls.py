@@ -708,8 +708,8 @@ CONTROLS_FOR["sky-01-before-you-go-out"] = [
 # sky-02: angles with your hand (astronomy-practice unit 2), STU with alg and rpn, with no calculator work since abacus
 # #12844, its check on the stars led by the hand-ruler widget (primer's spec, #12867).
 CONTROLS_FOR["sky-02-angles-with-your-hand"] = [
-    ("a keys block put back in a lesson with no setup", "lesson.md", "the hand? $5.37 − 5 = 0.37$ degrees",
-     "the hand?\n\n```keys S01\n5.37 ENTER 5 −\n```\n\n$5.37 − 5 = 0.37$ degrees", {},
+    ("a keys block put back in a lesson with no setup", "lesson.md", "hand? $5.37 − 5 = 0.37$ degrees",
+     "hand?\n\n```keys S01\n5.37 ENTER 5 −\n```\n\n$5.37 − 5 = 0.37$ degrees", {},
      "front matter has no `setup:` keys"),
     ("the separation quoted to the catalog's third decimal, not the readout's", "lesson.md",
      'k="sep">5.37°<', 'k="sep">5.374°<', {}, "the prose quotes '5.374°', the widget shows '5.37°'"),

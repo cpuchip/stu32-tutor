@@ -50,9 +50,10 @@ three little fingers a degree each, so the star is about $20 + 3 = 23$ degrees u
 ## Checking the hand on the stars
 
 A hand is a rough ruler, and the stars can check it. The two stars at the end of the Big Dipper's bowl, Dubhe and
-Merak, are called the Pointers. Below they are drawn the true angle apart, from their places in the Yale Bright
-Star Catalogue, with three middle fingers laid from Dubhe toward Merak at the same scale. Switch to a little
-finger or a fist to compare.
+Merak, are called the Pointers. Below, the two stars are drawn as far apart as they look in the sky, from their
+places in the Yale Bright Star Catalogue, with three middle fingers laid from Dubhe toward Merak at the same scale.
+Read the separation and how many hands it spans under the drawing. Then switch to a little finger or a fist to
+compare, and come back to three middle fingers.
 
 ```widget W01 hand-ruler
 from: 4301
@@ -65,15 +66,15 @@ shows: off | +0.37°
 ```
 
 The readout gives the Pointers <disp v="W01" kind="widget" k="sep">5.37°</disp> apart, and the gap is
-<disp v="W01" kind="widget" k="spans">1.1</disp> widths of three middle fingers, a little more than one. How far
-off is the hand? $5.37 − 5 = 0.37$ degrees, less than half a little finger, as the readout's
-<disp v="W01" kind="widget" k="off">+0.37°</disp> says. Good enough to find your way, and a reason astronomers use
+<disp v="W01" kind="widget" k="spans">1.1</disp> three-finger widths, a little more than one. How far off is the
+hand? $5.37 − 5 = 0.37$ degrees, less than half a little finger. The readout's
+<disp v="W01" kind="widget" k="off">+0.37°</disp> is the same figure: the gap is that much wider than the hand. Good enough to find your way, and a reason astronomers use
 instruments when they need more.
 
 ## Exercises
 
-1. Castor and Pollux, the two bright stars of Gemini, are 4.5 degrees apart. How far is that from three middle
-   fingers?
+1. Castor and Pollux, the two bright stars of Gemini, are 4.5 degrees apart. By how many degrees is that less
+   than three middle fingers?
 2. A star is four fists and two little fingers above the horizon. About how many degrees up is it?
 
 ## Answers
@@ -113,5 +114,5 @@ prompt: Work out $360 ÷ 10$. (That many fists go all the way round the horizon.
 topics: long-division
 answer: type
 calculator: no
-slip: SK2M4A | took off a zero too many | $360 ÷ 10$ takes off one zero: 36, not 3.6.
+slip: SK2M4A | divided by 100, not 10 | $360 ÷ 10$ takes off one zero: 36, not 3.6.
 ```
