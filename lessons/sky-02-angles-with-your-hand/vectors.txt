@@ -2,20 +2,6 @@
 # as typed); ID@rpn is the stack. The hand marks (little finger 1, three middle fingers 5, fist 10 degrees) are
 # NASA's skywatching FAQ and Chandra's scales page; the Pointers' 5.37 and Castor and Pollux's 4.5 degrees are
 # from the Yale Bright Star Catalogue's J2000 positions (astrometrics #12193; tutor's own BSC5 check: 5.374, 4.505).
-H01@alg | horizon to overhead in fists: 90 / 10 | MODE33 FIX4 90 / 10 ENTER | N=9 %LINE=90÷10
-H01@rpn | horizon to overhead in fists: 90 / 10 | MODE33 FIX4 90 ENTER 10 / | X=9
-H02@alg | two fists: 2 x 10 | MODE33 FIX4 2 * 10 ENTER | N=20 %LINE=2×10
-H02@rpn | two fists: 2 x 10 | MODE33 FIX4 2 ENTER 10 * | X=20
-H03@alg | and three little fingers: 20 + 3 | MODE33 FIX4 20 + 3 ENTER | N=23 %LINE=20+3
-H03@rpn | and three little fingers: 20 + 3 | MODE33 FIX4 20 ENTER 3 + | X=23
-S01@alg | the Pointers against three fingers: 5.37 - 5 | MODE33 FIX4 5.37 - 5 ENTER | N=0.37 %LINE=5.37-5
-S01@rpn | the Pointers against three fingers: 5.37 - 5 | MODE33 FIX4 5.37 ENTER 5 - | X=0.37
-E01@alg | exercise 1: three fingers against Castor and Pollux, 5 - 4.5 | MODE33 FIX4 5 - 4.5 ENTER | N=0.5 %LINE=5-4.5
-E01@rpn | exercise 1: three fingers against Castor and Pollux, 5 - 4.5 | MODE33 FIX4 5 ENTER 4.5 - | X=0.5
-E02@alg | exercise 2: four fists, 4 x 10 | MODE33 FIX4 4 * 10 ENTER | N=40 %LINE=4×10
-E02@rpn | exercise 2: four fists, 4 x 10 | MODE33 FIX4 4 ENTER 10 * | X=40
-E02B@alg | exercise 2: and two little fingers, 40 + 2 | MODE33 FIX4 40 + 2 ENTER | N=42 %LINE=40+2
-E02B@rpn | exercise 2: and two little fingers, 40 + 2 | MODE33 FIX4 40 ENTER 2 + | X=42
 # From before and Mixed review (decision 76): each answer typed, its working (W), and the slip's.
 SK2F1@alg | from before: a right angle, typed | MODE33 FIX4 90 ENTER | N=90 %LINE=90
 SK2F1@rpn | from before: a right angle, typed | MODE33 FIX4 90 ENTER | X=90

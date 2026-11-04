@@ -13,3 +13,10 @@ sky-sphere | shows | dec | whole degrees, signed, as +39°
 sky-sphere | shows | ha | hours and whole minutes, as ra
 sky-sphere | shows | alt | degrees to one decimal, as 73.9°
 sky-sphere | shows | az | degrees to one decimal, as 272.3°
+hand-ruler | param | from | star | the star the hand starts from
+hand-ruler | param | to | star | the star the hand reaches toward
+hand-ruler | param | hand | one-of finger three fist | the hand laid at the start: a little finger, three middle fingers, a fist
+hand-ruler | epoch | J2000
+hand-ruler | shows | sep | degrees to two decimals, as 5.37°
+hand-ruler | shows | spans | the chosen hand's widths to one decimal, as 1.1
+hand-ruler | shows | off | the separation minus one of the chosen hand, signed, degrees to two decimals, as +0.37°

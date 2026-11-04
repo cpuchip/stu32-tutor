@@ -1,8 +1,1 @@
 # sky-02 display vectors: D-ID is what X shows after vector ID, the same in both entries.
-D-H01 | after H01 | 9 | FIX 4 | w=21 | 9.0000
-D-H02 | after H02 | 20 | FIX 4 | w=21 | 20.0000
-D-H03 | after H03 | 23 | FIX 4 | w=21 | 23.0000
-D-S01 | after S01 | 0.37 | FIX 4 | w=21 | 0.3700
-D-E01 | after E01 | 0.5 | FIX 4 | w=21 | 0.5000
-D-E02 | after E02 | 40 | FIX 4 | w=21 | 40.0000
-D-E02B | after E02B | 42 | FIX 4 | w=21 | 42.0000
