@@ -679,6 +679,9 @@ CONTROLS_FOR["hms-01-hours-minutes-and-seconds"] = [
      'k="ra">18h 37m<', 'k="ra">18h 36m<', {}, "the prose quotes '18h 36m', the widget shows '18h 37m'"),
     ("the RPN vector's value wrong, caught in 33s before STU", "vectors.txt", "MODE33 FIX4 1.5 HMS | X=1.3\n",
      "MODE33 FIX4 1.5 HMS | X=1.5\n", {}, "vectors in 33s rpn mode"),
+    ("no = between + 36 and ÷ 60, so ÷ goes first and only the 36 is divided", "lesson.md",
+     "56.3 ÷ 60 ENTER + 36 ENTER ÷ 60 ENTER + 18 ENTER\n", "56.3 ÷ 60 ENTER + 36 ÷ 60 ENTER + 18 ENTER\n", {},
+     "M01: printed keys and vector disagree in STU alg mode"),
 ]
 # par-01: the parallax triangle and the parsec (astronomy-how-we-know unit 1).
 CONTROLS_FOR["par-01-parallax"] = [

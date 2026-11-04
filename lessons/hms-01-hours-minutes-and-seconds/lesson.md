@@ -6,6 +6,7 @@ entries: alg rpn
 status: pilot, draft prose (accuracy: lessons/ACCEPTED; not yet read by Michael)
 setup: BLUE MODE {mode} BLUE MODE {entry} GOLD DISP FIX 4
 display: FIX 4
+calculator_reason: the section for a calculator without HMS→ does its work with + − × ÷, carrying every digit of 18.6156… from step to step
 ---
 
 # Hours, minutes and seconds
@@ -135,6 +136,53 @@ BLUE ANGLE →HMS 86164.0989 ÷ 3600 ▶ ENTER
 The screen shows <disp v="H04">23.5604</disp>: 23 hours, 56 minutes and 4 seconds, about 4 minutes short of a day.
 That is why a star rises about 4 minutes earlier each night.
 
+## On a calculator without these keys
+
+If your calculator has no HMS→ or →HMS, you can do the same work with + − × ÷, one sixty at a time. Seconds divided
+by 60 are minutes: 18h 36m 56.3s is 18 hours and $36 + 56.3 ÷ 60$ minutes. Minutes divided by 60 are hours. So start
+from the seconds: divide by 60, add the minutes, divide by 60 again, and add the hours. The seconds are divided by 60
+twice, which is dividing by 3600, so this is the sum from "Sixty, not ten", worked from the seconds out, and in this
+order it needs no brackets. <entry e="alg">On your calculator, press = wherever the keys below show ENTER, after each
+step, and the answer is the same on a calculator that works from left to right and on one that does × and ÷ before +
+and −.</entry><entry e="rpn">In RPN the steps go in the order they are said, each number before its key.</entry>
+The screens below show four places after the point; yours may show more.
+
+```keys M01 entry=alg
+56.3 ÷ 60 ENTER + 36 ENTER ÷ 60 ENTER + 18 ENTER
+```
+
+```keys M01
+56.3 ENTER 60 ÷ 36 + 60 ÷ 18 +
+```
+
+The screen shows <disp v="M01">18.6156</disp>, the hours HMS→ gave.
+
+To go back, take away the whole hours and multiply what is left by 60. That gives the minutes:
+
+```keys M02 entry=alg after=M01
+− 18 ENTER × 60 ENTER
+```
+
+```keys M02 after=M01
+18 − 60 ×
+```
+
+The screen shows <disp v="M02">36.9383</disp>: 36 whole minutes. Take them away and multiply by 60 again for the
+seconds:
+
+```keys M03 entry=alg after=M02
+− 36 ENTER × 60 ENTER
+```
+
+```keys M03 after=M02
+36 − 60 ×
+```
+
+The screen shows <disp v="M03">56.3000</disp>: 56.3 seconds, and the time is 18h 36m 56.3s again. A calculator that
+keeps fewer digits may end a little either side of 56.3, the difference lost in its last digits.
+<entry e="alg">If yours does not carry on from the answer when − follows =, type the answer back in first, with every
+digit your own screen shows, not the four printed here.</entry>
+
 ## Degrees, arcminutes and arcseconds
 
 Angles on the sky are counted the same way. A degree has 60 arcminutes, written ′, and an arcminute has 60
@@ -149,7 +197,9 @@ BLUE ANGLE HMS→ 38.4701 ▶ ENTER
 38.4701 BLUE ANGLE HMS→
 ```
 
-The screen shows <disp v="H05">38.7836</disp>: the catalog's 38° 47′ 01″, the same angle in degrees.
+The screen shows <disp v="H05">38.7836</disp>: the catalog's 38° 47′ 01″, the same angle in degrees. The steps
+for a calculator without these keys work on an angle too: divide the arcseconds by 60, add the arcminutes, divide
+by 60 again, and add the degrees.
 
 ## Exercises
 

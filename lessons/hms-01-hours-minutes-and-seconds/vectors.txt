@@ -1,7 +1,8 @@
 # hms-01 hours, minutes and seconds: key vectors (the firmware's format). Every example is ours. Each starts MODE33
 # FIX4 (the setup). The lesson offers every mode: a plain ID is RPN, in 33s, 35s and STU (check.py's lesson_pairs);
 # ID@alg is STU's algebraic line (firmware 029: the result is ANS, N=; %LINE= the line as typed). Values read from
-# the core at 1a12ecf with keyrun (HMS→ of 18.36563 and 38.4701, →HMS of 86164.0989 ÷ 3600, HMS→ of 0.01).
+# the core at 1a12ecf with keyrun (HMS→ of 18.36563 and 38.4701, →HMS of 86164.0989 ÷ 3600, HMS→ of 0.01); M01-M03, + − × ÷ alone,
+# at 6ee62e4.
 H01 | 2 h 30 min 45 s into hours: HMS-> of 2.3045 | MODE33 FIX4 2.3045 HMSINV | X=2.5125
 H01@alg | 2 h 30 min 45 s into hours: HMS-> of 2.3045 | MODE33 FIX4 HMSINV 2.3045 > ENTER | N=2.5125 %LINE=HMS→(2.3045)
 H02 | Vega's right ascension, 18h 36m 56.3s, into hours | MODE33 FIX4 18.36563 HMSINV | X=18.61563888888888888888888888888889
@@ -10,6 +11,12 @@ H03 | 1.5 hours back to hours and minutes: ->HMS | MODE33 FIX4 1.5 HMS | X=1.3
 H03@alg | 1.5 hours back to hours and minutes: ->HMS | MODE33 FIX4 HMS 1.5 > ENTER | N=1.3 %LINE=→HMS(1.5)
 H04 | the stars' day, 86164.0989 s (USNO Circular 179), in hours and ->HMS | MODE33 FIX4 86164.0989 ENTER 3600 / HMS | X=23.56040989
 H04@alg | the stars' day, 86164.0989 s (USNO Circular 179), in hours and ->HMS | MODE33 FIX4 HMS 86164.0989 / 3600 > ENTER | N=23.56040989 %LINE=→HMS(86164.0989÷3600)
+M01 | any calculator: 56.3 s / 60 + 36 min, / 60 + 18 h | MODE33 FIX4 56.3 ENTER 60 / 36 + 60 / 18 + | X=18.61563888888888888888888888888889
+M01@alg | any calculator: 56.3 s / 60 + 36 min, / 60 + 18 h | MODE33 FIX4 56.3 / 60 ENTER + 36 ENTER / 60 ENTER + 18 ENTER | N=18.61563888888888888888888888888889 %LINE=ANS+18
+M02 | continues M01: - 18, x 60, the minutes | MODE33 FIX4 56.3 ENTER 60 / 36 + 60 / 18 + 18 - 60 * | X=36.9383333333333333333333333333334
+M02@alg | continues M01: - 18, x 60, the minutes | MODE33 FIX4 56.3 / 60 ENTER + 36 ENTER / 60 ENTER + 18 ENTER - 18 ENTER * 60 ENTER | N=36.9383333333333333333333333333334 %LINE=ANS×60
+M03 | continues M02: - 36, x 60, the seconds | MODE33 FIX4 56.3 ENTER 60 / 36 + 60 / 18 + 18 - 60 * 36 - 60 * | X=56.300000000000000000000000000004
+M03@alg | continues M02: - 36, x 60, the seconds | MODE33 FIX4 56.3 / 60 ENTER + 36 ENTER / 60 ENTER + 18 ENTER - 18 ENTER * 60 ENTER - 36 ENTER * 60 ENTER | N=56.300000000000000000000000000004 %LINE=ANS×60
 H05 | Vega's declination, 38 deg 47 min 01 s, into degrees | MODE33 FIX4 38.4701 HMSINV | X=38.78361111111111111111111111111111
 H05@alg | Vega's declination, 38 deg 47 min 01 s, into degrees | MODE33 FIX4 HMSINV 38.4701 > ENTER | N=38.78361111111111111111111111111111 %LINE=HMS→(38.4701)
 E01 | exercise 1: 3 h 45 min into hours | MODE33 FIX4 3.45 HMSINV | X=3.75
