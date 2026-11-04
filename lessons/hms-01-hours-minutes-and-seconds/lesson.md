@@ -144,8 +144,10 @@ from the seconds: divide by 60, add the minutes, divide by 60 again, and add the
 twice, which is dividing by 3600, so this is the sum from "Sixty, not ten", worked from the seconds out, and in this
 order it needs no brackets. <entry e="alg">On your calculator, press = wherever the keys below show ENTER, after each
 step, and the answer is the same on a calculator that works from left to right and on one that does × and ÷ before +
-and −.</entry><entry e="rpn">In RPN the steps go in the order they are said, each number before its key.</entry>
-The screens below show four places after the point; yours may show more.
+and −. Each step after the first starts with a key, and carries on from the answer. If yours does not carry on from
+the answer when a key follows =, type the answer back in first, with every digit your own screen shows, not the four
+printed here.</entry><entry e="rpn">In RPN the steps go in the order they are said, each number before its
+key.</entry> The screens below show four places after the point; yours may show more.
 
 ```keys M01 entry=alg
 56.3 ÷ 60 ENTER + 36 ENTER ÷ 60 ENTER + 18 ENTER
@@ -180,8 +182,6 @@ seconds:
 
 The screen shows <disp v="M03">56.3000</disp>: 56.3 seconds, and the time is 18h 36m 56.3s again. A calculator that
 keeps fewer digits may end a little either side of 56.3, the difference lost in its last digits.
-<entry e="alg">If yours does not carry on from the answer when − follows =, type the answer back in first, with every
-digit your own screen shows, not the four printed here.</entry>
 
 ## Degrees, arcminutes and arcseconds
 
