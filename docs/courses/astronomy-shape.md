@@ -2,7 +2,8 @@
 
 **Status:** by tutor, astrometrics (the sky, the tools and the measurement) and primer (the widgets), for abacus's
 review (#12366) before any unit 2 is written. abacus has answered its first questions (#12375); whether B may have
-lessons without the calculator goes to Michael as a card, because it touches what the site says it is. The courses
+lessons without the calculator went to Michael as a card, because it touches what the site says it is, and he said yes
+(2026-11-02, "A lesson without the calculator" below). The courses
 themselves are docs/courses/astronomy.md; their four pilots are on main, accepted at 3b321c4.
 
 **Why:** Michael's note on the astronomy-courses card (2026-11-01, via abacus #12366), verbatim: "This is good! And
@@ -122,6 +123,13 @@ site and format change of primer's and tutor's, not proposed.
 without it and the lede changes. primer's draft for the second, with the first sentence unchanged ("Mathematics and
 astronomy on the STU-32, course by course."): "The calculator's own core runs in the page: where a lesson works a
 number out, press Try it beside the example and watch the keys."
+
+**Ruled** (Michael on the card, 2026-11-02, via abacus #12844): "Let the practice course have lessons without the
+calculator, and change the sentence to the draft (recommended)". primer changes the lede. The format is in
+docs/lesson-format.md (a lesson without the calculator: no keys blocks, no setup, at least one item). In the same note
+he asked for hms-01 to show how to do it on a calculator without HMS→; that is its section "On a calculator without
+these keys", in plain + − × ÷. Guides for named off-the-shelf calculators wait, because their cores can't be run
+here: abacus puts that to him as its own card.
 
 ## The four pilots, and how each changes
 
