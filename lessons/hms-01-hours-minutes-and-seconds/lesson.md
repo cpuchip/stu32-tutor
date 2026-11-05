@@ -138,16 +138,16 @@ That is why a star rises about 4 minutes earlier each night.
 
 ## On a calculator without these keys
 
-If your calculator has no HMS→ or →HMS, you can do the same work with + − × ÷, one sixty at a time. Seconds divided
-by 60 are minutes: 18h 36m 56.3s is 18 hours and $36 + 56.3 ÷ 60$ minutes. Minutes divided by 60 are hours. So start
-from the seconds: divide by 60, add the minutes, divide by 60 again, and add the hours. The seconds are divided by 60
-twice, which is dividing by 3600, so this is the sum from "Sixty, not ten", worked from the seconds out, and in this
-order it needs no brackets. <entry e="alg">On your calculator, press = wherever the keys below show ENTER, after each
-step, and the answer is the same on a calculator that works from left to right and on one that does × and ÷ before +
-and −. Each step after the first starts with a key, and carries on from the answer. If yours does not carry on from
-the answer when a key follows =, type the answer back in first, with every digit your own screen shows, not the four
-printed here.</entry><entry e="rpn">In RPN the steps go in the order they are said, each number before its
-key.</entry> The screens below show four places after the point; yours may show more.
+If your calculator has no HMS→ or →HMS, you can do the same work with + − × ÷, one sixty at a time. Seconds divided by
+60 are minutes: 18h 36m 56.3s is 18 hours and 36 minutes, and $56.3 ÷ 60$ of a minute more. Minutes divided by 60 are
+hours. So start from the seconds: divide by 60, add the minutes, divide by 60 again, and add the hours. The seconds
+are divided by 60 twice, which is dividing by 3600, so this is the sum from "Sixty, not ten", worked from the seconds
+out, and in this order it needs no brackets. <entry e="alg">On your calculator, press = wherever the keys below show
+ENTER, after each step, and the answer is the same on a calculator that works from left to right and on one that does
+× and ÷ before + and −. Each step after the first starts with a key, and carries on from the answer. If yours does not
+carry on from the answer when a key follows =, type the answer back in first, with every digit your own screen shows,
+not the four printed here.</entry><entry e="rpn">In RPN the steps go in the order they are said, each number before
+its key.</entry> The screens below show four places after the point; yours may show more.
 
 ```keys M01 entry=alg
 56.3 ÷ 60 ENTER + 36 ENTER ÷ 60 ENTER + 18 ENTER
@@ -199,7 +199,8 @@ BLUE ANGLE HMS→ 38.4701 ▶ ENTER
 
 The screen shows <disp v="H05">38.7836</disp>: the catalog's 38° 47′ 01″, the same angle in degrees. The steps
 for a calculator without these keys work on an angle too: divide the arcseconds by 60, add the arcminutes, divide
-by 60 again, and add the degrees.
+by 60 again, and add the degrees. For a negative angle, south of the celestial equator, work with the sizes alone
+and put the minus sign on the whole answer at the end, not on the degrees alone.
 
 ## Exercises
 
@@ -264,7 +265,7 @@ slip: HM1M2A | a third of half a turn | A full turn is 360°, not 180°: $360 ÷
 ```
 
 ```item HM1M3
-prompt: Write 1.75 hours in hours and minutes. How many minutes past the hour is it?
+prompt: 1.75 hours is 1 hour and how many minutes?
 topics: hours-to-hms
 answer: type
 calculator: no

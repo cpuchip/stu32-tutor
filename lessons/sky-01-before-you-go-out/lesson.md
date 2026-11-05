@@ -39,9 +39,10 @@ slip: SK1F2A | took the smaller digit from the larger | $2 − 7$ needs a borrow
 Before any night out, one daytime rule. Never look at the Sun, not even when the Moon covers most of it (NASA's
 eclipse safety guidance). Ordinary sunglasses, however dark, are not safe. A solar viewer, or eclipse glasses, made
 for looking at the Sun, is thousands of times darker than sunglasses, and should meet the international standard ISO
-12312-2. Looking at any part of the bright Sun through a camera lens, binoculars or a telescope causes severe eye
-injury at once, unless a special solar filter is fixed over the front. Wearing eclipse glasses does not make it safe
-to look through binoculars or a telescope either.
+12312-2. Check a viewer each time before you use it, and throw it away if it is torn, scratched or damaged in any way.
+Children use solar viewers only with an adult watching. Looking at any part of the bright Sun through a camera lens,
+binoculars or a telescope causes severe eye injury at once, unless a special solar filter is fixed over the front.
+Wearing eclipse glasses does not make it safe to look through binoculars or a telescope either.
 
 There is a safe way that needs no special glasses: a pinhole projector. Stand with your back to the Sun and let its
 light pass through a small hole in one card onto a second card in front of you, and watch the image on the second
@@ -59,9 +60,10 @@ Try it on a sky drawn from a star catalog, on the astrometrics page:
 https://astrometrics.cpuchip.net/?thread=measure&beat=ptolemy-magnitudes
 
 It opens with three bright stars lit, Aldebaran, Betelgeuse and Rigel, and draws the sky as a truly dark place shows
-it, down to magnitude 7, then dims by itself to a suburb's 4. Drag the slider for the faintest magnitude drawn down to
-a city's 2 and watch the fainter stars vanish. Under a truly dark sky you can see stars $7 − 2 = 5$ magnitudes fainter
-than in a city. What five magnitudes means in brightness comes later in the course.
+it, with stars out to magnitude 7. Then, by itself, the faint stars drop out until only those to magnitude 4 are left,
+as in a suburb. Drag the slider for the faintest magnitude drawn to a city's 2 and watch more of them vanish. Under a
+truly dark sky you can see stars $7 − 2 = 5$ magnitudes fainter than in a city. What five magnitudes means in
+brightness comes later in the course.
 
 ## Eyes that open slowly
 
@@ -88,7 +90,7 @@ past 10: your eyes are ready at 10:05.
 ## Mixed review
 
 ```item SK1M1
-prompt: Your eyes need 30 minutes in the dark. You go outside at 9:45. How many minutes past 10 will they be ready?
+prompt: Your eyes need 30 minutes in the dark. You go outside at 9:45. How many minutes past 10 will they be ready? (Type just the minutes.)
 topics: dark-adaptation
 answer: type
 calculator: no
