@@ -116,6 +116,14 @@ display: FIX 4
   offers entries presses `{entry}` too, right after the mode with the same keys (`BLUE MODE {mode}
   BLUE MODE {entry}`), because its vectors set the entry right after the mode; the page fills in
   `RPN` or `ALG`, the MODE menu's labels.
+- **A lesson without the calculator** (Michael on card astro-no-calc, abacus #12844; docs/courses/astronomy-shape.md)
+  has no keys blocks and no `setup:` line, and so no ```` ```keys setup ```` block. It keeps at least one item, which
+  is how the route map counts it done, and none of its items has `keys:` or `calculator: yes` (an item that offers the
+  calculator needs the setup, keys blocks or none: the placement file is that case). Its items' vectors are written as
+  any lesson's, at its `display:`, in each of its modes and entries. check.py's `student_sequence` gives it the empty
+  string, with nothing to press, and the page draws no calculator column and no mode or entry switch for it (primer
+  #12865). check.py refuses a setup with no keys blocks, a keys block with no setup, such a lesson with no item, and
+  an item with `keys:` in it.
 - Each example is a ```` ```keys Snn ```` block: the keys the student presses, by the legends
   printed on the STU-32 (abacus `layout/stu32-v0.json`). A shifted function is `GOLD` or `BLUE` and
   then the legend printed in that colour (`GOLD LASTx`, never `LASTx` alone). A number is its

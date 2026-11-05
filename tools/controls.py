@@ -694,14 +694,23 @@ CONTROLS_FOR["par-01-parallax"] = [
     ("Bessel's light-years quoted as he wrote them, not as the calculator gives them", "lesson.md",
      'v="P05">10.4004<', 'v="P05">10.3000<', {}, "D-P05: the prose shows '10.3000'"),
 ]
-# sky-01: before you go out (astronomy-practice unit 1), STU with alg and rpn.
+# sky-01: before you go out (astronomy-practice unit 1), STU with alg and rpn, with no calculator work since abacus
+# #12844 (Michael on card astro-no-calc): no setup and no keys blocks, its items alone.
 CONTROLS_FOR["sky-01-before-you-go-out"] = [
-    ("the hour not taken away: 65 minutes past 9 quoted as 65 past 10", "lesson.md", 'v="D02">5.0000<', 'v="D02">65.0000<',
-     {}, "D-D02: the prose shows '65.0000'"),
-    ("the magnitudes the wrong way round in the algebraic block", "lesson.md", "```keys L01 entry=alg\n7 − 2 ENTER\n",
-     "```keys L01 entry=alg\n2 − 7 ENTER\n", {}, "L01: printed keys and vector disagree in STU alg mode"),
-    ("the RPN block typed as algebra", "lesson.md", "```keys D01 entry=rpn\n40 ENTER 25 +\n",
-     "```keys D01 entry=rpn\n40 + 25 ENTER\n", {}, "D01: printed keys and vector disagree in STU rpn mode"),
+    ("a keys block put back in a lesson with no setup", "lesson.md", "than in a city. What five",
+     "than in a city.\n\n```keys L01\n7 ENTER 2 −\n```\n\nWhat five", {},
+     "front matter has no `setup:` keys"),
+    ("an item offered the calculator with no setup", "lesson.md",
+     "prompt: Work out $45 + 25$.\ntopics: column-addition\nanswer: type\ncalculator: no\n",
+     "prompt: Work out $45 + 25$.\ntopics: column-addition\nanswer: type\ncalculator: yes\n", {},
+     "front matter has no `setup:` keys"),
+    ("a setup kept though no keys block is left", "lesson.md", "display: FIX 4\n",
+     "display: FIX 4\nsetup: BLUE MODE {mode} BLUE MODE {entry} GOLD DISP FIX 4\n", {},
+     "front matter has a `setup:` but the lesson has no keys blocks"),
+    ("an item given keys: with no setup to press them from", "lesson.md", "topics: light-pollution\n",
+     "topics: light-pollution\nkeys: 6 ENTER 2 −\n", {}, "an item with keys: in a lesson without the calculator"),
+    ("the country against the city answered 5 magnitudes, not 4", "vectors.txt", "MODE33 FIX4 4 ENTER | X=4\n",
+     "MODE33 FIX4 4 ENTER | X=5\n", {}, "vectors in STU rpn mode"),
 ]
 # sky-02: angles with your hand (astronomy-practice unit 2), STU with alg and rpn.
 CONTROLS_FOR["sky-02-angles-with-your-hand"] = [

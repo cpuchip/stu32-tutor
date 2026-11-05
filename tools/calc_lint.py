@@ -80,9 +80,9 @@ def selftest():
         good = got == want
         ok = ok and good
         print(f"{'ok  ' if good else 'FAIL'} {name}: {got} listed, {want} expected")
-    # The real tree: sky-01's blocks are listed today, par-01's are not.
+    # The real tree: sky-02's blocks are listed today; par-01's are not, and sky-01 has none (abacus #12844).
     real = astronomy_lessons(ROOT)
-    for lid, want in (("sky-01", True), ("par-01", False)):
+    for lid, want in (("sky-02", True), ("par-01", False), ("sky-01", False)):
         if lid in real:
             got = bool(listed(open(real[lid], encoding="utf-8").read()))
             ok = ok and got == want

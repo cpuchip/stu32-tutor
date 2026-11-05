@@ -1166,9 +1166,12 @@ def student_sequence(lesson_dir, mode, entry=None):
     """The keys a student presses working through a lesson in a mode and entry, as keyrun --sequence
     reads them: "setup<TAB>keys", then "ID<TAB>keys" for every block of the view in order. The
     learning page's gate calls this (primer #4513), so the page and the checker press the same keys.
-    With no entry given, a lesson that offers entries is worked in its default (the first listed)."""
+    With no entry given, a lesson that offers entries is worked in its default (the first listed). A lesson without
+    the calculator (no keys blocks, no setup) has no sequence: the empty string, nothing pressed (primer #12865)."""
     text = open(os.path.join(lesson_dir, "lesson.md"), encoding="utf-8").read()
     meta, body = front_matter(text)
+    if not KEYS_ANY.search(body) and not meta.get("setup", "").strip():
+        return ""
     if entry is None and meta.get("entries", "").split():
         entry = meta["entries"].split()[0]
     setup = " ".join(meta.get("setup", "").split()).replace("{mode}", mode)
@@ -1263,15 +1266,31 @@ class Lesson:
         if why:
             self.bad(why)
         setup_t = " ".join(meta.get("setup", "").split())
+        # A lesson with no calculator work has no keys blocks and no setup (Michael on card astro-no-calc, abacus
+        # #12844; docs/courses/astronomy-shape.md), and keeps at least one item, the check its route map counts.
+        # An item that offers the calculator (calculator: yes) needs the setup even with no keys blocks: the
+        # placement file is that case.
+        offered = any(re.search(r"^[ \t]*calculator:[ \t]*yes\b", m.group(2), re.M) for m in ITEM_BLOCK.finditer(body))
+        no_calc = not KEYS_ANY.search(body) and not offered
         if not setup_t:
-            self.bad("front matter has no `setup:` keys (the mode and the display setting, as pressed)")
+            if not no_calc:
+                self.bad("front matter has no `setup:` keys (the mode and the display setting, as pressed)")
+            elif not ITEM_BLOCK.search(body):
+                self.bad("a lesson with no keys blocks keeps at least one item (the route map counts it done by them)")
+            elif any(re.search(r"^[ \t]*keys:", m.group(2), re.M) for m in ITEM_BLOCK.finditer(body)):
+                self.bad("an item with keys: in a lesson without the calculator: there is no setup to press them from")
+        elif no_calc:
+            self.bad("front matter has a `setup:` but the lesson has no keys blocks: a lesson without the calculator "
+                     "drops the setup")
         elif setup_t.split().count("{mode}") != 1:
             self.bad("the setup must press MODE's soft key as {mode}, once (the page and the checker fill it in)")
         entries, why = lesson_entries(meta, lesson_modes(meta)[0])
         if why:
             self.bad(why)
         st = setup_t.split()
-        if entries == [None]:
+        if not setup_t:
+            pass
+        elif entries == [None]:
             if "{entry}" in st:
                 self.bad("the setup presses {entry}, but the front matter offers no `entries:`")
         elif st.count("{entry}") != 1 or "{mode}" not in st:
@@ -1322,7 +1341,10 @@ class Lesson:
                 self.notes.append(f"{len(self.working_pending)} typed answers still without their working (WORKING_PENDING)")
             else:
                 self.bad(f"{meta['id']} is in WORKING_PENDING, but every computed answer has its working: take it off")
-        self.notes.append("worked through in order in each mode" + (" and entry" if entries != [None] else ""))
+        if no_calc:
+            self.notes.append("no calculator work: no setup, no keys, its items judged in each mode and entry")
+        else:
+            self.notes.append("worked through in order in each mode" + (" and entry" if entries != [None] else ""))
 
         # 5. Voice, the front matter included.
         dashes = sum(text.count(d) for d in EM_DASH)
@@ -1629,8 +1651,11 @@ class Lesson:
         # device, nothing reset between them. Each example above is judged from the setup; a student
         # carries whatever the last example left (a display setting, Fraction display, a number still
         # being typed), so every quoted display must also be what that student sees.
+        seq = student_sequence(self.d, md, entry)
+        if not seq:                             # a lesson without the calculator: nothing to press in order
+            return
         with tempfile.NamedTemporaryFile("w", suffix=".seq", delete=False, encoding="utf-8") as t:
-            t.write(student_sequence(self.d, md, entry))
+            t.write(seq)
         r = self.run(f"{self.core}/build/keyrun", "--sequence", t.name)
         os.unlink(t.name)
         seq_x, seq_y, seq_st, seq_val, seq_graph, seq_drawn, seq_expr = {}, {}, {}, {}, {}, {}, {}

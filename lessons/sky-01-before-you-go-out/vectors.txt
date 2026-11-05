@@ -1,19 +1,7 @@
-# sky-01 before you go out: ID@alg is the expression line (firmware 029: the result is ANS, N=; %LINE= the line as
+# sky-01 before you go out, with no calculator work of its own (abacus #12844): its items' vectors alone. ID@alg is the expression line (firmware 029: the result is ANS, N=; %LINE= the line as
 # typed); ID@rpn is the stack. Every example is ours; the 20 to 30 minutes of dark adaptation is the US National
 # Park Service's, and the faintest magnitudes (2 city, 4 suburb, 6 country, 7 truly dark) its Rate Your Night Sky
 # guide's, via astrometrics #12193.
-D01@alg | out at 9:40, 25 minutes: 40 + 25 | MODE33 FIX4 40 + 25 ENTER | N=65 %LINE=40+25
-D01@rpn | out at 9:40, 25 minutes: 40 + 25 | MODE33 FIX4 40 ENTER 25 + | X=65
-D02@alg | 65 minutes past 9 is 5 past 10: 65 - 60 | MODE33 FIX4 65 - 60 ENTER | N=5 %LINE=65-60
-D02@rpn | 65 minutes past 9 is 5 past 10: 65 - 60 | MODE33 FIX4 65 ENTER 60 - | X=5
-L01@alg | a truly dark sky against a city: 7 - 2 magnitudes | MODE33 FIX4 7 - 2 ENTER | N=5 %LINE=7-2
-L01@rpn | a truly dark sky against a city: 7 - 2 magnitudes | MODE33 FIX4 7 ENTER 2 - | X=5
-E01@alg | exercise 1: out at 8:50, 30 minutes: 50 + 30 | MODE33 FIX4 50 + 30 ENTER | N=80 %LINE=50+30
-E01@rpn | exercise 1: out at 8:50, 30 minutes: 50 + 30 | MODE33 FIX4 50 ENTER 30 + | X=80
-E01B@alg | exercise 1: 80 minutes past 8 is 20 past 9 | MODE33 FIX4 80 - 60 ENTER | N=20 %LINE=80-60
-E01B@rpn | exercise 1: 80 minutes past 8 is 20 past 9 | MODE33 FIX4 80 ENTER 60 - | X=20
-E02@alg | exercise 2: a suburb to a truly dark sky, 7 - 4 | MODE33 FIX4 7 - 4 ENTER | N=3 %LINE=7-4
-E02@rpn | exercise 2: a suburb to a truly dark sky, 7 - 4 | MODE33 FIX4 7 ENTER 4 - | X=3
 # From before and Mixed review (decision 76): each answer typed, its working (W), and the slip's.
 SK1F1@alg | from before: 45 + 25, typed | MODE33 FIX4 70 ENTER | N=70 %LINE=70
 SK1F1@rpn | from before: 45 + 25, typed | MODE33 FIX4 70 ENTER | X=70
