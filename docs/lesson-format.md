@@ -118,8 +118,9 @@ display: FIX 4
   `RPN` or `ALG`, the MODE menu's labels.
 - **A lesson without the calculator** (Michael on card astro-no-calc, abacus #12844; docs/courses/astronomy-shape.md)
   has no keys blocks and no `setup:` line, and so no ```` ```keys setup ```` block. It keeps at least one item, which
-  is how the route map counts it done, and none of its items has `keys:`. Its items' vectors are written as any
-  lesson's, at its `display:`, in each of its modes and entries. check.py's `student_sequence` gives it the empty
+  is how the route map counts it done, and none of its items has `keys:` or `calculator: yes` (an item that offers the
+  calculator needs the setup, keys blocks or none: the placement file is that case). Its items' vectors are written as
+  any lesson's, at its `display:`, in each of its modes and entries. check.py's `student_sequence` gives it the empty
   string, with nothing to press, and the page draws no calculator column and no mode or entry switch for it (primer
   #12865). check.py refuses a setup with no keys blocks, a keys block with no setup, such a lesson with no item, and
   an item with `keys:` in it.

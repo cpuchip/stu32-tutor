@@ -1268,7 +1268,10 @@ class Lesson:
         setup_t = " ".join(meta.get("setup", "").split())
         # A lesson with no calculator work has no keys blocks and no setup (Michael on card astro-no-calc, abacus
         # #12844; docs/courses/astronomy-shape.md), and keeps at least one item, the check its route map counts.
-        no_calc = not KEYS_ANY.search(body)
+        # An item that offers the calculator (calculator: yes) needs the setup even with no keys blocks: the
+        # placement file is that case.
+        offered = any(re.search(r"^[ \t]*calculator:[ \t]*yes\b", m.group(2), re.M) for m in ITEM_BLOCK.finditer(body))
+        no_calc = not KEYS_ANY.search(body) and not offered
         if not setup_t:
             if not no_calc:
                 self.bad("front matter has no `setup:` keys (the mode and the display setting, as pressed)")

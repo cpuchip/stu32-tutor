@@ -694,8 +694,12 @@ CONTROLS_FOR["par-01-parallax"] = [
 # sky-01: before you go out (astronomy-practice unit 1), STU with alg and rpn, with no calculator work since abacus
 # #12844 (Michael on card astro-no-calc): no setup and no keys blocks, its items alone.
 CONTROLS_FOR["sky-01-before-you-go-out"] = [
-    ("a keys block put back in a lesson with no setup", "lesson.md", "magnitudes fainter. What five",
-     "magnitudes fainter.\n\n```keys L01\n7 ENTER 2 −\n```\n\nWhat five", {},
+    ("a keys block put back in a lesson with no setup", "lesson.md", "than in a city. What five",
+     "than in a city.\n\n```keys L01\n7 ENTER 2 −\n```\n\nWhat five", {},
+     "front matter has no `setup:` keys"),
+    ("an item offered the calculator with no setup", "lesson.md",
+     "prompt: Work out $45 + 25$.\ntopics: column-addition\nanswer: type\ncalculator: no\n",
+     "prompt: Work out $45 + 25$.\ntopics: column-addition\nanswer: type\ncalculator: yes\n", {},
      "front matter has no `setup:` keys"),
     ("a setup kept though no keys block is left", "lesson.md", "display: FIX 4\n",
      "display: FIX 4\nsetup: BLUE MODE {mode} BLUE MODE {entry} GOLD DISP FIX 4\n", {},
