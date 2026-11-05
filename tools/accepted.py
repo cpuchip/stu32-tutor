@@ -23,15 +23,35 @@ def git(*args, ok=(0,)):
     return r
 
 
+_batch = None
+
+
 def show(rev, path):
-    """The file at rev (the working tree for "."), or None if it is not there."""
+    """The file at rev (the working tree for "."), or None if it is not there. Every read at a rev goes through one
+    `git cat-file --batch` (primer #13012): a git show each was about 430 processes a run, and on a box where a
+    process start costs 0.1-0.6 s the list took 46-109 s."""
+    global _batch
     if rev == ".":
         try:
             return open(path, encoding="utf-8").read()  # as git stores it: LF
         except FileNotFoundError:
             return None
-    r = git("show", f"{rev}:{path}", ok=(0, 128))
-    return r.stdout if r.returncode == 0 else None
+    if _batch is None:
+        _batch = subprocess.Popen(["git", "cat-file", "--batch"], stdin=subprocess.PIPE, stdout=subprocess.PIPE)
+    _batch.stdin.write(f"{rev}:{path}\n".encode("utf-8"))
+    _batch.stdin.flush()
+    head = _batch.stdout.readline().split()
+    if not head:
+        raise SystemExit(f"accepted: git cat-file --batch ended at {rev}:{path}")
+    if head[-1] in (b"missing", b"ambiguous"):  # "<rev>:<path> missing": git show's 128
+        return None
+    if len(head) != 3:
+        raise SystemExit(f"accepted: git cat-file --batch said {b' '.join(head)!r} for {rev}:{path}")
+    data = _batch.stdout.read(int(head[2]) + 1)[:-1]
+    if head[1] != b"blob":
+        return None
+    # As git show read with text=True gave it: universal newlines.
+    return data.decode("utf-8").replace("\r\n", "\n").replace("\r", "\n")
 
 
 BOOKKEEPING = ("status:", "requires:", "tools:")
