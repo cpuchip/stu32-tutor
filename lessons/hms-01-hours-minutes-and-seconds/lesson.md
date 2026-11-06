@@ -213,8 +213,8 @@ BLUE ANGLE HMS→ 38.4701 +/− ▶ ENTER
 ```
 
 The screen shows <disp v="H06">-38.7836</disp>, the same angle in degrees, with its minus sign. An angle smaller
-than one degree has 0 degrees, and minus 0 is just 0, so a minus sign on the degrees alone would be lost; HMS→
-keeps it all the same. −0° 30′ is typed 0.30 and +/−:
+than one degree has 0 degrees, and minus 0 is just 0, so a minus sign put on the degrees alone would be lost, and
+−0° 30′ would come out as +0.5. Typed as 0.30 and +/−, the whole number is negative, so HMS→ still keeps the sign.
 
 ```keys H07 entry=alg
 BLUE ANGLE HMS→ 0.30 +/− ▶ ENTER
@@ -228,7 +228,7 @@ The screen shows <disp v="H07">-0.5000</disp>: minus half a degree.
 
 The steps for a calculator without these keys work on an angle too: divide the arcseconds by 60, add the
 arcminutes, divide by 60 again, and add the degrees. For a negative angle, work without the minus sign and put it
-on the whole answer at the end, not on the degrees alone.
+on the whole answer at the end, not on the degrees alone: −38 + 0.7836 would give −37.2164, a different angle.
 
 ## Exercises
 
