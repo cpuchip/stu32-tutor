@@ -39,8 +39,8 @@ slip: SK1F2A | took the smaller digit from the larger | $2 − 7$ needs a borrow
 Before any night out, one daytime rule. Never look at the Sun with your bare eyes, not even when the Moon covers most
 of it (NASA's eclipse safety guidance). Ordinary sunglasses, however dark, are not safe. A solar viewer, or eclipse
 glasses, made for looking at the Sun, is thousands of times darker than sunglasses, and must meet the international
-standard ISO 12312-2: ask an adult to get one for you from a trusted seller. Before each use, hold the viewer away
-from the Sun and look it over, and throw it away if it is torn, scratched or damaged in any way. Use a solar viewer
+standard ISO 12312-2: ask an adult to get one for you from a trusted seller. Before each use, look it over indoors,
+before you go out, and throw it away if it is torn, scratched or damaged in any way. Use a solar viewer
 only with an adult watching. Put it over your eyes before you look up at the Sun, and turn away from the Sun before
 you take it off (the American Astronomical Society's safe-viewing advice). Looking at any part of the bright Sun
 through a camera lens, binoculars or a telescope causes severe eye injury at once, unless an adult has fixed a special
@@ -70,8 +70,8 @@ https://astrometrics.cpuchip.net/?thread=measure&beat=ptolemy-magnitudes
 
 It opens with three bright stars lit, Aldebaran, Betelgeuse and Rigel, and draws the sky as a truly dark place shows
 it, with stars out to magnitude 7. Then, by itself, the faint stars drop out until only those of magnitude 4 or
-brighter are left, as in a suburb. Drag the slider for the faintest magnitude drawn to a city's 2 and watch more of
-them vanish. Under a truly dark sky you can see stars $7 − 2 = 5$ magnitudes fainter than in a city. What five
+brighter are left, as in a suburb. Drag the slider whose readout says "Faintest drawn" to 2, as in a city, and watch
+more of them vanish. Under a truly dark sky you can see stars $7 − 2 = 5$ magnitudes fainter than in a city. What five
 magnitudes means in brightness comes later in the course.
 
 ## Eyes that open slowly

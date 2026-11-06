@@ -78,7 +78,7 @@ hours, 30 minutes and 45 seconds is $2 + 30 ÷ 60 + 45 ÷ 3600 = 2 + 0.5 + 0.012
 
 The calculator holds hours, minutes and seconds in one number: the hours, a point, two digits of minutes, then two
 digits of seconds and any tenths after them. So 2 hours, 30 minutes and 45 seconds is typed 2.3045. That number is a
-code for HMS→ to read, not a time in hours: its 30 and 45 still count sixtieths. HMS→, in the ANGLE menu (blue above
+code for HMS→ to read, not 2.3045 hours: its 30 and 45 still count sixtieths. HMS→, in the ANGLE menu (blue above
 SIN), turns that into hours:
 
 ```keys H01 entry=alg
@@ -93,7 +93,7 @@ The screen shows <disp v="H01">2.5125</disp>, the hours worked out by hand above
 
 ```why
 ask: Why does HMS→ turn 2.3045 into 2.5125?
-because: In 2.3045 the 30 minutes and 45 seconds count sixtieths, not tenths and hundredths; HMS→ turns them into a part of an hour, and 2.5125 is the whole time in hours.
+because: In 2.3045 the 30 minutes and 45 seconds count sixtieths, not decimal parts of an hour; HMS→ turns them into a part of an hour, and 2.5125 is the whole time in hours.
 ```
 
 Now Vega's 18h 36m 56.3s. The seconds have a tenth, so it is typed 18.36563:
