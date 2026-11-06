@@ -76,8 +76,8 @@ hours, 30 minutes and 45 seconds is $2 + 30 ÷ 60 + 45 ÷ 3600 = 2 + 0.5 + 0.012
 ## Into hours
 
 The calculator holds hours, minutes and seconds in one number: the hours, a point, two digits of minutes, then the
-seconds. So 2 hours, 30 minutes and 45 seconds is typed 2.3045. HMS→, in the ANGLE menu (blue above SIN), turns that
-into hours:
+seconds. So 2 hours, 30 minutes and 45 seconds is typed 2.3045. That number is a code for HMS→ to read, not a time in
+hours: its 30 and 45 still count sixtieths. HMS→, in the ANGLE menu (blue above SIN), turns that into hours:
 
 ```keys H01 entry=alg
 BLUE ANGLE HMS→ 2.3045 ▶ ENTER
@@ -199,8 +199,8 @@ BLUE ANGLE HMS→ 38.4701 ▶ ENTER
 
 The screen shows <disp v="H05">38.7836</disp>: the catalog's 38° 47′ 01″, the same angle in degrees. The steps
 for a calculator without these keys work on an angle too: divide the arcseconds by 60, add the arcminutes, divide
-by 60 again, and add the degrees. For a negative angle, south of the celestial equator, work with the sizes alone
-and put the minus sign on the whole answer at the end, not on the degrees alone.
+by 60 again, and add the degrees. For a negative angle, south of the sky's equator, work without the minus sign
+and put it on the whole answer at the end, not on the degrees alone.
 
 ## Exercises
 

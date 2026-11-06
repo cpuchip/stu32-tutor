@@ -36,17 +36,24 @@ slip: SK1F2A | took the smaller digit from the larger | $2 − 7$ needs a borrow
 
 ## The Sun: never by eye
 
-Before any night out, one daytime rule. Never look at the Sun, not even when the Moon covers most of it (NASA's
-eclipse safety guidance). Ordinary sunglasses, however dark, are not safe. A solar viewer, or eclipse glasses, made
-for looking at the Sun, is thousands of times darker than sunglasses, and should meet the international standard ISO
-12312-2. Check a viewer each time before you use it, and throw it away if it is torn, scratched or damaged in any way.
-Children use solar viewers only with an adult watching. Looking at any part of the bright Sun through a camera lens,
-binoculars or a telescope causes severe eye injury at once, unless a special solar filter is fixed over the front.
-Wearing eclipse glasses does not make it safe to look through binoculars or a telescope either.
+Before any night out, one daytime rule. Never look at the Sun with your bare eyes, not even when the Moon covers most
+of it (NASA's eclipse safety guidance). Ordinary sunglasses, however dark, are not safe. A solar viewer, or eclipse
+glasses, made for looking at the Sun, is thousands of times darker than sunglasses, and should meet the international
+standard ISO 12312-2. Check a viewer each time before you use it, and throw it away if it is torn, scratched or
+damaged in any way. Use a solar viewer only with an adult watching. Put it over your eyes before you look up at the
+Sun, and turn away from the Sun before you take it off (the American Astronomical Society's safe-viewing advice).
+Looking at any part of the bright Sun through a camera lens, binoculars or a telescope causes severe eye injury at
+once, unless a special solar filter is fixed over the front. Wearing eclipse glasses does not make it safe to look
+through binoculars or a telescope either.
 
 There is a safe way that needs no special glasses: a pinhole projector. Stand with your back to the Sun and let its
 light pass through a small hole in one card onto a second card in front of you, and watch the image on the second
 card. Never look at the Sun through the pinhole.
+
+## Out at night
+
+Go out with an adult, or make sure one knows where you are and when you will be back. Choose a place away from roads,
+and walk slowly: in the dark, steps, holes and roots are hard to see.
 
 ## The sky you can see
 
@@ -60,10 +67,10 @@ Try it on a sky drawn from a star catalog, on the astrometrics page:
 https://astrometrics.cpuchip.net/?thread=measure&beat=ptolemy-magnitudes
 
 It opens with three bright stars lit, Aldebaran, Betelgeuse and Rigel, and draws the sky as a truly dark place shows
-it, with stars out to magnitude 7. Then, by itself, the faint stars drop out until only those to magnitude 4 are left,
-as in a suburb. Drag the slider for the faintest magnitude drawn to a city's 2 and watch more of them vanish. Under a
-truly dark sky you can see stars $7 − 2 = 5$ magnitudes fainter than in a city. What five magnitudes means in
-brightness comes later in the course.
+it, with stars out to magnitude 7. Then, by itself, the faint stars drop out until only those of magnitude 4 or
+brighter are left, as in a suburb. Drag the slider for the faintest magnitude drawn to a city's 2 and watch more of
+them vanish. Under a truly dark sky you can see stars $7 − 2 = 5$ magnitudes fainter than in a city. What five
+magnitudes means in brightness comes later in the course.
 
 ## Eyes that open slowly
 
@@ -106,7 +113,7 @@ slip: SK1M2A | took the smaller digit from the larger | $1 − 6$ needs a borrow
 ```
 
 ```item SK1M3
-prompt: A city sky shows stars down to magnitude 2, and a country sky down to magnitude 6. How many magnitudes fainter can you see in the country?
+prompt: A city sky shows stars of magnitude 2 or brighter, and a country sky stars of magnitude 6 or brighter. How many magnitudes fainter can you see in the country?
 topics: light-pollution
 answer: type
 calculator: no
