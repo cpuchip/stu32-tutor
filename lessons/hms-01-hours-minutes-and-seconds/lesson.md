@@ -11,10 +11,11 @@ calculator_reason: the section for a calculator without HMS→ does its work wit
 
 # Hours, minutes and seconds
 
-Vega, one of the brightest stars in the northern summer sky, has its place in a star catalog written as 18h 36m 56.3s and
-+38° 47′ 01″. The first is a time: 18 hours, 36 minutes and 56.3 seconds. The second is an angle: 38 degrees, 47
-arcminutes and 1 arcsecond. Both count in sixties, the way a clock does, and neither is a number the calculator can
-add or multiply as it stands. How many hours is 18h 36m 56.3s, as one number?
+Vega, one of the brightest stars in the northern summer sky, has its place in a star catalog written as 18h 36m 56.3s
+and +38° 47′ 01″. The first is a time: 18 hours, 36 minutes and 56.3 seconds. The second is an angle: 38 degrees, 47
+arcminutes (an arcminute is a sixtieth of a degree) and 1 arcsecond (a sixtieth of an arcminute). Both count in
+sixties, the way a clock does, and neither is a number the calculator can add or multiply as it stands. How many hours
+is 18h 36m 56.3s, as one number?
 
 ## From before
 
@@ -122,8 +123,7 @@ BLUE ANGLE →HMS 1.5 ▶ ENTER
 The screen shows <disp v="H03">1.3000</disp>: the code for 1 hour, 30 minutes and 0 seconds, not 1.3 hours.
 
 Measured against the stars, the Earth turns once in 86164.0989 seconds: the US Naval Observatory's Circular 179
-gives it as the Earth's rotation period. (The sidereal day, timed from the equinox instead of from a star, is
-shorter by about 0.008 seconds, the same Circular says.) Divide by 3600 for hours, and →HMS shows how long a turn
+gives it as the Earth's rotation period. Divide by 3600 for hours, and →HMS shows how long a turn
 takes:
 
 ```keys H04 entry=alg
