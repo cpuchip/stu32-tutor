@@ -39,12 +39,13 @@ slip: SK1F2A | took the smaller digit from the larger | $2 − 7$ needs a borrow
 Before any night out, one daytime rule. Never look at the Sun with your bare eyes, not even when the Moon covers most
 of it (NASA's eclipse safety guidance). Ordinary sunglasses, however dark, are not safe. A solar viewer, or eclipse
 glasses, made for looking at the Sun, is thousands of times darker than sunglasses, and must meet the international
-standard ISO 12312-2: ask an adult to get one for you. Before each use, hold the viewer away from the Sun and look it
-over, and throw it away if it is torn, scratched or damaged in any way. Use a solar viewer only with an adult
-watching. Put it over your eyes before you look up at the Sun, and turn away from the Sun before you take it off (the
-American Astronomical Society's safe-viewing advice). Looking at any part of the bright Sun through a camera lens,
-binoculars or a telescope causes severe eye injury at once, unless a special solar filter is fixed over the front.
-Wearing eclipse glasses does not make it safe to look through binoculars or a telescope either.
+standard ISO 12312-2: ask an adult to get one for you from a trusted seller. Before each use, hold the viewer away
+from the Sun and look it over, and throw it away if it is torn, scratched or damaged in any way. Use a solar viewer
+only with an adult watching. Put it over your eyes before you look up at the Sun, and turn away from the Sun before
+you take it off (the American Astronomical Society's safe-viewing advice). Looking at any part of the bright Sun
+through a camera lens, binoculars or a telescope causes severe eye injury at once, unless an adult has fixed a special
+solar filter over the front. Wearing eclipse glasses does not make it safe to look through binoculars or a telescope
+either.
 
 There is a safe way that needs no special glasses: a pinhole projector. Stand with your back to the Sun and let its
 light pass through a small hole in one card onto a second card in front of you, and watch the image on the second

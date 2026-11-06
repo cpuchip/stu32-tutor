@@ -119,7 +119,7 @@ BLUE ANGLE →HMS 1.5 ▶ ENTER
 1.5 BLUE ANGLE →HMS
 ```
 
-The screen shows <disp v="H03">1.3000</disp>: 1 hour, 30 minutes and 0 seconds.
+The screen shows <disp v="H03">1.3000</disp>: the code for 1 hour, 30 minutes and 0 seconds, not 1.3 hours.
 
 Measured against the stars, the Earth turns once in 86164.0989 seconds: the US Naval Observatory's Circular 179
 gives it as the Earth's rotation period. (The sidereal day, timed from the equinox instead of from a star, is
