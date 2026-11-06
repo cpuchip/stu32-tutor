@@ -39,7 +39,7 @@ slip: SK1F2A | took the smaller digit from the larger | $2 − 7$ needs a borrow
 Before any night out, one daytime rule. Never look at the Sun with your bare eyes, not even when the Moon covers most
 of it (NASA's eclipse safety guidance). Ordinary sunglasses, however dark, are not safe. A solar viewer, or eclipse
 glasses, made for looking at the Sun, is thousands of times darker than sunglasses, and must meet the international
-standard ISO 12312-2: ask an adult to get one for you from a trusted seller. Before each use, look it over indoors,
+standard ISO 12312-2: ask an adult to get one for you from a trusted seller. Before each use, check it over indoors,
 before you go out, and throw it away if it is torn, scratched or damaged in any way. Use a solar viewer
 only with an adult watching. Put it over your eyes before you look up at the Sun, and turn away from the Sun before
 you take it off (the American Astronomical Society's safe-viewing advice). Looking at any part of the bright Sun
