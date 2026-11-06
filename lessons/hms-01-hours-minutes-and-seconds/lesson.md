@@ -213,8 +213,8 @@ BLUE ANGLE HMS→ 38.4701 +/− ▶ ENTER
 ```
 
 The screen shows <disp v="H06">-38.7836</disp>, the same angle in degrees, with its minus sign. An angle smaller
-than one degree has 0 degrees, and a 0 cannot carry a minus sign of its own; HMS→ keeps the sign all the same.
-−0° 30′ is typed 0.30:
+than one degree has 0 degrees, and minus 0 is just 0, so a minus sign on the degrees alone would be lost; HMS→
+keeps it all the same. −0° 30′ is typed 0.30 and +/−:
 
 ```keys H07 entry=alg
 BLUE ANGLE HMS→ 0.30 +/− ▶ ENTER
