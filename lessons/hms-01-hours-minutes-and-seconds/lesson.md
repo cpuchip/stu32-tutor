@@ -198,10 +198,37 @@ BLUE ANGLE HMS→ 38.4701 ▶ ENTER
 38.4701 BLUE ANGLE HMS→
 ```
 
-The screen shows <disp v="H05">38.7836</disp>: the catalog's 38° 47′ 01″, the same angle in degrees. The steps
-for a calculator without these keys work on an angle too: divide the arcseconds by 60, add the arcminutes, divide
-by 60 again, and add the degrees. For a negative angle, south of the sky's equator, work without the minus sign
-and put it on the whole answer at the end, not on the degrees alone.
+The screen shows <disp v="H05">38.7836</disp>: the catalog's 38° 47′ 01″, the same angle in degrees.
+
+South of the sky's equator a declination is negative, and its minus sign belongs to the whole angle: −38° 47′ 01″
+is minus 38 degrees, minus 47 arcminutes and minus 1 arcsecond. Press +/− after the digits, and HMS→ keeps the sign
+on the whole angle:
+
+```keys H06 entry=alg
+BLUE ANGLE HMS→ 38.4701 +/− ▶ ENTER
+```
+
+```keys H06
+38.4701 +/− BLUE ANGLE HMS→
+```
+
+The screen shows <disp v="H06">-38.7836</disp>, the same angle in degrees, with its minus sign. An angle smaller
+than one degree has 0 degrees, and a 0 cannot carry a minus sign of its own; HMS→ keeps the sign all the same.
+−0° 30′ is typed 0.30:
+
+```keys H07 entry=alg
+BLUE ANGLE HMS→ 0.30 +/− ▶ ENTER
+```
+
+```keys H07
+0.30 +/− BLUE ANGLE HMS→
+```
+
+The screen shows <disp v="H07">-0.5000</disp>: minus half a degree.
+
+The steps for a calculator without these keys work on an angle too: divide the arcseconds by 60, add the
+arcminutes, divide by 60 again, and add the degrees. For a negative angle, work without the minus sign and put it
+on the whole answer at the end, not on the degrees alone.
 
 ## Exercises
 
