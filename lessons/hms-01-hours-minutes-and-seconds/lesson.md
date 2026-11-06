@@ -27,7 +27,7 @@ slip: HM1F1A | counted the minutes as hundredths | An hour is 60 minutes, not 10
 ```
 
 ```item HM1F2
-prompt: How many degrees is a quarter of a full turn?
+prompt: How many degrees is a quarter of a full turn? (Type just the number.)
 topics: degrees full-turn
 answer: type
 calculator: no
@@ -75,9 +75,10 @@ hours, 30 minutes and 45 seconds is $2 + 30 ÷ 60 + 45 ÷ 3600 = 2 + 0.5 + 0.012
 
 ## Into hours
 
-The calculator holds hours, minutes and seconds in one number: the hours, a point, two digits of minutes, then the
-seconds. So 2 hours, 30 minutes and 45 seconds is typed 2.3045. That number is a code for HMS→ to read, not a time in
-hours: its 30 and 45 still count sixtieths. HMS→, in the ANGLE menu (blue above SIN), turns that into hours:
+The calculator holds hours, minutes and seconds in one number: the hours, a point, two digits of minutes, then two
+digits of seconds and any tenths after them. So 2 hours, 30 minutes and 45 seconds is typed 2.3045. That number is a
+code for HMS→ to read, not a time in hours: its 30 and 45 still count sixtieths. HMS→, in the ANGLE menu (blue above
+SIN), turns that into hours:
 
 ```keys H01 entry=alg
 BLUE ANGLE HMS→ 2.3045 ▶ ENTER
@@ -185,8 +186,8 @@ keeps fewer digits may end a little either side of 56.3, the difference lost in 
 
 ## Degrees, arcminutes and arcseconds
 
-Angles on the sky are counted the same way. A degree has 60 arcminutes, written ′, and an arcminute has 60
-arcseconds, written ″. The same two keys work on angles: type degrees, a point, two digits of arcminutes, then the
+Angles on the sky are counted the same way. A degree has 60 arcminutes, written ′, and an arcminute has 60 arcseconds,
+written ″. The same two keys work on angles: type degrees, a point, two digits of arcminutes, then two digits of
 arcseconds. Vega's +38° 47′ 01″ is typed 38.4701:
 
 ```keys H05 entry=alg
@@ -257,7 +258,7 @@ slip: HM1M1A | read .5 as 50 minutes | 0.5 of an hour is half of 60 minutes: $2.
 ```
 
 ```item HM1M2
-prompt: How many degrees is a third of a full turn?
+prompt: How many degrees is a third of a full turn? (Type just the number.)
 topics: degrees full-turn
 answer: type
 calculator: no

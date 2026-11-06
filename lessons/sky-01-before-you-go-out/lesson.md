@@ -11,10 +11,10 @@ display: FIX 4
 
 # Before you go out
 
-Step outside on a clear night and at first only a few stars show. Wait, and more and more of them appear, though
-the sky has not changed at all: your eyes have. One rule comes first: never look at the Sun. Then two things
-decide what you will see: how dark the sky is where you stand, and how used to the dark your eyes are. How do you get
-ready to see the most, safely?
+Step outside on a clear night and at first only a few stars show. Wait, and more and more of them appear, though the
+sky has not changed at all: your eyes have. One rule comes first: never look at the Sun with your bare eyes. Then two
+things decide what you will see: how dark the sky is where you stand, and how used to the dark your eyes are. How do
+you get ready to see the most, safely?
 
 ## From before
 
@@ -38,13 +38,13 @@ slip: SK1F2A | took the smaller digit from the larger | $2 − 7$ needs a borrow
 
 Before any night out, one daytime rule. Never look at the Sun with your bare eyes, not even when the Moon covers most
 of it (NASA's eclipse safety guidance). Ordinary sunglasses, however dark, are not safe. A solar viewer, or eclipse
-glasses, made for looking at the Sun, is thousands of times darker than sunglasses, and should meet the international
-standard ISO 12312-2. Check a viewer each time before you use it, and throw it away if it is torn, scratched or
-damaged in any way. Use a solar viewer only with an adult watching. Put it over your eyes before you look up at the
-Sun, and turn away from the Sun before you take it off (the American Astronomical Society's safe-viewing advice).
-Looking at any part of the bright Sun through a camera lens, binoculars or a telescope causes severe eye injury at
-once, unless a special solar filter is fixed over the front. Wearing eclipse glasses does not make it safe to look
-through binoculars or a telescope either.
+glasses, made for looking at the Sun, is thousands of times darker than sunglasses, and must meet the international
+standard ISO 12312-2: ask an adult to get one for you. Before each use, hold the viewer away from the Sun and look it
+over, and throw it away if it is torn, scratched or damaged in any way. Use a solar viewer only with an adult
+watching. Put it over your eyes before you look up at the Sun, and turn away from the Sun before you take it off (the
+American Astronomical Society's safe-viewing advice). Looking at any part of the bright Sun through a camera lens,
+binoculars or a telescope causes severe eye injury at once, unless a special solar filter is fixed over the front.
+Wearing eclipse glasses does not make it safe to look through binoculars or a telescope either.
 
 There is a safe way that needs no special glasses: a pinhole projector. Stand with your back to the Sun and let its
 light pass through a small hole in one card onto a second card in front of you, and watch the image on the second
@@ -52,8 +52,9 @@ card. Never look at the Sun through the pinhole.
 
 ## Out at night
 
-Go out with an adult, or make sure one knows where you are and when you will be back. Choose a place away from roads,
-and walk slowly: in the dark, steps, holes and roots are hard to see.
+Go out with an adult. If you only step into your own yard, an adult must at least know you are out and when you will
+be back. Take a red flashlight (more on that below) to light your footing, choose a place away from roads, and walk
+slowly: in the dark, steps, holes and roots are hard to see.
 
 ## The sky you can see
 
@@ -86,7 +87,7 @@ past 10: your eyes are ready at 10:05.
 ## Exercises
 
 1. You go outside at 8:50 and give your eyes 30 minutes. When are they ready?
-2. You drive from a suburb to a truly dark sky. How many magnitudes fainter can you see?
+2. Your family drives from a suburb to a truly dark sky. How many magnitudes fainter can you see?
 
 ## Answers
 
