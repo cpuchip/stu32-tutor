@@ -50,10 +50,12 @@ three little fingers a degree each, so the star is about $20 + 3 = 23$ degrees u
 ## Checking the hand on the stars
 
 A hand is a rough ruler, and the stars can check it. The two stars at the end of the Big Dipper's bowl, Dubhe and
-Merak, are called the Pointers. Below, the two stars are drawn as far apart as they look in the sky, from their
-places in the Yale Bright Star Catalogue, with three middle fingers laid from Dubhe toward Merak at the same scale.
-Read the separation and how many hands it spans under the drawing. Then switch to a little finger or a fist to
-compare, and come back to three middle fingers.
+Merak, are called the Pointers. Below, the two stars are drawn from their places in the Yale Bright Star
+Catalogue, with three middle fingers laid from Dubhe toward Merak at the same scale. The drawing has north at the
+top. In the sky the Big Dipper circles round the North Star through the night, so the Pointers lean a different way
+as the hours go by, but the gap between them stays the same. Read the separation, and how many hands the gap
+spans, under the drawing. Then switch to a little finger or a fist to compare, and come back to three middle
+fingers.
 
 ```widget W01 hand-ruler
 from: 4301
@@ -68,8 +70,8 @@ shows: off | +0.37°
 The readout gives the Pointers <disp v="W01" kind="widget" k="sep">5.37°</disp> apart, and the gap is
 <disp v="W01" kind="widget" k="spans">1.1</disp> three-finger widths, a little more than one. How far off is the
 hand? $5.37 − 5 = 0.37$ degrees, less than half a little finger. The readout's
-<disp v="W01" kind="widget" k="off">+0.37°</disp> is the same figure: the gap is that much wider than the hand. Good enough to find your way, and a reason astronomers use
-instruments when they need more.
+<disp v="W01" kind="widget" k="off">+0.37°</disp> is the same figure: the gap is that much wider than the hand.
+Good enough to find your way, and a reason astronomers use instruments when they need more.
 
 ## Exercises
 
