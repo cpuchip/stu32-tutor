@@ -712,15 +712,18 @@ CONTROLS_FOR["sky-01-before-you-go-out"] = [
     ("the country against the city answered 5 magnitudes, not 4", "vectors.txt", "MODE33 FIX4 4 ENTER | X=4\n",
      "MODE33 FIX4 4 ENTER | X=5\n", {}, "vectors in STU rpn mode"),
 ]
-# sky-02: angles with your hand (astronomy-practice unit 2), STU with alg and rpn.
+# sky-02: angles with your hand (astronomy-practice unit 2), STU with alg and rpn, with no calculator work since abacus
+# #12844, its check on the stars led by the hand-ruler widget (primer's spec, #12867).
 CONTROLS_FOR["sky-02-angles-with-your-hand"] = [
-    ("fingers counted as fists: 2 fists and 3 fingers quoted as 50", "lesson.md", 'v="H03">23.0000<', 'v="H03">50.0000<',
-     {}, "D-H03: the prose shows '50.0000'"),
-    ("horizon to overhead in fists, the division the wrong way round", "lesson.md", "```keys H01 entry=rpn\n90 ENTER 10 ÷\n",
-     "```keys H01 entry=rpn\n10 ENTER 90 ÷\n", {}, "H01: printed keys and vector disagree in STU rpn mode"),
-    ("the Pointers' gap quoted to the wrong hundredth", "vectors.txt",
-     "5.37 - 5 | MODE33 FIX4 5.37 ENTER 5 - | X=0.37\n", "5.37 - 5 | MODE33 FIX4 5.37 ENTER 5 - | X=0.38\n", {},
-     "vectors in STU rpn mode"),
+    ("a keys block put back in a lesson with no setup", "lesson.md", "hand? $5.37 − 5 = 0.37$ degrees",
+     "hand?\n\n```keys S01\n5.37 ENTER 5 −\n```\n\n$5.37 − 5 = 0.37$ degrees", {},
+     "front matter has no `setup:` keys"),
+    ("the separation quoted to the catalog's third decimal, not the readout's", "lesson.md",
+     'k="sep">5.37°<', 'k="sep">5.374°<', {}, "the prose quotes '5.374°', the widget shows '5.37°'"),
+    ("a hand the widget does not offer", "lesson.md", "hand: three\n", "hand: palm\n", {},
+     "hand is 'palm', not one of finger three fist"),
+    ("the hand's shortfall answered 0.38, not 0.37", "vectors.txt", "MODE33 FIX4 0.37 ENTER | X=0.37\n",
+     "MODE33 FIX4 0.37 ENTER | X=0.38\n", {}, "vectors in STU rpn mode"),
 ]
 # The entry axis (decision 63), proven on the first lesson to offer entries.
 FRAC01_REASON = ("modes_reason: algebraic entry, this course's default, is STU mode's alone (firmware 029); RPN is "
