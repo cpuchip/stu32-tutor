@@ -11,11 +11,11 @@ display: FIX 4
 
 # Rearranging a formula
 
-In eq-02, SOLVE asked for every other letter and gave back one number. Ask again with other values and it
-works the whole thing out again. Rearranging a formula does the work once. It writes the letter you want
-in terms of the others, and that rule answers for every value at once. In an electric circuit, $V = I × R$
-ties the voltage, $V$, to the current, $I$, and the resistance, $R$. Rearranged for $R$, it says how to
-find the resistance from any voltage and any current.
+In eq-02, Solving a formula for any letter, SOLVE asked for every other letter and gave back one number.
+Ask again with other values and it works the whole thing out again. Rearranging a formula does the work
+once. It writes the letter you want in terms of the others, and that rule answers for every value at once.
+In an electric circuit, $V = I × R$ ties the voltage, $V$, to the current, $I$, and the resistance, $R$.
+Rearranged for $R$, it says how to find the resistance from any voltage and any current.
 
 ## From before
 
@@ -156,10 +156,10 @@ because this rule has nothing to fail: it divides by 2 and by π, and neither is
 
 ## The same answer, another form
 
-To turn degrees Celsius into degrees Fahrenheit, the last lesson used $F = 1.8 × C + 32$. Rearrange it by hand for
-$C$. Take 32 from both sides, $F − 32 = 1.8 × C$, then divide both sides by 1.8:
-$C = (F − 32) ÷ 1.8$. Now ask Casimir. C twice closes the report and the list, and 212 goes into $F$ for a
-check:
+To turn degrees Celsius into degrees Fahrenheit, Solving a formula for any letter used
+$F = 1.8 × C + 32$. Rearrange it by hand for $C$. Take 32 from both sides, $F − 32 = 1.8 × C$, then
+divide both sides by 1.8: $C = (F − 32) ÷ 1.8$. Now ask Casimir. C twice closes the report and the list,
+and 212 goes into $F$ for a check:
 
 ```keys F01 after=N03
 C C 212 STO F
@@ -195,8 +195,8 @@ GOLD EQN RCL X yˣ 2 = RCL A ENTER CAS ▸ SOLVE X
 
 The screen shows <disp v="W01" kind="message">COEF NOT NUMERIC</disp>: with a square, Casimir needs numbers
 beside $x$, not letters. By hand there are two answers, $\sqrt{A}$ and $−\sqrt{A}$, for an $A$ above 0.
-When it says no, rearrange by hand, or give the other letters numbers and use the SOLVE from the last lesson. C twice clears the message and
-closes the list:
+When it says no, rearrange by hand, or give the other letters numbers and use SOLVE as in Solving a
+formula for any letter. C twice clears the message and closes the list:
 
 ```keys W02 after=W01
 C C
@@ -206,8 +206,8 @@ C C
 
 1. Distance is rate times time, $D = R × T$. Rearrange it for $T$ by hand, then with Casimir. What row
    comes after the answer, and why?
-2. A rectangle's area is $A = L × W$. Rearrange it for $W$ with Casimir. Then check the rule with the last
-   lesson's rectangle, an area of 42 and a length of 12.
+2. A rectangle's area is $A = L × W$. Rearrange it for $W$ with Casimir. Then check the rule with the
+   rectangle from Solving a formula for any letter, an area of 42 and a length of 12.
 
 ## Answers
 
@@ -239,7 +239,7 @@ C C
    C C 42 STO A 12 STO L GOLD EQN CAS ▸ SOLVE W ▼ ENTER
    ```
 
-   X shows <disp v="E02B">3.5000</disp>, the width the last lesson's SOLVE found.
+   X shows <disp v="E02B">3.5000</disp>, the width SOLVE found there.
 
 ## Mixed review
 
