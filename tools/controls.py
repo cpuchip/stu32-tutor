@@ -349,6 +349,19 @@ CONTROLS_FOR["eq-02-formulas"] = [
     ("solved for the wrong letter", "lesson.md", "GOLD EQN GOLD SOLVE F 100 R/S", "GOLD EQN GOLD SOLVE C 100 R/S", {},
      "T02: printed keys and vector disagree in 33s mode"),
 ]
+CONTROLS_FOR["eq-04-rearranging-a-formula"] = [
+    # Casimir's SOLVE on letters (CAS 038, firmware 99a62eb): the report's rows are the device's text, read row by row.
+    ("the answer's row quoted in the hand's / for ÷", "lesson.md", 'kind="message">R=V÷I<', 'kind="message">R=V/I<', {},
+     "C02:"),
+    ("Casimir's form quoted as the hand's", "lesson.md", 'kind="message">C=5×F÷9-160÷9<', 'kind="message">C=(F-32)÷1.8<',
+     {}, "F02:"),
+    ("SOLVE pressed without the CAS menu's ▸", "lesson.md", "```keys C01\nGOLD EQN RCL V = RCL I × RCL R ENTER CAS ▸ SOLVE R\n",
+     "```keys C01\nGOLD EQN RCL V = RCL I × RCL R ENTER CAS SOLVE R\n", {}, "C01:"),
+    ("a row the report does not have", "vectors.txt", "SST SST | %CASROW=I≠0\n", "SST SST | %CASROW=V≠0\n", {},
+     "%CASROW=V≠0"),
+    ("the check's numbers stored the wrong way round", "lesson.md", "C C 12 STO V 3 STO I\n", "C C 3 STO V 12 STO I\n", {},
+     "K01: printed keys and vector disagree"),
+]
 CONTROLS_FOR["eq-03-two-answers-and-inequalities"] = [
     # | separates a slip's fields (check.py splits on it), so an absolute value may not sit in a slip's maths.
     ("an absolute value in a slip's maths", "lesson.md", "Square each first: $49 − 16$.", "Square each first: $|49 − 16|$.", {},

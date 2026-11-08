@@ -1,7 +1,7 @@
 ---
 id: der-01
 title: The derivative
-requires: setup shift-keys rpn-arithmetic x-squared change-sign sto rcl letter-keys function slope program-entry xeq-program stopped-program limit average-rate instant-rate derivative eqn-typing xeq-check equation-list power
+requires: setup shift-keys rpn-arithmetic x-squared change-sign sto rcl letter-keys function slope program-entry xeq-program stopped-program limit average-rate instant-rate derivative eqn-typing xeq-check equation-list power cas-key
 status: draft prose (accuracy: lessons/ACCEPTED; not yet read by Michael)
 setup: BLUE MODE {mode} GOLD DISP FIX 4
 display: FIX 4
