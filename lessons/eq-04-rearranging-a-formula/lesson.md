@@ -92,21 +92,23 @@ numbers from before:
 C C 12 STO V 3 STO I
 ```
 
-GOLD EQN shows the formula again. Solve it once more, move down to the answer, and press ENTER:
+GOLD EQN shows the formula again. Solve it once more, move down to the answer, and press EVAL, the
+report's third soft key:
 
 ```keys K02 after=K01
-GOLD EQN CAS ▸ SOLVE R ▼ ENTER
+GOLD EQN CAS ▸ SOLVE R ▼ EVAL
 ```
 
-ENTER on the answer's row works it out with the values the letters hold, and X shows <disp v="K02">4.0000</disp>:
-$12 ÷ 3$, the resistance found by hand.
+EVAL on the answer's row works it out with the values the letters hold, and X shows <disp v="K02">4.0000</disp>:
+$12 ÷ 3$, the resistance found by hand. ENTER on that row does something else: it copies the rule
+itself, $V ÷ I$, into X.
 
 ## Why the row is there
 
 Now store 0 in $I$ and try the same thing:
 
 ```keys K03 after=K02
-0 STO I GOLD EQN CAS ▸ SOLVE R ▼ ENTER
+0 STO I GOLD EQN CAS ▸ SOLVE R ▼ EVAL
 ```
 
 This time the screen shows <disp v="K03" kind="message">CONDITION FAILS</disp>, and nothing goes into X. C
@@ -173,11 +175,11 @@ GOLD EQN RCL F = 1.8 × RCL C + 32 ENTER CAS ▸ SOLVE C ▼
 
 The screen shows <disp v="F02" kind="message">C=5×F÷9-160÷9</disp>. That does not look like
 $(F − 32) ÷ 1.8$, but it is the same rule. Dividing by 1.8 is the same as multiplying by 5 and dividing by 9,
-because $1.8 = 9 ÷ 5$. So $(F − 32) ÷ 1.8$ is $5 × F ÷ 9 − 5 × 32 ÷ 9$, and $5 × 32 = 160$. ENTER puts in
+because $1.8 = 9 ÷ 5$. So $(F − 32) ÷ 1.8$ is $5 × F ÷ 9 − 5 × 32 ÷ 9$, and $5 × 32 = 160$. EVAL puts in
 the 212 held in $F$:
 
 ```keys F03 after=F02
-ENTER
+EVAL
 ```
 
 X shows <disp v="F03">100.0000</disp>. By hand, $(212 − 32) ÷ 1.8 = 180 ÷ 1.8 = 100$: the boiling point of
@@ -233,10 +235,10 @@ C C
    ```
 
    The screen shows <disp v="E02" kind="message">W=A÷L</disp>, and its row is $L ≠ 0$. To check, close
-   the report and the list, store 42 in $A$ and 12 in $L$, and ENTER on the answer:
+   the report and the list, store 42 in $A$ and 12 in $L$, and EVAL on the answer:
 
    ```keys E02B after=E02
-   C C 42 STO A 12 STO L GOLD EQN CAS ▸ SOLVE W ▼ ENTER
+   C C 42 STO A 12 STO L GOLD EQN CAS ▸ SOLVE W ▼ EVAL
    ```
 
    X shows <disp v="E02B">3.5000</disp>, the width SOLVE found there.

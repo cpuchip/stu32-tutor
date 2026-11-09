@@ -3,6 +3,7 @@
 #include <string.h>
 
 #include "report.h"
+#include "rows.h"
 
 /* By name, not by position, so a kind added to screen.h anywhere in its list (SCREEN_LABEL, 057: a CAS
    label on Y) cannot shift the names of the others. */
@@ -76,7 +77,13 @@ int kr_report(const ab_calc *c, const screen_page *page, const char *id, char *o
     const ab_val *lv[4] = {&c->x, &c->y, &c->z, &c->t};
     for (int i = 0; i < 4; i++) level_text(lv[i], val[i], sizeof val[i]);
     level_text(&c->ans, ans, sizeof ans);
-    level_text(c->hist_at >= 0 ? &c->hist_val[c->hist_at] : &c->ans, shown, sizeof shown);
+    /* The ALG line's history entry ▲ and ▼ show, else ANS. Since unit 090 the history is the page's ALG rows, the one
+       shown by its serial (hist_row, 0 none), its value read without taking a slot (rows.h). */
+    ab_val hv;
+    static char htext[512];
+    const ab_val *sv = &c->ans;
+    if (c->hist_row && ab_rows_peek(c, c->hist_row, &hv, htext, sizeof htext)) sv = &hv;
+    level_text(sv, shown, sizeof shown);
     int n = snprintf(out, cap, "X\t%s\t%s\t%s\nYL\t%s\t%s\t%s\nSTATUS\t%s\t%s\nVAL\t%s\t%s\t%s\t%s\t%s\n"
                      "ANS\t%s\t%s\t%s\n",
                      id, kr_kind(page->x.kind), page->x.text, id, kr_kind(page->y.kind), page->y.text,

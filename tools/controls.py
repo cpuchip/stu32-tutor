@@ -361,6 +361,9 @@ CONTROLS_FOR["eq-04-rearranging-a-formula"] = [
      "%CASROW=V≠0"),
     ("the check's numbers stored the wrong way round", "lesson.md", "C C 12 STO V 3 STO I\n", "C C 3 STO V 12 STO I\n", {},
      "K01: printed keys and vector disagree"),
+    # Unit 094 (decision 98): ENTER on an answer row copies the answer into X, and EVAL evaluates; the old key fails.
+    ("ENTER pressed where EVAL evaluates", "lesson.md", "GOLD EQN CAS ▸ SOLVE R ▼ EVAL\n```\n\nEVAL on",
+     "GOLD EQN CAS ▸ SOLVE R ▼ ENTER\n```\n\nEVAL on", {}, "K02: printed keys and vector disagree"),
 ]
 CONTROLS_FOR["eq-03-two-answers-and-inequalities"] = [
     # | separates a slip's fields (check.py splits on it), so an absolute value may not sit in a slip's maths.

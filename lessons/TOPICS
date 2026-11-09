@@ -96,7 +96,7 @@ inequalities | Inequalities | eq-03 | Inequalities
 rearrange-by-hand | Rearranging a formula by hand: the same step on both sides | eq-04 | By hand
 cas-key | CAS: Casimir's menu, EQN LIST's fifth soft key | eq-04 | With Casimir
 cas-solve | Casimir's SOLVE: a formula solved for a letter, and its report | eq-04 | With Casimir
-report-enter | ENTER on the answer's row: its value at the letters stored | eq-04 | Checking the rule
+report-enter | EVAL on the answer's row: its value at the letters stored; ENTER copies the answer | eq-04 | Checking the rule
 solve-rows | A row: where the answer holds | eq-04 | Why the row is there
 solve-forms | One rule in two forms, checked by putting numbers in | eq-04 | The same answer, another form
 
