@@ -83,7 +83,9 @@ Whichever value you give is stored in the variable X. Try 4:
 ```
 
 X shows <disp v="Q03" m="33s,35s">0.0000</disp><disp v="Q03" m="STU">≈0.0000</disp>. The left side, $2 × 4 + 3$, is 11, so left minus right is 0: the
-two sides are equal, and 4 is a solution.
+two sides are equal, and 4 is a solution.<mode m="STU"> The ≈ is there because the equation stopped to ask
+for X, and R/S carried it on. The calculator doesn't follow the rounding across a stop like that, so it
+marks the answer: it can't promise it exact.</mode>
 
 Working the equation out turns Equation mode off. To try another value, press EQN to show the
 equation again, and XEQ. Try 5:

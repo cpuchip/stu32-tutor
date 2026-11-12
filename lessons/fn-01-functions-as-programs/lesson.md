@@ -120,7 +120,9 @@ F
 F ENTER
 ```
 
-X shows <disp v="F02" m="33s,35s">13.0000</disp><disp v="F02" m="STU">≈13.0000</disp>: $f(5) = 13$. Any input works the same way:
+X shows <disp v="F02" m="33s,35s">13.0000</disp><disp v="F02" m="STU">≈13.0000</disp>: $f(5) = 13$.<mode m="STU"> The ≈ is there because the calculator
+marks every number a program or SOLVE leaves: it doesn't follow the rounding inside them, so it can't promise
+those exact.</mode> Any input works the same way:
 
 ```keys F03 after=F02
 1.5 XEQ F
