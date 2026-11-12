@@ -37,6 +37,7 @@ int kr_expr_line(const ab_calc *c, const char *id, char *out, size_t cap);
      GRAPH<TAB>...          (only with a graph shown)
      DRAWN<TAB>id<TAB>drawn  (only with an equation drawn in 2D)
      EXPR<TAB>id<TAB>x<TAB>y<TAB>z<TAB>t  (only with an expression on the stack)
+     XMARK<TAB>id<TAB>mark  (always: ≈ drawn before X's number on STU's home, or -; unit 096)
    ANS is the last result (calc.h's ans: algebraic entry's result, the stack untouched) and shown the value an
    algebraic X line shows: a history entry while one is selected, else ans (screen.c's rule; soroban #5854).
    The length written, or -1 when out is too small. */

@@ -131,8 +131,6 @@ static int sequence(const char *path)
         static char rep[4096];
         if (kr_report(&c, &page, line, rep, sizeof rep) < 0) { fprintf(stderr, "report too long\n"); return 2; }
         fputs(rep, stdout);
-        /* Unit 096: X's mark, here rather than in report.c (the site's calc.wasm builds that file). */
-        printf("XMARK\t%s\t%s\n", line, page.xmark[0] ? page.xmark : "-");
     }
     fclose(f);
     return 0;

@@ -94,5 +94,10 @@ int kr_report(const ab_calc *c, const screen_page *page, const char *id, char *o
     int d = kr_drawn_line(page, id, out + n + g, cap - (size_t)(n + g));
     if (d < 0) return -1;
     int e = kr_expr_line(c, id, out + n + g + d, cap - (size_t)(n + g + d));
-    return e < 0 ? -1 : n + g + d + e;
+    if (e < 0) return -1;
+    /* Unit 096 (look A): the mark drawn before X's number on STU's home, kept apart from x's text (screen.h). */
+    int at = n + g + d + e;
+    int m = snprintf(out + at, cap - (size_t)at, "XMARK\t%s\t%s\n", id, page->xmark[0] ? page->xmark : "-");
+    if (m < 0 || (size_t)m >= cap - (size_t)at) return -1;
+    return at + m;
 }
