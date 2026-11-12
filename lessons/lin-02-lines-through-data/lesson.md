@@ -75,14 +75,14 @@ this way of fitting a line to data. m gives its slope:
 BLUE L.R. m
 ```
 
-X shows <disp v="D03">1.9000</disp>: the seedling grows about 1.9 centimetres a week. $b$ gives the
+X shows <disp v="D03" m="33s,35s">1.9000</disp><disp v="D03" m="STU">≈1.9000</disp>: the seedling grows about 1.9 centimetres a week. $b$ gives the
 intercept:
 
 ```keys D04 after=D03
 BLUE L.R. b
 ```
 
-X shows <disp v="D04">0.9000</disp>. The line is $y = 1.9x + 0.9$. Its intercept is the line's value
+X shows <disp v="D04" m="33s,35s">0.9000</disp><disp v="D04" m="STU">≈0.9000</disp>. The line is $y = 1.9x + 0.9$. Its intercept is the line's value
 at week 0, a week before the first measurement. No height was measured there; it is where the line
 crosses the vertical axis, not a fact about the seedling.
 
@@ -93,7 +93,7 @@ At week 3:
 3 BLUE L.R. ŷ
 ```
 
-X shows <disp v="D04B">6.6000</disp>, and the measurement at week 3 was 6: that point is 0.6 below
+X shows <disp v="D04B" m="33s,35s">6.6000</disp><disp v="D04B" m="STU">≈6.6000</disp>, and the measurement at week 3 was 6: that point is 0.6 below
 the line. Closest means this: take each point's distance above or below the line, square it, and
 add the squares. Squaring makes every distance count as positive, so points above and below cannot
 cancel out. The line the calculator finds makes that total as small as any line can, which is why
@@ -112,7 +112,7 @@ r says how well a sloping line fits the points:
 BLUE L.R. r
 ```
 
-X shows <disp v="D05">0.9851</disp>. r is always between −1 and 1, and it has the same sign as the
+X shows <disp v="D05" m="33s,35s">0.9851</disp><disp v="D05" m="STU">≈0.9851</disp>. r is always between −1 and 1, and it has the same sign as the
 slope. Near 1, the points lie close to a rising line; near −1, close to a falling one. Near 0, they
 show no rise or fall a line can follow: they may be scattered, or spread along a flat line, or on
 a curve that rises and falls (lin-03 has one). Points exactly on a flat line have no r at all, as
@@ -127,14 +127,14 @@ The line can estimate what was not measured. The height at week 6:
 6 BLUE L.R. ŷ
 ```
 
-X shows <disp v="D06">12.3000</disp>, which is $1.9 × 6 + 0.9$. x̂ goes the other way: the $x$ for the
+X shows <disp v="D06" m="33s,35s">12.3000</disp><disp v="D06" m="STU">≈12.3000</disp>, which is $1.9 × 6 + 0.9$. x̂ goes the other way: the $x$ for the
 $y$ in X. When does the line reach 15 centimetres?
 
 ```keys D07 after=D06
 15 BLUE L.R. x̂
 ```
 
-X shows <disp v="D07">7.4211</disp>: a little under seven and a half weeks. Both answers lie beyond
+X shows <disp v="D07" m="33s,35s">7.4211</disp><disp v="D07" m="STU">≈7.4211</disp>: a little under seven and a half weeks. Both answers lie beyond
 the measured weeks, and the line can only assume that the pattern carries on. Estimates between
 the measured weeks are the safest; the further past them, the less a line can be trusted. Week 50
 would give 95.9 centimetres, and no seedling promised that. This one grew 2, 1, 2 and then 3
@@ -165,7 +165,7 @@ X shows <disp v="W01A">6.0000</disp>: six points, one too many. The line has mov
 BLUE L.R. m
 ```
 
-X shows <disp v="W01">1.9750</disp>. Σ−, gold above Σ+, takes a point out of the sums. Give it
+X shows <disp v="W01" m="33s,35s">1.9750</disp><disp v="W01" m="STU">≈1.9750</disp>. Σ−, gold above Σ+, takes a point out of the sums. Give it
 exactly the $y$ and $x$ that went in:
 
 ```keys W02A after=W01
@@ -178,7 +178,7 @@ X shows <disp v="W02A">5.0000</disp>, five points again, and the slope is back:
 BLUE L.R. m
 ```
 
-X shows <disp v="W02">1.9000</disp>. Σ− cannot check that the point was ever entered: given a $y$ and
+X shows <disp v="W02" m="33s,35s">1.9000</disp><disp v="W02" m="STU">≈1.9000</disp>. Σ− cannot check that the point was ever entered: given a $y$ and
 $x$ that never went in, it takes them out of the sums all the same, and the line is quietly wrong.
 Watch the count, and type the point exactly.
 
@@ -202,19 +202,19 @@ because: The line is worked out from the running sums alone. Σ− takes out exa
    GOLD CLEAR Σ 4 ENTER 1 Σ+ 6 ENTER 2 Σ+ 7 ENTER 3 Σ+ 10 ENTER 4 Σ+ 13 ENTER 5 Σ+ BLUE L.R. m
    ```
 
-   X shows <disp v="E01">2.2000</disp>. Then $b$:
+   X shows <disp v="E01" m="33s,35s">2.2000</disp><disp v="E01" m="STU">≈2.2000</disp>. Then $b$:
 
    ```keys E01B after=E01
    BLUE L.R. b
    ```
 
-   X shows <disp v="E01B">1.4000</disp>, and week 6:
+   X shows <disp v="E01B" m="33s,35s">1.4000</disp><disp v="E01B" m="STU">≈1.4000</disp>, and week 6:
 
    ```keys E01C after=E01B
    6 BLUE L.R. ŷ
    ```
 
-   X shows <disp v="E01C">14.6000</disp>: $2.2 × 6 + 1.4$.
+   X shows <disp v="E01C" m="33s,35s">14.6000</disp><disp v="E01C" m="STU">≈14.6000</disp>: $2.2 × 6 + 1.4$.
 
 2. Clear the sums, enter the four points, then ask for r:
 
@@ -222,13 +222,13 @@ because: The line is worked out from the running sums alone. Σ− takes out exa
    GOLD CLEAR Σ 10 ENTER 1 Σ+ 8 ENTER 2 Σ+ 7 ENTER 3 Σ+ 4 ENTER 4 Σ+ BLUE L.R. r
    ```
 
-   X shows <disp v="E02">-0.9812</disp>, close to −1: the points lie close to a falling line. Then m:
+   X shows <disp v="E02" m="33s,35s">-0.9812</disp><disp v="E02" m="STU">≈-0.9812</disp>, close to −1: the points lie close to a falling line. Then m:
 
    ```keys E02B after=E02
    BLUE L.R. m
    ```
 
-   X shows <disp v="E02B">-1.9000</disp>: the tank loses about 1.9 litres an hour. Both are
+   X shows <disp v="E02B" m="33s,35s">-1.9000</disp><disp v="E02B" m="STU">≈-1.9000</disp>: the tank loses about 1.9 litres an hour. Both are
    negative, as r and m always share a sign: the water goes down as the hours go up.
 
 ## Mixed review

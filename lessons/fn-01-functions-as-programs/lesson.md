@@ -120,7 +120,7 @@ F
 F ENTER
 ```
 
-X shows <disp v="F02">13.0000</disp>: $f(5) = 13$. Any input works the same way:
+X shows <disp v="F02" m="33s,35s">13.0000</disp><disp v="F02" m="STU">≈13.0000</disp>: $f(5) = 13$. Any input works the same way:
 
 ```keys F03 after=F02
 1.5 XEQ F
@@ -129,7 +129,7 @@ X shows <disp v="F02">13.0000</disp>: $f(5) = 13$. Any input works the same way:
 1.5 XEQ F ENTER
 ```
 
-X shows <disp v="F03">6.0000</disp>, and a negative one:
+X shows <disp v="F03" m="33s,35s">6.0000</disp><disp v="F03" m="STU">≈6.0000</disp>, and a negative one:
 
 ```keys F04 after=F03
 4 +/− XEQ F
@@ -138,7 +138,7 @@ X shows <disp v="F03">6.0000</disp>, and a negative one:
 4 +/− XEQ F ENTER
 ```
 
-X shows <disp v="F04">-5.0000</disp>: $f(−4) = 2 × (−4) + 3 = −5$.
+X shows <disp v="F04" m="33s,35s">-5.0000</disp><disp v="F04" m="STU">≈-5.0000</disp>: $f(−4) = 2 × (−4) + 3 = −5$.
 
 ## A second program
 
@@ -173,7 +173,7 @@ Then $g(3)$:
 3 XEQ G ENTER
 ```
 
-X shows <disp v="G02">12.0000</disp>: $3^{2} + 3 = 9 + 3$.
+X shows <disp v="G02" m="33s,35s">12.0000</disp><disp v="G02" m="STU">≈12.0000</disp>: $3^{2} + 3 = 9 + 3$.
 
 ```why
 ask: Why does G need an ENTER before x², when F needed nothing like it?
@@ -216,7 +216,7 @@ Press − in its place, finish the program, and try it:
 − BLUE RTN GOLD PRGM PRGM 10 XEQ K ENTER
 ```
 
-X shows <disp v="M03">17.0000</disp>: $k(10) = 20 − 3$.
+X shows <disp v="M03" m="33s,35s">17.0000</disp><disp v="M03" m="STU">≈17.0000</disp>: $k(10) = 20 − 3$.
 
 Each label names one program, and the calculator refuses a label that is already used. Try to start
 another program F:
@@ -235,7 +235,7 @@ C GOLD PRGM PRGM 5 XEQ F
 C GOLD PRGM PRGM 5 XEQ F ENTER
 ```
 
-X shows <disp v="D02">13.0000</disp>, $f(5)$ as before. Programs stay in the calculator until you
+X shows <disp v="D02" m="33s,35s">13.0000</disp><disp v="D02" m="STU">≈13.0000</disp>, $f(5)$ as before. Programs stay in the calculator until you
 clear them, so for each new function, pick a letter no program uses yet.
 
 ## Exercises
@@ -256,7 +256,7 @@ clear them, so for each new function, pick a letter no program uses yet.
    GOLD PRGM PRGM GOLD LBL H 2 × 5 x↔y − BLUE RTN GOLD PRGM PRGM 4 XEQ H ENTER
    ```
 
-   X shows <disp v="E01">-3.0000</disp>: $h(4) = 5 − 8$.
+   X shows <disp v="E01" m="33s,35s">-3.0000</disp><disp v="E01" m="STU">≈-3.0000</disp>: $h(4) = 5 − 8$.
 
 2. G is still in the calculator:
 
@@ -267,7 +267,7 @@ clear them, so for each new function, pick a letter no program uses yet.
    2 +/− XEQ G ENTER
    ```
 
-   X shows <disp v="E02">2.0000</disp>: $(−2)^{2} + (−2) = 4 − 2$.
+   X shows <disp v="E02" m="33s,35s">2.0000</disp><disp v="E02" m="STU">≈2.0000</disp>: $(−2)^{2} + (−2) = 4 − 2$.
 
 ## Mixed review
 

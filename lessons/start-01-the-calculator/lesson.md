@@ -152,11 +152,12 @@ Now share 1 pie equally among 3 people:
 1 ENTER 3 ÷
 ```
 
-The screen shows <disp v="F03">0 1/3</disp>: no whole pies, and $\frac{1}{3}$ of a pie each. Look at the top
+The screen shows <disp v="F03" e="alg">0 1/3</disp><disp v="F03" e="rpn">≈0 1/3</disp>: no whole pies, and $\frac{1}{3}$ of a pie each. Look at the top
 line of the screen, the status band. It has a small <disp v="F03" kind="status">▼</disp>. $1 ÷ 3$ is
 0.333... and the 3s never end, but the calculator keeps only 34 digits. So its number is a tiny bit
 less than $\frac{1}{3}$, and the ▼ says so. When there is no arrow, the fraction shown is exactly the
-calculator's number.
+calculator's number.<entry e="rpn"> The ≈ before the number is a warning too: it means the calculator can't
+promise the number shown is exact.</entry>
 
 Press BLUE →FRAC again to turn fraction display off:
 
@@ -164,7 +165,7 @@ Press BLUE →FRAC again to turn fraction display off:
 BLUE →FRAC
 ```
 
-The screen shows <disp v="F04">0.3333</disp>: the same number, rounded to four digits after the
+The screen shows <disp v="F04" e="alg">0.3333</disp><disp v="F04" e="rpn">≈0.3333</disp>: the same number, rounded to four digits after the
 decimal point.
 
 ## Exercises

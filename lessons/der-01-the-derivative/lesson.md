@@ -88,7 +88,7 @@ Carrying on, the speed at $t = 3$: store 3 in A, then run V with $h = 0.001$.
 3 STO A 0.001 XEQ V ENTER
 ```
 
-X shows <disp v="D01">12.0020</disp>, which is $4a + 2h$ for $a = 3$ and $h = 0.001$, just as the algebra
+X shows <disp v="D01" m="33s,35s">12.0020</disp><disp v="D01" m="STU">≈12.0020</disp>, which is $4a + 2h$ for $a = 3$ and $h = 0.001$, just as the algebra
 said. Carrying on, from below:
 
 ```keys D02 after=D01
@@ -98,7 +98,7 @@ said. Carrying on, from below:
 0.001 +/− XEQ V ENTER
 ```
 
-X shows <disp v="D02">11.9980</disp>, $2h$ below 12 this time. Carrying on, a ten times smaller $h$:
+X shows <disp v="D02" m="33s,35s">11.9980</disp><disp v="D02" m="STU">≈11.9980</disp>, $2h$ below 12 this time. Carrying on, a ten times smaller $h$:
 
 ```keys D02B after=D02
 0.0001 XEQ V
@@ -107,7 +107,7 @@ X shows <disp v="D02">11.9980</disp>, $2h$ below 12 this time. Carrying on, a te
 0.0001 XEQ V ENTER
 ```
 
-X shows <disp v="D02B">12.0002</disp>: nearer still. The averages close in on 12, which is $d'(3) = 4 × 3$,
+X shows <disp v="D02B" m="33s,35s">12.0002</disp><disp v="D02B" m="STU">≈12.0002</disp>: nearer still. The averages close in on 12, which is $d'(3) = 4 × 3$,
 as the rule said. Carrying on, at half a second, where $d'$ says 2:
 
 ```keys D03 after=D02B
@@ -117,7 +117,7 @@ as the rule said. Carrying on, at half a second, where $d'$ says 2:
 0.5 STO A 0.001 XEQ V ENTER
 ```
 
-X shows <disp v="D03">2.0020</disp>: close to 2, off by $2h$, as at $t = 3$. Program V only ever gives
+X shows <disp v="D03" m="33s,35s">2.0020</disp><disp v="D03" m="STU">≈2.0020</disp>: close to 2, off by $2h$, as at $t = 3$. Program V only ever gives
 averages. At each time you try, they land within $2h$ of the rule, which agrees with it but does not
 prove it; the algebra is what proves the rule for every $t$.
 
@@ -169,7 +169,7 @@ it asks for T, and 3 then R/S answers:</mode>
 XEQ 3 R/S
 ```
 
-<mode m="STU">X shows <disp v="B02">12.0000</disp>: $d'(3)$, the speed the program closed in on.</mode>
+<mode m="STU">X shows <disp v="B02">≈12.0000</disp>: $d'(3)$, the speed the program closed in on.</mode>
 
 ## Exercises
 

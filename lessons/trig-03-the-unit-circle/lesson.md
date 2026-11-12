@@ -83,20 +83,20 @@ X shows <disp v="U01">-0.5000</disp>: P is half a unit left of the y axis.
 120 SIN
 ```
 
-X shows <disp v="U02">0.8660</disp>: still above the x axis. At 200 degrees the arm is past 180, below
+X shows <disp v="U02" m="33s,35s">0.8660</disp><disp v="U02" m="STU">≈0.8660</disp>: still above the x axis. At 200 degrees the arm is past 180, below
 and to the left:
 
 ```keys U03
 200 COS
 ```
 
-X shows <disp v="U03">-0.9397</disp>.
+X shows <disp v="U03" m="33s,35s">-0.9397</disp><disp v="U03" m="STU">≈-0.9397</disp>.
 
 ```keys U04
 200 SIN
 ```
 
-X shows <disp v="U04">-0.3420</disp>: both negative. Left of the y axis cosine is negative; below the
+X shows <disp v="U04" m="33s,35s">-0.3420</disp><disp v="U04" m="STU">≈-0.3420</disp>: both negative. Left of the y axis cosine is negative; below the
 x axis sine is negative.
 
 ## cos²θ + sin²θ = 1
@@ -112,7 +112,7 @@ degrees, with x² (gold above √x) squaring each:
 200 SIN GOLD x² 200 COS GOLD x² +
 ```
 
-X shows <disp v="U05">1.0000</disp>.
+X shows <disp v="U05" m="33s,35s">1.0000</disp><disp v="U05" m="STU">≈1.0000</disp>.
 
 ```why
 ask: Why does the check work at 200 degrees, where the sine and cosine are both negative?

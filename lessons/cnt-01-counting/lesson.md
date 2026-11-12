@@ -76,7 +76,7 @@ X shows <disp v="F01">120.0000</disp>. Factorials grow fast. The orders of a dec
 52 GOLD n!
 ```
 
-X shows <disp v="F02">8.0658E67</disp>: just over 8 times ten to the 67th, a number 68 digits long, too
+X shows <disp v="F02" m="33s,35s">8.0658E67</disp><disp v="F02" m="STU">≈8.0658E67</disp>: just over 8 times ten to the 67th, a number 68 digits long, too
 long for the screen at FIX 4, so it is shown in scientific form (rpn-03). The calculator keeps
 the first 34 of those 68 digits, rounded.
 

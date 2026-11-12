@@ -86,7 +86,7 @@ Carrying on, 3 strips, each 1 wide:
 3 XEQ A ENTER
 ```
 
-X shows <disp v="A01">14.0000</disp>: $1 + 4 + 9$, the three rectangles of heights $1^{2}$, $2^{2}$ and $3^{2}$. $x^{2}$ rises
+X shows <disp v="A01" m="33s,35s">14.0000</disp><disp v="A01" m="STU">≈14.0000</disp>: $1 + 4 + 9$, the three rectangles of heights $1^{2}$, $2^{2}$ and $3^{2}$. $x^{2}$ rises
 from 0 to 3, so each rectangle, as tall as the curve at its right end, sticks out above the curve, and
 14 is too much. Carrying on, 30 strips:
 
@@ -97,7 +97,7 @@ from 0 to 3, so each rectangle, as tall as the curve at its right end, sticks ou
 30 XEQ A ENTER
 ```
 
-X shows <disp v="A02">9.4550</disp>, and carrying on, 300:
+X shows <disp v="A02" m="33s,35s">9.4550</disp><disp v="A02" m="STU">≈9.4550</disp>, and carrying on, 300:
 
 ```keys A03 after=A02
 300 XEQ A
@@ -106,7 +106,7 @@ X shows <disp v="A02">9.4550</disp>, and carrying on, 300:
 300 XEQ A ENTER
 ```
 
-<disp v="A03">9.0451</disp>. The sums seem to close in on 9 as the strips thin out, and the built-in
+<disp v="A03" m="33s,35s">9.0451</disp><disp v="A03" m="STU">≈9.0451</disp>. The sums seem to close in on 9 as the strips thin out, and the built-in
 integral confirms it: the area under $y = x^{2}$ from 0 to 3 is 9.
 
 ```why

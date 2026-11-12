@@ -99,7 +99,7 @@ report's third soft key:
 GOLD EQN CAS ▸ SOLVE R ▼ EVAL
 ```
 
-EVAL on the answer's row works it out with the values the letters hold, and X shows <disp v="K02">4.0000</disp>:
+EVAL on the answer's row works it out with the values the letters hold, and X shows <disp v="K02">≈4.0000</disp>:
 $12 ÷ 3$, the resistance found by hand. ENTER on that row does something else: it copies the rule
 itself, $V ÷ I$, into X.
 
@@ -182,7 +182,7 @@ the 212 held in $F$:
 EVAL
 ```
 
-X shows <disp v="F03">100.0000</disp>. By hand, $(212 − 32) ÷ 1.8 = 180 ÷ 1.8 = 100$: the boiling point of
+X shows <disp v="F03">≈100.0000</disp>. By hand, $(212 − 32) ÷ 1.8 = 180 ÷ 1.8 = 100$: the boiling point of
 water, both ways. Two answers that look different can be one rule. Putting the same numbers into both is a
 quick way to see it.
 
@@ -241,7 +241,7 @@ C C
    C C 42 STO A 12 STO L GOLD EQN CAS ▸ SOLVE W ▼ EVAL
    ```
 
-   X shows <disp v="E02B">3.5000</disp>, the width SOLVE found there.
+   X shows <disp v="E02B">≈3.5000</disp>, the width SOLVE found there.
 
 ## Mixed review
 

@@ -72,13 +72,13 @@ then $x$, and gives back $r$ in X and the angle in Y. For (3, 4):
 4 ENTER 3 BLUE ANGLE →POL
 ```
 
-X shows <disp v="P01">5.0000</disp>: $r$. The angle is in Y; x↔y brings it down:
+X shows <disp v="P01" m="33s,35s">5.0000</disp><disp v="P01" m="STU">≈5.0000</disp>: $r$. The angle is in Y; x↔y brings it down:
 
 ```keys P02 after=P01
 x↔y
 ```
 
-X shows <disp v="P02">53.1301</disp> degrees. So (3, 4) is (5, 53.1301°) in polar form.
+X shows <disp v="P02" m="33s,35s">53.1301</disp><disp v="P02" m="STU">≈53.1301</disp> degrees. So (3, 4) is (5, 53.1301°) in polar form.
 
 ```why
 ask: Why is $r$ exactly 5 for the point (3, 4)?
@@ -100,14 +100,14 @@ left:
 4 ENTER 3 +/− BLUE ANGLE →POL x↔y
 ```
 
-X shows <disp v="Q01">126.8699</disp> degrees, past 90, where the point is. ATAN of the ratio $4 ÷ −3$
+X shows <disp v="Q01" m="33s,35s">126.8699</disp><disp v="Q01" m="STU">≈126.8699</disp> degrees, past 90, where the point is. ATAN of the ratio $4 ÷ −3$
 gives a different answer:
 
 ```keys Q02
 4 ENTER 3 +/− ÷ GOLD ATAN
 ```
 
-X shows <disp v="Q02">-53.1301</disp>. Like ASIN, ATAN answers only between −90 and 90
+X shows <disp v="Q02" m="33s,35s">-53.1301</disp><disp v="Q02" m="STU">≈-53.1301</disp>. Like ASIN, ATAN answers only between −90 and 90
 degrees, and a ratio cannot tell (−3, 4) from (3, −4): $4 ÷ −3$ and $−4 ÷ 3$ are the same number. So
 ATAN's −53.1301 points at (3, −4), down and to the right; for a point on the left you would have to
 add 180 yourself. →POL knows the signs of both coordinates, so it puts the angle on the correct side
@@ -124,13 +124,13 @@ $x = r$ $\cos θ$ and $y = r$ $\sin θ$. A point 10 from O at 30 degrees:
 30 ENTER 10 BLUE ANGLE →REC
 ```
 
-X shows <disp v="R01">8.6603</disp>: $x$, which is 10 $\cos 30°$. Bring $y$ down:
+X shows <disp v="R01" m="33s,35s">8.6603</disp><disp v="R01" m="STU">≈8.6603</disp>: $x$, which is 10 $\cos 30°$. Bring $y$ down:
 
 ```keys R02 after=R01
 x↔y
 ```
 
-X shows <disp v="R02">5.0000</disp>: $y$, 10 $\sin 30°$.
+X shows <disp v="R02" m="33s,35s">5.0000</disp><disp v="R02" m="STU">≈5.0000</disp>: $y$, 10 $\sin 30°$.
 
 ```why
 ask: Why is $y$ exactly half of $r$ at 30 degrees?
@@ -150,13 +150,13 @@ because: $y$ is $r$ $\sin 30°$, and the sine of 30 degrees is one half, so $y$ 
    12 +/− ENTER 5 +/− BLUE ANGLE →POL
    ```
 
-   X shows <disp v="E01">13.0000</disp>: $r = \sqrt{25 + 144}$. Then the angle:
+   X shows <disp v="E01" m="33s,35s">13.0000</disp><disp v="E01" m="STU">≈13.0000</disp>: $r = \sqrt{25 + 144}$. Then the angle:
 
    ```keys E01B after=E01
    x↔y
    ```
 
-   X shows <disp v="E01B">-112.6199</disp> degrees: down and to the left, so (−5, −12) is
+   X shows <disp v="E01B" m="33s,35s">-112.6199</disp><disp v="E01B" m="STU">≈-112.6199</disp> degrees: down and to the left, so (−5, −12) is
    (13, −112.6199°), the same direction as 247.3801° (add 360). ATAN of $−12 ÷ −5 = 2.4$ would give
    about 67.38 degrees, up and to the right: the opposite direction.
 
@@ -166,13 +166,13 @@ because: $y$ is $r$ $\sin 30°$, and the sine of 30 degrees is one half, so $y$ 
    135 ENTER 2 BLUE ANGLE →REC
    ```
 
-   X shows <disp v="E02">-1.4142</disp>: $x$, to the left. Then $y$:
+   X shows <disp v="E02" m="33s,35s">-1.4142</disp><disp v="E02" m="STU">≈-1.4142</disp>: $x$, to the left. Then $y$:
 
    ```keys E02B after=E02
    x↔y
    ```
 
-   X shows <disp v="E02B">1.4142</disp>, above: the point is up and to the left, at 135 degrees.
+   X shows <disp v="E02B" m="33s,35s">1.4142</disp><disp v="E02B" m="STU">≈1.4142</disp>, above: the point is up and to the left, at 135 degrees.
 
 ## Mixed review
 

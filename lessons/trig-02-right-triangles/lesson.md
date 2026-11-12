@@ -74,14 +74,14 @@ the 5 waits in Y while 70 becomes $\sin 70°$, and × multiplies them:
 5 ENTER 70 SIN ×
 ```
 
-X shows <disp v="L01">4.6985</disp> m. The adjacent side is the ground between the ladder's foot and
+X shows <disp v="L01" m="33s,35s">4.6985</disp><disp v="L01" m="STU">≈4.6985</disp> m. The adjacent side is the ground between the ladder's foot and
 the wall, so that distance is $5 × \cos 70°$:
 
 ```keys L02
 5 ENTER 70 COS ×
 ```
 
-X shows <disp v="L02">1.7101</disp> m.
+X shows <disp v="L02" m="33s,35s">1.7101</disp><disp v="L02" m="STU">≈1.7101</disp> m.
 
 ```why
 ask: Why do the height and the distance along the ground not add up to the ladder's 5 m?
@@ -105,7 +105,7 @@ and it is $12 × \tan 35°$:
 12 ENTER 35 TAN ×
 ```
 
-X shows <disp v="T01">8.4025</disp> m above your eye level; add the height of your eyes for the
+X shows <disp v="T01" m="33s,35s">8.4025</disp><disp v="T01" m="STU">≈8.4025</disp> m above your eye level; add the height of your eyes for the
 whole tree.
 
 ## An angle from two sides
@@ -122,19 +122,19 @@ opposite the 3 has $\sin A = 3 ÷ 5$:
 3 ENTER 5 ÷ GOLD ASIN
 ```
 
-X shows <disp v="A01">36.8699</disp> degrees. The same angle has the 4 beside it, so $\cos A = 4 ÷ 5$:
+X shows <disp v="A01" m="33s,35s">36.8699</disp><disp v="A01" m="STU">≈36.8699</disp> degrees. The same angle has the 4 beside it, so $\cos A = 4 ÷ 5$:
 
 ```keys A02
 4 ENTER 5 ÷ GOLD ACOS
 ```
 
-X shows <disp v="A02">36.8699</disp> again. And $\tan A = 3 ÷ 4$:
+X shows <disp v="A02" m="33s,35s">36.8699</disp><disp v="A02" m="STU">≈36.8699</disp> again. And $\tan A = 3 ÷ 4$:
 
 ```keys A03
 3 ENTER 4 ÷ GOLD ATAN
 ```
 
-X shows <disp v="A03">36.8699</disp>. Any two sides give the angle, through whichever ratio uses
+X shows <disp v="A03" m="33s,35s">36.8699</disp><disp v="A03" m="STU">≈36.8699</disp>. Any two sides give the angle, through whichever ratio uses
 those two.
 
 ```why
@@ -156,7 +156,7 @@ because: A triangle's three angles together make half a turn, and the right angl
    1 ENTER 12 ÷ GOLD ATAN
    ```
 
-   X shows <disp v="E01">4.7636</disp> degrees.
+   X shows <disp v="E01" m="33s,35s">4.7636</disp><disp v="E01" m="STU">≈4.7636</disp> degrees.
 
 2. The 0.7 m is adjacent to the angle and the ladder is the hypotenuse, so $\cos A = 0.7 ÷ 2.5$:
 
@@ -164,7 +164,7 @@ because: A triangle's three angles together make half a turn, and the right angl
    0.7 ENTER 2.5 ÷ GOLD ACOS
    ```
 
-   X shows <disp v="E02">73.7398</disp> degrees. The height is $\sin A × 2.5$, with $A$ still in X: SIN,
+   X shows <disp v="E02" m="33s,35s">73.7398</disp><disp v="E02" m="STU">≈73.7398</disp> degrees. The height is $\sin A × 2.5$, with $A$ still in X: SIN,
    then typing 2.5 pushes $\sin A$ up to Y (as typing after any function does, exp-03), and × in
    either order gives the same:
 
@@ -172,7 +172,7 @@ because: A triangle's three angles together make half a turn, and the right angl
    SIN 2.5 ×
    ```
 
-   X shows <disp v="E02B">2.4000</disp> m. (Check with $0.7^{2} + 2.4^{2} = 2.5^{2}$.)
+   X shows <disp v="E02B" m="33s,35s">2.4000</disp><disp v="E02B" m="STU">≈2.4000</disp> m. (Check with $0.7^{2} + 2.4^{2} = 2.5^{2}$.)
 
 ## Mixed review
 

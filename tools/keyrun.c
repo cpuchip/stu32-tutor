@@ -131,6 +131,8 @@ static int sequence(const char *path)
         static char rep[4096];
         if (kr_report(&c, &page, line, rep, sizeof rep) < 0) { fprintf(stderr, "report too long\n"); return 2; }
         fputs(rep, stdout);
+        /* Unit 096: X's mark, here rather than in report.c (the site's calc.wasm builds that file). */
+        printf("XMARK\t%s\t%s\n", line, page.xmark[0] ? page.xmark : "-");
     }
     fclose(f);
     return 0;
@@ -224,6 +226,8 @@ int main(int argc, char **argv)
     }
     printf("OK %d ops\nX\t%s\t%s\nYL\t%s\t%s\nSTATUS\t%s\n", na, kr_kind(page.x.kind), page.x.text,
            kr_kind(page.y.kind), page.y.text, page.status.text);
+    /* Unit 096 (look A): the mark drawn before X's number on STU's home, kept apart from x's text (screen.h). */
+    printf("XMARK\t%s\n", page.xmark[0] ? page.xmark : "-");
     static char gline[512];
     if (kr_graph_line(&page, "-", gline, sizeof gline) > 0) fputs(gline, stdout);
     if (kr_drawn_line(&page, "-", gline, sizeof gline) > 0) fputs(gline, stdout);

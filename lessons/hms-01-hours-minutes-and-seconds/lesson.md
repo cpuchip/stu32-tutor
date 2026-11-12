@@ -106,7 +106,7 @@ BLUE ANGLE HMS→ 18.36563 ▶ ENTER
 18.36563 BLUE ANGLE HMS→
 ```
 
-The screen shows <disp v="H02">18.6156</disp>: Vega's place is about 18.6 hours around the sky.
+The screen shows <disp v="H02" m="33s,35s">18.6156</disp><disp v="H02" m="STU" e="alg">18.6156</disp><disp v="H02" m="STU" e="rpn">≈18.6156</disp>: Vega's place is about 18.6 hours around the sky.
 
 ## Back to hours and minutes
 
@@ -134,7 +134,7 @@ BLUE ANGLE →HMS 86164.0989 ÷ 3600 ▶ ENTER
 86164.0989 ENTER 3600 ÷ BLUE ANGLE →HMS
 ```
 
-The screen shows <disp v="H04">23.5604</disp>: 23 hours, 56 minutes and 4 seconds, about 4 minutes short of a day.
+The screen shows <disp v="H04" m="33s,35s">23.5604</disp><disp v="H04" m="STU" e="alg">23.5604</disp><disp v="H04" m="STU" e="rpn">≈23.5604</disp>: 23 hours, 56 minutes and 4 seconds, about 4 minutes short of a day.
 That is why a star rises about 4 minutes earlier each night.
 
 ## On a calculator without these keys
@@ -158,7 +158,7 @@ its key.</entry> The screens below show four places after the point; yours may s
 56.3 ENTER 60 ÷ 36 + 60 ÷ 18 +
 ```
 
-The screen shows <disp v="M01">18.6156</disp>, the hours HMS→ gave.
+The screen shows <disp v="M01" m="33s,35s">18.6156</disp><disp v="M01" m="STU" e="alg">18.6156</disp><disp v="M01" m="STU" e="rpn">≈18.6156</disp>, the hours HMS→ gave.
 
 To go back, take away the whole hours and multiply what is left by 60. That gives the minutes:
 
@@ -170,7 +170,7 @@ To go back, take away the whole hours and multiply what is left by 60. That give
 18 − 60 ×
 ```
 
-The screen shows <disp v="M02">36.9383</disp>: 36 whole minutes. Take them away and multiply by 60 again for the
+The screen shows <disp v="M02" m="33s,35s">36.9383</disp><disp v="M02" m="STU" e="alg">36.9383</disp><disp v="M02" m="STU" e="rpn">≈36.9383</disp>: 36 whole minutes. Take them away and multiply by 60 again for the
 seconds:
 
 ```keys M03 entry=alg after=M02
@@ -181,7 +181,7 @@ seconds:
 36 − 60 ×
 ```
 
-The screen shows <disp v="M03">56.3000</disp>: 56.3 seconds, and the time is 18h 36m 56.3s again. A calculator that
+The screen shows <disp v="M03" m="33s,35s">56.3000</disp><disp v="M03" m="STU" e="alg">56.3000</disp><disp v="M03" m="STU" e="rpn">≈56.3000</disp>: 56.3 seconds, and the time is 18h 36m 56.3s again. A calculator that
 keeps fewer digits may end a little either side of 56.3, the difference lost in its last digits.
 
 ## Degrees, arcminutes and arcseconds
@@ -198,7 +198,7 @@ BLUE ANGLE HMS→ 38.4701 ▶ ENTER
 38.4701 BLUE ANGLE HMS→
 ```
 
-The screen shows <disp v="H05">38.7836</disp>: the catalog's 38° 47′ 01″, the same angle in degrees.
+The screen shows <disp v="H05" m="33s,35s">38.7836</disp><disp v="H05" m="STU" e="alg">38.7836</disp><disp v="H05" m="STU" e="rpn">≈38.7836</disp>: the catalog's 38° 47′ 01″, the same angle in degrees.
 
 South of the sky's equator a declination is negative, and its minus sign belongs to the whole angle: −38° 47′ 01″
 is minus 38 degrees, minus 47 arcminutes and minus 1 arcsecond. Press +/− after the digits, and HMS→ keeps the sign
@@ -212,7 +212,7 @@ BLUE ANGLE HMS→ 38.4701 +/− ▶ ENTER
 38.4701 +/− BLUE ANGLE HMS→
 ```
 
-The screen shows <disp v="H06">-38.7836</disp>, the same angle in degrees, with its minus sign. An angle smaller
+The screen shows <disp v="H06" m="33s,35s">-38.7836</disp><disp v="H06" m="STU" e="alg">-38.7836</disp><disp v="H06" m="STU" e="rpn">≈-38.7836</disp>, the same angle in degrees, with its minus sign. An angle smaller
 than one degree has 0 degrees, and minus 0 is just 0, so a minus sign put on the degrees alone would be lost, and
 −0° 30′ would come out as +0.5. Typed as 0.30 and +/−, the whole number is negative, so HMS→ still keeps the sign.
 
@@ -272,7 +272,7 @@ on the whole answer at the end, not on the degrees alone: −38 + 0.7836 would g
    0.01 BLUE ANGLE HMS→
    ```
 
-   The screen shows <disp v="E03">0.0167</disp> degrees.
+   The screen shows <disp v="E03" m="33s,35s">0.0167</disp><disp v="E03" m="STU" e="alg">0.0167</disp><disp v="E03" m="STU" e="rpn">≈0.0167</disp> degrees.
 
 ## Mixed review
 

@@ -149,7 +149,7 @@ to a fractional power. Nothing was lost. Press C, the bottom left key, to clear 
 C
 ```
 
-X shows <disp v="R07E">0.3333</disp>, the third you typed, and Y still holds −8, just as they were
+X shows <disp v="R07E" m="33s,35s">0.3333</disp><disp v="R07E" m="STU">≈0.3333</disp>, the third you typed, and Y still holds −8, just as they were
 before the yˣ.
 
 ## The order of two powers

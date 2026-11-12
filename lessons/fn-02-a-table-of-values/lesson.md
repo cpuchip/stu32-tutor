@@ -74,7 +74,7 @@ Try it on 2:
 2 XEQ Q ENTER
 ```
 
-X shows <disp v="Q02">-1.0000</disp>: $q(2) = 4 − 8 + 3$. And Y holds 2, the input: one of the copies
+X shows <disp v="Q02" m="33s,35s">-1.0000</disp><disp v="Q02" m="STU">≈-1.0000</disp>: $q(2) = 4 − 8 + 3$. And Y holds 2, the input: one of the copies
 the two ENTERs made is left over. So when Q finishes, the input sits in Y beside the output in X,
 which is what a table needs.
 
@@ -139,38 +139,38 @@ XEQ T
 XEQ T ENTER
 ```
 
-X shows <disp v="T02">3.0000</disp> and Y holds 0: $q(0) = 3$. Press R/S for each next row:
+X shows <disp v="T02" m="33s,35s">3.0000</disp><disp v="T02" m="STU">≈3.0000</disp> and Y holds 0: $q(0) = 3$. Press R/S for each next row:
 
 ```keys T03 after=T02
 R/S
 ```
 
-X shows <disp v="T03">0.0000</disp>, with 1 in Y.
+X shows <disp v="T03" m="33s,35s">0.0000</disp><disp v="T03" m="STU">≈0.0000</disp>, with 1 in Y.
 
 ```keys T04 after=T03
 R/S
 ```
 
-X shows <disp v="T04">-1.0000</disp>, with 2 in Y.
+X shows <disp v="T04" m="33s,35s">-1.0000</disp><disp v="T04" m="STU">≈-1.0000</disp>, with 2 in Y.
 
 ```keys T05 after=T04
 R/S
 ```
 
-X shows <disp v="T05">0.0000</disp>, with 3 in Y.
+X shows <disp v="T05" m="33s,35s">0.0000</disp><disp v="T05" m="STU">≈0.0000</disp>, with 3 in Y.
 
 ```keys T06 after=T05
 R/S
 ```
 
-X shows <disp v="T06">3.0000</disp>, with 4 in Y. One more R/S: ISG counts to 5, past the stop value,
+X shows <disp v="T06" m="33s,35s">3.0000</disp><disp v="T06" m="STU">≈3.0000</disp>, with 4 in Y. One more R/S: ISG counts to 5, past the stop value,
 skips the GTO, and RTN ends the program.
 
 ```keys T07 after=T06
 R/S
 ```
 
-The last row stays showing: X shows <disp v="T07">3.0000</disp>. The whole table:
+The last row stays showing: X shows <disp v="T07" m="33s,35s">3.0000</disp><disp v="T07" m="STU">≈3.0000</disp>. The whole table:
 
 | $x$ | 0 | 1 | 2 | 3 | 4 |
 |---|---|---|---|---|---|
@@ -192,7 +192,7 @@ Halfway on each side of 2:
 1.5 XEQ Q ENTER
 ```
 
-X shows <disp v="G01">-0.7500</disp>.
+X shows <disp v="G01" m="33s,35s">-0.7500</disp><disp v="G01" m="STU">≈-0.7500</disp>.
 
 ```keys G02 after=G01
 2.5 XEQ Q
@@ -201,7 +201,7 @@ X shows <disp v="G01">-0.7500</disp>.
 2.5 XEQ Q ENTER
 ```
 
-X shows <disp v="G02">-0.7500</disp> too. Both are above −1 and below 0, and equal, so the curve is
+X shows <disp v="G02" m="33s,35s">-0.7500</disp><disp v="G02" m="STU">≈-0.7500</disp> too. Both are above −1 and below 0, and equal, so the curve is
 rounded at the bottom, and its two sides mirror each other about the vertical line $x = 2$. Join the
 points with a smooth curve, not straight lines. The graph of any function of the form $ax^{2} + bx + c$,
 with a not zero, has this shape, which is called a parabola.
@@ -240,7 +240,7 @@ slip: G1T1B | added the 4x | It is minus $4x$: $0.25 − 2 + 3$.
    1 XEQ Q ENTER
    ```
 
-   X shows <disp v="E01">0.0000</disp>.
+   X shows <disp v="E01" m="33s,35s">0.0000</disp><disp v="E01" m="STU">≈0.0000</disp>.
 
 2. Run Q:
 
@@ -251,7 +251,7 @@ slip: G1T1B | added the 4x | It is minus $4x$: $0.25 − 2 + 3$.
    5 XEQ Q ENTER
    ```
 
-   X shows <disp v="E02">8.0000</disp>: $q(5) = 25 − 20 + 3$, above $q(4) = 3$, so the curve is still
+   X shows <disp v="E02" m="33s,35s">8.0000</disp><disp v="E02" m="STU">≈8.0000</disp>: $q(5) = 25 − 20 + 3$, above $q(4) = 3$, so the curve is still
    rising at 5.
 
 3. The counter is 2.006: count from 2, stop at 6. XEQ U starts at the loop, skipping T's own STO:
@@ -263,13 +263,13 @@ slip: G1T1B | added the 4x | It is minus $4x$: $0.25 − 2 + 3$.
    2.006 STO I XEQ U ENTER
    ```
 
-   X shows <disp v="E03">-1.0000</disp> with 2 in Y, the row for $x = 2$. Four more R/S:
+   X shows <disp v="E03" m="33s,35s">-1.0000</disp><disp v="E03" m="STU">≈-1.0000</disp> with 2 in Y, the row for $x = 2$. Four more R/S:
 
    ```keys E03B after=E03
    R/S R/S R/S R/S
    ```
 
-   X shows <disp v="E03B">15.0000</disp> with 6 in Y: $q(6) = 36 − 24 + 3$. One more R/S ends it.
+   X shows <disp v="E03B" m="33s,35s">15.0000</disp><disp v="E03B" m="STU">≈15.0000</disp> with 6 in Y: $q(6) = 36 − 24 + 3$. One more R/S ends it.
 
 <mode m="33s,35s">
 

@@ -217,7 +217,7 @@ times, so all four levels hold 1.05, then press × five times:
 1.05 ENTER ENTER ENTER × × × × ×
 ```
 
-X shows <disp v="S14">1.3401</disp>, which is 1.05 to the sixth power: over six years the price grows
+X shows <disp v="S14" m="33s,35s">1.3401</disp><disp v="S14" m="STU">≈1.3401</disp>, which is 1.05 to the sixth power: over six years the price grows
 by about 34%. The first three presses of × use the four 1.05s you filled in. From the fourth press
 on, each × uses a copy that T dropped down.
 

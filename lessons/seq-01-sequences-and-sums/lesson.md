@@ -152,7 +152,7 @@ XEQ Z
 XEQ Z ENTER
 ```
 
-X shows <disp v="P02">510.0000</disp>, the sum the formula gave.
+X shows <disp v="P02" m="33s,35s">510.0000</disp><disp v="P02" m="STU">≈510.0000</disp>, the sum the formula gave.
 
 ```why
 ask: Why is a loop that adds the rows one by one a real check on the formula?
@@ -193,7 +193,7 @@ because: The loop uses nothing of the sum formula, only each row's own seats, so
    2 ENTER 0.75 ENTER 5 yˣ ×
    ```
 
-   X shows <disp v="E02">0.4746</disp>.
+   X shows <disp v="E02" m="33s,35s">0.4746</disp><disp v="E02" m="STU">≈0.4746</disp>.
 
 3. 1023 grains. The first term is 1 and $r = 2$, so the sum is $1 × (2^{10} − 1) ÷ (2 − 1)$, which is
    $2^{10} − 1$:

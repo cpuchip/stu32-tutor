@@ -101,7 +101,7 @@ method.
 2.001 ENTER ENTER 3 yˣ x↔y 4 × − 1 + 1 − 0.001 ÷
 ```
 
-X shows <disp v="P01">8.0060</disp>, near 8. It agrees with the rule; the algebra above is what proves it.
+X shows <disp v="P01" m="33s,35s">8.0060</disp><disp v="P01" m="STU">≈8.0060</disp>, near 8. It agrees with the rule; the algebra above is what proves it.
 
 ```why
 ask: Why does the average land a little above 8?
@@ -135,7 +135,7 @@ XEQ works it out at $x = 2$:</mode>
 XEQ 2 R/S
 ```
 
-<mode m="STU">X shows <disp v="B02">8.0000</disp>. XEQ also leaves Equation mode, so the next number
+<mode m="STU">X shows <disp v="B02">≈8.0000</disp>. XEQ also leaves Equation mode, so the next number
 typed is a number again.</mode>
 
 ## Beyond whole powers
@@ -148,7 +148,7 @@ derivative is $−1 × x^{-2}$, which is $−1 ÷ x^{2}$. At $x = 2$ that is $�
 2.001 1/x 0.5 − 0.001 ÷
 ```
 
-X shows <disp v="R01">-0.2499</disp>, near −0.25. The algebra proves it. $\frac{1}{a + h} − \frac{1}{a}$, over the common
+X shows <disp v="R01" m="33s,35s">-0.2499</disp><disp v="R01" m="STU">≈-0.2499</disp>, near −0.25. The algebra proves it. $\frac{1}{a + h} − \frac{1}{a}$, over the common
 bottom $a(a + h)$, is $(a − (a + h)) ÷ (a(a + h))$, which is $−h ÷ (a(a + h))$. Divided by $h$, the average is
 $−1 ÷ (a(a + h))$, and as $h$ shrinks it closes in on $−1 ÷ a^{2}$. So the rule holds for $n = −1$, at every a
 but 0, where $\frac{1}{x}$ has no value. A later course proves the rule for other powers, such as fractions.
@@ -188,7 +188,7 @@ GOLD EQN
    1.001 ENTER 4 yˣ 5 × 5 − 0.001 ÷
    ```
 
-   X shows <disp v="E01">20.0300</disp>.
+   X shows <disp v="E01" m="33s,35s">20.0300</disp><disp v="E01" m="STU">≈20.0300</disp>.
 
 2. $2x + 3$, which is 5 at $x = 1$. $f(1) = 1 + 3 = 4$, so the average from 1 to 1.001 is
    $(1.001^{2} + 3 × 1.001 − 4) ÷ 0.001$. On the stack, one ENTER is enough this time: x² uses only X, so the

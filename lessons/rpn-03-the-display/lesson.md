@@ -46,21 +46,22 @@ digits, and FIX 4 shows four decimal places, rounded. Set FIX 4 again (the last 
 GOLD DISP FIX 4 2 ENTER 3 ÷
 ```
 
-X shows <disp v="P01">0.6667</disp>, rounded to four places. At FIX 2 the same number shows:
+X shows <disp v="P01" m="33s,35s">0.6667</disp><disp v="P01" m="STU">≈0.6667</disp>, rounded to four places. At FIX 2 the same number shows:
 
 ```keys P02
 2 ENTER 3 ÷ GOLD DISP FIX 2
 ```
 
-X shows <disp v="P02">0.67</disp>. The display rounded, and the number kept its 34 digits. Multiply
+X shows <disp v="P02" m="33s,35s">0.67</disp><disp v="P02" m="STU">≈0.67</disp>. The display rounded, and the number kept its 34 digits. Multiply
 it by 3:
 
 ```keys P03
 2 ENTER 3 ÷ GOLD DISP FIX 2 3 ×
 ```
 
-X shows <disp v="P03">2.00</disp>, and the number underneath is exactly 2. The stored two thirds
-was rounded at its 34th digit, and three times it rounds back to 2. If the calculator had kept
+X shows <disp v="P03" m="33s,35s">2.00</disp><disp v="P03" m="STU">≈2.00</disp>, and the number underneath is exactly 2. The stored two thirds
+was rounded at its 34th digit, and three times it rounds back to 2.<mode m="STU"> The ≈ remembers that
+rounding: the number is 2, but it came through a step that was rounded.</mode> If the calculator had kept
 only the 0.67 you could see, the answer would have been 2.01.
 
 Now an eighth: divide 1 by 8, set FIX 2, and multiply by 8, as above:
@@ -86,7 +87,7 @@ With SCI 3, two thirds becomes:
 2 ENTER 3 ÷ GOLD DISP SCI 3
 ```
 
-X shows <disp v="P04">6.667E-1</disp>, which is 6.667 with the point moved one place left.
+X shows <disp v="P04" m="33s,35s">6.667E-1</disp><disp v="P04" m="STU">≈6.667E-1</disp>, which is 6.667 with the point moved one place left.
 
 ## ENG: engineering notation
 
@@ -98,7 +99,7 @@ four significant digits, wherever the point lands. 23456 at ENG 3:
 23456 GOLD DISP ENG 3
 ```
 
-X shows <disp v="P05">23.46E3</disp>: 23.46 thousand, four significant digits with two of them
+X shows <disp v="P05" m="33s,35s">23.46E3</disp><disp v="P05" m="STU">≈23.46E3</disp>: 23.46 thousand, four significant digits with two of them
 after the point.
 
 ```why
@@ -144,7 +145,7 @@ never ends, like two thirds, fills the line with as many digits as fit:
 2 ENTER 3 ÷ GOLD DISP ALL
 ```
 
-X shows <disp v="P08B">0.6666666666666666667</disp>, which is 19 of the 34 digits the
+X shows <disp v="P08B" m="33s,35s">0.6666666666666666667</disp><disp v="P08B" m="STU">≈0.6666666666666666667</disp>, which is 19 of the 34 digits the
 calculator keeps, the last one rounded.
 
 ```why
@@ -166,7 +167,7 @@ because: The screen has to stop somewhere, and the digit just past where it stop
    22 ENTER 7 ÷ GOLD DISP FIX 3
    ```
 
-   X shows <disp v="E01">3.143</disp>, close to π.
+   X shows <disp v="E01" m="33s,35s">3.143</disp><disp v="E01" m="STU">≈3.143</disp>, close to π.
 
 2. Seven ninths at FIX 2:
 
@@ -174,11 +175,11 @@ because: The screen has to stop somewhere, and the digit just past where it stop
    7 ENTER 9 ÷ GOLD DISP FIX 2
    ```
 
-   X shows <disp v="E02A">0.78</disp>. Then times 9 (the whole sequence again):
+   X shows <disp v="E02A" m="33s,35s">0.78</disp><disp v="E02A" m="STU">≈0.78</disp>. Then times 9 (the whole sequence again):
 
    ```keys E02
    7 ENTER 9 ÷ GOLD DISP FIX 2 9 ×
    ```
 
-   X shows <disp v="E02">7.00</disp>. The calculator multiplied all 34 digits of seven ninths by 9,
+   X shows <disp v="E02" m="33s,35s">7.00</disp><disp v="E02" m="STU">≈7.00</disp>. The calculator multiplied all 34 digits of seven ninths by 9,
    and the result rounds to exactly 7. Nine times the 0.78 you could see would have been 7.02.

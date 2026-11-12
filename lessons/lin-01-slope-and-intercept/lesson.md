@@ -73,13 +73,13 @@ of 4, but it is almost a wall. For each metre along, it rises:
 100 ENTER 104 ÷
 ```
 
-X shows <disp v="W01">0.9615</disp>: nearly a metre up for every metre along. Ramp B, the same way:
+X shows <disp v="W01" m="33s,35s">0.9615</disp><disp v="W01" m="STU">≈0.9615</disp>: nearly a metre up for every metre along. Ramp B, the same way:
 
 ```keys W02
 2 ENTER 6 ÷
 ```
 
-X shows <disp v="W02">0.3333</disp>: a third of a metre up for every metre along. Keeping the difference did not
+X shows <disp v="W02" m="33s,35s">0.3333</disp><disp v="W02" m="STU">≈0.3333</disp>: a third of a metre up for every metre along. Keeping the difference did not
 keep the steepness.
 
 **Scaling.** The new ramp rises 5 $m$, which is 2.5 times B's 2 $m$. A ramp of the same shape as B, only bigger, has

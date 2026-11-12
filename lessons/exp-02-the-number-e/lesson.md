@@ -59,14 +59,14 @@ the last × multiplies by it:
 1000 ENTER 0.06 ENTER 12 ÷ 1 + 12 yˣ ×
 ```
 
-X shows <disp v="C02">1,061.6778</disp>: more than 1060, because each month's interest earns
+X shows <disp v="C02" m="33s,35s">1,061.6778</disp><disp v="C02" m="STU">≈1,061.6778</disp>: more than 1060, because each month's interest earns
 interest in the months after it. Daily, 365 times:
 
 ```keys C03
 1000 ENTER 0.06 ENTER 365 ÷ 1 + 365 yˣ ×
 ```
 
-X shows <disp v="C03">1,061.8313</disp>. About thirty times as many payments added only 0.15.
+X shows <disp v="C03" m="33s,35s">1,061.8313</disp><disp v="C03" m="STU">≈1,061.8313</disp>. About thirty times as many payments added only 0.15.
 Paying ever more often keeps adding, but less each time, towards a limit.
 
 Now 2000 at 4% a year, paid quarterly: four times a year, each time a quarter of the 4%.
@@ -88,26 +88,26 @@ one twelfth:
 1 ENTER 12 1/x + 12 yˣ
 ```
 
-X shows <disp v="L01">2.6130</disp>. For $n = 365$:
+X shows <disp v="L01" m="33s,35s">2.6130</disp><disp v="L01" m="STU">≈2.6130</disp>. For $n = 365$:
 
 ```keys L02
 1 ENTER 365 1/x + 365 yˣ
 ```
 
-X shows <disp v="L02">2.7146</disp>. For a million:
+X shows <disp v="L02" m="33s,35s">2.7146</disp><disp v="L02" m="STU">≈2.7146</disp>. For a million:
 
 ```keys L03
 1 ENTER 1000000 1/x + 1000000 yˣ
 ```
 
-X shows <disp v="L03">2.7183</disp>. The limit as $n$ grows without end is the number called $e$. eˣ,
+X shows <disp v="L03" m="33s,35s">2.7183</disp><disp v="L03" m="STU">≈2.7183</disp>. The limit as $n$ grows without end is the number called $e$. eˣ,
 the second key of the top row, raises $e$ to the power in X; $e$ itself is $e$ to the power 1:
 
 ```keys L04
 1 eˣ
 ```
 
-X shows <disp v="L04">2.7183</disp>. A million shares agree with $e$ in every place FIX 4 shows; the
+X shows <disp v="L04" m="33s,35s">2.7183</disp><disp v="L04" m="STU">≈2.7183</disp>. A million shares agree with $e$ in every place FIX 4 shows; the
 calculator keeps 34 digits (ALL, from rpn-03, shows more of them), and the two first differ in the
 sixth decimal place. Like π, $e$ never ends and never repeats.
 
@@ -126,19 +126,19 @@ $e^{r}$. A million shares of 6% come close:
 1 ENTER 0.06 ENTER 1000000 ÷ + 1000000 yˣ
 ```
 
-X shows <disp v="L05">1.0618</disp>, and $e$ to the 0.06:
+X shows <disp v="L05" m="33s,35s">1.0618</disp><disp v="L05" m="STU">≈1.0618</disp>, and $e$ to the 0.06:
 
 ```keys L06
 0.06 eˣ
 ```
 
-X shows <disp v="L06">1.0618</disp>. So 1000 at 6% a year, continuously:
+X shows <disp v="L06" m="33s,35s">1.0618</disp><disp v="L06" m="STU">≈1.0618</disp>. So 1000 at 6% a year, continuously:
 
 ```keys G01
 1000 ENTER 0.06 eˣ ×
 ```
 
-X shows <disp v="G01">1,061.8365</disp>: just above the daily 1061.8313, and above every way of
+X shows <disp v="G01" m="33s,35s">1,061.8365</disp><disp v="G01" m="STU">≈1,061.8365</disp>: just above the daily 1061.8313, and above every way of
 paying 6% a fixed number of times. Over $t$ years the factor is $e^{r}$ multiplied by itself $t$ times,
 $(e^{r})^{t}$, and a power of a power multiplies the powers, as $(2^{3})^{2} = 2^{6} = 64$: so the factor is $e^{r × t}$,
 and continuous growth from an amount $a$ is $a × e^{r × t}$.
@@ -163,7 +163,7 @@ because: Paying more often always adds a little more, from yearly to monthly to 
    2500 ENTER 0.04 ENTER 10 × eˣ ×
    ```
 
-   X shows <disp v="E01">3,729.5617</disp>.
+   X shows <disp v="E01" m="33s,35s">3,729.5617</disp><disp v="E01" m="STU">≈3,729.5617</disp>.
 
 2. The factor is 1.04, ten times:
 
@@ -171,7 +171,7 @@ because: Paying more often always adds a little more, from yearly to monthly to 
    2500 ENTER 1.04 ENTER 10 yˣ ×
    ```
 
-   X shows <disp v="E02">3,700.6107</disp>: about 28.95 less than continuous growth gives.
+   X shows <disp v="E02" m="33s,35s">3,700.6107</disp><disp v="E02" m="STU">≈3,700.6107</disp>: about 28.95 less than continuous growth gives.
 
 3. The factor is $(1 + 0.04 ÷ 12)^{120}$:
 
@@ -179,7 +179,7 @@ because: Paying more often always adds a little more, from yearly to monthly to 
    2500 ENTER 0.04 ENTER 12 ÷ 1 + 120 yˣ ×
    ```
 
-   X shows <disp v="E03">3,727.0817</disp>: between the yearly and the continuous amounts, and much
+   X shows <disp v="E03" m="33s,35s">3,727.0817</disp><disp v="E03" m="STU">≈3,727.0817</disp>: between the yearly and the continuous amounts, and much
    nearer the continuous one.
 
 ## Mixed review

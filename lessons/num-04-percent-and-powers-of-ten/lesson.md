@@ -190,7 +190,7 @@ because: $10^{12}$ is twelve tens multiplied together and $10^{9}$ is nine tens,
    60 ENTER 80 BLUE %CHG
    ```
 
-   X shows <disp v="E05">33.33</disp>: a rise of about 33%, where the fall was 25%. The same 20 is
+   X shows <disp v="E05" m="33s,35s">33.33</disp><disp v="E05" m="STU">≈33.33</disp>: a rise of about 33%, where the fall was 25%. The same 20 is
    a bigger part of 60 than of 80, so going back up takes a bigger percent than coming down.
 
 ## Checkpoint

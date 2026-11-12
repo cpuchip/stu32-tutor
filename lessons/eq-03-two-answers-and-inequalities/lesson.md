@@ -58,7 +58,7 @@ The screen shows <disp v="A01" kind="eqn" m="33s,35s">ABS(X-3)=5</disp><disp v="
 XEQ 8 R/S
 ```
 
-X shows <disp v="A02">0.0000</disp>, so 8 is a solution.
+X shows <disp v="A02" m="33s,35s">0.0000</disp><disp v="A02" m="STU">≈0.0000</disp>, so 8 is a solution.
 
 ## Pointing SOLVE at an answer
 
@@ -109,14 +109,14 @@ test 0:
 GOLD EQN 2 × RCL X + 3 = 11 ENTER XEQ 0 R/S
 ```
 
-X shows <disp v="B01">-8.0000</disp>: negative, so at $x = 0$ the left side is less than the right, and
+X shows <disp v="B01" m="33s,35s">-8.0000</disp><disp v="B01" m="STU">≈-8.0000</disp>: negative, so at $x = 0$ the left side is less than the right, and
 0 makes $2x + 3 < 11$ true. Test 5, on the other side of 4:
 
 ```keys B02 after=B01
 GOLD EQN XEQ 5 R/S
 ```
 
-X shows <disp v="B02">2.0000</disp>: positive, so 5 does not. The inequality is true for every $x$ less
+X shows <disp v="B02" m="33s,35s">2.0000</disp><disp v="B02" m="STU">≈2.0000</disp>: positive, so 5 does not. The inequality is true for every $x$ less
 than 4: $x < 4$. At 4 itself the two sides are equal (XEQ showed 0 there), so 4 is not less: it
 would count only for ≤, "less than or equal to".
 
@@ -171,7 +171,7 @@ slip: B1T1B | the left side alone | The left side at 2 is $5 × 2 − 3$, which 
    GOLD EQN XEQ 4 R/S
    ```
 
-   X shows <disp v="E02B">6.0000</disp>: positive, so the left side, $3x − 6$, is more than 0 at 4. The
+   X shows <disp v="E02B" m="33s,35s">6.0000</disp><disp v="E02B" m="STU">≈6.0000</disp>: positive, so the left side, $3x − 6$, is more than 0 at 4. The
    inequality is true for every $x$ greater than 2: $x > 2$.
 
 ## Mixed review

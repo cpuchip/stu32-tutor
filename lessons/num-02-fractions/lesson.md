@@ -103,7 +103,7 @@ recipe:
 .3.4 ENTER .2.3 ×
 ```
 
-X shows <disp v="G06">0 1/2</disp>: half a cup. The $\frac{2}{3}$ you typed was stored to 34 digits, a hair
+X shows <disp v="G06" m="33s,35s">0 1/2</disp><disp v="G06" m="STU">≈0 1/2</disp>: half a cup. The $\frac{2}{3}$ you typed was stored to 34 digits, a hair
 above two thirds, but three quarters of that hair is too small to survive the rounding, so the
 answer is exactly $\frac{1}{2}$.
 
@@ -123,7 +123,7 @@ still on, add $\frac{1}{2}$ and $\frac{1}{3}$:
 .1.2 ENTER .1.3 +
 ```
 
-X shows <disp v="G04">0 5/6</disp>, and the status band shows <disp v="G04" kind="status">▼</disp>.
+X shows <disp v="G04" m="33s,35s">0 5/6</disp><disp v="G04" m="STU">≈0 5/6</disp>, and the status band shows <disp v="G04" kind="status">▼</disp>.
 The $\frac{1}{3}$ was stored as 0.3333... to 34 digits, a hair less than a third, so the sum is a hair less
 than $\frac{5}{6}$. The ▼ says the number is below the fraction shown; a ▲ would say it is above. Either way
 the difference is in the 34th digit, far too small to matter in a measurement.
@@ -134,7 +134,7 @@ Turn fraction display off again before the exercises:
 BLUE →FRAC
 ```
 
-X shows <disp v="G08">0.8333</disp>, five sixths as a decimal.
+X shows <disp v="G08" m="33s,35s">0.8333</disp><disp v="G08" m="STU">≈0.8333</disp>, five sixths as a decimal.
 
 ## Exercises
 
@@ -149,7 +149,7 @@ X shows <disp v="G08">0.8333</disp>, five sixths as a decimal.
    .2.3 ENTER .1.6 + BLUE →FRAC
    ```
 
-   X shows <disp v="E01">0 5/6</disp>, and the status band shows <disp v="E01" kind="status">▲</disp>.
+   X shows <disp v="E01" m="33s,35s">0 5/6</disp><disp v="E01" m="STU">≈0 5/6</disp>, and the status band shows <disp v="E01" kind="status">▲</disp>.
    This time both parts were stored a hair above their true values, so the sum is a hair above
    $\frac{5}{6}$: the same fraction as before, with the other arrow.
 
@@ -159,6 +159,6 @@ X shows <disp v="G08">0.8333</disp>, five sixths as a decimal.
    1.1.2 ENTER 2.2.3 ×
    ```
 
-   X shows <disp v="E02">4</disp>, with no arrow. The stored $2 \frac{2}{3}$ is a hair above its true value,
+   X shows <disp v="E02" m="33s,35s">4</disp><disp v="E02" m="STU">≈4</disp>, with no arrow. The stored $2 \frac{2}{3}$ is a hair above its true value,
    and times $1 \frac{1}{2}$ the product lands exactly halfway between two 34-digit numbers. The calculator
    rounds a tie like that to the one ending in an even digit, which here is exactly 4.

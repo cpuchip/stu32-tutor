@@ -65,20 +65,20 @@ X shows <disp v="Q01">5.0000</disp>, five points. Now $r$:
 BLUE L.R. r
 ```
 
-X shows <disp v="Q02">0.0000</disp>. By $r$, no sloping line follows these points at all, and yet
+X shows <disp v="Q02" m="33s,35s">0.0000</disp><disp v="Q02" m="STU">≈0.0000</disp>. By $r$, no sloping line follows these points at all, and yet
 each one follows q's rule exactly. The slope:
 
 ```keys Q03 after=Q02
 BLUE L.R. m
 ```
 
-X shows <disp v="Q03">0.0000</disp>, and the intercept:
+X shows <disp v="Q03" m="33s,35s">0.0000</disp><disp v="Q03" m="STU">≈0.0000</disp>, and the intercept:
 
 ```keys Q04 after=Q03
 BLUE L.R. b
 ```
 
-X shows <disp v="Q04">1.0000</disp>. The best line is flat, $y = 1$, and 1 is the average of the five
+X shows <disp v="Q04" m="33s,35s">1.0000</disp><disp v="Q04" m="STU">≈1.0000</disp>. The best line is flat, $y = 1$, and 1 is the average of the five
 values: $(3 + 0 − 1 + 0 + 3) ÷ 5$. The points mirror each other about $x = 2$: the left half falls just
 as the right half rises. Tilting the line up would bring it nearer the right half exactly as much as
 it took it away from the left half, and tilting it down the same the other way, so the best line
@@ -88,7 +88,7 @@ does not tilt. It lies flat, and fits neither half. Ask it for $x = 2$:
 2 BLUE L.R. ŷ
 ```
 
-X shows <disp v="Q05">1.0000</disp>, but $q(2)$ is −1. The line misses the lowest point by 2.
+X shows <disp v="Q05" m="33s,35s">1.0000</disp><disp v="Q05" m="STU">≈1.0000</disp>, but $q(2)$ is −1. The line misses the lowest point by 2.
 
 So $r$ near 0 does not mean $x$ and $y$ are unrelated. It means no sloping line describes them. Look at
 the points first, in a table or on a graph, and use a line only when they lie roughly
@@ -118,20 +118,22 @@ one line:
 GOLD CLEAR Σ 3 ENTER 0 Σ+ 5 ENTER 1 Σ+ 7 ENTER 2 Σ+ 9 ENTER 3 Σ+ 11 ENTER 4 Σ+ BLUE L.R. r
 ```
 
-X shows <disp v="P01">1.0000</disp>, exactly. $r$ is 1 or −1 only when every point is on one sloping
+X shows <disp v="P01" m="33s,35s">1.0000</disp><disp v="P01" m="STU">≈1.0000</disp><mode m="33s,35s">, exactly.</mode><mode m="STU">, and $r$ is
+exactly 1. The ≈ is there because the calculator marks every answer from its statistics with it: it
+can't promise them exact.</mode> $r$ is 1 or −1 only when every point is on one sloping
 line. The slope and intercept are f's own:
 
 ```keys P02 after=P01
 BLUE L.R. m
 ```
 
-X shows <disp v="P02">2.0000</disp>.
+X shows <disp v="P02" m="33s,35s">2.0000</disp><disp v="P02" m="STU">≈2.0000</disp>.
 
 ```keys P03 after=P02
 BLUE L.R. b
 ```
 
-X shows <disp v="P03">3.0000</disp>.
+X shows <disp v="P03" m="33s,35s">3.0000</disp><disp v="P03" m="STU">≈3.0000</disp>.
 
 ```why
 ask: Why does the calculator give back f's own slope and intercept, 2 and 3?
@@ -159,13 +161,13 @@ X shows <disp v="F02">3.0000</disp>, the count Σ+ left. The line itself is stil
 BLUE L.R. m
 ```
 
-X shows <disp v="F03">0.0000</disp>, and
+X shows <disp v="F03" m="33s,35s">0.0000</disp><disp v="F03" m="STU">≈0.0000</disp>, and
 
 ```keys F04 after=F03
 BLUE L.R. b
 ```
 
-X shows <disp v="F04">4.0000</disp>: the line $y = 4$, through every point.
+X shows <disp v="F04" m="33s,35s">4.0000</disp><disp v="F04" m="STU">≈4.0000</disp>: the line $y = 4$, through every point.
 
 ## Exercise
 
@@ -182,27 +184,27 @@ on a curve, not a line. $r$:
 GOLD CLEAR Σ 2 ENTER 1 Σ+ 4 ENTER 2 Σ+ 8 ENTER 3 Σ+ 16 ENTER 4 Σ+ 32 ENTER 5 Σ+ BLUE L.R. r
 ```
 
-X shows <disp v="E01">0.9333</disp>, high: by $r$ alone, a line looks good. The line at $x = 1$:
+X shows <disp v="E01" m="33s,35s">0.9333</disp><disp v="E01" m="STU">≈0.9333</disp>, high: by $r$ alone, a line looks good. The line at $x = 1$:
 
 ```keys E01B after=E01
 1 BLUE L.R. ŷ
 ```
 
-X shows <disp v="E01B">-2.0000</disp>, below zero, for something that starts at 2 and only grows.
+X shows <disp v="E01B" m="33s,35s">-2.0000</disp><disp v="E01B" m="STU">≈-2.0000</disp>, below zero, for something that starts at 2 and only grows.
 At $x = 3$:
 
 ```keys E01C after=E01B
 3 BLUE L.R. ŷ
 ```
 
-X shows <disp v="E01C">12.4000</disp>, where the data says 8. Inside the data the line runs too low at
+X shows <disp v="E01C" m="33s,35s">12.4000</disp><disp v="E01C" m="STU">≈12.4000</disp>, where the data says 8. Inside the data the line runs too low at
 the ends and too high in the middle: the mark of points on a curve. Past the data it is worse:
 
 ```keys E01D after=E01C
 6 BLUE L.R. ŷ
 ```
 
-X shows <disp v="E01D">34.0000</disp>, and the next doubling is 64. A high $r$ does not make a line the
+X shows <disp v="E01D" m="33s,35s">34.0000</disp><disp v="E01D" m="STU">≈34.0000</disp>, and the next doubling is 64. A high $r$ does not make a line the
 right model; the shape of the points decides. Doubling has its own kind of function, which exp-01
 meets.
 

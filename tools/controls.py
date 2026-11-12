@@ -237,7 +237,7 @@ CONTROLS_FOR = {
          "has no display vector D-V06"),
         ("a quoted line of the wrong kind", "lesson.md", 'kind="view">B=49.75<', 'kind="prompt">B=49.75<', {},
          "(view), the prose 'B=49.75' (prompt)"),
-        ("a stored value shown rounded but quoted whole", "lesson.md", '<disp v="V01">0.08</disp>', '<disp v="V01">0.0825</disp>',
+        ("a stored value shown rounded but quoted whole", "lesson.md", '<disp v="V01" m="33s,35s">0.08</disp>', '<disp v="V01" m="33s,35s">0.0825</disp>',
          {}, "D-V01: the prose shows '0.0825'"),
         ("a variable key that is not the letter's", "lesson.md", "0.0825 STO A 40 RCL × A\n", "0.0825 STO A 40 RCL × B\n", {},
          "V03: printed keys and vector disagree in 33s mode: DIFF"),
@@ -246,11 +246,11 @@ CONTROLS_FOR = {
 CONTROLS_FOR["rpn-03-the-display"] = [
     ("a quote verified at the setup's setting while its example ends at another",
      [("fmt-vectors.txt", "| SCI 3 |  | 6.667E-1", "| FIX 4 |  | 0.6667"),
-      ("lesson.md", '<disp v="P04">6.667E-1</disp>', '<disp v="P04">0.6667</disp>')], None, None, {},
+      ("lesson.md", '<disp v="P04" m="33s,35s">6.667E-1</disp>', '<disp v="P04" m="33s,35s">0.6667</disp>')], None, None, {},
      "D-P04: display vector at 'FIX 4', vector P04 ends at 'SCI 3'"),
     ("a long display verified at the runner's width (22), not the device's (21)",
      [("fmt-vectors.txt", "| ALL | w=21 | 0.6666666666666666667", "| ALL |  | 0.66666666666666666667"),
-      ("lesson.md", '<disp v="P08B">0.6666666666666666667</disp>', '<disp v="P08B">0.66666666666666666667</disp>')],
+      ("lesson.md", '<disp v="P08B" m="33s,35s">0.6666666666666666667</disp>', '<disp v="P08B" m="33s,35s">0.66666666666666666667</disp>')],
      None, None, {}, "D-P08B: the device's X line shows '0.6666666666666666667'"),
     ("a screen claim worded with 'showed'", "lesson.md", "## ALL: no padding\n",
      "## ALL: no padding\n\nAt FIX 4 the screen showed 0.1250 for it.\n", {},
@@ -321,7 +321,7 @@ CONTROLS_FOR["eq-01-equations"] = [
      "Q05A: printed keys and vector disagree in 33s mode: LEFT: the keys end with a prompt waiting"),
     ("checking a second value without showing the equation again", "lesson.md", "```keys Q04 after=Q03\nGOLD EQN XEQ 5 R/S\n",
      "```keys Q04 after=Q03\nXEQ 5 R/S\n", {}, "Q04: printed keys and vector disagree in 33s mode"),
-    ("← over SOLVE's view quoted as clearing X too", "lesson.md", 'v="Q05C">4.0000<', 'v="Q05C">0.0000<', {},
+    ("← over SOLVE's view quoted as clearing X too", "lesson.md", 'v="Q05C" m="33s,35s">4.0000<', 'v="Q05C" m="33s,35s">0.0000<', {},
      "D-Q05C: the prose shows '0.0000'"),
 ]
 CONTROLS_FOR["fn-01-functions-as-programs"] = [
@@ -403,7 +403,7 @@ CONTROLS_FOR["lin-02-lines-through-data"] = [
      "```keys D01\nGOLD CLEAR Σ 1 ENTER 3 Σ+\n", {}, "D01: printed keys and vector disagree in 33s mode"),
     ("the statistics not cleared first", "lesson.md", "```keys D01\nGOLD CLEAR Σ 3 ENTER 1 Σ+\n",
      "```keys D01\n3 ENTER 1 Σ+\n", {}, "D01: printed keys and vector disagree in 33s mode"),
-    ("r quoted with the sign of the falling set", "lesson.md", 'v="D05">0.9851<', 'v="D05">-0.9851<', {},
+    ("r quoted with the sign of the falling set", "lesson.md", 'v="D05" m="33s,35s">0.9851<', 'v="D05" m="33s,35s">-0.9851<', {},
      "D-D05: the prose shows '-0.9851'"),
     ("Σ− taken as removing the last point, whatever its values", "lesson.md", "```keys W02A after=W01\n11 ENTER 5 GOLD Σ−\n",
      "```keys W02A after=W01\nGOLD Σ−\n", {}, "W02A: printed keys and vector disagree in 33s mode"),
@@ -418,9 +418,9 @@ CONTROLS_FOR["lin-03-when-a-line-does-not-fit"] = [
      "item AV1T1 works the same operands as lin-03 exercise 1 in its unit"),
     ("q(2) keyed as 1, its sign lost", "lesson.md", "0 ENTER 1 Σ+ 1 +/− ENTER 2 Σ+", "0 ENTER 1 Σ+ 1 ENTER 2 Σ+", {},
      "Q01: printed keys and vector disagree in 33s mode"),
-    ("the curve's r quoted as a weak rising fit", "lesson.md", 'v="Q02">0.0000<', 'v="Q02">0.3000<', {},
+    ("the curve's r quoted as a weak rising fit", "lesson.md", 'v="Q02" m="33s,35s">0.0000<', 'v="Q02" m="33s,35s">0.3000<', {},
      "D-Q02: the prose shows '0.3000'"),
-    ("the doubling estimate quoted as the doubling", "lesson.md", 'v="E01D">34.0000<', 'v="E01D">64.0000<', {},
+    ("the doubling estimate quoted as the doubling", "lesson.md", 'v="E01D" m="33s,35s">34.0000<', 'v="E01D" m="33s,35s">64.0000<', {},
      "D-E01D: the prose shows '64.0000'"),
     ("flat data's r quoted as 0 instead of the refusal", "lesson.md", 'v="F01" kind="message">STAT ERROR<',
      'v="F01">0.0000<', {}, "F01: working through in order, X shows 'STAT ERROR' (message)"),
@@ -446,7 +446,7 @@ CONTROLS_FOR["poly-02-roots-with-solve"] = [
     ("guesses that straddle two roots (0 and 2.5) quoted as the first", "lesson.md",
      "```keys S01 after=R05\n0 STO X 1.5 GOLD EQN", "```keys S01 after=R05\n0 STO X 2.5 GOLD EQN", {},
      "S01: printed keys and vector disagree in 33s mode"),
-    ("a sign misread in the table of values", "lesson.md", 'v="R04">-0.3750<', 'v="R04">0.3750<', {},
+    ("a sign misread in the table of values", "lesson.md", 'v="R04" m="33s,35s">-0.3750<', 'v="R04" m="33s,35s">0.3750<', {},
      "D-R04: the prose shows '0.3750'"),
     ("x² + 1 quoted as having a root", "lesson.md", 'v="N01" kind="message">NO ROOT FND<',
      'v="N01" kind="view">X=0.0000<', {}, "N01: the device's X line shows 'NO ROOT FND' (message)"),
@@ -493,7 +493,7 @@ CONTROLS_FOR["exp-01-growth-and-decay"] = [
      "```keys G01\n500 ENTER 0.04 ENTER 10 yˣ ×\n", {}, "G01: printed keys and vector disagree in 33s mode"),
     ("15% loss keyed as a factor of 1.15", "lesson.md", "   18000 ENTER 0.85 ENTER 4 yˣ ×\n",
      "   18000 ENTER 1.15 ENTER 4 yˣ ×\n", {}, "E02: printed keys and vector disagree in 33s mode"),
-    ("the decay quoted as halfway between 20 and 10", "lesson.md", 'v="D01">14.1421<', 'v="D01">15.0000<', {},
+    ("the decay quoted as halfway between 20 and 10", "lesson.md", 'v="D01" m="33s,35s">14.1421<', 'v="D01" m="33s,35s">15.0000<', {},
      "D-D01: the prose shows '15.0000'"),
 ]
 CONTROLS_FOR["exp-02-the-number-e"] = [
@@ -501,7 +501,7 @@ CONTROLS_FOR["exp-02-the-number-e"] = [
      "```keys C02\n1000 ENTER 0.06 1 + 12 yˣ ×\n", {}, "C02: printed keys and vector disagree in 33s mode"),
     ("continuous growth keyed with 10ˣ for eˣ", "lesson.md", "```keys G01\n1000 ENTER 0.06 eˣ ×\n",
      "```keys G01\n1000 ENTER 0.06 GOLD 10ˣ ×\n", {}, "G01: printed keys and vector disagree in 33s mode"),
-    ("the limit quoted as e to more places than FIX 4 shows", "lesson.md", 'v="L03">2.7183<', 'v="L03">2.71828<', {},
+    ("the limit quoted as e to more places than FIX 4 shows", "lesson.md", 'v="L03" m="33s,35s">2.7183<', 'v="L03" m="33s,35s">2.71828<', {},
      "D-L03: the prose shows '2.71828'"),
 ]
 CONTROLS_FOR["exp-03-logarithms"] = [
@@ -509,7 +509,7 @@ CONTROLS_FOR["exp-03-logarithms"] = [
      "```keys S01\n1.04 GOLD LOG 2 GOLD LOG ÷\n", {}, "S01: printed keys and vector disagree in 33s mode"),
     ("LOG keyed without its gold shift", "lesson.md", "```keys L01\n1000 GOLD LOG\n", "```keys L01\n1000 LOG\n", {},
      "'LOG': no key has that legend on its face"),
-    ("the half-life quoted as negative", "lesson.md", 'v="H01">6.5788<', 'v="H01">-6.5788<', {},
+    ("the half-life quoted as negative", "lesson.md", 'v="H01" m="33s,35s">6.5788<', 'v="H01" m="33s,35s">-6.5788<', {},
      "D-H01: the prose shows '-6.5788'"),
 ]
 CONTROLS_FOR["exp-04-exponential-equations"] = [
@@ -517,10 +517,10 @@ CONTROLS_FOR["exp-04-exponential-equations"] = [
      "```keys Q01\nGOLD EQN eˣ RCL X = 3 × RCL X ENTER\n", {}, "Q01: printed keys and vector disagree in 33s mode"),
     ("guesses that straddle both roots (0 and 2)", "lesson.md", "```keys S01 after=Q04\n0 STO X 1 GOLD EQN",
      "```keys S01 after=Q04\n0 STO X 2 GOLD EQN", {}, "S01: printed keys and vector disagree in 33s mode"),
-    ("a sign misread at x = 1", "lesson.md", 'v="Q03">-0.2817<', 'v="Q03">0.2817<', {}, "D-Q03: the prose shows '0.2817'"),
+    ("a sign misread at x = 1", "lesson.md", 'v="Q03" m="33s,35s">-0.2817<', 'v="Q03" m="33s,35s">0.2817<', {}, "D-Q03: the prose shows '0.2817'"),
 ]
 CONTROLS_FOR["trig-01-degrees-and-radians"] = [
-    ("the radians example quoted as if still in degrees", "lesson.md", 'v="A02">-0.9880<', 'v="A02">0.5000<', {},
+    ("the radians example quoted as if still in degrees", "lesson.md", 'v="A02" m="33s,35s">-0.9880<', 'v="A02" m="33s,35s">0.5000<', {},
      "D-A02: the prose shows '0.5000'"),
     ("the status band quoted as DEG", "lesson.md", 'v="A02" kind="status">RAD<', 'v="A02" kind="status">DEG<', {},
      "A02: the status band shows"),
@@ -534,7 +534,7 @@ CONTROLS_FOR["trig-02-right-triangles"] = [
      "```keys L01\n5 ENTER 70 COS ×\n", {}, "L01: printed keys and vector disagree in 33s mode"),
     ("an angle from SIN instead of ASIN", "lesson.md", "```keys A01\n3 ENTER 5 ÷ GOLD ASIN\n", "```keys A01\n3 ENTER 5 ÷ SIN\n", {},
      "A01: printed keys and vector disagree in 33s mode"),
-    ("the tree's height quoted from the wrong ratio (12 ÷ tan 35)", "lesson.md", 'v="T01">8.4025<', 'v="T01">17.1378<', {},
+    ("the tree's height quoted from the wrong ratio (12 ÷ tan 35)", "lesson.md", 'v="T01" m="33s,35s">8.4025<', 'v="T01" m="33s,35s">17.1378<', {},
      "D-T01: the prose shows '17.1378'"),
 ]
 CONTROLS_FOR["trig-03-the-unit-circle"] = [
@@ -548,7 +548,7 @@ CONTROLS_FOR["trig-03-the-unit-circle"] = [
 CONTROLS_FOR["trig-04-polar-and-rectangular"] = [
     ("->POL with x and y the wrong way round", "lesson.md", "```keys P01\n4 ENTER 3 BLUE ANGLE →POL\n",
      "```keys P01\n3 ENTER 4 BLUE ANGLE →POL\n", {}, "P01: printed keys and vector disagree in 33s mode"),
-    ("the second-quadrant angle quoted as ATAN gives it", "lesson.md", 'v="Q01">126.8699<', 'v="Q01">-53.1301<', {},
+    ("the second-quadrant angle quoted as ATAN gives it", "lesson.md", 'v="Q01" m="33s,35s">126.8699<', 'v="Q01" m="33s,35s">-53.1301<', {},
      "D-Q01: the prose shows '-53.1301'"),
     ("->REC with r and the angle the wrong way round", "lesson.md", "```keys R01\n30 ENTER 10 BLUE ANGLE →REC\n",
      "```keys R01\n10 ENTER 30 BLUE ANGLE →REC\n", {}, "R01: printed keys and vector disagree in 33s mode"),
@@ -586,7 +586,7 @@ CONTROLS_FOR["cnt-01-counting"] = [
      "```keys C01\n10 ENTER 3 BLUE PROB Pn,r\n", {}, "C01: printed keys and vector disagree in 33s mode"),
     ("n and r typed the wrong way round", "lesson.md", "```keys P01\n10 ENTER 3 BLUE PROB Pn,r\n",
      "```keys P01\n3 ENTER 10 BLUE PROB Pn,r\n", {}, "P01: printed keys and vector disagree in 33s mode"),
-    ("52! quoted with one power of ten too many", "lesson.md", 'v="F02">8.0658E67<', 'v="F02">8.0658E68<', {},
+    ("52! quoted with one power of ten too many", "lesson.md", 'v="F02" m="33s,35s">8.0658E67<', 'v="F02" m="33s,35s">8.0658E68<', {},
      "D-F02: the prose shows '8.0658E68'"),
 ]
 CONTROLS_FOR["prob-01-probability"] = [
@@ -598,11 +598,11 @@ CONTROLS_FOR["prob-01-probability"] = [
       ("vectors.txt", "MODE33 FIX4 13 ENTER 4 NCR 52 ENTER 4 NCR / | X=0.002641056422569027611044417767106843",
        "MODE33 FIX4 2 ENTER 2 * | X=4")], None, None, {},
      "keys block H01T works the same operands as CP9B in its unit"),
-    ("the die game quoted as fair (expected value 0)", "lesson.md", 'v="X01">-0.1667<', 'v="X01">0.0000<', {},
+    ("the die game quoted as fair (expected value 0)", "lesson.md", 'v="X01" m="33s,35s">-0.1667<', 'v="X01" m="33s,35s">0.0000<', {},
      "D-X01: the prose shows '0.0000'"),
     ("not worked the wrong way round: 1/6 - 1", "lesson.md", "```keys N01\n1 ENTER 1 ENTER 6 ÷ −\n",
      "```keys N01\n1 ENTER 6 ÷ 1 −\n", {}, "N01: printed keys and vector disagree in 33s mode"),
-    ("at least one 6 quoted without the not: (5/6)^4", "lesson.md", 'v="A02">0.5177<', 'v="A02">0.4823<', {},
+    ("at least one 6 quoted without the not: (5/6)^4", "lesson.md", 'v="A02" m="33s,35s">0.5177<', 'v="A02" m="33s,35s">0.4823<', {},
      "D-A02: the prose shows '0.4823'"),
     ("the same seed shown without seeding again", "lesson.md",
      "7 BLUE SEED GOLD RAND STO A 7 BLUE SEED GOLD RAND RCL A −", "7 BLUE SEED GOLD RAND STO A GOLD RAND RCL A −",
@@ -618,9 +618,9 @@ CONTROLS_FOR["lim-01-approaching-a-limit"] = [
      "P01A: printed keys and vector disagree in 33s mode"),
     ("two sides that disagree quoted as agreeing", "lesson.md", 'v="N04">-1.0000<', 'v="N04">1.0000<', {},
      "D-N04: the prose shows '1.0000'"),
-    ("sin(x)/x quoted at FIX 4, hiding the approach", "lesson.md", 'v="S02">0.999983333<', 'v="S02">1.0000<', {},
+    ("sin(x)/x quoted at FIX 4, hiding the approach", "lesson.md", 'v="S02" m="33s,35s">0.999983333<', 'v="S02" m="33s,35s">1.0000<', {},
      "D-S02: the prose shows '1.0000'"),
-    ("the limit from below quoted as from above", "lesson.md", 'v="L04">1.9000<', 'v="L04">2.1000<', {},
+    ("the limit from below quoted as from above", "lesson.md", 'v="L04" m="33s,35s">1.9000<', 'v="L04" m="33s,35s">2.1000<', {},
      "D-L04: the prose shows '2.1000'"),
 ]
 CONTROLS_FOR["lim-02-rates-of-change"] = [
@@ -629,7 +629,7 @@ CONTROLS_FOR["lim-02-rates-of-change"] = [
      "a plain x² that is not a recorded key"),
     ("program D without taking away d(1)", "lesson.md", "GOLD LBL D STO H 1 + GOLD x² 2 × 2 − RCL H ÷ BLUE RTN",
      "GOLD LBL D STO H 1 + GOLD x² 2 × RCL H ÷ BLUE RTN", {}, "P01A: printed keys and vector disagree in 33s mode"),
-    ("the cancelled h = 1E-34 quoted as if it still gave 4", "lesson.md", 'v="D05">0.0000<', 'v="D05">4.0000<', {},
+    ("the cancelled h = 1E-34 quoted as if it still gave 4", "lesson.md", 'v="D05" m="33s,35s">0.0000<', 'v="D05" m="33s,35s">4.0000<', {},
      "D-D05: the prose shows '4.0000'"),
     ("the average speed quoted as the speed at an instant", "lesson.md", 'v="A01">8.0000<', 'v="A01">4.0000<', {},
      "D-A01: the prose shows '4.0000'"),
@@ -639,13 +639,13 @@ CONTROLS_FOR["int-01-area-under-a-curve"] = [
      "GOLD LBL B RCL I BLUE POW IP 3 × RCL N ÷ GOLD x² 3 × RCL N ÷ STO + T BLUE ISG I GOLD GTO B RCL T",
      "GOLD LBL B RCL I BLUE POW IP 1 − 3 × RCL N ÷ GOLD x² 3 × RCL N ÷ STO + T BLUE ISG I GOLD GTO B RCL T", {},
      "P01A: printed keys and vector disagree in 33s mode"),
-    ("three rectangles quoted as the true area", "lesson.md", 'v="A01">14.0000<', 'v="A01">9.0000<', {},
+    ("three rectangles quoted as the true area", "lesson.md", 'v="A01" m="33s,35s">14.0000<', 'v="A01" m="33s,35s">9.0000<', {},
      "D-A01: the prose shows '9.0000'"),
     ("the integral's limits the wrong way round", "lesson.md", "GOLD EQN 0 ENTER 3 GOLD EQN GOLD ∫ X",
      "GOLD EQN 3 ENTER 0 GOLD EQN GOLD ∫ X", {}, "I01B: printed keys and vector disagree in 33s mode"),
 ]
 CONTROLS_FOR["prob-01b-loot-boxes"] = [
-    ("at least one in 100 quoted as 1 in 100 makes it certain", "lesson.md", 'v="P03">0.6340<', 'v="P03">1.0000<', {},
+    ("at least one in 100 quoted as 1 in 100 makes it certain", "lesson.md", 'v="P03" m="33s,35s">0.6340<', 'v="P03" m="33s,35s">1.0000<', {},
      "D-P03: the prose shows '1.0000'"),
     ("the pity timer's sum without taking 0.99^90 from 1", "lesson.md", "```keys T01\n1 ENTER 0.99 ENTER 90 yˣ − 0.01 ÷\n",
      "```keys T01\n0.99 ENTER 90 yˣ 0.01 ÷\n", {}, "T01: printed keys and vector disagree in 33s mode"),
@@ -687,7 +687,7 @@ CONTROLS_FOR["hms-01-hours-minutes-and-seconds"] = [
     ("the algebraic block typed number first, which is a SYNTAX ERROR", "lesson.md",
      "```keys H03 entry=alg\nBLUE ANGLE →HMS 1.5 ▶ ENTER\n", "```keys H03 entry=alg\n1.5 BLUE ANGLE →HMS ENTER\n", {},
      "H03: printed keys and vector disagree in STU alg mode"),
-    ("Vega's declination quoted as typed, not as HMS-> gives it", "lesson.md", 'v="H05">38.7836<', 'v="H05">38.4701<',
+    ("Vega's declination quoted as typed, not as HMS-> gives it", "lesson.md", 'v="H05" m="33s,35s">38.7836<', 'v="H05" m="33s,35s">38.4701<',
      {}, "D-H05: the prose shows '38.4701'"),
     ("an algebraic keys block scoped to 33s mode", "lesson.md", "```keys H01 entry=alg\n",
      "```keys H01 entry=alg mode=33s\n", {}, "H01: entry=alg in 33s mode"),
@@ -705,10 +705,10 @@ CONTROLS_FOR["par-01-parallax"] = [
      "```keys P01\n0.3136 TAN 1/x\n", {}, "P01: printed keys and vector disagree in 33s mode"),
     ("the parallax taken as the distance (no 1/x)", "vectors.txt", "MODE33 FIX4 DEG 0.3136 INV | X=3.188775510204081632653061224489796",
      "MODE33 FIX4 DEG 0.3136 ENTER | X=3.188775510204081632653061224489796", {}, "vectors in 33s mode"),
-    ("the range's ends swapped in the prose", "lesson.md", 'v="U02">1.3450<', 'v="U02">1.3500<', {},
+    ("the range's ends swapped in the prose", "lesson.md", 'v="U02" m="33s,35s">1.3450<', 'v="U02" m="33s,35s">1.3500<', {},
      "D-U02: the prose shows '1.3500'"),
     ("Bessel's light-years quoted as he wrote them, not as the calculator gives them", "lesson.md",
-     'v="P05">10.4004<', 'v="P05">10.3000<', {}, "D-P05: the prose shows '10.3000'"),
+     'v="P05" m="33s,35s">10.4004<', 'v="P05" m="33s,35s">10.3000<', {}, "D-P05: the prose shows '10.3000'"),
 ]
 # sky-01: before you go out (astronomy-practice unit 1), STU with alg and rpn, with no calculator work since abacus
 # #12844 (Michael on card astro-no-calc): no setup and no keys blocks, its items alone.
@@ -806,6 +806,13 @@ CONTROLS_FOR["start-01-the-calculator"] = [
      "F03: the status band shows"),
     ("exercise 2 without fraction display turned on", "lesson.md", "BLUE →FRAC 9 ÷ 4 ENTER\n", "9 ÷ 4 ENTER\n", {},
      "E02: printed keys and vector disagree in STU alg mode"),
+    # Unit 096 (look A): STU's RPN home draws ≈ before a number not shown exact; ALG draws none.
+    ("the ≈ left off a rounded number (RPN)", "lesson.md", '<disp v="F04" e="rpn">≈0.3333<',
+     '<disp v="F04" e="rpn">0.3333<', {}, "D-F04: the device draws ≈ before X's number, the prose no mark (STU rpn)"),
+    ("a ≈ quoted where ALG draws none", "lesson.md", '<disp v="F04" e="alg">0.3333<',
+     '<disp v="F04" e="alg">≈0.3333<', {}, "D-F04: the device draws no mark before X's number, the prose ≈ (STU alg)"),
+    ("a ≈ quoted on an exact number", "lesson.md", '<disp v="C01">12.0000<', '<disp v="C01">≈12.0000<', {},
+     "D-C01: the device draws no mark before X's number, the prose ≈"),
 ]
 DR1T1_AT_3 = [  # DR1T1 planted at t = 3: DR1M1's function and input, so DR1M1's numbers and answer
     ("lesson.md", "how fast is the ball going at $t = 3.5$? Work it out by hand.\noperands: 2, 2, 3.5",
@@ -821,7 +828,7 @@ CONTROLS_FOR["der-01-the-derivative"] = [
      "item DR1T1 works the same operands as DR1M1"),
     ("d(a) in program V not doubled", "lesson.md", "RCL A GOLD x² 2 × − RCL H", "RCL A GOLD x² − RCL H", {},
      "V01A: printed keys and vector disagree in 33s mode"),
-    ("the speed at t = 3 quoted as exactly 12", "lesson.md", '<disp v="D01">12.0020<', '<disp v="D01">12.0000<', {},
+    ("the speed at t = 3 quoted as exactly 12", "lesson.md", '<disp v="D01" m="33s,35s">12.0020<', '<disp v="D01" m="33s,35s">12.0000<', {},
      "D-D01: the prose shows '12.0000'"),
     ("h from below keyed with − instead of +/−", "lesson.md", "```keys D02 after=D01\n0.001 +/− XEQ V\n",
      "```keys D02 after=D01\n0.001 − XEQ V\n", {}, "D02: printed keys and vector disagree in 33s mode"),
@@ -836,7 +843,7 @@ CONTROLS_FOR["der-01-the-derivative"] = [
 CONTROLS_FOR["der-02-the-power-rule"] = [
     ("the cube's x↔y left out (4 x 2.001^3 taken)", "lesson.md", "2.001 ENTER ENTER 3 yˣ x↔y 4 ×", "2.001 ENTER ENTER 3 yˣ 4 ×", {},
      "P01: printed keys and vector disagree in 33s mode"),
-    ("an average quoted as the exact 8", "lesson.md", '<disp v="P01">8.0060<', '<disp v="P01">8.0000<', {},
+    ("an average quoted as the exact 8", "lesson.md", '<disp v="P01" m="33s,35s">8.0060<', '<disp v="P01" m="33s,35s">8.0000<', {},
      "D-P01: the prose shows '8.0000'"),
     ("Casimir's 3x² − 4 quoted as its text, not as drawn", "lesson.md", 'kind="drawn">3X^2-4<', 'kind="drawn">3×X^2-4<', {},
      "B01: the device's glass shows '3X^2-4' (drawn), the prose '3×X^2-4' (drawn)"),

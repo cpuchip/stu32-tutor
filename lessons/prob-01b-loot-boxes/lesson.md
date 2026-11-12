@@ -68,13 +68,13 @@ first for the subtraction:
 0.99 ENTER 10 yˣ 1 x↔y −
 ```
 
-X shows <disp v="P02">0.0956</disp>: under a 1 in 10 chance after 10 pulls. And in 100 pulls:
+X shows <disp v="P02" m="33s,35s">0.0956</disp><disp v="P02" m="STU">≈0.0956</disp>: under a 1 in 10 chance after 10 pulls. And in 100 pulls:
 
 ```keys P03
 0.99 ENTER 100 yˣ 1 x↔y −
 ```
 
-X shows <disp v="P03">0.6340</disp>. A hundred pulls of a 1-in-100 item can sound like a sure thing, but
+X shows <disp v="P03" m="33s,35s">0.6340</disp><disp v="P03" m="STU">≈0.6340</disp>. A hundred pulls of a 1-in-100 item can sound like a sure thing, but
 about 37 players in 100 still have not got the item.
 
 ```why
@@ -117,13 +117,13 @@ on the stack while $0.99^{90}$ is worked out:
 1 ENTER 0.99 ENTER 90 yˣ − 0.01 ÷
 ```
 
-X shows <disp v="T01">59.5268</disp> pulls on average. Carrying on, at 1.50 a pull:
+X shows <disp v="T01" m="33s,35s">59.5268</disp><disp v="T01" m="STU">≈59.5268</disp> pulls on average. Carrying on, at 1.50 a pull:
 
 ```keys T02 after=T01
 1.5 ×
 ```
 
-X shows <disp v="T02">89.2902</disp> dollars on average, and never more than $90 × 1.50$, 135 dollars. The
+X shows <disp v="T02" m="33s,35s">89.2902</disp><disp v="T02" m="STU">≈89.2902</disp> dollars on average, and never more than $90 × 1.50$, 135 dollars. The
 timer is no small thing: since $0.99^{89}$ is about 0.41, about 4 players in 10 reach the guaranteed pull. And
 the average is still close to 90 dollars for one item.
 
@@ -141,7 +141,7 @@ two? None is $0.99^{100}$:
 0.99 ENTER 100 yˣ
 ```
 
-X shows <disp v="K00">0.3660</disp>. For exactly one, one particular pull must be the item and the other 99
+X shows <disp v="K00" m="33s,35s">0.3660</disp><disp v="K00" m="STU">≈0.3660</disp>. For exactly one, one particular pull must be the item and the other 99
 must not: $0.01 × 0.99^{99}$. The one could be any of the 100 pulls, $C(100, 1)$ ways to choose which,
 and only one of those ways can happen at a time, so their chances add: $C(100, 1) × 0.01 × 0.99^{99}$. The first
 product waits in Y while $0.99^{99}$ is worked out:
@@ -150,13 +150,13 @@ product waits in Y while $0.99^{99}$ is worked out:
 100 ENTER 1 BLUE PROB Cn,r 0.01 × 0.99 ENTER 99 yˣ ×
 ```
 
-X shows <disp v="K01">0.3697</disp>. Exactly two is $C(100, 2) × 0.01^{2} × 0.99^{98}$, two pulls chosen from 100:
+X shows <disp v="K01" m="33s,35s">0.3697</disp><disp v="K01" m="STU">≈0.3697</disp>. Exactly two is $C(100, 2) × 0.01^{2} × 0.99^{98}$, two pulls chosen from 100:
 
 ```keys K02
 100 ENTER 2 BLUE PROB Cn,r 0.01 GOLD x² × 0.99 ENTER 98 yˣ ×
 ```
 
-X shows <disp v="K02">0.1849</disp>. None, one and two together are about 0.92, so three or more rare
+X shows <disp v="K02" m="33s,35s">0.1849</disp><disp v="K02" m="STU">≈0.1849</disp>. None, one and two together are about 0.92, so three or more rare
 items in 100 pulls happen about 8 times in 100, roughly 1 in 13.
 
 Now an item that comes in 2% of pulls: how likely is exactly one in 50 pulls?
@@ -202,7 +202,7 @@ before paying, what an item is really worth to you.
    0.95 ENTER 20 yˣ 1 x↔y −
    ```
 
-   X shows <disp v="E01">0.6415</disp>: about 64 in 100, not a sure thing.
+   X shows <disp v="E01" m="33s,35s">0.6415</disp><disp v="E01" m="STU">≈0.6415</disp>: about 64 in 100, not a sure thing.
 
 2. $1 ÷ 0.05$ pulls:
 
@@ -224,7 +224,7 @@ before paying, what an item is really worth to you.
    1 ENTER 0.95 ENTER 20 yˣ − 0.05 ÷
    ```
 
-   X shows <disp v="E03">12.8303</disp> pulls, fewer than the 20 without the timer.
+   X shows <disp v="E03" m="33s,35s">12.8303</disp><disp v="E03" m="STU">≈12.8303</disp> pulls, fewer than the 20 without the timer.
 
 ## Mixed review
 

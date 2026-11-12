@@ -1386,7 +1386,7 @@ class Lesson:
         own_keys = {bid: own for bid, own, _, _, _, _ in found}
         continued = {after for (_, _, _, _, _, after) in found if after}
         byid = {v[0]: v for v in vectors}
-        shown, screen, screen_y, status, graph, drawn = set(), {}, {}, {}, {}, {}
+        shown, screen, screen_y, status, graph, drawn, xmark = set(), {}, {}, {}, {}, {}, {}
 
         def line_says(xline, yline, qkind, text, glass=None):
             # STU draws an STU-stamped equation in 2D (firmware 080): x keeps casim's text, and glass is
@@ -1449,6 +1449,8 @@ class Lesson:
                 graph[bid] = dict(zip(GRAPH_KINDS, gl[0][2:8])) if gl and len(gl[0]) == 8 else {}
                 dl = [l.split("\t") for l in k.stdout.splitlines() if l.startswith("DRAWN\t")]
                 drawn[bid] = dl[0][2] if dl and len(dl[0]) == 3 else None
+                ml = [l.split("\t") for l in k.stdout.splitlines() if l.startswith("XMARK\t")]
+                xmark[bid] = ml[0][1] if ml and len(ml[0]) == 2 and ml[0][1] != "-" else ""
         # 3b. Items (docs/lesson-format.md, Items): the answer and each slip are vectors of this view;
         # the working printed with an item presses to its answer's ops; each slip's value is not the
         # answer; and nothing shows the answer or a slip before the item asks it. The page reveals an
@@ -1614,6 +1616,14 @@ class Lesson:
             ftext, ind = f[5], ""
             if f[3].startswith("FRAC") and ftext.endswith((" v", " ^")):
                 ftext, ind = ftext[:-2], ftext[-1]
+            # Unit 096 (look A): STU's home draws ≈ before X's number when the value is rounded or the display
+            # drops a nonzero digit of it, kept apart from X's text (screen.h xmark). A quote writes it as drawn,
+            # "≈0.3333", and is judged on the mark (keyrun's XMARK line) and on the number after it.
+            qmark = "≈" if shown_text.startswith("≈") else ""
+            if qmark != xmark.get(vid, ""):
+                self.bad(f"D-{vid}: the device draws {'≈' if xmark.get(vid) else 'no mark'} before X's number, "
+                         f"the prose {'≈' if qmark else 'no mark'} ({mode})")
+            shown_text = shown_text[len(qmark):]
             if ftext != shown_text:
                 self.bad(f"D-{vid}: the prose shows '{shown_text}', the display vector '{f[5]}'")
             if f[3].startswith("FRAC"):
@@ -1659,9 +1669,12 @@ class Lesson:
         r = self.run(f"{self.core}/build/keyrun", "--sequence", t.name)
         os.unlink(t.name)
         seq_x, seq_y, seq_st, seq_val, seq_graph, seq_drawn, seq_expr = {}, {}, {}, {}, {}, {}, {}
+        seq_mark = {}
         for l in r.stdout.splitlines():
             p = l.split("\t")
-            if p[0] == "DRAWN" and len(p) == 3:
+            if p[0] == "XMARK" and len(p) == 3:
+                seq_mark[p[1]] = "" if p[2] == "-" else p[2]
+            elif p[0] == "DRAWN" and len(p) == 3:
                 seq_drawn[p[1]] = p[2]
             elif p[0] == "EXPR" and len(p) == 6:
                 seq_expr[p[1]] = dict(zip("XYZT", p[2:6]))
@@ -1718,6 +1731,14 @@ class Lesson:
                     self.bad(f"{vid}: working through in order, the graph's {qkind} shows "
                              f"'{got if got is not None else '(no graph)'}', the prose '{shown_text}' ({mode})")
                 continue
+            if qkind == "value":
+                # Unit 096: the mark as this student sees it (a carried display setting can change it).
+                qmark = "≈" if shown_text.startswith("≈") else ""
+                if qmark != seq_mark.get(vid, ""):
+                    self.bad(f"{vid}: working through in order, the device draws "
+                             f"{'≈' if seq_mark.get(vid) else 'no mark'} before X's number, "
+                             f"the prose {'≈' if qmark else 'no mark'} ({mode})")
+                shown_text = shown_text[len(qmark):]
             kind, stext = seq_x.get(vid, ("?", ""))
             if not line_says((kind, stext), seq_y.get(vid, ("?", "")), qkind, shown_text, seq_drawn.get(vid)):
                 where = "X"

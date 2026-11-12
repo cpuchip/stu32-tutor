@@ -54,7 +54,7 @@ The chance of rolling a 4 is 1 in 6:
 1 ENTER 6 ÷
 ```
 
-X shows <disp v="D01">0.1667</disp>. An even number is 3 of the 6 faces, 2, 4 and 6:
+X shows <disp v="D01" m="33s,35s">0.1667</disp><disp v="D01" m="STU">≈0.1667</disp>. An even number is 3 of the 6 faces, 2, 4 and 6:
 
 ```keys D02
 3 ENTER 6 ÷
@@ -72,7 +72,7 @@ first 1 waits on the stack while $\frac{1}{6}$ is worked out, and − then takes
 1 ENTER 1 ENTER 6 ÷ −
 ```
 
-X shows <disp v="N01">0.8333</disp>.
+X shows <disp v="N01" m="33s,35s">0.8333</disp><disp v="N01" m="STU">≈0.8333</disp>.
 
 ## And
 
@@ -86,7 +86,7 @@ showing 6, as $\frac{1}{6}$ times $\frac{1}{6}$:
 1 ENTER 6 ÷ 1 ENTER 6 ÷ ×
 ```
 
-X shows <disp v="A01">0.0278</disp>: exactly 1 in 36, which FIX 4 rounds to four places.
+X shows <disp v="A01" m="33s,35s">0.0278</disp><disp v="A01" m="STU">≈0.0278</disp>: exactly 1 in 36, which FIX 4 rounds to four places.
 
 ```why
 ask: Why are the chances multiplied for both dice, and not added?
@@ -100,7 +100,7 @@ the chance of no 6 at all. No 6 in one roll is $\frac{5}{6}$, and in four indepe
 1 ENTER 5 ENTER 6 ÷ 4 yˣ −
 ```
 
-X shows <disp v="A02">0.5177</disp>: a little better than an even chance.
+X shows <disp v="A02" m="33s,35s">0.5177</disp><disp v="A02" m="STU">≈0.5177</disp>: a little better than an even chance.
 
 ```why
 ask: Why is the chance of at least one 6 in four rolls not $4 × \frac{1}{6}$?
@@ -118,7 +118,7 @@ $C(52, 5)$ is worked out:
 13 ENTER 5 BLUE PROB Cn,r 52 ENTER 5 BLUE PROB Cn,r ÷
 ```
 
-X shows <disp v="H01">0.0005</disp>: about 1 hand in 2,000. The number is 0.000495…, and FIX 4 rounds it
+X shows <disp v="H01" m="33s,35s">0.0005</disp><disp v="H01" m="STU">≈0.0005</disp>: about 1 hand in 2,000. The number is 0.000495…, and FIX 4 rounds it
 to 0.0005; it has a digit other than 0 within four places, so FIX 4 does not switch to scientific form.
 
 Now the chance that a hand of 4 cards is all hearts.
@@ -141,7 +141,7 @@ over the outcomes, of what you end up gaining or losing, is the expected value o
 5 ENTER 6 ÷ 1 −
 ```
 
-X shows <disp v="X01">-0.1667</disp>: about 17 cents lost per play, on average. One play can still win;
+X shows <disp v="X01" m="33s,35s">-0.1667</disp><disp v="X01" m="STU">≈-0.1667</disp>: about 17 cents lost per play, on average. One play can still win;
 the average is what many plays add up to, divided by the number of plays. Carrying on, the expected
 total over 600 plays:
 
@@ -149,7 +149,7 @@ total over 600 plays:
 600 ×
 ```
 
-X shows <disp v="X02">-100.0000</disp>: a player expects to lose about 100 dollars over 600 plays; real
+X shows <disp v="X02" m="33s,35s">-100.0000</disp><disp v="X02" m="STU">≈-100.0000</disp>: a player expects to lose about 100 dollars over 600 plays; real
 totals land above and below that, but the more someone plays, the more surely their average result
 per play comes out close to the 17 cents lost. The chance of a six is fair, 1 in 6; what is against the
 player is the payout. A fair game would pay 6 dollars on a six, and its expected value would be 0. A
@@ -198,7 +198,7 @@ second:
 7 BLUE SEED GOLD RAND STO A 7 BLUE SEED GOLD RAND RCL A −
 ```
 
-X shows <disp v="S01">0.0000</disp>: the two numbers were the same, and so are the ones after them.
+X shows <disp v="S01" m="33s,35s">0.0000</disp><disp v="S01" m="STU">≈0.0000</disp>: the two numbers were the same, and so are the ones after them.
 
 ## Exercises
 
@@ -219,7 +219,7 @@ X shows <disp v="S01">0.0000</disp>: the two numbers were the same, and so are t
    4 ENTER 52 ÷
    ```
 
-   X shows <disp v="E01">0.0769</disp>, 1 in 13.
+   X shows <disp v="E01" m="33s,35s">0.0769</disp><disp v="E01" m="STU">≈0.0769</disp>, 1 in 13.
 
 2. Each flip is heads with probability 0.5, and the flips are independent, so three heads is $0.5^{3}$:
 
@@ -243,7 +243,7 @@ X shows <disp v="S01">0.0000</disp>: the two numbers were the same, and so are t
    1 ENTER 49 ENTER 6 BLUE PROB Cn,r ÷
    ```
 
-   X shows <disp v="E03">7.1511E-8</disp>: about 7 in 100 million, or 1 in nearly 14 million, too small for
+   X shows <disp v="E03" m="33s,35s">7.1511E-8</disp><disp v="E03" m="STU">≈7.1511E-8</disp>: about 7 in 100 million, or 1 in nearly 14 million, too small for
    FIX 4's places, so it is shown in scientific form. The expected value is the prize times that chance,
    less the ticket. Carrying on, 10 million (1 E 7) times the chance:
 
@@ -251,14 +251,14 @@ X shows <disp v="S01">0.0000</disp>: the two numbers were the same, and so are t
    1 E 7 ×
    ```
 
-   X shows <disp v="E03B">0.7151</disp>: a ticket wins about 72 cents, on average. Carrying on, less the
+   X shows <disp v="E03B" m="33s,35s">0.7151</disp><disp v="E03B" m="STU">≈0.7151</disp>: a ticket wins about 72 cents, on average. Carrying on, less the
    2 dollars it cost:
 
    ```keys E03C after=E03B
    2 −
    ```
 
-   X shows <disp v="E03C">-1.2849</disp>: each ticket loses about 1.28 dollars, on average.
+   X shows <disp v="E03C" m="33s,35s">-1.2849</disp><disp v="E03C" m="STU">≈-1.2849</disp>: each ticket loses about 1.28 dollars, on average.
 
 4. The same face both times: seeding with 1 again makes the same random number, so the same roll. Keep
    the first face in A, and take it from the second:
@@ -267,7 +267,7 @@ X shows <disp v="S01">0.0000</disp>: the two numbers were the same, and so are t
    1 BLUE SEED GOLD RAND 6 × BLUE POW IP 1 + STO A 1 BLUE SEED GOLD RAND 6 × BLUE POW IP 1 + RCL A −
    ```
 
-   X shows <disp v="E04">0.0000</disp>.
+   X shows <disp v="E04" m="33s,35s">0.0000</disp><disp v="E04" m="STU">≈0.0000</disp>.
 
 5. Each payout times its probability, added up, less the 1 dollar: $10 × \frac{1}{20} + 2 × \frac{1}{10} − 1$.
 

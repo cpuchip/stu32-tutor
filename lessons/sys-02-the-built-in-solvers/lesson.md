@@ -102,14 +102,14 @@ C leaves the view, as it leaves VIEW's (rpn-02):
 C
 ```
 
-X shows <disp v="T03">8.0000</disp>. The answers are on the stack, $x$ in X and $y$ in Y,
+X shows <disp v="T03" m="35s">8.0000</disp><disp v="T03" m="STU">≈8.0000</disp>. The answers are on the stack, $x$ in X and $y$ in Y,
 and in the variables X and Y. So the earlier check works straight away, $2x + 3y$:
 
 ```keys T04 after=T03
 2 RCL X × 3 RCL Y × +
 ```
 
-X shows <disp v="T04">37.0000</disp>, the first equation's right side.
+X shows <disp v="T04" m="35s">37.0000</disp><disp v="T04" m="STU">≈37.0000</disp>, the first equation's right side.
 
 ```why
 ask: Why is getting 37 back a real check on the solver?
@@ -131,7 +131,7 @@ The screen shows <disp v="F01A" kind="eqn" m="35s">2*2 lin. solve</disp><disp v=
 GOLD SOLVE
 ```
 
-It asks <disp v="F01B" kind="prompt">A?</disp>, and X shows <disp v="F01B">2.0000</disp>, the A of
+It asks <disp v="F01B" kind="prompt">A?</disp>, and X shows <disp v="F01B" m="35s">2.0000</disp><disp v="F01B" m="STU">≈2.0000</disp>, the A of
 the tickets. R/S on its own keeps the number shown, as SOLVE's prompts did. Here $D$ and $E$ are
 1 and 1, as the tickets' were, so R/S alone keeps them:
 

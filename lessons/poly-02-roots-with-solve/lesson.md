@@ -66,26 +66,26 @@ Work out $c$ at a few values of $x$ with XEQ and watch the sign. At 0:
 XEQ 0 R/S
 ```
 
-X shows <disp v="R02">-6.0000</disp>. XEQ leaves Equation mode, so show the equation again each time.
+X shows <disp v="R02" m="33s,35s">-6.0000</disp><disp v="R02" m="STU">≈-6.0000</disp>. XEQ leaves Equation mode, so show the equation again each time.
 At 1.5:
 
 ```keys R03 after=R02
 GOLD EQN XEQ 1.5 R/S
 ```
 
-X shows <disp v="R03">0.3750</disp>. At 2.5:
+X shows <disp v="R03" m="33s,35s">0.3750</disp><disp v="R03" m="STU">≈0.3750</disp>. At 2.5:
 
 ```keys R04 after=R03
 GOLD EQN XEQ 2.5 R/S
 ```
 
-X shows <disp v="R04">-0.3750</disp>. At 4:
+X shows <disp v="R04" m="33s,35s">-0.3750</disp><disp v="R04" m="STU">≈-0.3750</disp>. At 4:
 
 ```keys R05 after=R04
 GOLD EQN XEQ 4 R/S
 ```
 
-X shows <disp v="R05">6.0000</disp>.
+X shows <disp v="R05" m="33s,35s">6.0000</disp><disp v="R05" m="STU">≈6.0000</disp>.
 
 | $x$ | 0 | 1.5 | 2.5 | 4 |
 |---|---|---|---|---|
@@ -194,31 +194,31 @@ Then its values at −2, −1, 0, 1 and 2:
 XEQ 2 +/− R/S
 ```
 
-X shows <disp v="E01A">-1.0000</disp>.
+X shows <disp v="E01A" m="33s,35s">-1.0000</disp><disp v="E01A" m="STU">≈-1.0000</disp>.
 
 ```keys E01B after=E01A
 GOLD EQN XEQ 1 +/− R/S
 ```
 
-X shows <disp v="E01B">3.0000</disp>.
+X shows <disp v="E01B" m="33s,35s">3.0000</disp><disp v="E01B" m="STU">≈3.0000</disp>.
 
 ```keys E01C after=E01B
 GOLD EQN XEQ 0 R/S
 ```
 
-X shows <disp v="E01C">1.0000</disp>.
+X shows <disp v="E01C" m="33s,35s">1.0000</disp><disp v="E01C" m="STU">≈1.0000</disp>.
 
 ```keys E01D after=E01C
 GOLD EQN XEQ 1 R/S
 ```
 
-X shows <disp v="E01D">-1.0000</disp>.
+X shows <disp v="E01D" m="33s,35s">-1.0000</disp><disp v="E01D" m="STU">≈-1.0000</disp>.
 
 ```keys E01E after=E01D
 GOLD EQN XEQ 2 R/S
 ```
 
-X shows <disp v="E01E">3.0000</disp>. The sign changes from −2 to −1, from 0 to 1, and from 1 to 2:
+X shows <disp v="E01E" m="33s,35s">3.0000</disp><disp v="E01E" m="STU">≈3.0000</disp>. The sign changes from −2 to −1, from 0 to 1, and from 1 to 2:
 three gaps, and $d$ has degree 3, so one root in each and no more. Between −1 and 0 the sign stays
 positive, and the count of three is already reached, so nothing hides there. One SOLVE in each gap:
 

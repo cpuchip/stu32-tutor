@@ -59,7 +59,7 @@ press TAN and then 1/x:
 0.3136 ENTER 3600 ÷ TAN 1/x
 ```
 
-The X line shows <disp v="P01">657,732.1628</disp> AU, which Bessel gave as 657,700.
+The X line shows <disp v="P01" m="33s,35s">657,732.1628</disp><disp v="P01" m="STU">≈657,732.1628</disp> AU, which Bessel gave as 657,700.
 
 ```why
 ask: Why divide by 3600 before pressing TAN?
@@ -74,7 +74,7 @@ An angle of exactly 1 arcsecond gives a distance worth a name of its own:
 1 ENTER 3600 ÷ TAN 1/x
 ```
 
-The X line shows <disp v="P02">206,264.8062</disp> AU. That distance is a parsec, from parallax and arcsecond, and
+The X line shows <disp v="P02" m="33s,35s">206,264.8062</disp><disp v="P02" m="STU">≈206,264.8062</disp> AU. That distance is a parsec, from parallax and arcsecond, and
 the International Astronomical Union's education glossary gives it as 206,264.8 AU. For angles this small the
 tangent grows in step with the angle: half the angle, twice the distance. So the distance in parsecs is just $1 ÷ p$,
 with p in arcseconds and p half the six-month shift. For Bessel's star:
@@ -83,7 +83,7 @@ with p in arcseconds and p half the six-month shift. For Bessel's star:
 0.3136 1/x
 ```
 
-The X line shows <disp v="P03">3.1888</disp> parsecs. That many parsecs of 206,264.8 AU each make Bessel's
+The X line shows <disp v="P03" m="33s,35s">3.1888</disp><disp v="P03" m="STU">≈3.1888</disp> parsecs. That many parsecs of 206,264.8 AU each make Bessel's
 657,700 AU again.
 
 ## Parsecs and light-years
@@ -99,14 +99,14 @@ parsec in light-years:
 206264.8 ENTER 149597870.7 × 299792.458 ENTER 86400 × 365.25 × ÷
 ```
 
-The X line shows <disp v="P04">3.2616</disp>: a parsec is about 3.26 light-years, as the glossary says. Carrying on,
+The X line shows <disp v="P04" m="33s,35s">3.2616</disp><disp v="P04" m="STU">≈3.2616</disp>: a parsec is about 3.26 light-years, as the glossary says. Carrying on,
 Bessel's star in light-years is its parsecs times that, with the 3.2616 still in X:
 
 ```keys P05 after=P04
 0.3136 1/x ×
 ```
 
-The X line shows <disp v="P05">10.4004</disp> light-years. Bessel wrote 10.3.
+The X line shows <disp v="P05" m="33s,35s">10.4004</disp><disp v="P05" m="STU">≈10.4004</disp> light-years. Bessel wrote 10.3.
 
 ## How sure?
 
@@ -118,20 +118,20 @@ A measurement comes with its uncertainty, and so does the distance worked out fr
 0.74212 1/x
 ```
 
-The X line shows <disp v="U01">1.3475</disp> parsecs. The parallax could be as large as
+The X line shows <disp v="U01" m="33s,35s">1.3475</disp><disp v="U01" m="STU">≈1.3475</disp> parsecs. The parallax could be as large as
 $0.74212 + 0.00140 = 0.74352$:
 
 ```keys U02
 0.74352 1/x
 ```
 
-The X line shows <disp v="U02">1.3450</disp>. Or as small as $0.74212 − 0.00140 = 0.74072$:
+The X line shows <disp v="U02" m="33s,35s">1.3450</disp><disp v="U02" m="STU">≈1.3450</disp>. Or as small as $0.74212 − 0.00140 = 0.74072$:
 
 ```keys U03
 0.74072 1/x
 ```
 
-The X line shows <disp v="U03">1.3500</disp>. So the star is between 1.345 and 1.350 parsecs away.
+The X line shows <disp v="U03" m="33s,35s">1.3500</disp><disp v="U03" m="STU">≈1.3500</disp>. So the star is between 1.345 and 1.350 parsecs away.
 
 ```why
 ask: Why does the smallest parallax in the range give the largest distance?
@@ -152,20 +152,20 @@ because: The distance is one divided by p, and one divided by a smaller number i
    0.37921 1/x
    ```
 
-   The X line shows <disp v="E01">2.6371</disp> parsecs. The ends of the range are $0.37921 + 0.00158 = 0.38079$
+   The X line shows <disp v="E01" m="33s,35s">2.6371</disp><disp v="E01" m="STU">≈2.6371</disp> parsecs. The ends of the range are $0.37921 + 0.00158 = 0.38079$
    and $0.37921 − 0.00158 = 0.37763$:
 
    ```keys E01B
    0.38079 1/x
    ```
 
-   The X line shows <disp v="E01B">2.6261</disp>, and for the other end:
+   The X line shows <disp v="E01B" m="33s,35s">2.6261</disp><disp v="E01B" m="STU">≈2.6261</disp>, and for the other end:
 
    ```keys E01C
    0.37763 1/x
    ```
 
-   The X line shows <disp v="E01C">2.6481</disp>. Sirius is between 2.626 and 2.648 parsecs away.
+   The X line shows <disp v="E01C" m="33s,35s">2.6481</disp><disp v="E01C" m="STU">≈2.6481</disp>. Sirius is between 2.626 and 2.648 parsecs away.
 
 2. Parsecs times light-years to a parsec:
 
@@ -173,7 +173,7 @@ because: The distance is one divided by p, and one divided by a smaller number i
    1.3475 ENTER 3.2616 ×
    ```
 
-   The X line shows <disp v="E02">4.3950</disp>, about 4.4 light-years.
+   The X line shows <disp v="E02" m="33s,35s">4.3950</disp><disp v="E02" m="STU">≈4.3950</disp>, about 4.4 light-years.
 
 ## Mixed review
 

@@ -83,7 +83,7 @@ Try R on 4:
 4 XEQ R ENTER
 ```
 
-X shows <disp v="D01">0.2500</disp>: $r(4) = \frac{1}{4}$. Now try it on 0:
+X shows <disp v="D01" m="33s,35s">0.2500</disp><disp v="D01" m="STU">≈0.2500</disp>: $r(4) = \frac{1}{4}$. Now try it on 0:
 
 ```keys D02 after=D01
 0 XEQ R
@@ -135,7 +135,7 @@ Try S on 6:
 6 XEQ S ENTER
 ```
 
-X shows <disp v="S01">2.0000</disp>: $s(6) = \sqrt{4}$.
+X shows <disp v="S01" m="33s,35s">2.0000</disp><disp v="S01" m="STU">≈2.0000</disp>: $s(6) = \sqrt{4}$.
 
 ```item SQ1T1
 prompt: Work out $s(51)$ by hand, for the same $s(x) = \sqrt{x − 2}$.
@@ -157,7 +157,7 @@ Now 2:
 2 XEQ S ENTER
 ```
 
-X shows <disp v="S02">0.0000</disp>: $s(2) = \sqrt{0} = 0$. Now 1:
+X shows <disp v="S02" m="33s,35s">0.0000</disp><disp v="S02" m="STU">≈0.0000</disp>: $s(2) = \sqrt{0} = 0$. Now 1:
 
 ```keys S03 after=S02
 1 XEQ S
@@ -250,7 +250,7 @@ its end does the same: the pointer goes back to the top when a program finishes.
    2 +/− XEQ R ENTER
    ```
 
-   X shows <disp v="E01">-0.5000</disp>: $r(−2) = \frac{1}{−2}$.
+   X shows <disp v="E01" m="33s,35s">-0.5000</disp><disp v="E01" m="STU">≈-0.5000</disp>: $r(−2) = \frac{1}{−2}$.
 
 2. Yes, since $2.25 ≥ 2$:
 
@@ -261,7 +261,7 @@ its end does the same: the pointer goes back to the top when a program finishes.
    2.25 XEQ S ENTER
    ```
 
-   X shows <disp v="E02">0.5000</disp>: $s(2.25) = \sqrt{0.25}$, and $0.5 × 0.5 = 0.25$.
+   X shows <disp v="E02" m="33s,35s">0.5000</disp><disp v="E02" m="STU">≈0.5000</disp>: $s(2.25) = \sqrt{0.25}$, and $0.5 × 0.5 = 0.25$.
 
 3. No: 1.99 is below 2, however little.
 

@@ -109,7 +109,7 @@ Carrying on, $h = 0.1$:
 0.1 XEQ D ENTER
 ```
 
-X shows <disp v="D01">4.2000</disp>. Carrying on, $h = 0.01$:
+X shows <disp v="D01" m="33s,35s">4.2000</disp><disp v="D01" m="STU">≈4.2000</disp>. Carrying on, $h = 0.01$:
 
 ```keys D02 after=D01
 0.01 XEQ D
@@ -118,7 +118,7 @@ X shows <disp v="D01">4.2000</disp>. Carrying on, $h = 0.01$:
 0.01 XEQ D ENTER
 ```
 
-X shows <disp v="D02">4.0200</disp>, and carrying on, $h = 0.001$:
+X shows <disp v="D02" m="33s,35s">4.0200</disp><disp v="D02" m="STU">≈4.0200</disp>, and carrying on, $h = 0.001$:
 
 ```keys D03 after=D02
 0.001 XEQ D
@@ -127,7 +127,7 @@ X shows <disp v="D02">4.0200</disp>, and carrying on, $h = 0.001$:
 0.001 XEQ D ENTER
 ```
 
-<disp v="D03">4.0020</disp>. And carrying on, from below, $h = −0.001$:
+<disp v="D03" m="33s,35s">4.0020</disp><disp v="D03" m="STU">≈4.0020</disp>. And carrying on, from below, $h = −0.001$:
 
 ```keys D03B after=D03
 0.001 +/− XEQ D
@@ -136,7 +136,7 @@ X shows <disp v="D02">4.0200</disp>, and carrying on, $h = 0.001$:
 0.001 +/− XEQ D ENTER
 ```
 
-X shows <disp v="D03B">3.9980</disp>. From both sides the averages close in on 4. The algebra says why.
+X shows <disp v="D03B" m="33s,35s">3.9980</disp><disp v="D03B" m="STU">≈3.9980</disp>. From both sides the averages close in on 4. The algebra says why.
 $(1 + h)^{2}$ is $1 + 2h + h^{2}$, so $2(1 + h)^{2}$ is $2 + 4h + 2h^{2}$, and $d(1 + h) − d(1)$ is $4h + 2h^{2}$. Divided by $h$,
 for any $h$ that is not 0, that is $4 + 2h$, and as $h$ shrinks from either side, $4 + 2h$ comes as near to 4 as
 you like. So at $t = 1$ the ball is going 4 metres a second. This rate at an instant is called the
@@ -159,8 +159,9 @@ typed with E and +/− (rpn-03, num-04):
 1 E 20 +/− XEQ D ENTER
 ```
 
-X shows <disp v="D04">4.0000</disp>. The true average is $4 + 2 × 10^{-20}$, but the calculator gives exactly
+X shows <disp v="D04" m="33s,35s">4.0000</disp><disp v="D04" m="STU">≈4.0000</disp>. The true average is $4 + 2 × 10^{-20}$, but the calculator gives exactly
 4: the $2h^{2}$ in $d(1 + h)$, $2 × 10^{-40}$, is below its 34th digit and is rounded away when $1 + h$ is squared.
+<mode m="STU">The ≈ before the 4 is right: 4 is not the true average.</mode>
 The digits have started to run out, too far down to see. Carrying on, $h = 10^{-34}$:
 
 ```keys D05 after=D04
@@ -170,7 +171,7 @@ The digits have started to run out, too far down to see. Carrying on, $h = 10^{-
 1 E 34 +/− XEQ D ENTER
 ```
 
-X shows <disp v="D05">0.0000</disp>. Near 1, 34 digits step by $10^{-33}$, and a sum that falls between two
+X shows <disp v="D05" m="33s,35s">0.0000</disp><disp v="D05" m="STU">≈0.0000</disp>. Near 1, 34 digits step by $10^{-33}$, and a sum that falls between two
 steps is rounded to the nearer one. $1 + 10^{-34}$ is less than halfway to the next step, so it rounds to
 1, as in the last lesson; $d(1 + h)$ is then exactly $d(1)$, and their difference is 0. Carrying on, $h = 6 × 10^{-34}$:
 
@@ -181,7 +182,7 @@ steps is rounded to the nearer one. $1 + 10^{-34}$ is less than halfway to the n
 6 E 34 +/− XEQ D ENTER
 ```
 
-X shows <disp v="D06">6.6667</disp>, far from 4. $1 + 6 × 10^{-34}$ is more than halfway to the next step, so
+X shows <disp v="D06" m="33s,35s">6.6667</disp><disp v="D06" m="STU">≈6.6667</disp>, far from 4. $1 + 6 × 10^{-34}$ is more than halfway to the next step, so
 it rounds up to $1 + 10^{-33}$: the $h$ that went into $d$ is not the $h$ it is divided by. From there nothing
 else matters: $d(1 + 10^{-33}) − d(1)$ is $4 × 10^{-33}$ (the square drops only $10^{-66}$, far below), and
 $4 × 10^{-33} ÷ (6 × 10^{-34})$ is $40 ÷ 6$. The
@@ -210,7 +211,7 @@ no smaller. Here 0.001 already suggested 4.
    1 E 40 +/− XEQ D ENTER
    ```
 
-   X shows <disp v="E01">0.0000</disp>.
+   X shows <disp v="E01" m="33s,35s">0.0000</disp><disp v="E01" m="STU">≈0.0000</disp>.
 
 2. 12. The average is $(2.001^{3} − 2^{3}) ÷ 0.001$, with $2^{3} = 8$:
 
@@ -218,13 +219,13 @@ no smaller. Here 0.001 already suggested 4.
    2.001 ENTER 3 yˣ 8 − 0.001 ÷
    ```
 
-   X shows <disp v="E02">12.0060</disp>. Carrying on, with $h = 0.0001$:
+   X shows <disp v="E02" m="33s,35s">12.0060</disp><disp v="E02" m="STU">≈12.0060</disp>. Carrying on, with $h = 0.0001$:
 
    ```keys E02B after=E02
    2.0001 ENTER 3 yˣ 8 − 0.0001 ÷
    ```
 
-   X shows <disp v="E02B">12.0006</disp>. The algebra: $(2 + h)^{3}$ is $8 + 12h + 6h^{2} + h^{3}$, so the average is
+   X shows <disp v="E02B" m="33s,35s">12.0006</disp><disp v="E02B" m="STU">≈12.0006</disp>. The algebra: $(2 + h)^{3}$ is $8 + 12h + 6h^{2} + h^{3}$, so the average is
    $12 + 6h + h^{2}$, which comes as near to 12 as you like as $h$ shrinks.
 
 3. $2^{x}$ is $2^{0} = 1$ at 0 and $2^{3}$ at 3, so the average rate is $(2^{3} − 1) ÷ (3 − 0)$:
@@ -233,7 +234,7 @@ no smaller. Here 0.001 already suggested 4.
    2 ENTER 3 yˣ 1 − 3 ÷
    ```
 
-   X shows <disp v="E03">2.3333</disp>.
+   X shows <disp v="E03" m="33s,35s">2.3333</disp><disp v="E03" m="STU">≈2.3333</disp>.
 
 ## Mixed review
 

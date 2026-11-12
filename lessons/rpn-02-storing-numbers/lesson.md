@@ -36,7 +36,7 @@ variable; press A (the √x key).
 0.0825 STO A
 ```
 
-X shows <disp v="V01">0.08</disp>. The display rounds to two places, but A and X both keep all of
+X shows <disp v="V01" m="33s,35s">0.08</disp><disp v="V01" m="STU">≈0.08</disp>. The display rounds to two places, but A and X both keep all of
 0.0825. STO keeps a copy and takes nothing off the stack, and after STO a number you type pushes X up, as it does after + or ×.
 
 ## RCL brings it back

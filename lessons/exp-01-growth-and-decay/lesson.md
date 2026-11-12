@@ -57,7 +57,7 @@ stack drops, bringing the 500 down to Y, so a last × multiplies by it:
 500 ENTER 1.04 ENTER 10 yˣ ×
 ```
 
-X shows <disp v="G01">740.1221</disp>. Compare adding a fixed 4% of the first 500, that is 20, every
+X shows <disp v="G01" m="33s,35s">740.1221</disp><disp v="G01" m="STU">≈740.1221</disp>. Compare adding a fixed 4% of the first 500, that is 20, every
 year:
 
 ```keys G02
@@ -102,7 +102,7 @@ hold. Now yˣ, then ×:
 yˣ ×
 ```
 
-X shows <disp v="D01">14.1421</disp> mg. After 12 hours, two half-lives, there would be 20; after
+X shows <disp v="D01" m="33s,35s">14.1421</disp><disp v="D01" m="STU">≈14.1421</disp> mg. After 12 hours, two half-lives, there would be 20; after
 18, three, 10. Fifteen hours is halfway between 12 and 18 in time, but 14.1421 is below 15, the
 halfway amount: the drop is faster early in those six hours, 20 to 14.1421 in the first three and
 14.1421 to 10 in the next three, because there is more to lose at the start.
@@ -146,7 +146,7 @@ because: The two years multiply, $b × b$; they do not add. Undoing a multiplica
    2000 ENTER 1.03 ENTER 25 yˣ ×
    ```
 
-   X shows <disp v="E01">4,187.5559</disp>: more than double.
+   X shows <disp v="E01" m="33s,35s">4,187.5559</disp><disp v="E01" m="STU">≈4,187.5559</disp>: more than double.
 
 2. Losing 15% leaves 85%, so the factor is 0.85:
 

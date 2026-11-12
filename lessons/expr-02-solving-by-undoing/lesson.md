@@ -100,7 +100,7 @@ Undo the two steps in the other order, the × 3 first and then the + 5, and see 
 20 ENTER 3 ÷ 5 −
 ```
 
-The screen shows <disp v="W01">1.6667</disp>: not even a whole number of pies. Undoing in the wrong order
+The screen shows <disp v="W01" e="alg">1.6667</disp><disp v="W01" e="rpn">≈1.6667</disp>: not even a whole number of pies. Undoing in the wrong order
 does not take you back.
 
 ```why

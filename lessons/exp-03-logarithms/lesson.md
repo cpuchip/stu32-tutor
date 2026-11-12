@@ -56,7 +56,7 @@ X shows <disp v="L01">3.0000</disp>. Most numbers are not whole powers of 10. Th
 2 GOLD LOG
 ```
 
-X shows <disp v="L02">0.3010</disp>, rounded to four places: 10 to the power 0.30102999…, all 34
+X shows <disp v="L02" m="33s,35s">0.3010</disp><disp v="L02" m="STU">≈0.3010</disp>, rounded to four places: 10 to the power 0.30102999…, all 34
 digits of it, is 2. 10ˣ from num-03 (gold above eˣ) raises 10 to the power in X, so it undoes LOG.
 Carry on, with the full value still in X:
 
@@ -64,7 +64,7 @@ Carry on, with the full value still in X:
 GOLD 10ˣ
 ```
 
-X shows <disp v="L03">2.0000</disp>, the 2 back again. Typing the rounded 0.3010 instead would give
+X shows <disp v="L03" m="33s,35s">2.0000</disp><disp v="L03" m="STU">≈2.0000</disp>, the 2 back again. Typing the rounded 0.3010 instead would give
 a little less than 2: the four places shown are not the whole number.
 
 ```why
@@ -79,13 +79,13 @@ undoes it:
 2 LN
 ```
 
-X shows <disp v="N01">0.6931</disp>: $e$ to the power 0.69314…, in full, is 2. Carry on:
+X shows <disp v="N01" m="33s,35s">0.6931</disp><disp v="N01" m="STU">≈0.6931</disp>: $e$ to the power 0.69314…, in full, is 2. Carry on:
 
 ```keys N02 after=N01
 eˣ
 ```
 
-X shows <disp v="N02">2.0000</disp>.
+X shows <disp v="N02" m="33s,35s">2.0000</disp><disp v="N02" m="STU">≈2.0000</disp>.
 
 ## Solving for the power
 
@@ -107,27 +107,27 @@ and ÷ divides them:
 2 GOLD LOG 1.04 GOLD LOG ÷
 ```
 
-X shows <disp v="S01">17.6730</disp>. Check it: 1.04 to that power. The 1.04 goes in first and waits
+X shows <disp v="S01" m="33s,35s">17.6730</disp><disp v="S01" m="STU">≈17.6730</disp>. Check it: 1.04 to that power. The 1.04 goes in first and waits
 in Z while the power is worked out; ÷ drops it to Y, and yˣ uses it:
 
 ```keys S02
 1.04 ENTER 2 GOLD LOG 1.04 GOLD LOG ÷ yˣ
 ```
 
-X shows <disp v="S02">2.0000</disp>. With growth paid once a year, though, the amount grows only at
+X shows <disp v="S02" m="33s,35s">2.0000</disp><disp v="S02" m="STU">≈2.0000</disp>. With growth paid once a year, though, the amount grows only at
 each payment, so 17.67 years means it doubles at the 18th payment. After 17:
 
 ```keys Y17
 1.04 ENTER 17 yˣ
 ```
 
-X shows <disp v="Y17">1.9479</disp>, not yet double. After 18:
+X shows <disp v="Y17" m="33s,35s">1.9479</disp><disp v="Y17" m="STU">≈1.9479</disp>, not yet double. After 18:
 
 ```keys Y18
 1.04 ENTER 18 yˣ
 ```
 
-X shows <disp v="Y18">2.0258</disp>. So: 18 years. A fraction of a year counts only for growth that
+X shows <disp v="Y18" m="33s,35s">2.0258</disp><disp v="Y18" m="STU">≈2.0258</disp>. So: 18 years. A fraction of a year counts only for growth that
 goes on smoothly, as continuous growth does (below) and decay did before.
 
 The same argument with $e$ in place of 10 gives $n × \ln 1.04 = \ln 2$, so natural logarithms give the
@@ -137,7 +137,7 @@ same $n$:
 2 LN 1.04 LN ÷
 ```
 
-X shows <disp v="S03">17.6730</disp>. Use whichever is nearer to hand; LN saves the gold key.
+X shows <disp v="S03" m="33s,35s">17.6730</disp><disp v="S03" m="STU">≈17.6730</disp>. Use whichever is nearer to hand; LN saves the gold key.
 
 ```why
 ask: Why do LOG and LN give the same $n$, when their logarithms differ?
@@ -161,7 +161,7 @@ it is half gone when $0.9^{n} = 0.5$:
 0.5 LN 0.9 LN ÷
 ```
 
-X shows <disp v="H01">6.5788</disp> hours: its half-life. Both logarithms are negative here. A number
+X shows <disp v="H01" m="33s,35s">6.5788</disp><disp v="H01" m="STU">≈6.5788</disp> hours: its half-life. Both logarithms are negative here. A number
 between 0 and 1 is $e$ (or 10) to a negative power, since a negative power is one over the positive
 power; the quotient of two negatives is positive.
 
@@ -188,7 +188,7 @@ to double at a rate $r$ is $\ln 2 ÷ r$. At 6%:
 2 LN 0.06 ÷
 ```
 
-X shows <disp v="C01">11.5525</disp> years. Here the fraction counts: continuous growth reaches double
+X shows <disp v="C01" m="33s,35s">11.5525</disp><disp v="C01" m="STU">≈11.5525</disp> years. Here the fraction counts: continuous growth reaches double
 partway through the twelfth year.
 
 ## Exercises
@@ -206,19 +206,19 @@ partway through the twelfth year.
    3 LN 1.04 LN ÷
    ```
 
-   X shows <disp v="E01">28.0110</disp>, just over 28. After 28 payments:
+   X shows <disp v="E01" m="33s,35s">28.0110</disp><disp v="E01" m="STU">≈28.0110</disp>, just over 28. After 28 payments:
 
    ```keys E01B after=E01
    1.04 ENTER 28 yˣ
    ```
 
-   X shows <disp v="E01B">2.9987</disp>, not quite triple; after 29:
+   X shows <disp v="E01B" m="33s,35s">2.9987</disp><disp v="E01B" m="STU">≈2.9987</disp>, not quite triple; after 29:
 
    ```keys E01C after=E01B
    1.04 ENTER 29 yˣ
    ```
 
-   X shows <disp v="E01C">3.1187</disp>. So 29 years.
+   X shows <disp v="E01C" m="33s,35s">3.1187</disp><disp v="E01C" m="STU">≈3.1187</disp>. So 29 years.
 
 2. Losing 20% leaves a factor of 0.8, so $0.8^{n} = 0.5$:
 
@@ -226,7 +226,7 @@ partway through the twelfth year.
    0.5 LN 0.8 LN ÷
    ```
 
-   X shows <disp v="E02">3.1063</disp> days.
+   X shows <disp v="E02" m="33s,35s">3.1063</disp><disp v="E02" m="STU">≈3.1063</disp> days.
 
 3. $\ln 2 ÷ 0.03$:
 
@@ -234,7 +234,7 @@ partway through the twelfth year.
    2 LN 0.03 ÷
    ```
 
-   X shows <disp v="E03">23.1049</disp> years.
+   X shows <disp v="E03" m="33s,35s">23.1049</disp><disp v="E03" m="STU">≈23.1049</disp> years.
 
 ## Mixed review
 

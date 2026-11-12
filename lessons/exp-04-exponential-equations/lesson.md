@@ -61,19 +61,19 @@ XEQ gives left minus right: where it changes sign, the two sides cross. At 0:
 XEQ 0 R/S
 ```
 
-X shows <disp v="Q02">1.0000</disp>: $e^{0} − 0$. At 1:
+X shows <disp v="Q02" m="33s,35s">1.0000</disp><disp v="Q02" m="STU">≈1.0000</disp>: $e^{0} − 0$. At 1:
 
 ```keys Q03 after=Q02
 GOLD EQN XEQ 1 R/S
 ```
 
-X shows <disp v="Q03">-0.2817</disp>: $e − 3$. At 2:
+X shows <disp v="Q03" m="33s,35s">-0.2817</disp><disp v="Q03" m="STU">≈-0.2817</disp>: $e − 3$. At 2:
 
 ```keys Q04 after=Q03
 GOLD EQN XEQ 2 R/S
 ```
 
-X shows <disp v="Q04">1.3891</disp>: $e^{2} − 6$. The sign changes from 0 to 1 and again from 1 to 2, so
+X shows <disp v="Q04" m="33s,35s">1.3891</disp><disp v="Q04" m="STU">≈1.3891</disp>: $e^{2} − 6$. The sign changes from 0 to 1 and again from 1 to 2, so
 $e^{x}$ and $3x$ cross at least once in each gap. A sign change says nothing more than "at least once",
 and unlike a polynomial there is no degree to cap the count. What caps it here is the shape of the two
 sides: $3x$ is a straight line, and the graph of $e^{x}$ bends upward everywhere, getting steeper as it
@@ -151,19 +151,19 @@ The screen shows <disp v="E01" kind="eqn" m="33s,35s">2^X=X+3</disp><disp v="E01
 XEQ 3 +/− R/S
 ```
 
-X shows <disp v="E01A">0.1250</disp>.
+X shows <disp v="E01A" m="33s,35s">0.1250</disp><disp v="E01A" m="STU">≈0.1250</disp>.
 
 ```keys E01B after=E01A
 GOLD EQN XEQ 0 R/S
 ```
 
-X shows <disp v="E01B">-2.0000</disp>.
+X shows <disp v="E01B" m="33s,35s">-2.0000</disp><disp v="E01B" m="STU">≈-2.0000</disp>.
 
 ```keys E01C after=E01B
 GOLD EQN XEQ 3 R/S
 ```
 
-X shows <disp v="E01C">2.0000</disp>. Two sign changes, so at least one solution in each gap.
+X shows <disp v="E01C" m="33s,35s">2.0000</disp><disp v="E01C" m="STU">≈2.0000</disp>. Two sign changes, so at least one solution in each gap.
 And no more: $x + 3$ is a straight line, and $2^{x}$ bends upward everywhere as $e^{x}$ does, so they cross at
 most twice. The two gaps hold one each:
 

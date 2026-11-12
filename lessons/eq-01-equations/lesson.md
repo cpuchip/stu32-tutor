@@ -82,7 +82,7 @@ Whichever value you give is stored in the variable X. Try 4:
 4 R/S
 ```
 
-X shows <disp v="Q03">0.0000</disp>. The left side, $2 × 4 + 3$, is 11, so left minus right is 0: the
+X shows <disp v="Q03" m="33s,35s">0.0000</disp><disp v="Q03" m="STU">≈0.0000</disp>. The left side, $2 × 4 + 3$, is 11, so left minus right is 0: the
 two sides are equal, and 4 is a solution.
 
 Working the equation out turns Equation mode off. To try another value, press EQN to show the
@@ -92,7 +92,7 @@ equation again, and XEQ. Try 5:
 GOLD EQN XEQ 5 R/S
 ```
 
-X shows <disp v="Q04">2.0000</disp>. The left side is $2 × 5 + 3$, which is 13, two more than 11, so
+X shows <disp v="Q04" m="33s,35s">2.0000</disp><disp v="Q04" m="STU">≈2.0000</disp>. The left side is $2 × 5 + 3$, which is 13, two more than 11, so
 5 is not a solution. The number left over tells you how far off a try is, and which way.
 
 ```why
@@ -136,7 +136,7 @@ it, and any other key clears it and then does its own job. Press ←:
 ←
 ```
 
-X shows <disp v="Q05C">4.0000</disp>: the view is gone, and the 4 is still in X. To check the
+X shows <disp v="Q05C" m="33s,35s">4.0000</disp><disp v="Q05C" m="STU">≈4.0000</disp>: the view is gone, and the 4 is still in X. To check the
 solution again, show the equation, press XEQ, and press R/S at X? to keep the 4.
 
 ```why
@@ -188,7 +188,7 @@ X shows <disp v="Q06B">4.0000</disp>. That is the 4 you typed at X?, left on the
 answer.
 </mode>
 <mode m="STU">
-X shows <disp v="Q06">0.0000</disp>: left minus right is zero, so 4 is a solution, as it was with
+X shows <disp v="Q06">≈0.0000</disp>: left minus right is zero, so 4 is a solution, as it was with
 the ×. In the 33s and 35s modes the same keys end in SYNTAX ERROR, so a lesson written for them
 always types the ×. Typing it in STU mode does no harm.
 </mode>
@@ -206,7 +206,7 @@ always types the ×. Typing it in STU mode does no harm.
    GOLD EQN 5 × RCL X − 4 = 11 ENTER XEQ 3 R/S
    ```
 
-   X shows <disp v="E01">0.0000</disp>: left minus right is zero, so 3 is a solution.
+   X shows <disp v="E01" m="33s,35s">0.0000</disp><disp v="E01" m="STU">≈0.0000</disp>: left minus right is zero, so 3 is a solution.
 
 2. After ENTER the equation is still showing, so SOLVE can follow straight away:
 
@@ -221,7 +221,7 @@ always types the ×. Typing it in STU mode does no harm.
    GOLD EQN XEQ R/S
    ```
 
-   X shows <disp v="E02B">0.0000</disp>, because $3 × (−2) + 7$ is 1.
+   X shows <disp v="E02B" m="33s,35s">0.0000</disp><disp v="E02B" m="STU">≈0.0000</disp>, because $3 × (−2) + 7$ is 1.
 
 ## Mixed review
 

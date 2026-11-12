@@ -69,7 +69,7 @@ press the same keys:
 BLUE ∡MODE RAD 30 SIN
 ```
 
-X shows <disp v="A02">-0.9880</disp>, the sine of 30 radians, an angle of almost five full turns.
+X shows <disp v="A02" m="33s,35s">-0.9880</disp><disp v="A02" m="STU">≈-0.9880</disp>, the sine of 30 radians, an angle of almost five full turns.
 There is no error message, because 30 radians is a real angle; it is just not the one meant. The
 only sign is the status band, which now shows <disp v="A02" kind="status">RAD</disp>. In degrees it
 shows no unit at all. Look at the status band before any calculation with angles.
@@ -85,14 +85,14 @@ Half a turn:
 180 BLUE →RAD
 ```
 
-X shows <disp v="C01">3.1416</disp>: π. →DEG, blue above TAN (the key after COS), goes the other
+X shows <disp v="C01" m="33s,35s">3.1416</disp><disp v="C01" m="STU">≈3.1416</disp>: π. →DEG, blue above TAN (the key after COS), goes the other
 way. One radian in degrees:
 
 ```keys C02
 1 BLUE →DEG
 ```
 
-X shows <disp v="C02">57.2958</disp>: a radian is a little over 57 degrees.
+X shows <disp v="C02" m="33s,35s">57.2958</disp><disp v="C02" m="STU">≈57.2958</disp>: a radian is a little over 57 degrees.
 
 ```why
 ask: Why is a radian a little over 57 degrees?
@@ -109,7 +109,7 @@ own, gold above E (the E key of rpn-03):
 BLUE ∡MODE RAD GOLD π 6 ÷ SIN
 ```
 
-X shows <disp v="R01">0.5000</disp>, as $\sin 30°$ did in degrees: the same angle, in the other unit.
+X shows <disp v="R01" m="33s,35s">0.5000</disp><disp v="R01" m="STU">≈0.5000</disp>, as $\sin 30°$ did in degrees: the same angle, in the other unit.
 
 ## Arc length
 
@@ -121,7 +121,7 @@ arc of length $r × θ$. That is the definition of a radian, stretched: one radi
 60 BLUE →RAD 10 ×
 ```
 
-X shows <disp v="S01">10.4720</disp>: a little more than the radius, as 60 degrees is a little more
+X shows <disp v="S01" m="33s,35s">10.4720</disp><disp v="S01" m="STU">≈10.4720</disp>: a little more than the radius, as 60 degrees is a little more
 than one radian.
 
 ```why
@@ -152,7 +152,7 @@ X holds 9.4248: three times π, since 135 degrees is three quarters of half a tu
    45 BLUE →RAD
    ```
 
-   X shows <disp v="E01">0.7854</disp>: $π ÷ 4$, an eighth of a turn.
+   X shows <disp v="E01" m="33s,35s">0.7854</disp><disp v="E01" m="STU">≈0.7854</disp>: $π ÷ 4$, an eighth of a turn.
 
 2. Radians to degrees:
 
@@ -160,7 +160,7 @@ X holds 9.4248: three times π, since 135 degrees is three quarters of half a tu
    2 BLUE →DEG
    ```
 
-   X shows <disp v="E02">114.5916</disp>.
+   X shows <disp v="E02" m="33s,35s">114.5916</disp><disp v="E02" m="STU">≈114.5916</disp>.
 
 3. Set degrees, then SIN:
 
@@ -168,7 +168,7 @@ X holds 9.4248: three times π, since 135 degrees is three quarters of half a tu
    BLUE ∡MODE DEG 45 SIN
    ```
 
-   X shows <disp v="E03">0.7071</disp>.
+   X shows <disp v="E03" m="33s,35s">0.7071</disp><disp v="E03" m="STU">≈0.7071</disp>.
 
 ## Mixed review
 

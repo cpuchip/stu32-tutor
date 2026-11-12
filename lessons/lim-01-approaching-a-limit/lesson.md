@@ -75,7 +75,7 @@ Now run L at values of $x$ closer and closer to 1, from above. Carrying on:
 1.1 XEQ L ENTER
 ```
 
-X shows <disp v="L01">2.1000</disp>.
+X shows <disp v="L01" m="33s,35s">2.1000</disp><disp v="L01" m="STU">≈2.1000</disp>.
 
 ```keys L02 after=L01
 1.01 XEQ L
@@ -84,7 +84,7 @@ X shows <disp v="L01">2.1000</disp>.
 1.01 XEQ L ENTER
 ```
 
-X shows <disp v="L02">2.0100</disp>.
+X shows <disp v="L02" m="33s,35s">2.0100</disp><disp v="L02" m="STU">≈2.0100</disp>.
 
 ```keys L03 after=L02
 1.001 XEQ L
@@ -93,7 +93,7 @@ X shows <disp v="L02">2.0100</disp>.
 1.001 XEQ L ENTER
 ```
 
-X shows <disp v="L03">2.0010</disp>. And from below:
+X shows <disp v="L03" m="33s,35s">2.0010</disp><disp v="L03" m="STU">≈2.0010</disp>. And from below:
 
 ```keys L04 after=L03
 0.9 XEQ L
@@ -102,7 +102,7 @@ X shows <disp v="L03">2.0010</disp>. And from below:
 0.9 XEQ L ENTER
 ```
 
-X shows <disp v="L04">1.9000</disp>,
+X shows <disp v="L04" m="33s,35s">1.9000</disp><disp v="L04" m="STU">≈1.9000</disp>,
 
 ```keys L05 after=L04
 0.99 XEQ L
@@ -111,7 +111,7 @@ X shows <disp v="L04">1.9000</disp>,
 0.99 XEQ L ENTER
 ```
 
-<disp v="L05">1.9900</disp>, and
+<disp v="L05" m="33s,35s">1.9900</disp><disp v="L05" m="STU">≈1.9900</disp>, and
 
 ```keys L06 after=L05
 0.999 XEQ L
@@ -120,7 +120,7 @@ X shows <disp v="L04">1.9000</disp>,
 0.999 XEQ L ENTER
 ```
 
-<disp v="L06">1.9990</disp>. From both sides the values close in on 2. (At 1 itself, L would stop on its
+<disp v="L06" m="33s,35s">1.9990</disp><disp v="L06" m="STU">≈1.9990</disp>. From both sides the values close in on 2. (At 1 itself, L would stop on its
 ÷ with a division by 0; if you try it, C clears the message and GOLD GTO . . frees the program, as
 before.)
 
@@ -151,7 +151,7 @@ would need a 35th digit, and it is just 1. 1 plus $10^{-34}$, minus 1:
 1 E 34 +/− ENTER 1 + 1 −
 ```
 
-X shows <disp v="Z01">0.0000</disp>, not $10^{-34}$: the sum rounded to 1. At an $x$ that close, L's $x − 1$
+X shows <disp v="Z01" m="33s,35s">0.0000</disp><disp v="Z01" m="STU">≈0.0000</disp>, not $10^{-34}$: the sum rounded to 1. At an $x$ that close, L's $x − 1$
 would be 0 too, and it would divide by 0. Close enough to see the limit, not so close that the digits
 run out.
 
@@ -166,25 +166,25 @@ X, and x↔y and ÷ divide that sine by $x$:
 BLUE ∡MODE RAD GOLD DISP FIX 9 0.1 ENTER SIN x↔y ÷
 ```
 
-X shows <disp v="S01">0.998334166</disp>. Carrying on, closer to 0:
+X shows <disp v="S01" m="33s,35s">0.998334166</disp><disp v="S01" m="STU">≈0.998334166</disp>. Carrying on, closer to 0:
 
 ```keys S02 after=S01
 0.01 ENTER SIN x↔y ÷
 ```
 
-X shows <disp v="S02">0.999983333</disp>, and carrying on,
+X shows <disp v="S02" m="33s,35s">0.999983333</disp><disp v="S02" m="STU">≈0.999983333</disp>, and carrying on,
 
 ```keys S03 after=S02
 0.001 ENTER SIN x↔y ÷
 ```
 
-<disp v="S03">0.999999833</disp>. And from below, carrying on:
+<disp v="S03" m="33s,35s">0.999999833</disp><disp v="S03" m="STU">≈0.999999833</disp>. And from below, carrying on:
 
 ```keys S03B after=S03
 0.001 +/− ENTER SIN x↔y ÷
 ```
 
-X shows <disp v="S03B">0.999999833</disp>, the same: the sine of $−x$ is minus the sine of $x$, so the
+X shows <disp v="S03B" m="33s,35s">0.999999833</disp><disp v="S03B" m="STU">≈0.999999833</disp>, the same: the sine of $−x$ is minus the sine of $x$, so the
 fraction is the same on both sides. The values close in on 1, and the limit of $\sin(x) ÷ x$ as $x$
 approaches 0 is 1, which a geometry proof in calculus confirms. At FIX 4 the last values would all have
 rounded to 1 at four places, which hides how they close in; that is why the section showed nine.
@@ -269,19 +269,19 @@ two different numbers, so there is no limit. This is why a limit is checked from
    2 ENTER 0.001 yˣ 1 − 0.001 ÷
    ```
 
-   X shows <disp v="E02">0.6934</disp>. Carrying on, closer:
+   X shows <disp v="E02" m="33s,35s">0.6934</disp><disp v="E02" m="STU">≈0.6934</disp>. Carrying on, closer:
 
    ```keys E02B after=E02
    2 ENTER 0.0001 yˣ 1 − 0.0001 ÷
    ```
 
-   X shows <disp v="E02B">0.6932</disp>. And carrying on, $\ln 2$:
+   X shows <disp v="E02B" m="33s,35s">0.6932</disp><disp v="E02B" m="STU">≈0.6932</disp>. And carrying on, $\ln 2$:
 
    ```keys E02C after=E02B
    2 LN
    ```
 
-   X shows <disp v="E02C">0.6931</disp>: the values close in on it.
+   X shows <disp v="E02C" m="33s,35s">0.6931</disp><disp v="E02C" m="STU">≈0.6931</disp>: the values close in on it.
 
 ## Mixed review
 

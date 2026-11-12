@@ -100,7 +100,7 @@ EQN, and this time ask SOLVE for $L$:
 GOLD EQN GOLD SOLVE L
 ```
 
-It asks <disp v="S02A" kind="prompt">A?</disp>, and X shows <disp v="S02A">42.0000</disp>, the value
+It asks <disp v="S02A" kind="prompt">A?</disp>, and X shows <disp v="S02A" m="33s,35s">42.0000</disp><disp v="S02A" m="STU">≈42.0000</disp>, the value
 A holds now. R/S keeps it:
 
 ```keys S02B after=S02A

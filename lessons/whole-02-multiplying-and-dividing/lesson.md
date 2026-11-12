@@ -94,7 +94,7 @@ The ÷ key does not give that answer:
 59 ENTER 9 ÷
 ```
 
-The screen shows <disp v="D01">6.5556</disp>: 6 boxes and a part of a box, as a decimal. The digits after
+The screen shows <disp v="D01" e="alg">6.5556</disp><disp v="D01" e="rpn">≈6.5556</disp>: 6 boxes and a part of a box, as a decimal. The digits after
 the point are not the remainder: 0.5556 is a part of one box, rounded, and its 5s really go on for
 ever. <voice v="story">Tobin cannot carry part of a box.</voice><voice v="plain">Only full boxes count here.</voice> Two keys give the whole number of boxes and the remainder,
 both printed on the ÷ key. INT÷, in gold, gives the quotient:

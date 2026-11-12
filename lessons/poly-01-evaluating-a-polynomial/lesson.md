@@ -152,7 +152,7 @@ Now any value is a number and XEQ P. $p(1.5)$:
 1.5 XEQ P ENTER
 ```
 
-X shows <disp v="P02">1.0000</disp>: $2 × 3.375 − 3 × 2.25 + 4 × 1.5 − 5$ is $6.75 − 6.75 + 6 − 5$. And
+X shows <disp v="P02" m="33s,35s">1.0000</disp><disp v="P02" m="STU">≈1.0000</disp>: $2 × 3.375 − 3 × 2.25 + 4 × 1.5 − 5$ is $6.75 − 6.75 + 6 − 5$. And
 $p(−1)$:
 
 ```keys P03 after=P02
@@ -162,7 +162,7 @@ $p(−1)$:
 1 +/− XEQ P ENTER
 ```
 
-X shows <disp v="P03">-14.0000</disp>: $−2 − 3 − 4 − 5$.
+X shows <disp v="P03" m="33s,35s">-14.0000</disp><disp v="P03" m="STU">≈-14.0000</disp>: $−2 − 3 − 4 − 5$.
 
 ```why
 ask: Why does program P start with three ENTERs and no number?
@@ -205,7 +205,7 @@ coefficients in order are 1, 0, −2 and 1, and $r(x) = ((1x + 0)x − 2)x + 1$.
    GOLD PRGM PRGM 0.5 XEQ N ENTER
    ```
 
-   X shows <disp v="E02">0.1250</disp>: $0.125 − 1 + 1$.
+   X shows <disp v="E02" m="33s,35s">0.1250</disp><disp v="E02" m="STU">≈0.1250</disp>: $0.125 − 1 + 1$.
 
 ## Mixed review
 
