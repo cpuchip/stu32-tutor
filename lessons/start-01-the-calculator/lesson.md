@@ -40,10 +40,9 @@ Last, the display: DISP is gold above the 2 key, and FIX 4 shows four digits aft
 BLUE MODE {mode} BLUE MODE {entry} GOLD DISP FIX 4
 ```
 
-<entry e="rpn">The stack has four levels, named X, Y, Z and T. A fresh screen shows only X, at the
-bottom. X is the top of the pile: the number you just typed, and where every answer lands. Y is the
-number under it, drawn above X while it holds a number you put there, and Z and T go above Y the same way. Above the
-levels, the screen keeps the numbers you typed and the answers you got, the newest lowest.</entry>
+<entry e="rpn">The screen shows four lines, named T, Z, Y and X from top to bottom. X, at the bottom,
+is the top of the pile: the number you just typed, and where every answer lands. Y is the number
+under it.</entry>
 
 ## A first calculation
 

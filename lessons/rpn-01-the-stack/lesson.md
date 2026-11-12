@@ -37,11 +37,8 @@ press gold and 2 (DISP, in gold), the soft key under FIX, and 4.
 BLUE MODE {mode} GOLD DISP FIX 4
 ```
 
-<mode m="33s,35s">The screen shows four lines, labelled T, Z, Y and X from top to bottom.</mode>
-<mode m="STU">The stack has four levels, named X, Y, Z and T. A fresh screen shows only X, at the
-bottom, and a level above it is drawn while it holds a number you put there: Y first, then Z, then T. Above the
-levels, the screen keeps the numbers you typed and the answers you got, the newest lowest.</mode>
-X, at the bottom, is the number you are looking at, and it is where every answer lands. With FIX 4, numbers show four
+The screen shows four lines, labelled T, Z, Y and X from top to bottom. X, at the bottom, is the
+number you are looking at, and it is where every answer lands. With FIX 4, numbers show four
 decimal places, and very large or very small ones switch to scientific form.
 
 You only do this setup once. Work the examples in order. Most start
