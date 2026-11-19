@@ -28,8 +28,10 @@ int judge_within(const char *center, const char *tol, const char *got);
    not -1. */
 int judge_expect(const char *expectation, const char *got);
 
-/* The forms above, called directly. judge_cell judges the learner's one cell against cell i of a grid
-   expectation, for the page to mark each cell: 1 right, 0 wrong, -1 no such cell. */
+/* The forms above, called directly, each given what follows its "NAME=" (judge_text("00001111", got),
+   judge_base(2, "101101", got)). judge_cell judges the learner's one cell against cell i of a grid's cells,
+   also without "GRID=" ("0,0,1,0", not "GRID=0,0,1,0"), for the page to mark each cell: 1 right, 0 wrong,
+   -1 no such cell (primer #15662: the whole form, prefix and all, reads as cell 0 "GRID=0"). */
 int judge_text(const char *want, const char *got);
 int judge_base(int base, const char *want, const char *got);
 int judge_grid(const char *want, const char *got);
