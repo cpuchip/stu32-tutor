@@ -491,7 +491,7 @@ slip: BN1CA | written smallest place first | The largest place is written first,
 ```
 
 ```item BN1F
-prompt: Fill in the table for one column of a binary sum.
+prompt: Fill in the table for the first column of a binary sum, the ones.
 topics: half-adder-table
 answer: table
 calculator: no

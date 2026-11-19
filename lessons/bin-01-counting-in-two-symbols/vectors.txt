@@ -13,7 +13,7 @@ BN1CB | slip: 4 and 4 written each on its own, 100 and 100 | - | BASE=2:100100
 BN1D | 1011 + 111 is eleven and seven, eighteen | - | BASE=2:10010
 BN1DA | slip: every column added with no carry | - | BASE=2:1100
 BN1E | the fours column down a count from 0 to 7 | - | TEXT=00001111
-BN1EA | slip: the twos column's block | - | TEXT=0011
-BN1F | one column of a sum: for a b = 0 0, 0 1, 1 0, 1 1, the sum digit then the carry | - | GRID=0,0,1,0,1,0,0,1
+BN1EA | slip: the twos column down the same count | - | TEXT=00110011
+BN1F | the first column of a sum: for a b = 0 0, 0 1, 1 0, 1 1, the sum digit then the carry | - | GRID=0,0,1,0,1,0,0,1
 BN1FA | slip: the sum digit 1 for 1 + 1, as if either digit were enough | - | GRID=0,0,1,0,1,0,1,1
 BN1FB | slip: the sum digit and the carry swapped | - | GRID=0,0,0,1,0,1,1,0

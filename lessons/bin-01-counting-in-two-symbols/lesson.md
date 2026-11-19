@@ -170,7 +170,7 @@ ordinaire par dix.
 numbers are long. But he thought binary was the most basic arithmetic there is, and good for discovering things.
 He also wrote that the ancient Chinese figures he called the figures of Fohy, built of whole and broken lines, read
 as binary if a whole line is 1 and a broken one is 0. A French Jesuit in Beijing, Bouvet, had written to him about
-them on 14 November 1701.
+them in November 1701.
 
 ## Two values: Boole
 
@@ -200,12 +200,12 @@ to add two numbers, and he chose binary for it:
 Although any numbering base could be used the circuit is greatly simplified by using the scale of two.
 ```
 
-Each column of a binary sum follows one small rule, and Shannon wrote it out for his relays. Take one column with
-digits a and b. The sum digit is 1 when exactly one of a and b is 1. The carry is 1 when both are. A table with a row
-for every pair of digits holds the whole rule.
+Each column of a binary sum follows a small rule, and Shannon wrote it out for his relays. Take the first column, the
+ones, with digits a and b. The sum digit is 1 when exactly one of a and b is 1. The carry is 1 when both are. A table
+with a row for every pair of digits holds the whole rule for that column.
 
 ```item BN1F
-prompt: Fill in the table for one column of a binary sum: for each pair of digits a and b, the sum digit and the carry.
+prompt: Fill in the table for the first column of a binary sum, the ones: for each pair of digits a and b, the sum digit and the carry.
 topics: half-adder-table
 answer: table
 calculator: no
@@ -218,8 +218,9 @@ slip: BN1FA | the sum digit 1 for 1 + 1 | $1 + 1 = 10$: the sum digit is the 0, 
 slip: BN1FB | the sum digit and the carry swapped | The sum digit is the right-hand digit of $a + b$, and the carry is the left-hand one.
 ```
 
-That table is all of binary addition for one column. Pass each column's carry to the next one along and the same rule
-adds numbers of any length, which is what Shannon's relay circuit was designed to do.
+That table is Shannon's rule for the first column, the ones. Every other column also has a carry coming in, so it adds
+three digits: its sum digit is 1 when one or all three of them are 1, and its carry is 1 when two or three are. Pass
+each column's carry along to the next, and his relay circuit adds numbers of any length.
 
 ## Sources
 

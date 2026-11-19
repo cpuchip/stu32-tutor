@@ -29,7 +29,7 @@ rows = [
     ("BN1DA", f"BASE=2:{b(two('1011') ^ two('111'))}"),       # slip: every column added with no carry
     # BN1E: counting 0 to 7 in binary, the digits down the fours column, from 0 down.
     ("BN1E", "TEXT=" + "".join(str(n >> 2 & 1) for n in range(8))),
-    ("BN1EA", "TEXT=" + "".join(str(n >> 1 & 1) for n in range(4))),   # slip: the twos column's block
+    ("BN1EA", "TEXT=" + "".join(str(n >> 1 & 1) for n in range(8))),   # slip: the twos column down the same count
 ]
 
 # BN1F: one column of a sum, for each pair of digits a and b (rows 0 0, 0 1, 1 0, 1 1): the sum digit, then the carry.
