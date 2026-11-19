@@ -1,5 +1,5 @@
 /* judge: whether an answer is right, as one comparison for the learning page and the harness (primer
- * #5229; docs/proposals/lore-and-assessment.md). It works on decimal text alone: no core, no trace, no
+ * #5229; docs/proposals/lore-and-assessment.md). It works on text alone: no core, no trace, no
  * main, so the page compiles it beside report.c. `make check` proves it agrees with the firmware's
  * vector runner on every expectation in every lesson (tools/judge_check.py). */
 #ifndef STU32_JUDGE_H
@@ -18,7 +18,21 @@ int judge_within(const char *center, const char *tol, const char *got);
 
 /* An expectation as the vectors write it, against the value the learner's keys left: "X=12.002"
    (exact), "X#12,1E-15" (within), any register letter (X, Y, Z, T, or N for the algebraic line's
-   answer). 1 right, 0 wrong, -1 when the expectation or the value cannot be read. */
+   answer). 1 right, 0 wrong, -1 when the expectation or the value cannot be read.
+   Three forms judge an answer that is not the calculator's number (T65, a lesson with no device):
+   "TEXT=s", a word or a bit string, compared with spaces removed and letters folded to lower case
+   ("TEXT=00001111": the width is the point); "BASE=b:digits", a number written in base 2, 8, 10 or 16,
+   judged by value (leading zeros and spaces aside, hex letters in either case: "BASE=2:101101");
+   "GRID=c,c,...", a table's blank cells in reading order, each a text cell or a base cell ("2:101"),
+   against the learner's cells joined by commas. A learner's answer that cannot be read is wrong (0),
+   not -1. */
 int judge_expect(const char *expectation, const char *got);
+
+/* The forms above, called directly. judge_cell judges the learner's one cell against cell i of a grid
+   expectation, for the page to mark each cell: 1 right, 0 wrong, -1 no such cell. */
+int judge_text(const char *want, const char *got);
+int judge_base(int base, const char *want, const char *got);
+int judge_grid(const char *want, const char *got);
+int judge_cell(const char *grid, int i, const char *got);
 
 #endif

@@ -1,0 +1,19 @@
+# bin-01 counting in two symbols (computer science, unit 1; T65), a lesson with no device: each item's answer and
+# each slip's, as tools/judge.c judges them (TEXT= text, BASE=b:digits a number in base b, GRID= a table's blanks in
+# reading order). Keys are - (nothing is pressed). docs/evidence/bin-01.py recomputes every line. Every example is ours.
+BN1A | after 1011 (eleven) comes twelve | - | BASE=2:1100
+BN1AA | slip: the last digit counted on as in tens | - | TEXT=1012
+BN1AB | slip: counted down, not up | - | BASE=2:1010
+BN1B | 11010 is 16 + 8 + 2 | - | BASE=10:26
+BN1BA | slip: the places read from the left, 01011 | - | BASE=10:11
+BN1BB | slip: the binary digits typed again as a number in tens | - | BASE=10:11010
+BN1C | 44 is 32 + 8 + 4 | - | BASE=2:101100
+BN1CA | slip: written smallest place first | - | BASE=2:001101
+BN1CB | slip: 4 and 4 written each on its own, 100 and 100 | - | BASE=2:100100
+BN1D | 1011 + 111 is eleven and seven, eighteen | - | BASE=2:10010
+BN1DA | slip: every column added with no carry | - | BASE=2:1100
+BN1E | the fours column down a count from 0 to 7 | - | TEXT=00001111
+BN1EA | slip: the twos column's block | - | TEXT=0011
+BN1F | one column of a sum: for a b = 0 0, 0 1, 1 0, 1 1, the sum digit then the carry | - | GRID=0,0,1,0,1,0,0,1
+BN1FA | slip: the sum digit 1 for 1 + 1, as if either digit were enough | - | GRID=0,0,1,0,1,0,1,1
+BN1FB | slip: the sum digit and the carry swapped | - | GRID=0,0,0,1,0,1,1,0

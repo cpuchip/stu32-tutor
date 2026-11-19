@@ -145,6 +145,10 @@ DIRTY = " ".join(["RAD"] + [f"7 STO:{v}" for v in "ABCDEFGHIJKLMNOPQRSTUVWXYZ"] 
 DEVICE_WIDTH = "w=21"                           # the X line's width on the device (screen.c FMT_WIDTH)
 MAX_EXPECT = 64                                # the runner keeps no more than this per vector
 EM_DASH = ("—", "&mdash;", "&#8212;", "&#x2014;", "&#X2014;")
+# The page's judge on the command line (tools/judge_test.c, built by `make tools`), for a lesson with no device;
+# JUDGE_TEST names another build of it.
+JUDGE_BIN = os.environ.get("JUDGE_TEST") or os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))),
+                                                         "build", "judge_test")
 
 
 def front_matter(text):
@@ -966,7 +970,10 @@ def lesson_entries(meta, modes):
 def lesson_pairs(meta):
     """The (mode, entry) pairs a lesson is read and checked in, as the page offers them: each mode with each entry,
     except alg outside STU mode (firmware 029 rule 2), so a lesson in every mode may offer alg in STU (abacus
-    #12198). Entry None is a lesson that offers no entries (RPN)."""
+    #12198). Entry None is a lesson that offers no entries (RPN). A lesson with no device (`device: none`, T65) has
+    no pairs: no mode, no entry and no student run."""
+    if "device" in meta:
+        return []
     modes = lesson_modes(meta)[0]
     return [(m, e) for m in modes for e in lesson_entries(meta, modes)[0] if not (e == "alg" and m != "STU")]
 
@@ -1224,6 +1231,19 @@ class Lesson:
         for p in plain_powers(body, hand_key(meta, self.d)):
             self.bad(p)
         body = maths_read(body)
+        # A lesson with no device (T65, the computer science course): its own checks, tools/nodevice.py, and the
+        # voice rules every lesson keeps. None of the calculator's checks below applies to it.
+        if "device" in meta:
+            if meta["device"] != "none":
+                self.bad(f"front matter `device: {meta['device']}`: the one device a lesson may name is none")
+                return
+            import nodevice
+            probs, notes = nodevice.problems(self.d, meta, body, read_vectors(vec_path, 4), JUDGE_BIN)
+            for p in probs:
+                self.bad(p)
+            self.notes += notes
+            self.voice_rules(text, body)
+            return
         # Voices: the spans and the same-skeleton proof first; then every check below reads the default voice,
         # which the proof shows has every other voice's examples, quotes and items.
         for p in check_voices(meta, body):
@@ -1347,6 +1367,10 @@ class Lesson:
             self.notes.append("worked through in order in each mode" + (" and entry" if entries != [None] else ""))
 
         # 5. Voice, the front matter included.
+        self.voice_rules(text, body_all)
+
+    def voice_rules(self, text, body_all):
+        """The rules every lesson keeps, with a device or without: no em-dash, no possessive lesson id."""
         dashes = sum(text.count(d) for d in EM_DASH)
         if dashes:
             self.bad(f"{dashes} em-dash(es) in lesson.md")

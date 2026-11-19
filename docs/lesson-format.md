@@ -464,14 +464,74 @@ own reason.
 
 **One judge.** tools/judge.c compares the learner's value with an expectation: `judge_expect("X=10",
 "+10E+0")` is right, `judge_expect("X#2,1E-15", got)` is right when |got − 2| ≤ 10⁻¹⁵, computed
-exactly. It reads decimal text only (no core), so the learning page compiles it as it does report.c,
+exactly. It reads text only (no core: decimal numbers, and the forms of a lesson with no device, below), so the learning page compiles it as it does report.c,
 and the page and the checker cannot judge differently. `make check` proves it agrees with the
 firmware's vector runner (tools/judge_check.py): for every exact expectation in every lesson, in the
 lesson's own mode and entry, the same value written in another form (the core's E-form, a trailing
 zero) must pass both, and one unit off in the 34th digit must fail both; and its tolerance is checked
 against exact arithmetic at, inside and past its edges. `make controls` builds three wrong judges (one
-that calls every answer right, one with an exclusive edge, one that counts trailing zeros) and each
-must turn that check red (scripts/judge-controls.sh).
+that calls every answer right, one with an exclusive edge, one that counts trailing zeros), and five for the
+forms with no device, and each must turn that check red (scripts/judge-controls.sh).
+
+## A lesson with no device
+
+A lesson whose problems are not the calculator's (T65, the computer science course; the shape agreed with primer,
+#15625 to #15628) says `device: none` in its front matter, and tools/nodevice.py checks it in place of everything
+above that presses keys. It has no setup, no `modes:`, `entries:`, `display:` or `voices:`, no keys blocks, no `<disp>`
+quotes, no widgets and no why blocks; check.py refuses each. `lesson_pairs` gives it no (mode, entry) pair, so it has no
+student run. What it has:
+
+````
+```item BN1C
+prompt: Write 44 in binary.
+topics: decimal-to-binary
+answer: text
+calculator: no
+slip: BN1CA | written smallest place first | The largest place is written first, on the left.
+```
+
+```item BN1F
+prompt: Fill in the table for one column of a binary sum.
+topics: half-adder-table
+answer: table
+calculator: no
+table: a | b | sum digit | carry
+row: 0 | 0 | ? | ?
+row: 1 | 1 | ? | ?
+slip: BN1FA | the sum digit 1 for 1 + 1 | 1 + 1 = 10: the sum digit is the 0.
+```
+````
+
+- `answer: text`: one input, the learner's text sent to the judge as typed. `answer: table`: a grid, `table:` its head
+  and each `row:` its cells, `?` for a cell the learner fills; the page sends the filled cells in reading order (row by
+  row, left to right), joined by commas. `calculator:` is always no.
+- The expectation is in vectors.txt, keys `-` and one expectation (judge.h): `TEXT=s` (exact text, spaces removed,
+  letters folded: a word, or a bit string whose width is the point, `TEXT=00001111`); `BASE=b:digits` (a number in
+  base 2, 8, 10 or 16, judged by value: leading zeros and spaces aside, hex letters in either case); `GRID=c,c,...`
+  for a table's blanks, each a text cell or a base cell (`10:7`). A text item's answer is TEXT or BASE, a table's is
+  GRID with one cell for each `?`. A slip is a vector of the same kind (TEXT or BASE beside TEXT or BASE), and its
+  hint shows when the learner's answer is judged right against it.
+- The judge is tools/judge.c, the page's own, so the page and the check cannot disagree; `judge_cell(grid, i, cell)`
+  marks one cell. check.py requires each answer to be judged right against its own expectation, each slip's value
+  right against the slip and wrong against the answer, and no answer of three or more characters to appear in the
+  lesson before its item. judge_check.py plants right, rewritten and wrong answers for every such expectation against
+  a model of the rules written again in Python, and `make controls` builds five more wrong judges for them.
+- Every expectation is recomputed by `docs/evidence/<id>.py`, which never calls judge.c: run as
+  `python3 -I docs/evidence/<id>.py`, it prints `ID | expectation`, one a line, and those lines must be vectors.txt's.
+- **Quotes.** A passage quoted from a source is a fence:
+
+  ````
+  ```quote leibniz-1703 p. 224
+  C’est pourquoi deux s’écrit ici par 10, et deux fois deux ou quatre par 100, ...
+  ```
+  ````
+
+  naming a source in sources/SOURCES.tsv and where in it the passage is. Its words must be in the source's cached text
+  (sources/cache/<id>.txt, fetched by scripts/fetch-sources.py and never committed; its sha256 must be the table's), with
+  quotes' shapes, TeX markup and line breaks ignored; where the cached text marks its pages (`[p. 224]`), the fence must
+  name the page the passage starts on. The English below a quote in another language is ours, and says so. Every other
+  history claim is the non-author reader's to check against the sources the lesson lists.
+- The words around the problems are not checked against them, as with the calculator's lessons.
 
 ## Placement
 

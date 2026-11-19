@@ -50,6 +50,109 @@ def nudge(v):
     return format(d + unit, "f") if abs(unit.adjusted()) < 60 else str(d + unit)
 
 
+DIGITS = "0123456789abcdefghijklmnopqrstuvwxyz"
+BASE_CELL = re.compile(r"^(2|8|10|16):([0-9A-Za-z]+)$")
+
+
+def squash(s):
+    return "".join(s.split()).lower()
+
+
+def m_text(w, g):
+    w = squash(w)
+    return -1 if not w else int(w == squash(g))
+
+
+def m_base(b, d, g):
+    """A number in base b, by value: the model's own reading, Python's int over digits it has checked first."""
+    if b not in (2, 8, 10, 16) or not d or any(c not in DIGITS[:b] for c in d.lower()):
+        return -1
+    g = squash(g)
+    if not g or any(c not in DIGITS[:b] for c in g):
+        return 0
+    return int(int(d, b) == int(g, b))
+
+
+def m_cell(w, g):
+    m = BASE_CELL.match(w)
+    return m_base(int(m.group(1)), m.group(2), g) if m else m_text(w, g)
+
+
+def model(exp, got):
+    """judge.h's rules for the forms with no device (TEXT=, BASE=, GRID=, and a CELL i of a grid), written again."""
+    if exp.startswith("CELL "):
+        i, grid = exp[5:].split("\t", 1)
+        ws = grid.split(",")
+        return m_cell(ws[int(i)], got) if 0 <= int(i) < len(ws) else -1
+    kind, v = exp.split("=", 1)
+    if kind == "TEXT":
+        return m_text(v, got)
+    if kind == "BASE":
+        b, _, d = v.partition(":")
+        return m_base(int(b), d, got) if b.isdigit() else -1
+    ws, gs = v.split(","), got.split(",")
+    if any(m_cell(w, "") < 0 for w in ws):
+        return -1
+    return int(len(ws) == len(gs) and all(m_cell(w, g) == 1 for w, g in zip(ws, gs)))
+
+
+def to_base(n, b):
+    s = ""
+    while True:
+        s = DIGITS[n % b] + s
+        n //= b
+        if not n:
+            return s
+
+
+def other(c):
+    return {"0": "1", "1": "0"}.get(c, "z" if c != "z" else "y")
+
+
+def plants(exp):
+    """(expectation, answer, verdict meant) for one expectation: right, right written another way, wrong."""
+    kind, v = exp.split("=", 1)
+    if kind == "TEXT":
+        return [(exp, v, 1), (exp, " ".join(v).upper(), 1), (exp, v[:-1] + other(v[-1]), 0), (exp, v + v[-1], 0)]
+    if kind == "BASE":
+        b, d = v.split(":", 1)
+        b, n = int(b), int(d, int(b))
+        return [(exp, d, 1), (exp, "00" + d.upper(), 1), (exp, " " + d.lower() + " ", 1), (exp, to_base(n + 1, b), 0),
+                (exp, d + DIGITS[b], 0), (exp, "", 0),
+                (f"BASE={b}:{d}{DIGITS[b]}", d, -1)]       # an expectation with a digit its base lacks is not read
+    ws = v.split(",")
+    right = [BASE_CELL.match(w).group(2) if BASE_CELL.match(w) else w for w in ws]
+    out = [(exp, ",".join(right), 1), (exp, ", ".join(right), 1), (exp, ",".join(right[:-1]), 0),
+           (exp, ",".join(right + right[-1:]), 0)]
+    for i, w in enumerate(ws):
+        wrong = right[:i] + [other(right[i][-1]) if not BASE_CELL.match(w) else
+                             to_base(int(right[i], int(BASE_CELL.match(w).group(1))) + 1, int(BASE_CELL.match(w).group(1)))] + right[i + 1:]
+        out.append((exp, ",".join(wrong), 0))
+        out.append((f"CELL {i}\t{v}", right[i], 1))
+        out.append((f"CELL {i}\t{v}", wrong[i], 0))
+    out.append((f"CELL {len(ws)}\t{v}", right[0], -1))
+    return out
+
+
+def nodevice_cases(lessons):
+    """Every no-device expectation's planted answers, each checked against the model before judge.c sees it: a plant
+    the model does not judge as meant is a fault in the model or the plant, and is raised, not counted."""
+    out = []
+    for d in lessons:
+        for line in open(os.path.join(d, "vectors.txt"), encoding="utf-8"):
+            if line.lstrip().startswith("#") or line.count("|") < 3:
+                continue
+            exp = line.rstrip("\n").split("|")[3].strip()
+            if not re.match(r"^(TEXT|BASE|GRID)=", exp):
+                continue
+            for e, g, want in plants(exp):
+                if model(e, g) != want:
+                    raise SystemExit(f"judge_check: the model judges {e!r} against {g!r} as {model(e, g)}, "
+                                     f"planted as {want}")
+                out.append((e, g, want))
+    return out
+
+
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--core", required=True)
@@ -62,11 +165,15 @@ def main():
     sys.path.insert(0, here)
     import check                                  # the lesson's own mode and entry, as check.py runs them
     cases = []                                    # (vector line, judge expectation, the core's value, want)
+    nodevice_lessons = []
     for d in lessons:
         path = os.path.join(d, "vectors.txt")
         if not os.path.exists(path):
             continue
         meta, _ = check.front_matter(open(os.path.join(d, "lesson.md"), encoding="utf-8").read())
+        if "device" in meta:
+            nodevice_lessons.append(d)            # no core runs it: judged against the model below
+            continue
         md, entry = check.lesson_pairs(meta)[0]
         for vid, parts, _ in check.vectors_for_mode(check.read_vectors(path, 4), md, None, entry):
             parts = check.variant(parts, md, False, entry).split(" | ")
@@ -123,11 +230,25 @@ def main():
     for (e, g, want), jv in zip(tcases, j2.stdout.split()):
         if int(jv) != want:
             bad.append(f"tolerance: {e} against {g}: judge {jv}, exact arithmetic {want}")
+    # The forms with no device (T65): every TEXT=, BASE= and GRID= expectation of a lesson with no device, against a
+    # model of the rules written here in Python, with answers planted right, right written another way, and wrong.
+    ncases = nodevice_cases(nodevice_lessons)
+    if nodevice_lessons and not ncases:
+        bad.append("no-device: lessons with no device, but no expectation of theirs was planted")
+    jn = subprocess.run([judge], input="".join(f"{e}\t{g}\n" for e, g, _ in ncases), capture_output=True, text=True,
+                        encoding="utf-8")
+    nv = jn.stdout.split()
+    if len(nv) != len(ncases):
+        bad.append(f"no-device: judge answered {len(nv)} of {len(ncases)}")
+    for (e, g, want), jv in zip(ncases, nv):
+        if int(jv) != want:
+            bad.append(f"no-device: {e} against '{g}': judge {jv}, the model {want}")
     for b in bad[:20]:
         print("FAIL " + b)
     n_exp = len(cases) // 3
     print(f"judge: {len(cases)} planted answers on {n_exp} expectations, runner and judge.c agree on "
-          f"{len(cases) - sum(1 for b in bad if b.startswith('disagree'))}; {len(tcases)} tolerance cases"
+          f"{len(cases) - sum(1 for b in bad if b.startswith('disagree'))}; {len(tcases)} tolerance cases; "
+          f"{len(ncases)} no-device cases"
           + ("" if not bad else f"; {len(bad)} problems"))
     return 1 if bad else 0
 

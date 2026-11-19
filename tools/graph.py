@@ -321,7 +321,7 @@ def check_courses(course_texts, graph):
 
 
 ROUTES = ("guided", "open")
-SUBJECTS = ("mathematics", "astronomy")     # the first is a course file's subject when it names none
+SUBJECTS = ("mathematics", "astronomy", "computer science")   # the first is a course file's subject when it names none
 
 
 def route_data(lessons, graph):
@@ -449,7 +449,8 @@ def selftest_courses(course_texts, graph):
               + ("" if not mine else f": {mine[:2]}"))
         gates_ok = gates_ok and ok
     subj = {cid: c["subject"] for cid, c in check_courses(course_texts, graph)[1].items()}
-    want = {cid: "astronomy" if cid.startswith("astronomy-") else "mathematics" for cid in subj}
+    want = {cid: "astronomy" if cid.startswith("astronomy-") else "computer science" if cid == "computer-science"
+            else "mathematics" for cid in subj}
     subj_ok = subj == want
     print(f"{'ok  ' if subj_ok else 'FAIL'} each course's subject as its file names it, mathematics by default: {subj}")
     return red == len(plants) and green and bool(refused) and gates_ok and subj_ok

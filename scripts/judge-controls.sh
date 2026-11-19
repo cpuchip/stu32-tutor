@@ -30,6 +30,12 @@ plant() {   # name, sed expression applied to judge.c
 plant "a judge that calls every answer right" 's/    return same(&a, &b);/    return same(\&a, \&b) || 1;/'
 plant "a tolerance whose edge is excluded" 's/return cmp_mag(&d, &t) <= 0;/return cmp_mag(\&d, \&t) < 0;/'
 plant "trailing zeros counted as digits" 's/    while (nb > 0 \&\& buf\[nb - 1\] == 0) {    \/\* trailing zeros into the exponent \*\//    while (0) {/'
+# The forms with no device (T65): judge_check.py's model of them must catch each.
+plant "every text answer right" 's/lb = text_norm(got, gn, b)/lb = text_norm(got ? want : want, wn + 0 * gn, b)/'
+plant "leading zeros counted in a number in a base" 's/        if (k == 0 \&\& d == 0)/        if (0)/'
+plant "a digit beyond its base accepted" 's/if (d < 0 || d >= base)/if (d < 0 || d >= base + 26)/'
+plant "a base prefix never read (BASE= and a grid's base cells)" 's/            return (int)strtol(bases\[i\], NULL, 10);/            return 0;/'
+plant "a grid with a cell too many passed" 's/    if (cells_in(got) != n)/    if (0)/'
 $cc -o build/judge_test tools/judge_test.c tools/judge.c
 python3 tools/judge_check.py --core "$core" > /dev/null || { echo "FAIL the real judge does not pass"; exit 1; }
 echo "$red/$total judge controls red as planted"

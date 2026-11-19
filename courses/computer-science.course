@@ -1,0 +1,25 @@
+# Computer science: how we got here, and how it works (proposed, docs/courses/computer-science.md; T65). Lessons with
+# no device. Stage 1 is units 1 to 5 (junior high), stage 2 units 6 to 10 (high school), stage 3 units 11 to 18
+# (college). Only the pilot's lesson is written.
+course | computer-science | Computer science
+route | guided
+subject | computer science
+unit | 1 | Counting in two symbols
+lesson | bin-01
+unit | 2 | Logic and gates
+unit | 3 | Letters, pictures and sound as numbers
+unit | 4 | Algorithms by hand
+unit | 5 | A first program
+unit | 6 | The machine that follows instructions
+unit | 7 | Keeping things in order
+unit | 8 | How long will it take?
+unit | 9 | Networks
+unit | 10 | Secrets in public
+unit | 11 | What no program can do
+unit | 12 | Proving a program right
+unit | 13 | Many programs at once
+unit | 14 | Information
+unit | 15 | Machines that learn
+unit | 16 | Language models
+unit | 17 | Building large systems
+unit | 18 | Systems engineering in the age of AI

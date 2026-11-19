@@ -43,3 +43,17 @@ is kept as it was decided.
 - Prose keys are checked against the vectors through the firmware's keymap (tools/keyrun.c).
 - Accepted on abacus's review: every vector also runs from a used core, and a quoted display must
   match the device's X line (screen_lines).
+
+## 2026-11-19 (Michael, on the T65 card, approval A30, 04:06Z)
+
+His choice: "Yes: for the learn reader, teens and up", with his note: "I think build out the syllabus too though from
+Jr high level up through college topics including AI and systems engineer in the age of AI. All we really need is
+that first lesson and to start with to see feel. And yes widening tutor and primer is good, their names are still
+fitting."
+
+1. **The curriculum widens beyond the STU-32**: a computer science course on learn, beside mathematics and astronomy,
+   for the learn reader, teens and up. Its lessons need no calculator (`device: none`, docs/lesson-format.md).
+2. **First a pilot lesson, for the feel**: bin-01, counting in two symbols, on a branch and nothing live. Its history
+   is quoted from the sources it cites, each checked word for word against the cached text (sources/).
+3. **A syllabus, outline level**: docs/courses/computer-science.md, from junior high through college, AI and systems
+   engineering among its units. Units and their questions only; the lessons come after the pilot is read.

@@ -742,6 +742,49 @@ CONTROLS_FOR["sky-02-angles-with-your-hand"] = [
      "MODE33 FIX4 0.37 ENTER | X=0.38\n", {}, "vectors in STU rpn mode"),
 ]
 # The entry axis (decision 63), proven on the first lesson to offer entries.
+# bin-01: counting in two symbols (computer-science unit 1; T65), a lesson with no device (tools/nodevice.py): its
+# answers judged by judge.c and recomputed in docs/evidence/bin-01.py, its quotes found in their cached sources.
+CONTROLS_FOR["bin-01-counting-in-two-symbols"] = [
+    ("an expectation the recomputation does not give (44 as 101110)", "vectors.txt", "| - | BASE=2:101100\n",
+     "| - | BASE=2:101110\n", {}, "evidence: BN1C: vectors.txt says BASE=2:101110"),
+    ("a slip whose value is the answer itself", "vectors.txt",
+     "BN1DA | slip: every column added with no carry | - | BASE=2:1100\n",
+     "BN1DA | slip: every column added with no carry | - | BASE=2:10010\n", {},
+     "slip BN1DA (no carries) gives the answer itself"),
+    ("a slip with no vector", "lesson.md", "slip: BN1EA |", "slip: BN1EZ |", {}, "no vector BN1EZ for its slip"),
+    ("a vector no item or slip uses", "vectors.txt", "BN1EA | slip: the twos", "BN1EZ | slip: the twos", {},
+     "vector BN1EZ is no item's answer and no slip's"),
+    ("a table with one blank fewer than its answer's cells", "lesson.md", "row: 1 | 1 | ? | ?\n", "row: 1 | 1 | 0 | ?\n",
+     {}, "item BN1F: GRID= gives 8 cells, the table has 7 blanks"),
+    ("a table row with a cell missing", "lesson.md", "row: 0 | 1 | ? | ?\n", "row: 0 | 1 | ?\n", {},
+     "item BN1F: a row of 3 cells under a head of 4"),
+    ("a table answer given a text expectation", "vectors.txt", "| - | GRID=0,0,1,0,1,0,0,1\n",
+     "| - | TEXT=0,0,1,0,1,0,0,1\n", {}, "item BN1F: a table answer's vector is GRID="),
+    ("a base answer with a digit its base does not have", "vectors.txt", "| - | BASE=2:10010\n", "| - | BASE=2:10012\n",
+     {}, "BN1D: BASE= is a base"),
+    ("an item's answer written in the lesson before it", "lesson.md", "## Writing a number in binary\n",
+     "## Writing a number in binary\n\nForty-four is 101100.\n", {}, "item BN1C: its answer 101100 is in the lesson before"),
+    ("a word of a quote changed", "lesson.md", "Cependant je ne recommande point", "Cependant je recommande", {},
+     "quote from leibniz-1703: not in the source"),
+    ("a quote put on the wrong page", "lesson.md", "```quote leibniz-1703 p. 225\nCependant",
+     "```quote leibniz-1703 p. 224\nCependant", {}, "quote from leibniz-1703: it is on p. 225, the fence says 'p. 224'"),
+    ("a quote from a source not in the table", "lesson.md", "```quote leibniz-1703 p. 224\nC’est",
+     "```quote leibniz-1704 p. 224\nC’est", {}, "quote from leibniz-1704: not a source in sources/SOURCES.tsv"),
+    ("a quote that names no place in its source", "lesson.md", "```quote boole-1854 ch. II, section 15\n",
+     "```quote boole-1854\n", {}, "quote from boole-1854: the fence names where in the source it is"),
+    ("a keys block in a lesson with no device", "lesson.md", "## Reading a binary number\n",
+     "## Reading a binary number\n\n```keys K01\n1 ENTER\n```\n", {}, "a keys block in a lesson with no device"),
+    ("a setup in a lesson with no device", "lesson.md", "requires:\n", "requires:\nsetup: BLUE MODE {mode}\n", {},
+     "front matter `setup:` in a lesson with no device"),
+    ("a device other than none", "lesson.md", "device: none\n", "device: abacus\n", {},
+     "the one device a lesson may name is none"),
+    ("an item offering the calculator", "lesson.md", "topics: binary-counting\nanswer: text\ncalculator: no\n",
+     "topics: binary-counting\nanswer: text\ncalculator: yes\n", {}, "item BN1A: calculator: is no"),
+    ("an item with a calculator answer kind", "lesson.md", "topics: binary-to-decimal\nanswer: text\n",
+     "topics: binary-to-decimal\nanswer: type\n", {}, "item BN1B: answer: is text or table"),
+    ("an em-dash in a lesson with no device", "lesson.md", "That is: \"This", "That is — \"This", {},
+     "em-dash(es) in lesson.md"),
+]
 FRAC01_REASON = ("modes_reason: algebraic entry, this course's default, is STU mode's alone (firmware 029); RPN is "
                  "offered in STU mode too\n")
 CONTROLS_FOR["frac-01-equivalent-fractions"] = [
@@ -1084,6 +1127,11 @@ CONTROLS_FOR["rpn-03-the-display"].append(
      "```keys P01\nGOLD DISP FIX 4 2 ENTER 3 ÷\n", "```keys P01\n2 ENTER 3 ÷\n", {},
      "P01: working through in order"))
 GREENS_FOR = {
+    "bin-01-counting-in-two-symbols": [
+        # a quote is found by its words: its line breaks and its apostrophes' shapes are not part of it
+        ("a quote's line broken elsewhere", "lesson.md", "par 1000, et\ndeux fois huit", "par 1000, et deux fois\nhuit"),
+        ("a quote's curly apostrophe typed straight", "lesson.md", "C’est pourquoi deux s’écrit", "C'est pourquoi deux s'écrit"),
+    ],
     "fn-01-functions-as-programs": [
         # a legend that reads as maths is a key beside "key" (abacus #7445): no hand line needed there
         ("the x² key, named as a key", "lesson.md", "in Y, x² squares the one in X, and + adds the two.",

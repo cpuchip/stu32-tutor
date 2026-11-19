@@ -412,3 +412,13 @@ light-pollution | A city sky hides the faint stars: the faintest magnitude you c
 # sky-02 Angles with your hand (astronomy-practice unit 2, after angle-01)
 hand-ruler | Your hand at arm's length: a little finger 1°, three fingers 5°, a fist 10° | sky-02 | Your hand as a ruler
 sky-separation | Checking the hand against two stars a catalog puts a known angle apart | sky-02 | Checking the hand on the stars
+
+# bin-01 Counting in two symbols (computer-science unit 1; T65)
+place-value-ten | Ten symbols: each place is worth ten of the place to its right | bin-01 | Ten symbols, and where they sit
+binary-counting | Counting in binary: each place is worth two of the place to its right | bin-01 | Leibniz's two symbols
+binary-to-decimal | Reading a binary number: add the worth of the places that hold a 1 | bin-01 | Reading a binary number
+decimal-to-binary | Writing a number in binary, from the largest place that fits | bin-01 | Writing a number in binary
+binary-addition | Adding in binary: 1 + 1 is 10, write 0 and carry 1 | bin-01 | Adding with no tables
+binary-columns | The block that repeats down each column of a binary count | bin-01 | The columns repeat
+logic-zero-one | Boole's algebra whose symbols take only the values 0 and 1 | bin-01 | Two values: Boole
+half-adder-table | One column of a binary sum as a table: the sum digit and the carry | bin-01 | Switches that add
