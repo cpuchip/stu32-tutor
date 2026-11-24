@@ -188,17 +188,18 @@ quick way to see it.
 
 ## When Casimir says no
 
-Casimir rearranges a formula only when the letter you want is to the first power: no square, and nothing
-like SIN around it. This starts a new equation, $x^{2} = A$, solved for $x$:
+Casimir rearranges a formula when the letter you want is to the first power, as in every formula so far,
+and when it is squared, as in $x^{2} = A$. Some formulas are outside its rules. This starts a new equation,
+$x^{3} + x = A$, solved for $x$:
 
 ```keys W01 after=F03
-GOLD EQN RCL X yˣ 2 = RCL A ENTER CAS ▸ SOLVE X
+GOLD EQN RCL X yˣ 3 + RCL X = RCL A ENTER CAS ▸ SOLVE X
 ```
 
-The screen shows <disp v="W01" kind="message">COEF NOT NUMERIC</disp>: with a square, Casimir needs numbers
-beside $x$, not letters. By hand there are two answers, $\sqrt{A}$ and $−\sqrt{A}$, for an $A$ above 0.
-When it says no, rearrange by hand, or give the other letters numbers and use SOLVE as in Solving a
-formula for any letter. C twice clears the message and closes the list:
+The screen shows <disp v="W01" kind="message">COEF NOT NUMERIC</disp>: with $x$ cubed in one place and on
+its own in another, Casimir needs numbers beside $x$, not letters. The undoing in By hand gets stuck here
+too: no one step on both sides takes away both. When it says no, give the other letters numbers and use
+SOLVE as in Solving a formula for any letter. C twice clears the message and closes the list:
 
 ```keys W02 after=W01
 C C
